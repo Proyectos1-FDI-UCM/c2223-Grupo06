@@ -35,6 +35,7 @@ repo
         │   ├── UI
         │   └── Characters
         ├── Prefabs
+		├── Tiles
         ├── Animations
         └── Sounds
             ├── Background
