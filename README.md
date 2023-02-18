@@ -23,30 +23,28 @@ Finaliza el 8/3/2023.
 
 ## Jerarquía
 
+De recursos. 
+
 ```text
-\repo
-└── DIVIDE ET IMPERA\
-    ├── Assets\
-    │   ├── Scripts
-    │   ├── Scenes
-    │   ├── Sprites
-    │   │   ├── UI
-    │   │   └── Characters
-    │   ├── Prefabs
-    │   │   └── (...)
-    │   ├── Animations
-    │   ├── Sounds
-    │   │   ├── Background
-    │   │   └── SFX
-    │   └── (...)
-    └── (...)
+repo
+└── DIVIDE ET IMPERA
+    └── Assets
+        ├── Scripts
+        ├── Scenes
+        ├── Sprites
+        │   ├── UI
+        │   └── Characters
+        ├── Prefabs
+        ├── Animations
+        └──  Sounds
+            ├── Background
+            └── SFX
 └── docs\
-    └──(...)
 ```
 
 ## Issues
 
-¿Has probado *DEI* y encontrado errores? Mira primero la [pestaña de issues](hhttps://github.com/Proyectos1-FDI-UCM/c2223-Grupo06/issues) y busca el tuyo. Si tu problema no está resuelto ya, [abre uno nuevo](https://github.com/Proyectos1-FDI-UCM/c2223-Grupo06/issues/new).
+Si has encontrado un error, mira primero la [pestaña de issues](hhttps://github.com/Proyectos1-FDI-UCM/c2223-Grupo06/issues) y busca el tuyo. Si tu problema no está resuelto ya, [abre uno nuevo](https://github.com/Proyectos1-FDI-UCM/c2223-Grupo06/issues/new).
 
 ## Equipo
 
