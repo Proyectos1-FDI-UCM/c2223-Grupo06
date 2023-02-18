@@ -44,7 +44,7 @@ repo
 
 ## Issues
 
-Si has encontrado un error, mira primero la [pestaña de issues](hhttps://github.com/Proyectos1-FDI-UCM/c2223-Grupo06/issues) y busca el tuyo. Si tu problema no está resuelto ya, [abre uno nuevo](https://github.com/Proyectos1-FDI-UCM/c2223-Grupo06/issues/new).
+Si has encontrado un error, mira primero la [pestaña de issues](https://github.com/Proyectos1-FDI-UCM/c2223-Grupo06/issues) y busca el tuyo. Si tu problema no está resuelto ya, [abre uno nuevo](https://github.com/Proyectos1-FDI-UCM/c2223-Grupo06/issues/new).
 
 ## Equipo
 
