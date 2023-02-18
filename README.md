@@ -36,7 +36,7 @@ repo
         │   └── Characters
         ├── Prefabs
         ├── Animations
-        └──  Sounds
+        └── Sounds
             ├── Background
             └── SFX
 └── docs\
