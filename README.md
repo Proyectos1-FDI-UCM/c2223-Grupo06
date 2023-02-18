@@ -1,3 +1,61 @@
-## DIVIDE ET IMPERA
+<h1 align="center"><b>DIVIDE ET IMPERA</b></h1>
 
-DIVIDE ET IMPERA es un juego de puzles y plataformas desarrollado por el grupo 6 (nombre provisional) en vista lateral 2D en el que el jugador controla a un esqueleto llamado Timoteo II encerrado en una catacumba. Timoteo es capaz de separar las partes de su cuerpo para proporcionar diferentes funcionalidades a los objetos del entorno y así poder avanzar a través de los diferentes niveles y puzles de la cripta y conseguir escapar, enfrentándose a su padre.
+## Índice
+
+- [Descripción](#descripción)
+- [Estado](#estado)
+- [Jerarquía](#jerarquía)
+- [Issues](#issues)
+- [Equipo](#equipo)
+- [Licencia](#licencia)
+
+
+## Descripción
+
+__DIVIDE ET IMPERA__ es un juego de puzles y plataformas desarrollado por Turbot Works (*nombre provisional*) de vista lateral 2D en el que el jugador controla a un esqueleto llamado Timoteo II, encerrado en una catacumba. 
+
+Timoteo es capaz de separar las partes de su cuerpo para proporcionar funcionalidades a los objetos del entorno y así avanzar a través de los diferentes puzles de la cripta y escapar, enfrentándose a su padre.
+
+## Estado
+
+*Hito 1:* Producción.
+Finaliza el 8/3/2023.
+
+## Jerarquía
+
+```text
+\repo
+└── DIVIDE ET IMPERA\
+    ├── Assets\
+    │   ├── Scripts
+    │   ├── Scenes
+    │   ├── Sprites
+    │   │   ├── UI
+    │   │   └── Characters
+    │   ├── Prefabs
+    │   │   └── (...)
+    │   ├── Animations
+    │   ├── Sounds
+    │   │   ├── Background
+    │   │   └── SFX
+    │   └── (...)
+    └── (...)
+└── docs\
+    └──(...)
+```
+
+## Issues
+
+¿Has probado *DEI* y encontrado errores? Mira primero la [pestaña de issues](hhttps://github.com/Proyectos1-FDI-UCM/c2223-Grupo06/issues) y busca el tuyo. Si tu problema no está resuelto ya, [abre uno nuevo](https://github.com/Proyectos1-FDI-UCM/c2223-Grupo06/issues/new).
+
+## Equipo
+
++ [Nieves Alonso Gilsanz](https://github.com/nievesag)
++ [David Canelada Velasco](https://github.com/David-104)
++ [Inés Olimpia Primo López](https://github.com/ineprimo)
++ [Ariadna Alicia Ruiz Castillo](https://github.com/ariadnarc) 
++ [Cynthia Tristán Álvarez](https://github.com/cyntrist) 
+
+## Licencia
+
+*TO-DO.*
