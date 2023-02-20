@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MovemetComponent : MonoBehaviour
+public class MovementComponent : MonoBehaviour
 {
     #region Referencias
     private Rigidbody2D _playerRigidbody2D;
@@ -47,6 +47,6 @@ public class MovemetComponent : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Mathf.Clamp(_playerRigidbody2D.velocity.x, -0.5f, 0.5f);
+
     }
 }

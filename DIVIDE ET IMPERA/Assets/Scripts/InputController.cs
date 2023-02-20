@@ -5,15 +5,17 @@ using UnityEngine;
 public class InputController : MonoBehaviour
 {
     #region Referencias
-    private MovemetComponent _playerMovement;
+    private MovementComponent _playerMovement;
+    private JumpComponent _playerJump;
     #endregion
     #region Properties
     private int _direccion;
     #endregion
-    // Start is called before the first frame update
+    // Start is called beforse the first frame update
     void Start()
     {
-        _playerMovement= GetComponent<MovemetComponent>();
+        _playerMovement= GetComponent<MovementComponent>();
+        _playerJump = GetComponentInChildren<JumpComponent>();
     }
 
     // Update is called once per frame
@@ -33,5 +35,10 @@ public class InputController : MonoBehaviour
         }
 
         _playerMovement.Move(_direccion);
+
+        if (Input.GetKey(KeyCode.Space))
+        {
+            _playerJump.Jump();
+        }
     }
 }
