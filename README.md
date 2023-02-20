@@ -34,9 +34,9 @@ repo
         ├── Sprites
         │   ├── UI
         │   └── Characters
-        ├── Prefabs
-	├── Tiles
-	│   ├── Platforms
+				├── Prefabs
+				├── Tiles
+				│   ├── Platforms
         │   └── Background
         ├── Animations
         └── Sounds
