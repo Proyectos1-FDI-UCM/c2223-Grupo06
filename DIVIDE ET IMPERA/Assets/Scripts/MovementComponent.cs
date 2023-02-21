@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class MovementComponent : MonoBehaviour
@@ -18,7 +16,7 @@ public class MovementComponent : MonoBehaviour
     #region Properties
     #endregion
     #region Methods
-    public void Move( int _direccion)
+    public void Move(int _direccion)
     {
         //Cuando se pulsa una tecla para moverse, el jugador se mueve en esa direccion
         if (_direccion != 0)
@@ -40,7 +38,7 @@ public class MovementComponent : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _playerRigidbody2D= GetComponent<Rigidbody2D>();
+        _playerRigidbody2D = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class JumpComponent : MonoBehaviour
@@ -19,7 +17,7 @@ public class JumpComponent : MonoBehaviour
     #region Methods
 
     //Más adelante quizás probar a volverlo a hacer desde 0 por Transform en vez de físicas de Unity
-    public void Jump ()
+    public void Jump()
     {
         if (_isGrounded)
         {
@@ -29,18 +27,18 @@ public class JumpComponent : MonoBehaviour
     //Cuando los pies del jugador (o sea el Ground Check) toca el suelo
     private void OnTriggerEnter2D(Collider2D collision)
     {
-            _isGrounded = true;
+        _isGrounded = true;
     }
     //Cuando los pies del jugador (o sea el Ground Check) dejan de tocar el suelo
     private void OnTriggerExit2D(Collider2D collision)
     {
-            _isGrounded = false;
+        _isGrounded = false;
     }
     #endregion
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class InputController : MonoBehaviour
@@ -11,12 +9,17 @@ public class InputController : MonoBehaviour
     #region Properties 
     //Setea la direccion en la que se mueve el jugador, -1 = izq y 1 = drcha
     private int _direccion;
+    public int Direccion { get { return _direccion; } }
     #endregion
     // Start is called beforse the first frame update
     void Start()
     {
-        _playerMovement= GetComponent<MovementComponent>();
+        _playerMovement = GetComponent<MovementComponent>();
         _playerJump = GetComponentInChildren<JumpComponent>();
+    }
+
+    private void FixedUpdate()
+    {
     }
 
     // Update is called once per frame
@@ -32,14 +35,14 @@ public class InputController : MonoBehaviour
         }
         else
         {
-            _direccion= 0;
+            _direccion = 0;
         }
-
-        _playerMovement.Move(_direccion);
 
         if (Input.GetKey(KeyCode.Space))
         {
             _playerJump.Jump();
         }
+
+        _playerMovement.Move(_direccion);
     }
 }
