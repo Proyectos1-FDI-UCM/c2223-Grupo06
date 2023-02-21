@@ -183,7 +183,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 5
-  _jumpForce: 0
   _rozamientoFreno: 0
 --- !u!1 &8718657102571977441
 GameObject:
@@ -257,5 +256,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerRigidbody2D: {fileID: 2509321349097211006}
-  _jumpForce: 100
-  _isGrounded: 1
+  _jumpForce: 5
