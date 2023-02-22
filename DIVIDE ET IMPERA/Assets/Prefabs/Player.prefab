@@ -46,6 +46,7 @@ GameObject:
   - component: {fileID: 2509321349097211006}
   - component: {fileID: 3639817202006329717}
   - component: {fileID: 6800819730066582443}
+  - component: {fileID: 1201526176908658703}
   m_Layer: 0
   m_Name: Ibuprofeno
   m_TagString: Untagged
@@ -184,6 +185,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _speed: 5
   _rozamientoFreno: 10
+--- !u!114 &1201526176908658703
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4677716249301791016}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53fffa324f631b545a58c64c6b2ec27c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _jumpForce: 5
 --- !u!1 &8718657102571977441
 GameObject:
   m_ObjectHideFlags: 0
@@ -194,7 +208,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5660655905020873997}
   - component: {fileID: 5918820963000054825}
-  - component: {fileID: 8982492480162172157}
+  - component: {fileID: 5198195293200893324}
   m_Layer: 0
   m_Name: GroundCheck
   m_TagString: Untagged
@@ -243,7 +257,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.75, y: 0.1}
   m_EdgeRadius: 0
---- !u!114 &8982492480162172157
+--- !u!114 &5198195293200893324
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -252,8 +266,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8718657102571977441}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 53fffa324f631b545a58c64c6b2ec27c, type: 3}
+  m_Script: {fileID: 11500000, guid: 9a9bcbe30278b2044b5df9bf9c1177b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerRigidbody2D: {fileID: 2509321349097211006}
-  _jumpForce: 5
+  _isGrounded: 0

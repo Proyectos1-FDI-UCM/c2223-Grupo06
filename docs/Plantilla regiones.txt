@@ -1,0 +1,12 @@
+    #region References
+
+    #endregion
+    #region Parameters
+
+    #endregion
+    #region Properties
+ 
+    #endregion
+    #region Methods
+
+    #endregion
