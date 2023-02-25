@@ -1,4 +1,3 @@
-using System.Threading;
 using UnityEngine;
 
 public class InputController : MonoBehaviour
@@ -38,7 +37,7 @@ public class InputController : MonoBehaviour
             _direccion = 0;
         }
 
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             _playerJump.Jump();
         }

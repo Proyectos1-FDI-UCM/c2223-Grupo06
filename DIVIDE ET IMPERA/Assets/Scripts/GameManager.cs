@@ -49,7 +49,7 @@ public class GameManager : MonoBehaviour
         _nextGameState = newState;
     }
 
-    public void RequestTimmyState(TimmyStates state) 
+    public void RequestTimmyState(TimmyStates state)
     {
         _timmyState = state;
     }
@@ -80,7 +80,7 @@ public class GameManager : MonoBehaviour
 
     private void UpdateState(GameStates state)
     {
-        if (state == GameStates.INTRO) 
+        if (state == GameStates.INTRO)
         {
             /*
             _introTime -= Time.deltaTime; // Cuenta atrás
@@ -91,7 +91,7 @@ public class GameManager : MonoBehaviour
             */
         }
 
-        if (state == GameStates.GAME) 
+        if (state == GameStates.GAME)
         {
             //_UIManager.UpdateGameHUD();
         }

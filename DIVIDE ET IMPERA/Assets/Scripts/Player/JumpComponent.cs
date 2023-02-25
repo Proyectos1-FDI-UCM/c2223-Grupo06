@@ -27,7 +27,7 @@ public class JumpComponent : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _myRigidbody2D= GetComponent<Rigidbody2D>();
+        _myRigidbody2D = GetComponent<Rigidbody2D>();
         _grCheck = GetComponentInChildren<GroundCheck>();
     }
 

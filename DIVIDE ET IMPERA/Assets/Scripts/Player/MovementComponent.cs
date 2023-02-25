@@ -1,3 +1,5 @@
+using TMPro;
+using UnityEditor.Tilemaps;
 using UnityEngine;
 
 public class MovementComponent : MonoBehaviour
@@ -35,6 +37,26 @@ public class MovementComponent : MonoBehaviour
                 _myRigidbody2D.velocity = new Vector2(_myRigidbody2D.velocity.x + Time.deltaTime * _rozamientoFreno, _myRigidbody2D.velocity.y);
         }
     }
+
+    public void Flip() 
+    {
+        /*
+        bool movimiento = Mathf.Abs(_myRigidbody2D.velocity.x) > Mathf.Epsilon;
+        if (movimiento)
+        {
+            transform.localScale = new Vector2(Mathf.Sign(_myRigidbody2D.velocity.x), 1f);
+        }
+        */
+
+        if (_direccion > 0) // muy rudimentario, pero funciona :P
+        {
+            transform.localScale = new Vector2(1f, 1f);
+        }
+        else if (_direccion < 0)
+        {
+            transform.localScale = new Vector2(-1f, 1f);
+        }
+    }
     #endregion
 
     // Start is called before the first frame update
@@ -49,5 +71,6 @@ public class MovementComponent : MonoBehaviour
     {
         _direccion = _inputController.Direccion;
         Move();
+        Flip();
     }
 }
