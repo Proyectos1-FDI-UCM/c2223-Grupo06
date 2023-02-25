@@ -1,3 +1,4 @@
+using System.Threading;
 using UnityEngine;
 
 public class InputController : MonoBehaviour

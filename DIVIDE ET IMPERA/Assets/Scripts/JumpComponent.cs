@@ -20,18 +20,9 @@ public class JumpComponent : MonoBehaviour
     {
         if (_isGrounded)
         {
-            _myRigidbody2D.AddForce(new Vector2(0, _jumpForce));
+            _myRigidbody2D.velocity = new Vector2(_myRigidbody2D.velocity.x, _jumpForce);
         }
     }
-    /*private void OnTriggerEnter2D(Collider2D collision)
-    {
-        _isGrounded = true;
-    }
-    //Cuando los pies del jugador (o sea el Ground Check) dejan de tocar el suelo
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        _isGrounded = false;
-    }*/
     #endregion
     // Start is called before the first frame update
     void Start()
