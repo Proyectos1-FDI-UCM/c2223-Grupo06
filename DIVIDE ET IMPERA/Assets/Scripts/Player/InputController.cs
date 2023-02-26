@@ -9,6 +9,13 @@ public class InputController : MonoBehaviour
     //Setea la direccion en la que se mueve el jugador, -1 = izq y 1 = drcha
     public int _direccion;
     public int Direccion { get { return _direccion; } }
+
+    // Indica si el jugador quiere interactuar con una palanca
+    [SerializeField]
+    private bool _interactuar = false;
+    // acceso público a _interactuar
+    public bool Interactuar { get { return _interactuar; } }
+
     #endregion
     // Start is called beforse the first frame update
     void Start()
@@ -24,6 +31,8 @@ public class InputController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //---MOVIMIENTO--------------------------------
+        //------Input del movimiento horizontal--------
         if (Input.GetKey(KeyCode.D))
         {
             _direccion = 1;
@@ -37,9 +46,18 @@ public class InputController : MonoBehaviour
             _direccion = 0;
         }
 
+        //------Input del movimiento vertical----------
         if (Input.GetKeyDown(KeyCode.Space))
         {
             _playerJump.Jump();
+        }
+
+
+        //---INTERACTUABLES----------------------------
+        //------Input para interactuar con objetos-----
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            _interactuar = !_interactuar;
         }
     }
 }
