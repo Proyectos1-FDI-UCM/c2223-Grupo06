@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class RoomTransition : MonoBehaviour
@@ -21,7 +19,7 @@ public class RoomTransition : MonoBehaviour
     #region Methods
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        _player.position = transform.position + new Vector3 (1, 0, 0);
+        _player.position = transform.position + new Vector3(1, 0, 0);
         _futureCamPos = new Vector3(_roomCameraPosition.position.x, _roomCameraPosition.position.y, _cameraTransform.position.z);
         _cameraTransform.position = Vector3.Lerp(_cameraTransform.position, _futureCamPos, _transitionSpeed * Time.deltaTime);
     }

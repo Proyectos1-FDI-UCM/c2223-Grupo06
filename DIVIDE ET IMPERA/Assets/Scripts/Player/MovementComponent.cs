@@ -1,5 +1,3 @@
-using TMPro;
-using UnityEditor.Tilemaps;
 using UnityEngine;
 
 public class MovementComponent : MonoBehaviour
@@ -31,14 +29,14 @@ public class MovementComponent : MonoBehaviour
         progresivamente hasta que llega a 0 para dar la sensacion de inercia*/
         else
         {
-            if (_myRigidbody2D.velocity.x > 0)
+            if (_myRigidbody2D.velocity.x > Mathf.Epsilon)
                 _myRigidbody2D.velocity = new Vector2(_myRigidbody2D.velocity.x - Time.deltaTime * _rozamientoFreno, _myRigidbody2D.velocity.y);
-            if (_myRigidbody2D.velocity.x < 0)
+            if (_myRigidbody2D.velocity.x < Mathf.Epsilon)
                 _myRigidbody2D.velocity = new Vector2(_myRigidbody2D.velocity.x + Time.deltaTime * _rozamientoFreno, _myRigidbody2D.velocity.y);
         }
     }
 
-    public void Flip() 
+    public void Flip()
     {
         /*
         bool movimiento = Mathf.Abs(_myRigidbody2D.velocity.x) > Mathf.Epsilon;

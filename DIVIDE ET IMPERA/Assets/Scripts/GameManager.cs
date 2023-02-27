@@ -2,15 +2,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public enum GameStates { START, INTRO, GAME, GAMEOVER };    // Estados del juego
-    public enum TimmyStates { S0, S1, S2, S3, S4, S5 }; // Estados de Timmy:
-                                                        // (*ver diagrama en carpeta de apuntes para interaciones interestado^)
-                                                        // S0: 2 brazos y piernas
-                                                        // S1: 1 brazo y piernas
-                                                        // S2: piernas
-                                                        // S3: 2 brazos
-                                                        // S4: 1 brazo
-                                                        // S5: (nada)
+    public enum GameStates { START, INTRO, GAME, GAMEOVER };    // Estados del juego (faltan)
 
     #region references
     private UIManager _UIManager;
@@ -25,10 +17,6 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { get { return _instance; } }
     public static GameStates CurrentGameState { get { return _currentGameState; } }
     public static GameStates NextGameState { get { return _nextGameState; } }
-
-    // Timmy States
-    private static TimmyStates _timmyState;
-    public static TimmyStates TimmyState { get { return _timmyState; } }
     #endregion
 
     #region methods
@@ -47,11 +35,6 @@ public class GameManager : MonoBehaviour
     public void RequestStateChange(GameStates newState) // Método público para cambiar el valor privado de estado 
     {
         _nextGameState = newState;
-    }
-
-    public void RequestTimmyState(TimmyStates state)
-    {
-        _timmyState = state;
     }
 
     // Bloque de máquina de estados
@@ -107,7 +90,6 @@ public class GameManager : MonoBehaviour
     {
         _currentGameState = GameStates.INTRO; // Valor dummy para que se realice el cambio nada más empezar
         _nextGameState = GameStates.START;    // Estado inicial, es diferente al current para que el EnterState del primer update se realice
-        _timmyState = TimmyStates.S0;         // Inicializandolo 
     }
 
     void Update()

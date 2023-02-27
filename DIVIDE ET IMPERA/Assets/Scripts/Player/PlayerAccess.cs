@@ -14,12 +14,12 @@ public class PlayerAccess : MonoBehaviour
 
     public static PlayerAccess Instance { get { return _instance; } }            // MÉTODOS GETTERS PÚBLICOS: devuelven las variables privadas
     public Transform Transform { get { return _transform; } }
-    public Rigidbody Rigidbody { get { return _rigidbody;} }
+    public Rigidbody Rigidbody { get { return _rigidbody; } }
     public Animator Animator { get { return _animator; } }
-    public InputController InputController {  get { return _inputController; } }
+    public InputController InputController { get { return _inputController; } }
     public MovementComponent MovementComponent { get { return _movementComponent; } }
     public JumpComponent JumpComponent { get { return _jumpComponent; } }
-    public CollisionManager CollisionManager { get { return _collisionManager;  } }
+    public CollisionManager CollisionManager { get { return _collisionManager; } }
     // ... más según vayan existiendo más componentes en player
 
     private void Awake()                                                        // INICIALIZACIÓN DE LAS VARIABLES PRIVADAS

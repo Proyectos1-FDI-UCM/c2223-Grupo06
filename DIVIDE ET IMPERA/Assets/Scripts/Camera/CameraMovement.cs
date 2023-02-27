@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CameraMovement : MonoBehaviour
@@ -10,7 +8,7 @@ public class CameraMovement : MonoBehaviour
     private Transform _playerTransform;
     #endregion
     #region Parameters
-    [SerializeField] 
+    [SerializeField]
     private float _followSpeed;
     [SerializeField]
     private float _verticalOffset;
@@ -23,7 +21,7 @@ public class CameraMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _cameraTransform= GetComponent<Transform>();
+        _cameraTransform = GetComponent<Transform>();
         //_playerTransform = GameObject.Find("Player").GetComponent<Transform>();
     }
 

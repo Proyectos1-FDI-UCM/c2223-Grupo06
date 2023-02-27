@@ -59,5 +59,16 @@ public class InputController : MonoBehaviour
         {
             _interactuar = !_interactuar;
         }
+
+        //---DEBUG-------------------------------------
+        //      Para ver si cambia de estados bien
+        if (Input.GetKeyDown(KeyCode.V))
+        {
+            PlayerManager.Instance.AddTimmyState(PlayerManager.State);
+        }
+        else if (Input.GetKeyDown(KeyCode.C))
+        {
+            PlayerManager.Instance.SubTimmyState(PlayerManager.State);
+        }
     }
 }
