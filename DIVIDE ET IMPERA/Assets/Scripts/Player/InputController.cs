@@ -93,5 +93,23 @@ public class InputController : MonoBehaviour
         {
             PlayerManager.Instance.SubTimmyState(PlayerManager.State);
         }
+
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            PlayerManager.Instance.SoltarBrazo();
+        }
+        else if (Input.GetKeyDown(KeyCode.O))
+        {
+            PlayerManager.Instance.RecogerBrazo();
+        }
+
+        if (Input.GetKeyDown(KeyCode.I))
+        {
+            PlayerManager.Instance.SoltarPiernas();
+        }
+        else if (Input.GetKeyDown(KeyCode.U))
+        {
+            PlayerManager.Instance.RecogerPiernas();
+        }
     }
 }
