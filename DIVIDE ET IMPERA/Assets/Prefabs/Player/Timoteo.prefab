@@ -89,6 +89,7 @@ GameObject:
   - component: {fileID: 4510422160574665586}
   - component: {fileID: 8094601566322241750}
   - component: {fileID: 3399945438282237141}
+  - component: {fileID: 728014139240804033}
   m_Layer: 0
   m_Name: Timoteo
   m_TagString: Untagged
@@ -245,6 +246,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _direccion: 0
   _interactuar: 0
+  _interactionInterval: 1
 --- !u!114 &4510422160574665586
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -284,3 +286,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec38af496f56ea8428663d4f5ccac281, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &728014139240804033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2311462238604020209}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e070dc080eef7934b93599a000f39a7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _brazo: {fileID: 2364319286159778462, guid: e90420e54f5db3641ad4a0495fa575fe, type: 3}

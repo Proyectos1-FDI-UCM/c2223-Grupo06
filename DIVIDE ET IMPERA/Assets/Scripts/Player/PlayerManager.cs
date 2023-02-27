@@ -15,6 +15,10 @@ public class PlayerManager : MonoBehaviour
     private SpriteRenderer _mySpriteRenderer;
     private Animator _myAnimator;
     private CollisionManager _myCollisionManager;
+    private Transform _myTransform;
+
+    [SerializeField]
+    private GameObject _brazo;
     #endregion
 
     #region Properties
@@ -183,6 +187,7 @@ public class PlayerManager : MonoBehaviour
     {
         if (_brazos > 0)
         {
+            Instantiate(_brazo, _myTransform.position, _myTransform.rotation);
             _brazos--;
         }
     }
@@ -191,7 +196,13 @@ public class PlayerManager : MonoBehaviour
     {
         if (_brazos < 2)
         {
-            _brazos++;
+            if (_myCollisionManager.ValidHitbox) // estan nesteados los ifs cuando podrian ser && pero no me ha dado tiempo a reescribirlo, mañana y tal
+            {
+                if (_myCollisionManager.DestruirBrazo())
+                {
+                    _brazos++;
+                }
+            }
         }
     }
 
@@ -208,7 +219,7 @@ public class PlayerManager : MonoBehaviour
 
     void Awake()
     {
-        _instance     = this;                       // Inicializa la instancia de este componente en toda la escena
+        _instance = this;                       // Inicializa la instancia de este componente en toda la escena
     }
 
     void Start()
@@ -217,6 +228,7 @@ public class PlayerManager : MonoBehaviour
         _mySpriteRenderer   = GetComponent<SpriteRenderer>();
         _myAnimator         = GetComponent<Animator>();
         _myCollisionManager = GetComponent<CollisionManager>();
+        _myTransform        = transform;
 
         _currentState = TimmyStates.S1;         // Valor dummy para inicializar un cambio en cuanto empiece y se ejecute el EnterState
         _nextState = TimmyStates.S0;         // Inicializa el estado de timmy
