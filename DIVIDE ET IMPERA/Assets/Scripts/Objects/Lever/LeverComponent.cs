@@ -4,6 +4,7 @@ public class LeverComponent : MonoBehaviour
 {
     #region Referencias
     private InputController _inputController;
+    private SpriteRenderer _spriteRenderer;
     [SerializeField]
     private GameObject _player;
     #endregion
@@ -23,13 +24,12 @@ public class LeverComponent : MonoBehaviour
     }
     #endregion
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerStay2D()
     {
-        if (_player.GetComponent<InputController>().Interactuar)
+        if (_inputController.Interactuar)
         {
             _palanca = ActivarPalanca();
             Debug.Log(_palanca);
-            //_inputController._activarPalanca = false;
         }
     }
 
@@ -37,5 +37,6 @@ public class LeverComponent : MonoBehaviour
     void Start()
     {
         _inputController = _player.GetComponent<InputController>();
+        _spriteRenderer = GetComponent<SpriteRenderer>();
     }
 }

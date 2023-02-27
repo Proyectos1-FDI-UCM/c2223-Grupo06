@@ -16,6 +16,21 @@ public class InputController : MonoBehaviour
     // acceso público a _interactuar
     public bool Interactuar { get { return _interactuar; } }
 
+
+    //Tiempo entre acciones de interaccion
+    [SerializeField]
+    private float _interactionInterval = 1;
+    //Tiempo desde la ultima accion
+    private float _timeSinceLastInteraction;
+    #endregion
+    #region Methods
+    private void SpamProtection()
+    {
+        if (_timeSinceLastInteraction > 0)
+        {
+            _timeSinceLastInteraction -= Time.deltaTime;
+        }
+    }
     #endregion
     // Start is called beforse the first frame update
     void Start()
@@ -55,10 +70,18 @@ public class InputController : MonoBehaviour
 
         //---INTERACTUABLES----------------------------
         //------Input para interactuar con objetos-----
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKey(KeyCode.E) && _timeSinceLastInteraction <= 0)
         {
-            _interactuar = !_interactuar;
+            _interactuar = true;
+            _timeSinceLastInteraction = _interactionInterval;
         }
+        else
+        {
+            _interactuar = false;
+        }
+        //------Proteccion contra spam de interaccion------
+        SpamProtection();
+
 
         //---DEBUG-------------------------------------
         //      Para ver si cambia de estados bien
