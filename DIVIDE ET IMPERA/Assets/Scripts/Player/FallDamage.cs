@@ -4,7 +4,7 @@ public class FallDamage : MonoBehaviour
 {
     #region references
     public BoneStateBar _boneStateBar;
-    public GroundCheck _groundCheck;
+    private GroundCheck _groundCheck;
     Rigidbody2D _rigidBody2D;
     #endregion
     #region parameters
@@ -29,7 +29,9 @@ public class FallDamage : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        _onGround = _groundCheck._isGrounded;
+
+        // a quien vea esto: me estoy volviendo completamente loca
+        /*_onGround = _groundCheck._isGrounded; // comprobación de _onGround
         if (!_onGround)
         {
             _previousSpeed = _rigidBody2D.velocity.y; // si no está en el suelo se mantiene la velocidad
@@ -42,6 +44,14 @@ public class FallDamage : MonoBehaviour
                 _boneStateBar.BoneDamage(_damage: 20f);
                 _previousSpeed = 0; // si se llega al suelo la velocidad vuelve a 0
             }
+        }*/
+
+        // _onGround = _groundCheck._isGrounded; // comprobación de _onGround
+        if (_rigidBody2D.velocity.y < _allowedSpeed) // si se supera la velocidad permitida y se está en el suelo -> aplicas daño
+        {
+            Debug.Log(_rigidBody2D.velocity.y);
+            _boneStateBar.BoneDamage(_damage: 20f);
+            //_previousSpeed = 0; // si se llega al suelo la velocidad vuelve a 0
         }
     }
 }

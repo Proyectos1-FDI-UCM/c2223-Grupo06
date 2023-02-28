@@ -141,6 +141,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _boneStateBar: {fileID: 1610637393}
+  _fallDamage: {fileID: 0}
   _currentBoneState: 100
   _maxBoneState: 100
 --- !u!114 &9220765
@@ -155,9 +156,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93b079771d8b05a4da5674d7648f434d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boneStateBar: {fileID: 0}
+  _boneStateBar: {fileID: 9220764}
   _allowedSpeed: -15
-  _damage: 2
+  _previousSpeed: 0
+  _onGround: 0
 --- !u!1 &723624881
 GameObject:
   m_ObjectHideFlags: 0
