@@ -18,6 +18,8 @@ public class PalancaComponent : MonoBehaviour
     [SerializeField]
     private bool _palanca;
     private bool _brazoConectado = false;
+    [SerializeField]
+    private GameObject _puerta;
     #endregion
 
 
@@ -28,6 +30,7 @@ public class PalancaComponent : MonoBehaviour
     private bool ActivarPalanca()
     {
         bool _lvr = !_palanca;
+        _puerta.SetActive(_palanca);
         return _lvr;
     }
     #endregion

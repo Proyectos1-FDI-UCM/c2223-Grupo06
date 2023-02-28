@@ -19,6 +19,10 @@ public class PlayerManager : MonoBehaviour
 
     [SerializeField]
     private GameObject _brazo;
+
+    //array de sprites de los diferentes estados de Timmy
+    [SerializeField]
+    private Sprite[] _sprites; 
     #endregion
 
     #region Properties
@@ -67,32 +71,38 @@ public class PlayerManager : MonoBehaviour
         switch (_nextState)
         {
             case TimmyStates.S0: // S0: 2 brazos y piernas
-                _mySpriteRenderer.color = Color.white;
+                //_mySpriteRenderer.color = Color.white;
+                _mySpriteRenderer.sprite = _sprites[0];
                 _brazos = 2;
                 _piernas = true;
                 break;
             case TimmyStates.S1: // S1: 1 brazo y piernas
-                _mySpriteRenderer.color = Color.red;
+                //_mySpriteRenderer.color = Color.red;
+                _mySpriteRenderer.sprite = _sprites[1];
                 _brazos = 1;
                 _piernas = true;
                 break;
             case TimmyStates.S2: // S2: piernas
-                _mySpriteRenderer.color = Color.yellow;
+                //_mySpriteRenderer.color = Color.yellow;
+                _mySpriteRenderer.sprite = _sprites[2];
                 _brazos = 0;
                 _piernas = true;
                 break;
             case TimmyStates.S3: // S3: 2 brazos
-                _mySpriteRenderer.color = Color.green;
+                //_mySpriteRenderer.color = Color.green;
+                _mySpriteRenderer.sprite = _sprites[3];
                 _brazos = 2;
                 _piernas = false;
                 break;
             case TimmyStates.S4: // S4: 1 brazo
-                _mySpriteRenderer.color = Color.cyan;
+                //_mySpriteRenderer.color = Color.cyan;
+                _mySpriteRenderer.sprite = _sprites[4];
                 _brazos = 1;
                 _piernas = false;
                 break;
             case TimmyStates.S5: // S5: nada
-                _mySpriteRenderer.color = Color.magenta;
+                //_mySpriteRenderer.color = Color.magenta;
+                _mySpriteRenderer.sprite = _sprites[5];
                 _brazos = 0;
                 _piernas = false;
                 break;
