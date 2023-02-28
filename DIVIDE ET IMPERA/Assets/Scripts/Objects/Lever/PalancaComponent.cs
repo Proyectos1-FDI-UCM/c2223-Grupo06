@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using TMPro.EditorUtilities;
 using UnityEngine;
 
 public class PalancaComponent : MonoBehaviour
@@ -48,22 +45,22 @@ public class PalancaComponent : MonoBehaviour
             _palanca = ActivarPalanca();
             Debug.Log("no brazo");
             Debug.Log(_palanca);
-            
+
         }
-        else if(_inputController.Interactuar && _brazoConectado)
+        else if (_inputController.Interactuar && _brazoConectado)
         {
             _palanca = ActivarPalanca();
             Debug.Log("brazo");
             Debug.Log(_palanca);
         }
-       
+
         //-------BRAZO CONECTADO O NO-------------------
-        if(_inputController.ConectarParte && _collisionManager.ValidHitbox)
+        if (_inputController.ConectarParte && _collisionManager.ValidHitbox)
         {
             _brazoConectado = true;
             _mySpriteRenderer.color = Color.blue;
         }
-        else if(_inputController.RecuperarParte && _collisionManager.ValidHitbox)
+        else if (_inputController.RecuperarParte && _collisionManager.ValidHitbox)
         {
             _brazoConectado = false;
             _mySpriteRenderer.color = Color.white;

@@ -44,7 +44,7 @@ public class PlayerManager : MonoBehaviour
     public void AddTimmyState(TimmyStates state) // Cicla los estados en sentido incremental / para debug más que otra cosa
     {
         var length = System.Enum.GetValues(typeof(TimmyStates)).Length; // cantidad de estados
-        _nextState = state + 1; 
+        _nextState = state + 1;
 
         if (_nextState >= (TimmyStates)(length)) // si se sale
         {
@@ -55,7 +55,7 @@ public class PlayerManager : MonoBehaviour
     public void SubTimmyState(TimmyStates state) // Cicla los estados en sentido decremental / para debug más que otra cosa
     {
         var length = System.Enum.GetValues(typeof(TimmyStates)).Length;
-        _nextState = state - 1; 
+        _nextState = state - 1;
         if (((int)_nextState) < 0) // si se sale
         {
             _nextState = (TimmyStates)(length - 1); // da la vuelta
@@ -109,18 +109,18 @@ public class PlayerManager : MonoBehaviour
             case TimmyStates.S0: // S0: 2 brazos y piernas
                 if (_brazos == 1)
                 { // dejar brazo
-                    _nextState = TimmyStates.S1; 
+                    _nextState = TimmyStates.S1;
                 }
                 if (_piernas == false)
                 { // dejar piernas
-                    _nextState = TimmyStates.S3; 
+                    _nextState = TimmyStates.S3;
                 }
                 break;
 
             case TimmyStates.S1: // S1: 1 brazo y piernas
                 if (_brazos == 0)
                 { // dejar brazo
-                    _nextState = TimmyStates.S2; 
+                    _nextState = TimmyStates.S2;
                 }
                 if (_brazos == 2)
                 { // coger brazo
@@ -135,22 +135,22 @@ public class PlayerManager : MonoBehaviour
             case TimmyStates.S2: // S2: piernas
                 if (_brazos == 1)
                 { // coger brazo
-                    _nextState = TimmyStates.S1; 
+                    _nextState = TimmyStates.S1;
                 }
                 if (_piernas == false)
                 { // dejar piernas
-                    _nextState = TimmyStates.S5; 
+                    _nextState = TimmyStates.S5;
                 }
                 break;
 
             case TimmyStates.S3: // S3: 2 brazos
                 if (_brazos == 1)
                 { // dejar brazo
-                    _nextState = TimmyStates.S4; 
+                    _nextState = TimmyStates.S4;
                 }
                 if (_piernas == true)
                 { // coger pierna
-                    _nextState = TimmyStates.S0; 
+                    _nextState = TimmyStates.S0;
                 }
                 break;
 
@@ -165,7 +165,7 @@ public class PlayerManager : MonoBehaviour
                 }
                 if (_piernas == true)
                 { // coger piernas
-                    _nextState = TimmyStates.S1; 
+                    _nextState = TimmyStates.S1;
                 }
                 break;
 
@@ -176,7 +176,7 @@ public class PlayerManager : MonoBehaviour
                 }
                 if (_piernas == true)
                 { // coger piernas
-                    _nextState = TimmyStates.S2; 
+                    _nextState = TimmyStates.S2;
                 }
                 break;
         }
@@ -225,10 +225,10 @@ public class PlayerManager : MonoBehaviour
     void Start()
     {
         // ._. ^.^ :P o....o ¬_¬ [-:<
-        _mySpriteRenderer   = GetComponent<SpriteRenderer>();
-        _myAnimator         = GetComponent<Animator>();
+        _mySpriteRenderer = GetComponent<SpriteRenderer>();
+        _myAnimator = GetComponent<Animator>();
         _myCollisionManager = GetComponent<CollisionManager>();
-        _myTransform        = transform;
+        _myTransform = transform;
 
         _currentState = TimmyStates.S1;         // Valor dummy para inicializar un cambio en cuanto empiece y se ejecute el EnterState
         _nextState = TimmyStates.S0;         // Inicializa el estado de timmy

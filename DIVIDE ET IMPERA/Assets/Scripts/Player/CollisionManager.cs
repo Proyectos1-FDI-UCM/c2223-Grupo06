@@ -3,12 +3,13 @@ using UnityEngine;
 public class CollisionManager : MonoBehaviour
 {
 
-    #region Parameters
+    #region parameters
     private bool _validHitbox = false;
     public bool ValidHitbox { get { return _validHitbox; } }
     private Collider2D _objetoColisionado;
     #endregion
 
+    #region methods
     private void OnTriggerEnter2D(Collider2D collision)
     {
         _validHitbox = true;
@@ -17,7 +18,7 @@ public class CollisionManager : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-         _objetoColisionado = collision;
+        _objetoColisionado = collision;
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -33,11 +34,13 @@ public class CollisionManager : MonoBehaviour
             var padre = _objetoColisionado.transform.parent.gameObject;
             Destroy(padre);
             return true;
-        } else
+        }
+        else
         {
             return false;
         }
     }
+    #endregion
 
     // Start is called before the first frame update
     void Start()
