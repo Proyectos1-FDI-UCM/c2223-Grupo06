@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3348373547238094292}
   - component: {fileID: 3664382824255622384}
   - component: {fileID: 2943897982406540629}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GroundCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -154,7 +154,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: ed99c1a98e8e9e14494fb54bc2707f3e, type: 3}
+  m_Sprite: {fileID: -555582313, guid: dbb451e24f65aab47a71737041013075, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -246,7 +246,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _direccion: 0
   _interactuar: 0
-  _interactionInterval: 1
+  _conectarParte: 0
+  _recuperarParte: 0
 --- !u!114 &4510422160574665586
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -274,6 +275,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _jumpForce: 15
+  _isGrounded: 0
 --- !u!114 &3399945438282237141
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -299,3 +301,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _brazo: {fileID: 2364319286159778462, guid: e90420e54f5db3641ad4a0495fa575fe, type: 3}
+  _sprites:
+  - {fileID: -555582313, guid: dbb451e24f65aab47a71737041013075, type: 3}
+  - {fileID: -443899769, guid: 67928d2e771f54946b3b508f9a316acc, type: 3}
+  - {fileID: 1158465658, guid: 4416ad30705de154d96012a95d72d242, type: 3}
+  - {fileID: -859078859, guid: ee5269eef728b3c458d9e4b5ae804086, type: 3}
+  - {fileID: 1557023035, guid: 44f214acfdf205e448eff95b0e4bc59c, type: 3}
+  - {fileID: 798766050, guid: ea55d33260856ed4ca2c16be7a8a63c7, type: 3}

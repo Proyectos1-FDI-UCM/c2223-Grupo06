@@ -36,12 +36,6 @@ public class InputController : MonoBehaviour
     // acceso público a _conectarParte
     public bool RecuperarParte { get { return _recuperarParte; } }
 
-
-    //Tiempo entre acciones de interaccion
-    [SerializeField]
-    private float _interactionInterval = 1;
-    //Tiempo desde la ultima accion
-    private float _timeSinceLastInteraction;
     #endregion
 
     #region Parameters
@@ -51,13 +45,6 @@ public class InputController : MonoBehaviour
 
 
     #region Methods
-    private void SpamProtection()
-    {
-        if (_timeSinceLastInteraction > 0)
-        {
-            _timeSinceLastInteraction -= Time.deltaTime;
-        }
-    }
     #endregion
     // Start is called beforse the first frame update
     void Start()
@@ -97,17 +84,14 @@ public class InputController : MonoBehaviour
 
         //---INTERACTUABLES----------------------------
         //------Input para interactuar con objetos-----
-        if (Input.GetKeyDown(KeyCode.E)) //  && _timeSinceLastInteraction <= 0
+        if (Input.GetKeyDown(KeyCode.E))
         {
             _interactuar = true;
-            //_timeSinceLastInteraction = _interactionInterval;
         }
         else
         {
             _interactuar = false;
         }
-        //------Proteccion contra spam de interaccion------
-        //SpamProtection();
 
         //---PARTES-----------------------------------------
         //------Input para poner partes a objetos-----------

@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using TMPro.EditorUtilities;
 using UnityEngine;
 
 public class PalancaComponent : MonoBehaviour
@@ -17,7 +14,10 @@ public class PalancaComponent : MonoBehaviour
     #region Parámetros
     [SerializeField]
     private bool _palanca;
+    [SerializeField]
     private bool _brazoConectado = false;
+    [SerializeField]
+    private GameObject _puerta;
     #endregion
 
 
@@ -28,6 +28,7 @@ public class PalancaComponent : MonoBehaviour
     private bool ActivarPalanca()
     {
         bool _lvr = !_palanca;
+        _puerta.SetActive(_palanca);
         return _lvr;
     }
     #endregion
@@ -43,27 +44,27 @@ public class PalancaComponent : MonoBehaviour
 
     private void Update()
     {
-        if (_inputController.Interactuar && !_brazoConectado && _collisionManager.ValidHitbox)
+        // si se ha pulsado la E, el brazo no esta conectado y se esta cerca de la palanca
+        if (_inputController.Interactuar && !_brazoConectado && _collisionManager.ValidPalancaHitbox)
         {
             _palanca = ActivarPalanca();
-            Debug.Log("no brazo");
-            Debug.Log(_palanca);
-            
+           
         }
-        else if(_inputController.Interactuar && _brazoConectado)
+        // si se ha pulsado la E y el brazo está conectado
+        else if (_inputController.Interactuar && _brazoConectado)
         {
             _palanca = ActivarPalanca();
-            Debug.Log("brazo");
-            Debug.Log(_palanca);
         }
-       
-        //-------BRAZO CONECTADO O NO-------------------
-        if(_inputController.ConectarParte && _collisionManager.ValidHitbox)
+
+        //-------CONECTAR BRAZO-------------------
+        // se pulsa R y se esta cerca de la palanca
+        if (_inputController.ConectarParte && _collisionManager.ValidPalancaHitbox)
         {
             _brazoConectado = true;
             _mySpriteRenderer.color = Color.blue;
         }
-        else if(_inputController.RecuperarParte && _collisionManager.ValidHitbox)
+        // se pulsa T y se esta lejos de la palanca
+        else if (_inputController.RecuperarParte && _collisionManager.ValidPalancaHitbox)
         {
             _brazoConectado = false;
             _mySpriteRenderer.color = Color.white;

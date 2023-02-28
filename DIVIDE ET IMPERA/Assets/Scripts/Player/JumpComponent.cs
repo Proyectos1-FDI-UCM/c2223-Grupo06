@@ -12,6 +12,7 @@ public class JumpComponent : MonoBehaviour
     private float _jumpForce;
     #endregion
     #region Properties
+    [SerializeField]
     private bool _isGrounded;
     #endregion
     #region Methods
