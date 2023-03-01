@@ -196,30 +196,30 @@ public class PlayerManager : MonoBehaviour
     // BLOQUE DE ACCIONES
     public void SoltarBrazo()
     {
-        if (_brazos > 0 && _myCollisionManager._objetoColisionado == null)
+        if (_brazos > 0 && _myCollisionManager._objetoColisionado == null) // si algún brazo y está en un espacio libre
         {
-            Instantiate(_brazo, _myTransform.position, _myTransform.rotation);
-            _brazos--;
+            Instantiate(_brazo, _myTransform.position, _myTransform.rotation); // instanciación
+            _brazos--; // un brazo menos
         }
     }
 
     public void RecogerBrazo()
     {
-        if (_brazos < 2)
+        if (_brazos < 2) // si tiene menos de 2 brazos
         {
-            if (_myCollisionManager.DestruirBrazo())
+            if (_myCollisionManager.DestruirBrazo()) // destruye el brazo con el que está colisionando
             {
-                _brazos++;
+                _brazos++; // si las destruye, obtiene un brazo más
             }
         }
     }
 
     public void SoltarPiernas()
     {
-        if (_piernas && _myCollisionManager._objetoColisionado == null)
+        if (_piernas && _myCollisionManager._objetoColisionado == null) // si tiene piernas y está en un espacio libre
         {
-            Instantiate(_pierna, _myTransform.position, _myTransform.rotation);
-            _piernas = false;
+            Instantiate(_pierna, _myTransform.position, _myTransform.rotation); // instanciación
+            _piernas = false; // sin piernas
         }
     }
 
@@ -227,9 +227,9 @@ public class PlayerManager : MonoBehaviour
     {
         if (!_piernas)
         {
-            if (_myCollisionManager.DestruirPierna())
+            if (_myCollisionManager.DestruirPierna()) // destruye las piernas con las que está colisionando
             {
-                _piernas = true;
+                _piernas = true; // si las destruye, obtiene piernas
             }
         }
     }
