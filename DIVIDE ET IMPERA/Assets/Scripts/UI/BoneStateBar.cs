@@ -7,6 +7,7 @@ public class BoneStateBar : MonoBehaviour
     [SerializeField]
     // referencia a la imagen de la barra
     private Image _boneStateBar;
+    // referencia al daño de caída
     public FallDamage _fallDamage;
     #endregion
     #region parameters
