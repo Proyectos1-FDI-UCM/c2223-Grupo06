@@ -31,6 +31,7 @@ public class CollisionManager : MonoBehaviour
         } 
     }
 
+    /* Lo dejo por si acaso pero de momento nada
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.GetComponent<Tilemap>() == false)
@@ -38,6 +39,7 @@ public class CollisionManager : MonoBehaviour
             _objetoColisionado = collision;
         }
     }
+    */
 
     private void OnTriggerExit2D(Collider2D collision)
     {

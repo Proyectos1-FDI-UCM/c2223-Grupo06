@@ -2756,6 +2756,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Timoteo
       objectReference: {fileID: 0}
+    - target: {fileID: 3399945438282237141, guid: 767e3f423c90f78409c3048c7e7f2088, type: 3}
+      propertyPath: _player
+      value: 
+      objectReference: {fileID: 2128992813}
+    - target: {fileID: 3399945438282237141, guid: 767e3f423c90f78409c3048c7e7f2088, type: 3}
+      propertyPath: _tilemap
+      value: 
+      objectReference: {fileID: 161243085}
     - target: {fileID: 4768053018202619047, guid: 767e3f423c90f78409c3048c7e7f2088, type: 3}
       propertyPath: m_BodyType
       value: 0
