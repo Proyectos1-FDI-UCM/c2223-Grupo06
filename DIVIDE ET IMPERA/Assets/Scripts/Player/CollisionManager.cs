@@ -1,29 +1,22 @@
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class CollisionManager : MonoBehaviour
 {
-
     #region parameters
-    private Collider2D _objetoColisionado;
-
-
     //----------------LEVER-------------
-    private bool _validPalancaHitbox = false;
+    public bool _validPalancaHitbox = false; // HE PUESTO LAS VARIABLES PRIVADAS PUBLICAS PARA PODER HACER DEBUGGING MEJOR EN EL INSPECTOR
     public bool ValidPalancaHitbox { get { return _validPalancaHitbox; } }
-    
-
-
 
     //--------
-    private bool _validHitbox = false;
+    public bool _validHitbox = false;
     public bool ValidHitbox { get { return _validHitbox; } }
-    
+
+    public Collider2D _objetoColisionado;
+    public Collider2D ObjetoColisionado { get { return _objetoColisionado; } }
     #endregion
 
     #region methods
-
-
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         //----- si colisiona con la palanca
@@ -31,14 +24,19 @@ public class CollisionManager : MonoBehaviour
         {
             _validPalancaHitbox = true;
         }
-        _validHitbox = true;
-
-        _objetoColisionado = collision;
+        if (collision.GetComponent<Tilemap>() == false) // manera muy rudimentaria de comprobar que la colisión no es con el suelo!
+        {
+            _validHitbox = true;
+            _objetoColisionado = collision;
+        } 
     }
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        _objetoColisionado = collision;
+        if (collision.GetComponent<Tilemap>() == false)
+        {
+            _objetoColisionado = collision;
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -47,28 +45,41 @@ public class CollisionManager : MonoBehaviour
         {
             _validPalancaHitbox = false;
         }
-        _validHitbox = false;
-        _objetoColisionado = null;
+        if (collision.GetComponent<Tilemap>() == false)
+        {
+            _validHitbox = false;
+            _objetoColisionado = null;
+        }
     }
 
     public bool DestruirBrazo()
     {
-        if (_objetoColisionado.GetComponentInParent<ArmComponent>() != null) // esto es ducktyping mi gente
+        if (_objetoColisionado != null && _objetoColisionado.GetComponentInParent<ArmComponent>() != null) // esto es ducktyping mi gente
         {
             var padre = _objetoColisionado.transform.parent.gameObject;
             Destroy(padre);
             return true;
         }
-        else
+        else return false;
+    }
+
+    public bool DestruirPierna()
+    {
+        if (_objetoColisionado != null && _objetoColisionado.GetComponentInParent<LegsComponent>() != null) // esto es ducktyping mi gente
         {
-            return false;
+            var padre = _objetoColisionado.transform.parent.gameObject;
+            Destroy(padre);
+            return true;
         }
+        else return false;
     }
     #endregion
 
     // Start is called before the first frame update
     void Start()
     {
+        _validHitbox = false;
+        _validPalancaHitbox = false;
         _objetoColisionado = null;
     }
 

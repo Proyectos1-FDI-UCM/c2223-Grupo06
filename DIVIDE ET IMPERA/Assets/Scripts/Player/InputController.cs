@@ -6,13 +6,11 @@ public class InputController : MonoBehaviour
     private JumpComponent _playerJump;
     #endregion
 
-
     #region Properties 
     //-------------DIRECCIÓN----------------------------
     //Setea la direccion en la que se mueve el jugador, -1 = izq y 1 = drcha
     public int _direccion;
     public int Direccion { get { return _direccion; } }
-
 
     //-------------INTERACTUAR------------------------------
     // Indica si el jugador quiere interactuar con una palanca
@@ -20,7 +18,6 @@ public class InputController : MonoBehaviour
     private bool _interactuar = false;
     // acceso público a _interactuar
     public bool Interactuar { get { return _interactuar; } }
-
 
     //-------------SOLTAR PARTES-----------------------------
     // Indica si el jugador ha dejado una parte en un objeto
@@ -35,14 +32,11 @@ public class InputController : MonoBehaviour
     private bool _recuperarParte = false;
     // acceso público a _conectarParte
     public bool RecuperarParte { get { return _recuperarParte; } }
-
     #endregion
 
     #region Parameters
 
-
     #endregion
-
 
     #region Methods
     #endregion
@@ -50,11 +44,6 @@ public class InputController : MonoBehaviour
     void Start()
     {
         _playerJump = GetComponentInChildren<JumpComponent>();
-    }
-
-    private void FixedUpdate()
-    {
-
     }
 
     // Update is called once per frame
@@ -80,7 +69,6 @@ public class InputController : MonoBehaviour
         {
             _playerJump.Jump();
         }
-
 
         //---INTERACTUABLES----------------------------
         //------Input para interactuar con objetos-----
@@ -113,33 +101,32 @@ public class InputController : MonoBehaviour
             _recuperarParte = false;
         }
 
-
         //---DEBUG-------------------------------------
         //      Para ver si cambia de estados bien
         if (Input.GetKeyDown(KeyCode.V))
-        {
+        { // SUBIR ESTADO
             PlayerManager.Instance.AddTimmyState(PlayerManager.State);
         }
         else if (Input.GetKeyDown(KeyCode.C))
-        {
+        { // BAJAR ESTADO
             PlayerManager.Instance.SubTimmyState(PlayerManager.State);
         }
 
         if (Input.GetKeyDown(KeyCode.P))
-        {
+        { // SOLTAR BRAZO
             PlayerManager.Instance.SoltarBrazo();
         }
         else if (Input.GetKeyDown(KeyCode.O))
-        {
+        { // COGER BRAZO
             PlayerManager.Instance.RecogerBrazo();
         }
 
         if (Input.GetKeyDown(KeyCode.I))
-        {
+        { // SOLTAR PIERNAS
             PlayerManager.Instance.SoltarPiernas();
         }
         else if (Input.GetKeyDown(KeyCode.U))
-        {
+        { // COGER PIERNAS
             PlayerManager.Instance.RecogerPiernas();
         }
     }

@@ -13,16 +13,17 @@ public class PlayerManager : MonoBehaviour
 
     #region References
     private SpriteRenderer _mySpriteRenderer;
-    private Animator _myAnimator;
     private CollisionManager _myCollisionManager;
     private Transform _myTransform;
 
     [SerializeField]
     private GameObject _brazo;
+    [SerializeField]
+    private GameObject _pierna;
 
     //array de sprites de los diferentes estados de Timmy
     [SerializeField]
-    private Sprite[] _sprites; 
+    private Sprite[] _sprites;
     #endregion
 
     #region Properties
@@ -107,8 +108,8 @@ public class PlayerManager : MonoBehaviour
                 _piernas = false;
                 break;
         }
-        Debug.Log("TIMMY: Cambio de estado de " + _currentState + " a " + _nextState);
-        Debug.Log("TIMMY: Brazos: " + _brazos + " y piernas: " + _piernas);
+        //Debug.Log("TIMMY: Cambio de estado de " + _currentState + " a " + _nextState);
+        //Debug.Log("TIMMY: Brazos: " + _brazos + " y piernas: " + _piernas);
         _currentState = _nextState;
     }
 
@@ -195,7 +196,7 @@ public class PlayerManager : MonoBehaviour
     // BLOQUE DE ACCIONES
     public void SoltarBrazo()
     {
-        if (_brazos > 0)
+        if (_brazos > 0 && _myCollisionManager._objetoColisionado == null)
         {
             Instantiate(_brazo, _myTransform.position, _myTransform.rotation);
             _brazos--;
@@ -206,24 +207,31 @@ public class PlayerManager : MonoBehaviour
     {
         if (_brazos < 2)
         {
-            if (_myCollisionManager.ValidHitbox) // estan nesteados los ifs cuando podrian ser && pero no me ha dado tiempo a reescribirlo, mañana y tal
+            if (_myCollisionManager.DestruirBrazo())
             {
-                if (_myCollisionManager.DestruirBrazo())
-                {
-                    _brazos++;
-                }
+                _brazos++;
             }
         }
     }
 
     public void SoltarPiernas()
     {
-        _piernas = false;
+        if (_piernas && _myCollisionManager._objetoColisionado == null)
+        {
+            Instantiate(_pierna, _myTransform.position, _myTransform.rotation);
+            _piernas = false;
+        }
     }
 
     public void RecogerPiernas()
     {
-        _piernas = true;
+        if (!_piernas)
+        {
+            if (_myCollisionManager.DestruirPierna())
+            {
+                _piernas = true;
+            }
+        }
     }
     #endregion
 
@@ -236,7 +244,6 @@ public class PlayerManager : MonoBehaviour
     {
         // ._. ^.^ :P o....o ¬_¬ [-:<
         _mySpriteRenderer = GetComponent<SpriteRenderer>();
-        _myAnimator = GetComponent<Animator>();
         _myCollisionManager = GetComponent<CollisionManager>();
         _myTransform = transform;
 

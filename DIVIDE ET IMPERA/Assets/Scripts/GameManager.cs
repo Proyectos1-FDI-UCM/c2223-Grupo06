@@ -46,7 +46,6 @@ public class GameManager : MonoBehaviour
                 //_UIManager.SetMenu(GameStates.START);    // Activa menú inicial
                 break;
             case GameStates.INTRO:                       //     *INTRO* (Pantalla en negro con las vidas antes de cargar el lvl)
-                //_UIManager.SetLives(_lives);             // Inicializa valores de vida en la UI
                 //_UIManager.SetMenu(GameStates.INTRO);    // Activa menú intro
                 break;
             case GameStates.GAME:                        //     *JUEGO*

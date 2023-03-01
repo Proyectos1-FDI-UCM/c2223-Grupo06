@@ -48,7 +48,7 @@ public class PalancaComponent : MonoBehaviour
         if (_inputController.Interactuar && !_brazoConectado && _collisionManager.ValidPalancaHitbox)
         {
             _palanca = ActivarPalanca();
-           
+
         }
         // si se ha pulsado la E y el brazo está conectado
         else if (_inputController.Interactuar && _brazoConectado)
