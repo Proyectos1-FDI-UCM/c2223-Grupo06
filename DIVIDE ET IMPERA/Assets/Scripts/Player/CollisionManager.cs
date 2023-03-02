@@ -3,12 +3,7 @@ using UnityEngine.Tilemaps;
 
 public class CollisionManager : MonoBehaviour
 {
-    #region parameters
-    //----------------LEVER-------------
-    public bool _validPalancaHitbox = false; // HE PUESTO LAS VARIABLES PRIVADAS PUBLICAS PARA PODER HACER DEBUGGING MEJOR EN EL INSPECTOR
-    public bool ValidPalancaHitbox { get { return _validPalancaHitbox; } }
-
-    //--------
+    #region Properties
     public bool _validHitbox = false;
     public bool ValidHitbox { get { return _validHitbox; } }
 
@@ -22,7 +17,7 @@ public class CollisionManager : MonoBehaviour
         //----- si colisiona con la palanca
         if (collision.GetComponent<PalancaComponent>())
         {
-            _validPalancaHitbox = true;
+            collision.GetComponent<PalancaComponent>()._validPalancaHitbox = true;
         }
         if (collision.GetComponent<Tilemap>() == false) // manera muy rudimentaria de comprobar que la colisión no es con el suelo!
         {
@@ -45,7 +40,7 @@ public class CollisionManager : MonoBehaviour
     {
         if (collision.GetComponent<PalancaComponent>())
         {
-            _validPalancaHitbox = false;
+            collision.GetComponent<PalancaComponent>()._validPalancaHitbox = false;
         }
         if (collision.GetComponent<Tilemap>() == false)
         {
@@ -81,13 +76,6 @@ public class CollisionManager : MonoBehaviour
     void Start()
     {
         _validHitbox = false;
-        _validPalancaHitbox = false;
         _objetoColisionado = null;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 }
