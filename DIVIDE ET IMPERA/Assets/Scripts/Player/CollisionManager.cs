@@ -19,6 +19,10 @@ public class CollisionManager : MonoBehaviour
         {
             collision.GetComponent<PalancaComponent>()._validPalancaHitbox = true;
         }
+        else if (collision.GetComponent<WBComponent>())
+        {
+
+        }
         if (collision.GetComponent<Tilemap>() == false) // manera muy rudimentaria de comprobar que la colisión no es con el suelo!
         {
             _validHitbox = true;
@@ -77,5 +81,6 @@ public class CollisionManager : MonoBehaviour
     {
         _validHitbox = false;
         _objetoColisionado = null;
+        
     }
 }

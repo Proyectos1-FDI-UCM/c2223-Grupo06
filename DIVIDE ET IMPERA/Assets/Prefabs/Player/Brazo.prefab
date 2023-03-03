@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2364319286159778400}
   - component: {fileID: 2364319286159778401}
   - component: {fileID: 2364319286159778405}
+  - component: {fileID: -6031593165138114459}
   m_Layer: 7
   m_Name: Brazo
   m_TagString: Untagged
@@ -147,6 +148,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &-6031593165138114459
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2364319286159778462}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3c99f285ebd55479fa6765fbc03954, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7528269812144655418
 GameObject:
   m_ObjectHideFlags: 0
