@@ -157,8 +157,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _boneStateBar: {fileID: 9220764}
-  _allowedSpeed: -15
-  _previousSpeed: 0
+  _allowedHeight: 2
   _onGround: 0
 --- !u!1 &723624881
 GameObject:
@@ -1464,9 +1463,25 @@ PrefabInstance:
       propertyPath: m_ColliderPaths.Array.data[0].m_ColliderPaths.Array.data[1].Array.data[15].Y
       value: -50000000
       objectReference: {fileID: 0}
+    - target: {fileID: 5079413431048029735, guid: fe40a95d7663eca499414170bbbe271a, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5079413431509109915, guid: fe40a95d7663eca499414170bbbe271a, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5079413432351849653, guid: fe40a95d7663eca499414170bbbe271a, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 5079413432737033480, guid: fe40a95d7663eca499414170bbbe271a, type: 3}
       propertyPath: m_Name
       value: Tilemap Grid Template
+      objectReference: {fileID: 0}
+    - target: {fileID: 5079413432737033480, guid: fe40a95d7663eca499414170bbbe271a, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5079413432737033482, guid: fe40a95d7663eca499414170bbbe271a, type: 3}
       propertyPath: m_RootOrder

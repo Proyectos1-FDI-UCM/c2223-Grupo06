@@ -35,6 +35,6 @@ public class BoneStateBar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        _boneStateBar.fillAmount = _currentBoneState / _maxBoneState; // actualiza el estado de la barra
+        _boneStateBar.fillAmount = (_currentBoneState / _maxBoneState); // actualiza el estado de la barra
     }
 }

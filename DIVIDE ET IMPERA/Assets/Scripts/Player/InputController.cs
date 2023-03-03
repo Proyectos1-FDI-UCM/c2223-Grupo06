@@ -9,7 +9,7 @@ public class InputController : MonoBehaviour
     #region Properties 
     //-------------DIRECCIÓN----------------------------
     //Setea la direccion en la que se mueve el jugador, -1 = izq y 1 = drcha
-    public int _direccion;
+    private int _direccion;
     public int Direccion { get { return _direccion; } }
 
     //-------------INTERACTUAR------------------------------
