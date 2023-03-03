@@ -77,5 +77,6 @@ public class CollisionManager : MonoBehaviour
     {
         _validHitbox = false;
         _objetoColisionado = null;
+        
     }
 }
