@@ -182,6 +182,10 @@ PrefabInstance:
       propertyPath: _puerta
       value: 
       objectReference: {fileID: 1444414137}
+    - target: {fileID: 9105276655828635065, guid: 111fc477411513d47b1f5daa0dbd6439, type: 3}
+      propertyPath: _validPalancaHitbox
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9105276655828635070, guid: 111fc477411513d47b1f5daa0dbd6439, type: 3}
       propertyPath: m_Name
       value: Lever
