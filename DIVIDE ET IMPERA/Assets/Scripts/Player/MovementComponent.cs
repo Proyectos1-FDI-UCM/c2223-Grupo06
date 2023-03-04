@@ -16,6 +16,7 @@ public class MovementComponent : MonoBehaviour
     #endregion
     #region Properties
     private int _direccion;
+    public int Direccion { get { return _direccion; } }
     #endregion
     #region Methods
     public void Move()

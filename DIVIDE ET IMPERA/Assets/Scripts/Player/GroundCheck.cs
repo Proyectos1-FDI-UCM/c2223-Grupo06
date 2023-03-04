@@ -7,6 +7,7 @@ public class GroundCheck : MonoBehaviour
     #endregion
     #region Properties 
     public bool _isGrounded;
+    public bool IsGrounded { get { return _isGrounded; } }
     #endregion
     #region Methods
     //Cuando los pies del jugador (o sea el Ground Check) toca el suelo

@@ -2,15 +2,36 @@ using UnityEngine;
 
 public class PlayerAnimationController : MonoBehaviour
 {
-    // Start is called before the first frame update
+    #region references
+    private Animator _myAnimator;
+    private GroundCheck _myGroundCheck;
+    private MovementComponent _myMovementComponent;
+    #endregion 
     void Start()
     {
-
+        _myAnimator = GetComponent<Animator>();
+        _myGroundCheck = GetComponentInChildren<GroundCheck>();
+        _myMovementComponent = GetComponent<MovementComponent>();
     }
 
-    // Update is called once per frame
     void Update()
     {
+        if (_myGroundCheck.IsGrounded)
+        {
+            _myAnimator.SetTrigger("isGrounded");
+        }
+        else
+        {
+            _myAnimator.ResetTrigger("isGrounded");
+        }
 
+        if(_myMovementComponent.Direccion != 0)
+        {
+            _myAnimator.SetTrigger("isRunning");
+        }
+        else
+        {
+            _myAnimator.ResetTrigger("isRunning");
+        }
     }
 }
