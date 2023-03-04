@@ -50,7 +50,7 @@ public class InputController : MonoBehaviour
     void Update()
     {
         //---MOVIMIENTO--------------------------------
-        //------Input del movimiento horizontal--------
+        //------Input del movimiento horizontal del jugador--------
         if (Input.GetKey(KeyCode.D))
         {
             _direccion = 1;
@@ -64,11 +64,13 @@ public class InputController : MonoBehaviour
             _direccion = 0;
         }
 
-        //------Input del movimiento vertical----------
+        //------Input del movimiento vertical el jugador----------
         if (Input.GetKeyDown(KeyCode.Space))
         {
             _playerJump.Jump();
         }
+
+        
 
         //---INTERACTUABLES----------------------------
         //------Input para interactuar con objetos-----

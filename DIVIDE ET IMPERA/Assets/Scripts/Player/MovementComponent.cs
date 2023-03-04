@@ -6,6 +6,8 @@ public class MovementComponent : MonoBehaviour
     private InputController _inputController;
     private Rigidbody2D _myRigidbody2D;
     #endregion
+
+
     #region Parámetros
     [Tooltip("Velocidad del jugador")]
     [SerializeField]
@@ -14,10 +16,14 @@ public class MovementComponent : MonoBehaviour
     [SerializeField]
     private float _rozamientoFreno;
     #endregion
+
+
     #region Properties
     private int _direccion;
     public int Direccion { get { return _direccion; } }
     #endregion
+
+
     #region Methods
     public void Move()
     {
