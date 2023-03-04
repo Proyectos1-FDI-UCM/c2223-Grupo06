@@ -9,8 +9,8 @@ public class PataformaComponent : MonoBehaviour
     private SpriteRenderer _mySpriteRenderer;
     [SerializeField]
     private GameObject _player;
-    [SerializeField]
-    private GameObject _puerta;
+
+    
     #endregion
 
     #region Properties
@@ -31,6 +31,7 @@ public class PataformaComponent : MonoBehaviour
     void Update()
     {
 
+        //---QUITAR Y PONER PARTES------------------------------------
         // si se ha pulsado la E, el brazo está conectado y está en el estado correcto
         if (_inputController.Interactuar && _piernasConectadas
             && (PlayerManager.State == PlayerManager.TimmyStates.S3

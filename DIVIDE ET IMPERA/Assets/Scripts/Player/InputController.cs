@@ -30,8 +30,15 @@ public class InputController : MonoBehaviour
     // Indica si el jugador ha dejado una parte en un objeto
     [SerializeField]
     private bool _recuperarParte = false;
-    // acceso público a _conectarParte
+    // acceso público a _recuperarParte
     public bool RecuperarParte { get { return _recuperarParte; } }
+
+    //------------CAMBIAR INPUT-----------------------------
+    // indica si el jugador quiere cambiar el input a la Pataforma
+    // booleano para saber si se ha cambiado el input a la pataforma
+    private bool _isPataforma;
+    // acceso público a _isPataforma
+    public bool Pataforma { get { return _isPataforma; } }
     #endregion
 
     #region Parameters

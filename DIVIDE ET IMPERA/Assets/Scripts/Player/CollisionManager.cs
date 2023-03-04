@@ -3,12 +3,17 @@ using UnityEngine.Tilemaps;
 
 public class CollisionManager : MonoBehaviour
 {
+    #region References
+    
+    #endregion
+
     #region Properties
     public bool _validHitbox = false;
     public bool ValidHitbox { get { return _validHitbox; } }
 
     public Collider2D _objetoColisionado;
     public Collider2D ObjetoColisionado { get { return _objetoColisionado; } }
+
     #endregion
 
     #region methods
@@ -23,6 +28,14 @@ public class CollisionManager : MonoBehaviour
         {
 
         }
+        else if (collision.GetComponent<PataformaComponent>())
+        {
+            collision.GetComponent<PataformaComponent>()._validPataformaHitbox = true;
+           
+        }
+
+
+
         if (collision.GetComponent<Tilemap>() == false) // manera muy rudimentaria de comprobar que la colisión no es con el suelo!
         {
             _validHitbox = true;
