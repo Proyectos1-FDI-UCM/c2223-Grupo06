@@ -246,6 +246,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5230b51509fc044f89791b5f1b96a02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _pataforma: {fileID: 0}
   _interactuar: 0
   _conectarParte: 0
   _recuperarParte: 0

@@ -16,8 +16,12 @@ public class PataformaComponent : MonoBehaviour
     #region Properties
     // piernas conectadas a la pataforma 
     private bool _piernasConectadas = false;
+    public bool PiernasConectadas { get { return _piernasConectadas; } }
     // esta en el área de una pataforma
     public bool _validPataformaHitbox;
+
+    private bool _isPataforma;
+    public bool Pataforma { get { return _isPataforma; } }
     #endregion
 
     // Start is called before the first frame update
@@ -57,6 +61,7 @@ public class PataformaComponent : MonoBehaviour
             if (PlayerManager.State == PlayerManager.TimmyStates.S0)
             {
                 _player.GetComponent<PlayerManager>().RequestTimmyState(PlayerManager.TimmyStates.S3);
+                Debug.Log("uwu " + PlayerManager.State);
             }
             // SI NO TIENE UN BRAZO
             else if (PlayerManager.State == PlayerManager.TimmyStates.S1)
@@ -69,7 +74,7 @@ public class PataformaComponent : MonoBehaviour
                 _player.GetComponent<PlayerManager>().RequestTimmyState(PlayerManager.TimmyStates.S5);
             }
 
-
+            Debug.Log(PlayerManager.State);
             // cambia el color (deberia ser sprite)
             _mySpriteRenderer.color = Color.blue;
         }

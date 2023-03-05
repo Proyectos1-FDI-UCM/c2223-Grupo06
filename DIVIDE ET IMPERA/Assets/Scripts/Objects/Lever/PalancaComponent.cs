@@ -65,7 +65,7 @@ public class PalancaComponent : MonoBehaviour
             if (PlayerManager.State == PlayerManager.TimmyStates.S0)
             {
                 _player.GetComponent<PlayerManager>().RequestTimmyState(PlayerManager.TimmyStates.S1);
-                Debug.Log(PlayerManager.State);
+                Debug.Log("palanca " + PlayerManager.State);
             }
             // SI NO TIENE PIERNAS
             else if (PlayerManager.State == PlayerManager.TimmyStates.S3)

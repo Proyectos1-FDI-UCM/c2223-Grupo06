@@ -1,10 +1,13 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-public class MovementComponent : MonoBehaviour
+public class PataformaMovementComponent : MonoBehaviour
 {
+
     #region Referencias
-    private InputController _inputController;
     private PataformaInputComponent _pataformaInputComponent;
+    private InputController _inputController;
     private Rigidbody2D _myRigidbody2D;
     #endregion
 
@@ -18,14 +21,12 @@ public class MovementComponent : MonoBehaviour
     private float _rozamientoFreno;
     #endregion
 
-
     #region Properties
-    private int _direccion;
+    public int _direccion;
     public int Direccion { get { return _direccion; } }
     #endregion
 
 
-    #region Methods
     public void Move()
     {
         //Cuando se pulsa una tecla para moverse, el jugador se mueve en esa direccion cambiando la velocidad
@@ -44,41 +45,20 @@ public class MovementComponent : MonoBehaviour
         }
     }
 
-    public void Flip()
-    {
-        /*
-        bool movimiento = Mathf.Abs(_myRigidbody2D.velocity.x) > Mathf.Epsilon;
-        if (movimiento)
-        {
-            transform.localScale = new Vector2(Mathf.Sign(_myRigidbody2D.velocity.x), 1f);
-        }
-        */
 
-        if (_direccion > 0) // muy rudimentario, pero funciona :P
-        {
-            transform.localScale = new Vector2(1f, 1f);
-        }
-        else if (_direccion < 0)
-        {
-            transform.localScale = new Vector2(-1f, 1f);
-        }
-    }
-    #endregion
 
     // Start is called before the first frame update
     void Start()
     {
-        _inputController = GetComponent<InputController>();
         _pataformaInputComponent = GetComponent<PataformaInputComponent>();
+        //_inputController = GetComponent<InputController>();
         _myRigidbody2D = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
     void Update()
-    { 
-        _direccion = _inputController.Direccion;
-        
+    {
+        _direccion = _pataformaInputComponent.Direccion;
         Move();
-        Flip();
     }
 }

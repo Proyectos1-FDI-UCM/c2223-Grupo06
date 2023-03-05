@@ -4,6 +4,9 @@ public class InputController : MonoBehaviour
 {
     #region Referencias
     private JumpComponent _playerJump;
+    private PataformaInputComponent _pataformaInputComponent;
+    [SerializeField]
+    private GameObject _pataforma;
     #endregion
 
     #region Properties 
@@ -51,6 +54,9 @@ public class InputController : MonoBehaviour
     void Start()
     {
         _playerJump = GetComponentInChildren<JumpComponent>();
+        _pataformaInputComponent = _pataforma.GetComponent<PataformaInputComponent>();
+        // desactiva el input de la pataforma
+        _pataformaInputComponent.enabled = false;
     }
 
     // Update is called once per frame
@@ -90,6 +96,25 @@ public class InputController : MonoBehaviour
             _interactuar = false;
         }
 
+
+        //---PATAFOMA---------------------------------------
+        //------Input para interactuar con las piernas-----
+        //--------- Hay que dejar pulsado primero el numero y luego la E para interactuar
+        if(Input.GetKey(KeyCode.Alpha2) && Input.GetKeyUp(KeyCode.E) 
+            && _pataforma.GetComponent<PataformaComponent>().PiernasConectadas)
+        {
+            if (!_pataformaInputComponent.enabled)
+            {
+                _pataformaInputComponent.enabled = true;
+                Debug.Log(_pataformaInputComponent.enabled);
+
+                // desactiva este componente
+                this.enabled = false;
+            }
+        }
+
+
+
         //---PARTES-----------------------------------------
         //------Input para poner partes a objetos-----------
         if (Input.GetKeyDown(KeyCode.R))
@@ -109,6 +134,8 @@ public class InputController : MonoBehaviour
         {
             _recuperarParte = false;
         }
+
+
 
         //---DEBUG-------------------------------------
         //      Para ver si cambia de estados bien

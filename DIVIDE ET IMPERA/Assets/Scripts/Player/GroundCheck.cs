@@ -2,9 +2,6 @@ using UnityEngine;
 
 public class GroundCheck : MonoBehaviour
 {
-    #region references
-
-    #endregion
     #region Properties 
     public bool _isGrounded;
     public bool IsGrounded { get { return _isGrounded; } }
