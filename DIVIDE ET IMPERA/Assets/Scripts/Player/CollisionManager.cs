@@ -59,6 +59,10 @@ public class CollisionManager : MonoBehaviour
         {
             collision.GetComponent<PalancaComponent>()._validPalancaHitbox = false;
         }
+        else if (collision.GetComponent<PataformaComponent>())
+        {
+            collision.GetComponent<PataformaComponent>()._validPataformaHitbox = false;
+        }
         if (collision.GetComponent<Tilemap>() == false)
         {
             _validHitbox = false;

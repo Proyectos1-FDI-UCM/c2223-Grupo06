@@ -6,6 +6,7 @@ public class PataformaInputComponent : MonoBehaviour
 {
     private MovementComponent _movementComponent;
     private InputController _inputController;
+    private PataformaInputComponent _pataformaInputComponent;
     [SerializeField]
     private GameObject _pataforma;
     [SerializeField]
@@ -14,8 +15,8 @@ public class PataformaInputComponent : MonoBehaviour
 
     //-------------DIRECCIÓN----------------------------
     //Setea la direccion en la que se mueve el jugador, -1 = izq y 1 = drcha
-    private int _direccion;
-    public int Direccion { get { return _direccion; } }
+    private int _pDireccion;
+    public int PataformaDireccion { get { return _pDireccion; } }
 
 
     #region Methods
@@ -27,6 +28,7 @@ public class PataformaInputComponent : MonoBehaviour
     {
         _inputController = _player.GetComponent<InputController>();
         _movementComponent = GetComponent<MovementComponent>();
+        _pataformaInputComponent = GetComponent<PataformaInputComponent>();
     }
 
     // Update is called once per frame
@@ -49,19 +51,21 @@ public class PataformaInputComponent : MonoBehaviour
             
         }
 
+
+
         //---MOVIMIENTO--------------------------------
         //------Input del movimiento horizontal de la pataforma--------
         if (Input.GetKey(KeyCode.D))
         {
-            
+            _pDireccion = 1;
         }
         else if (Input.GetKey(KeyCode.A))
         {
-            
+            _pDireccion = -1;
         }
         else
         {
-            
+            _pDireccion = 0;
         }
 
 

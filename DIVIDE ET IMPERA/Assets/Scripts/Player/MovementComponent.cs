@@ -6,6 +6,8 @@ public class MovementComponent : MonoBehaviour
     private InputController _inputController;
     private PataformaInputComponent _pataformaInputComponent;
     private Rigidbody2D _myRigidbody2D;
+
+    
     #endregion
 
 
@@ -69,13 +71,12 @@ public class MovementComponent : MonoBehaviour
     void Start()
     {
         _inputController = GetComponent<InputController>();
-        _pataformaInputComponent = GetComponent<PataformaInputComponent>();
         _myRigidbody2D = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
     void Update()
-    { 
+    {
         _direccion = _inputController.Direccion;
         
         Move();

@@ -22,17 +22,17 @@ public class PataformaMovementComponent : MonoBehaviour
     #endregion
 
     #region Properties
-    public int _direccion;
-    public int Direccion { get { return _direccion; } }
+    public int _pDireccion;
+    public int PataformaDireccion { get { return _pDireccion; } }
     #endregion
 
 
     public void Move()
     {
         //Cuando se pulsa una tecla para moverse, el jugador se mueve en esa direccion cambiando la velocidad
-        if (_direccion != 0)
+        if (_pDireccion != 0)
         {
-            _myRigidbody2D.velocity = new Vector2(_speed * _direccion, _myRigidbody2D.velocity.y);
+            _myRigidbody2D.velocity = new Vector2(_speed * _pDireccion, _myRigidbody2D.velocity.y);
         }
         /*Si el jugador ya no pulsa ninguna tecla y sigue moviendose en alguna direccion, se aumenta o decrementa la velocidad
         progresivamente hasta que llega a 0 para dar la sensacion de inercia*/
@@ -58,7 +58,7 @@ public class PataformaMovementComponent : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        _direccion = _pataformaInputComponent.Direccion;
+        _pDireccion = _pataformaInputComponent.PataformaDireccion;
         Move();
     }
 }
