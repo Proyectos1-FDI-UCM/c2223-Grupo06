@@ -68,7 +68,5 @@ public class PataformaInputComponent : MonoBehaviour
             _pDireccion = 0;
         }
 
-
-
     }
 }

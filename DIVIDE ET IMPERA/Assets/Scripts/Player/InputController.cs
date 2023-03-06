@@ -7,6 +7,7 @@ public class InputController : MonoBehaviour
     private PataformaInputComponent _pataformaInputComponent;
     [SerializeField]
     private GameObject _pataforma;
+    private ThrowArm _armComp;
     #endregion
 
     #region Properties 
@@ -54,9 +55,10 @@ public class InputController : MonoBehaviour
     void Start()
     {
         _playerJump = GetComponentInChildren<JumpComponent>();
-        _pataformaInputComponent = _pataforma.GetComponent<PataformaInputComponent>();
+        //_pataformaInputComponent = _pataforma.GetComponent<PataformaInputComponent>();
         // desactiva el input de la pataforma
-        _pataformaInputComponent.enabled = false;
+        //_pataformaInputComponent.enabled = false;
+        _armComp = GetComponent<ThrowArm>();
     }
 
     // Update is called once per frame
@@ -111,7 +113,11 @@ public class InputController : MonoBehaviour
             }
         }
 
-
+        //---LANZAR BRAZO-----------------------------------
+        if(Input.GetKeyDown(KeyCode.F))
+        {
+            _armComp.LanzarBrazo();
+        }
 
         //---PARTES-----------------------------------------
         //------Input para poner partes a objetos-----------

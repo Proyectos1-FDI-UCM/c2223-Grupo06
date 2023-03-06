@@ -246,7 +246,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5570792248851894853, guid: 22c7ca5068d53c14b8b1ca8b1b95ab79, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.83
+      value: -4.89
       objectReference: {fileID: 0}
     - target: {fileID: 5570792248851894853, guid: 22c7ca5068d53c14b8b1ca8b1b95ab79, type: 3}
       propertyPath: m_LocalPosition.z
@@ -298,7 +298,7 @@ GameObject:
   - component: {fileID: 283425529}
   - component: {fileID: 283425528}
   - component: {fileID: 283425527}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: PuertaW
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1923,7 +1923,7 @@ GameObject:
   - component: {fileID: 555192970}
   - component: {fileID: 555192969}
   - component: {fileID: 555192968}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: PuertaW (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2034,7 +2034,7 @@ GameObject:
   - component: {fileID: 571764342}
   - component: {fileID: 571764341}
   - component: {fileID: 571764340}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: PuertaW (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2628,7 +2628,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5570792248851894853, guid: 22c7ca5068d53c14b8b1ca8b1b95ab79, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.83
+      value: -4.89
       objectReference: {fileID: 0}
     - target: {fileID: 5570792248851894853, guid: 22c7ca5068d53c14b8b1ca8b1b95ab79, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2742,7 +2742,7 @@ GameObject:
   - component: {fileID: 1444414140}
   - component: {fileID: 1444414139}
   - component: {fileID: 1444414138}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Puerta
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5838,7 +5838,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5570792248851894853, guid: 22c7ca5068d53c14b8b1ca8b1b95ab79, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.83
+      value: -4.89
       objectReference: {fileID: 0}
     - target: {fileID: 5570792248851894853, guid: 22c7ca5068d53c14b8b1ca8b1b95ab79, type: 3}
       propertyPath: m_LocalPosition.z

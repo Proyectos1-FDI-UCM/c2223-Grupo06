@@ -27,8 +27,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1198217028773706302}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.16, y: -4.86, z: 0}
-  m_LocalScale: {x: 1.3573, y: 0.3329, z: 1}
+  m_LocalPosition: {x: -3.16, y: -4.9115, z: 0}
+  m_LocalScale: {x: 1.3573, y: 0.22980085, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2064256119165598164}
@@ -100,6 +100,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _puerta: {fileID: 0}
+  pointA: {fileID: 0}
+  pointB: {fileID: 0}
 --- !u!61 &-5997600181492594298
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -182,5 +184,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.95083463, y: 0.12021047}
+  m_Size: {x: 0.95083463, y: 0.15}
   m_EdgeRadius: 0

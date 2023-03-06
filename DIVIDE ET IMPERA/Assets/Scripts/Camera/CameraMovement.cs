@@ -4,7 +4,6 @@ public class CameraMovement : MonoBehaviour
 {
     #region References
     private Transform _cameraTransform;
-    [SerializeField]
     private Transform _playerTransform;
     #endregion
     #region Parameters
@@ -22,7 +21,7 @@ public class CameraMovement : MonoBehaviour
     void Start()
     {
         _cameraTransform = GetComponent<Transform>();
-        //_playerTransform = GameObject.Find("Player").GetComponent<Transform>();
+        _playerTransform = PlayerAccess.Instance.Transform;
     }
 
     // Update is called once per frame

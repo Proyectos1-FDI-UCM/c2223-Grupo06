@@ -28,7 +28,7 @@ public class Interaction : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _player = GameObject.Find("Timoteo");
+        _player = PlayerAccess.Instance.gameObject;
         _input= _player.GetComponent<InputController>();
     }
 
