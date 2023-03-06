@@ -15,8 +15,10 @@ public class PalancaComponent : MonoBehaviour
     #region Properties
     // palanca activada o no
     private bool _palanca;
+    public bool Palanca { get { return _palanca; } }
     // brazo conectado a la palanca 
     private bool _brazoConectado = false;
+    public bool BrazoConectado { get { return _brazoConectado; } }
     // esta en el área de una palanca
     public bool _validPalancaHitbox; //no tengo ni idea de por que se llama asi,
                                      //he copiado el nombre que utilizaba antes

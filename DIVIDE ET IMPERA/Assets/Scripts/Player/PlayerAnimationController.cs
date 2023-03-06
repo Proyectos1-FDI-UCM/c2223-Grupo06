@@ -16,6 +16,11 @@ public class PlayerAnimationController : MonoBehaviour
 
     void Update()
     {
+        if (_myAnimator == null)
+        {
+            _myAnimator = GetComponent<Animator>();
+        }
+
         if (_myGroundCheck.IsGrounded)
         {
             _myAnimator.SetTrigger("isGrounded");

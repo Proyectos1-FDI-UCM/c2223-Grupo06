@@ -106,7 +106,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2311462238604020209}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -177,7 +177,7 @@ Animator:
   m_GameObject: {fileID: 2311462238604020209}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: ceeb005cc3b882140ae7fdc404c07e9a, type: 2}
+  m_Controller: {fileID: 9100000, guid: 0224f54e4be767e4291ea169403cc4ec, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -204,7 +204,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.125, y: 1.8125}
+    oldSize: {x: 1.3125, y: 1.9375}
     newSize: {x: 1, y: 2}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -226,13 +226,13 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
+  m_LinearDrag: 0.5
   m_AngularDrag: 0.05
   m_GravityScale: 3
   m_Material: {fileID: 0}
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 4
 --- !u!114 &5943162679483822508
 MonoBehaviour:
@@ -313,6 +313,13 @@ MonoBehaviour:
   - {fileID: -859078859, guid: ee5269eef728b3c458d9e4b5ae804086, type: 3}
   - {fileID: 1557023035, guid: 44f214acfdf205e448eff95b0e4bc59c, type: 3}
   - {fileID: 798766050, guid: ea55d33260856ed4ca2c16be7a8a63c7, type: 3}
+  _controllers:
+  - {fileID: 9100000, guid: ceeb005cc3b882140ae7fdc404c07e9a, type: 2}
+  - {fileID: 9100000, guid: 0224f54e4be767e4291ea169403cc4ec, type: 2}
+  - {fileID: 9100000, guid: cf5cfe46afe880c4994cfe4617a99a7a, type: 2}
+  - {fileID: 9100000, guid: f879a0f3b3376fb4c8a2d637e00c94e1, type: 2}
+  - {fileID: 9100000, guid: c50ddd2faad136e49a60c14e907466ba, type: 2}
+  - {fileID: 9100000, guid: fd7b119fbeb1c0044bc2297ef84ef01b, type: 2}
 --- !u!114 &4737386085971608660
 MonoBehaviour:
   m_ObjectHideFlags: 0

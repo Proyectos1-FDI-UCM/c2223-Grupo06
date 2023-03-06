@@ -83,8 +83,6 @@ public class InputController : MonoBehaviour
             _playerJump.Jump();
         }
 
-        
-
         //---INTERACTUABLES----------------------------
         //------Input para interactuar con objetos-----
         if (Input.GetKeyDown(KeyCode.E))

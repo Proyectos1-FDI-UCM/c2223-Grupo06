@@ -107,12 +107,12 @@ TextureImporter:
       name: idle_NoArms-sheet_0
       rect:
         serializedVersion: 2
-        x: 17
+        x: 14
         y: 6
-        width: 16
-        height: 29
+        width: 21
+        height: 31
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -128,12 +128,12 @@ TextureImporter:
       name: idle_NoArms-sheet_1
       rect:
         serializedVersion: 2
-        x: 67
+        x: 64
         y: 6
-        width: 16
-        height: 30
+        width: 21
+        height: 31
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -149,12 +149,12 @@ TextureImporter:
       name: idle_NoArms-sheet_2
       rect:
         serializedVersion: 2
-        x: 117
+        x: 114
         y: 6
-        width: 16
-        height: 30
+        width: 21
+        height: 31
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
