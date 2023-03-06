@@ -40,7 +40,8 @@ public class InputController : MonoBehaviour
     //------------CAMBIAR INPUT-----------------------------
     // indica si el jugador quiere cambiar el input a la Pataforma
     // booleano para saber si se ha cambiado el input a la pataforma
-    private bool _isPataforma;
+    [SerializeField]
+    public bool _isPataforma;
     // acceso público a _isPataforma
     public bool Pataforma { get { return _isPataforma; } }
     #endregion
@@ -64,6 +65,7 @@ public class InputController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        #region uwu
         //---MOVIMIENTO--------------------------------
         //------Input del movimiento horizontal del jugador--------
         if (Input.GetKey(KeyCode.D))
@@ -87,7 +89,7 @@ public class InputController : MonoBehaviour
 
         //---INTERACTUABLES----------------------------
         //------Input para interactuar con objetos-----
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKey(KeyCode.Alpha1) && Input.GetKeyUp(KeyCode.E))
         {
             _interactuar = true;
         }
@@ -95,19 +97,16 @@ public class InputController : MonoBehaviour
         {
             _interactuar = false;
         }
-
+        #endregion
 
         //---PATAFOMA---------------------------------------
         //------Input para interactuar con las piernas-----
         //--------- Hay que dejar pulsado primero el numero y luego la E para interactuar
-        if(Input.GetKey(KeyCode.Alpha2) && Input.GetKeyUp(KeyCode.E) 
-            && _pataforma.GetComponent<PataformaComponent>().PiernasConectadas)
+        if(Input.GetKey(KeyCode.Alpha2) && Input.GetKeyUp(KeyCode.E) )
         {
-            if (!_pataformaInputComponent.enabled)
+            if (!_isPataforma)
             {
-                _pataformaInputComponent.enabled = true;
-                Debug.Log(_pataformaInputComponent.enabled);
-
+                _isPataforma = true;
                 // desactiva este componente
                 this.enabled = false;
             }
