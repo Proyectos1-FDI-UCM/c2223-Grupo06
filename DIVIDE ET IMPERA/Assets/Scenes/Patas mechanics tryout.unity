@@ -186,6 +186,10 @@ PrefabInstance:
       propertyPath: _pataforma
       value: 
       objectReference: {fileID: 1973533744}
+    - target: {fileID: 4768053018202619047, guid: 767e3f423c90f78409c3048c7e7f2088, type: 3}
+      propertyPath: m_BodyType
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5943162679483822508, guid: 767e3f423c90f78409c3048c7e7f2088, type: 3}
       propertyPath: _pataforma
       value: 
@@ -1003,6 +1007,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1689883898367907964, guid: 992501ba93238f0439e7233bf5d844eb, type: 3}
+      propertyPath: _speed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1689883898367907964, guid: 992501ba93238f0439e7233bf5d844eb, type: 3}
+      propertyPath: _player
+      value: 
+      objectReference: {fileID: 1974000493}
+    - target: {fileID: 1689883898367907964, guid: 992501ba93238f0439e7233bf5d844eb, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1689883898367907964, guid: 992501ba93238f0439e7233bf5d844eb, type: 3}
+      propertyPath: _rozamientoFreno
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 5534291845122896231, guid: 992501ba93238f0439e7233bf5d844eb, type: 3}
       propertyPath: _player
       value: 
@@ -1017,6 +1037,14 @@ PrefabInstance:
       objectReference: {fileID: 1973533744}
     - target: {fileID: 7498680429005817448, guid: 992501ba93238f0439e7233bf5d844eb, type: 3}
       propertyPath: m_BodyType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7498680429005817448, guid: 992501ba93238f0439e7233bf5d844eb, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7498680429005817448, guid: 992501ba93238f0439e7233bf5d844eb, type: 3}
+      propertyPath: m_UseFullKinematicContacts
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7498680429005817449, guid: 992501ba93238f0439e7233bf5d844eb, type: 3}
@@ -1070,6 +1098,18 @@ PrefabInstance:
     - target: {fileID: 7498680429005817454, guid: 992501ba93238f0439e7233bf5d844eb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8649995466878096373, guid: 992501ba93238f0439e7233bf5d844eb, type: 3}
+      propertyPath: _speed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8649995466878096373, guid: 992501ba93238f0439e7233bf5d844eb, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8649995466878096373, guid: 992501ba93238f0439e7233bf5d844eb, type: 3}
+      propertyPath: _rozamientoFreno
+      value: 15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 992501ba93238f0439e7233bf5d844eb, type: 3}

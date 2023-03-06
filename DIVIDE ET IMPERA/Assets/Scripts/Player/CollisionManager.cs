@@ -31,9 +31,7 @@ public class CollisionManager : MonoBehaviour
         else if (collision.GetComponent<PataformaComponent>())
         {
             collision.GetComponent<PataformaComponent>()._validPataformaHitbox = true;
-           
         }
-
 
 
         if (collision.GetComponent<Tilemap>() == false) // manera muy rudimentaria de comprobar que la colisión no es con el suelo!

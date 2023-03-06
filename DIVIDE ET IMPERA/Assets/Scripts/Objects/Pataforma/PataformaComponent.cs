@@ -24,6 +24,12 @@ public class PataformaComponent : MonoBehaviour
     public bool Pataforma { get { return _isPataforma; } }
     #endregion
 
+    #region Methods
+
+  
+
+    #endregion
+
     // Start is called before the first frame update
     void Start()
     {
@@ -39,6 +45,7 @@ public class PataformaComponent : MonoBehaviour
         if (_inputController.Pataforma && _piernasConectadas)
         {
             GetComponent<PataformaInputComponent>().enabled = true;
+            GetComponent<PataformaMovementComponent>().enabled = true;
             _player.GetComponent<InputController>()._isPataforma = false;
         }
 
@@ -54,6 +61,7 @@ public class PataformaComponent : MonoBehaviour
 
                 // desactiva el input de la pataforma
                 GetComponent<PataformaInputComponent>().enabled = false;
+                GetComponent<PataformaMovementComponent>().enabled = false;
             }
 
         }
