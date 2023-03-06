@@ -5,9 +5,8 @@ public class PalancaComponent : MonoBehaviour
 
     #region Referencias
     private InputController _inputController;
+    private PlayerManager _playerManager;
     private SpriteRenderer _mySpriteRenderer;
-    [SerializeField]
-    private GameObject _player;
     [SerializeField]
     private GameObject _puerta;
     #endregion
@@ -40,7 +39,8 @@ public class PalancaComponent : MonoBehaviour
 
     private void Start()
     {
-        _inputController = _player.GetComponent<InputController>();
+        _inputController = PlayerAccess.Instance.InputController;
+        _playerManager = PlayerAccess.Instance.PlayerManager;
         _mySpriteRenderer = GetComponent<SpriteRenderer>();
     }
     
@@ -66,18 +66,18 @@ public class PalancaComponent : MonoBehaviour
             // SI TIENE PIERNAS
             if (PlayerManager.State == PlayerManager.TimmyStates.S0)
             {
-                _player.GetComponent<PlayerManager>().RequestTimmyState(PlayerManager.TimmyStates.S1);
+                _playerManager.RequestTimmyState(PlayerManager.TimmyStates.S1);
                 Debug.Log("palanca " + PlayerManager.State);
             }
             // SI NO TIENE PIERNAS
             else if (PlayerManager.State == PlayerManager.TimmyStates.S3)
             {
-                _player.GetComponent<PlayerManager>().RequestTimmyState(PlayerManager.TimmyStates.S4);
+                _playerManager.RequestTimmyState(PlayerManager.TimmyStates.S4);
             }
 
             
             // cambia el color (deberia ser sprite)
-            _mySpriteRenderer.color = Color.blue;
+            //_mySpriteRenderer.color = Color.blue;
         }
         // se pulsa T, está cerca de la palanca, está en los estados correctos y hay un brazo conectado
         else if (_inputController.RecuperarParte && _validPalancaHitbox
@@ -91,16 +91,16 @@ public class PalancaComponent : MonoBehaviour
             // si tiene las piernas cambia de estado
             if (PlayerManager.State == PlayerManager.TimmyStates.S1)
             {
-                _player.GetComponent<PlayerManager>().RequestTimmyState(PlayerManager.TimmyStates.S0);
+                _playerManager.RequestTimmyState(PlayerManager.TimmyStates.S0);
             }
             // si no tiene piernas cambia de estado
             else if (PlayerManager.State == PlayerManager.TimmyStates.S4)
             {
-                _player.GetComponent<PlayerManager>().RequestTimmyState(PlayerManager.TimmyStates.S3);
+                _playerManager.RequestTimmyState(PlayerManager.TimmyStates.S3);
             }
 
             // cambia de color (deberia ser sprite)
-            _mySpriteRenderer.color = Color.white;
+            //_mySpriteRenderer.color = Color.white;
         }
     }
 
