@@ -6,7 +6,6 @@ public class GroundCheck : MonoBehaviour
     public bool _isGrounded;
     public bool IsGrounded { get { return _isGrounded; } }
     private LayerMask _levelMask;
-    private Collider2D _level;
     #endregion
 
     #region Methods
@@ -41,6 +40,5 @@ public class GroundCheck : MonoBehaviour
         }
         else
             _isGrounded= false;
-        _isGrounded = false; 
     }
 }
