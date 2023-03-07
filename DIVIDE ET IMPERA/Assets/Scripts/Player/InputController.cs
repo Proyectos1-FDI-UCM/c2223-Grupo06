@@ -8,6 +8,7 @@ public class InputController : MonoBehaviour
     [SerializeField]
     private GameObject _pataforma;
     private ThrowArm _armComp;
+    private Rigidbody2D _rb;
     #endregion
 
     #region Properties 
@@ -60,6 +61,7 @@ public class InputController : MonoBehaviour
         // desactiva el input de la pataforma
         //_pataformaInputComponent.enabled = false;
         _armComp = GetComponent<ThrowArm>();
+        _rb = GetComponentInChildren<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -107,7 +109,7 @@ public class InputController : MonoBehaviour
             if (!_isPataforma)
             {
                 _isPataforma = true;
-                // desactiva este componente
+                _rb.bodyType = RigidbodyType2D.Kinematic;
                 this.enabled = false;
             }
         }

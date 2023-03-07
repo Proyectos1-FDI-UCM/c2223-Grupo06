@@ -9,7 +9,9 @@ public class PataformaComponent : MonoBehaviour
     private SpriteRenderer _mySpriteRenderer;
     [SerializeField]
     private GameObject _player;
-
+    private PataformaInputComponent _pataformaInputComponent;
+    private PataformaMovementComponent _pataformaMovementComponent;
+    private Rigidbody2D _myRigidbody;
     
     #endregion
 
@@ -35,6 +37,9 @@ public class PataformaComponent : MonoBehaviour
     {
         _inputController = _player.GetComponent<InputController>();
         _mySpriteRenderer = GetComponent<SpriteRenderer>();
+        _pataformaInputComponent = GetComponent<PataformaInputComponent>();
+        _pataformaMovementComponent = GetComponent<PataformaMovementComponent>();
+        _myRigidbody = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -52,18 +57,21 @@ public class PataformaComponent : MonoBehaviour
             {
                 // activa el input del player
                 _inputController.enabled = true;
+                _player.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
 
                 // desactiva el input de la pataforma
-                GetComponent<PataformaInputComponent>().enabled = false;
-                GetComponent<PataformaMovementComponent>().enabled = false;
+                _pataformaInputComponent.enabled = false;
+                _pataformaMovementComponent.enabled = false;
+                _myRigidbody.bodyType = RigidbodyType2D.Kinematic;
             }
 
         }
         // para activar el input de las patas
         if (_inputController.Pataforma && _piernasConectadas)
         {
-            GetComponent<PataformaInputComponent>().enabled = true;
-            GetComponent<PataformaMovementComponent>().enabled = true;
+            _pataformaInputComponent.enabled = true;
+            _pataformaMovementComponent.enabled = true;
+            _myRigidbody.bodyType = RigidbodyType2D.Dynamic;
             _player.GetComponent<InputController>()._isPataforma = false;
         }
 

@@ -190,6 +190,10 @@ PrefabInstance:
       propertyPath: m_BodyType
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4768053018202619047, guid: 767e3f423c90f78409c3048c7e7f2088, type: 3}
+      propertyPath: m_Simulated
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5943162679483822508, guid: 767e3f423c90f78409c3048c7e7f2088, type: 3}
       propertyPath: _pataforma
       value: 
@@ -833,6 +837,7 @@ GameObject:
   - component: {fileID: 1707743079}
   - component: {fileID: 1707743078}
   - component: {fileID: 1707743077}
+  - component: {fileID: 1707743080}
   m_Layer: 0
   m_Name: PuertaW
   m_TagString: Untagged
@@ -933,6 +938,27 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &1707743080
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1707743076}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
 --- !u!1 &1973533744 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7498680429005817453, guid: 992501ba93238f0439e7233bf5d844eb, type: 3}
@@ -1045,12 +1071,36 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7498680429005817448, guid: 992501ba93238f0439e7233bf5d844eb, type: 3}
       propertyPath: m_UseFullKinematicContacts
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7498680429005817449, guid: 992501ba93238f0439e7233bf5d844eb, type: 3}
       propertyPath: _player
       value: 
       objectReference: {fileID: 1974000493}
+    - target: {fileID: 7498680429005817452, guid: 992501ba93238f0439e7233bf5d844eb, type: 3}
+      propertyPath: m_Size.x
+      value: 2.9113364
+      objectReference: {fileID: 0}
+    - target: {fileID: 7498680429005817452, guid: 992501ba93238f0439e7233bf5d844eb, type: 3}
+      propertyPath: m_Size.y
+      value: 0.47070706
+      objectReference: {fileID: 0}
+    - target: {fileID: 7498680429005817452, guid: 992501ba93238f0439e7233bf5d844eb, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.0147025585
+      objectReference: {fileID: 0}
+    - target: {fileID: 7498680429005817452, guid: 992501ba93238f0439e7233bf5d844eb, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.02940517
+      objectReference: {fileID: 0}
+    - target: {fileID: 7498680429005817452, guid: 992501ba93238f0439e7233bf5d844eb, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7498680429005817452, guid: 992501ba93238f0439e7233bf5d844eb, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 0.3125
+      objectReference: {fileID: 0}
     - target: {fileID: 7498680429005817453, guid: 992501ba93238f0439e7233bf5d844eb, type: 3}
       propertyPath: m_Name
       value: Pataforma
@@ -1099,6 +1149,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7498680429005817455, guid: 992501ba93238f0439e7233bf5d844eb, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 1892132422, guid: cf47535ca9364e046a4f58618cb5b3fa, type: 3}
     - target: {fileID: 8649995466878096373, guid: 992501ba93238f0439e7233bf5d844eb, type: 3}
       propertyPath: _speed
       value: 5

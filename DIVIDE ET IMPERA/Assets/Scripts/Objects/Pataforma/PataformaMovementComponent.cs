@@ -25,6 +25,20 @@ public class PataformaMovementComponent : MonoBehaviour
     #endregion
 
 
+
+
+    private void Move2()
+    {
+        if (_pataformaInputComponent.PataformaDireccion == 1)
+        {
+            transform.Translate(Vector3.right * Time.deltaTime * _speed);
+        }
+        else if (_pataformaInputComponent.PataformaDireccion == -1)
+        {
+            transform.Translate(Vector3.left * Time.deltaTime * _speed);
+        }
+    }
+
     public void Move()
     {
         //Cuando se pulsa una tecla para moverse, el jugador se mueve en esa direccion cambiando la velocidad
@@ -57,6 +71,11 @@ public class PataformaMovementComponent : MonoBehaviour
     void Update()
     {
         _pDireccion = _pataformaInputComponent.PataformaDireccion;
-        Move();
+        
+    }
+
+    private void FixedUpdate()
+    {
+        Move2();
     }
 }
