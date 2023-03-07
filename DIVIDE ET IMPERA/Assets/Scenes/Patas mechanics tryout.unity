@@ -1051,6 +1051,30 @@ PrefabInstance:
       propertyPath: _player
       value: 
       objectReference: {fileID: 1974000493}
+    - target: {fileID: 7498680429005817452, guid: 992501ba93238f0439e7233bf5d844eb, type: 3}
+      propertyPath: m_Size.x
+      value: 2.9113364
+      objectReference: {fileID: 0}
+    - target: {fileID: 7498680429005817452, guid: 992501ba93238f0439e7233bf5d844eb, type: 3}
+      propertyPath: m_Size.y
+      value: 0.47070706
+      objectReference: {fileID: 0}
+    - target: {fileID: 7498680429005817452, guid: 992501ba93238f0439e7233bf5d844eb, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.0147025585
+      objectReference: {fileID: 0}
+    - target: {fileID: 7498680429005817452, guid: 992501ba93238f0439e7233bf5d844eb, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.02940517
+      objectReference: {fileID: 0}
+    - target: {fileID: 7498680429005817452, guid: 992501ba93238f0439e7233bf5d844eb, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7498680429005817452, guid: 992501ba93238f0439e7233bf5d844eb, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 0.3125
+      objectReference: {fileID: 0}
     - target: {fileID: 7498680429005817453, guid: 992501ba93238f0439e7233bf5d844eb, type: 3}
       propertyPath: m_Name
       value: Pataforma
@@ -1099,6 +1123,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7498680429005817455, guid: 992501ba93238f0439e7233bf5d844eb, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 1892132422, guid: cf47535ca9364e046a4f58618cb5b3fa, type: 3}
     - target: {fileID: 8649995466878096373, guid: 992501ba93238f0439e7233bf5d844eb, type: 3}
       propertyPath: _speed
       value: 5

@@ -24,6 +24,17 @@ public class PataformaMovementComponent : MonoBehaviour
     public int PataformaDireccion { get { return _pDireccion; } }
     #endregion
 
+    private void Move2()
+    {
+        if (_pataformaInputComponent.PataformaDireccion == 1)
+        {
+            transform.Translate(Vector3.right * Time.deltaTime * _speed);
+        }
+        else if (_pataformaInputComponent.PataformaDireccion == -1)
+        {
+            transform.Translate(Vector3.left * Time.deltaTime * _speed);
+        }
+    }
 
     public void Move()
     {
@@ -57,6 +68,11 @@ public class PataformaMovementComponent : MonoBehaviour
     void Update()
     {
         _pDireccion = _pataformaInputComponent.PataformaDireccion;
-        Move();
+        
+    }
+
+    private void FixedUpdate()
+    {
+        Move2();
     }
 }

@@ -9,12 +9,12 @@ public class StayOnPataforma : MonoBehaviour
 
     #region Methods
 
-    
+
+    // gameObject.transform.SetParent(collision.gameObject.transform, true);
+
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.GetComponent<WeightComponent>()
-            && collision.gameObject.GetComponent<PataformaComponent>()
-            && collision.gameObject.GetComponent<PataformaComponent>().PiernasConectadas) 
+        if (collision.gameObject.GetComponent<PataformaInputComponent>())
         {
             gameObject.transform.SetParent(collision.gameObject.transform, true);
         }
@@ -24,8 +24,7 @@ public class StayOnPataforma : MonoBehaviour
 
     void OnCollisionExit2D(Collision2D collision)
     {
-        if (collision.gameObject.GetComponent<PataformaComponent>()
-            && collision.gameObject.GetComponent<WeightComponent>())
+        if (collision.gameObject.GetComponent<PataformaComponent>())
         {
             gameObject.transform.parent = null;
         }

@@ -80,8 +80,15 @@ public class MovementComponent : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        _direccion = _inputController.Direccion;
+        if (GetComponent<InputController>())
+        {
+            _direccion = _inputController.Direccion;
+        }
+        else if (GetComponent<PataformaInputComponent>())
+        {
+            _direccion = _pataformaInputComponent.PataformaDireccion;
+        }
+        
         
     }
 
