@@ -63,6 +63,7 @@ public class PataformaComponent : MonoBehaviour
                 _pataformaInputComponent.enabled = false;
                 _pataformaMovementComponent.enabled = false;
                 _myRigidbody.bodyType = RigidbodyType2D.Kinematic;
+                _mySpriteRenderer.color = Color.cyan;
             }
 
         }
@@ -73,6 +74,7 @@ public class PataformaComponent : MonoBehaviour
             _pataformaMovementComponent.enabled = true;
             _myRigidbody.bodyType = RigidbodyType2D.Dynamic;
             _player.GetComponent<InputController>()._isPataforma = false;
+            _mySpriteRenderer.color = Color.blue;
         }
 
 
@@ -104,7 +106,7 @@ public class PataformaComponent : MonoBehaviour
 
             Debug.Log(PlayerManager.State);
             // cambia el color (deberia ser sprite)
-            _mySpriteRenderer.color = Color.blue;
+            _mySpriteRenderer.color = Color.cyan;
         }
         // se pulsa T, está cerca de la pataforma, está en los estados correctos y hay patas conectadas
         else if (_inputController.RecuperarParte && _validPataformaHitbox

@@ -32,23 +32,6 @@ public class StayOnPataforma : MonoBehaviour
     }
     
 
-    /*
-    void OnCollisionEnter2D(Collision2D col)
-    {
-        if (col.gameObject.GetComponent<PataformaComponent>())
-        {
-            _isOnPlatform = true;
-        }
-    }
-
-    void OnCollisionExit2D(Collision2D col)
-    {
-        if (col.gameObject.GetComponent<PataformaComponent>())
-        {
-            _isOnPlatform = false;
-        }
-    }
-    */
     #endregion
 
 }
