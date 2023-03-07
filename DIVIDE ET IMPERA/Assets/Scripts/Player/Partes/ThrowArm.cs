@@ -30,7 +30,7 @@ public class ThrowArm : MonoBehaviour
 
         while (i < _colliders.Length && !_ballFound)
         {
-            if (_colliders[i].gameObject.CompareTag("Ball"))
+            if (_colliders[i].gameObject.GetComponent<BallComponent>() != null)
             {
                 _thrownObject = _colliders[i].gameObject;
                 _ballFound = true;

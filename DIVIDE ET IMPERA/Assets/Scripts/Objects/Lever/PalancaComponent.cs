@@ -34,6 +34,12 @@ public class PalancaComponent : MonoBehaviour
         _palanca = !_palanca;
         return _lvr;
     }
+
+    //Conecta el brazo
+    public void ConectarBrazo(bool conected)
+    {
+        _brazoConectado = conected;
+    }
     #endregion
 
 
@@ -61,7 +67,7 @@ public class PalancaComponent : MonoBehaviour
             || PlayerManager.State == PlayerManager.TimmyStates.S3))
         {
             // conecta el brazo
-            _brazoConectado = true;
+            ConectarBrazo(true);
 
             // SI TIENE PIERNAS
             if (PlayerManager.State == PlayerManager.TimmyStates.S0)
@@ -86,7 +92,7 @@ public class PalancaComponent : MonoBehaviour
             && _brazoConectado)
         {
             // desconecta el brazo
-            _brazoConectado = false;
+            ConectarBrazo(false);
 
             // si tiene las piernas cambia de estado
             if (PlayerManager.State == PlayerManager.TimmyStates.S1)
