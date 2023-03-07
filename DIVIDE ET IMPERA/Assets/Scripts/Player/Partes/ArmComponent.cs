@@ -12,14 +12,15 @@ public class ArmComponent : MonoBehaviour
     private Collider2D[] _colliders;
     private bool _leverFound;
     private GameObject _touchedLever;
+    private PlayerManager.TimmyStates _currentState;
     #endregion
     #region Methods
-    
+
     #endregion
     // Start is called before the first frame update
     void Start()
     {
-
+        _currentState = PlayerManager.State;
     }
 
     // Update is called once per frame

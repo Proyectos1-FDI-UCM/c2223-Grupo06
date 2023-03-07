@@ -66,6 +66,7 @@ public class ThrowArm : MonoBehaviour
                 _thrownObjectRB = _thrownObject.GetComponent<Rigidbody2D>();
             }
         }
+        if (_thrownObjectRB != null)
         _thrownObjectRB.AddForce(new Vector2(_horizontalForce * 100 * _myTransform.localScale.x, _verticalForce * 100));
     }
     #endregion
