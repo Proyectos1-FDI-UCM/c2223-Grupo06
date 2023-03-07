@@ -24,6 +24,9 @@ public class PataformaMovementComponent : MonoBehaviour
     public int PataformaDireccion { get { return _pDireccion; } }
     #endregion
 
+
+
+
     private void Move2()
     {
         if (_pataformaInputComponent.PataformaDireccion == 1)
