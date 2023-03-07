@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PataformaInputComponent : MonoBehaviour
@@ -48,7 +46,7 @@ public class PataformaInputComponent : MonoBehaviour
                 // desactiva este componente
                 this.enabled = false;
             }
-            
+
         }
 
 

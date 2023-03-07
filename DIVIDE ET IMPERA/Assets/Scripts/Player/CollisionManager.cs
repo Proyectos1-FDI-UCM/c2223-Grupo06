@@ -4,7 +4,7 @@ using UnityEngine.Tilemaps;
 public class CollisionManager : MonoBehaviour
 {
     #region References
-    
+
     #endregion
 
     #region Properties
@@ -31,7 +31,7 @@ public class CollisionManager : MonoBehaviour
         else if (collision.GetComponent<PataformaComponent>())
         {
             collision.GetComponent<PataformaComponent>()._validPataformaHitbox = true;
-           
+
         }
 
 
@@ -40,7 +40,7 @@ public class CollisionManager : MonoBehaviour
         {
             _validHitbox = true;
             _objetoColisionado = collision;
-        } 
+        }
     }
 
     /* Lo dejo por si acaso pero de momento nada
@@ -98,6 +98,6 @@ public class CollisionManager : MonoBehaviour
     {
         _validHitbox = false;
         _objetoColisionado = null;
-        
+
     }
 }

@@ -107,12 +107,12 @@ TextureImporter:
       name: run_no_arms_no_legs-sheet_0
       rect:
         serializedVersion: 2
-        x: 15
+        x: 14
         y: 16
         width: 21
         height: 31
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -128,12 +128,12 @@ TextureImporter:
       name: run_no_arms_no_legs-sheet_1
       rect:
         serializedVersion: 2
-        x: 65
+        x: 64
         y: 16
         width: 21
         height: 31
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -149,12 +149,12 @@ TextureImporter:
       name: run_no_arms_no_legs-sheet_2
       rect:
         serializedVersion: 2
-        x: 115
+        x: 114
         y: 16
         width: 21
         height: 31
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -170,12 +170,12 @@ TextureImporter:
       name: run_no_arms_no_legs-sheet_3
       rect:
         serializedVersion: 2
-        x: 165
+        x: 164
         y: 16
         width: 21
         height: 31
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -191,12 +191,12 @@ TextureImporter:
       name: run_no_arms_no_legs-sheet_4
       rect:
         serializedVersion: 2
-        x: 215
+        x: 214
         y: 16
         width: 21
         height: 31
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -212,12 +212,12 @@ TextureImporter:
       name: run_no_arms_no_legs-sheet_5
       rect:
         serializedVersion: 2
-        x: 266
+        x: 264
         y: 16
         width: 21
         height: 31
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

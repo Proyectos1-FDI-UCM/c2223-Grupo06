@@ -7,7 +7,7 @@ public class MovementComponent : MonoBehaviour
     private PataformaInputComponent _pataformaInputComponent;
     private Rigidbody2D _myRigidbody2D;
 
-    
+
     #endregion
 
 
@@ -78,7 +78,7 @@ public class MovementComponent : MonoBehaviour
     void Update()
     {
         _direccion = _inputController.Direccion;
-        
+
         Move();
         Flip();
     }

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PataformaComponent : MonoBehaviour
@@ -10,7 +8,7 @@ public class PataformaComponent : MonoBehaviour
     [SerializeField]
     private GameObject _player;
 
-    
+
     #endregion
 
     #region Properties
@@ -42,7 +40,7 @@ public class PataformaComponent : MonoBehaviour
             || PlayerManager.State == PlayerManager.TimmyStates.S4
             || PlayerManager.State == PlayerManager.TimmyStates.S5))
         {
-            
+
         }
 
 

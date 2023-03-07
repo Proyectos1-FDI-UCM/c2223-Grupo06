@@ -30,7 +30,7 @@ public class PlayerAnimationController : MonoBehaviour
             _myAnimator.ResetTrigger("isGrounded");
         }
 
-        if(_myMovementComponent.Direccion != 0)
+        if (_myMovementComponent.Direccion != 0)
         {
             _myAnimator.SetTrigger("isRunning");
         }

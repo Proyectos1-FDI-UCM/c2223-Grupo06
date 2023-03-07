@@ -107,7 +107,7 @@ TextureImporter:
       name: run_anim_NoArm_NoLegs-sheet_0
       rect:
         serializedVersion: 2
-        x: 15
+        x: 14
         y: 16
         width: 21
         height: 31
@@ -128,7 +128,7 @@ TextureImporter:
       name: run_anim_NoArm_NoLegs-sheet_1
       rect:
         serializedVersion: 2
-        x: 68
+        x: 64
         y: 16
         width: 21
         height: 31
@@ -149,7 +149,7 @@ TextureImporter:
       name: run_anim_NoArm_NoLegs-sheet_2
       rect:
         serializedVersion: 2
-        x: 115
+        x: 114
         y: 16
         width: 21
         height: 31
@@ -191,7 +191,7 @@ TextureImporter:
       name: run_anim_NoArm_NoLegs-sheet_4
       rect:
         serializedVersion: 2
-        x: 215
+        x: 214
         y: 16
         width: 21
         height: 31
@@ -212,7 +212,7 @@ TextureImporter:
       name: run_anim_NoArm_NoLegs-sheet_5
       rect:
         serializedVersion: 2
-        x: 265
+        x: 264
         y: 16
         width: 21
         height: 31

@@ -1,7 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.Burst.Intrinsics;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class ThrowArm : MonoBehaviour
@@ -16,7 +12,7 @@ public class ThrowArm : MonoBehaviour
     [SerializeField]
     private float _horizontalForce;
     [SerializeField]
-    private float _verticalForce;  
+    private float _verticalForce;
     #endregion
     #region Properties
     private PlayerManager.TimmyStates _currentState;
@@ -36,7 +32,7 @@ public class ThrowArm : MonoBehaviour
         {
             if (_colliders[i].gameObject.CompareTag("Ball"))
             {
-                _thrownObject= _colliders[i].gameObject;
+                _thrownObject = _colliders[i].gameObject;
                 _ballFound = true;
             }
             i++;
@@ -76,7 +72,7 @@ public class ThrowArm : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _playerManager= GetComponent<PlayerManager>();
+        _playerManager = GetComponent<PlayerManager>();
         _myTransform = GetComponent<Transform>();
     }
 

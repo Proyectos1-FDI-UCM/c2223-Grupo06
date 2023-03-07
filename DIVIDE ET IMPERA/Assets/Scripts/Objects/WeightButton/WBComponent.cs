@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class WBComponent : MonoBehaviour
@@ -36,7 +34,7 @@ public class WBComponent : MonoBehaviour
         }
     }
     */
-    
+
 
     // Start is called before the first frame update
     void Start()
@@ -47,13 +45,13 @@ public class WBComponent : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
         colliders = Physics2D.OverlapAreaAll(pointA.position, pointB.position);
 
         int i = 0;
         while (i < colliders.Length && colliders[i].gameObject.GetComponent<WeightComponent>() == null) i++;
 
-        if(i != colliders.Length)
+        if (i != colliders.Length)
         {
             _mySpriteRenderer.color = Color.white;
             _puerta.SetActive(false);

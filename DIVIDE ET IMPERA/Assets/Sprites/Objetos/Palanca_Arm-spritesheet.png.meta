@@ -69,7 +69,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -107,12 +107,12 @@ TextureImporter:
       name: Palanca_Arm-spritesheet_0
       rect:
         serializedVersion: 2
-        x: 25
+        x: 24
         y: 5
-        width: 16
+        width: 20
         height: 16
-      alignment: 9
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -128,12 +128,12 @@ TextureImporter:
       name: Palanca_Arm-spritesheet_1
       rect:
         serializedVersion: 2
-        x: 76
+        x: 74
         y: 5
-        width: 16
+        width: 20
         height: 16
-      alignment: 9
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -149,12 +149,12 @@ TextureImporter:
       name: Palanca_Arm-spritesheet_2
       rect:
         serializedVersion: 2
-        x: 128
+        x: 124
         y: 5
-        width: 16
+        width: 20
         height: 16
-      alignment: 9
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -170,12 +170,12 @@ TextureImporter:
       name: Palanca_Arm-spritesheet_3
       rect:
         serializedVersion: 2
-        x: 178
+        x: 174
         y: 5
-        width: 16
+        width: 20
         height: 16
-      alignment: 9
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -191,12 +191,12 @@ TextureImporter:
       name: Palanca_Arm-spritesheet_4
       rect:
         serializedVersion: 2
-        x: 228
+        x: 224
         y: 5
-        width: 16
+        width: 20
         height: 16
-      alignment: 9
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Interaction : MonoBehaviour
@@ -12,10 +10,10 @@ public class Interaction : MonoBehaviour
     private bool _canInteract; //booleano que controla si el jugador puede interactuar con el objeto
     #endregion
     #region Methods
-    private void OnTriggerEnter2D(Collider2D collision) 
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject == _player) //filtro para que solo el jugador pueda interactuar con cosas
-            _canInteract= true;
+            _canInteract = true;
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -29,7 +27,7 @@ public class Interaction : MonoBehaviour
     void Start()
     {
         _player = PlayerAccess.Instance.gameObject;
-        _input= _player.GetComponent<InputController>();
+        _input = _player.GetComponent<InputController>();
     }
 
     // Update is called once per frame

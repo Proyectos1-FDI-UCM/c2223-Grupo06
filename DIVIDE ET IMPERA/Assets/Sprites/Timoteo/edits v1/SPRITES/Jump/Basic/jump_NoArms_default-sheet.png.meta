@@ -107,12 +107,12 @@ TextureImporter:
       name: jump_NoArms_default-sheet_1
       rect:
         serializedVersion: 2
-        x: 14
+        x: 64
         y: 6
         width: 21
         height: 31
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -128,12 +128,12 @@ TextureImporter:
       name: jump_NoArms_default-sheet_2
       rect:
         serializedVersion: 2
-        x: 65
+        x: 114
         y: 6
         width: 21
         height: 31
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -149,12 +149,12 @@ TextureImporter:
       name: jump_NoArms_default-sheet_3
       rect:
         serializedVersion: 2
-        x: 115
+        x: 164
         y: 6
         width: 21
         height: 31
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -170,12 +170,12 @@ TextureImporter:
       name: jump_NoArms_default-sheet_4
       rect:
         serializedVersion: 2
-        x: 164
+        x: 214
         y: 6
         width: 21
         height: 31
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -188,22 +188,22 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: jump_NoArms_default-sheet_5
+      name: jump_NoArms_default-sheet_0
       rect:
         serializedVersion: 2
-        x: 215
+        x: 14
         y: 6
         width: 21
         height: 31
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2ee9dbdac49f9ff47ade1546f17c12dd
-      internalID: -1091398438
+      spriteID: ee74550ac9bb7864faf59c5ae221df6e
+      internalID: -1827686024
       vertices: []
       indices: 
       edges: []
@@ -222,7 +222,6 @@ TextureImporter:
       jump_NoArms_default-sheet_4: -850898420
       jump_NoArms_default-sheet_1: 1957977640
       jump_NoArms_default-sheet_3: 1755296064
-      jump_NoArms_default-sheet_5: -1091398438
       jump_NoArms_default-sheet_2: 691645325
       jump_NoArms_default-sheet_0: -1827686024
   spritePackingTag: 

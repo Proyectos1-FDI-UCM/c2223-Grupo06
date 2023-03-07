@@ -3,37 +3,43 @@ using UnityEngine;
 public class PlayerManager : MonoBehaviour
 {
     public enum TimmyStates { S0, S1, S2, S3, S4, S5 }; // Estados de Timmy:
-                                                        // (*ver diagrama en carpeta de apuntes para interaciones interestado^)
+                                                        // (*ver diagrama en carpeta de apuntes para interaciones)
                                                         // S0: 2 brazos y piernas
                                                         // S1: 1 brazo y piernas
                                                         // S2: piernas
                                                         // S3: 2 brazos
                                                         // S4: 1 brazo
                                                         // S5: (nada)
+                                                        // Por cada estado, hay 3 variantes según objeto portado (Red, green y blue)
+                                                        // Por ejemplo: S0 es Timmy normal con todas las partes, S3R es Timmy con sólo 2 brazos y una llave dentro
 
     #region References
+    // COMPONENTES
     private SpriteRenderer _mySpriteRenderer;
     private CollisionManager _myCollisionManager;
     private Animator _myAnimator;
     private Transform _myTransform;
 
+    // PREFABS
     [SerializeField]
-    private GameObject _brazo;
+    private GameObject _brazo; // brazo a instanciar
     [SerializeField]
-    private GameObject _pierna;
+    private GameObject _pierna; // piernas a instanciar
 
-    //array de sprites de los diferentes estados de Timmy
-    [SerializeField]
+    // SPRITES
+    [SerializeField] // array de sprites de los diferentes estados de Timmy
     private Sprite[] _sprites;
-    [SerializeField]
-    private RuntimeAnimatorController[] _controllers;
+    [SerializeField] // array de máquinas de estado de animaciones normales (aka SIN OBJETOS, solo Timmy normal)
+    private RuntimeAnimatorController[] _defaultControllers;
+    [SerializeField] // array de máquinas de estado de animaciones de colores (aka POR OBJETOS)
+    private RuntimeAnimatorController[] _colorControllers;
     #endregion
 
     #region Properties
     private static PlayerManager _instance;             // Instancia de este componente
-    private static TimmyStates _currentState;           // Timmy States
-    private TimmyStates _nextState;
     public static PlayerManager Instance { get { return _instance; } }
+    private static TimmyStates _currentState;         // Timmy States
+    private TimmyStates _nextState;
     public static TimmyStates State { get { return _currentState; } }
     #endregion
 
@@ -44,7 +50,7 @@ public class PlayerManager : MonoBehaviour
 
     #region Methods
     // MÉTODOS DE LA MÁQUINA DE ESTADO
-    public void RequestTimmyState(TimmyStates state)
+    public void RequestTimmyState(TimmyStates state) // Cambia manualmente a X estado especificado
     {
         _nextState = state;
     }
@@ -71,7 +77,7 @@ public class PlayerManager : MonoBehaviour
     }
 
     private void EnterState(TimmyStates _nextState)
-    {
+    { // ACCIONES AL ENTRAR A ESTADO
         switch (_nextState)
         {
             case TimmyStates.S0: // S0: 2 brazos y piernas
@@ -79,42 +85,42 @@ public class PlayerManager : MonoBehaviour
                 _mySpriteRenderer.sprite = _sprites[0];
                 _brazos = 2;
                 _piernas = true;
-                _myAnimator.runtimeAnimatorController = _controllers[0];
+                _myAnimator.runtimeAnimatorController = _defaultControllers[0];
                 break;
             case TimmyStates.S1: // S1: 1 brazo y piernas
                 //_mySpriteRenderer.color = Color.red;
                 _mySpriteRenderer.sprite = _sprites[1];
                 _brazos = 1;
                 _piernas = true;
-                _myAnimator.runtimeAnimatorController = _controllers[1];
+                _myAnimator.runtimeAnimatorController = _defaultControllers[1];
                 break;
             case TimmyStates.S2: // S2: piernas
                 //_mySpriteRenderer.color = Color.yellow;
                 _mySpriteRenderer.sprite = _sprites[2];
                 _brazos = 0;
                 _piernas = true;
-                _myAnimator.runtimeAnimatorController = _controllers[2];
+                _myAnimator.runtimeAnimatorController = _defaultControllers[2];
                 break;
             case TimmyStates.S3: // S3: 2 brazos
                 //_mySpriteRenderer.color = Color.green;
                 _mySpriteRenderer.sprite = _sprites[3];
                 _brazos = 2;
                 _piernas = false;
-                _myAnimator.runtimeAnimatorController = _controllers[3];
+                _myAnimator.runtimeAnimatorController = _defaultControllers[3];
                 break;
             case TimmyStates.S4: // S4: 1 brazo
                 //_mySpriteRenderer.color = Color.cyan;
                 _mySpriteRenderer.sprite = _sprites[4];
                 _brazos = 1;
                 _piernas = false;
-                _myAnimator.runtimeAnimatorController = _controllers[4];
+                _myAnimator.runtimeAnimatorController = _defaultControllers[4];
                 break;
             case TimmyStates.S5: // S5: nada
                 //_mySpriteRenderer.color = Color.magenta;
                 _mySpriteRenderer.sprite = _sprites[5];
                 _brazos = 0;
                 _piernas = false;
-                _myAnimator.runtimeAnimatorController = _controllers[5];
+                _myAnimator.runtimeAnimatorController = _defaultControllers[5];
                 break;
         }
         //Debug.Log("TIMMY: Cambio de estado de " + _currentState + " a " + _nextState);
@@ -124,7 +130,7 @@ public class PlayerManager : MonoBehaviour
     }
 
     private void UpdateState(TimmyStates _state)
-    {
+    { // LÓGICA DE CAMBIO DE ESTADOS 
         switch (_state)
         {
             case TimmyStates.S0: // S0: 2 brazos y piernas
@@ -253,11 +259,14 @@ public class PlayerManager : MonoBehaviour
     void Start()
     {
         // ._. ^.^ :P o....o ¬_¬ [-:<
+
+        // Inicialización de referencias por componentes
         _mySpriteRenderer = GetComponent<SpriteRenderer>();
         _myCollisionManager = GetComponent<CollisionManager>();
         _myAnimator = GetComponent<Animator>();
         _myTransform = transform;
 
+        // Ejecución de la entrada a estado inicial
         _currentState = TimmyStates.S1;         // Valor dummy para inicializar un cambio en cuanto empiece y se ejecute el EnterState
         _nextState = TimmyStates.S0;         // Inicializa el estado de timmy
     }
@@ -268,6 +277,7 @@ public class PlayerManager : MonoBehaviour
         {
             EnterState(_nextState); // Entrada al estado
         }
+
         UpdateState(_currentState); // Update según el estado
     }
 }
