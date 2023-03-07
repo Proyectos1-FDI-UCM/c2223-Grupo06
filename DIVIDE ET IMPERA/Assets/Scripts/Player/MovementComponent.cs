@@ -82,17 +82,12 @@ public class MovementComponent : MonoBehaviour
     {
 
         _direccion = _inputController.Direccion;
-        /*
-         * if (_player.GetComponent<InputController>().enabled)
-        {
-            _direccion = _inputController.Direccion;
-        }
-        else if (this.GetComponent<PataformaInputComponent>().enabled)
-        {
-            _direccion = _pataformaInputComponent.PataformaDireccion;
-        }
-        */
         
+    }
+
+    private void FixedUpdate()
+    {
+
         Move();
         Flip();
     }

@@ -17,6 +17,7 @@ public class PataformaComponent : MonoBehaviour
     // piernas conectadas a la pataforma 
     private bool _piernasConectadas = false;
     public bool PiernasConectadas { get { return _piernasConectadas; } }
+
     // esta en el área de una pataforma
     public bool _validPataformaHitbox;
 
@@ -26,8 +27,7 @@ public class PataformaComponent : MonoBehaviour
 
     #region Methods
 
-  
-
+    
     #endregion
 
     // Start is called before the first frame update
@@ -41,13 +41,7 @@ public class PataformaComponent : MonoBehaviour
     void Update()
     {
 
-        // para activar el input de las patas
-        if (_inputController.Pataforma && _piernasConectadas)
-        {
-            GetComponent<PataformaInputComponent>().enabled = true;
-            GetComponent<PataformaMovementComponent>().enabled = true;
-            _player.GetComponent<InputController>()._isPataforma = false;
-        }
+       
 
         //---PATAFOMA---------------------------------------
         //------Input para interactuar con las piernas-----
@@ -64,6 +58,13 @@ public class PataformaComponent : MonoBehaviour
                 GetComponent<PataformaMovementComponent>().enabled = false;
             }
 
+        }
+        // para activar el input de las patas
+        if (_inputController.Pataforma && _piernasConectadas)
+        {
+            GetComponent<PataformaInputComponent>().enabled = true;
+            GetComponent<PataformaMovementComponent>().enabled = true;
+            _player.GetComponent<InputController>()._isPataforma = false;
         }
 
 
