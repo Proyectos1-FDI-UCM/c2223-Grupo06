@@ -19,7 +19,7 @@ public class WBComponent : MonoBehaviour
     private SpriteRenderer _mySpriteRenderer;
 
 
-    /*
+  /*
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.gameObject.GetComponent<WeightComponent>() != null)
