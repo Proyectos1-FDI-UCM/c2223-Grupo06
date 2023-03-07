@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class PataformaComponent : MonoBehaviour
@@ -8,7 +10,7 @@ public class PataformaComponent : MonoBehaviour
     [SerializeField]
     private GameObject _player;
 
-
+    
     #endregion
 
     #region Properties
@@ -22,6 +24,12 @@ public class PataformaComponent : MonoBehaviour
     public bool Pataforma { get { return _isPataforma; } }
     #endregion
 
+    #region Methods
+
+  
+
+    #endregion
+
     // Start is called before the first frame update
     void Start()
     {
@@ -33,16 +41,30 @@ public class PataformaComponent : MonoBehaviour
     void Update()
     {
 
-        //---QUITAR Y PONER PARTES------------------------------------
-        // si se ha pulsado la E, el brazo está conectado y está en el estado correcto
-        if (_inputController.Interactuar && _piernasConectadas
-            && (PlayerManager.State == PlayerManager.TimmyStates.S3
-            || PlayerManager.State == PlayerManager.TimmyStates.S4
-            || PlayerManager.State == PlayerManager.TimmyStates.S5))
+        // para activar el input de las patas
+        if (_inputController.Pataforma && _piernasConectadas)
         {
-
+            GetComponent<PataformaInputComponent>().enabled = true;
+            GetComponent<PataformaMovementComponent>().enabled = true;
+            _player.GetComponent<InputController>()._isPataforma = false;
         }
 
+        //---PATAFOMA---------------------------------------
+        //------Input para interactuar con las piernas-----
+        //--------- Hay que dejar pulsado primero el numero y luego la E para interactuar
+        if (Input.GetKey(KeyCode.Alpha2) && Input.GetKeyUp(KeyCode.E))
+        {
+            if (!_inputController.enabled)
+            {
+                // activa el input del player
+                _inputController.enabled = true;
+
+                // desactiva el input de la pataforma
+                GetComponent<PataformaInputComponent>().enabled = false;
+                GetComponent<PataformaMovementComponent>().enabled = false;
+            }
+
+        }
 
 
         //-------CONECTAR PIERNAS-------------------
@@ -59,7 +81,6 @@ public class PataformaComponent : MonoBehaviour
             if (PlayerManager.State == PlayerManager.TimmyStates.S0)
             {
                 _player.GetComponent<PlayerManager>().RequestTimmyState(PlayerManager.TimmyStates.S3);
-                Debug.Log("uwu " + PlayerManager.State);
             }
             // SI NO TIENE UN BRAZO
             else if (PlayerManager.State == PlayerManager.TimmyStates.S1)

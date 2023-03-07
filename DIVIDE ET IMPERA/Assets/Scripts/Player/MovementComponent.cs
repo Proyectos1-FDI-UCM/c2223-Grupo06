@@ -7,6 +7,8 @@ public class MovementComponent : MonoBehaviour
     private PataformaInputComponent _pataformaInputComponent;
     private Rigidbody2D _myRigidbody2D;
 
+    [SerializeField]
+    private GameObject _player;
 
     #endregion
 
@@ -72,13 +74,25 @@ public class MovementComponent : MonoBehaviour
     {
         _inputController = GetComponent<InputController>();
         _myRigidbody2D = GetComponent<Rigidbody2D>();
+        _pataformaInputComponent = GetComponent<PataformaInputComponent>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        _direccion = _inputController.Direccion;
 
+        _direccion = _inputController.Direccion;
+        /*
+         * if (_player.GetComponent<InputController>().enabled)
+        {
+            _direccion = _inputController.Direccion;
+        }
+        else if (this.GetComponent<PataformaInputComponent>().enabled)
+        {
+            _direccion = _pataformaInputComponent.PataformaDireccion;
+        }
+        */
+        
         Move();
         Flip();
     }
