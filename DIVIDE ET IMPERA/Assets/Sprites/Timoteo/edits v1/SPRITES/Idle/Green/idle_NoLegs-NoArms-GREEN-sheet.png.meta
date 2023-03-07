@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: e830b8a0d6882fc449cac495a4fbdace
+guid: 247d6ebe006462240a8ae53ab1660d09
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -42,7 +42,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -102,7 +102,70 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: idle_NoLegs-NoArms-GREEN-sheet_0
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 16
+        width: 21
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e77476a01cbba74ab0a103dfac06574
+      internalID: 534248690
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: idle_NoLegs-NoArms-GREEN-sheet_1
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 16
+        width: 21
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3dfb41c7180a13b46b5464c212eae14e
+      internalID: -170522167
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: idle_NoLegs-NoArms-GREEN-sheet_2
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 16
+        width: 21
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1bb0ff29733792f43a1c2c0dc9d8a23f
+      internalID: 949961457
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -113,7 +176,10 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      idle_NoLegs-NoArms-GREEN-sheet_0: 534248690
+      idle_NoLegs-NoArms-GREEN-sheet_2: 949961457
+      idle_NoLegs-NoArms-GREEN-sheet_1: -170522167
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
