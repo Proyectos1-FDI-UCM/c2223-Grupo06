@@ -71,7 +71,7 @@ public class PataformaMovementComponent : MonoBehaviour
     void Update()
     {
         _pDireccion = _pataformaInputComponent.PataformaDireccion;
-        
+
     }
 
     private void FixedUpdate()

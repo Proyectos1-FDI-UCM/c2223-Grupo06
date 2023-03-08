@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 7912081989183737634}
   - component: {fileID: 734111396539604467}
   - component: {fileID: 4777051804109853913}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Timoteo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -311,6 +311,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _brazo: {fileID: 2364319286159778462, guid: e90420e54f5db3641ad4a0495fa575fe, type: 3}
   _pierna: {fileID: 4257366962654404361, guid: e6abbefdc04754441a1beb5de5dd8238, type: 3}
+  _objetos:
+  - {fileID: 5276601373044919741, guid: 3c6c75f4de69a4843bdc0e3e045fefd2, type: 3}
+  - {fileID: 1841647649797932075, guid: 17d960716009a7244a9ee8b737452008, type: 3}
+  - {fileID: 2708092253449261225, guid: 48fcaa11ff92ca543ac1b7797ce53f49, type: 3}
   _sprites:
   - {fileID: -555582313, guid: dbb451e24f65aab47a71737041013075, type: 3}
   - {fileID: -443899769, guid: 67928d2e771f54946b3b508f9a316acc, type: 3}

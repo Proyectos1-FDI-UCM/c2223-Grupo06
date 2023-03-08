@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PataformaComponent : MonoBehaviour
@@ -12,7 +10,7 @@ public class PataformaComponent : MonoBehaviour
     private PataformaInputComponent _pataformaInputComponent;
     private PataformaMovementComponent _pataformaMovementComponent;
     private Rigidbody2D _myRigidbody;
-    
+
     #endregion
 
     #region Properties
@@ -29,7 +27,7 @@ public class PataformaComponent : MonoBehaviour
 
     #region Methods
 
-    
+
     #endregion
 
     // Start is called before the first frame update
@@ -46,7 +44,7 @@ public class PataformaComponent : MonoBehaviour
     void Update()
     {
 
-       
+
 
         //---PATAFOMA---------------------------------------
         //------Input para interactuar con las piernas-----

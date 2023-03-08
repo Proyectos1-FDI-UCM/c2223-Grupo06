@@ -12,6 +12,8 @@ public class PlayerAnimationController : MonoBehaviour
         _myAnimator = GetComponent<Animator>();
         _myGroundCheck = GetComponentInChildren<GroundCheck>();
         _myMovementComponent = GetComponent<MovementComponent>();
+        _myAnimator.ResetTrigger("isGrounded");
+        _myAnimator.ResetTrigger("isRunning");
     }
 
     void Update()

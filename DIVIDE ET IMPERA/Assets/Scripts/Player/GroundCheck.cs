@@ -39,6 +39,6 @@ public class GroundCheck : MonoBehaviour
             _isGrounded = true;
         }
         else
-            _isGrounded= false;
+            _isGrounded = false;
     }
 }

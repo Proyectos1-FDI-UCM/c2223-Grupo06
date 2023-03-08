@@ -67,7 +67,7 @@ public class ThrowArm : MonoBehaviour
             }
         }
         if (_thrownObjectRB != null)
-        _thrownObjectRB.AddForce(new Vector2(_horizontalForce * 100 * _myTransform.localScale.x, _verticalForce * 100));
+            _thrownObjectRB.AddForce(new Vector2(_horizontalForce * 100 * _myTransform.localScale.x, _verticalForce * 100));
     }
     #endregion
     // Start is called before the first frame update

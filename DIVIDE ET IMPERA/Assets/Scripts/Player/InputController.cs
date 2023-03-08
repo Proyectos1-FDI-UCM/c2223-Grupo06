@@ -104,7 +104,7 @@ public class InputController : MonoBehaviour
         //---PATAFOMA---------------------------------------
         //------Input para interactuar con las piernas-----
         //--------- Hay que dejar pulsado primero el numero y luego la E para interactuar
-        if(Input.GetKey(KeyCode.Alpha2) && Input.GetKeyUp(KeyCode.E) )
+        if (Input.GetKey(KeyCode.Alpha2) && Input.GetKeyUp(KeyCode.E))
         {
             if (!_isPataforma)
             {
@@ -115,7 +115,7 @@ public class InputController : MonoBehaviour
         }
 
         //---LANZAR BRAZO-----------------------------------
-        if(Input.GetKeyDown(KeyCode.F))
+        if (Input.GetKeyDown(KeyCode.F))
         {
             _armComp.LanzarBrazo();
         }
@@ -146,11 +146,11 @@ public class InputController : MonoBehaviour
         //      Para ver si cambia de estados bien
         if (Input.GetKeyDown(KeyCode.V))
         { // SUBIR ESTADO
-            PlayerManager.Instance.AddTimmyState(PlayerManager.State);
+            PlayerManager.Instance.AddObject();
         }
         else if (Input.GetKeyDown(KeyCode.C))
         { // BAJAR ESTADO
-            PlayerManager.Instance.SubTimmyState(PlayerManager.State);
+            PlayerManager.Instance.SubObject();
         }
 
         if (Input.GetKeyDown(KeyCode.P))

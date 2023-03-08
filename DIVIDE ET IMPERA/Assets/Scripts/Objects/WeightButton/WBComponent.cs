@@ -19,21 +19,21 @@ public class WBComponent : MonoBehaviour
     private SpriteRenderer _mySpriteRenderer;
 
 
-  /*
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        if (collision.gameObject.GetComponent<WeightComponent>() != null)
-        {
-            _mySpriteRenderer.color = Color.white;
-            _puerta.SetActive(false);
-        }
-        else 
-        {
-            _mySpriteRenderer.color = Color.magenta;
-            _puerta.SetActive(true);
-        }
-    }
-    */
+    /*
+      private void OnTriggerStay2D(Collider2D collision)
+      {
+          if (collision.gameObject.GetComponent<WeightComponent>() != null)
+          {
+              _mySpriteRenderer.color = Color.white;
+              _puerta.SetActive(false);
+          }
+          else 
+          {
+              _mySpriteRenderer.color = Color.magenta;
+              _puerta.SetActive(true);
+          }
+      }
+      */
 
 
     // Start is called before the first frame update

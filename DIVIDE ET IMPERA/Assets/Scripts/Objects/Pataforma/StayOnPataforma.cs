@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class StayOnPataforma : MonoBehaviour
@@ -18,7 +16,7 @@ public class StayOnPataforma : MonoBehaviour
         {
             gameObject.transform.SetParent(collision.gameObject.transform, true);
         }
-        
+
     }
 
 
@@ -28,9 +26,9 @@ public class StayOnPataforma : MonoBehaviour
         {
             gameObject.transform.parent = null;
         }
-            
+
     }
-    
+
 
     #endregion
 

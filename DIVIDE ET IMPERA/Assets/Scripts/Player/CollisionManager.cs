@@ -4,7 +4,7 @@ using UnityEngine.Tilemaps;
 public class CollisionManager : MonoBehaviour
 {
     #region References
-    
+
     #endregion
 
     #region Properties
@@ -37,19 +37,12 @@ public class CollisionManager : MonoBehaviour
         if (collision.GetComponent<Tilemap>() == false) // manera muy rudimentaria de comprobar que la colisión no es con el suelo!
         {
             _validHitbox = true;
-            _objetoColisionado = collision;
-        } 
-    }
-
-    /* Lo dejo por si acaso pero de momento nada
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        if (collision.GetComponent<Tilemap>() == false)
-        {
-            _objetoColisionado = collision;
+            if (collision.gameObject.layer == 9) // Timoteo y sus partes 
+            {
+                _objetoColisionado = collision;
+            }
         }
     }
-    */
 
     private void OnTriggerExit2D(Collider2D collision)
     {
@@ -64,7 +57,10 @@ public class CollisionManager : MonoBehaviour
         if (collision.GetComponent<Tilemap>() == false)
         {
             _validHitbox = false;
-            _objetoColisionado = null;
+            if (collision.gameObject.layer == 9) // Timoteo y sus partes 
+            {
+                _objetoColisionado = null;
+            }
         }
     }
 
@@ -96,6 +92,6 @@ public class CollisionManager : MonoBehaviour
     {
         _validHitbox = false;
         _objetoColisionado = null;
-        
+
     }
 }

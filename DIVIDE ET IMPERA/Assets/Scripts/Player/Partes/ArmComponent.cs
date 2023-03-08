@@ -30,7 +30,7 @@ public class ArmComponent : MonoBehaviour
         int i = 0;
         _leverFound = false;
 
-        while(i < _colliders.Length && !_leverFound)
+        while (i < _colliders.Length && !_leverFound)
         {
             if (_colliders[i].gameObject.GetComponent<PalancaComponent>() != null)
             {
@@ -40,7 +40,7 @@ public class ArmComponent : MonoBehaviour
             else
                 i++;
         }
-        if(_leverFound && !_touchedLever.GetComponent<PalancaComponent>().BrazoConectado)
+        if (_leverFound && !_touchedLever.GetComponent<PalancaComponent>().BrazoConectado)
         {
             _leverFound = false;
             _touchedLever.GetComponent<PalancaComponent>().ConectarBrazo(true);

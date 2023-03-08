@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PataformaInputComponent : MonoBehaviour
@@ -30,7 +28,7 @@ public class PataformaInputComponent : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
+
         //---MOVIMIENTO--------------------------------
         //------Input del movimiento horizontal de la pataforma--------
         if (Input.GetKey(KeyCode.D))

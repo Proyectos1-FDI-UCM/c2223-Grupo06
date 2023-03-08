@@ -88,8 +88,8 @@ public class MovementComponent : MonoBehaviour
         {
             _direccion = _pataformaInputComponent.PataformaDireccion;
         }
-        
-        
+
+
     }
 
     private void FixedUpdate()
