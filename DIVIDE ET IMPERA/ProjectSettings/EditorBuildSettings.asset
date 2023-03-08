@@ -11,7 +11,10 @@ EditorBuildSettings:
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/CharacterManagerTestScene.unity
     guid: a82f3d7b09b53384e97037fc0cf88b0b
+  - enabled: 1
+    path: Assets/Scenes/HITO 1.unity
+    guid: eee80835e263d794b9a4c1f883bbd487
   m_configObjects: {}
