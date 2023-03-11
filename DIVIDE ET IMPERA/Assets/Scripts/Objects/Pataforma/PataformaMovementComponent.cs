@@ -4,7 +4,7 @@ public class PataformaMovementComponent : MonoBehaviour
 {
 
     #region Referencias
-    private PataformaInputComponent _pataformaInputComponent;
+    private PataformaComponent _pataformaComponent;
     private InputController _inputController;
     private Rigidbody2D _myRigidbody2D;
     #endregion
@@ -29,14 +29,15 @@ public class PataformaMovementComponent : MonoBehaviour
 
     private void Move2()
     {
-        if (_pataformaInputComponent.PataformaDireccion == 1)
+        if (_pataformaComponent.PataformaDireccion == 1)
         {
             transform.Translate(Vector3.right * Time.deltaTime * _speed);
         }
-        else if (_pataformaInputComponent.PataformaDireccion == -1)
+        else if (_pataformaComponent.PataformaDireccion == -1)
         {
             transform.Translate(Vector3.left * Time.deltaTime * _speed);
         }
+        
     }
 
     public void Move()
@@ -62,20 +63,20 @@ public class PataformaMovementComponent : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _pataformaInputComponent = GetComponent<PataformaInputComponent>();
-        //_inputController = GetComponent<InputController>();
+        _pataformaComponent = GetComponent<PataformaComponent>();
         _myRigidbody2D = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        _pDireccion = _pataformaInputComponent.PataformaDireccion;
+        _pDireccion = _pataformaComponent.PataformaDireccion;
 
     }
 
     private void FixedUpdate()
     {
         Move2();
+
     }
 }

@@ -49,8 +49,8 @@ public class GameManager : MonoBehaviour
                 //_UIManager.SetMenu(GameStates.INTRO);    // Activa menú intro
                 break;
             case GameStates.GAME:                        //     *JUEGO*
-                _UIManager.SetMenu(GameStates.GAME);     // Activa HUD
-                _UIManager.SetUpGameHUD(); // Inicializa valores del HUD
+                //_UIManager.SetMenu(GameStates.GAME);     // Activa HUD
+                //_UIManager.SetUpGameHUD(); // Inicializa valores del HUD
                 break;
             case GameStates.GAMEOVER:                    //     *FIN DEL JUEGO*
                 //_UIManager.SetMenu(GameStates.GAMEOVER); // Activa el texto de GameOver
@@ -75,7 +75,7 @@ public class GameManager : MonoBehaviour
 
         if (state == GameStates.GAME)
         {
-            _UIManager.UpdateGameHUD();
+            //_UIManager.UpdateGameHUD();
         }
     }
     #endregion

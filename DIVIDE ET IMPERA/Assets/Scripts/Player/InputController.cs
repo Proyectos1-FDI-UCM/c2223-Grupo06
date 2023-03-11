@@ -4,11 +4,10 @@ public class InputController : MonoBehaviour
 {
     #region Referencias
     private JumpComponent _playerJump;
-    private PataformaInputComponent _pataformaInputComponent;
     [SerializeField]
     private GameObject _pataforma;
     private ThrowArm _armComp;
-    private Rigidbody2D _rb;
+    private Rigidbody2D _playerRigidBody;
     #endregion
 
     #region Properties 
@@ -42,9 +41,9 @@ public class InputController : MonoBehaviour
     // indica si el jugador quiere cambiar el input a la Pataforma
     // booleano para saber si se ha cambiado el input a la pataforma
     [SerializeField]
-    public bool _isPataforma;
+    public bool _changeToPataforma;
     // acceso público a _isPataforma
-    public bool Pataforma { get { return _isPataforma; } }
+    public bool ChangeToPataforma { get { return _changeToPataforma; } }
     #endregion
 
     #region Parameters
@@ -61,7 +60,9 @@ public class InputController : MonoBehaviour
         // desactiva el input de la pataforma
         //_pataformaInputComponent.enabled = false;
         _armComp = GetComponent<ThrowArm>();
-        _rb = GetComponentInChildren<Rigidbody2D>();
+
+        // rigid body del player
+        _playerRigidBody = GetComponentInChildren<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -91,7 +92,7 @@ public class InputController : MonoBehaviour
 
         //---INTERACTUABLES----------------------------
         //------Input para interactuar con objetos-----
-        if (Input.GetKey(KeyCode.Alpha1) && Input.GetKeyUp(KeyCode.E))
+        if (Input.GetKey(KeyCode.Alpha1) && Input.GetKeyDown(KeyCode.E))
         {
             _interactuar = true;
         }
@@ -106,10 +107,11 @@ public class InputController : MonoBehaviour
         //--------- Hay que dejar pulsado primero el numero y luego la E para interactuar
         if (Input.GetKey(KeyCode.Alpha2) && Input.GetKeyUp(KeyCode.E))
         {
-            if (!_isPataforma)
+            if (!_changeToPataforma)
             {
-                _isPataforma = true;
-                _rb.bodyType = RigidbodyType2D.Kinematic;
+                _changeToPataforma = true;
+                //_playerRigidBody.bodyType = RigidbodyType2D.Kinematic;
+
                 this.enabled = false;
             }
         }

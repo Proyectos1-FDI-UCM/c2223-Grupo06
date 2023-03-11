@@ -4,8 +4,8 @@ public class MovementComponent : MonoBehaviour
 {
     #region Referencias
     private InputController _inputController;
-    private PataformaInputComponent _pataformaInputComponent;
     private Rigidbody2D _myRigidbody2D;
+    private PataformaComponent _pataformaComponent;
 
     [SerializeField]
     private GameObject _player;
@@ -74,7 +74,7 @@ public class MovementComponent : MonoBehaviour
     {
         _inputController = GetComponent<InputController>();
         _myRigidbody2D = GetComponent<Rigidbody2D>();
-        _pataformaInputComponent = GetComponent<PataformaInputComponent>();
+        _pataformaComponent = GetComponent<PataformaComponent>();
     }
 
     // Update is called once per frame
@@ -84,9 +84,9 @@ public class MovementComponent : MonoBehaviour
         {
             _direccion = _inputController.Direccion;
         }
-        else if (GetComponent<PataformaInputComponent>())
+        else if (GetComponent<PataformaComponent>())
         {
-            _direccion = _pataformaInputComponent.PataformaDireccion;
+            _direccion = _pataformaComponent.PataformaDireccion;
         }
 
 

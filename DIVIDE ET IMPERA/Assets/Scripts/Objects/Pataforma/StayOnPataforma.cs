@@ -2,19 +2,19 @@ using UnityEngine;
 
 public class StayOnPataforma : MonoBehaviour
 {
-    private bool _isOnPlatform;
-
+    private InputController _inputController;
 
     #region Methods
 
-
-    // gameObject.transform.SetParent(collision.gameObject.transform, true);
-
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.GetComponent<PataformaInputComponent>())
+        if (collision.gameObject.GetComponent<PataformaComponent>())
         {
-            gameObject.transform.SetParent(collision.gameObject.transform, true);
+            if(gameObject.transform.parent == null && _inputController.enabled)
+            {
+                // cambia el padre de timmy (no alubia, otro)
+                gameObject.transform.SetParent(collision.gameObject.transform, true);
+            }
         }
 
     }
@@ -24,6 +24,7 @@ public class StayOnPataforma : MonoBehaviour
     {
         if (collision.gameObject.GetComponent<PataformaComponent>())
         {
+            // cambia el padre de timmy (no alubia, otro)
             gameObject.transform.parent = null;
         }
 
@@ -32,4 +33,9 @@ public class StayOnPataforma : MonoBehaviour
 
     #endregion
 
+
+    private void Start()
+    {
+        _inputController = GetComponent<InputController>();
+    }
 }
