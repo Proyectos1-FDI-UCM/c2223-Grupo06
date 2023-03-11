@@ -12,11 +12,11 @@ public class GameManager : MonoBehaviour
     #region properties
     // Game States
     private static GameManager _instance;
-    private static GameStates _currentGameState;
-    private static GameStates _nextGameState;
+    private GameStates _currentGameState;
+    private GameStates _nextGameState;
     public static GameManager Instance { get { return _instance; } }
-    public static GameStates CurrentGameState { get { return _currentGameState; } }
-    public static GameStates NextGameState { get { return _nextGameState; } }
+    public GameStates CurrentState { get { return _currentGameState; } }
+    public  GameStates NextState { get { return _nextGameState; } }
     #endregion
 
     #region methods
@@ -49,8 +49,8 @@ public class GameManager : MonoBehaviour
                 //_UIManager.SetMenu(GameStates.INTRO);    // Activa menú intro
                 break;
             case GameStates.GAME:                        //     *JUEGO*
-                //_UIManager.SetMenu(GameStates.GAME);     // Activa HUD
-                //_UIManager.SetUpGameHUD(_remainingTime); // Inicializa valores del HUD
+                _UIManager.SetMenu(GameStates.GAME);     // Activa HUD
+                _UIManager.SetUpGameHUD(); // Inicializa valores del HUD
                 break;
             case GameStates.GAMEOVER:                    //     *FIN DEL JUEGO*
                 //_UIManager.SetMenu(GameStates.GAMEOVER); // Activa el texto de GameOver
@@ -75,7 +75,7 @@ public class GameManager : MonoBehaviour
 
         if (state == GameStates.GAME)
         {
-            //_UIManager.UpdateGameHUD();
+            _UIManager.UpdateGameHUD();
         }
     }
     #endregion
@@ -88,7 +88,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         _currentGameState = GameStates.INTRO; // Valor dummy para que se realice el cambio nada más empezar
-        _nextGameState = GameStates.START;    // Estado inicial, es diferente al current para que el EnterState del primer update se realice
+        _nextGameState = GameStates.GAME;    // Estado inicial, es diferente al current para que el EnterState del primer update se realice
     }
 
     void Update()
