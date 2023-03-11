@@ -20,6 +20,7 @@ public class PlayerManager : MonoBehaviour
     private CollisionManager _myCollisionManager;
     private Animator _myAnimator;
     private Transform _myTransform;
+    private UIManager _UIManager;
 
     // PREFABS
     [SerializeField]
@@ -50,10 +51,14 @@ public class PlayerManager : MonoBehaviour
     private int _brazos;     // cuantos brazos tiene (NUNCA menor que 0 o mayor que 2)
     private bool _piernas;   // si las tiene o si no
     private Objetos _objeto; // el objeto que tiene (enum)
-    //private GameObject _objeto2; // el objeto que tiene DEBUGGGGGG
     #endregion
 
     #region Methods
+    public void RegisterUIManager(UIManager uiManager)
+    {
+        _UIManager = uiManager;
+    }
+
     // MÉTODOS DE LA MÁQUINA DE ESTADO
     public void RequestTimmyState(TimmyStates state) // Cambia manualmente a X estado especificado
     {
@@ -288,12 +293,7 @@ public class PlayerManager : MonoBehaviour
     {
         _objeto = nuevoObjeto;
     }
-    /*
-    public void AñadirObjeto2(GameObject nuevoObjeto)
-    {
-        _objeto2 = nuevoObjeto;
-    }
-    */
+
     public bool EliminarObjeto()
     {
         if (_objeto != Objetos.NADA)
@@ -303,17 +303,7 @@ public class PlayerManager : MonoBehaviour
         }
         else return false;
     }
-    /*
-    public bool EliminaObjeto2()
-    {
-        if (_objeto2 != null)
-        {
-            _objeto2 = null;
-            return true;
-        }
-        else return false;
-    }
-    */
+
     public bool TieneObjeto()
     {
         if (_objeto != Objetos.NADA)
@@ -322,16 +312,6 @@ public class PlayerManager : MonoBehaviour
         }
         else return false;
     }
-    /*
-    public bool TieneObjeto2()
-    {
-        if (_objeto2 != null)
-        {
-            return true;
-        }
-        else return false;
-    }
-    */
     #endregion
 
     void Awake()
@@ -361,6 +341,7 @@ public class PlayerManager : MonoBehaviour
         if (_currentState != _nextState)
         {
             EnterState(_nextState); // Entrada al estado
+            _UIManager.SetUpGameHUD(_nextState);
         }
 
         UpdateState(_currentState); // Update según el estado
