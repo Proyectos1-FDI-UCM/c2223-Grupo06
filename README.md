@@ -18,8 +18,8 @@ Timoteo es capaz de separar las partes de su cuerpo para proporcionar funcionali
 
 ## Estado
 
-*Hito 1:* Producción.
-Finaliza el 8/3/2023.
+*Hito 2:* Producción.
+Finaliza el 14/4/2023.
 
 ## Jerarquía
 
