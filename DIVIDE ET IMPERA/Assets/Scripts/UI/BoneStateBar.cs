@@ -26,13 +26,11 @@ public class BoneStateBar : MonoBehaviour
     }
     #endregion
 
-    // Start is called beore the first frame update
     private void Start()
     {
         _currentBoneState = _maxBoneState; // al inicio siempre se tiene la barra al máximo
     }
 
-    // Update is called once per frame
     void Update()
     {
         _boneStateBar.fillAmount = (_currentBoneState / _maxBoneState); // actualiza el estado de la barra
