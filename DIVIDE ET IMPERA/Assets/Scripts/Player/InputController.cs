@@ -8,6 +8,7 @@ public class InputController : MonoBehaviour
     private GameObject _pataforma;
     private ThrowArm _armComp;
     private Rigidbody2D _playerRigidBody;
+    
     #endregion
 
     #region Properties 
@@ -107,7 +108,10 @@ public class InputController : MonoBehaviour
         //--------- Hay que dejar pulsado primero el numero y luego la E para interactuar
         if (Input.GetKey(KeyCode.Alpha2) && Input.GetKeyUp(KeyCode.E))
         {
-            if (!_changeToPataforma)
+            if (!_changeToPataforma
+                && (PlayerManager.State == PlayerManager.TimmyStates.S3
+                || PlayerManager.State == PlayerManager.TimmyStates.S4
+                || PlayerManager.State == PlayerManager.TimmyStates.S5))
             {
                 _changeToPataforma = true;
                 //_playerRigidBody.bodyType = RigidbodyType2D.Kinematic;
