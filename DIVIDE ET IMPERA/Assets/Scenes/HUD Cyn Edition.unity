@@ -2649,10 +2649,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1731498804197278264, guid: 767e3f423c90f78409c3048c7e7f2088, type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
     - target: {fileID: 2285777756704234152, guid: 767e3f423c90f78409c3048c7e7f2088, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -2700,10 +2696,6 @@ PrefabInstance:
     - target: {fileID: 2311462238604020209, guid: 767e3f423c90f78409c3048c7e7f2088, type: 3}
       propertyPath: m_Name
       value: Timoteo
-      objectReference: {fileID: 0}
-    - target: {fileID: 2311462238604020209, guid: 767e3f423c90f78409c3048c7e7f2088, type: 3}
-      propertyPath: m_Layer
-      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 767e3f423c90f78409c3048c7e7f2088, type: 3}
