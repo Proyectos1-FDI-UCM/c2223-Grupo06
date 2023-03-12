@@ -40,20 +40,27 @@ public class PlayerManager : MonoBehaviour
     #endregion
 
     #region Properties
-    private static PlayerManager _instance;             // Instancia de este componente
+    // Instancia de este componente
+    private static PlayerManager _instance;            
     public static PlayerManager Instance { get { return _instance; } }
-    private static TimmyStates _currentState;         // Timmy States
+
+    // Timmy States
+    private static TimmyStates _currentState;         
     private TimmyStates _nextState;
     public static TimmyStates State { get { return _currentState; } }
+
+    // Objeto en inventario
+    private Objetos _objeto; 
+    public Objetos Objeto { get { return _objeto; } }
     #endregion
 
     #region Parameters
     private int _brazos;     // cuantos brazos tiene (NUNCA menor que 0 o mayor que 2)
     private bool _piernas;   // si las tiene o si no
-    private Objetos _objeto; // el objeto que tiene (enum)
     #endregion
 
     #region Methods
+    // REGISTROS
     public void RegisterUIManager(UIManager uiManager)
     {
         _UIManager = uiManager;
@@ -88,45 +95,36 @@ public class PlayerManager : MonoBehaviour
 
     private void EnterState(TimmyStates _nextState)
     { // ACCIONES AL ENTRAR A ESTADO
-        switch (_nextState)
-        {
+        switch (_nextState) 
+        { // Asigna los parámetros según el estado
             case TimmyStates.S0: // S0: 2 brazos y piernas
-                //_mySpriteRenderer.color = Color.white;
                 _brazos = 2;
                 _piernas = true;
                 break;
             case TimmyStates.S1: // S1: 1 brazo y piernas
-                //_mySpriteRenderer.color = Color.red;
                 _brazos = 1;
                 _piernas = true;
                 break;
             case TimmyStates.S2: // S2: piernas
-                //_mySpriteRenderer.color = Color.yellow;
                 _brazos = 0;
                 _piernas = true;
                 break;
             case TimmyStates.S3: // S3: 2 brazos
-                //_mySpriteRenderer.color = Color.green;
                 _brazos = 2;
                 _piernas = false;
                 break;
             case TimmyStates.S4: // S4: 1 brazo
-                //_mySpriteRenderer.color = Color.cyan;
                 _brazos = 1;
                 _piernas = false;
                 break;
             case TimmyStates.S5: // S5: nada
-                //_mySpriteRenderer.color = Color.magenta;
                 _brazos = 0;
                 _piernas = false;
                 break;
         }
-        _mySpriteRenderer.sprite = _sprites[(int)_nextState];
-        RequestControllerChange(_defaultControllers, (int)_nextState);
-        _currentState = _nextState;
-        //Debug.Log("TIMMY: Cambio de estado de " + _currentState + " a " + _nextState);
-        //Debug.Log("TIMMY: Brazos: " + _brazos + " y piernas: " + _piernas);
-        //Debug.Log("TIMMY: Animator Controller: " + _myAnimator.runtimeAnimatorController);
+        _mySpriteRenderer.sprite = _sprites[(int)_nextState];          // cambio de sprite (esto realmente es in case no funcione el controller change)
+        RequestControllerChange(_defaultControllers, (int)_nextState); // cambio de animaciones de timmy
+        _currentState = _nextState;                                    // cambio de estado finaliza
     }
 
     private void UpdateState(TimmyStates _state)
@@ -212,13 +210,15 @@ public class PlayerManager : MonoBehaviour
         // LÓGICA DE CAMBIO DE CONTROLADOR DE ANIMACIONES
         if (_objeto != Objetos.NADA && _myAnimator.runtimeAnimatorController != _colorControllers[(int)_state * 3 + ((int)_objeto)])
         { // si tiene algún objeto y el control de animaciones no es de *ese* objeto, se lo pone
-            RequestControllerChange(_colorControllers, (int)_state * 3 + ((int)_objeto));
-            Debug.Log("COLOR: " + _objeto + ", " + (int)_objeto);
+            RequestControllerChange(_colorControllers, (int)_state * 3 + ((int)_objeto)); // cambio de animaciones de timmy
+            _UIManager.SwitchObject(_objeto);                                             // cambio de imagen en el ui
+            //Debug.Log("COLOR: " + _objeto + ", " + (int)_objeto);
         }
         else if (_objeto == Objetos.NADA && _myAnimator.runtimeAnimatorController != _defaultControllers[(int)_state])
         { // si no tiene objeto y el control de animaciones no es el normal, se lo pone
-            RequestControllerChange(_defaultControllers, (int)_state);
-            Debug.Log("¡NADA!");
+            RequestControllerChange(_defaultControllers, (int)_state); // cambio de animaciones de timmy
+            _UIManager.SwitchObject(_objeto);                          // cambio de imagen en el ui
+            //Debug.Log("¡NADA!");
         }
     }
 
@@ -227,7 +227,8 @@ public class PlayerManager : MonoBehaviour
         _myAnimator.runtimeAnimatorController = _controllers[i];
     }
 
-    // BLOQUE DE ACCIONES
+    // ACCIONES
+    // BLOQUE DE PARTES
     public void SoltarBrazo()
     {
         if (_brazos > 0) // si algún brazo y está en un espacio libre
@@ -289,6 +290,7 @@ public class PlayerManager : MonoBehaviour
             _objeto = (Objetos)(length - 1); // da la vuelta
         }
     }
+
     public void CambiarObjeto(Objetos nuevoObjeto)
     {
         _objeto = nuevoObjeto;
@@ -333,15 +335,14 @@ public class PlayerManager : MonoBehaviour
         _currentState = TimmyStates.S1;         // Valor dummy para inicializar un cambio en cuanto empiece y se ejecute el EnterState
         _nextState = TimmyStates.S0;         // Inicializa el estado de timmy
         _objeto = Objetos.NADA;
-        //_objeto2 = null;
     }
 
     void Update()
     {
-        if (_currentState != _nextState)
+        if (_currentState != _nextState) // Si tiene que cambiar de estado
         {
             EnterState(_nextState); // Entrada al estado
-            _UIManager.SetUpGameHUD(_nextState);
+            _UIManager.SetPartes(_nextState); // Cambia el UI acorde a este
         }
 
         UpdateState(_currentState); // Update según el estado

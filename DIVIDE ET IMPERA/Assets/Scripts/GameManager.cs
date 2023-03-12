@@ -50,7 +50,7 @@ public class GameManager : MonoBehaviour
                 break;
             case GameStates.GAME:                        //     *JUEGO*
                 //_UIManager.SetMenu(newState);     // Activa HUD
-                _UIManager.SetUpGameHUD(PlayerManager.State); // Inicializa valores del HUD
+                _UIManager.SetPartes(PlayerManager.State); // Inicializa valores del HUD
                 break;
             case GameStates.GAMEOVER:                    //     *FIN DEL JUEGO*
                 //_UIManager.SetMenu(GameStates.GAMEOVER); // Activa el texto de GameOver
@@ -61,22 +61,16 @@ public class GameManager : MonoBehaviour
     }
 
     private void UpdateState(GameStates state)
-    {
+    {/*
         if (state == GameStates.INTRO)
         {
-            /*
-            _introTime -= Time.deltaTime; // Cuenta atrás
-            if (_introTime <= 0)
-            {
-                _nextState = GameStates.GAME; // Pasa a GAME
-            }
-            */
+            
         }
 
         if (state == GameStates.GAME)
         {
-            _UIManager.UpdateGameHUD(PlayerManager.State);
-        }
+
+        }*/
     }
     #endregion
 
