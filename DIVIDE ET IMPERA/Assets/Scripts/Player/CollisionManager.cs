@@ -11,8 +11,8 @@ public class CollisionManager : MonoBehaviour
     public bool _validHitbox = false;
     public bool ValidHitbox { get { return _validHitbox; } }
 
-    public Collider2D _objetoColisionado;
-    public Collider2D ObjetoColisionado { get { return _objetoColisionado; } }
+    public Collider2D _parteColisionada;
+    public Collider2D ObjetoColisionado { get { return _parteColisionada; } }
 
     #endregion
 
@@ -39,7 +39,18 @@ public class CollisionManager : MonoBehaviour
             _validHitbox = true;
             if (collision.gameObject.layer == 9) // Timoteo y sus partes 
             {
-                _objetoColisionado = collision;
+                _parteColisionada = collision;
+            }
+        }
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.GetComponent<Tilemap>() == false)
+        {
+            if (collision != null && _parteColisionada == null)
+            {
+                _parteColisionada = collision;
             }
         }
     }
@@ -59,16 +70,16 @@ public class CollisionManager : MonoBehaviour
             _validHitbox = false;
             if (collision.gameObject.layer == 9) // Timoteo y sus partes 
             {
-                _objetoColisionado = null;
+                _parteColisionada = null;
             }
         }
     }
 
     public bool DestruirBrazo()
     {
-        if (_objetoColisionado != null && _objetoColisionado.GetComponentInParent<ArmComponent>() != null) // esto es ducktyping mi gente
+        if (_parteColisionada != null && _parteColisionada.GetComponentInParent<ArmComponent>() != null) // esto es ducktyping mi gente
         {
-            var padre = _objetoColisionado.transform.parent.gameObject;
+            var padre = _parteColisionada.transform.parent.gameObject;
             Destroy(padre);
             return true;
         }
@@ -77,9 +88,9 @@ public class CollisionManager : MonoBehaviour
 
     public bool DestruirPierna()
     {
-        if (_objetoColisionado != null && _objetoColisionado.GetComponentInParent<LegsComponent>() != null) // esto es ducktyping mi gente
+        if (_parteColisionada != null && _parteColisionada.GetComponentInParent<LegsComponent>() != null) // esto es ducktyping mi gente
         {
-            var padre = _objetoColisionado.transform.parent.gameObject;
+            var padre = _parteColisionada.transform.parent.gameObject;
             Destroy(padre);
             return true;
         }
@@ -91,7 +102,7 @@ public class CollisionManager : MonoBehaviour
     void Start()
     {
         _validHitbox = false;
-        _objetoColisionado = null;
+        _parteColisionada = null;
 
     }
 }

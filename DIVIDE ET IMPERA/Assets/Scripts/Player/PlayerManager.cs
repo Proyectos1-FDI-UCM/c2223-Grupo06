@@ -58,6 +58,10 @@ public class PlayerManager : MonoBehaviour
     private int _brazos;     // cuantos brazos tiene (NUNCA menor que 0 o mayor que 2)
     private bool _piernas;   // si las tiene o si no
     private bool _alubiat;   // si tiene sus piernas o no
+
+    public int Brazos { get { return _brazos; } }
+    public bool Piernas { get { return _piernas; } }
+    public bool Alubiat { get { return _alubiat; } }
     #endregion
 
     #region Methods
@@ -222,13 +226,18 @@ public class PlayerManager : MonoBehaviour
             //Debug.Log("¡NADA!");
         }
 
-        if (_alubiat && !_UIManager.TieneAlubiat()) // si tiene alubiat pero no está actualizado el hud
+        // LOGICA DE UI
+        if (_UIManager != null)
         {
-            _UIManager.SetAlubiat(false); // actualiza el hud (de momento false porque está inactivo, placeholder)
-        }
-        else if (!_alubiat && _UIManager.TieneAlubiat())
-        {
-            _UIManager.ResetAlubiat();
+            // ALUBIAT
+            if (_alubiat && !_UIManager.TieneAlubiat()) // si tiene alubiat pero no está actualizado el hud
+            {
+                _UIManager.SetAlubiat(false); // actualiza el hud (de momento false porque está inactivo, placeholder)
+            }
+            else if (!_alubiat && _UIManager.TieneAlubiat()) // si no tiene alubiat y no está actualizado el hud
+            {
+                _UIManager.ResetAlubiat(); // resetea a vacio el hueco
+            }
         }
     }
 
@@ -239,15 +248,21 @@ public class PlayerManager : MonoBehaviour
 
     // ACCIONES
     // BLOQUE DE PARTES
-    public void SoltarBrazo()
+        // brazos
+    public void AddBrazo() // para interactuables
     {
-        if (_brazos > 0) // si algún brazo y está en un espacio libre
+        if (Brazos < 2)
         {
-            Instantiate(_brazo, _myTransform.position, _myTransform.rotation); // instanciación
-            _brazos--; // un brazo menos
+            _brazos++;
         }
     }
-
+    public void SubBrazo() // para interactuables
+    {
+        if (_brazos > 0)
+        {
+            _brazos--;
+        }
+    }
     public void RecogerBrazo()
     {
         if (_brazos < 2) // si tiene menos de 2 brazos
@@ -258,16 +273,23 @@ public class PlayerManager : MonoBehaviour
             }
         }
     }
-
-    public void SoltarPiernas()
+    public void SoltarBrazo() // para instanciarlo
     {
-        if (_piernas) // si tiene piernas y está en un espacio libre
+        if (_brazos > 0) // si algún brazo y está en un espacio libre
         {
-            Instantiate(_pierna, _myTransform.position, _myTransform.rotation); // instanciación
-            _piernas = false; // sin piernas
+            Instantiate(_brazo, _myTransform.position, _myTransform.rotation); // instanciación
+            _brazos--; // un brazo menos
         }
     }
-
+        // piernas
+    public void HolaPiernas() // para interactuables
+    {
+        if (!_piernas) _piernas = !_piernas;
+    }
+    public void AdiosPiernas() // para interactuables
+    {
+        if (_piernas) _piernas = !_piernas;
+    }
     public void RecogerPiernas()
     {
         if (!_piernas)
@@ -276,6 +298,14 @@ public class PlayerManager : MonoBehaviour
             {
                 _piernas = true; // si las destruye, obtiene piernas
             }
+        }
+    }
+    public void SoltarPiernas()
+    {
+        if (_piernas) // si tiene piernas 
+        {
+            Instantiate(_pierna, _myTransform.position, _myTransform.rotation); // instanciación
+            _piernas = false; // sin piernas
         }
     }
 
