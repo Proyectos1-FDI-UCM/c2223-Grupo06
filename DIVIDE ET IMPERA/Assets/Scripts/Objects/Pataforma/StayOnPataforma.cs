@@ -8,7 +8,8 @@ public class StayOnPataforma : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.GetComponent<PataformaComponent>())
+        if (collision.gameObject.GetComponent<PataformaComponent>()
+            || collision.gameObject.GetComponent<MovingPlatformComponent>())
         {
             if(gameObject.transform.parent == null && _inputController.enabled)
             {
@@ -22,7 +23,8 @@ public class StayOnPataforma : MonoBehaviour
 
     void OnCollisionExit2D(Collision2D collision)
     {
-        if (collision.gameObject.GetComponent<PataformaComponent>())
+        if (collision.gameObject.GetComponent<PataformaComponent>()
+            || collision.gameObject.GetComponent<MovingPlatformComponent>())
         {
             // cambia el padre de timmy (no alubia, otro)
             gameObject.transform.parent = null;
