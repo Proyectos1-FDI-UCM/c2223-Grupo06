@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class MovingPlatformComponent : MonoBehaviour
@@ -12,9 +13,10 @@ public class MovingPlatformComponent : MonoBehaviour
     private GameObject[] waypoints = new GameObject[2];
     [SerializeField]
     private float _speed;
-    public float PlatformSpeed { get { return _speed; } }
+    [SerializeField]
+    private bool _ciclica;
     private int target;
-
+    private bool _outOfBounds = false;
 
 
     #region Methods
@@ -26,22 +28,51 @@ public class MovingPlatformComponent : MonoBehaviour
             waypoints[target].transform.position, _speed * Time.deltaTime);
     }
 
+    void IsCiclica()
+    {
+        // si esta en el último waypoint va al primero
+        if (target == waypoints.Length - 1)
+        {
+            target = 0;
+        }
+        // si no está en el último waypoint va al siguiente
+        else
+        {
+            target++;
+        }
+    }
+
+    void IsNotCiclica()
+    {
+        // si es menor que el tope sigue
+        if (target < waypoints.Length-1)
+        {
+            target++;
+        }
+        else
+        {
+            // indica si el array se ha salido de tope
+            _outOfBounds = true;
+        }
+    }
+
     // marca hacia qué waypoint va
     void WhichWaypoint()
     {
         // si la plataforma esta en la posicion del waypoint correspondiente
         if (_transform.position == waypoints[target].transform.position)
         {
-            // si esta en el último waypoint va al primero
-            if (target == waypoints.Length - 1)
+            // si se marca como cíclica
+            if (_ciclica)
             {
-                target = 0;
+                IsCiclica();
             }
-            // si no está en el último waypoint va al siguiente
+            // si no se marca como cíclica
             else
             {
-                target++;
+                IsNotCiclica();
             }
+            
         }
     }
     #endregion
@@ -55,7 +86,11 @@ public class MovingPlatformComponent : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        MovePlatform();
+        if (!_outOfBounds)
+        {
+            MovePlatform();
+        }
+        
     }
 
     private void FixedUpdate()
