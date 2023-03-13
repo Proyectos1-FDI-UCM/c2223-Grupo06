@@ -155,6 +155,15 @@ public class InputController : MonoBehaviour
             PlayerManager.Instance.SubObject();
         }
 
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            PlayerManager.Instance.RecogerAlubiat();
+        }
+        else if (Input.GetKeyDown(KeyCode.K))
+        {
+            PlayerManager.Instance.SoltarAlubiat();
+        }
+
         if (Input.GetKeyDown(KeyCode.P))
         { // SOLTAR BRAZO
             PlayerManager.Instance.SoltarBrazo();

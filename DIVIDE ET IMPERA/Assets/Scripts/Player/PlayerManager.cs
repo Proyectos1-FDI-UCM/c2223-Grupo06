@@ -30,7 +30,7 @@ public class PlayerManager : MonoBehaviour
     [SerializeField]
     private GameObject[] _objetos; // array de objetos (posibles) a instanciar
 
-    // SPRITES
+    // ANIMACIONES
     [SerializeField] // array de sprites de los diferentes estados de Timmy
     private Sprite[] _sprites;
     [SerializeField] // array de máquinas de estado de animaciones normales (aka SIN OBJETOS, solo Timmy normal)
@@ -57,6 +57,7 @@ public class PlayerManager : MonoBehaviour
     #region Parameters
     private int _brazos;     // cuantos brazos tiene (NUNCA menor que 0 o mayor que 2)
     private bool _piernas;   // si las tiene o si no
+    private bool _alubiat;   // si tiene sus piernas o no
     #endregion
 
     #region Methods
@@ -211,14 +212,23 @@ public class PlayerManager : MonoBehaviour
         if (_objeto != Objetos.NADA && _myAnimator.runtimeAnimatorController != _colorControllers[(int)_state * 3 + ((int)_objeto)])
         { // si tiene algún objeto y el control de animaciones no es de *ese* objeto, se lo pone
             RequestControllerChange(_colorControllers, (int)_state * 3 + ((int)_objeto)); // cambio de animaciones de timmy
-            _UIManager.SwitchObject(_objeto);                                             // cambio de imagen en el ui
+            _UIManager.SetObject(_objeto);                                             // cambio de imagen en el ui
             //Debug.Log("COLOR: " + _objeto + ", " + (int)_objeto);
         }
         else if (_objeto == Objetos.NADA && _myAnimator.runtimeAnimatorController != _defaultControllers[(int)_state])
         { // si no tiene objeto y el control de animaciones no es el normal, se lo pone
             RequestControllerChange(_defaultControllers, (int)_state); // cambio de animaciones de timmy
-            _UIManager.SwitchObject(_objeto);                          // cambio de imagen en el ui
+            _UIManager.SetObject(_objeto);                          // cambio de imagen en el ui
             //Debug.Log("¡NADA!");
+        }
+
+        if (_alubiat && !_UIManager.TieneAlubiat()) // si tiene alubiat pero no está actualizado el hud
+        {
+            _UIManager.SetAlubiat(false); // actualiza el hud (de momento false porque está inactivo, placeholder)
+        }
+        else if (!_alubiat && _UIManager.TieneAlubiat())
+        {
+            _UIManager.ResetAlubiat();
         }
     }
 
@@ -314,6 +324,23 @@ public class PlayerManager : MonoBehaviour
         }
         else return false;
     }
+
+    public void RecogerAlubiat()
+    {
+        _alubiat = true;
+        Debug.Log("Alubiat: " + _alubiat + ", " + _UIManager.TieneAlubiat());
+    }
+
+    public bool SoltarAlubiat()
+    {
+        if (_alubiat)
+        {
+            _alubiat = false;
+            Debug.Log("Alubiat: " + _alubiat + ", " + _UIManager.TieneAlubiat());
+            return true;
+        } else return false;
+
+    }
     #endregion
 
     void Awake()
@@ -335,6 +362,7 @@ public class PlayerManager : MonoBehaviour
         _currentState = TimmyStates.S1;         // Valor dummy para inicializar un cambio en cuanto empiece y se ejecute el EnterState
         _nextState = TimmyStates.S0;         // Inicializa el estado de timmy
         _objeto = Objetos.NADA;
+        _alubiat = false;
     }
 
     void Update()

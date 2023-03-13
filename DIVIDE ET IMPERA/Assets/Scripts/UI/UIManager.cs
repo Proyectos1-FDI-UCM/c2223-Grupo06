@@ -1,4 +1,3 @@
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -26,6 +25,7 @@ public class UIManager : MonoBehaviour
     private int _posAlubiat;
     #endregion
 
+    // MENUS
     public void SetMenu(GameManager.GameStates newMenu)  // Desactiva el menú anterior, actualiza el actual y lo activa
     {
         _menus[(int)_activeMenu].SetActive(false);
@@ -33,13 +33,14 @@ public class UIManager : MonoBehaviour
         _menus[(int)_activeMenu].SetActive(true);
     }
 
+    // PARTES
     public void SetPartes(PlayerManager.TimmyStates state) // Inicializa el HUD
     {
         bool brazo1 = false;
         bool brazo2 = false;
         bool piernas = false;
 
-        if (_images[_posCabeza].sprite != _sprites[_posCabeza * 2 + 1])
+        if (_images[_posCabeza].sprite != _sprites[_posCabeza * 2 + 1]) // Esto es placeholder, cambio eventual
         {
             _images[_posCabeza].sprite = _sprites[_posCabeza * 2 + 1];
         }
@@ -83,12 +84,32 @@ public class UIManager : MonoBehaviour
         _images[_posPiernas].sprite = _sprites[_posPiernas * 2 + (piernas ? 1 : 0)];
     }
 
-    public void SwitchObject(PlayerManager.Objetos objeto)
+    // OBJETOS
+    public void SetObject(PlayerManager.Objetos objeto) // no necesita de un metodo reset porque .NADA es 3
     {
         _images[_posCostillas].sprite = _sprites[_posCostillas * 2 + (int)objeto];
     }
 
-    // Start is called before the first frame update
+    // ALUBIAT
+    public bool TieneAlubiat() // si el sprite de alubiat está actualizado
+    {
+        if (_images[_posAlubiat].sprite == _sprites[(_posAlubiat + 1) * 2] || _images[_posAlubiat].sprite == _sprites[(_posAlubiat + 1) * 2 + 1])
+        {
+            return true;
+        } else return false;
+    }
+
+    public void SetAlubiat(bool activo) // asigna el sprite de alubiat según esté a activo o no
+    {
+        _images[_posAlubiat].sprite = _sprites[(_posAlubiat + 1) * 2 + (activo ? 1 : 0)];
+    }
+
+    public void ResetAlubiat() // lo resetea a vacío
+    {
+        _images[_posAlubiat].sprite = _sprites[(_posAlubiat + 1) * 2 - 1]; // el sprite de vacío está justo uno antes que los de alubiat
+    }
+
+    // BUCLE
     void Start()
     {
         _menus = new GameObject[4]; // creación del array de menús y asignación
@@ -107,7 +128,6 @@ public class UIManager : MonoBehaviour
         PlayerManager.Instance.RegisterUIManager(this);
     }
 
-    // Update is called once per frame
     void Update()
     {
         // aquí no debería haber nada pero lo dejo porsiaca
