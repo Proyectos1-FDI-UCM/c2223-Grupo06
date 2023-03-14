@@ -20,5 +20,9 @@ public class DialogueTrigger : MonoBehaviour
         FindObjectOfType<DialogueManager>().StartDialogue(_dialogue);
     }
     # endregion
-    
+    void Start()
+    {
+        _dialogueManager = GetComponent<DialogueManager>();
+        _dialogue = GetComponent<Dialogue>();
+    }
 }

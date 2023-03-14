@@ -14,6 +14,6 @@ public class Dialogue
     public string _name;
 
     [TextArea(3, 10)]
-    public string[] _parrafos; // parrafos que se irán cargando en la cola de queue
+    public string[] _guion; // frases que se irán cargando en la cola de queue
     #endregion
 }
