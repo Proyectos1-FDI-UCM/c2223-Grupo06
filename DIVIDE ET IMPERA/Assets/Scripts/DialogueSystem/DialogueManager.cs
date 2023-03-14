@@ -23,7 +23,7 @@ public class DialogueManager : MonoBehaviour
     }
     public void StartDialogue(Dialogue _dialogue)
     {
-        Debug.Log("Conversación con" + _dialogue._name);
+        //Debug.Log("Conversación con" + _dialogue._name);
     }
     #endregion
 

@@ -3,6 +3,27 @@ using UnityEngine;
 
 public class PataformaComponent : MonoBehaviour
 {
+    #region TUTORIAL
+
+    /// <summary>
+    /// Como poner la Patwoforma en escena es un coñazo asqueroso y es entre muy y demasiado tiquisimiquis
+    /// voy a haceros un tutorial dpm para que sepais como cuidar bien a mi pequeña patwoforma:
+    /// 
+    /// Cuando se pone en escena el objeto, tiene referenciado a Timmy, pero no al Timmy de la escena,
+    /// por lo que teneis que arrastrar al timmy de la escena a la referencia en el componente
+    /// 
+    /// y con esto se acabó el tutorial maravilloso y estupendo, recordad darle a like y compartir
+    /// y acivar la campanita ;)
+    /// 
+    /// P.D. Controles
+    /// R ---> conectar piernas
+    /// T ---> recuperar piernas
+    /// 2+E -> cambiar input de uno a otro
+    /// WASD -> moverse 
+    /// </summary>
+    #endregion
+
+
     #region Referencias
     private InputController _inputController;
     private SpriteRenderer _mySpriteRenderer;
@@ -200,6 +221,7 @@ public class PataformaComponent : MonoBehaviour
     void Update()
     {
         ConectaPiernas();
+
         ChangeInput();
 
         if (_activarPataforma)
