@@ -159,6 +159,7 @@ public class InputController : MonoBehaviour
             PlayerManager.Instance.SubObject();
         }
 
+        // para ver si recoge a alubia bien
         if (Input.GetKeyDown(KeyCode.L))
         {
             PlayerManager.Instance.RecogerAlubiat();
@@ -168,6 +169,26 @@ public class InputController : MonoBehaviour
             PlayerManager.Instance.SoltarAlubiat();
         }
 
+        // para ver si cambia de control bien
+        if (Input.GetKeyDown(KeyCode.Keypad1))
+        {
+            PlayerManager.Instance.SwitchPartControl(PlayerManager.Partes.CABEZA);
+        }
+        else if (Input.GetKeyDown(KeyCode.Keypad2))
+        {
+            PlayerManager.Instance.SwitchPartControl(PlayerManager.Partes.BRAZO1);
+        }
+        else if (Input.GetKeyDown(KeyCode.Keypad3))
+        {
+            PlayerManager.Instance.SwitchPartControl(PlayerManager.Partes.BRAZO2);
+
+        }
+        else if (Input.GetKeyDown(KeyCode.Keypad4))
+        {
+            PlayerManager.Instance.SwitchPartControl(PlayerManager.Partes.PIERNAS);
+        }
+
+        // para ver si suelta y recoge partes bien
         if (Input.GetKeyDown(KeyCode.P))
         { // SOLTAR BRAZO
             PlayerManager.Instance.SoltarBrazo();

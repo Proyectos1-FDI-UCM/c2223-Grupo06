@@ -135,6 +135,9 @@ public class PataformaComponent : MonoBehaviour
                 _inputController.enabled = true;
 
                 _mySpriteRenderer.color = Color.cyan;
+
+                // cambio de control de parte (es para el HUD)
+                PlayerManager.Instance.SwitchPartControl(PlayerManager.Partes.CABEZA);
             }
 
         }
@@ -157,6 +160,9 @@ public class PataformaComponent : MonoBehaviour
             // desactiva el input del player
             _inputController._changeToPataforma = false;
             _mySpriteRenderer.color = Color.blue;
+
+            // cambio de control de parte (es para el HUD)
+            PlayerManager.Instance.SwitchPartControl(PlayerManager.Partes.PIERNAS);
         }
     }
     private void PataformaInput()

@@ -12,7 +12,9 @@ public class PlayerManager : MonoBehaviour
                                                         // S5: (nada)
                                                         // Por cada estado, hay 3 variantes según objeto portado (Red, green y blue)
                                                         // Por ejemplo: S0 es Timmy normal con todas las partes, S3R es Timmy con sólo 2 brazos y una llave dentro
-    public enum Objetos { LLAVE, MUELLE, BOLA, NADA }; // probando probando
+    
+    public enum Partes { CABEZA, BRAZO1, BRAZO2, PIERNAS}; // probando para la ui (que está siendo controlado ahora mismo)
+    public enum Objetos { LLAVE, MUELLE, BOLA, NADA }; // he preferido usar un enum 
 
     #region References
     // COMPONENTES
@@ -51,7 +53,11 @@ public class PlayerManager : MonoBehaviour
 
     // Objeto en inventario
     private Objetos _objeto; 
-    public Objetos Objeto { get { return _objeto; } }
+    public Objetos Objeto { get { return _objeto; } set { _objeto = value; } }
+
+    // Parte principal controlada
+    private Partes _parte;
+    public Partes Parte { get { return _parte; } set { _parte = value; }  }
     #endregion
 
     #region Parameters
@@ -59,9 +65,17 @@ public class PlayerManager : MonoBehaviour
     private bool _piernas;   // si las tiene o si no
     private bool _alubiat;   // si tiene sus piernas o no
 
-    public int Brazos { get { return _brazos; } }
-    public bool Piernas { get { return _piernas; } }
-    public bool Alubiat { get { return _alubiat; } }
+    public int Brazos {
+        get { return _brazos; } 
+        set 
+        { 
+            if (value < 0) _brazos = 0;
+            else if (value > 2) _brazos = 2;
+            else _brazos = value; 
+        } 
+    }
+    public bool Piernas { get { return _piernas; } set { _piernas = value; } }
+    public bool Alubiat { get { return _alubiat; } set { _alubiat = value; } }
     #endregion
 
     #region Methods
@@ -241,12 +255,12 @@ public class PlayerManager : MonoBehaviour
         }
     }
 
+    // BLOQUE DE ANIMACIONES
     public void RequestControllerChange(RuntimeAnimatorController[] _controllers, int i)
     { // cambia el control de animaciones al especificado en orden del array
         _myAnimator.runtimeAnimatorController = _controllers[i];
     }
 
-    // ACCIONES
     // BLOQUE DE PARTES
         // brazos
     public void AddBrazo() // para interactuables
@@ -263,7 +277,7 @@ public class PlayerManager : MonoBehaviour
             _brazos--;
         }
     }
-    public void RecogerBrazo()
+    public void RecogerBrazo() // para recoger brazos sueltos
     {
         if (_brazos < 2) // si tiene menos de 2 brazos
         {
@@ -290,7 +304,7 @@ public class PlayerManager : MonoBehaviour
     {
         if (_piernas) _piernas = !_piernas;
     }
-    public void RecogerPiernas()
+    public void RecogerPiernas() // para recoger piernas sueltas
     {
         if (!_piernas)
         {
@@ -300,7 +314,7 @@ public class PlayerManager : MonoBehaviour
             }
         }
     }
-    public void SoltarPiernas()
+    public void SoltarPiernas()  // para instanciar las piernas
     {
         if (_piernas) // si tiene piernas 
         {
@@ -331,12 +345,12 @@ public class PlayerManager : MonoBehaviour
         }
     }
 
-    public void CambiarObjeto(Objetos nuevoObjeto)
+    public void CambiarObjeto(Objetos nuevoObjeto) // cambia el objeto de la ribcage
     {
         _objeto = nuevoObjeto;
     }
 
-    public bool EliminarObjeto()
+    public bool EliminarObjeto() // elimina el objeto de la ribcage
     {
         if (_objeto != Objetos.NADA)
         {
@@ -346,7 +360,7 @@ public class PlayerManager : MonoBehaviour
         else return false;
     }
 
-    public bool TieneObjeto()
+    public bool TieneObjeto() // un poco por poner si se necestia en algun momento, devuelve true si la ribcage NO está vacía
     {
         if (_objeto != Objetos.NADA)
         {
@@ -355,10 +369,17 @@ public class PlayerManager : MonoBehaviour
         else return false;
     }
 
+    // BLOQUE DE PARTES
+    public void SwitchPartControl(Partes parte) // cambia el control de parte principal
+    {
+        _parte = parte;
+        if (_UIManager!= null) { _UIManager.SetPartes(_currentState, _parte); }
+        Debug.Log("PARTE: " + _parte);
+    }
+        // alubiat
     public void RecogerAlubiat()
     {
         _alubiat = true;
-        Debug.Log("Alubiat: " + _alubiat + ", " + _UIManager.TieneAlubiat());
     }
 
     public bool SoltarAlubiat()
@@ -366,7 +387,6 @@ public class PlayerManager : MonoBehaviour
         if (_alubiat)
         {
             _alubiat = false;
-            Debug.Log("Alubiat: " + _alubiat + ", " + _UIManager.TieneAlubiat());
             return true;
         } else return false;
 
@@ -389,10 +409,11 @@ public class PlayerManager : MonoBehaviour
         _myTransform = transform;
 
         // Ejecución de la entrada a estado inicial
-        _currentState = TimmyStates.S1;         // Valor dummy para inicializar un cambio en cuanto empiece y se ejecute el EnterState
+        _currentState = TimmyStates.S1;           // Valor dummy para inicializar un cambio en cuanto empiece y se ejecute el EnterState
         _nextState = TimmyStates.S0;         // Inicializa el estado de timmy
-        _objeto = Objetos.NADA;
-        _alubiat = false;
+        _objeto = Objetos.NADA;          // Ningún objeto al iniciar
+        _alubiat = false;           // No tiene las piernas de su padre al iniciar
+        _parte = Partes.CABEZA; // Control principal al inicio
     }
 
     void Update()
@@ -400,7 +421,7 @@ public class PlayerManager : MonoBehaviour
         if (_currentState != _nextState) // Si tiene que cambiar de estado
         {
             EnterState(_nextState); // Entrada al estado
-            _UIManager.SetPartes(_nextState); // Cambia el UI acorde a este
+            _UIManager.SetPartes(_nextState, _parte); // Cambia el UI acorde a este
         }
 
         UpdateState(_currentState); // Update según el estado

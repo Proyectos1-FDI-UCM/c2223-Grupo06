@@ -50,7 +50,7 @@ public class GameManager : MonoBehaviour
                 break;
             case GameStates.GAME:                        //     *JUEGO*
                 //_UIManager.SetMenu(newState);     // Activa HUD
-                if (_UIManager != null) _UIManager.SetPartes(PlayerManager.State); // Inicializa valores del HUD
+                if (_UIManager != null) _UIManager.SetPartes(PlayerManager.State, PlayerManager.Instance.Parte); // Inicializa valores del HUD
                 break;
             case GameStates.GAMEOVER:                    //     *FIN DEL JUEGO*
                 //_UIManager.SetMenu(GameStates.GAMEOVER); // Activa el texto de GameOver

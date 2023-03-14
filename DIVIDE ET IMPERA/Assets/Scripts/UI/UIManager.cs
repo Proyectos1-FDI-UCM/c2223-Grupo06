@@ -21,8 +21,8 @@ public class UIManager : MonoBehaviour
     private int _posBrazo1;
     private int _posBrazo2;
     private int _posPiernas;
-    private int _posCostillas;
     private int _posAlubiat;
+    private int _posCostillas;
     #endregion
 
     // MENUS
@@ -34,51 +34,64 @@ public class UIManager : MonoBehaviour
     }
 
     // PARTES
-    public void SetPartes(PlayerManager.TimmyStates state) // Inicializa el HUD
+    public void SetPartes(PlayerManager.TimmyStates state, PlayerManager.Partes parte) // Inicializa el HUD
     {
+        bool cabeza = true;
         bool brazo1 = false;
         bool brazo2 = false;
         bool piernas = false;
 
-        if (_images[_posCabeza].sprite != _sprites[_posCabeza * 2 + 1]) // Esto es placeholder, cambio eventual
+        // Sección de activar parte principal (la controlada)
+        // esto está work in progress, estoy probando cosas
+        if (parte == PlayerManager.Partes.PIERNAS) // si está controlando las piernas, no está controlando nada más
         {
-            _images[_posCabeza].sprite = _sprites[_posCabeza * 2 + 1];
-        }
+            cabeza = false;
+            brazo1 = false;
+            brazo2 = false;
+            piernas = true;
+        } 
+        else // si la parte ppal es cabeza o brazos
+        { // (brazos solo sale en activo si están sueltos si las palancas se estan activando/desactivando
+            switch (state)
+            {
+                case PlayerManager.TimmyStates.S0: // todo
+                    brazo1 = true;
+                    brazo2 = true;
+                    piernas = true;
+                    break;
+                case PlayerManager.TimmyStates.S1: // 1 brazo y piernas
+                    brazo1 = true;
+                    brazo2 = false;
+                    piernas = true;
+                    break;
+                case PlayerManager.TimmyStates.S2: // piernas
+                    brazo1 = false;
+                    brazo2 = false;
+                    piernas = true;
+                    break;
+                case PlayerManager.TimmyStates.S3: // dos brazos
+                    brazo1 = true;
+                    brazo2 = true;
+                    piernas = false;
+                    break;
+                case PlayerManager.TimmyStates.S4: // un brazo
+                    brazo1 = true;
+                    brazo2 = false;
+                    piernas = false;
+                    break;
+                case PlayerManager.TimmyStates.S5: // nada
+                    brazo1 = false;
+                    brazo2 = false;
+                    piernas = false;
+                    break;
+            }
 
-        switch (state)
-        { // +1 SI EN ACTIVO, NADA SI INACTIVO
-            case PlayerManager.TimmyStates.S0: // todo
-                brazo1 = true;
-                brazo2 = true;
-                piernas = true;
-                break;
-            case PlayerManager.TimmyStates.S1: // 1 brazo y piernas
-                brazo1 = true;
-                brazo2 = false;
-                piernas = true;
-                break;
-            case PlayerManager.TimmyStates.S2: // piernas
-                brazo1 = false;
-                brazo2 = false;
-                piernas = true;
-                break;
-            case PlayerManager.TimmyStates.S3: // dos brazos
-                brazo1 = true;
-                brazo2 = true;
-                piernas = false;
-                break;
-            case PlayerManager.TimmyStates.S4: // un brazo
-                brazo1 = true;
-                brazo2 = false;
-                piernas = false;
-                break;
-            case PlayerManager.TimmyStates.S5: // nada
-                brazo1 = false;
-                brazo2 = false;
-                piernas = false;
-                break;
-        }
+            if (parte == PlayerManager.Partes.BRAZO1) { brazo1 = true; } // para cuando animacion de palanca
+            else if (parte == PlayerManager.Partes.BRAZO2) { brazo2 = true; } // para cuando animación de palanca
+        } 
 
+        // +1 SI EN ACTIVO, NADA SI INACTIVO
+        _images[_posCabeza].sprite = _sprites[_posCabeza * 2 + (cabeza ? 1 : 0)];
         _images[_posBrazo1].sprite  = _sprites[_posBrazo1 * 2 + (brazo1 ? 1 : 0)];
         _images[_posBrazo2].sprite  = _sprites[_posBrazo2 * 2 + (brazo2 ? 1 : 0)];
         _images[_posPiernas].sprite = _sprites[_posPiernas * 2 + (piernas ? 1 : 0)];
@@ -91,9 +104,9 @@ public class UIManager : MonoBehaviour
     }
 
     // ALUBIAT
-    public bool TieneAlubiat() // si el sprite de alubiat está actualizado
+    public bool TieneAlubiat() // si está el sprite de alubiat (no está vacio)
     {
-        if (_images[_posAlubiat].sprite == _sprites[(_posAlubiat + 1) * 2] || _images[_posAlubiat].sprite == _sprites[(_posAlubiat + 1) * 2 + 1])
+        if (_images[_posAlubiat].sprite == _sprites[_posAlubiat * 2] || _images[_posAlubiat].sprite == _sprites[_posAlubiat * 2 + 1])
         {
             return true;
         } else return false;
@@ -101,12 +114,12 @@ public class UIManager : MonoBehaviour
 
     public void SetAlubiat(bool activo) // asigna el sprite de alubiat según esté a activo o no
     {
-        _images[_posAlubiat].sprite = _sprites[(_posAlubiat + 1) * 2 + (activo ? 1 : 0)];
+        _images[_posAlubiat].sprite = _sprites[_posAlubiat * 2 + (activo ? 1 : 0)];
     }
 
     public void ResetAlubiat() // lo resetea a vacío
     {
-        _images[_posAlubiat].sprite = _sprites[(_posAlubiat + 1) * 2 - 1]; // el sprite de vacío está justo uno antes que los de alubiat
+        _images[_posAlubiat].sprite = _sprites[^1]; // el último sprite es el vacío
     }
 
     // BUCLE
@@ -121,15 +134,17 @@ public class UIManager : MonoBehaviour
         _posBrazo1      = 1;
         _posBrazo2      = 2;
         _posPiernas     = 3;
-        _posCostillas   = 4;
-        _posAlubiat     = 5;
+        _posAlubiat     = 4;
+        _posCostillas   = 5;
 
         GameManager.Instance.RegisterUIManager(this);
         PlayerManager.Instance.RegisterUIManager(this);
     }
 
+    /*
     void Update()
     {
         // aquí no debería haber nada pero lo dejo porsiaca
     }
+    */
 }
