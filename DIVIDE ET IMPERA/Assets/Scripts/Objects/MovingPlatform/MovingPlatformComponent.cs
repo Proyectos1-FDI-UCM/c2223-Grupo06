@@ -93,6 +93,7 @@ public class MovingPlatformComponent : MonoBehaviour
         
     }
 
+    // called after update
     private void FixedUpdate()
     {
         WhichWaypoint();

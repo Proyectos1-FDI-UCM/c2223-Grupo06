@@ -6,33 +6,63 @@ public class PalancaComponent : MonoBehaviour
     #region Referencias
     private InputController _inputController;
     private PlayerManager _playerManager;
+    private MovingPlatformComponent _movingPlatform;
     private SpriteRenderer _mySpriteRenderer;
     [SerializeField]
-    private GameObject _puerta;
+    private GameObject _objeto;
     #endregion
 
     #region Properties
     // palanca activada o no
+    [SerializeField]
     private bool _palanca;
     public bool Palanca { get { return _palanca; } }
+
     // brazo conectado a la palanca 
     private bool _brazoConectado = false;
     public bool BrazoConectado { get { return _brazoConectado; } }
+
     // esta en el área de una palanca
     public bool _validPalancaHitbox; //no tengo ni idea de por que se llama asi,
                                      //he copiado el nombre que utilizaba antes
                                      //porque no se me ocurre otro xd
+
+    private bool _activarObjeto;
+    public bool ActivarObjeto { get { return _activarObjeto; } }
     #endregion
 
     #region Métodos
 
+    private void Activar()
+    {
+        _palanca = ActivarPalanca();
+        ActivarObjetos();
+
+    }
+
     // activa o desactiva la palanca dependiendo de su estado anterior
-    private bool Activar()
+    private bool ActivarPalanca()
     {
         bool _lvr = !_palanca;
-        _puerta.SetActive(_palanca);
         _palanca = !_palanca;
         return _lvr;
+    }
+
+    // interactua con el objeto de fuera (puerta, plataforma etc)
+    private void ActivarObjetos()
+    {
+        if (_palanca && !_movingPlatform.enabled)
+        {
+            _movingPlatform.enabled = true;
+            Debug.Log("activar " + _movingPlatform.enabled);
+        }
+        else if (!_palanca && _movingPlatform.enabled)
+        {
+            _movingPlatform.enabled = false;
+            Debug.Log("desactivar " + _movingPlatform.enabled);
+        }
+       
+        
     }
 
     //Conecta el brazo
@@ -48,6 +78,8 @@ public class PalancaComponent : MonoBehaviour
         _inputController = PlayerAccess.Instance.InputController;
         _playerManager = PlayerAccess.Instance.PlayerManager;
         _mySpriteRenderer = GetComponent<SpriteRenderer>();
+        _movingPlatform = _objeto.GetComponent<MovingPlatformComponent>();
+
     }
 
     private void Update()
@@ -59,7 +91,7 @@ public class PalancaComponent : MonoBehaviour
             || PlayerManager.State == PlayerManager.TimmyStates.S2
             || PlayerManager.State == PlayerManager.TimmyStates.S5))
         {
-            _palanca = Activar();
+            Activar();
         }
 
         //-------CONECTAR BRAZO-------------------

@@ -3,7 +3,8 @@ using UnityEngine;
 public class WBComponent : MonoBehaviour
 {
     #region references
-    [SerializeField] private GameObject _puerta;
+    [SerializeField] private GameObject _objeto;
+    private MovingPlatformComponent _movingPlatform;
 
     [SerializeField]
     Transform pointA;
@@ -17,7 +18,52 @@ public class WBComponent : MonoBehaviour
 
     #endregion
     private SpriteRenderer _mySpriteRenderer;
+    [SerializeField]
+    private bool _permanente;
+    private bool _move = false;
 
+    #region Methods
+
+    private void ActivarGeneral(bool _act)
+    {
+        _move = true;
+        Activar(_act);
+    }
+    private void Activar(bool _act)
+    {
+        if(_permanente && _move)
+        {
+            ActivarObjetosPerm();
+        }
+        else
+        {
+            ActivarObjetos(_act);
+        }
+        
+    }
+
+    // interactua con el objeto de fuera (puerta, plataforma etc)
+    private void ActivarObjetosPerm()
+    {
+        if (!_movingPlatform.enabled)
+        {
+            _movingPlatform.enabled = true;
+        }
+        
+    }
+
+    private void ActivarObjetos(bool _act)
+    {
+        if (!_movingPlatform.enabled && _act)
+        {
+            _movingPlatform.enabled = true;
+        }
+        else if (!_act)
+        {
+            _movingPlatform.enabled = false;
+        }
+    }
+    #endregion
 
     /*
       private void OnTriggerStay2D(Collider2D collision)
@@ -40,6 +86,7 @@ public class WBComponent : MonoBehaviour
     void Start()
     {
         _mySpriteRenderer = transform.parent.GetComponent<SpriteRenderer>();
+        _movingPlatform = _objeto.GetComponent<MovingPlatformComponent>();
     }
 
     // Update is called once per frame
@@ -54,12 +101,12 @@ public class WBComponent : MonoBehaviour
         if (i != colliders.Length)
         {
             _mySpriteRenderer.color = Color.white;
-            _puerta.SetActive(false);
+            ActivarGeneral(true);
         }
         else
         {
             _mySpriteRenderer.color = Color.magenta;
-            _puerta.SetActive(true);
+            Activar(false);
         }
     }
 }
