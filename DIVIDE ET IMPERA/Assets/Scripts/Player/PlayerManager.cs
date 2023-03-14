@@ -374,7 +374,7 @@ public class PlayerManager : MonoBehaviour
     {
         _parte = parte;
         if (_UIManager!= null) { _UIManager.SetPartes(_currentState, _parte); }
-        //Debug.Log("PARTE: " + _parte);
+        Debug.Log("PARTE: " + _parte);
     }
         // alubiat
     public void RecogerAlubiat()

@@ -184,6 +184,7 @@ public class PataformaComponent : MonoBehaviour
 
             // cambio de control de parte (es para el HUD)
             PlayerManager.Instance.SwitchPartControl(PlayerManager.Partes.PIERNAS);
+            Debug.Log("Piernas controlan");
         }
     }
     private void PataformaInput()

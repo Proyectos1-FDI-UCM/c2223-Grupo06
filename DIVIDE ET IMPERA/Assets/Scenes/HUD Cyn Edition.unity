@@ -3035,6 +3035,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8562587943021863830, guid: a187924d611835b4995ee7618e37ef53, type: 3}
+      propertyPath: _player
+      value: 
+      objectReference: {fileID: 2128992813}
     - target: {fileID: 8562587943021863837, guid: a187924d611835b4995ee7618e37ef53, type: 3}
       propertyPath: m_Name
       value: Patwoforma

@@ -33,19 +33,25 @@ public class PalancaAnimator : MonoBehaviour
         }
 
         if (_myAnimator.GetCurrentAnimatorStateInfo(0).length > _myAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime)
-        {
-            if (PlayerManager.Instance.Brazos == 1) // si todavía tiene un brazo
+        { // si NO ha acabado la animación que está reproduciendo (sea la que sea)
+            if (PlayerManager.Instance.Brazos == 1 && 
+                PlayerManager.Instance.Parte != PlayerManager.Partes.BRAZO2) 
+                // si todavía tiene un brazo y no se ha cambiado el control
             {
-                PlayerManager.Instance.SwitchPartControl(PlayerManager.Partes.BRAZO2); // siempre, cuando quitas el primer brazo, se desactiva el brazo2 de la hud. por tanto, para que se vea aquí el cambio, se lo asigna a ese
+                PlayerManager.Instance.SwitchPartControl(PlayerManager.Partes.BRAZO2); 
+                // siempre, cuando quitas el primer brazo, se desactiva el brazo2 de la hud. por tanto, para que se vea aquí el cambio, se lo asigna a ese
             }
-            else if (PlayerManager.Instance.Brazos == 0) // si no tiene brazos
+            else if (PlayerManager.Instance.Brazos == 0 && 
+                PlayerManager.Instance.Parte != PlayerManager.Partes.BRAZO1) 
+                // si no tiene brazos y no se ha cambiado el control
             {
-                PlayerManager.Instance.SwitchPartControl(PlayerManager.Partes.BRAZO1); // para simplificar
+                PlayerManager.Instance.SwitchPartControl(PlayerManager.Partes.BRAZO1); 
+                // para simplificar
             }
             // si tiene los dos brazos, da igual
         }
-        else
-        {
+        else if (PlayerManager.Instance.Parte == PlayerManager.Partes.BRAZO1 || PlayerManager.Instance.Parte == PlayerManager.Partes.BRAZO2) // si todavía no ha vuelto del brazo *importante*
+        { // si SÍ la ha acabado y el control viene de un brazo
             PlayerManager.Instance.SwitchPartControl(PlayerManager.Partes.CABEZA); // solo puede volver a la cabeza (si estás controlando las piernas, no puedes activar brazos)
         }
     }
