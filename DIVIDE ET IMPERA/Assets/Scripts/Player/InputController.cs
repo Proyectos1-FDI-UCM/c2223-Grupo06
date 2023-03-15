@@ -45,6 +45,11 @@ public class InputController : MonoBehaviour
     public bool _changeToPataforma;
     // acceso público a _isPataforma
     public bool ChangeToPataforma { get { return _changeToPataforma; } }
+
+    [SerializeField]
+    private bool _conversar = false;
+    // acceso público a _conversar
+    public bool Conversar { get { return _conversar; } }
     #endregion
 
     #region Parameters
@@ -219,6 +224,13 @@ public class InputController : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.U))
         { // COGER PIERNAS
             PlayerManager.Instance.RecogerPiernas();
+        }
+
+        //---DIALOGO-----------------------------------------
+        //------Input para conversar-----------
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            _conversar = true;
         }
     }
 }

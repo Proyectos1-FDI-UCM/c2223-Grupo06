@@ -9,7 +9,7 @@ public class Dialogue
 
     #endregion
     #region Parameters
-    // public enum Personajes { Timmy, Bob, Alubia, Narrador }; // 0 -> 3
+    public enum Personajes { Timmy, Bob, Alubia, Narrador }; // 0 -> 3
 
     public string _name;
 
