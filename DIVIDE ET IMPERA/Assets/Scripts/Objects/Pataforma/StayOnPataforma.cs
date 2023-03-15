@@ -1,18 +1,38 @@
 using UnityEngine;
+using UnityEngine.WSA;
+using UnityEngine.Tilemaps;
+using System.Runtime.CompilerServices;
 
 public class StayOnPataforma : MonoBehaviour
 {
     private InputController _inputController;
 
+
     #region Methods
 
-    void OnCollisionEnter2D(Collision2D collision)
+    /*
+     * ojo cuidado intento sus de hacer algo pero es una cosa no tan curiosa (esta mal)
+    private bool QueEsEso(Collision2D col)
     {
-        if (collision.gameObject.GetComponent<PataformaComponent>()
+        {col.gameObject.GetComponent<PlayerManager>() 
+        || col.gameObject.GetComponent<BallComponent>()
+        || col.gameObject.GetComponent<SpringComponent>()
+        }
+        return true;
+    }
+    */
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        Debug.Log("enter "+collision.gameObject);
+        if ((collision.gameObject.GetComponent<PataformaComponent>()
             || collision.gameObject.GetComponent<MovingPlatformComponent>())
+            && !collision.gameObject.GetComponent<Tilemap>())
         {
-            if(gameObject.transform.parent == null && _inputController.enabled)
+            Debug.Log("uwu");
+            if (gameObject.GetComponent<WeightComponent>() && _inputController.enabled)
             {
+                Debug.Log("ùwú");
                 // cambia el padre de timmy (no alubia, otro)
                 gameObject.transform.SetParent(collision.gameObject.transform, true);
             }
@@ -23,8 +43,10 @@ public class StayOnPataforma : MonoBehaviour
 
     void OnCollisionExit2D(Collision2D collision)
     {
-        if (collision.gameObject.GetComponent<PataformaComponent>()
+        Debug.Log("exist "+collision.gameObject);
+        if ((collision.gameObject.GetComponent<PataformaComponent>()
             || collision.gameObject.GetComponent<MovingPlatformComponent>())
+            && !collision.gameObject.GetComponent<Tilemap>())
         {
             // cambia el padre de timmy (no alubia, otro)
             gameObject.transform.parent = null;
