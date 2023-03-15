@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class ThrowComponent : MonoBehaviour
 {
@@ -16,6 +17,8 @@ public class ThrowComponent : MonoBehaviour
     private float _horizontalForce;
     [SerializeField]
     private float _verticalForce;
+    [SerializeField]
+    private bool _furbo;
     #endregion
     #region Properties
     //private PlayerManager.TimmyStates _currentState;
@@ -27,7 +30,7 @@ public class ThrowComponent : MonoBehaviour
     #region Methods
     public void LanzarBrazo()
     {
-        if (_playerManager.Instance.Brazos > 0)
+        if (PlayerManager.Instance.Brazos > 0 || _furbo)
         {
             _colliders = Physics2D.OverlapCircleAll(_myTransform.position, 1f);
             int i = 0;
@@ -47,7 +50,7 @@ public class ThrowComponent : MonoBehaviour
                 _thrownObjectRB = _thrownObject.GetComponent<Rigidbody2D>();
                 _thrownObject.transform.position += Vector3.up;
             }
-            else
+            else if (!_furbo)
             {
                 /* Lo dejo porsiaca
                 if (_currentState != PlayerManager.TimmyStates.S2 && _currentState != PlayerManager.TimmyStates.S5)
@@ -87,7 +90,7 @@ public class ThrowComponent : MonoBehaviour
 
     public void LanzarBola() // voy a hacer otro método porque el otro está joya y no quiero mancillarlo
     {
-        if (PlayerManager.Instance.Objeto == PlayerManager.Objetos.BOLA) // Si tiene una bola
+        if (PlayerManager.Instance.Objeto == PlayerManager.Objetos.BOLA && (_playerManager.Brazos > 0 || _furbo)) // Si tiene una bola
         {
             _thrownObject = Instantiate(_ballPrefab, _myTransform.position + (_myTransform.right * _myTransform.localScale.x), _myTransform.rotation); // La instancia
             //_thrownObject.transform.position += Vector3.up; // Más arriba porque si no se choca con timmy LOL
@@ -105,14 +108,13 @@ public class ThrowComponent : MonoBehaviour
         }
     }
         
-    private void OnCollisionExit2D(Collider2D collision)
+    private void OnCollisionExit2D(Collision2D collision)
     {
         if (_thrownObjectRB != null)
         {
             _thrownObject = null;
         }
     }
-
     #endregion
     // Start is called before the first frame update
     void Start()
