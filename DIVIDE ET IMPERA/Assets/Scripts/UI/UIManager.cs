@@ -6,6 +6,8 @@ public class UIManager : MonoBehaviour
     #region references
     [SerializeField] private GameObject _StartMenu;
     [SerializeField] private GameObject _HUD;
+    [SerializeField] private GameObject _PauseMenu;
+    [SerializeField] private GameObject _GameOverMenu;
 
     // imagenes dentro del ui
     [SerializeField] private Image[] _images;
@@ -31,6 +33,32 @@ public class UIManager : MonoBehaviour
         _menus[(int)_activeMenu].SetActive(false);
         _activeMenu = newMenu;
         _menus[(int)_activeMenu].SetActive(true);
+    }
+
+    /*
+    public void UpdateMenu()
+    {
+        if(_activeMenu == GameManager.GameStates.START)
+        {
+            _selectedMenu = _game;
+            SetMenu(GameManager.GameStates.GAME);
+        }
+        else if(_activeMenu == GameManager.GameStates.GAME)
+        {
+            
+        }
+
+    }
+    */
+
+    public void StartToGame()
+    {
+        SetMenu(GameManager.GameStates.GAME);
+    }
+
+    public void PauseToStart()
+    {
+        SetMenu(GameManager.GameStates.START);
     }
 
     // PARTES
@@ -126,8 +154,9 @@ public class UIManager : MonoBehaviour
     void Start()
     {
         _menus = new GameObject[4]; // creación del array de menús y asignación
-        //_menus[0] = _StartMenu;
-        _menus[1] = _HUD; // habrá que poner más segun añadamos menuses
+        _menus[0] = _StartMenu;
+        _menus[1] = _HUD;
+        _menus[2] = _PauseMenu;// habrá que poner más segun añadamos menuses
         _activeMenu = GameManager.Instance.CurrentState; // asocia el menú actual con el estado actual
 
         _posCabeza      = 0; // posiciones concretas de cada parte en el array de imágenes

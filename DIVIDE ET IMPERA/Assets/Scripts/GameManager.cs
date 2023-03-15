@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public enum GameStates { START, INTRO, GAME, GAMEOVER };    // Estados del juego (faltan)
+    public enum GameStates { START, INTRO, GAME, PAUSE, GAMEOVER };    // Estados del juego (faltan)
 
     #region references
     private UIManager _UIManager;
@@ -43,17 +43,20 @@ public class GameManager : MonoBehaviour
         switch (newState) // Diferentes comportamientos según estado al que se entra
         { // En sí, solo cambia el grupo de UI por cada estado y en GAME carga el nivel
             case GameStates.START:                       //     *MENÚ INICIAL*
-                //_UIManager.SetMenu(GameStates.START);    // Activa menú inicial
+                _UIManager.SetMenu(GameStates.START);    // Activa menú inicial
                 break;
-            case GameStates.INTRO:                       //     *INTRO* (Pantalla en negro con las vidas antes de cargar el lvl)
-                //_UIManager.SetMenu(GameStates.INTRO);    // Activa menú intro
+            case GameStates.INTRO:                       //     *INTRO* 
+                _UIManager.SetMenu(GameStates.INTRO);    // Activa menú intro
                 break;
             case GameStates.GAME:                        //     *JUEGO*
-                //_UIManager.SetMenu(newState);     // Activa HUD
+                _UIManager.SetMenu(newState);     // Activa HUD
                 if (_UIManager != null) _UIManager.SetPartes(PlayerManager.State, PlayerManager.Instance.Parte); // Inicializa valores del HUD
                 break;
+            case GameStates.PAUSE:
+                _UIManager.SetMenu(GameStates.PAUSE);
+                break;
             case GameStates.GAMEOVER:                    //     *FIN DEL JUEGO*
-                //_UIManager.SetMenu(GameStates.GAMEOVER); // Activa el texto de GameOver
+                _UIManager.SetMenu(GameStates.GAMEOVER); // Activa el texto de GameOver
                 break;
         }
         _currentGameState = newState;                        // Finaliza el cambio
@@ -82,7 +85,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         _currentGameState = GameStates.INTRO; // Valor dummy para que se realice el cambio nada más empezar
-        _nextGameState = GameStates.GAME;    // Estado inicial, es diferente al current para que el EnterState del primer update se realice
+        _nextGameState = GameStates.START;    // Estado inicial, es diferente al current para que el EnterState del primer update se realice
     }
 
     void Update()
