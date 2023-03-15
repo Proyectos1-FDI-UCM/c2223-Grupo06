@@ -8,6 +8,7 @@ public class DialogueManager : MonoBehaviour
 {
     #region References
     // referncia al script de interacción
+    private InputController _inputController;
     private Interaction _interaction;
     private Dialogue _dialogue;
     private DialogueTrigger _dialogueTrigger;
@@ -17,12 +18,19 @@ public class DialogueManager : MonoBehaviour
     private Queue<string> _guion; // colección de strings, array circular FIFO (first in first out)
     #endregion
     #region Properties
-
+    public bool _validNPCHitbox; // está en el área de un NPC
+    // en conversación 
+    private bool _enConversacion = false;
+    public bool Conversacion { get { return _enConversacion; } }
     #endregion
     #region Methods
     public void Activar()
     {
-    
+        
+    }
+    public void EnConversacion(bool conversando)
+    {
+        _enConversacion = conversando;
     }
     public void StartDialogue(Dialogue _dialogue)
     {
@@ -58,6 +66,7 @@ public class DialogueManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        _inputController = PlayerAccess.Instance.InputController;
         _dialogueTrigger = GetComponent<DialogueTrigger>();
         _dialogue = GetComponent<Dialogue>();
         _interaction = GetComponent<Interaction>();
@@ -67,6 +76,10 @@ public class DialogueManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (_inputController.Conversar && _validNPCHitbox)
+        {
+            EnConversacion(true);
+            Debug.Log("En conversación");
+        }
     }
 }
