@@ -31,15 +31,16 @@ public class DialogueManager : MonoBehaviour
     public void EnConversacion(bool conversando)
     {
         _enConversacion = conversando;
+        Debug.Log("En conversación");
     }
     public void StartDialogue(Dialogue _dialogue)
     {
         Debug.Log("Conversación con" + _dialogue._name);
 
         _guion.Clear(); // limpiar guión
-        foreach (string _frase in _dialogue._guion) // recorrer array de guión
+        foreach (string _frase in _dialogue._personaje) // recorrer array de guión de personaje
         {
-            _guion.Enqueue(_frase);                 // añadir a la queue
+            _guion.Enqueue(_frase);                     // añadir a la queue
         }
         SiguienteFrase(); // al acabar pasar a la siguiente frase
     }
@@ -68,7 +69,6 @@ public class DialogueManager : MonoBehaviour
     {
         _inputController = PlayerAccess.Instance.InputController;
         _dialogueTrigger = GetComponent<DialogueTrigger>();
-        _dialogue = GetComponent<Dialogue>();
         _interaction = GetComponent<Interaction>();
         _guion = new Queue<string>(); // inicialización de _guion
     }
@@ -79,7 +79,6 @@ public class DialogueManager : MonoBehaviour
         if (_inputController.Conversar && _validNPCHitbox)
         {
             EnConversacion(true);
-            Debug.Log("En conversación");
         }
     }
 }
