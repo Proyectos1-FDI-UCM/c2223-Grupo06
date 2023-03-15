@@ -369,6 +369,28 @@ public class PlayerManager : MonoBehaviour
         else return false;
     }
 
+    public void RecogerObjeto() // para recoger piernas sueltas
+    {
+        if (!TieneObjeto())
+        {
+            int objeto = _myCollisionManager.DestruirObjeto();
+            if (objeto < 3 && objeto > -1) // destruye las piernas con las que está colisionando
+            {
+                CambiarObjeto((Objetos)objeto);
+            }
+        }
+    }
+    public void SoltarObjeto()  // para instanciar las piernas
+    {
+        if (TieneObjeto())
+        {
+            var posicion = _myTransform.position;
+            //if (Objeto == Objetos.BOLA) posicion += _myTransform.right * _myTransform.localScale.x;
+            Instantiate(_objetos[(int)_objeto], posicion, _myTransform.rotation);
+            EliminarObjeto();
+        }
+    }
+
     // BLOQUE DE PARTES
     public void SwitchPartControl(Partes parte) // cambia el control de parte principal
     {

@@ -1,12 +1,15 @@
 using UnityEngine;
 
-public class ThrowArm : MonoBehaviour
+public class ThrowComponent : MonoBehaviour
 {
     #region References
     private PlayerManager _playerManager;
     private Transform _myTransform;
+    private InputController _myInputController;
     [SerializeField]
     private GameObject _armPrefab;
+    [SerializeField]
+    private GameObject _ballPrefab;
     #endregion
     #region Parameters
     [SerializeField]
@@ -15,7 +18,7 @@ public class ThrowArm : MonoBehaviour
     private float _verticalForce;
     #endregion
     #region Properties
-    private PlayerManager.TimmyStates _currentState;
+    //private PlayerManager.TimmyStates _currentState;
     private GameObject _thrownObject;
     private Rigidbody2D _thrownObjectRB;
     private Collider2D[] _colliders;
@@ -44,6 +47,7 @@ public class ThrowArm : MonoBehaviour
         }
         else
         {
+            /* Lo dejo porsiaca
             if (_currentState != PlayerManager.TimmyStates.S2 && _currentState != PlayerManager.TimmyStates.S5)
             {
                 if (_currentState == PlayerManager.TimmyStates.S0)
@@ -65,21 +69,45 @@ public class ThrowArm : MonoBehaviour
                 _thrownObject = Instantiate(_armPrefab, _myTransform.position, _myTransform.rotation);
                 _thrownObjectRB = _thrownObject.GetComponent<Rigidbody2D>();
             }
+            */
+
+            if (PlayerManager.Instance.Brazos > 0)
+            { // Lo he intentado optimizar un poco, no lo he querido mancillar
+                PlayerManager.Instance.Brazos--; // Cambia directamente el estado en su propio update, no worries
+                _thrownObject = Instantiate(_armPrefab, _myTransform.position, _myTransform.rotation);
+                _thrownObjectRB = _thrownObject.GetComponent<Rigidbody2D>();
+            }
         }
         if (_thrownObjectRB != null)
             _thrownObjectRB.AddForce(new Vector2(_horizontalForce * 100 * _myTransform.localScale.x, _verticalForce * 100));
     }
-    #endregion
-    // Start is called before the first frame update
-    void Start()
+
+    public void LanzarBola() // voy a hacer otro método porque el otro está joya y no quiero mancillarlo
+    {
+        if (PlayerManager.Instance.Objeto == PlayerManager.Objetos.BOLA) // Si tiene una bola
+        {
+            _thrownObject = Instantiate(_ballPrefab, _myTransform.position + (_myTransform.right * _myTransform.localScale.x), _myTransform.rotation); // La instancia
+            //_thrownObject.transform.position += Vector3.up; // Más arriba porque si no se choca con timmy LOL
+            _thrownObjectRB = _thrownObject.GetComponentInChildren<Rigidbody2D>(); // Pilla su RB
+            _thrownObjectRB.AddForce(new Vector2(_horizontalForce * 100 * _myTransform.localScale.x, _verticalForce * 100)); // Lo yeetea
+            PlayerManager.Instance.EliminarObjeto(); // PUM ya no tiene bola :P
+        }
+
+    }
+
+#endregion
+// Start is called before the first frame update
+void Start()
     {
         _playerManager = GetComponent<PlayerManager>();
         _myTransform = GetComponent<Transform>();
+        _myInputController = GetComponent<InputController>();
     }
 
-    // Update is called once per frame
+    /* Update is called once per frame
     void Update()
     {
         _currentState = PlayerManager.State;
     }
+    */
 }

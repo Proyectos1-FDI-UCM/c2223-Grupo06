@@ -8,11 +8,14 @@ public class CollisionManager : MonoBehaviour
     #endregion
 
     #region Properties
-    public bool _validHitbox = false;
+    private bool _validHitbox = false;
     public bool ValidHitbox { get { return _validHitbox; } }
 
-    public Collider2D _parteColisionada;
-    public Collider2D ObjetoColisionado { get { return _parteColisionada; } }
+    private Collider2D _parteColisionada;
+    public Collider2D ParteColisionada { get { return _parteColisionada; } }
+
+    public Collider2D _objetoColisionado;
+    public Collider2D ObjetoColisionado { get { return _objetoColisionado;} }
 
     #endregion
 
@@ -41,16 +44,24 @@ public class CollisionManager : MonoBehaviour
             {
                 _parteColisionada = collision;
             }
+            if (collision.gameObject.layer == 10) // Objetos
+            {
+                _objetoColisionado = collision;
+            }
         }
     }
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.GetComponent<Tilemap>() == false)
+        if (collision.GetComponent<Tilemap>() == false && collision != null)
         {
-            if (collision != null && _parteColisionada == null)
+            if (collision.gameObject.layer == 9 && _parteColisionada == null)
             {
                 _parteColisionada = collision;
+            }
+            else if (collision.gameObject.layer == 10 && _objetoColisionado == null)
+            {
+                _objetoColisionado = collision;
             }
         }
     }
@@ -71,6 +82,10 @@ public class CollisionManager : MonoBehaviour
             if (collision.gameObject.layer == 9) // Timoteo y sus partes 
             {
                 _parteColisionada = null;
+            }
+            else if (collision.gameObject.layer == 10)
+            {
+                _objetoColisionado = null;
             }
         }
     }
@@ -96,6 +111,33 @@ public class CollisionManager : MonoBehaviour
         }
         else return false;
     }
+
+    public int DestruirObjeto() // 0 llave, 1 muelle, 2 bola
+    {
+        if (_objetoColisionado != null)
+        {
+            var padre = _objetoColisionado.transform.gameObject;
+            if (_objetoColisionado.GetComponent<KeyComponent>() != null)
+            { // si es una llave
+                Destroy(padre);
+                return 0;
+            }
+            else if (_objetoColisionado.GetComponent<SpringComponent>() != null)
+            { // si es un muelle
+                Destroy(padre);
+                return 1;
+            }
+            else if (_objetoColisionado.GetComponent<BallComponent>() != null)
+            { // si es una bola
+                padre = _objetoColisionado.transform.parent.gameObject;
+                var abuelo = padre.transform.parent.gameObject;
+                //Destroy(padre);
+                Destroy(abuelo); // estoy probando cosas, esto es horrible y mal hecho
+                return 2;
+            }
+        } // si ninguna de las condiciones se ha cumplido:
+        return -1;
+    }
     #endregion
 
     // Start is called before the first frame update
@@ -103,6 +145,6 @@ public class CollisionManager : MonoBehaviour
     {
         _validHitbox = false;
         _parteColisionada = null;
-
+        _objetoColisionado = null;
     }
 }

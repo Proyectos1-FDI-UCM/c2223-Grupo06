@@ -6,7 +6,7 @@ public class InputController : MonoBehaviour
     private JumpComponent _playerJump;
     [SerializeField]
     private GameObject _pataforma;
-    private ThrowArm _armComp;
+    private ThrowComponent _throwComp;
     private Rigidbody2D _playerRigidBody;
     
     #endregion
@@ -60,7 +60,7 @@ public class InputController : MonoBehaviour
         //_pataformaInputComponent = _pataforma.GetComponent<PataformaInputComponent>();
         // desactiva el input de la pataforma
         //_pataformaInputComponent.enabled = false;
-        _armComp = GetComponent<ThrowArm>();
+        _throwComp = GetComponent<ThrowComponent>();
 
         // rigid body del player
         _playerRigidBody = GetComponentInChildren<Rigidbody2D>();
@@ -123,7 +123,7 @@ public class InputController : MonoBehaviour
         //---LANZAR BRAZO-----------------------------------
         if (Input.GetKeyDown(KeyCode.F))
         {
-            _armComp.LanzarBrazo();
+            _throwComp.LanzarBrazo();
         }
 
         //---PARTES-----------------------------------------
@@ -160,13 +160,27 @@ public class InputController : MonoBehaviour
         }
 
         // para ver si recoge a alubia bien
-        if (Input.GetKeyDown(KeyCode.L))
+        if (Input.GetKeyDown(KeyCode.B))
         {
             PlayerManager.Instance.RecogerAlubiat();
         }
-        else if (Input.GetKeyDown(KeyCode.K))
+        else if (Input.GetKeyDown(KeyCode.N))
         {
             PlayerManager.Instance.SoltarAlubiat();
+        }
+
+        // para ver si suelta los objetos bien
+        if (Input.GetKeyDown(KeyCode.J))
+        {
+            _throwComp.LanzarBola();
+        }
+        else if (Input.GetKeyDown(KeyCode.K))
+        {
+            PlayerManager.Instance.SoltarObjeto();
+        }
+        else if (Input.GetKeyDown(KeyCode.L))
+        {
+            PlayerManager.Instance.RecogerObjeto();
         }
 
         // para ver si cambia de control bien
