@@ -45,11 +45,11 @@ public class DialogueManager : MonoBehaviour
 
     private void Dialogo()
     {
-        if ()
+        /*if ()
         {
             _inputController.enabled = false;
             Debug.Log("En conversación");
-        }
+        }*/
     }
     public void EnConversacion(bool conversando) 
     {
