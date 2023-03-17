@@ -43,20 +43,20 @@ public class GameManager : MonoBehaviour
         switch (newState) // Diferentes comportamientos según estado al que se entra
         { // En sí, solo cambia el grupo de UI por cada estado y en GAME carga el nivel
             case GameStates.START:                       //     *MENÚ INICIAL*
-                _UIManager.SetMenu(GameStates.START);    // Activa menú inicial
+                //_UIManager.SetMenu(GameStates.START);    // Activa menú inicial
                 break;
             case GameStates.INTRO:                       //     *INTRO* 
-                _UIManager.SetMenu(GameStates.INTRO);    // Activa menú intro
+                //_UIManager.SetMenu(GameStates.INTRO);    // Activa menú intro
                 break;
             case GameStates.GAME:                        //     *JUEGO*
                 _UIManager.SetMenu(newState);     // Activa HUD
                 if (_UIManager != null) _UIManager.SetPartes(PlayerManager.State, PlayerManager.Instance.Parte); // Inicializa valores del HUD
                 break;
             case GameStates.PAUSE:
-                _UIManager.SetMenu(GameStates.PAUSE);
+                //_UIManager.SetMenu(GameStates.PAUSE);
                 break;
             case GameStates.GAMEOVER:                    //     *FIN DEL JUEGO*
-                _UIManager.SetMenu(GameStates.GAMEOVER); // Activa el texto de GameOver
+                //_UIManager.SetMenu(GameStates.GAMEOVER); // Activa el texto de GameOver
                 break;
         }
         _currentGameState = newState;                        // Finaliza el cambio
