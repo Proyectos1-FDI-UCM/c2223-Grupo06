@@ -2666,6 +2666,10 @@ PrefabInstance:
       propertyPath: _boneStateBar
       value: 
       objectReference: {fileID: 1113565111}
+    - target: {fileID: 734111396539604467, guid: 767e3f423c90f78409c3048c7e7f2088, type: 3}
+      propertyPath: _furbo
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2285777756704234152, guid: 767e3f423c90f78409c3048c7e7f2088, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -4857,6 +4861,10 @@ PrefabInstance:
     - target: {fileID: 2076869504003675100, guid: 59f3bbb5802b17140a954d4cbd3ee516, type: 3}
       propertyPath: m_Name
       value: UI
+      objectReference: {fileID: 0}
+    - target: {fileID: 2076869504003675100, guid: 59f3bbb5802b17140a954d4cbd3ee516, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3302585916420237717, guid: 59f3bbb5802b17140a954d4cbd3ee516, type: 3}
       propertyPath: m_IsActive

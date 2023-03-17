@@ -71,7 +71,10 @@ AnimatorStateMachine:
   - serializedVersion: 1
     m_State: {fileID: 2724718586697519146}
     m_Position: {x: 270, y: 20, z: 0}
-  m_ChildStateMachines: []
+  m_ChildStateMachines:
+  - serializedVersion: 1
+    m_StateMachine: {fileID: -166724519482191568}
+    m_Position: {x: 260, y: 240, z: 0}
   m_AnyStateTransitions: []
   m_EntryTransitions: []
   m_StateMachineTransitions: {}
@@ -109,6 +112,25 @@ AnimatorState:
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
+--- !u!1107 &-166724519482191568
+AnimatorStateMachine:
+  serializedVersion: 6
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: New StateMachine
+  m_ChildStates: []
+  m_ChildStateMachines: []
+  m_AnyStateTransitions: []
+  m_EntryTransitions: []
+  m_StateMachineTransitions: {}
+  m_StateMachineBehaviours: []
+  m_AnyStatePosition: {x: 50, y: 20, z: 0}
+  m_EntryPosition: {x: 50, y: 120, z: 0}
+  m_ExitPosition: {x: 800, y: 120, z: 0}
+  m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
+  m_DefaultState: {fileID: 0}
 --- !u!91 &9100000
 AnimatorController:
   m_ObjectHideFlags: 0
