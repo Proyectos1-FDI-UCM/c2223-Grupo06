@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using static UnityEngine.GraphicsBuffer;
 
 public class DialogueManager : MonoBehaviour
 {
@@ -13,26 +14,49 @@ public class DialogueManager : MonoBehaviour
     private Dialogue _dialogue;
     private DialogueTrigger _dialogueTrigger;
     public Text _dialogueText;
+    private Transform _transform;
+    private SpriteRenderer _mySpriteRenderer;
     #endregion
+
     #region Parameters
     private Queue<string> _guion; // colección de strings, array circular FIFO (first in first out)
+    // mover a Timoteo
+    [SerializeField]
+    private GameObject WaypointDialogo;
+    [SerializeField]
+    private float _speed; // velocidad a la que se mueve Timoteo al waypoint de diálogo
+
     #endregion
+
     #region Properties
     public bool _validNPCHitbox; // está en el área de un NPC
     // en conversación 
     private bool _enConversacion = false;
     public bool Conversacion { get { return _enConversacion; } }
     #endregion
+
     #region Methods
     public void Activar()
     {
-        
+        Dialogo();
     }
-    public void EnConversacion(bool conversando)
+    #region flujo de diálogo
+
+
+    private void Dialogo()
     {
-        _enConversacion = conversando;
-        Debug.Log("En conversación");
+        /*if ()
+        {
+            _inputController.enabled = false;
+            Debug.Log("En conversación");
+        }*/
     }
+    public void EnConversacion(bool conversando) 
+    {
+        _enConversacion = conversando; // si se está en conversación
+    }
+
+    // INICIO DIÁLOGO
     public void StartDialogue(Dialogue _dialogue)
     {
         Debug.Log("Conversación con" + _dialogue._name);
@@ -45,6 +69,7 @@ public class DialogueManager : MonoBehaviour
         SiguienteFrase(); // al acabar pasar a la siguiente frase
     }
 
+    // SIGUIENTE FRASE
     public void SiguienteFrase()
     {
         if (_guion.Count == 0) // comprobar que queden frases en la queue
@@ -57,19 +82,35 @@ public class DialogueManager : MonoBehaviour
         _dialogueText.text = _frase;
     }
 
-    void FinDialogo()
+    // FIN DIÁLOGO
+    void FinDialogo() 
     {
         Debug.Log("Conversación finiquitada");
     }
+
     #endregion
 
+    #region mover timoteo
+    void MoveTimoteo()
+    {
+        // Hace que Timoteo se mueva hacia el waypoint correspondiente con la velocidad marcada
+        _transform.position = Vector3.MoveTowards(_transform.position, // pos inicial 
+            WaypointDialogo.transform.position, _speed * Time.deltaTime); // pos final
+    }
+    #endregion
+
+
+    #endregion
 
     // Start is called before the first frame update
     void Start()
     {
         _inputController = PlayerAccess.Instance.InputController;
+        _transform = transform;
         _dialogueTrigger = GetComponent<DialogueTrigger>();
         _interaction = GetComponent<Interaction>();
+        _inputController = GetComponent<InputController>();
+        _mySpriteRenderer = GetComponent<SpriteRenderer>();
         _guion = new Queue<string>(); // inicialización de _guion
     }
 
@@ -79,6 +120,7 @@ public class DialogueManager : MonoBehaviour
         if (_inputController.Conversar && _validNPCHitbox)
         {
             EnConversacion(true);
+            _mySpriteRenderer.color = Color.blue;
         }
     }
 }

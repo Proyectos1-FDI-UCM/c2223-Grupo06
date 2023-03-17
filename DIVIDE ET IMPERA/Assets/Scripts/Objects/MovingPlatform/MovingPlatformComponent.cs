@@ -29,6 +29,7 @@ public class MovingPlatformComponent : MonoBehaviour
             waypoints[target].transform.position, _speed * Time.deltaTime);
     }
 
+    // CICLAR
     void IsCiclica()
     {
         // Si esta en el último waypoint va al primero
