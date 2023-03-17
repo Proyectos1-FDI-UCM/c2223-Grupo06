@@ -45,9 +45,6 @@ public class GameManager : MonoBehaviour
             case GameStates.START:                       //     *MENÚ INICIAL*
                 //_UIManager.SetMenu(GameStates.START);    // Activa menú inicial
                 break;
-            case GameStates.INTRO:                       //     *INTRO* 
-                //_UIManager.SetMenu(GameStates.INTRO);    // Activa menú intro
-                break;
             case GameStates.GAME:                        //     *JUEGO*
                 _UIManager.SetMenu(GameStates.GAME);     // Activa HUD
                 if (_UIManager != null) _UIManager.SetPartes(PlayerManager.State, PlayerManager.Instance.Parte); // Inicializa valores del HUD
