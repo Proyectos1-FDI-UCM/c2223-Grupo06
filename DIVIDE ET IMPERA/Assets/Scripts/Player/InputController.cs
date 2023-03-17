@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using UnityEngine;
 
 public class InputController : MonoBehaviour
@@ -242,6 +243,9 @@ public class InputController : MonoBehaviour
             _UIManager.SetMenu(GameManager.GameStates.PAUSE);
         }
 
+        
 
     }
+
+ 
 }
