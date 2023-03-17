@@ -485,6 +485,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Moving Platform
       objectReference: {fileID: 0}
+    - target: {fileID: 3401196819384563603, guid: 3e2b2b347db1ac644961b4545c10dda3, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3e2b2b347db1ac644961b4545c10dda3, type: 3}
 --- !u!1 &1089286974 stripped

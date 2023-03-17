@@ -7,21 +7,7 @@ public class StayOnPataforma : MonoBehaviour
 {
     private InputController _inputController;
 
-
     #region Methods
-
-    /*
-     * ojo cuidado intento sus de hacer algo pero es una cosa no tan curiosa (esta mal)
-    private bool QueEsEso(Collision2D col)
-    {
-        {col.gameObject.GetComponent<PlayerManager>() 
-        || col.gameObject.GetComponent<BallComponent>()
-        || col.gameObject.GetComponent<SpringComponent>()
-        }
-        return true;
-    }
-    */
-
     private void OnCollisionEnter2D(Collision2D collision)
     {
         Debug.Log("enter "+collision.gameObject);
@@ -37,9 +23,7 @@ public class StayOnPataforma : MonoBehaviour
                 gameObject.transform.SetParent(collision.gameObject.transform, true);
             }
         }
-
     }
-
 
     void OnCollisionExit2D(Collision2D collision)
     {
@@ -51,12 +35,8 @@ public class StayOnPataforma : MonoBehaviour
             // cambia el padre de timmy (no alubia, otro)
             gameObject.transform.parent = null;
         }
-
     }
-
-
     #endregion
-
 
     private void Start()
     {
