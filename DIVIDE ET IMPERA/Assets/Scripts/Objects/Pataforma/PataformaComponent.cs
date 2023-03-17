@@ -4,13 +4,12 @@ using UnityEngine;
 public class PataformaComponent : MonoBehaviour
 {
     #region TUTORIAL
-
     /// <summary>
     /// Como poner la Patwoforma en escena es un coñazo asqueroso y es entre muy y demasiado tiquisimiquis
     /// voy a haceros un tutorial dpm para que sepais como cuidar bien a mi pequeña patwoforma:
     /// 
     /// Cuando se pone en escena el objeto, tiene referenciado a Timmy, pero no al Timmy de la escena,
-    /// por lo que teneis que arrastrar al timmy de la escena a la referencia en el componente
+    /// por lo que teneis que arrastrar al Timmy de la escena a la referencia en el componente
     /// 
     /// y con esto se acabó el tutorial maravilloso y estupendo, recordad darle a like y compartir
     /// y acivar la campanita ;)
@@ -23,17 +22,15 @@ public class PataformaComponent : MonoBehaviour
     /// </summary>
     #endregion
 
-
     #region Referencias
     private InputController _inputController;
     private SpriteRenderer _mySpriteRenderer;
     [SerializeField]
     private GameObject _player;
-    private PataformaMovementComponent _pataformaMovementComponent;
-    private Rigidbody2D _pataformaRigidbody;
     private Rigidbody2D _playerRigidbody;
 
-
+    private PataformaMovementComponent _pataformaMovementComponent;
+    private Rigidbody2D _pataformaRigidbody; 
     [SerializeField]
     private PataformaMovementComponent pataformaMovementComponent;
 
@@ -59,8 +56,6 @@ public class PataformaComponent : MonoBehaviour
 
     [SerializeField]
     private bool _activarPataforma;
-
-
     #endregion
 
     #region Methods
@@ -204,10 +199,8 @@ public class PataformaComponent : MonoBehaviour
             _pDireccion = 0;
         }
     }
-
     #endregion
 
-    // Start is called before the first frame update
     void Start()
     {
         _inputController = _player.GetComponent<InputController>();
@@ -218,7 +211,6 @@ public class PataformaComponent : MonoBehaviour
 
     }
 
-    // Update is called once per frame
     void Update()
     {
         ConectaPiernas();
@@ -229,8 +221,5 @@ public class PataformaComponent : MonoBehaviour
         {
             PataformaInput();
         }
-
-        
-
     }
 }

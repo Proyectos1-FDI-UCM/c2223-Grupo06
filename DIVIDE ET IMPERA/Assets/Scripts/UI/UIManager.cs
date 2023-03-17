@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -59,6 +60,11 @@ public class UIManager : MonoBehaviour
     public void PauseToStart()
     {
         SetMenu(GameManager.GameStates.START);
+    }
+
+    public void ExitGame()
+    {
+        
     }
 
     // PARTES
@@ -156,7 +162,8 @@ public class UIManager : MonoBehaviour
         _menus = new GameObject[4]; // creación del array de menús y asignación
         _menus[0] = _StartMenu;
         _menus[1] = _HUD;
-        _menus[2] = _PauseMenu;// habrá que poner más segun añadamos menuses
+        _menus[2] = _PauseMenu;
+        _menus[3] = _GameOverMenu; // habrá que poner más segun añadamos menuses
         _activeMenu = GameManager.Instance.CurrentState; // asocia el menú actual con el estado actual
 
         _posCabeza      = 0; // posiciones concretas de cada parte en el array de imágenes
