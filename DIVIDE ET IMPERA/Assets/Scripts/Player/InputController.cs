@@ -8,7 +8,9 @@ public class InputController : MonoBehaviour
     private GameObject _pataforma;
     private ThrowComponent _throwComp;
     private Rigidbody2D _playerRigidBody;
-    
+
+    [SerializeField]private UIManager _UIManager;
+
     #endregion
 
     #region Properties 
@@ -232,5 +234,14 @@ public class InputController : MonoBehaviour
         {
             _conversar = true;
         }
+
+
+        //---OPCIÓN DE PAUSA-----------------------
+        if(Input.GetKeyDown(KeyCode.Z)) 
+        {
+            _UIManager.SetMenu(GameManager.GameStates.PAUSE);
+        }
+
+
     }
 }
