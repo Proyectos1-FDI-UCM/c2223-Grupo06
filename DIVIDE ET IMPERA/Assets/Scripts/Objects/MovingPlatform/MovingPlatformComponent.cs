@@ -9,6 +9,7 @@ public class MovingPlatformComponent : MonoBehaviour
     private Transform _transform;
     #endregion
 
+    #region Parameters
     [SerializeField]
     private GameObject[] waypoints = new GameObject[2];
     [SerializeField]
@@ -17,25 +18,25 @@ public class MovingPlatformComponent : MonoBehaviour
     private bool _ciclica;
     private int target;
     private bool _outOfBounds = false;
-
+    #endregion
 
     #region Methods
-    // mueve la propia plataforma 
+    // Mueve la propia plataforma 
     void MovePlatform()
     {
-        // hace que la plataforma se mueva hacia el waypoint correspondiente con la velocidad marcada
+        // Hace que la plataforma se mueva hacia el waypoint correspondiente con la velocidad marcada
         _transform.position = Vector3.MoveTowards(_transform.position,
             waypoints[target].transform.position, _speed * Time.deltaTime);
     }
 
     void IsCiclica()
     {
-        // si esta en el último waypoint va al primero
+        // Si esta en el último waypoint va al primero
         if (target == waypoints.Length - 1)
         {
             target = 0;
         }
-        // si no está en el último waypoint va al siguiente
+        // Si no está en el último waypoint va al siguiente
         else
         {
             target++;
@@ -56,7 +57,7 @@ public class MovingPlatformComponent : MonoBehaviour
         }
     }
 
-    // marca hacia qué waypoint va
+    // Marca hacia qué waypoint va
     void WhichWaypoint()
     {
         // si la plataforma esta en la posicion del waypoint correspondiente
@@ -77,13 +78,11 @@ public class MovingPlatformComponent : MonoBehaviour
     }
     #endregion
 
-    // Start is called before the first frame update
     void Start()
     {
         _transform = transform;
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (!_outOfBounds)
@@ -93,7 +92,6 @@ public class MovingPlatformComponent : MonoBehaviour
         
     }
 
-    // called after update
     private void FixedUpdate()
     {
         WhichWaypoint();
