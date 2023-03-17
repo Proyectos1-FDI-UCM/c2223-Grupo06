@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public enum GameStates { START, INTRO, GAME, PAUSE, GAMEOVER };    // Estados del juego (faltan)
+    public enum GameStates { START, GAME, PAUSE, GAMEOVER };    // Estados del juego (faltan)
 
     #region references
     private UIManager _UIManager;
@@ -45,11 +45,8 @@ public class GameManager : MonoBehaviour
             case GameStates.START:                       //     *MENÚ INICIAL*
                 _UIManager.SetMenu(GameStates.START);    // Activa menú inicial
                 break;
-            case GameStates.INTRO:                       //     *INTRO* 
-                _UIManager.SetMenu(GameStates.INTRO);    // Activa menú intro
-                break;
             case GameStates.GAME:                        //     *JUEGO*
-                _UIManager.SetMenu(newState);     // Activa HUD
+                _UIManager.SetMenu(GameStates.GAME);     // Activa HUD
                 if (_UIManager != null) _UIManager.SetPartes(PlayerManager.State, PlayerManager.Instance.Parte); // Inicializa valores del HUD
                 break;
             case GameStates.PAUSE:
@@ -84,7 +81,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        _currentGameState = GameStates.INTRO; // Valor dummy para que se realice el cambio nada más empezar
+        _currentGameState = GameStates.GAMEOVER; // Valor dummy para que se realice el cambio nada más empezar
         _nextGameState = GameStates.START;    // Estado inicial, es diferente al current para que el EnterState del primer update se realice
     }
 
