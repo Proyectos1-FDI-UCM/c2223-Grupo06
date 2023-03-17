@@ -6,14 +6,17 @@ public class PlayerAnimationController : MonoBehaviour
     private Animator _myAnimator;
     private GroundCheck _myGroundCheck;
     private MovementComponent _myMovementComponent;
+    private ThrowComponent _myThrowComponent;
     #endregion 
     void Start()
     {
         _myAnimator = GetComponent<Animator>();
         _myGroundCheck = GetComponentInChildren<GroundCheck>();
         _myMovementComponent = GetComponent<MovementComponent>();
+        _myThrowComponent = GetComponent<ThrowComponent>();
         _myAnimator.ResetTrigger("isGrounded");
         _myAnimator.ResetTrigger("isRunning");
+        _myAnimator.ResetTrigger("isThrowing");
     }
 
     void Update()
@@ -39,6 +42,12 @@ public class PlayerAnimationController : MonoBehaviour
         else
         {
             _myAnimator.ResetTrigger("isRunning");
+        }
+
+        if ( _myThrowComponent.IsThrowing)
+        {
+            _myAnimator.SetTrigger("isThrowing");
+            _myThrowComponent.IsThrowing = false;
         }
     }
 }
