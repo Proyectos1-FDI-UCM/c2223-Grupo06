@@ -62,6 +62,11 @@ public class UIManager : MonoBehaviour
         SetMenu(GameManager.GameStates.START);
     }
 
+    public void PauseToGame()
+    {
+        SetMenu(GameManager.GameStates.GAME);
+    }
+
     public void ExitGame()
     {
         

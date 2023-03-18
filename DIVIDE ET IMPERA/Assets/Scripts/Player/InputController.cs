@@ -7,6 +7,7 @@ public class InputController : MonoBehaviour
     private JumpComponent _playerJump;
     [SerializeField]
     private GameObject _pataforma;
+    private GameManager.GameStates state;
     private ThrowComponent _throwComp;
     private Rigidbody2D _playerRigidBody;
 
@@ -236,16 +237,16 @@ public class InputController : MonoBehaviour
             _conversar = true;
         }
 
-
         //---OPCIÓN DE PAUSA-----------------------
-        if(Input.GetKeyDown(KeyCode.Z)) 
+        if (Input.GetKeyDown(KeyCode.Z))
         {
             _UIManager.SetMenu(GameManager.GameStates.PAUSE);
         }
 
-        
+
 
     }
-
+    
+        
  
 }
