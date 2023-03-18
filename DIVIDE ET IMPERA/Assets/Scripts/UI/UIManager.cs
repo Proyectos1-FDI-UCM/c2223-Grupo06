@@ -175,6 +175,7 @@ public class UIManager : MonoBehaviour
 
         GameManager.Instance.RegisterUIManager(this);
         PlayerManager.Instance.RegisterUIManager(this);
+
     }
 
     /*
