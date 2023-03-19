@@ -18,6 +18,9 @@ public class MovingPlatformComponent : MonoBehaviour
     private bool _ciclica;
     private int target;
     private bool _outOfBounds = false;
+    [SerializeField]
+    private bool _door = false;
+    public bool GetDoorPlatform { get { return _door; } }
     #endregion
 
     #region Methods
@@ -56,6 +59,12 @@ public class MovingPlatformComponent : MonoBehaviour
             // indica si el array se ha salido de tope
             _outOfBounds = true;
         }
+    }
+
+    // PUERTA
+    void Puerta()
+    {
+
     }
 
     // Marca hacia qué waypoint va
