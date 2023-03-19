@@ -61,24 +61,8 @@ public class InputController : MonoBehaviour
     #endregion
 
     #region Methods
-    #endregion
-    // Start is called beforse the first frame update
-    void Start()
+    private void MovementInput()
     {
-        _playerJump = GetComponentInChildren<JumpComponent>();
-        //_pataformaInputComponent = _pataforma.GetComponent<PataformaInputComponent>();
-        // desactiva el input de la pataforma
-        //_pataformaInputComponent.enabled = false;
-        _throwComp = GetComponent<ThrowComponent>();
-
-        // rigid body del player
-        _playerRigidBody = GetComponentInChildren<Rigidbody2D>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        #region uwu
         //---MOVIMIENTO--------------------------------
         //------Input del movimiento horizontal del jugador--------
         if (Input.GetKey(KeyCode.D))
@@ -99,6 +83,27 @@ public class InputController : MonoBehaviour
         {
             _playerJump.Jump();
         }
+    }
+
+    #endregion
+    // Start is called beforse the first frame update
+    void Start()
+    {
+        _playerJump = GetComponentInChildren<JumpComponent>();
+        //_pataformaInputComponent = _pataforma.GetComponent<PataformaInputComponent>();
+        // desactiva el input de la pataforma
+        //_pataformaInputComponent.enabled = false;
+        _throwComp = GetComponent<ThrowComponent>();
+
+        // rigid body del player
+        _playerRigidBody = GetComponentInChildren<Rigidbody2D>();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        //------MOVIMIENTO-----
+        MovementInput();
 
         //---INTERACTUABLES----------------------------
         //------Input para interactuar con objetos-----
@@ -110,7 +115,6 @@ public class InputController : MonoBehaviour
         {
             _interactuar = false;
         }
-        #endregion
 
         //---PATAFOMA---------------------------------------
         //------Input para interactuar con las piernas-----
@@ -242,9 +246,6 @@ public class InputController : MonoBehaviour
         {
             _UIManager.SetMenu(GameManager.GameStates.PAUSE);
         }
-
-
-
     }
     
         
