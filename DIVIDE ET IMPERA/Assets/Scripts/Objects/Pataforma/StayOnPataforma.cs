@@ -5,8 +5,9 @@ using System.Runtime.CompilerServices;
 
 public class StayOnPataforma : MonoBehaviour
 {
+    #region References
     private InputController _inputController;
-
+    #endregion
 
     #region parameters
     // informa si tiene padre o no
@@ -88,7 +89,7 @@ public class StayOnPataforma : MonoBehaviour
     }
     #endregion
 
-    #region Methods
+    #region Metodos principales
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (CheckStayOn(collision))
@@ -97,7 +98,7 @@ public class StayOnPataforma : MonoBehaviour
         }
     }
 
-    void OnCollisionExit2D(Collision2D collision)
+    private void OnCollisionExit2D(Collision2D collision)
     {
         if (CheckStayOff(collision))
         {
