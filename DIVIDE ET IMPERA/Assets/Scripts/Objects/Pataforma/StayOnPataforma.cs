@@ -10,20 +10,18 @@ public class StayOnPataforma : MonoBehaviour
     #endregion
 
     #region parameters
-    // informa si tiene padre o no
-    private bool _parent;
     // informa si puede ponerse en la plaraforma
     private bool _stayOn;
-    // informa si puede quitarse de la plataforma
-    private bool _stayOff;
+    // informa si funciona como puerta
+    private bool _puerta;
 
     #endregion
 
     #region Metodos basicos
-    // mira si tiene padre o no
-    private bool ParentCheck(Collision2D col)
+    // mira si tiene padre o no (este objeto)
+    private bool ParentCheck()
     {
-        if (col.gameObject.transform.parent == null)
+        if (transform.parent == null)
         {
             return false;
         }
@@ -32,11 +30,24 @@ public class StayOnPataforma : MonoBehaviour
             return true;
         }
     }
+    // mira si es una puerta la plataforma 
+    private bool PuertaCheck(Collision2D col)
+    {
+        if (col.gameObject.GetComponent<MovingPlatformComponent>().GetDoorPlatform)
+        {
+            _puerta = true;
+        }
+        else
+        {
+            _puerta = false;
+        }
+        return _puerta;
+    }
     // cambia el padre del objeto
     private void Adoption(Collision2D collision)
     {
         // si no tiene padre cambia el padre
-        if (ParentCheck(collision))
+        if (!ParentCheck())
         {
             gameObject.transform.SetParent(collision.gameObject.transform, true);
         }
@@ -46,7 +57,7 @@ public class StayOnPataforma : MonoBehaviour
     private void Adoptiont(Collision2D collision)
     {
         // si tiene el padre se lo quita
-        if (!ParentCheck(collision))
+        if (ParentCheck())
         {
             gameObject.transform.parent = null;
         }
@@ -61,8 +72,7 @@ public class StayOnPataforma : MonoBehaviour
     {
         // devuelve true si es o una pataforma o una plataforma normal con la variable de puerta 
         // desactivada y no es el tilemap
-        if ((collision.gameObject.GetComponent<PataformaComponent>()
-            || (!collision.gameObject.GetComponent<MovingPlatformComponent>().GetDoorPlatform))
+        if ((collision.gameObject.GetComponent<PataformaComponent>() || !PuertaCheck(collision))      
             && !collision.gameObject.GetComponent<Tilemap>())
         {
             // si tiene peso el objeto
@@ -71,22 +81,14 @@ public class StayOnPataforma : MonoBehaviour
                 _stayOn = true;
             }
         }
+        else
+        {
+            _stayOn = false;
+        }
 
         return _stayOn;
     }
 
-    // mira si es un objeto que esta ya en la plataforma (para quitarlo)
-    private bool CheckStayOff(Collision2D collision)
-    {
-        if ((collision.gameObject.GetComponent<PataformaComponent>()
-            || collision.gameObject.GetComponent<MovingPlatformComponent>())
-            && !collision.gameObject.GetComponent<Tilemap>())
-        {
-            _stayOff = true;
-        }
-
-        return _stayOff;
-    }
     #endregion
 
     #region Metodos principales
@@ -100,7 +102,7 @@ public class StayOnPataforma : MonoBehaviour
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        if (CheckStayOff(collision))
+        if (CheckStayOn(collision))
         {
             Adoptiont(collision);
         }
