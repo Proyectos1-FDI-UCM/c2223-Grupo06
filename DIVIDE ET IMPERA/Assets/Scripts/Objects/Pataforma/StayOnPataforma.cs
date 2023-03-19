@@ -9,8 +9,12 @@ public class StayOnPataforma : MonoBehaviour
 
 
     #region parameters
+    // informa si tiene padre o no
     private bool _parent;
+    // informa si puede ponerse en la plaraforma
     private bool _stayOn;
+    // informa si puede quitarse de la plataforma
+    private bool _stayOff;
 
     #endregion
 
@@ -30,12 +34,22 @@ public class StayOnPataforma : MonoBehaviour
     // cambia el padre del objeto
     private void Adoption(Collision2D collision)
     {
-        gameObject.transform.SetParent(collision.gameObject.transform, true);
+        // si no tiene padre cambia el padre
+        if (ParentCheck(collision))
+        {
+            gameObject.transform.SetParent(collision.gameObject.transform, true);
+        }
+        
     }
     // le quita el padre al objeto
     private void Adoptiont(Collision2D collision)
     {
-        gameObject.transform.parent = null;
+        // si tiene el padre se lo quita
+        if (!ParentCheck(collision))
+        {
+            gameObject.transform.parent = null;
+        }
+        
     }
     #endregion
 
@@ -59,6 +73,19 @@ public class StayOnPataforma : MonoBehaviour
 
         return _stayOn;
     }
+
+    // mira si es un objeto que esta ya en la plataforma (para quitarlo)
+    private bool CheckStayOff(Collision2D collision)
+    {
+        if ((collision.gameObject.GetComponent<PataformaComponent>()
+            || collision.gameObject.GetComponent<MovingPlatformComponent>())
+            && !collision.gameObject.GetComponent<Tilemap>())
+        {
+            _stayOff = true;
+        }
+
+        return _stayOff;
+    }
     #endregion
 
     #region Methods
@@ -72,13 +99,9 @@ public class StayOnPataforma : MonoBehaviour
 
     void OnCollisionExit2D(Collision2D collision)
     {
-        Debug.Log("exist "+collision.gameObject);
-        if ((collision.gameObject.GetComponent<PataformaComponent>()
-            || collision.gameObject.GetComponent<MovingPlatformComponent>())
-            && !collision.gameObject.GetComponent<Tilemap>())
+        if (CheckStayOff(collision))
         {
-            // cambia el padre de timmy (no alubia, otro)
-            gameObject.transform.parent = null;
+            Adoptiont(collision);
         }
     }
     #endregion
