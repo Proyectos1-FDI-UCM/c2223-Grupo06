@@ -5,8 +5,6 @@ public class InputController : MonoBehaviour
 {
     #region Referencias
     private JumpComponent _playerJump;
-    [SerializeField]
-    private GameObject _pataforma;
     private GameManager.GameStates state;
     private ThrowComponent _throwComp;
     private Rigidbody2D _playerRigidBody;
@@ -112,8 +110,8 @@ public class InputController : MonoBehaviour
     private void InteractInput()
     {
         // TIMMY
-        #region PONER PARTES
-        if (Input.GetKeyDown(KeyCode.R))
+        #region PONER PARTES A COSAS
+        if (Input.GetKeyDown(KeyCode.E))
         {
             _conectarParte = true;
         }
@@ -121,8 +119,7 @@ public class InputController : MonoBehaviour
         {
             _conectarParte = false;
         }
-        //------Input para recuperar partes de objetos------
-        if (Input.GetKeyDown(KeyCode.T))
+        if (Input.GetKeyDown(KeyCode.R))
         {
             _recuperarParte = true;
         }
@@ -131,17 +128,13 @@ public class InputController : MonoBehaviour
             _recuperarParte = false;
         }
         #endregion
-
-
-        //Input.GetKey(KeyCode.Alpha1) && Input.GetKeyUp(KeyCode.E)
-        #region SOLTAR Y RECOGER PARTES
-
+        
+        // soltar y recoge partes
         if (Input.GetKeyUp(KeyCode.E))
         {
             if (Input.GetKey(KeyCode.Alpha1) && _playerManager.Brazos == 2)
             {
                 PlayerManager.Instance.SoltarBrazo();
-                
             }
             else if (Input.GetKey(KeyCode.Alpha2) && _playerManager.Brazos == 1)
             {
@@ -156,69 +149,67 @@ public class InputController : MonoBehaviour
 
             }
         }
-        if (Input.GetKeyUp(KeyCode.Q))
+        if (Input.GetKeyUp(KeyCode.R))
         {
-            if (_playerManager.Brazos == 1)
+            if (Input.GetKey(KeyCode.Alpha1) && _playerManager.Brazos == 1)
             {
                 PlayerManager.Instance.RecogerBrazo();
             }
-            else if (_playerManager.Brazos == 0)
+            else if (Input.GetKey(KeyCode.Alpha2) && _playerManager.Brazos == 0)
             {
                 PlayerManager.Instance.RecogerBrazo();
             }
-            else if (!_playerManager.Piernas)
+            else if (Input.GetKey(KeyCode.Alpha3) && !_playerManager.Piernas)
             {
                 PlayerManager.Instance.RecogerPiernas();
             }
-        }
-        #endregion
-
-        // OBJETOS
-        /*
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            if (Input.GetKey(KeyCode.Alpha1) && )
+            else if (Input.GetKey(KeyCode.Alpha4))
             {
 
             }
         }
-        */
 
-        
-        #region PALANCA
-        if (Input.GetKey(KeyCode.Alpha1) && Input.GetKeyDown(KeyCode.E))
+        // interactuar
+        if (Input.GetKeyUp(KeyCode.T))
         {
-            _interactuar = true;
+            // PARA INTERACTUAR
+            if (Input.GetKey(KeyCode.Alpha1))
+            {
+                _interactuar = true;
+
+            }
+            else if (Input.GetKey(KeyCode.Alpha2))
+            {
+                _interactuar = true;
+            }
+            else if (Input.GetKey(KeyCode.Alpha3))
+            {
+                if (!_changeToPataforma
+                && (PlayerManager.State == PlayerManager.TimmyStates.S3
+                || PlayerManager.State == PlayerManager.TimmyStates.S4
+                || PlayerManager.State == PlayerManager.TimmyStates.S5))
+                {
+                    _changeToPataforma = true;
+                    //_playerRigidBody.bodyType = RigidbodyType2D.Kinematic;
+
+                    this.enabled = false;
+                }
+            }
+            else if (Input.GetKey(KeyCode.Alpha4))
+            {
+
+            }
         }
         else
         {
             _interactuar = false;
         }
-        #endregion
 
-        #region PATWOFORMA
-        //--------- Hay que dejar pulsado primero el numero y luego la E para interactuar
-        if (Input.GetKey(KeyCode.Alpha2) && Input.GetKeyUp(KeyCode.E))
-        {
-            if (!_changeToPataforma
-                && (PlayerManager.State == PlayerManager.TimmyStates.S3
-                || PlayerManager.State == PlayerManager.TimmyStates.S4
-                || PlayerManager.State == PlayerManager.TimmyStates.S5))
-            {
-                _changeToPataforma = true;
-                //_playerRigidBody.bodyType = RigidbodyType2D.Kinematic;
-
-                this.enabled = false;
-            }
-        }
-        #endregion
-
-        #region LANZAR
-        if (Input.GetKeyDown(KeyCode.F))
+        // lanzar
+        if (Input.GetKeyUp(KeyCode.Q))
         {
             _throwComp.LanzarBrazo();
         }
-        #endregion
     }
 
     private void DebugInput()

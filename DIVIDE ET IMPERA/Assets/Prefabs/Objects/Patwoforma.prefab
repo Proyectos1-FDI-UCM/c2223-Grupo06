@@ -147,7 +147,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f10fc3b95a7066c47a212b973b8a03f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _player: {fileID: 2311462238604020209, guid: 767e3f423c90f78409c3048c7e7f2088, type: 3}
+  _player: {fileID: 0}
   pataformaMovementComponent: {fileID: 8562587943021863831}
   _piernasConectadas: 0
   _validPataformaHitbox: 0
