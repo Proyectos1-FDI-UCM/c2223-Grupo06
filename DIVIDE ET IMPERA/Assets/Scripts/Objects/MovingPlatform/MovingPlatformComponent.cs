@@ -25,8 +25,7 @@ public class MovingPlatformComponent : MonoBehaviour
     void MovePlatform()
     {
         // Hace que la plataforma se mueva hacia el waypoint correspondiente con la velocidad marcada
-        _transform.position = Vector3.MoveTowards(_transform.position,
-            waypoints[target].transform.position, _speed * Time.deltaTime);
+        _transform.position = Vector3.MoveTowards(_transform.position, waypoints[target].transform.position, _speed * Time.deltaTime);
     }
 
     // CICLAR

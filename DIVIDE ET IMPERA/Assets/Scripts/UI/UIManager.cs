@@ -67,9 +67,9 @@ public class UIManager : MonoBehaviour
         SetMenu(GameManager.GameStates.GAME);
     }
 
-    public void ExitGame()
+    public void Quit()
     {
-        
+        Application.Quit();
     }
 
     // PARTES
