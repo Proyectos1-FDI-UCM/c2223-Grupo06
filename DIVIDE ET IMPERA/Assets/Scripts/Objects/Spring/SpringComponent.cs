@@ -10,7 +10,6 @@ public class SpringComponent : MonoBehaviour
     #region Methods
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        //collision.attachedRigidbody.AddForce(new Vector2(collision.attachedRigidbody.velocity.x, _springForce));
         collision.attachedRigidbody.velocity = new Vector2(collision.attachedRigidbody.velocity.x, _springForce);
     }
     #endregion
