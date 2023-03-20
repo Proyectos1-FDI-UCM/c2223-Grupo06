@@ -4,15 +4,6 @@ using UnityEngine;
 
 public class DoorComponent : MonoBehaviour
 {
-    #region References
-
-    #endregion
-    #region Parameters
-
-    #endregion
-    #region Properties
-
-    #endregion
     #region Methods
     private void Activar()
     {
@@ -23,15 +14,4 @@ public class DoorComponent : MonoBehaviour
         }
     }
     #endregion
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
