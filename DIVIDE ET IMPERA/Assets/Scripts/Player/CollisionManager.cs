@@ -119,7 +119,7 @@ public class CollisionManager : MonoBehaviour
                 Destroy(padre);
                 return 0;
             }
-            else if (_objetoColisionado.GetComponent<SpringComponent>() != null)
+            else if (_objetoColisionado.GetComponentInChildren<SpringComponent>() != null)
             { // si es un muelle
                 Destroy(padre);
                 return 1;
