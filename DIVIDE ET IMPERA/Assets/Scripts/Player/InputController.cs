@@ -5,13 +5,13 @@ public class InputController : MonoBehaviour
 {
     #region Referencias
     private JumpComponent _playerJump;
-    [SerializeField]
-    private GameObject _pataforma;
     private GameManager.GameStates state;
     private ThrowComponent _throwComp;
     private Rigidbody2D _playerRigidBody;
+    private PlayerManager _playerManager;
+    private CollisionManager _collisionManager;
 
-    [SerializeField]private UIManager _UIManager;
+    [SerializeField] private UIManager _UIManager;
 
     #endregion
 
@@ -57,30 +57,33 @@ public class InputController : MonoBehaviour
     #endregion
 
     #region Parameters
+    private bool _canLetGoArm = true;
+
+    // max cooldown time
+    [SerializeField]
+    private float _cooldown = 1;
+    private float _elpsedTime;
 
     #endregion
 
     #region Methods
-    #endregion
-    // Start is called beforse the first frame update
-    void Start()
-    {
-        _playerJump = GetComponentInChildren<JumpComponent>();
-        //_pataformaInputComponent = _pataforma.GetComponent<PataformaInputComponent>();
-        // desactiva el input de la pataforma
-        //_pataformaInputComponent.enabled = false;
-        _throwComp = GetComponent<ThrowComponent>();
 
-        // rigid body del player
-        _playerRigidBody = GetComponentInChildren<Rigidbody2D>();
+    // cooldown para que no pueda soltar los brazos como un loco
+    private void CoolDown()
+    {
+        _elpsedTime += Time.deltaTime;
+
+        if (_elpsedTime >= _cooldown)
+        {
+            _canLetGoArm = true;
+            _elpsedTime = 0;
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    // input del movimiento lateral y vertical
+    private void MovementInput()
     {
-        #region uwu
-        //---MOVIMIENTO--------------------------------
-        //------Input del movimiento horizontal del jugador--------
+        #region HORIZONTAL
         if (Input.GetKey(KeyCode.D))
         {
             _direccion = 1;
@@ -93,51 +96,22 @@ public class InputController : MonoBehaviour
         {
             _direccion = 0;
         }
+        #endregion
 
-        //------Input del movimiento vertical el jugador----------
+        #region VERTICAL
         if (Input.GetKeyDown(KeyCode.Space))
         {
             _playerJump.Jump();
         }
-
-        //---INTERACTUABLES----------------------------
-        //------Input para interactuar con objetos-----
-        if (Input.GetKey(KeyCode.Alpha1) && Input.GetKeyDown(KeyCode.E))
-        {
-            _interactuar = true;
-        }
-        else
-        {
-            _interactuar = false;
-        }
         #endregion
+    }
 
-        //---PATAFOMA---------------------------------------
-        //------Input para interactuar con las piernas-----
-        //--------- Hay que dejar pulsado primero el numero y luego la E para interactuar
-        if (Input.GetKey(KeyCode.Alpha2) && Input.GetKeyUp(KeyCode.E))
-        {
-            if (!_changeToPataforma
-                && (PlayerManager.State == PlayerManager.TimmyStates.S3
-                || PlayerManager.State == PlayerManager.TimmyStates.S4
-                || PlayerManager.State == PlayerManager.TimmyStates.S5))
-            {
-                _changeToPataforma = true;
-                //_playerRigidBody.bodyType = RigidbodyType2D.Kinematic;
-
-                this.enabled = false;
-            }
-        }
-
-        //---LANZAR BRAZO-----------------------------------
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            _throwComp.LanzarBrazo();
-        }
-
-        //---PARTES-----------------------------------------
-        //------Input para poner partes a objetos-----------
-        if (Input.GetKeyDown(KeyCode.R))
+    // input de las interacciones de las partes
+    private void InteractInput()
+    {
+        // TIMMY
+        #region PONER PARTES A COSAS
+        if (Input.GetKeyDown(KeyCode.E))
         {
             _conectarParte = true;
         }
@@ -145,8 +119,7 @@ public class InputController : MonoBehaviour
         {
             _conectarParte = false;
         }
-        //------Input para recuperar partes de objetos------
-        if (Input.GetKeyDown(KeyCode.T))
+        if (Input.GetKeyDown(KeyCode.R))
         {
             _recuperarParte = true;
         }
@@ -154,10 +127,94 @@ public class InputController : MonoBehaviour
         {
             _recuperarParte = false;
         }
+        #endregion
+        
+        // soltar y recoge partes
+        if (Input.GetKeyUp(KeyCode.E))
+        {
+            if (Input.GetKey(KeyCode.Alpha1) && _playerManager.Brazos == 2)
+            {
+                PlayerManager.Instance.SoltarBrazo();
+            }
+            else if (Input.GetKey(KeyCode.Alpha2) && _playerManager.Brazos == 1)
+            {
+                PlayerManager.Instance.SoltarBrazo();
+            }
+            else if (Input.GetKey(KeyCode.Alpha3))
+            {
+                PlayerManager.Instance.SoltarPiernas();
+            }
+            else if (Input.GetKey(KeyCode.Alpha4))
+            {
 
+            }
+        }
+        if (Input.GetKeyUp(KeyCode.R))
+        {
+            if (Input.GetKey(KeyCode.Alpha1) && _playerManager.Brazos == 1)
+            {
+                PlayerManager.Instance.RecogerBrazo();
+            }
+            else if (Input.GetKey(KeyCode.Alpha2) && _playerManager.Brazos == 0)
+            {
+                PlayerManager.Instance.RecogerBrazo();
+            }
+            else if (Input.GetKey(KeyCode.Alpha3) && !_playerManager.Piernas)
+            {
+                PlayerManager.Instance.RecogerPiernas();
+            }
+            else if (Input.GetKey(KeyCode.Alpha4))
+            {
 
+            }
+        }
 
-        //---DEBUG-------------------------------------
+        // interactuar
+        if (Input.GetKeyUp(KeyCode.T))
+        {
+            // PARA INTERACTUAR
+            if (Input.GetKey(KeyCode.Alpha1))
+            {
+                _interactuar = true;
+
+            }
+            else if (Input.GetKey(KeyCode.Alpha2))
+            {
+                _interactuar = true;
+            }
+            else if (Input.GetKey(KeyCode.Alpha3))
+            {
+                if (!_changeToPataforma
+                && (PlayerManager.State == PlayerManager.TimmyStates.S3
+                || PlayerManager.State == PlayerManager.TimmyStates.S4
+                || PlayerManager.State == PlayerManager.TimmyStates.S5))
+                {
+                    _changeToPataforma = true;
+                    //_playerRigidBody.bodyType = RigidbodyType2D.Kinematic;
+
+                    this.enabled = false;
+                }
+            }
+            else if (Input.GetKey(KeyCode.Alpha4))
+            {
+
+            }
+        }
+        else
+        {
+            _interactuar = false;
+        }
+
+        // lanzar
+        if (Input.GetKeyUp(KeyCode.Q))
+        {
+            _throwComp.LanzarBrazo();
+        }
+    }
+
+    private void DebugInput()
+    {
+        #region ESTADOS
         //      Para ver si cambia de estados bien
         if (Input.GetKeyDown(KeyCode.V))
         { // SUBIR ESTADO
@@ -167,7 +224,9 @@ public class InputController : MonoBehaviour
         { // BAJAR ESTADO
             PlayerManager.Instance.SubObject();
         }
+        #endregion
 
+        #region RECOGER PIERNAS DE ALUBIA
         // para ver si recoge a alubia bien
         if (Input.GetKeyDown(KeyCode.B))
         {
@@ -177,7 +236,9 @@ public class InputController : MonoBehaviour
         {
             PlayerManager.Instance.SoltarAlubiat();
         }
+        #endregion
 
+        #region SOLTAR OBJETOS
         // para ver si suelta los objetos bien
         if (Input.GetKeyDown(KeyCode.J))
         {
@@ -191,7 +252,9 @@ public class InputController : MonoBehaviour
         {
             PlayerManager.Instance.RecogerObjeto();
         }
+        #endregion
 
+        #region CAMBIO DE CONTROL
         // para ver si cambia de control bien
         if (Input.GetKeyDown(KeyCode.Keypad1))
         {
@@ -210,25 +273,34 @@ public class InputController : MonoBehaviour
         {
             PlayerManager.Instance.SwitchPartControl(PlayerManager.Partes.PIERNAS);
         }
+        #endregion
+    }
 
-        // para ver si suelta y recoge partes bien
-        if (Input.GetKeyDown(KeyCode.P))
-        { // SOLTAR BRAZO
-            PlayerManager.Instance.SoltarBrazo();
-        }
-        else if (Input.GetKeyDown(KeyCode.O))
-        { // COGER BRAZO
-            PlayerManager.Instance.RecogerBrazo();
-        }
+    #endregion
+    // Start is called beforse the first frame update
+    void Start()
+    {
+        _playerJump = GetComponentInChildren<JumpComponent>();
+        _throwComp = GetComponent<ThrowComponent>();
+        _playerManager = GetComponent<PlayerManager>();
+        _collisionManager = GetComponent<CollisionManager>();
 
-        if (Input.GetKeyDown(KeyCode.I))
-        { // SOLTAR PIERNAS
-            PlayerManager.Instance.SoltarPiernas();
-        }
-        else if (Input.GetKeyDown(KeyCode.U))
-        { // COGER PIERNAS
-            PlayerManager.Instance.RecogerPiernas();
-        }
+
+        // rigid body del player
+        _playerRigidBody = GetComponentInChildren<Rigidbody2D>();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        //------MOVIMIENTO-------
+        MovementInput();
+
+        //------INTERACTIONS-----
+        InteractInput();
+
+        //------DEBUG------------
+        DebugInput();
 
         //---DIALOGO-----------------------------------------
         //------Input para conversar-----------
@@ -243,10 +315,6 @@ public class InputController : MonoBehaviour
             _UIManager.SetMenu(GameManager.GameStates.PAUSE);
         }
 
-
-
+        CoolDown();
     }
-    
-        
- 
 }

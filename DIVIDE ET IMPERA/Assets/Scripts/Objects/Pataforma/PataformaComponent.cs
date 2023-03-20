@@ -126,7 +126,7 @@ public class PataformaComponent : MonoBehaviour
         //---INPUT CHANGE---------------------------------------
         //------de pataforma a player---------------------------
         // 2 + E para cambiar de vuelta
-        if (Input.GetKey(KeyCode.Alpha2) && Input.GetKeyUp(KeyCode.E))
+        if (Input.GetKey(KeyCode.Alpha3) && Input.GetKeyUp(KeyCode.T))
         {
             // si el input del player esta desactivado y el de la pataforma específica
             // esta activado procede a invertirlos, asi se asegura de que el cambio de

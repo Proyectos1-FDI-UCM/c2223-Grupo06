@@ -5,35 +5,98 @@ using System.Runtime.CompilerServices;
 
 public class StayOnPataforma : MonoBehaviour
 {
+    #region References
     private InputController _inputController;
+    #endregion
 
-    #region Methods
-    private void OnCollisionEnter2D(Collision2D collision)
+    #region parameters
+    // informa si puede ponerse en la plaraforma
+    private bool _stayOn;
+    // informa si funciona como puerta
+    private bool _puerta;
+
+    #endregion
+
+    #region Metodos basicos
+    // mira si tiene padre o no (este objeto)
+    private bool ParentCheck()
     {
-        Debug.Log("enter "+collision.gameObject);
-        if ((collision.gameObject.GetComponent<PataformaComponent>()
-            || collision.gameObject.GetComponent<MovingPlatformComponent>())
+        if (transform.parent == null)
+        {
+            return false;
+        }
+        else
+        {
+            return true;
+        }
+    }
+    // mira si es una puerta la plataforma 
+    private bool PuertaCheck(Collision2D col)
+    {
+        if (col.gameObject.GetComponent<MovingPlatformComponent>().GetDoorPlatform)
+        {
+            _puerta = true;
+        }
+        else
+        {
+            _puerta = false;
+        }
+        return _puerta;
+    }
+    // cambia el padre del objeto
+    private void Adoption(Collision2D collision)
+    {
+        // le da un padre
+        gameObject.transform.SetParent(collision.gameObject.transform, true);
+    }
+    // le quita el padre al objeto
+    private void Adoptiont(Collision2D collision)
+    {
+        // padren't
+        gameObject.transform.parent = null;
+    }
+    #endregion
+
+    #region Metodos para ver si se deberia quedar en la plataforma
+
+    // mira si es un objeto que se deba quedar en la plataforma
+    private bool CheckStayOn(Collision2D collision)
+    {
+        // devuelve true si es o una pataforma o una plataforma normal con la variable de puerta 
+        // desactivada y no es el tilemap
+        if ((collision.gameObject.GetComponent<PataformaComponent>() || !PuertaCheck(collision))      
             && !collision.gameObject.GetComponent<Tilemap>())
         {
-            Debug.Log("uwu");
-            if (gameObject.GetComponent<WeightComponent>() && _inputController.enabled)
+            // si tiene peso el objeto
+            if (gameObject.GetComponent<WeightComponent>()) //&& _inputController.enabled)
             {
-                Debug.Log("ùwú");
-                // cambia el padre de timmy (no alubia, otro)
-                gameObject.transform.SetParent(collision.gameObject.transform, true);
+                _stayOn = true;
             }
+        }
+        else
+        {
+            _stayOn = false;
+        }
+
+        return _stayOn;
+    }
+
+    #endregion
+
+    #region Metodos principales
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (CheckStayOn(collision))
+        {
+            Adoption(collision);
         }
     }
 
-    void OnCollisionExit2D(Collision2D collision)
+    private void OnCollisionExit2D(Collision2D collision)
     {
-        Debug.Log("exist "+collision.gameObject);
-        if ((collision.gameObject.GetComponent<PataformaComponent>()
-            || collision.gameObject.GetComponent<MovingPlatformComponent>())
-            && !collision.gameObject.GetComponent<Tilemap>())
+        if (CheckStayOn(collision))
         {
-            // cambia el padre de timmy (no alubia, otro)
-            gameObject.transform.parent = null;
+            Adoptiont(collision);
         }
     }
     #endregion
