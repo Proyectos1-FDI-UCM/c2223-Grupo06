@@ -77,7 +77,7 @@ public class ThrowComponent : MonoBehaviour
                 }
                 */
 
-                if (PlayerManager.Instance.Brazos > 0)
+                //if (PlayerManager.Instance.Brazos > 0)
                 { // Lo he intentado optimizar un poco, no lo he querido mancillar
                     PlayerManager.Instance.Brazos--; // Cambia directamente el estado en su propio update, no worries
                     _thrownObject = Instantiate(_armPrefab, _myTransform.position, _myTransform.rotation);
