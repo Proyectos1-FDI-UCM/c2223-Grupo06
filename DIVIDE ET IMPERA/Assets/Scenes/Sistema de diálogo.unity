@@ -275,6 +275,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &298932137 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2311462238604020209, guid: 767e3f423c90f78409c3048c7e7f2088, type: 3}
+  m_PrefabInstance: {fileID: 432683392}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &404785335
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8958,6 +8963,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _dialogueText: {fileID: 0}
+  _player: {fileID: 0}
   WaypointDialogo: {fileID: 0}
   _speed: 0
   _validNPCHitbox: 1
@@ -9138,6 +9144,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _dialogueText: {fileID: 1156321326}
+  _player: {fileID: 298932137}
   WaypointDialogo: {fileID: 1612102421}
   _speed: 3
   _validNPCHitbox: 1
@@ -9390,7 +9397,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1612102421}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.8, y: -3.06, z: 0.043947265}
+  m_LocalPosition: {x: -4.56, y: -1.88, z: 0.043947265}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

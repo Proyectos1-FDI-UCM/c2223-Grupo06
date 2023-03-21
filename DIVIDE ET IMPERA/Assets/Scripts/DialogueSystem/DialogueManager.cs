@@ -16,6 +16,7 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private TMP_Text _dialogueText;
     private Transform _transform;
     private SpriteRenderer _mySpriteRenderer;
+    [SerializeField] private GameObject _player;
     #endregion
 
     #region Parameters
