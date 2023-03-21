@@ -267,7 +267,6 @@ public class InputController : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.Keypad3))
         {
             PlayerManager.Instance.SwitchPartControl(PlayerManager.Partes.BRAZO2);
-
         }
         else if (Input.GetKeyDown(KeyCode.Keypad4))
         {
@@ -315,6 +314,6 @@ public class InputController : MonoBehaviour
             _UIManager.SetMenu(GameManager.GameStates.PAUSE);
         }
 
-        CoolDown();
+        //  CoolDown();
     }
 }

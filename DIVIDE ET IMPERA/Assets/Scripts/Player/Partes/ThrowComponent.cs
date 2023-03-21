@@ -52,7 +52,7 @@ public class ThrowComponent : MonoBehaviour
                 _thrownObjectRB = _thrownObject.GetComponent<Rigidbody2D>();
                 _thrownObject.transform.position += Vector3.up;
             }
-            else if (!_furbo)
+            else if (PlayerManager.Instance.Brazos > 0)
             {
                 /* Lo dejo porsiaca
                 if (_currentState != PlayerManager.TimmyStates.S2 && _currentState != PlayerManager.TimmyStates.S5)
@@ -77,12 +77,14 @@ public class ThrowComponent : MonoBehaviour
                     _thrownObjectRB = _thrownObject.GetComponent<Rigidbody2D>();
                 }
                 */
+                Debug.Log("uwu");
 
                 if (PlayerManager.Instance.Brazos > 0)
                 { // Lo he intentado optimizar un poco, no lo he querido mancillar
                     PlayerManager.Instance.Brazos--; // Cambia directamente el estado en su propio update, no worries
                     _thrownObject = Instantiate(_armPrefab, _myTransform.position, _myTransform.rotation);
                     _thrownObjectRB = _thrownObject.GetComponent<Rigidbody2D>();
+                    Debug.Log("owo");
                 }
             }
             if (_thrownObjectRB != null)
@@ -97,7 +99,7 @@ public class ThrowComponent : MonoBehaviour
             _thrownObject = Instantiate(_ballPrefab, _myTransform.position + (_myTransform.right * _myTransform.localScale.x), _myTransform.rotation); // La instancia
             //_thrownObject.transform.position += Vector3.up; // Más arriba porque si no se choca con timmy LOL
             _thrownObjectRB = _thrownObject.GetComponentInChildren<Rigidbody2D>(); // Pilla su RB
-            _thrownObjectRB.AddForce(new Vector2(_horizontalForce * 100 * _myTransform.localScale.x, _verticalForce * 100)); // Lo yeetea
+            _thrownObjectRB.AddForce(new Vector2(_myTransform.localScale.x, _verticalForce * 100)); // Lo yeetea
             PlayerManager.Instance.EliminarObjeto(); // PUM ya no tiene bola :P
             _isThrowing = true;
         }
@@ -108,6 +110,9 @@ public class ThrowComponent : MonoBehaviour
         if (_thrownObjectRB != null)
         {
             _thrownObject = null;
+            _thrownObjectRB = null;
+            Debug.Log("Me pica el ojo");
+
         }
     }
         
@@ -116,6 +121,8 @@ public class ThrowComponent : MonoBehaviour
         if (_thrownObjectRB != null)
         {
             _thrownObject = null;
+            _thrownObjectRB = null;
+            Debug.Log("Me cagoen DIOSSSSSSSSSSSSSSSS");
         }
     }
     #endregion
@@ -127,10 +134,8 @@ public class ThrowComponent : MonoBehaviour
         _myInputController = GetComponent<InputController>();
     }
 
-    /* Update is called once per frame
     void Update()
     {
-        _currentState = PlayerManager.State;
+        if (_isThrowing) _isThrowing = false; ;
     }
-    */
 }
