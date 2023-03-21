@@ -38,6 +38,7 @@ public class DialogueManager : MonoBehaviour
     #region Methods
     public void Activar()
     {
+        MoveTimoteo();
         Dialogo();
     }
     #region flujo de diálogo
@@ -45,11 +46,9 @@ public class DialogueManager : MonoBehaviour
 
     private void Dialogo()
     {
-        /*if ()
-        {
-            _inputController.enabled = false;
-            Debug.Log("En conversación");
-        }*/
+        _inputController.enabled = false;
+
+
     }
     public void EnConversacion(bool conversando) 
     {
@@ -133,5 +132,7 @@ public class DialogueManager : MonoBehaviour
             EnConversacion(true);
             _mySpriteRenderer.color = Color.blue;
         }
+
+        Activar();
     }
 }
