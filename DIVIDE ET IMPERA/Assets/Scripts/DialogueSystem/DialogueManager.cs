@@ -78,8 +78,19 @@ public class DialogueManager : MonoBehaviour
             return;
         }
         string _frase = _guion.Dequeue(); // siguiente frase en la queue 
-        Debug.Log(_frase);
-        _dialogueText.text = _frase;
+        StopAllCoroutines(); // parar antes de empezar la nueva frase
+        StartCoroutine(Letritas(_frase));
+    }
+
+    // ANIMACIÓN MAOMENO
+    IEnumerator Letritas (string _frase) // para que se vaya escribiendo la frase letra por letra
+    {
+        _dialogueText.text = "";
+        foreach (char _letra in _frase.ToCharArray()) // convierte de string a array de caracteres
+        {
+            _dialogueText.text += _letra;
+            yield return null; // proporciona el siguiente valor en la iteración
+        }
     }
 
     // FIN DIÁLOGO
