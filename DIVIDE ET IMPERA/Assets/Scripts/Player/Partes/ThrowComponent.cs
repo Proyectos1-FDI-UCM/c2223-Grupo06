@@ -76,14 +76,12 @@ public class ThrowComponent : MonoBehaviour
                     _thrownObjectRB = _thrownObject.GetComponent<Rigidbody2D>();
                 }
                 */
-                Debug.Log("uwu");
 
                 if (PlayerManager.Instance.Brazos > 0)
                 { // Lo he intentado optimizar un poco, no lo he querido mancillar
                     PlayerManager.Instance.Brazos--; // Cambia directamente el estado en su propio update, no worries
                     _thrownObject = Instantiate(_armPrefab, _myTransform.position, _myTransform.rotation);
                     _thrownObjectRB = _thrownObject.GetComponent<Rigidbody2D>();
-                    Debug.Log("owo");
                 }
             }
             if (_thrownObjectRB != null)
