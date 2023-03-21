@@ -8746,7 +8746,7 @@ GameObject:
   - component: {fileID: 489512714}
   - component: {fileID: 489512713}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: CanvasDialogo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9060,6 +9060,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI
       objectReference: {fileID: 0}
+    - target: {fileID: 2076869504003675100, guid: 59f3bbb5802b17140a954d4cbd3ee516, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3302585916420237717, guid: 59f3bbb5802b17140a954d4cbd3ee516, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -9094,7 +9098,8 @@ MonoBehaviour:
     _nameTimoteo: Timoteo
     _timoteo: []
     _name: Bob
-    _personaje: []
+    _personaje:
+    - me quiero follar a tu madre
 --- !u!65 &1071140251
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9132,9 +9137,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86511216789702642bff7ae268a89775, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _dialogueText: {fileID: 0}
-  WaypointDialogo: {fileID: 0}
-  _speed: 0
+  _dialogueText: {fileID: 1156321326}
+  WaypointDialogo: {fileID: 1612102421}
+  _speed: 3
   _validNPCHitbox: 1
 --- !u!1 &1156321324
 GameObject:
@@ -9148,7 +9153,7 @@ GameObject:
   - component: {fileID: 1156321327}
   - component: {fileID: 1156321326}
   m_Layer: 5
-  m_Name: Dialogo
+  m_Name: TextDialogo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9194,7 +9199,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: me quiero follar a tu madre
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: bc01b41dffbfe9d46b351eedf3bfe2c8, type: 2}
   m_sharedMaterial: {fileID: -8010231893245217901, guid: bc01b41dffbfe9d46b351eedf3bfe2c8, type: 2}
