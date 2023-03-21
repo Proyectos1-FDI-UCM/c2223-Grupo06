@@ -64,8 +64,8 @@ public class UIManager : MonoBehaviour
     {
         SetMenu(GameManager.GameStates.START);
 
-        //// activa el input
-        //_player.GetComponent<InputController>().enabled = true;
+        // activa el input
+        _player.GetComponent<InputController>().enabled = true;
     }
 
     public void PauseToGame()
@@ -78,6 +78,7 @@ public class UIManager : MonoBehaviour
 
     public void Quit()
     {
+        Debug.Log("shipit");
         Application.Quit();
     }
 
