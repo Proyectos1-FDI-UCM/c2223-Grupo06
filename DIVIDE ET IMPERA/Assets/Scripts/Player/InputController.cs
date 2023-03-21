@@ -67,20 +67,7 @@ public class InputController : MonoBehaviour
     #endregion
 
     #region Methods
-
-    // cooldown para que no pueda soltar los brazos como un loco
-    private void CoolDown()
-    {
-        _elpsedTime += Time.deltaTime;
-
-        if (_elpsedTime >= _cooldown)
-        {
-            _canLetGoArm = true;
-            _elpsedTime = 0;
-        }
-    }
-
-    // input del movimiento lateral y vertical
+    // INPUT: MOVIIENTO LATERAL Y VERTICAL
     private void MovementInput()
     {
         #region HORIZONTAL
@@ -106,7 +93,18 @@ public class InputController : MonoBehaviour
         #endregion
     }
 
-    // input de las interacciones de las partes
+    // INPUT: INTERACCIONES DE LAS PARTES
+    private void CoolDown() // cooldown para que no pueda soltar los brazos como un loco
+    {
+        _elpsedTime += Time.deltaTime;
+
+        if (_elpsedTime >= _cooldown)
+        {
+            _canLetGoArm = true;
+            _elpsedTime = 0;
+        }
+    }
+
     private void InteractInput()
     {
         // TIMMY
@@ -128,8 +126,8 @@ public class InputController : MonoBehaviour
             _recuperarParte = false;
         }
         #endregion
-        
-        // soltar y recoge partes
+
+        #region SOLTAR Y RECOGER PARTES
         if (Input.GetKeyUp(KeyCode.E))
         {
             if (Input.GetKey(KeyCode.Alpha1) && _playerManager.Brazos == 2)
@@ -168,6 +166,7 @@ public class InputController : MonoBehaviour
 
             }
         }
+        #endregion
 
         // interactuar
         if (Input.GetKeyUp(KeyCode.T))
@@ -277,6 +276,7 @@ public class InputController : MonoBehaviour
     }
 
     #endregion
+
     // Start is called beforse the first frame update
     void Start()
     {
