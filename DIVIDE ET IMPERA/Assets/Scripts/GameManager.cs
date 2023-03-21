@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour
     private GameStates _nextGameState;
     public static GameManager Instance { get { return _instance; } }
     public GameStates CurrentState { get { return _currentGameState; } }
-    public  GameStates NextState { get { return _nextGameState; } }
+    public GameStates NextState { get { return _nextGameState; } }
     #endregion
 
     #region methods

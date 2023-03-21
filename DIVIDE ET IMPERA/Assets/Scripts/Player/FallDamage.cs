@@ -8,7 +8,7 @@ public class FallDamage : MonoBehaviour
     Rigidbody2D _rigidBody2D;
     #endregion
     #region parameters 
-    [Tooltip ("Velocidad máxima permitida antes de hacer daño")]
+    [Tooltip("Velocidad máxima permitida antes de hacer daño")]
     [SerializeField]
     private float _allowedSpeed;  // velocidad max que permito antes de hacer daño
     [Tooltip("Velocidad antes de llegar al suelo")]

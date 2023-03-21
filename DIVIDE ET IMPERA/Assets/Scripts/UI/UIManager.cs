@@ -1,4 +1,3 @@
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -89,7 +88,7 @@ public class UIManager : MonoBehaviour
             brazo1 = false;
             brazo2 = false;
             piernas = true;
-        } 
+        }
         else // si la parte ppal es cabeza o brazos
         { // (brazos solo sale en activo si están sueltos si las palancas se estan activando/desactivando
             switch (state)
@@ -128,12 +127,12 @@ public class UIManager : MonoBehaviour
 
             if (parte == PlayerManager.Partes.BRAZO1) { brazo1 = true; } // para cuando animacion de palanca
             else if (parte == PlayerManager.Partes.BRAZO2) { brazo2 = true; } // para cuando animación de palanca
-        } 
+        }
 
         // +1 SI EN ACTIVO, NADA SI INACTIVO
         _images[_posCabeza].sprite = _sprites[_posCabeza * 2 + (cabeza ? 1 : 0)];
-        _images[_posBrazo1].sprite  = _sprites[_posBrazo1 * 2 + (brazo1 ? 1 : 0)];
-        _images[_posBrazo2].sprite  = _sprites[_posBrazo2 * 2 + (brazo2 ? 1 : 0)];
+        _images[_posBrazo1].sprite = _sprites[_posBrazo1 * 2 + (brazo1 ? 1 : 0)];
+        _images[_posBrazo2].sprite = _sprites[_posBrazo2 * 2 + (brazo2 ? 1 : 0)];
         _images[_posPiernas].sprite = _sprites[_posPiernas * 2 + (piernas ? 1 : 0)];
     }
 
@@ -149,7 +148,8 @@ public class UIManager : MonoBehaviour
         if (_images[_posAlubiat].sprite == _sprites[_posAlubiat * 2] || _images[_posAlubiat].sprite == _sprites[_posAlubiat * 2 + 1])
         {
             return true;
-        } else return false;
+        }
+        else return false;
     }
 
     public void SetAlubiat(bool activo) // asigna el sprite de alubiat según esté a activo o no
@@ -172,12 +172,12 @@ public class UIManager : MonoBehaviour
         _menus[3] = _GameOverMenu; // habrá que poner más segun añadamos menuses
         _activeMenu = GameManager.Instance.CurrentState; // asocia el menú actual con el estado actual
 
-        _posCabeza      = 0; // posiciones concretas de cada parte en el array de imágenes
-        _posBrazo1      = 1;
-        _posBrazo2      = 2;
-        _posPiernas     = 3;
-        _posAlubiat     = 4;
-        _posCostillas   = 5;
+        _posCabeza = 0; // posiciones concretas de cada parte en el array de imágenes
+        _posBrazo1 = 1;
+        _posBrazo2 = 2;
+        _posPiernas = 3;
+        _posAlubiat = 4;
+        _posCostillas = 5;
 
         GameManager.Instance.RegisterUIManager(this);
         PlayerManager.Instance.RegisterUIManager(this);

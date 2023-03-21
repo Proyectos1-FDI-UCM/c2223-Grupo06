@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 
 public class MovingPlatformComponent : MonoBehaviour
@@ -49,7 +46,7 @@ public class MovingPlatformComponent : MonoBehaviour
     void IsNotCiclica()
     {
         // si es menor que el tope sigue
-        if (target < waypoints.Length-1)
+        if (target < waypoints.Length - 1)
         {
             target++;
         }
@@ -82,7 +79,7 @@ public class MovingPlatformComponent : MonoBehaviour
             {
                 IsNotCiclica();
             }
-            
+
         }
     }
     #endregion
@@ -98,7 +95,7 @@ public class MovingPlatformComponent : MonoBehaviour
         {
             MovePlatform();
         }
-        
+
     }
 
     private void FixedUpdate()

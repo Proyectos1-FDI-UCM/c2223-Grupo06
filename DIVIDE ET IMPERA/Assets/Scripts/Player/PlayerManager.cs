@@ -12,8 +12,8 @@ public class PlayerManager : MonoBehaviour
                                                         // S5: (nada)
                                                         // Por cada estado, hay 3 variantes según objeto portado (Red, green y blue)
                                                         // Por ejemplo: S0 es Timmy normal con todas las partes, S3R es Timmy con sólo 2 brazos y una llave dentro
-    
-    public enum Partes { CABEZA, BRAZO1, BRAZO2, PIERNAS}; // probando para la ui (que está siendo controlado ahora mismo)
+
+    public enum Partes { CABEZA, BRAZO1, BRAZO2, PIERNAS }; // probando para la ui (que está siendo controlado ahora mismo)
     public enum Objetos { LLAVE, MUELLE, BOLA, NADA }; // he preferido usar un enum 
 
     #region References
@@ -43,21 +43,21 @@ public class PlayerManager : MonoBehaviour
 
     #region Properties
     // Instancia de este componente
-    private static PlayerManager _instance;            
+    private static PlayerManager _instance;
     public static PlayerManager Instance { get { return _instance; } }
 
     // Timmy States
-    private static TimmyStates _currentState;         
+    private static TimmyStates _currentState;
     private TimmyStates _nextState;
     public static TimmyStates State { get { return _currentState; } }
 
     // Objeto en inventario
-    private Objetos _objeto; 
+    private Objetos _objeto;
     public Objetos Objeto { get { return _objeto; } set { _objeto = value; } }
 
     // Parte principal controlada
     private Partes _parte;
-    public Partes Parte { get { return _parte; } set { _parte = value; }  }
+    public Partes Parte { get { return _parte; } set { _parte = value; } }
     #endregion
 
     #region Parameters
@@ -65,14 +65,15 @@ public class PlayerManager : MonoBehaviour
     private bool _piernas;   // si las tiene o si no
     private bool _alubiat;   // si tiene sus piernas o no
 
-    public int Brazos {
-        get { return _brazos; } 
-        set 
-        { 
+    public int Brazos
+    {
+        get { return _brazos; }
+        set
+        {
             if (value < 0) _brazos = 0;
             else if (value > 2) _brazos = 2;
-            else _brazos = value; 
-        } 
+            else _brazos = value;
+        }
     }
     public bool Piernas { get { return _piernas; } set { _piernas = value; } }
     public bool Alubiat { get { return _alubiat; } set { _alubiat = value; } }
@@ -114,7 +115,7 @@ public class PlayerManager : MonoBehaviour
 
     private void EnterState(TimmyStates _nextState)
     { // ACCIONES AL ENTRAR A ESTADO
-        switch (_nextState) 
+        switch (_nextState)
         { // Asigna los parámetros según el estado
             case TimmyStates.S0: // S0: 2 brazos y piernas
                 _brazos = 2;
@@ -147,7 +148,7 @@ public class PlayerManager : MonoBehaviour
     }
 
     private void UpdateState(TimmyStates _state)
-    { 
+    {
         // LÓGICA DE CAMBIO DE ESTADOS 
         switch (_state)
         {
@@ -262,7 +263,7 @@ public class PlayerManager : MonoBehaviour
     }
 
     // BLOQUE DE PARTES
-        // brazos
+    // brazos
     public void AddBrazo() // para interactuables
     {
         if (Brazos < 2)
@@ -295,7 +296,7 @@ public class PlayerManager : MonoBehaviour
             _brazos--; // un brazo menos
         }
     }
-        // piernas
+    // piernas
     public void HolaPiernas() // para interactuables
     {
         if (!_piernas) _piernas = !_piernas;
@@ -395,10 +396,10 @@ public class PlayerManager : MonoBehaviour
     public void SwitchPartControl(Partes parte) // cambia el control de parte principal
     {
         _parte = parte;
-        if (_UIManager!= null) { _UIManager.SetPartes(_currentState, _parte); }
+        if (_UIManager != null) { _UIManager.SetPartes(_currentState, _parte); }
         Debug.Log("PARTE: " + _parte);
     }
-        // alubiat
+    // alubiat
     public void RecogerAlubiat()
     {
         _alubiat = true;
@@ -410,7 +411,8 @@ public class PlayerManager : MonoBehaviour
         {
             _alubiat = false;
             return true;
-        } else return false;
+        }
+        else return false;
 
     }
     #endregion

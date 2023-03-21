@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class WeightPlatform : MonoBehaviour
@@ -49,6 +47,6 @@ public class WeightPlatform : MonoBehaviour
 
             }
         }
-       // hacer trigger detector abajo con un aREA QUE COMPRUEBE SI TOCA ALGO PA NO BAJAR
+        // hacer trigger detector abajo con un aREA QUE COMPRUEBE SI TOCA ALGO PA NO BAJAR
     }
 }

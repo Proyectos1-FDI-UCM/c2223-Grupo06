@@ -31,7 +31,7 @@ public class WBComponent : MonoBehaviour
     }
     private void Activar(bool _act)
     {
-        if(_permanente && _move)
+        if (_permanente && _move)
         {
             ActivarObjetosPerm();
         }
@@ -39,7 +39,7 @@ public class WBComponent : MonoBehaviour
         {
             ActivarObjetos(_act);
         }
-        
+
     }
 
     // interactua con el objeto de fuera (puerta, plataforma etc)
@@ -49,7 +49,7 @@ public class WBComponent : MonoBehaviour
         {
             _movingPlatform.enabled = true;
         }
-        
+
     }
 
     private void ActivarObjetos(bool _act)

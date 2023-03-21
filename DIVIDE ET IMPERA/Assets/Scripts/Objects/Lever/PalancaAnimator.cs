@@ -34,18 +34,18 @@ public class PalancaAnimator : MonoBehaviour
 
         if (_myAnimator.GetCurrentAnimatorStateInfo(0).length > _myAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime)
         { // si NO ha acabado la animación que está reproduciendo (sea la que sea)
-            if (PlayerManager.Instance.Brazos == 1 && 
-                PlayerManager.Instance.Parte != PlayerManager.Partes.BRAZO2) 
-                // si todavía tiene un brazo y no se ha cambiado el control
+            if (PlayerManager.Instance.Brazos == 1 &&
+                PlayerManager.Instance.Parte != PlayerManager.Partes.BRAZO2)
+            // si todavía tiene un brazo y no se ha cambiado el control
             {
-                PlayerManager.Instance.SwitchPartControl(PlayerManager.Partes.BRAZO2); 
+                PlayerManager.Instance.SwitchPartControl(PlayerManager.Partes.BRAZO2);
                 // siempre, cuando quitas el primer brazo, se desactiva el brazo2 de la hud. por tanto, para que se vea aquí el cambio, se lo asigna a ese
             }
-            else if (PlayerManager.Instance.Brazos == 0 && 
-                PlayerManager.Instance.Parte != PlayerManager.Partes.BRAZO1) 
-                // si no tiene brazos y no se ha cambiado el control
+            else if (PlayerManager.Instance.Brazos == 0 &&
+                PlayerManager.Instance.Parte != PlayerManager.Partes.BRAZO1)
+            // si no tiene brazos y no se ha cambiado el control
             {
-                PlayerManager.Instance.SwitchPartControl(PlayerManager.Partes.BRAZO1); 
+                PlayerManager.Instance.SwitchPartControl(PlayerManager.Partes.BRAZO1);
                 // para simplificar
             }
             // si tiene los dos brazos, da igual

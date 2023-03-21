@@ -44,7 +44,7 @@ public class PlayerAnimationController : MonoBehaviour
             _myAnimator.ResetTrigger("isRunning");
         }
 
-        if ( _myThrowComponent.IsThrowing)
+        if (_myThrowComponent.IsThrowing)
         {
             _myAnimator.SetTrigger("isThrowing");
             _myThrowComponent.IsThrowing = false;

@@ -1,7 +1,5 @@
 using UnityEngine;
-using UnityEngine.WSA;
 using UnityEngine.Tilemaps;
-using System.Runtime.CompilerServices;
 
 public class StayOnPataforma : MonoBehaviour
 {
@@ -33,7 +31,7 @@ public class StayOnPataforma : MonoBehaviour
     // mira si es una puerta la plataforma 
     private bool PuertaCheck(Collision2D col)
     {
-        if (col.gameObject.GetComponent<MovingPlatformComponent>().GetDoorPlatform)
+        if (col.gameObject.GetComponent<MovingPlatformComponent>() && col.gameObject.GetComponent<MovingPlatformComponent>().GetDoorPlatform)
         {
             _puerta = true;
         }
@@ -64,7 +62,7 @@ public class StayOnPataforma : MonoBehaviour
     {
         // devuelve true si es o una pataforma o una plataforma normal con la variable de puerta 
         // desactivada y no es el tilemap
-        if ((collision.gameObject.GetComponent<PataformaComponent>() || !PuertaCheck(collision))      
+        if ((collision.gameObject.GetComponent<PataformaComponent>() || !PuertaCheck(collision))
             && !collision.gameObject.GetComponent<Tilemap>())
         {
             // si tiene peso el objeto
@@ -104,5 +102,6 @@ public class StayOnPataforma : MonoBehaviour
     private void Start()
     {
         _inputController = GetComponent<InputController>();
+        _puerta = false;
     }
 }

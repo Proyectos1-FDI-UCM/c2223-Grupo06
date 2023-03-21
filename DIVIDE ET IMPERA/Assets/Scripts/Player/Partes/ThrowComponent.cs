@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.Tilemaps;
 
 public class ThrowComponent : MonoBehaviour
 {
@@ -20,7 +19,7 @@ public class ThrowComponent : MonoBehaviour
     [SerializeField]
     private bool _furbo;
     private bool _isThrowing;
-    public bool IsThrowing { get { return _isThrowing; } set { _isThrowing = value; } } 
+    public bool IsThrowing { get { return _isThrowing; } set { _isThrowing = value; } }
     #endregion
     #region Properties
     //private PlayerManager.TimmyStates _currentState;
@@ -52,7 +51,7 @@ public class ThrowComponent : MonoBehaviour
                 _thrownObjectRB = _thrownObject.GetComponent<Rigidbody2D>();
                 _thrownObject.transform.position += Vector3.up;
             }
-            else if (!_furbo)
+            else if (PlayerManager.Instance.Brazos > 0)
             {
                 /* Lo dejo porsiaca
                 if (_currentState != PlayerManager.TimmyStates.S2 && _currentState != PlayerManager.TimmyStates.S5)
@@ -77,12 +76,14 @@ public class ThrowComponent : MonoBehaviour
                     _thrownObjectRB = _thrownObject.GetComponent<Rigidbody2D>();
                 }
                 */
+                Debug.Log("uwu");
 
                 if (PlayerManager.Instance.Brazos > 0)
                 { // Lo he intentado optimizar un poco, no lo he querido mancillar
                     PlayerManager.Instance.Brazos--; // Cambia directamente el estado en su propio update, no worries
                     _thrownObject = Instantiate(_armPrefab, _myTransform.position, _myTransform.rotation);
                     _thrownObjectRB = _thrownObject.GetComponent<Rigidbody2D>();
+                    Debug.Log("owo");
                 }
             }
             if (_thrownObjectRB != null)
@@ -94,7 +95,7 @@ public class ThrowComponent : MonoBehaviour
     {
         if (PlayerManager.Instance.Objeto == PlayerManager.Objetos.BOLA && (_playerManager.Brazos > 0 || _furbo)) // Si tiene una bola
         {
-            _thrownObject = Instantiate(_ballPrefab, _myTransform.position + (_myTransform.right * _myTransform.localScale.x), _myTransform.rotation); // La instancia
+            _thrownObject = Instantiate(_ballPrefab, _myTransform.position + (_myTransform.right * _myTransform.localScale.x) / 2, _myTransform.rotation); // La instancia
             //_thrownObject.transform.position += Vector3.up; // Más arriba porque si no se choca con timmy LOL
             _thrownObjectRB = _thrownObject.GetComponentInChildren<Rigidbody2D>(); // Pilla su RB
             _thrownObjectRB.AddForce(new Vector2(_horizontalForce * 100 * _myTransform.localScale.x, _verticalForce * 100)); // Lo yeetea
@@ -108,14 +109,16 @@ public class ThrowComponent : MonoBehaviour
         if (_thrownObjectRB != null)
         {
             _thrownObject = null;
+            _thrownObjectRB = null;
         }
     }
-        
+
     private void OnCollisionExit2D(Collision2D collision)
     {
         if (_thrownObjectRB != null)
         {
             _thrownObject = null;
+            _thrownObjectRB = null;
         }
     }
     #endregion
@@ -127,10 +130,8 @@ public class ThrowComponent : MonoBehaviour
         _myInputController = GetComponent<InputController>();
     }
 
-    /* Update is called once per frame
     void Update()
     {
-        _currentState = PlayerManager.State;
+        if (_isThrowing) _isThrowing = false; ;
     }
-    */
 }

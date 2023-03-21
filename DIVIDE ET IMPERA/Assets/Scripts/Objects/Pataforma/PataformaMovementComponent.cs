@@ -37,7 +37,7 @@ public class PataformaMovementComponent : MonoBehaviour
         {
             transform.Translate(Vector3.left * Time.deltaTime * _speed);
         }
-        
+
     }
 
     public void Move()
