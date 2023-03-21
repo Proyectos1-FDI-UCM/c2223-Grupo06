@@ -37,7 +37,6 @@ public class Interaction : MonoBehaviour
             SendMessage("Activar"); //uso de un SendMessage ya que se quiere generalizar todo lo posible y que funcione para todas las interacciones del juego
 
         //---------MUY IMPORTANTE----------
-
         /* Para que este script funcione, en cada futuro script de acciones interactuables (como por ejemplo el dialogo con algun personaje) 
          lo que se quiera activar en dicha interaccion deberá estar en un método llamado "Activar" para que el SendMessage funcione */
     }
