@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4257366962654404594}
   - component: {fileID: 3522923423090111170}
   - component: {fileID: 704445172390978513}
+  - component: {fileID: 6923250360393027454}
   m_Layer: 7
   m_Name: Piernas
   m_TagString: Untagged
@@ -158,6 +159,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1e3c99f285ebd55479fa6765fbc03954, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6923250360393027454
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4257366962654404361}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb7471562fb442942ac7c8be9faeda47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &8332577329469108653
