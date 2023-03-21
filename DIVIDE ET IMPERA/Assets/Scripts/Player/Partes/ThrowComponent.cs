@@ -110,8 +110,6 @@ public class ThrowComponent : MonoBehaviour
         {
             _thrownObject = null;
             _thrownObjectRB = null;
-            Debug.Log("Me pica el ojo");
-
         }
     }
 
@@ -121,7 +119,6 @@ public class ThrowComponent : MonoBehaviour
         {
             _thrownObject = null;
             _thrownObjectRB = null;
-            Debug.Log("Me cagoen DIOSSSSSSSSSSSSSSSS");
         }
     }
     #endregion
