@@ -9,6 +9,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject _HUD;
     [SerializeField] private GameObject _PauseMenu;
     [SerializeField] private GameObject _GameOverMenu;
+    [SerializeField] private GameObject _player;
 
     // imagenes dentro del ui
     [SerializeField] private Image[] _images;
@@ -54,18 +55,22 @@ public class UIManager : MonoBehaviour
 
     public void StartToGame()
     {
-        Debug.Log("ITS NOT OF YOUR BUISSNES I DO MY OWN BUISSNES");
         SetMenu(GameManager.GameStates.GAME);
     }
 
     public void PauseToStart()
     {
         SetMenu(GameManager.GameStates.START);
+
+        
     }
 
     public void PauseToGame()
     {
         SetMenu(GameManager.GameStates.GAME);
+
+        // activa el input
+        _player.GetComponent<InputController>().enabled = true;
     }
 
     public void Quit()
@@ -181,7 +186,6 @@ public class UIManager : MonoBehaviour
 
         GameManager.Instance.RegisterUIManager(this);
         PlayerManager.Instance.RegisterUIManager(this);
-
     }
 
     /*
