@@ -1,7 +1,40 @@
+using JetBrains.Annotations;
 using UnityEngine;
 
 public class InputController : MonoBehaviour
 {
+
+    #region CONTROLES (muchas teclas)
+    /* 
+    *MOVIMENTO LATERAL Y VERTICAL*
+    AD ----------- > moverse a los lados
+    SPACE ----- > saltar
+
+    *PALANCA*
+    E ------------- > conectar parte
+    R ------------- > recuperar parte
+    Q ------------- > lanzar
+
+    *SOLTAR PARTES*
+    1 + E -------- > soltar brazo
+    2 + E -------- > soltar brazo
+    3 + E -------- > soltar piernas
+    4 + E -------- > WIP
+
+    *RECUPERAR PARTES*
+    1 + R -------- > recuperar brazo
+    2 + R -------- > recuperar brazo
+    3 + R -------- > recuperar piernas
+    4 + R -------- > WIP
+
+    *INTERACCIÓN DE OBJETOS*
+    1 + T -------- > interactuar con palanca
+    2 + T -------- > interactuar con palanca
+    3 + T -------- > interactuar con pataforma
+    4 + T -------- > WIP 
+    */
+    #endregion
+
     #region Referencias
     private JumpComponent _playerJump;
     private GameManager.GameStates state;
@@ -20,28 +53,28 @@ public class InputController : MonoBehaviour
     private int _direccion;
     public int Direccion { get { return _direccion; } }
 
-    //-------------INTERACTUAR------------------------------
+    //-------------INTERACTUAR----------------------------
     // Indica si el jugador quiere interactuar con una palanca
     [SerializeField]
     private bool _interactuar = false;
     // acceso público a _interactuar
     public bool Interactuar { get { return _interactuar; } }
 
-    //-------------SOLTAR PARTES-----------------------------
+    //-------------SOLTAR PARTES----------------------------
     // Indica si el jugador ha dejado una parte en un objeto
     [SerializeField]
     private bool _conectarParte = false;
     // acceso público a _conectarParte
     public bool ConectarParte { get { return _conectarParte; } }
 
-    //-------------RECUPERAR PARTES-----------------------------
+    //-------------RECUPERAR PARTES----------------------------
     // Indica si el jugador ha dejado una parte en un objeto
     [SerializeField]
     private bool _recuperarParte = false;
     // acceso público a _recuperarParte
     public bool RecuperarParte { get { return _recuperarParte; } }
 
-    //------------CAMBIAR INPUT-----------------------------
+    //------------CAMBIAR INPUT----------------------------
     // indica si el jugador quiere cambiar el input a la Pataforma
     // booleano para saber si se ha cambiado el input a la pataforma
     [SerializeField]
@@ -62,24 +95,10 @@ public class InputController : MonoBehaviour
     [SerializeField]
     private float _cooldown = 1;
     private float _elpsedTime;
-
     #endregion
 
     #region Methods
-
-    // cooldown para que no pueda soltar los brazos como un loco
-    private void CoolDown()
-    {
-        _elpsedTime += Time.deltaTime;
-
-        if (_elpsedTime >= _cooldown)
-        {
-            _canLetGoArm = true;
-            _elpsedTime = 0;
-        }
-    }
-
-    // input del movimiento lateral y vertical
+    // INPUT: MOVIMENTO LATERAL Y VERTICAL
     private void MovementInput()
     {
         #region HORIZONTAL
@@ -105,7 +124,18 @@ public class InputController : MonoBehaviour
         #endregion
     }
 
-    // input de las interacciones de las partes
+    // INPUT: INTERACCIONES DE LAS PARTES
+    private void CoolDown() // cooldown para que no pueda soltar los brazos como un loco
+    {
+        _elpsedTime += Time.deltaTime;
+
+        if (_elpsedTime >= _cooldown)
+        {
+            _canLetGoArm = true;
+            _elpsedTime = 0;
+        }
+    }
+
     private void InteractInput()
     {
         // TIMMY
@@ -128,7 +158,7 @@ public class InputController : MonoBehaviour
         }
         #endregion
 
-        // soltar y recoge partes
+        #region SOLTAR Y RECOGER PARTES
         if (Input.GetKeyUp(KeyCode.E))
         {
             if (Input.GetKey(KeyCode.Alpha1) && _playerManager.Brazos == 2)
@@ -167,8 +197,9 @@ public class InputController : MonoBehaviour
 
             }
         }
+        #endregion
 
-        // interactuar
+        // interactuar 
         if (Input.GetKeyUp(KeyCode.T))
         {
             // PARA INTERACTUAR
@@ -211,6 +242,8 @@ public class InputController : MonoBehaviour
         }
     }
 
+
+    // PARA PROBAR COSAS DEL INPUT
     private void DebugInput()
     {
         #region ESTADOS
@@ -266,16 +299,24 @@ public class InputController : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.Keypad3))
         {
             PlayerManager.Instance.SwitchPartControl(PlayerManager.Partes.BRAZO2);
+
         }
         else if (Input.GetKeyDown(KeyCode.Keypad4))
         {
             PlayerManager.Instance.SwitchPartControl(PlayerManager.Partes.PIERNAS);
         }
         #endregion
+
+        #region DIÁLOGO
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            _conversar = true;
+        }
+        #endregion
     }
 
     #endregion
-    // Start is called beforse the first frame update
+
     void Start()
     {
         _playerJump = GetComponentInChildren<JumpComponent>();
@@ -284,35 +325,27 @@ public class InputController : MonoBehaviour
         _collisionManager = GetComponent<CollisionManager>();
 
 
-        // rigid body del player
+        // rigidbody del player
         _playerRigidBody = GetComponentInChildren<Rigidbody2D>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         //------MOVIMIENTO-------
         MovementInput();
 
-        //------INTERACTIONS-----
+        //------INTERACTIONS-------
         InteractInput();
 
-        //------DEBUG------------
+        //------DEBUG-------
         DebugInput();
 
-        //---DIALOGO-----------------------------------------
-        //------Input para conversar-----------
-        if (Input.GetKeyDown(KeyCode.M))
-        {
-            _conversar = true;
-        }
-
-        //---OPCIÓN DE PAUSA-----------------------
+        //------OPCIÓN DE PAUSA-------
         if (Input.GetKeyDown(KeyCode.Z))
         {
             _UIManager.SetMenu(GameManager.GameStates.PAUSE);
         }
 
-        //  CoolDown();
+        CoolDown();
     }
 }
