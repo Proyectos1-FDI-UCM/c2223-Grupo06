@@ -235,10 +235,16 @@ public class InputController : MonoBehaviour
             _interactuar = false;
         }
 
-        // lanzar
+        // LANZAR
         if (Input.GetKeyUp(KeyCode.Q))
         {
             _throwComp.LanzarBrazo();
+        }
+
+        // DIÁLOGO
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            _conversar = true;
         }
     }
 
