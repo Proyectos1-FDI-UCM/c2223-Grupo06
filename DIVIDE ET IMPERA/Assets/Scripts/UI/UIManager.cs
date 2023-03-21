@@ -54,6 +54,7 @@ public class UIManager : MonoBehaviour
 
     public void StartToGame()
     {
+        Debug.Log("ITS NOT OF YOUR BUISSNES I DO MY OWN BUISSNES");
         SetMenu(GameManager.GameStates.GAME);
     }
 
