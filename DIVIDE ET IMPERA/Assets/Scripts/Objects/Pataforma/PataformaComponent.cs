@@ -30,7 +30,7 @@ public class PataformaComponent : MonoBehaviour
     private Rigidbody2D _playerRigidbody;
 
     private PataformaMovementComponent _pataformaMovementComponent;
-    private Rigidbody2D _pataformaRigidbody; 
+    private Rigidbody2D _pataformaRigidbody;
     [SerializeField]
     private PataformaMovementComponent pataformaMovementComponent;
 
@@ -144,7 +144,7 @@ public class PataformaComponent : MonoBehaviour
 
                 // desactiva la plataforma
                 _activarPataforma = false;
-                
+
                 //_myRigidbody.bodyType = RigidbodyType2D.Kinematic;
 
                 // activa el input del player
@@ -170,8 +170,8 @@ public class PataformaComponent : MonoBehaviour
 
             // activa la plataforma
             _activarPataforma = true;
-            
-            
+
+
 
             // desactiva el input del player
             _inputController._changeToPataforma = false;

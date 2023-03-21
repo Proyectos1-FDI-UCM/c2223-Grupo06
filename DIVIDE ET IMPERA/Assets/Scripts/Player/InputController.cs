@@ -1,4 +1,3 @@
-using JetBrains.Annotations;
 using UnityEngine;
 
 public class InputController : MonoBehaviour
@@ -128,7 +127,7 @@ public class InputController : MonoBehaviour
             _recuperarParte = false;
         }
         #endregion
-        
+
         // soltar y recoge partes
         if (Input.GetKeyUp(KeyCode.E))
         {

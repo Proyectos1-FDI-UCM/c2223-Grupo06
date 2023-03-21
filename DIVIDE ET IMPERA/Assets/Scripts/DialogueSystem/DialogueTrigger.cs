@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class DialogueTrigger : MonoBehaviour
@@ -9,7 +7,7 @@ public class DialogueTrigger : MonoBehaviour
     private DialogueManager _dialogueManager;
     #endregion
     #region Parameters
-    
+
     #endregion
     #region Properties
 

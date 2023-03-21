@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.Tilemaps;
 
 public class ThrowComponent : MonoBehaviour
 {
@@ -20,7 +19,7 @@ public class ThrowComponent : MonoBehaviour
     [SerializeField]
     private bool _furbo;
     private bool _isThrowing;
-    public bool IsThrowing { get { return _isThrowing; } set { _isThrowing = value; } } 
+    public bool IsThrowing { get { return _isThrowing; } set { _isThrowing = value; } }
     #endregion
     #region Properties
     //private PlayerManager.TimmyStates _currentState;
@@ -96,10 +95,10 @@ public class ThrowComponent : MonoBehaviour
     {
         if (PlayerManager.Instance.Objeto == PlayerManager.Objetos.BOLA && (_playerManager.Brazos > 0 || _furbo)) // Si tiene una bola
         {
-            _thrownObject = Instantiate(_ballPrefab, _myTransform.position + (_myTransform.right * _myTransform.localScale.x), _myTransform.rotation); // La instancia
+            _thrownObject = Instantiate(_ballPrefab, _myTransform.position + (_myTransform.right * _myTransform.localScale.x) / 2, _myTransform.rotation); // La instancia
             //_thrownObject.transform.position += Vector3.up; // Más arriba porque si no se choca con timmy LOL
             _thrownObjectRB = _thrownObject.GetComponentInChildren<Rigidbody2D>(); // Pilla su RB
-            _thrownObjectRB.AddForce(new Vector2(_myTransform.localScale.x, _verticalForce * 100)); // Lo yeetea
+            _thrownObjectRB.AddForce(new Vector2(_horizontalForce * 100 * _myTransform.localScale.x, _verticalForce * 100)); // Lo yeetea
             PlayerManager.Instance.EliminarObjeto(); // PUM ya no tiene bola :P
             _isThrowing = true;
         }
@@ -115,7 +114,7 @@ public class ThrowComponent : MonoBehaviour
 
         }
     }
-        
+
     private void OnCollisionExit2D(Collision2D collision)
     {
         if (_thrownObjectRB != null)

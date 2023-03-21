@@ -61,8 +61,8 @@ public class PalancaComponent : MonoBehaviour
             _movingPlatform.enabled = false;
             Debug.Log("desactivar " + _movingPlatform.enabled);
         }
-       
-        
+
+
     }
 
     //Conecta el brazo

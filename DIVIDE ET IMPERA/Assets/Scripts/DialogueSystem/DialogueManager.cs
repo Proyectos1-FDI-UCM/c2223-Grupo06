@@ -1,9 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using static UnityEngine.GraphicsBuffer;
 
 public class DialogueManager : MonoBehaviour
 {
@@ -51,7 +49,7 @@ public class DialogueManager : MonoBehaviour
             Debug.Log("En conversación");
         }*/
     }
-    public void EnConversacion(bool conversando) 
+    public void EnConversacion(bool conversando)
     {
         _enConversacion = conversando; // si se está en conversación
     }
@@ -83,7 +81,7 @@ public class DialogueManager : MonoBehaviour
     }
 
     // ANIMACIÓN MAOMENO
-    IEnumerator Letritas (string _frase) // para que se vaya escribiendo la frase letra por letra
+    IEnumerator Letritas(string _frase) // para que se vaya escribiendo la frase letra por letra
     {
         _dialogueText.text = "";
         foreach (char _letra in _frase.ToCharArray()) // convierte de string a array de caracteres
@@ -94,7 +92,7 @@ public class DialogueManager : MonoBehaviour
     }
 
     // FIN DIÁLOGO
-    void FinDialogo() 
+    void FinDialogo()
     {
         Debug.Log("Conversación finiquitada");
     }
