@@ -350,6 +350,9 @@ public class InputController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Z))
         {
             _UIManager.SetMenu(GameManager.GameStates.PAUSE);
+
+            // desactiva el input
+            this.enabled = false;
         }
 
         CoolDown();
