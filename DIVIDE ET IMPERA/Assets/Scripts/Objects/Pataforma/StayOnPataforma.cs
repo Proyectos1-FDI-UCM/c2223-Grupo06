@@ -79,7 +79,7 @@ public class StayOnPataforma : MonoBehaviour
         {
             _stayOn = false;
         }
-        
+
 
         return _stayOn;
     }

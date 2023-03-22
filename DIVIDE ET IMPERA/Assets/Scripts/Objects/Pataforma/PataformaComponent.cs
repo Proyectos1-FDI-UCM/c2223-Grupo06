@@ -133,7 +133,7 @@ public class PataformaComponent : MonoBehaviour
         {
             _patas.SetActive(false);
         }
-        
+
     }
     private void ChangeInput()
     {
