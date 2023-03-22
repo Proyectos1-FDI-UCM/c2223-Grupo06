@@ -66,7 +66,7 @@ public class StayOnPataforma : MonoBehaviour
             && !collision.gameObject.GetComponent<Tilemap>()
             && !collision.gameObject.GetComponent<StayOnPataforma>())
         {
-            Debug.Log("parte 1");
+            Debug.Log(PuertaCheck(collision));
             //Debug.Log(PuertaCheck(collision));
             // si tiene peso el objeto
             if (gameObject.GetComponent<WeightComponent>()) //&& _inputController.enabled)
