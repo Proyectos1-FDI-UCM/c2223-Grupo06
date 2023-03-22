@@ -45,6 +45,8 @@ public class PlayerAnimationController : MonoBehaviour
         }
     }
 
+
+    /*
     public void LanzameEsta()
     {
         _myAnimator.SetTrigger("isThrowing");
@@ -70,4 +72,5 @@ public class PlayerAnimationController : MonoBehaviour
             _myThrowComponent.IsThrowing = false;
         }
     }
+    */
 }

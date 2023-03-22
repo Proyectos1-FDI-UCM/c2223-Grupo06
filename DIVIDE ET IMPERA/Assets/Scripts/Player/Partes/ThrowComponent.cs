@@ -132,23 +132,6 @@ public class ThrowComponent : MonoBehaviour
         _myTransform = GetComponent<Transform>();
         _myInputController = GetComponent<InputController>();
         _myPlayerAnimator = GetComponent<PlayerAnimationController>();
-        _myAnimator= GetComponent<Animator>();
+        _myAnimator = GetComponent<Animator>();
     }
-
-    void Update()
-    {
-        if (_isThrowing && !_myAnimator.GetBool("isThrowing"))
-        {
-            _myPlayerAnimator.LanzameEsta();
-        }
-    }
-    /*
-    private void LateUpdate()
-    {
-        if (_isThrowing && !_myAnimator.GetBool("isThrowing"))
-        {
-            _myPlayerAnimator.LanzameEsta();
-        }
-    }
-    */
 }
