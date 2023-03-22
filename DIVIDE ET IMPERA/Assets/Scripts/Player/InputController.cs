@@ -7,6 +7,9 @@ public class InputController : MonoBehaviour
     #region CONTROLES (muchas teclas)
     /* 
     *MOVIMENTO LATERAL Y VERTICAL*
+    *
+    * (TO BE DEPRECATED)
+    *
     AD ----------- > moverse a los lados
     SPACE -------- > saltar
 
@@ -36,6 +39,28 @@ public class InputController : MonoBehaviour
     *COGER Y SOLTAR OBJETOS*
     L  -------- > coger
     K  -------- > soltar
+
+    *********************************
+    * MOVIMENTO LATERAL Y VERTICAL*
+    *
+    * CYN EDITION:
+    *
+    
+    *SOLTAR PARTES*
+    E: activar / desactivar palanca enfrente + activar / desactivar palancas por remoto**
+    R: recoger y soltar objetos (si tiene objeto lo suelta, si no, intenta recoger algo*)
+    Q: recoger partes (brazo / piernas del suelo / palanca / plataforma)
+    F: lanzar brazo
+    Z: soltar brazos (si lo haces delante de una palanca, se conecta auto)
+    X: soltar piernas (si lo haces encima de unas plataformas, se conectan auto)
+
+        *: quizá?? si vemos que no es útil pues un botón para cada, pero creo que puede estar guay eso
+        **: para que quede acorde con el HUD, yo pondría las cosas que sean combinaciones según el orden:
+            1 + <tecla>: controlar cabeza a la cabeza
+            2 + <tecla>: si hay dos brazos cada uno en una palanca, activa la primera palanca
+            3 + <tecla>: " la segunda palanca
+            4 + <tecla: controlar piernas
+    QUEDA CONSIDERAR: cambiar de control a las piernas y ya creo?
     */
     #endregion
 
@@ -254,11 +279,11 @@ public class InputController : MonoBehaviour
             Debug.Log("interactuar");
             _dialogueManager.Activar();
         }*/
-    }
+}
 
 
-    // PARA PROBAR COSAS DEL INPUT
-    private void DebugInput()
+// PARA PROBAR COSAS DEL INPUT
+private void DebugInput()
     {
         #region ESTADOS
         //      Para ver si cambia de estados bien
