@@ -7,6 +7,8 @@ public class PataformaMovementComponent : MonoBehaviour
     private PataformaComponent _pataformaComponent;
     private InputController _inputController;
     private Rigidbody2D _myRigidbody2D;
+    [SerializeField] GameObject _patas;
+    private SpriteRenderer _patasRender;
     #endregion
 
 
@@ -32,12 +34,16 @@ public class PataformaMovementComponent : MonoBehaviour
         if (_pataformaComponent.PataformaDireccion == 1)
         {
             transform.Translate(Vector3.right * Time.deltaTime * _speed);
+
+            _patasRender.flipX = false;
+
         }
         else if (_pataformaComponent.PataformaDireccion == -1)
         {
             transform.Translate(Vector3.left * Time.deltaTime * _speed);
-        }
 
+            _patasRender.flipX = true;
+        }
     }
 
     public void Move()
@@ -65,6 +71,7 @@ public class PataformaMovementComponent : MonoBehaviour
     {
         _pataformaComponent = GetComponent<PataformaComponent>();
         _myRigidbody2D = GetComponent<Rigidbody2D>();
+        _patasRender = _patas.GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame

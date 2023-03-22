@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6089044720051254760}
   - component: {fileID: 2995836397196724477}
+  - component: {fileID: 2051036441004247502}
   m_Layer: 0
   m_Name: patas
   m_TagString: Untagged
@@ -73,17 +74,37 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 985f29f835de56f469a02a12e13055d9, type: 3}
+  m_Sprite: {fileID: 1365744459, guid: ab04c9c688e672a4780cac3c563fa597, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.3333334, y: 2.6666667}
+  m_Size: {x: 0.9375, y: 0.875}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &2051036441004247502
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4210712077449746953}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5cd3181721826d44fa6af2dca5714a81, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &8562587943021863837
 GameObject:
   m_ObjectHideFlags: 0
@@ -234,7 +255,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _player: {fileID: 0}
   pataformaMovementComponent: {fileID: 8562587943021863831}
-  _patas: {fileID: 0}
+  _patas: {fileID: 4210712077449746953}
+  _animator: {fileID: 2051036441004247502}
   _piernasConectadas: 0
   _validPataformaHitbox: 0
   _activarPataforma: 0
@@ -250,6 +272,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee8b1c924e6b77640b8aa981ee081103, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _patas: {fileID: 4210712077449746953}
   _speed: 5
   _rozamientoFreno: 15
   _pDireccion: 0

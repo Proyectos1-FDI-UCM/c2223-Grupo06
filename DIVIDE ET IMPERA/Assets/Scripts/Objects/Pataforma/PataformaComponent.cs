@@ -35,6 +35,7 @@ public class PataformaComponent : MonoBehaviour
     private PataformaMovementComponent pataformaMovementComponent;
 
     [SerializeField] GameObject _patas;
+    [SerializeField] Animator _animator;
 
     #endregion
 
@@ -203,14 +204,23 @@ public class PataformaComponent : MonoBehaviour
         if (Input.GetKey(KeyCode.D))
         {
             _pDireccion = 1;
+
+            // inicia el animator
+            _animator.SetBool("move", true);
         }
         else if (Input.GetKey(KeyCode.A))
         {
             _pDireccion = -1;
+
+            // inicia el animator
+            _animator.SetBool("move", true);
         }
         else
         {
             _pDireccion = 0;
+
+            // inicia el animator
+            _animator.SetBool("move", false);
         }
     }
     #endregion
