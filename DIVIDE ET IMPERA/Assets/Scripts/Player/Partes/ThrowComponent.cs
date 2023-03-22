@@ -6,6 +6,8 @@ public class ThrowComponent : MonoBehaviour
     private PlayerManager _playerManager;
     private Transform _myTransform;
     private InputController _myInputController;
+    private PlayerAnimationController _myPlayerAnimator;
+    private Animator _myAnimator;
     [SerializeField]
     private GameObject _armPrefab;
     [SerializeField]
@@ -85,7 +87,10 @@ public class ThrowComponent : MonoBehaviour
                 }
             }
             if (_thrownObjectRB != null)
+            {
+                _isThrowing = true;
                 _thrownObjectRB.AddForce(new Vector2(_horizontalForce * 100 * _myTransform.localScale.x, _verticalForce * 100));
+            }
         }
     }
 
@@ -126,10 +131,25 @@ public class ThrowComponent : MonoBehaviour
         _playerManager = GetComponent<PlayerManager>();
         _myTransform = GetComponent<Transform>();
         _myInputController = GetComponent<InputController>();
+        _myPlayerAnimator = GetComponent<PlayerAnimationController>();
+        _myAnimator= GetComponent<Animator>();
     }
 
     void Update()
     {
-        if (_isThrowing) _isThrowing = false; ;
+        if (_isThrowing && !_myAnimator.GetBool("isThrowing"))
+        {
+            _myPlayerAnimator.LanzameEsta();
+            //_isThrowing = false;
+        }
+    }
+
+    private void LateUpdate()
+    {
+        if (_isThrowing && !_myAnimator.GetBool("isThrowing"))
+        {
+            _myPlayerAnimator.LanzameEsta();
+            //_isThrowing = false;
+        }
     }
 }

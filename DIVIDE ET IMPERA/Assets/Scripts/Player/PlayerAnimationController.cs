@@ -43,11 +43,22 @@ public class PlayerAnimationController : MonoBehaviour
         {
             _myAnimator.ResetTrigger("isRunning");
         }
+    }
 
-        if (_myThrowComponent.IsThrowing)
-        {
-            _myAnimator.SetTrigger("isThrowing");
-            _myThrowComponent.IsThrowing = false;
-        }
+    public void LanzameEsta()
+    {
+        _myAnimator.SetTrigger("isThrowing");
+        Debug.Log("a mi si queme triggerea esto");
+    }
+
+    public void DeslanzameEsta()
+    {
+        _myAnimator.ResetTrigger("isThrowing");
+        Debug.Log("DIOSSS joder ya HOSTIA");
+    }
+
+    private void LateUpdate()
+    {
+        //if (!_myThrowComponent.IsThrowing && _myAnimator.GetBool("isThrowing")) DeslanzameEsta();
     }
 }

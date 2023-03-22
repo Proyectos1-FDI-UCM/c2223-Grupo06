@@ -149,6 +149,20 @@ public class PlayerManager : MonoBehaviour
 
     private void UpdateState(TimmyStates _state)
     {
+        // LÓGICA DE CAMBIO DE CONTROLADOR DE ANIMACIONES
+        if (_objeto != Objetos.NADA && _myAnimator.runtimeAnimatorController != _colorControllers[(int)_state * 3 + ((int)_objeto)])
+        { // si tiene algún objeto y el control de animaciones no es de *ese* objeto, se lo pone
+            RequestControllerChange(_colorControllers, (int)_state * 3 + ((int)_objeto)); // cambio de animaciones de timmy
+            _UIManager.SetObject(_objeto);                                             // cambio de imagen en el ui
+            //Debug.Log("COLOR: " + _objeto + ", " + (int)_objeto);
+        }
+        else if (_objeto == Objetos.NADA && _myAnimator.runtimeAnimatorController != _defaultControllers[(int)_state])
+        { // si no tiene objeto y el control de animaciones no es el normal, se lo pone
+            RequestControllerChange(_defaultControllers, (int)_state); // cambio de animaciones de timmy
+            _UIManager.SetObject(_objeto);                          // cambio de imagen en el ui
+            //Debug.Log("¡NADA!");
+        }
+
         // LÓGICA DE CAMBIO DE ESTADOS 
         switch (_state)
         {
@@ -225,20 +239,6 @@ public class PlayerManager : MonoBehaviour
                     _nextState = TimmyStates.S2;
                 }
                 break;
-        }
-
-        // LÓGICA DE CAMBIO DE CONTROLADOR DE ANIMACIONES
-        if (_objeto != Objetos.NADA && _myAnimator.runtimeAnimatorController != _colorControllers[(int)_state * 3 + ((int)_objeto)])
-        { // si tiene algún objeto y el control de animaciones no es de *ese* objeto, se lo pone
-            RequestControllerChange(_colorControllers, (int)_state * 3 + ((int)_objeto)); // cambio de animaciones de timmy
-            _UIManager.SetObject(_objeto);                                             // cambio de imagen en el ui
-            //Debug.Log("COLOR: " + _objeto + ", " + (int)_objeto);
-        }
-        else if (_objeto == Objetos.NADA && _myAnimator.runtimeAnimatorController != _defaultControllers[(int)_state])
-        { // si no tiene objeto y el control de animaciones no es el normal, se lo pone
-            RequestControllerChange(_defaultControllers, (int)_state); // cambio de animaciones de timmy
-            _UIManager.SetObject(_objeto);                          // cambio de imagen en el ui
-            //Debug.Log("¡NADA!");
         }
 
         // LOGICA DE UI

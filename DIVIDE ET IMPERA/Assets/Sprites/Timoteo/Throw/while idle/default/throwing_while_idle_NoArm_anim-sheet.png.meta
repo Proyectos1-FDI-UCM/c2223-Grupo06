@@ -102,7 +102,133 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: throwing_while_idle_NoArm_anim-sheet_0
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 6
+        width: 27
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 28de2cf3125593e4f8177ba4057e1b92
+      internalID: -1214402080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: throwing_while_idle_NoArm_anim-sheet_1
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 6
+        width: 27
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7223bb7a311a0fd4a9d2731d8860d871
+      internalID: 1543668770
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: throwing_while_idle_NoArm_anim-sheet_2
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 6
+        width: 27
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 861833db78dc93447b5f664e195349d2
+      internalID: 1696695733
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: throwing_while_idle_NoArm_anim-sheet_3
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 6
+        width: 27
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fab9936961caa1b4a8ffda5d9910a8c0
+      internalID: -779537242
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: throwing_while_idle_NoArm_anim-sheet_4
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 6
+        width: 27
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 12627b87c37fa2e408ef3ad8febeca23
+      internalID: -613265578
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: throwing_while_idle_NoArm_anim-sheet_5
+      rect:
+        serializedVersion: 2
+        x: 257
+        y: 6
+        width: 27
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 210ad4279dbaa4f42b0ce6c2d16ab8aa
+      internalID: 830469372
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -113,7 +239,13 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      throwing_while_idle_NoArm_anim-sheet_2: 1696695733
+      throwing_while_idle_NoArm_anim-sheet_5: 830469372
+      throwing_while_idle_NoArm_anim-sheet_4: -613265578
+      throwing_while_idle_NoArm_anim-sheet_1: 1543668770
+      throwing_while_idle_NoArm_anim-sheet_0: -1214402080
+      throwing_while_idle_NoArm_anim-sheet_3: -779537242
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
