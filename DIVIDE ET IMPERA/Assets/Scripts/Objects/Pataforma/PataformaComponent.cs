@@ -14,7 +14,7 @@ public class PataformaComponent : MonoBehaviour
     /// y con esto se acabó el tutorial maravilloso y estupendo, recordad darle a like y compartir
     /// y acivar la campanita ;)
     /// 
-    /// P.D. Controles
+    /// P.D. Controles antiguos
     /// R ---> conectar piernas
     /// T ---> recuperar piernas
     /// 2+E -> cambiar input de uno a otro
@@ -33,6 +33,8 @@ public class PataformaComponent : MonoBehaviour
     private Rigidbody2D _pataformaRigidbody;
     [SerializeField]
     private PataformaMovementComponent pataformaMovementComponent;
+
+    [SerializeField] GameObject _patas;
 
     #endregion
 
@@ -120,6 +122,18 @@ public class PataformaComponent : MonoBehaviour
             // cambia de color (deberia ser sprite)
             _mySpriteRenderer.color = Color.white;
         }
+    }
+    private void Visual()
+    {
+        if (_piernasConectadas)
+        {
+            _patas.SetActive(true);
+        }
+        else
+        {
+            _patas.SetActive(false);
+        }
+        
     }
     private void ChangeInput()
     {
@@ -214,6 +228,8 @@ public class PataformaComponent : MonoBehaviour
     void Update()
     {
         ConectaPiernas();
+
+        Visual();
 
         ChangeInput();
 
