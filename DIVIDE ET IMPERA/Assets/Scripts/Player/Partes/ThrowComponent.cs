@@ -142,13 +142,13 @@ public class ThrowComponent : MonoBehaviour
             _myPlayerAnimator.LanzameEsta();
         }
     }
-
+    /*
     private void LateUpdate()
     {
         if (_isThrowing && !_myAnimator.GetBool("isThrowing"))
         {
             _myPlayerAnimator.LanzameEsta();
-            _isThrowing = false;
         }
     }
+    */
 }
