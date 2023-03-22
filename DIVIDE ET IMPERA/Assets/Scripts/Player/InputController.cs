@@ -8,7 +8,7 @@ public class InputController : MonoBehaviour
     /* 
     *MOVIMENTO LATERAL Y VERTICAL*
     AD ----------- > moverse a los lados
-    SPACE ----- > saltar
+    SPACE -------- > saltar
 
     *PALANCA*
     E ------------- > conectar parte
@@ -32,6 +32,10 @@ public class InputController : MonoBehaviour
     2 + T -------- > interactuar con palanca
     3 + T -------- > interactuar con pataforma
     4 + T -------- > WIP 
+
+    *COGER Y SOLTAR OBJETOS*
+    L  -------- > coger
+    K  -------- > soltar
     */
     #endregion
 
@@ -42,7 +46,8 @@ public class InputController : MonoBehaviour
     private Rigidbody2D _playerRigidBody;
     private PlayerManager _playerManager;
     private CollisionManager _collisionManager;
-
+    [SerializeField]
+    private DialogueManager _dialogueManager;
     [SerializeField] private UIManager _UIManager;
 
     #endregion
@@ -173,7 +178,7 @@ public class InputController : MonoBehaviour
             {
                 PlayerManager.Instance.SoltarPiernas();
             }
-            else if (Input.GetKey(KeyCode.Alpha4))
+            else if (Input.GetKey(KeyCode.Alpha4)) // STC
             {
 
             }
@@ -199,10 +204,11 @@ public class InputController : MonoBehaviour
         }
         #endregion
 
-        // interactuar 
+        // INTERACTUAR
+        #region INTERACTUAR
         if (Input.GetKeyUp(KeyCode.T))
         {
-            // PARA INTERACTUAR
+            // PARA INTERACTUAR (1,2,3,4)
             if (Input.GetKey(KeyCode.Alpha1))
             {
                 _interactuar = true;
@@ -225,7 +231,7 @@ public class InputController : MonoBehaviour
                     this.enabled = false;
                 }
             }
-            else if (Input.GetKey(KeyCode.Alpha4))
+            else if (Input.GetKey(KeyCode.Alpha4)) // WIP
             {
 
             }
@@ -234,6 +240,7 @@ public class InputController : MonoBehaviour
         {
             _interactuar = false;
         }
+        #endregion
 
         // LANZAR
         if (Input.GetKeyUp(KeyCode.Q))
@@ -242,10 +249,11 @@ public class InputController : MonoBehaviour
         }
 
         // DIÁLOGO
-        if (Input.GetKeyDown(KeyCode.M))
+        /*if (Input.GetKeyDown(KeyCode.M))
         {
-            _conversar = true;
-        }
+            Debug.Log("interactuar");
+            _dialogueManager.Activar();
+        }*/
     }
 
 
@@ -310,13 +318,6 @@ public class InputController : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.Keypad4))
         {
             PlayerManager.Instance.SwitchPartControl(PlayerManager.Partes.PIERNAS);
-        }
-        #endregion
-
-        #region DIÁLOGO
-        if (Input.GetKeyDown(KeyCode.M))
-        {
-            _conversar = true;
         }
         #endregion
     }

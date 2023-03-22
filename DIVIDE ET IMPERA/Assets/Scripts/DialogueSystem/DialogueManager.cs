@@ -16,6 +16,9 @@ public class DialogueManager : MonoBehaviour
     private Transform _transform;
     private SpriteRenderer _mySpriteRenderer;
     [SerializeField] private GameObject _player;
+
+    // Feedback de interacción
+    [SerializeField] private TMP_Text _interactText;
     #endregion
 
     #region Parameters
@@ -36,19 +39,35 @@ public class DialogueManager : MonoBehaviour
     #endregion
 
     #region Methods
-    public void Activar()
+    private void Activar()
     {
+        /*if (_inputController.Conversar && _validNPCHitbox)
+        {
+            EnConversacion(true);
+            _mySpriteRenderer.color = Color.blue;
+        }*/
+        Debug.Log("ACTIMEL");
         MoveTimoteo();
         Dialogo();
     }
     #region flujo de diálogo
-
-
+    private void OnTriggerEnter2D(Collider2D collision) // mostrar texto de interacción
+    {
+        if (collision.gameObject == _player) //filtro para que solo el jugador pueda interactuar con cosas
+        {
+            _interactText.text = "Pulsa 'M' para conversar";
+        }
+    }
+    private void OnTriggerExit2D(Collider2D collision) // mostrar texto de interacción
+    {
+        if (collision.gameObject == _player) //filtro para que solo el jugador pueda interactuar con cosas
+        {
+            _interactText.text = "";
+        }
+    }
     private void Dialogo()
     {
         _inputController.enabled = false;
-
-
     }
     public void EnConversacion(bool conversando)
     {
@@ -81,7 +100,7 @@ public class DialogueManager : MonoBehaviour
         StartCoroutine(Letritas(_frase));
     }
 
-    // ANIMACIÓN MAOMENO
+    // ANIMACIÓN DE CARACTERES
     IEnumerator Letritas(string _frase) // para que se vaya escribiendo la frase letra por letra
     {
         _dialogueText.text = "";
@@ -103,12 +122,12 @@ public class DialogueManager : MonoBehaviour
     #region mover timoteo
     void MoveTimoteo()
     {
+        Debug.Log("Muevete");
         // Hace que Timoteo se mueva hacia el waypoint correspondiente con la velocidad marcada
         _transform.position = Vector3.MoveTowards(_transform.position, // pos inicial 
             WaypointDialogo.transform.position, _speed * Time.deltaTime); // pos final
     }
     #endregion
-
 
     #endregion
 
@@ -127,12 +146,6 @@ public class DialogueManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (_inputController.Conversar && _validNPCHitbox)
-        {
-            EnConversacion(true);
-            _mySpriteRenderer.color = Color.blue;
-        }
-
-        Activar();
+        
     }
 }
