@@ -16,7 +16,6 @@ public class PlayerAnimationController : MonoBehaviour
         _myThrowComponent = GetComponent<ThrowComponent>();
         _myAnimator.ResetTrigger("isGrounded");
         _myAnimator.ResetTrigger("isRunning");
-        _myAnimator.ResetTrigger("isThrowing");
     }
 
     void Update()
