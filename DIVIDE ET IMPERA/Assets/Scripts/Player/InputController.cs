@@ -40,24 +40,25 @@ public class InputController : MonoBehaviour
     */
     #endregion
 
-    #region CONTROLES (CYN EDITION)
+    #region CONTROLES (NUEVO INTENTO)
     /*
-    A y D:   Movimiento lateral
+    A y D  : Movimiento lateral
     Espacio: Saltar
     
-    E: activar / desactivar palanca enfrente + por remoto**
+    E: diálogo + activar / desactivar palanca enfrente y por remoto**
     R: recoger y soltar objetos (si tiene objeto lo suelta, si no, intenta recoger algo*)
     Q: recoger partes (brazo / piernas del suelo / palanca / plataforma)
     F: lanzar brazo
     Z: soltar brazos  (si lo haces delante de una palanca, se conecta auto)
-    X: soltar piernas (si lo haces encima de unas plataformas, se conectan auto)
+    X: soltar piernas (si lo haces encima de una pataforma, se conectan auto)
 
         *: quizá? si vemos que no es útil pues un botón para cada, pero creo que puede estar guay eso
         **: para que quede acorde con el HUD, yo pondría las cosas que sean combinaciones según el orden:
             1 + <tecla>: controlar cabeza (PUM a la cabeza)
             2 + <tecla>: si hay dos brazos cada uno en una palanca, activa la primera palanca
             3 + <tecla>:                                                 " la segunda palanca
-            4 + <tecla: controlar piernas
+            4 + <tecla>: controlar piernas
+            <tecla>: E? (es la tecla de interaccion por excelencia)
 
     QUEDA CONSIDERAR: alubiat? creo que ya
     */
