@@ -140,7 +140,6 @@ public class ThrowComponent : MonoBehaviour
         if (_isThrowing && !_myAnimator.GetBool("isThrowing"))
         {
             _myPlayerAnimator.LanzameEsta();
-            //_isThrowing = false;
         }
     }
 
@@ -149,7 +148,7 @@ public class ThrowComponent : MonoBehaviour
         if (_isThrowing && !_myAnimator.GetBool("isThrowing"))
         {
             _myPlayerAnimator.LanzameEsta();
-            //_isThrowing = false;
+            _isThrowing = false;
         }
     }
 }

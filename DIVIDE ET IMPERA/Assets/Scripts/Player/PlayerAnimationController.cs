@@ -59,6 +59,6 @@ public class PlayerAnimationController : MonoBehaviour
 
     private void LateUpdate()
     {
-        //if (!_myThrowComponent.IsThrowing && _myAnimator.GetBool("isThrowing")) DeslanzameEsta();
+        if (!_myThrowComponent.IsThrowing && _myAnimator.GetBool("isThrowing")) DeslanzameEsta();
     }
 }
