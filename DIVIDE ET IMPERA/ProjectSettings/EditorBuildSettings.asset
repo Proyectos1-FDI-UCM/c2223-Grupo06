@@ -5,16 +5,7 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/Scenes/(OLD)/SampleScene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
-  - enabled: 0
-    path: Assets/Scenes/(OLD)/CharacterManagerTestScene.unity
-    guid: a82f3d7b09b53384e97037fc0cf88b0b
   - enabled: 1
-    path: Assets/Scenes/(OLD)/HITO 1.unity
-    guid: eee80835e263d794b9a4c1f883bbd487
+    path: Assets/Scenes/Chavalines DEMO.unity
+    guid: 2463fb5e712b1bb4bb4394bb3a05e858
   m_configObjects: {}
