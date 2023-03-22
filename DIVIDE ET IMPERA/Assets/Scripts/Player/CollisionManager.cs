@@ -127,9 +127,7 @@ public class CollisionManager : MonoBehaviour
             else if (_objetoColisionado.GetComponent<BallComponent>() != null)
             { // si es una bola
                 padre = _objetoColisionado.transform.parent.gameObject;
-                var abuelo = padre.transform.parent.gameObject;
-                //Destroy(padre);
-                Destroy(abuelo); // estoy probando cosas, esto es horrible y mal hecho
+                Destroy(padre);
                 return 2;
             }
         } // si ninguna de las condiciones se ha cumplido:
