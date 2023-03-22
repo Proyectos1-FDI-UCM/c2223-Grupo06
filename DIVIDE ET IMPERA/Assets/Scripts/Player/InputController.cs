@@ -74,13 +74,20 @@ public class InputController : MonoBehaviour
     Z:         Saltar
     X:         Soltar y recoger objetos
     C:         Lanzar brazo*
-    A:         Soltar brazos (o recoger si está enfrente*)
-    S:         Soltar brazos (o recoger si está enfrente*)
+    A:         Soltar brazos (o recoger si está enfrente**)
+    S:         Soltar brazos (o recoger si está enfrente**)
     D:         Soltar piernas (o recoger si está encima o enfrente)
 
-    Shift + C: Lanzar bola*
+    Shift + C: Lanzar bola delante*
+    Shift + X: Lanzar bola ribcage*
     
     *: Hago distinción porque es molesto cuando lanzas un brazo y querías lanzar una bola
+    
+    **: Lo duplico para que a la hora de asociar en tu mente a qué es cada cosa sea más sencillo porque pretendo entablar esto:
+    Shift + A: Interactuar brazo 1 (remoto)
+    Shift + S: Interactuar brazo 2 (remoto)
+    Shift + D: Intercambiar control entre cuerpo y piernas
+       De esta manera ya entiendes que tanto A como S son brazos whatever the case, y D piernas (toggle) 
 
     QUEDA CONSIDERAR: alubiat? creo que ya
     */
