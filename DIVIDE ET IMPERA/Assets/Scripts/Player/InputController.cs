@@ -1,4 +1,4 @@
-using UnityEngine;
+Ôªøusing UnityEngine;
 
 public class InputController : MonoBehaviour
 {
@@ -28,7 +28,7 @@ public class InputController : MonoBehaviour
     3 + R -------- > recuperar piernas
     4 + R -------- > WIP
 
-    *INTERACCI”N DE OBJETOS*
+    *INTERACCI√ìN DE OBJETOS*
     1 + T -------- > interactuar con palanca
     2 + T -------- > interactuar con palanca
     3 + T -------- > interactuar con pataforma
@@ -41,24 +41,46 @@ public class InputController : MonoBehaviour
     #endregion
 
     #region CONTROLES (NUEVO INTENTO)
-    /*
+    /* 
+    *ESTILO 1: parecido al planteamiento inical*
+    (mano izq)
     A y D  : Movimiento lateral
     Espacio: Saltar
-    
-    E: di·logo + activar / desactivar palanca enfrente y por remoto**
+    E: Interactuar con palanca enfrente y por remoto** + di√°logo
     R: recoger y soltar objetos (si tiene objeto lo suelta, si no, intenta recoger algo*)
     Q: recoger partes (brazo / piernas del suelo / palanca / plataforma)
-    F: lanzar brazo
-    Z: soltar brazos  (si lo haces delante de una palanca, se conecta auto)
-    X: soltar piernas (si lo haces encima de una pataforma, se conectan auto)
+    F: lanzar brazo / bola si tiene
 
-        *: quiz·? si vemos que no es ˙til pues un botÛn para cada, pero creo que puede estar guay eso
-        **: para que quede acorde con el HUD, yo pondrÌa las cosas que sean combinaciones seg˙n el orden:
+    (mano der)
+    K: soltar brazos  (si lo haces delante de una palanca, se conecta auto)
+    L: soltar piernas (si lo haces encima de una pataforma, se conectan auto)
+
+        *: quiz√°? si vemos que no es √∫til pues un bot√≥n para cada, pero creo que puede estar guay eso
+        **: para que quede acorde con el HUD, yo pondr√≠a las cosas que sean combinaciones seg√∫n el orden:
             1 + <tecla>: controlar cabeza (PUM a la cabeza)
             2 + <tecla>: si hay dos brazos cada uno en una palanca, activa la primera palanca
             3 + <tecla>:                                                 " la segunda palanca
             4 + <tecla>: controlar piernas
             <tecla>: E? (es la tecla de interaccion por excelencia)
+
+
+
+    *ESTILO 2: m√°s metroidvania de verdad*
+    (mano der)
+    ‚Üê y ‚Üí:     Movimiento lateral
+    ‚Üë:         Interactuar con palanca enfrente** + Di√°logo
+
+    (mano izq)
+    Z:         Saltar
+    X:         Soltar y recoger objetos
+    C:         Lanzar brazo*
+    A:         Soltar brazos (o recoger si est√° enfrente*)
+    S:         Soltar brazos (o recoger si est√° enfrente*)
+    D:         Soltar piernas (o recoger si est√° encima o enfrente)
+
+    Shift + C: Lanzar bola*
+    
+    *: Hago distinci√≥n porque es molesto cuando lanzas un brazo y quer√≠as lanzar una bola
 
     QUEDA CONSIDERAR: alubiat? creo que ya
     */
@@ -78,7 +100,7 @@ public class InputController : MonoBehaviour
     #endregion
 
     #region Properties 
-    //-------------DIRECCI”N----------------------------
+    //-------------DIRECCI√ìN----------------------------
     //Setea la direccion en la que se mueve el jugador, -1 = izq y 1 = drcha
     private int _direccion;
     public int Direccion { get { return _direccion; } }
@@ -87,21 +109,21 @@ public class InputController : MonoBehaviour
     // Indica si el jugador quiere interactuar con una palanca
     [SerializeField]
     private bool _interactuar = false;
-    // acceso p˙blico a _interactuar
+    // acceso p√∫blico a _interactuar
     public bool Interactuar { get { return _interactuar; } }
 
     //-------------SOLTAR PARTES----------------------------
     // Indica si el jugador ha dejado una parte en un objeto
     [SerializeField]
     private bool _conectarParte = false;
-    // acceso p˙blico a _conectarParte
+    // acceso p√∫blico a _conectarParte
     public bool ConectarParte { get { return _conectarParte; } }
 
     //-------------RECUPERAR PARTES----------------------------
     // Indica si el jugador ha dejado una parte en un objeto
     [SerializeField]
     private bool _recuperarParte = false;
-    // acceso p˙blico a _recuperarParte
+    // acceso p√∫blico a _recuperarParte
     public bool RecuperarParte { get { return _recuperarParte; } }
 
     //------------CAMBIAR INPUT----------------------------
@@ -109,12 +131,12 @@ public class InputController : MonoBehaviour
     // booleano para saber si se ha cambiado el input a la pataforma
     [SerializeField]
     public bool _changeToPataforma;
-    // acceso p˙blico a _isPataforma
+    // acceso p√∫blico a _isPataforma
     public bool ChangeToPataforma { get { return _changeToPataforma; } }
 
     [SerializeField]
     private bool _conversar = false;
-    // acceso p˙blico a _conversar
+    // acceso p√∫blico a _conversar
     public bool Conversar { get { return _conversar; } }
     #endregion
 
@@ -273,7 +295,7 @@ public class InputController : MonoBehaviour
             _throwComp.LanzarBrazo();
         }
 
-        // DI¡LOGO
+        // DI√ÅLOGO
         /*if (Input.GetKeyDown(KeyCode.M))
         {
             Debug.Log("interactuar");
@@ -372,7 +394,7 @@ public class InputController : MonoBehaviour
         //------DEBUG-------
         DebugInput();
 
-        //------OPCI”N DE PAUSA-------
+        //------OPCI√ìN DE PAUSA-------
         if (Input.GetKeyDown(KeyCode.Z))
         {
             _UIManager.SetMenu(GameManager.GameStates.PAUSE);
