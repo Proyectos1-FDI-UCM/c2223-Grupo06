@@ -131,11 +131,10 @@ public class DialogueManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       // _inputController = PlayerAccess.Instance.InputController;
+        _inputController = PlayerAccess.Instance.InputController;
         _playerTransform = PlayerAccess.Instance.Transform; 
         _dialogueTrigger = GetComponent<DialogueTrigger>();
         _interaction = GetComponent<Interaction>();
-        _inputController = GetComponent<InputController>();
         _mySpriteRenderer = GetComponent<SpriteRenderer>();
         _guion = new Queue<string>(); // inicialización de _guion
     }
