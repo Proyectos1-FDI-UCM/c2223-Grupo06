@@ -1,0 +1,23 @@
+QA: puntos interesantes para el lunes 27 de marzo de 2023
+
+> preguntarle que tal, como se llama, buen rollo y tal (Y NO GRABAR A LE CRIE)
+> explicarle de que va el juego? si o no? (acordar contexto)
+> asegurar a le chavale que no pasa nada si juega bien o mal, solo queremos comprobar el juego
+> la prueba ya es intrusiva, ya de por si es una situación incómoda! hay que incentivar la mayor cantidad de comunicacion posible SIN RESULTAR AGOBIANTE
+> no interrumpir!!!!!!! Si le damos instrucciones, que sea al principo, que objetivo quiza
+> medir las reacciones, observar bien de manera objetiva (anotar!)
+> diferencias con otros
+> mínimo dos testers idealmente hasta cuatro
+> hacer un forms o un guion de donde tenemos que estar atentos, que parametros recogemos, que reacciones son esperables
+> hay que tener previsto que contestar si nos preguntan
+> que alguien cronometre, que otro apunte, que otro nosequé
+
+Asegurar que las mecánicas principales (soltar, recoger y usar huesos separados) se entienden y se pueden resolver puzles con ellas.
+
+Y las preguntas:
+¿Es intuitivo el flujo de la demo (puzles y escenario)?
+¿Y el de los controles?
+¿Hay mecánicas demasiado difíciles de entender?
+(segundo ciclo) Si sí, ¿son innecesarias?
+
+23 de marzo de 2023
