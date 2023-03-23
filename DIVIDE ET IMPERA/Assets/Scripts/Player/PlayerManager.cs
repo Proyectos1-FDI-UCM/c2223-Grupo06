@@ -387,7 +387,7 @@ public class PlayerManager : MonoBehaviour
         {
             var posicion = _myTransform.position;
             //if (Objeto == Objetos.BOLA) posicion += _myTransform.right * _myTransform.localScale.x;
-            Instantiate(_objetos[(int)_objeto], posicion, _myTransform.rotation);
+            Instantiate(_objetos[(int)_objeto], posicion, _myTransform.rotation, GameManager.Instance._demoLevel.transform);
             EliminarObjeto();
         }
     }
