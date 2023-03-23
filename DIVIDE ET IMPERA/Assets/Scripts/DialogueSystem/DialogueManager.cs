@@ -6,38 +6,52 @@ using UnityEngine;
 public class DialogueManager : MonoBehaviour
 {
     #region References
-    // referncia al script de interacción
+    // player
     private InputController _inputController;
-    private Interaction _interaction;
-    private Dialogue _dialogue;
-    private DialogueTrigger _dialogueTrigger;
-    [SerializeField] private TMP_Text _dialogueText;
+    // private InputControllerDos _inputControllerDos;
     private Transform _playerTransform;
-    private SpriteRenderer _mySpriteRenderer;
     [SerializeField] private GameObject _player;
 
-    // Feedback de interacción
-    [SerializeField] private TMP_Text _interactText;
+    // diálogo
+    [SerializeField] private TMP_Text _dialogueText; // Texto de diálogo
+    [SerializeField] private TMP_Text _interactText; // Texto de feedback para interacción
+    private DialogueTrigger _dialogueTrigger;
+    private Interaction _interaction;
+    private Dialogue _dialogue;
     #endregion
 
     #region Parameters
-    private Queue<string> _guion; // colección de strings, array circular FIFO (first in first out)
-    // mover a Timoteo
-    [SerializeField]
-    private GameObject WaypointDialogo;
-    [SerializeField]
-    private float _speed; // velocidad a la que se mueve Timoteo al waypoint de diálogo
+    // flujo
+    private Queue<string> _guion; // colección de strings, array circular first in first out
 
+    // mover a timoteo
+    [SerializeField] private GameObject WaypointDialogo; // punto al que se mueve timoteo al inicio del diálogo
+    [SerializeField] private float _speed; // velocidad a la que se mueve timoteo al waypoint de diálogo
     #endregion
 
     #region Properties
-    public bool _validNPCHitbox; // está en el área de un NPC
     // en conversación 
     private bool _enConversacion = false;
     public bool Conversacion { get { return _enConversacion; } }
     #endregion
 
     #region Methods
+    #region flujo de diálogo
+    private void OnTriggerEnter2D(Collider2D collision) 
+    {
+        if (collision.gameObject == _player)                  //filtro para que solo el jugador pueda interactuar con cosas
+        {
+            _interactText.text = "Pulsa 'M' para conversar";  // mostrar texto de interacción
+        }
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject == _player)                  //filtro para que solo el jugador pueda interactuar con cosas
+        {
+            _interactText.text = "";                          // quitar texto de interacción
+        }
+    }
+
     private void Activar()
     {
         /*if (_inputController.Conversar && _validNPCHitbox)
@@ -47,21 +61,6 @@ public class DialogueManager : MonoBehaviour
         }*/
         Debug.Log("ACTIMEL");
         MoveTimoteo();
-    }
-    #region flujo de diálogo
-    private void OnTriggerEnter2D(Collider2D collision) // mostrar texto de interacción
-    {
-        if (collision.gameObject == _player) //filtro para que solo el jugador pueda interactuar con cosas
-        {
-            _interactText.text = "Pulsa 'M' para conversar";
-        }
-    }
-    private void OnTriggerExit2D(Collider2D collision) // mostrar texto de interacción
-    {
-        if (collision.gameObject == _player) //filtro para que solo el jugador pueda interactuar con cosas
-        {
-            _interactText.text = "";
-        }
     }
 
     public void EnConversacion(bool conversando)
@@ -121,21 +120,23 @@ public class DialogueManager : MonoBehaviour
         Debug.Log("Muevete");
         _inputController.enabled = false;
         // Hace que Timoteo se mueva hacia el waypoint correspondiente con la velocidad marcada
-        _playerTransform.position = Vector3.MoveTowards(_playerTransform.position, // pos inicial 
-            WaypointDialogo.transform.position, _speed * Time.deltaTime); // pos final
+        _playerTransform.position = Vector3.MoveTowards(_playerTransform.position,  // posición inicial 
+            WaypointDialogo.transform.position, _speed * Time.deltaTime);           // posición final
     }
     #endregion
-
     #endregion
 
     // Start is called before the first frame update
     void Start()
     {
+        // player
         _inputController = PlayerAccess.Instance.InputController;
-        _playerTransform = PlayerAccess.Instance.Transform; 
-        _dialogueTrigger = GetComponent<DialogueTrigger>();
+        //_inputControllerDos = PlayerAccess.Instance.InputControllerDos;
+        _playerTransform = PlayerAccess.Instance.Transform;
         _interaction = GetComponent<Interaction>();
-        _mySpriteRenderer = GetComponent<SpriteRenderer>();
+
+        // diálogo
+        _dialogueTrigger = GetComponent<DialogueTrigger>();
         _guion = new Queue<string>(); // inicialización de _guion
     }
 
