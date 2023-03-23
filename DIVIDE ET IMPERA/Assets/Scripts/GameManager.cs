@@ -7,10 +7,15 @@ public class GameManager : MonoBehaviour
     #region references
     private UIManager _UIManager;
     private CollisionManager _collisionManager;
+    #region demo reset
     [SerializeField]
     private GameObject _demoLevel;
     [SerializeField]
     private GameObject _demoPrefab;
+    [SerializeField]
+    private Vector3 _spawnTransform;
+    private GameObject _player;
+    #endregion
     #endregion
 
     #region properties
@@ -83,6 +88,10 @@ public class GameManager : MonoBehaviour
         Destroy(_demoLevel);
         _demoLevel = Instantiate(_demoPrefab);
         _demoLevel.transform.position = lvlTransform;
+
+        _player.transform.position = _spawnTransform;
+        PlayerManager.Instance.RequestTimmyState(PlayerManager.TimmyStates.S0);
+        PlayerManager.Instance.EliminarObjeto();
     }
     #endregion
 
@@ -94,7 +103,9 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         _currentGameState = GameStates.GAMEOVER; // Valor dummy para que se realice el cambio nada más empezar
-        _nextGameState = GameStates.START;    // Estado inicial, es diferente al current para que el EnterState del primer update se realice
+        _nextGameState = GameStates.START; // Estado inicial, es diferente al current para que el EnterState del primer update se realice
+
+        _player = PlayerAccess.Instance.gameObject; //Para la demo+ç
     }
 
     void Update()
