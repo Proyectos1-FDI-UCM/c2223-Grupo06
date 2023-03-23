@@ -172,6 +172,11 @@ public class UIManager : MonoBehaviour
         _images[_posAlubiat].sprite = _sprites[^1]; // el último sprite es el vacío
     }
 
+    public void ResetLevel()
+    {
+        GameManager.Instance.DemoReset();
+    }
+
     // BUCLE
     void Start()
     {

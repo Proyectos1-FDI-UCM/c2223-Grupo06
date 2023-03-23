@@ -227,6 +227,7 @@ public class PataformaComponent : MonoBehaviour
 
     void Start()
     {
+        _player = PlayerAccess.Instance.gameObject;
         _inputController = _player.GetComponent<InputController>();
         _mySpriteRenderer = GetComponent<SpriteRenderer>();
         _pataformaMovementComponent = GetComponent<PataformaMovementComponent>();

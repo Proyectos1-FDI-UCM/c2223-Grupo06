@@ -7,6 +7,10 @@ public class GameManager : MonoBehaviour
     #region references
     private UIManager _UIManager;
     private CollisionManager _collisionManager;
+    [SerializeField]
+    private GameObject _demoLevel;
+    [SerializeField]
+    private GameObject _demoPrefab;
     #endregion
 
     #region properties
@@ -71,6 +75,14 @@ public class GameManager : MonoBehaviour
         {
 
         }*/
+    }
+
+    public void DemoReset()
+    {
+        Vector3 lvlTransform= _demoLevel.transform.position;
+        Destroy(_demoLevel);
+        _demoLevel = Instantiate(_demoPrefab);
+        _demoLevel.transform.position = lvlTransform;
     }
     #endregion
 
