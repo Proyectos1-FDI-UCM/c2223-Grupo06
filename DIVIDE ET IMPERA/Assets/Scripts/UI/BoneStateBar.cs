@@ -24,11 +24,16 @@ public class BoneStateBar : MonoBehaviour
     {
         _currentBoneState -= _damage;
     }
+
+    public void ResetBar()
+    {
+        _currentBoneState = _maxBoneState; // al inicio siempre se tiene la barra al máximo
+    }
     #endregion
 
     private void Start()
     {
-        _currentBoneState = _maxBoneState; // al inicio siempre se tiene la barra al máximo
+        ResetBar();
     }
 
     void Update()
