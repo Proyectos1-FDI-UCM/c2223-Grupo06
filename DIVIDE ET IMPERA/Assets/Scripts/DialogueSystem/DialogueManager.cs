@@ -12,7 +12,7 @@ public class DialogueManager : MonoBehaviour
     private Dialogue _dialogue;
     private DialogueTrigger _dialogueTrigger;
     [SerializeField] private TMP_Text _dialogueText;
-    private Transform _transform;
+    private Transform _playerTransform;
     private SpriteRenderer _mySpriteRenderer;
     [SerializeField] private GameObject _player;
 
@@ -47,7 +47,6 @@ public class DialogueManager : MonoBehaviour
         }*/
         Debug.Log("ACTIMEL");
         MoveTimoteo();
-        Dialogo();
     }
     #region flujo de diálogo
     private void OnTriggerEnter2D(Collider2D collision) // mostrar texto de interacción
@@ -64,10 +63,7 @@ public class DialogueManager : MonoBehaviour
             _interactText.text = "";
         }
     }
-    private void Dialogo()
-    {
-        _inputController.enabled = false;
-    }
+
     public void EnConversacion(bool conversando)
     {
         _enConversacion = conversando; // si se está en conversación
@@ -114,6 +110,7 @@ public class DialogueManager : MonoBehaviour
     void FinDialogo()
     {
         Debug.Log("Conversación finiquitada");
+        _inputController.enabled = true;
     }
 
     #endregion
@@ -122,8 +119,9 @@ public class DialogueManager : MonoBehaviour
     void MoveTimoteo()
     {
         Debug.Log("Muevete");
+        _inputController.enabled = false;
         // Hace que Timoteo se mueva hacia el waypoint correspondiente con la velocidad marcada
-        _transform.position = Vector3.MoveTowards(_transform.position, // pos inicial 
+        _playerTransform.position = Vector3.MoveTowards(_playerTransform.position, // pos inicial 
             WaypointDialogo.transform.position, _speed * Time.deltaTime); // pos final
     }
     #endregion
@@ -133,8 +131,8 @@ public class DialogueManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _inputController = PlayerAccess.Instance.InputController;
-        _transform = transform;
+       // _inputController = PlayerAccess.Instance.InputController;
+        _playerTransform = PlayerAccess.Instance.Transform; 
         _dialogueTrigger = GetComponent<DialogueTrigger>();
         _interaction = GetComponent<Interaction>();
         _inputController = GetComponent<InputController>();
