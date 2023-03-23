@@ -74,8 +74,9 @@ public class GameManager : MonoBehaviour
     }
 
     #endregion
-
-    #region demo reset
+    //Todo el codigo para el reseteo de la demo de los niños esta aqui por limpieza
+    //en el futuro cuando haya que hacer el reseteo por salas (quitando asignacion de referencias en el start)
+    #region demo reset 
     [SerializeField]
     public GameObject _demoLevel;
     [SerializeField]
@@ -111,7 +112,7 @@ public class GameManager : MonoBehaviour
         _nextGameState = GameStates.START; // Estado inicial, es diferente al current para que el EnterState del primer update se realice
 
         _player = PlayerAccess.Instance.gameObject; //Para la demo
-        _boneBar = _player.GetComponent<BoneStateBar>();
+        _boneBar = _player.GetComponent<BoneStateBar>(); //demo tambien
     }
 
     void Update()
