@@ -4343,6 +4343,11 @@ MonoBehaviour:
   m_InstancedGameObject: {fileID: 0}
   m_Flags: 3
   m_ColliderType: 1
+--- !u!1 &1801142710 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2076869503684516377, guid: 59f3bbb5802b17140a954d4cbd3ee516, type: 3}
+  m_PrefabInstance: {fileID: 2076869504291036299}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1825076453
 GameObject:
   m_ObjectHideFlags: 0
@@ -4802,5 +4807,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
+    - target: {fileID: 4028254015863285673, guid: 73a3303548263b547ae86430bafeb69d, type: 3}
+      propertyPath: _demoLevel
+      value: 
+      objectReference: {fileID: 1801142710}
+    - target: {fileID: 4028254015863285673, guid: 73a3303548263b547ae86430bafeb69d, type: 3}
+      propertyPath: _demoPrefab
+      value: 
+      objectReference: {fileID: 848845268490695582, guid: 6693dbe1659a96f4c86e4f1714d5ef75, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 73a3303548263b547ae86430bafeb69d, type: 3}
