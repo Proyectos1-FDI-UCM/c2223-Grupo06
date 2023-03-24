@@ -14,6 +14,9 @@ public class UIManager : MonoBehaviour
     [SerializeField] private Image[] _images;
     // sprites en los assets
     [SerializeField] private Sprite[] _sprites;
+
+    private static UIManager _instance;
+    public static UIManager Instance { get { return _instance; } }
     #endregion
 
     #region properties
@@ -26,6 +29,8 @@ public class UIManager : MonoBehaviour
     private int _posPiernas;
     private int _posAlubiat;
     private int _posCostillas;
+
+    private GameObject _thingInControl;
     #endregion
 
     // MENUS
@@ -72,8 +77,12 @@ public class UIManager : MonoBehaviour
     {
         SetMenu(GameManager.GameStates.GAME);
 
-        // activa el input
-        _player.GetComponent<InputController>().enabled = true;
+        if (_thingInControl != _player)
+        {
+            _thingInControl.GetComponent<PataformaComponent>()._activarPataforma= true;
+        }
+        else
+            _player.GetComponent<InputController>().enabled = true;
     }
 
     public void Quit()
@@ -177,7 +186,16 @@ public class UIManager : MonoBehaviour
         GameManager.Instance.DemoReset();
     }
 
+    public void ChangeObjectInControl(GameObject thing)
+    {
+        _thingInControl= thing;
+    }
     // BUCLE
+    void Awake()
+    {
+        _instance= this;
+    }
+
     void Start()
     {
         _menus = new GameObject[4]; // creación del array de menús y asignación
@@ -197,6 +215,7 @@ public class UIManager : MonoBehaviour
         GameManager.Instance.RegisterUIManager(this);
         PlayerManager.Instance.RegisterUIManager(this);
 
+        _thingInControl = _player;
     }
 
     /*

@@ -47,7 +47,6 @@ public class PataformaComponent : MonoBehaviour
 
     [SerializeField] GameObject _patas;
     [SerializeField] Animator _animator;
-
     #endregion
 
     #region Properties
@@ -69,7 +68,7 @@ public class PataformaComponent : MonoBehaviour
 
 
     [SerializeField]
-    private bool _activarPataforma;
+    public bool _activarPataforma;
     #endregion
 
     #region Methods
@@ -183,6 +182,9 @@ public class PataformaComponent : MonoBehaviour
 
                 //Cambia que la camara siga a Timmy
                 CameraMovement.Instance.ChangeWhoToFollow(_player);
+
+                //Cambio objeto en control para la pausa
+                UIManager.Instance.ChangeObjectInControl(_player);
             }
 
         }
@@ -210,6 +212,9 @@ public class PataformaComponent : MonoBehaviour
 
             //Cambia el movimiento de la camara para que siga a las piernas
             CameraMovement.Instance.ChangeWhoToFollow(gameObject);
+
+            //Cambio para el menu de pausa
+            UIManager.Instance.ChangeObjectInControl(gameObject);
         }
     }
     private void PataformaInput()
@@ -236,6 +241,12 @@ public class PataformaComponent : MonoBehaviour
 
             // inicia el animator
             _animator.SetBool("move", false);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Z))
+        {
+            UIManager.Instance.SetMenu(GameManager.GameStates.PAUSE);
+            _activarPataforma = false;
         }
     }
     #endregion
