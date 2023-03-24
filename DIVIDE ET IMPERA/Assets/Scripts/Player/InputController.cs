@@ -408,6 +408,8 @@ public class InputController : MonoBehaviour
 
             // desactiva el input
             this.enabled = false;
+            PlayerAccess.Instance.MovementComponent.enabled = false;
+            PlayerAccess.Instance.Animator.enabled= false;
         }
 
         CoolDown();

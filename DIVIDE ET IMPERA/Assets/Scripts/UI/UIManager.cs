@@ -31,8 +31,6 @@ public class UIManager : MonoBehaviour
     private int _posPiernas;
     private int _posAlubiat;
     private int _posCostillas;
-
-    private GameObject _thingInControl;
     #endregion
 
     // MENUS
@@ -102,12 +100,19 @@ public class UIManager : MonoBehaviour
     {
         SetMenu(GameManager.GameStates.GAME);
 
-        if (_thingInControl != _player)
+        if (PlayerManager.Instance._objectInControl != _player)
         {
-            _thingInControl.GetComponent<PataformaComponent>()._activarPataforma= true;
+            //PlayerManager.Instance._objectInControl.GetComponent<PataformaComponent>()._activarPataforma= true;
+            PlayerManager.Instance._objectInControl.GetComponent<PataformaComponent>().enabled = true;
+            PlayerManager.Instance._objectInControl.GetComponent<PataformaMovementComponent>().enabled = true;
+            PlayerManager.Instance._objectInControl.GetComponentInChildren<Animator>().enabled = true;
         }
         else
+        {
             PlayerAccess.Instance.InputController.enabled = true;
+            PlayerAccess.Instance.MovementComponent.enabled = true;
+            PlayerAccess.Instance.Animator.enabled = true;
+        }
     }
 
     public void Quit()
@@ -236,8 +241,6 @@ public class UIManager : MonoBehaviour
 
         GameManager.Instance.RegisterUIManager(this);
         PlayerManager.Instance.RegisterUIManager(this);
-
-        _thingInControl = PlayerManager.Instance._objectInControl;
     }
 
     /*
