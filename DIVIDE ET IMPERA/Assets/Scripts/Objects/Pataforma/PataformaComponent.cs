@@ -184,7 +184,7 @@ public class PataformaComponent : MonoBehaviour
                 CameraMovement.Instance.ChangeWhoToFollow(_player);
 
                 //Cambio objeto en control para la pausa
-                UIManager.Instance.ChangeObjectInControl(_player);
+                PlayerManager.Instance.ChangeObjectInControl(_player);
             }
 
         }
@@ -214,7 +214,7 @@ public class PataformaComponent : MonoBehaviour
             CameraMovement.Instance.ChangeWhoToFollow(gameObject);
 
             //Cambio para el menu de pausa
-            UIManager.Instance.ChangeObjectInControl(gameObject);
+            PlayerManager.Instance.ChangeObjectInControl(gameObject);
         }
     }
     private void PataformaInput()

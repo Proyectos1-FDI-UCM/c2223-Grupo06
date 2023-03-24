@@ -88,6 +88,8 @@ public class GameManager : MonoBehaviour
 
     public void DemoReset()
     {
+        PlayerManager.Instance.ChangeObjectInControl(_player);
+
         Vector3 lvlTransform= _demoLevel.transform.position;
         Destroy(_demoLevel);
         _demoLevel = Instantiate(_demoPrefab);

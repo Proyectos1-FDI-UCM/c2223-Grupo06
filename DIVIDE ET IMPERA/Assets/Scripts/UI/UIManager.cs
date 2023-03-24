@@ -82,7 +82,7 @@ public class UIManager : MonoBehaviour
             _thingInControl.GetComponent<PataformaComponent>()._activarPataforma= true;
         }
         else
-            _player.GetComponent<InputController>().enabled = true;
+            PlayerAccess.Instance.InputController.enabled = true;
     }
 
     public void Quit()
@@ -185,11 +185,6 @@ public class UIManager : MonoBehaviour
     {
         GameManager.Instance.DemoReset();
     }
-
-    public void ChangeObjectInControl(GameObject thing)
-    {
-        _thingInControl= thing;
-    }
     // BUCLE
     void Awake()
     {
@@ -215,7 +210,7 @@ public class UIManager : MonoBehaviour
         GameManager.Instance.RegisterUIManager(this);
         PlayerManager.Instance.RegisterUIManager(this);
 
-        _thingInControl = _player;
+        _thingInControl = PlayerManager.Instance._objectInControl;
     }
 
     /*

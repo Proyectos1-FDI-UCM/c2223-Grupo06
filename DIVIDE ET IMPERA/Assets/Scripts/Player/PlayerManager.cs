@@ -17,6 +17,9 @@ public class PlayerManager : MonoBehaviour
     public enum Objetos { LLAVE, MUELLE, BOLA, NADA }; // he preferido usar un enum 
 
     #region References
+    // OBJETO QUE ESTÁ SIENDO CONTROLADO
+    public GameObject _objectInControl;
+
     // COMPONENTES
     private SpriteRenderer _mySpriteRenderer;
     private CollisionManager _myCollisionManager;
@@ -416,6 +419,12 @@ public class PlayerManager : MonoBehaviour
         else return false;
 
     }
+
+    public void ChangeObjectInControl(GameObject thing)
+    {
+        _objectInControl = thing;
+        CameraMovement.Instance.ChangeWhoToFollow(_objectInControl);
+    }
     #endregion
 
     void Awake()
@@ -439,6 +448,8 @@ public class PlayerManager : MonoBehaviour
         _objeto = Objetos.NADA;          // Ningún objeto al iniciar
         _alubiat = false;           // No tiene las piernas de su padre al iniciar
         _parte = Partes.CABEZA; // Control principal al inicio
+
+        _objectInControl = gameObject;
     }
 
     void Update()
