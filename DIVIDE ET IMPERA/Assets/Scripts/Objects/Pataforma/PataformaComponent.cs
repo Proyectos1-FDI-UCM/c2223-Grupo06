@@ -11,6 +11,11 @@ public class PataformaComponent : MonoBehaviour
     /// Cuando se pone en escena el objeto, tiene referenciado a Timmy, pero no al Timmy de la escena,
     /// por lo que teneis que arrastrar al Timmy de la escena a la referencia en el componente
     /// 
+    /// 
+    /// Ya no es necesario lo anterior, cambiado a que este hecho por codigo
+    /// 
+    /// 
+    /// 
     /// y con esto se acabó el tutorial maravilloso y estupendo, recordad darle a like y compartir
     /// y acivar la campanita ;)
     /// 
@@ -19,13 +24,19 @@ public class PataformaComponent : MonoBehaviour
     /// T ---> recuperar piernas
     /// 2+E -> cambiar input de uno a otro
     /// WASD -> moverse 
+    /// 
+    /// Controles nuevos
+    /// E --> conectar piernas
+    /// R --> recuperar piernas
+    /// 3+T --> cambiar el control
+    /// WASD --> moverse 
+    /// 
     /// </summary>
     #endregion
 
     #region Referencias
     private InputController _inputController;
     private SpriteRenderer _mySpriteRenderer;
-    [SerializeField]
     private GameObject _player;
     private Rigidbody2D _playerRigidbody;
 

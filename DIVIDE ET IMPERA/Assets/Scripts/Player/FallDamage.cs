@@ -36,7 +36,7 @@ public class FallDamage : MonoBehaviour
         }
         else
         {
-            //Codigo que comprueba las colisiones del jugador para ver si alguna es un muelle
+            //Codigo que comprueba las colisiones del jugador para ver si alguna es un muelle mirando si los contactos tienen el componente muelle
             Collider2D collider = GetComponent<Collider2D>();
             Collider2D[] colliders = Physics2D.OverlapBoxAll(collider.bounds.center, collider.bounds.size, 0);
             foreach (Collider2D otherCollider in colliders)
