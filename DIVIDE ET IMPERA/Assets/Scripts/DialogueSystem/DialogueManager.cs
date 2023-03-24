@@ -8,7 +8,7 @@ public class DialogueManager : MonoBehaviour
     #region References
     // player
     private InputController _inputController;
-    // private InputControllerDos _inputControllerDos;
+    private InputControllerDialogue _inputControllerDialogue;
     private Transform _playerTransform;
     [SerializeField] private GameObject _player;
 
@@ -31,6 +31,7 @@ public class DialogueManager : MonoBehaviour
 
     #region Properties
     // en conversación 
+    [SerializeField]
     private bool _enConversacion = false;
     public bool Conversacion { get { return _enConversacion; } }
     #endregion
@@ -54,12 +55,9 @@ public class DialogueManager : MonoBehaviour
 
     private void Activar()
     {
-        /*if (_inputController.Conversar && _validNPCHitbox)
-        {
-            EnConversacion(true);
-            _mySpriteRenderer.color = Color.blue;
-        }*/
         Debug.Log("ACTIMEL");
+        _enConversacion = true;
+        _inputController._enConversacion = true;
         MoveTimoteo();
     }
 
@@ -94,6 +92,15 @@ public class DialogueManager : MonoBehaviour
         StartCoroutine(Letritas(_frase));
     }
 
+    // FIN DIÁLOGO
+    public void FinDialogo()
+    {
+        Debug.Log("Conversación finiquitada");
+        _inputController.enabled = true;
+        _enConversacion = false;
+        _inputController._enConversacion = false;
+    }
+
     // ANIMACIÓN DE CARACTERES
     IEnumerator Letritas(string _frase) // para que se vaya escribiendo la frase letra por letra
     {
@@ -104,14 +111,6 @@ public class DialogueManager : MonoBehaviour
             yield return null; // proporciona el siguiente valor en la iteración
         }
     }
-
-    // FIN DIÁLOGO
-    void FinDialogo()
-    {
-        Debug.Log("Conversación finiquitada");
-        _inputController.enabled = true;
-    }
-
     #endregion
 
     #region mover timoteo
@@ -131,7 +130,7 @@ public class DialogueManager : MonoBehaviour
     {
         // player
         _inputController = PlayerAccess.Instance.InputController;
-        //_inputControllerDos = PlayerAccess.Instance.InputControllerDos;
+        //_inputControllerDialogue = PlayerAccess.Instance.InputControllerDialogue;
         _playerTransform = PlayerAccess.Instance.Transform;
         _interaction = GetComponent<Interaction>();
 

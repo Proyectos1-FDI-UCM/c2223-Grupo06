@@ -100,10 +100,8 @@ public class InputController : MonoBehaviour
     private Rigidbody2D _playerRigidBody;
     private PlayerManager _playerManager;
     private CollisionManager _collisionManager;
-    [SerializeField]
     private DialogueManager _dialogueManager;
     [SerializeField] private UIManager _UIManager;
-
     #endregion
 
     #region Properties 
@@ -141,10 +139,11 @@ public class InputController : MonoBehaviour
     // acceso público a _isPataforma
     public bool ChangeToPataforma { get { return _changeToPataforma; } }
 
+    //------------DIÁLOGO----------------------------
+    // booleano para saber si se está en conversación 
     [SerializeField]
-    private bool _conversar = false;
-    // acceso público a _conversar
-    public bool Conversar { get { return _conversar; } }
+    public bool _enConversacion = false;
+    public bool Conversacion { get { return _enConversacion; } }
     #endregion
 
     #region Parameters
@@ -266,7 +265,6 @@ public class InputController : MonoBehaviour
             if (Input.GetKey(KeyCode.Alpha1))
             {
                 _interactuar = true;
-
             }
             else if (Input.GetKey(KeyCode.Alpha2))
             {
@@ -287,7 +285,7 @@ public class InputController : MonoBehaviour
             }
             else if (Input.GetKey(KeyCode.Alpha4)) // WIP
             {
-
+                
             }
         }
         else
@@ -301,15 +299,7 @@ public class InputController : MonoBehaviour
         {
             _throwComp.LanzarBrazo();
         }
-
-        // DIÁLOGO
-        /*if (Input.GetKeyDown(KeyCode.M))
-        {
-            Debug.Log("interactuar");
-            _dialogueManager.Activar();
-        }*/
     }
-
 
     // PARA PROBAR COSAS DEL INPUT
     private void DebugInput()
@@ -384,7 +374,7 @@ public class InputController : MonoBehaviour
         _throwComp = GetComponent<ThrowComponent>();
         _playerManager = GetComponent<PlayerManager>();
         _collisionManager = GetComponent<CollisionManager>();
-
+        _dialogueManager = GetComponent<DialogueManager>();
 
         // rigidbody del player
         _playerRigidBody = GetComponentInChildren<Rigidbody2D>();

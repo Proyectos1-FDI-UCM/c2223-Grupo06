@@ -310,7 +310,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 194, y: -27}
+  m_AnchoredPosition: {x: 167, y: -18.6}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &205837236
@@ -396,7 +396,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 43.86051, y: 0, z: 0, w: 0}
+  m_margin: {x: -0.051258083, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -8868,6 +8868,10 @@ PrefabInstance:
       value: Timoteo
       objectReference: {fileID: 0}
     - target: {fileID: 5943162679483822508, guid: 767e3f423c90f78409c3048c7e7f2088, type: 3}
+      propertyPath: _conversar
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5943162679483822508, guid: 767e3f423c90f78409c3048c7e7f2088, type: 3}
       propertyPath: _cooldownTime
       value: 3
       objectReference: {fileID: 0}
@@ -8912,7 +8916,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -75.10004, y: -27}
+  m_AnchoredPosition: {x: -21.1, y: -18.6}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &664757811
@@ -8998,7 +9002,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 43.86051, y: 0, z: 0, w: 0}
+  m_margin: {x: -0.05125014, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -9126,12 +9130,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86511216789702642bff7ae268a89775, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _dialogueText: {fileID: 2114215469}
   _player: {fileID: 298932137}
+  _dialogueText: {fileID: 2114215469}
   _interactText: {fileID: 205837236}
   WaypointDialogo: {fileID: 1612102421}
   _speed: 3
-  _validNPCHitbox: 1
 --- !u!61 &705580375
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -9456,12 +9459,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86511216789702642bff7ae268a89775, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _dialogueText: {fileID: 1543427021}
   _player: {fileID: 298932137}
+  _dialogueText: {fileID: 1543427021}
   _interactText: {fileID: 664757811}
   WaypointDialogo: {fileID: 1612102421}
   _speed: 3
-  _validNPCHitbox: 1
 --- !u!61 &1071140257
 BoxCollider2D:
   m_ObjectHideFlags: 0
