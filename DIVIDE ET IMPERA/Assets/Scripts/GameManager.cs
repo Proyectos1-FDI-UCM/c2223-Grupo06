@@ -84,7 +84,8 @@ public class GameManager : MonoBehaviour
     //en el futuro cuando haya que hacer el reseteo por salas (quitando asignacion de referencias en el start)
     #region demo reset 
     [SerializeField]
-    public GameObject _demoLevel;
+    private GameObject _demoLevel;
+    public GameObject DemoLevel { get { return _demoLevel; } }
     [SerializeField]
     private GameObject _demoPrefab;
     [SerializeField]

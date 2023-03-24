@@ -45,9 +45,10 @@ public class InputController : MonoBehaviour
     *ESTILO 1: parecido al planteamiento inical*
     (mano izq)
     A y D  : Movimiento lateral
+    W: Interactuar con palanca enfrente y por remoto** + diálogo
     Espacio: Saltar
-    E: Interactuar con palanca enfrente y por remoto** + diálogo
-    R: recoger y soltar objetos (si tiene objeto lo suelta, si no, intenta recoger algo*)
+
+    E: recoger y soltar objetos (si tiene objeto lo suelta, si no, intenta recoger algo*)
     Q: recoger partes (brazo / piernas del suelo / palanca / plataforma)
     F: lanzar brazo / bola si tiene
 
@@ -402,7 +403,7 @@ public class InputController : MonoBehaviour
         DebugInput();
 
         //------OPCIÓN DE PAUSA-------
-        if (Input.GetKeyDown(KeyCode.Z))
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
             _UIManager.SetMenu(GameManager.GameStates.PAUSE);
 
