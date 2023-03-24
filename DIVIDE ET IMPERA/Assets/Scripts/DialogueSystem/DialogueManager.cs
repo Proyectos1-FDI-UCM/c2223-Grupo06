@@ -61,11 +61,6 @@ public class DialogueManager : MonoBehaviour
         MoveTimoteo();
     }
 
-    public void EnConversacion(bool conversando)
-    {
-        _enConversacion = conversando; // si se está en conversación
-    }
-
     // INICIO DIÁLOGO
     public void StartDialogue(Dialogue _dialogue)
     {
@@ -97,6 +92,7 @@ public class DialogueManager : MonoBehaviour
     {
         Debug.Log("Conversación finiquitada");
         _inputController.enabled = true;
+        _inputControllerDialogue.enabled = false;
         _enConversacion = false;
         _inputController._enConversacion = false;
     }
@@ -118,6 +114,7 @@ public class DialogueManager : MonoBehaviour
     {
         Debug.Log("Muevete");
         _inputController.enabled = false;
+        _inputControllerDialogue.enabled = true;
         // Hace que Timoteo se mueva hacia el waypoint correspondiente con la velocidad marcada
         _playerTransform.position = Vector3.MoveTowards(_playerTransform.position,  // posición inicial 
             WaypointDialogo.transform.position, _speed * Time.deltaTime);           // posición final
@@ -125,12 +122,11 @@ public class DialogueManager : MonoBehaviour
     #endregion
     #endregion
 
-    // Start is called before the first frame update
     void Start()
     {
         // player
         _inputController = PlayerAccess.Instance.InputController;
-        //_inputControllerDialogue = PlayerAccess.Instance.InputControllerDialogue;
+        _inputControllerDialogue = PlayerAccess.Instance.InputControllerDialogue;
         _playerTransform = PlayerAccess.Instance.Transform;
         _interaction = GetComponent<Interaction>();
 
@@ -139,7 +135,6 @@ public class DialogueManager : MonoBehaviour
         _guion = new Queue<string>(); // inicialización de _guion
     }
 
-    // Update is called once per frame
     void Update()
     {
 

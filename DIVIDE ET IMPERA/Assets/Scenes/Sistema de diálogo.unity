@@ -427,6 +427,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99560fa31f1ee6044912b7e1f0d6bfd0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _enConversacion: 0
 --- !u!1001 &404785335
 PrefabInstance:
   m_ObjectHideFlags: 0

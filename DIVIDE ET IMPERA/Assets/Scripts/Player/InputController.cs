@@ -96,13 +96,14 @@ public class InputController : MonoBehaviour
 
     #region Referencias
     private JumpComponent _playerJump;
-    private GameManager.GameStates state;
     private ThrowComponent _throwComp;
-    private Rigidbody2D _playerRigidBody;
     private PlayerManager _playerManager;
+    private UIManager _UIManager;
     private CollisionManager _collisionManager;
     private DialogueManager _dialogueManager;
-    [SerializeField] private UIManager _UIManager;
+    private Rigidbody2D _playerRigidBody;
+    private GameManager.GameStates state;
+    private InputControllerDialogue _inputControllerDialogue;
     #endregion
 
     #region Properties 
@@ -375,10 +376,9 @@ public class InputController : MonoBehaviour
         _throwComp = GetComponent<ThrowComponent>();
         _playerManager = GetComponent<PlayerManager>();
         _collisionManager = GetComponent<CollisionManager>();
+        _playerRigidBody = GetComponent<Rigidbody2D>(); // rigidbody del player
         _dialogueManager = GetComponent<DialogueManager>();
-
-        // rigidbody del player
-        _playerRigidBody = GetComponent<Rigidbody2D>();
+        _inputControllerDialogue = GetComponent<InputControllerDialogue>();
     }
 
     void Update()
@@ -400,7 +400,7 @@ public class InputController : MonoBehaviour
             // desactiva el input
             this.enabled = false;
             PlayerAccess.Instance.MovementComponent.enabled = false;
-            PlayerAccess.Instance.Animator.enabled= false;
+            PlayerAccess.Instance.Animator.enabled = false;
         }
 
         CoolDown();
