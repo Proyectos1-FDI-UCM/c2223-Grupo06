@@ -55,12 +55,6 @@ public class GameManager : MonoBehaviour
             case GameStates.GAMEOVER:                    //     *FIN DEL JUEGO*
                 _UIManager.SetMenu(GameStates.GAMEOVER); // Activa el texto de GameOver
                 break;
-            case GameStates.SCORE:
-                _UIManager.SetMenu(GameStates.SCORE); // activa menú de score
-                break;
-            case GameStates.LEVELSELECTOR:
-                _UIManager.SetMenu(GameStates.LEVELSELECTOR);
-                break;
         }
         _currentGameState = newState;                        // Finaliza el cambio
         Debug.Log("CURRENT: " + _currentGameState);
@@ -84,7 +78,8 @@ public class GameManager : MonoBehaviour
     //en el futuro cuando haya que hacer el reseteo por salas (quitando asignacion de referencias en el start)
     #region demo reset 
     [SerializeField]
-    public GameObject _demoLevel;
+    private GameObject _demoLevel;
+    public GameObject DemoLevel { get { return _demoLevel; } }
     [SerializeField]
     private GameObject _demoPrefab;
     [SerializeField]
@@ -95,7 +90,7 @@ public class GameManager : MonoBehaviour
     public void DemoReset()
     {
         PlayerManager.Instance.ChangeObjectInControl(_player);
-
+        _player.transform.parent = null;
         _player.transform.position = _spawnTransform;
         PlayerManager.Instance.RequestTimmyState(PlayerManager.TimmyStates.S0);
         PlayerManager.Instance.EliminarObjeto();
