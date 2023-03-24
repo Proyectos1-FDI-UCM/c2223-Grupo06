@@ -182,7 +182,7 @@ Animator:
   m_GameObject: {fileID: 2311462238604020209}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 0224f54e4be767e4291ea169403cc4ec, type: 2}
+  m_Controller: {fileID: 9100000, guid: ceeb005cc3b882140ae7fdc404c07e9a, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -251,11 +251,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5230b51509fc044f89791b5f1b96a02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _pataforma: {fileID: 0}
+  _UIManager: {fileID: 0}
   _interactuar: 0
   _conectarParte: 0
   _recuperarParte: 0
   _changeToPataforma: 0
+  _enConversacion: 0
+  _cooldown: 1
 --- !u!114 &4510422160574665586
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -297,8 +299,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec38af496f56ea8428663d4f5ccac281, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _validHitbox: 0
-  _parteColisionada: {fileID: 0}
+  _objetoColisionado: {fileID: 0}
 --- !u!114 &728014139240804033
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -311,9 +312,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e070dc080eef7934b93599a000f39a7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _brazo: {fileID: 2364319286159778462, guid: e90420e54f5db3641ad4a0495fa575fe, type: 3}
-  _pierna: {fileID: 4257366962654404361, guid: e6abbefdc04754441a1beb5de5dd8238, type: 3}
-  _objetos:
+  _brazoPrefab: {fileID: 2364319286159778462, guid: e90420e54f5db3641ad4a0495fa575fe, type: 3}
+  _piernaPrefab: {fileID: 4257366962654404361, guid: e6abbefdc04754441a1beb5de5dd8238, type: 3}
+  _objetosPrefabs:
   - {fileID: 1841647649797932075, guid: 17d960716009a7244a9ee8b737452008, type: 3}
   - {fileID: 2708092253449261225, guid: 48fcaa11ff92ca543ac1b7797ce53f49, type: 3}
   - {fileID: 5276601373044919741, guid: 3c6c75f4de69a4843bdc0e3e045fefd2, type: 3}
@@ -350,6 +351,7 @@ MonoBehaviour:
   - {fileID: 9100000, guid: fc37de768c3f6c648a291b27b0ef2cac, type: 2}
   - {fileID: 9100000, guid: e7ad9ebdd7959c04fb3bdaa2dec54b6e, type: 2}
   - {fileID: 9100000, guid: 3251c60f6bec3a5439b15ec97a6859de, type: 2}
+  _partInControl: {fileID: 0}
 --- !u!114 &4737386085971608660
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -402,6 +404,7 @@ MonoBehaviour:
   _ballPrefab: {fileID: 5276601373044919741, guid: 3c6c75f4de69a4843bdc0e3e045fefd2, type: 3}
   _horizontalForce: 5
   _verticalForce: 3
+  _furbo: 0
 --- !u!114 &4777051804109853913
 MonoBehaviour:
   m_ObjectHideFlags: 0

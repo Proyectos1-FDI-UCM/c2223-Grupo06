@@ -20,6 +20,11 @@ public class PlayerAnimationController : MonoBehaviour
 
     void Update()
     {
+        if (PlayerManager.Instance.Parte == PlayerManager.Partes.PIERNAS) 
+        {
+            _myAnimator.Rebind();
+        }
+
         if (_myAnimator == null)
         {
             _myAnimator = GetComponent<Animator>();
@@ -43,7 +48,6 @@ public class PlayerAnimationController : MonoBehaviour
             _myAnimator.ResetTrigger("isRunning");
         }
     }
-
 
     /*
     public void LanzameEsta()

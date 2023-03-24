@@ -397,7 +397,7 @@ public class PlayerManager : MonoBehaviour
     }
 
     // BLOQUE DE PARTES
-    public void SwitchPartControl(Partes parte) // cambia el control de parte principal
+    public void SwitchPartControl(Partes parte) // cambia el control de parte principal (cabeza o piernas)
     {
         _parte = parte;
         if (_UIManager != null) { _UIManager.SetPartes(_currentState, _parte); }
