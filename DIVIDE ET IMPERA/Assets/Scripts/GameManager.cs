@@ -90,16 +90,17 @@ public class GameManager : MonoBehaviour
     {
         PlayerManager.Instance.ChangeObjectInControl(_player);
 
+        _player.transform.position = _spawnTransform;
+        PlayerManager.Instance.RequestTimmyState(PlayerManager.TimmyStates.S0);
+        PlayerManager.Instance.EliminarObjeto();
+        _boneBar.ResetBar();
+
         Vector3 lvlTransform= _demoLevel.transform.position;
         Destroy(_demoLevel);
         _demoLevel = Instantiate(_demoPrefab);
         _demoLevel.transform.position = lvlTransform;
 
-        _player.transform.position = _spawnTransform;
-        PlayerManager.Instance.RequestTimmyState(PlayerManager.TimmyStates.S0);
-        PlayerManager.Instance.EliminarObjeto();
 
-        _boneBar.ResetBar();
     }
     #endregion
 

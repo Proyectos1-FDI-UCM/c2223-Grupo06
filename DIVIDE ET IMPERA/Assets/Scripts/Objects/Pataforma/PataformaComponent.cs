@@ -246,7 +246,10 @@ public class PataformaComponent : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Z))
         {
             UIManager.Instance.SetMenu(GameManager.GameStates.PAUSE);
-            _activarPataforma = false;
+            //_activarPataforma = false;
+            GetComponent<PataformaMovementComponent>().enabled = false;
+            GetComponentInChildren<Animator>().enabled = false;
+            this.enabled= false;
         }
     }
     #endregion
