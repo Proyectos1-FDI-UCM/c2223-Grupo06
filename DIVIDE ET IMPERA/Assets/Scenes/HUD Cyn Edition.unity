@@ -4873,10 +4873,10 @@ PrefabInstance:
     - target: {fileID: 4028254015863285673, guid: 73a3303548263b547ae86430bafeb69d, type: 3}
       propertyPath: _demoLevel
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2014525727}
     - target: {fileID: 4028254015863285673, guid: 73a3303548263b547ae86430bafeb69d, type: 3}
       propertyPath: _demoPrefab
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2014525727}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 73a3303548263b547ae86430bafeb69d, type: 3}

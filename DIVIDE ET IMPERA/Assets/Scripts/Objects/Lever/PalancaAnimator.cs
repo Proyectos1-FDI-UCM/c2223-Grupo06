@@ -4,9 +4,17 @@ public class PalancaAnimator : MonoBehaviour
 {
     private PalancaComponent _palancaComponent;
     private Animator _myAnimator;
+    private SpriteRenderer _mySpriteRenderer;
+
+    [SerializeField]
+    private Sprite[] _sprites;
+
+    private bool _brazo = false;
+    private bool _activada = false;
     // Start is called before the first frame update
     void Start()
     {
+        _mySpriteRenderer = GetComponent<SpriteRenderer>();
         _palancaComponent = GetComponent<PalancaComponent>();
         _myAnimator = GetComponent<Animator>();
     }
@@ -14,24 +22,48 @@ public class PalancaAnimator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Parámetros del animator
         if (_palancaComponent.BrazoConectado)
         {
             _myAnimator.SetTrigger("tieneBrazo");
+            _brazo = true;
         }
         else
         {
             _myAnimator.ResetTrigger("tieneBrazo");
+            _brazo = false;
         }
 
         if (_palancaComponent.Palanca)
         {
             _myAnimator.SetTrigger("estaActivada");
+            _activada = true;
         }
         else
         {
             _myAnimator.ResetTrigger("estaActivada");
+            _activada = false;
         }
 
+        // Lógica de sprites
+        if (_brazo && _activada) 
+        { 
+            _mySpriteRenderer.sprite = _sprites[3];
+        }
+        else if (_brazo && !_activada)
+        {
+            _mySpriteRenderer.sprite = _sprites[2];
+        }
+        else if (!_brazo && _activada)
+        {
+            _mySpriteRenderer.sprite = _sprites[1];
+        }
+        else if (!_brazo && !_activada)
+        {
+            _mySpriteRenderer.sprite = _sprites[0];
+        }
+
+        // Todo esto es para el HUD
         if (_myAnimator.GetCurrentAnimatorStateInfo(0).length > _myAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime)
         { // si NO ha acabado la animación que está reproduciendo (sea la que sea)
             if (PlayerManager.Instance.Brazos == 1 &&
