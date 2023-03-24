@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public enum GameStates { START, GAME, PAUSE, GAMEOVER };    // Estados del juego (faltan)
+    public enum GameStates { START, GAME, PAUSE, GAMEOVER, SCORE, LEVELSELECTOR };    // Estados del juego (faltan)
 
     #region references
     private UIManager _UIManager;
@@ -78,7 +78,8 @@ public class GameManager : MonoBehaviour
     //en el futuro cuando haya que hacer el reseteo por salas (quitando asignacion de referencias en el start)
     #region demo reset 
     [SerializeField]
-    public GameObject _demoLevel;
+    private GameObject _demoLevel;
+    public GameObject DemoLevel { get { return _demoLevel; } }
     [SerializeField]
     private GameObject _demoPrefab;
     [SerializeField]
@@ -89,17 +90,18 @@ public class GameManager : MonoBehaviour
     public void DemoReset()
     {
         PlayerManager.Instance.ChangeObjectInControl(_player);
+        _player.transform.parent = null;
+        _player.transform.position = _spawnTransform;
+        PlayerManager.Instance.RequestTimmyState(PlayerManager.TimmyStates.S0);
+        PlayerManager.Instance.EliminarObjeto();
+        _boneBar.ResetBar();
 
         Vector3 lvlTransform= _demoLevel.transform.position;
         Destroy(_demoLevel);
         _demoLevel = Instantiate(_demoPrefab);
         _demoLevel.transform.position = lvlTransform;
 
-        _player.transform.position = _spawnTransform;
-        PlayerManager.Instance.RequestTimmyState(PlayerManager.TimmyStates.S0);
-        PlayerManager.Instance.EliminarObjeto();
 
-        _boneBar.ResetBar();
     }
     #endregion
 

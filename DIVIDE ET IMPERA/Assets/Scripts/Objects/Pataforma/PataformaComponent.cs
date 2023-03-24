@@ -71,15 +71,54 @@ public class PataformaComponent : MonoBehaviour
     public bool _activarPataforma;
     #endregion
 
+
+
+    #region Initial methods
+
+    private bool ConectarPiernas()
+    {
+        bool aux;
+        if(_inputController.ConectarParte && _validPataformaHitbox
+            && (PlayerManager.State == PlayerManager.TimmyStates.S0
+            || PlayerManager.State == PlayerManager.TimmyStates.S1
+            || PlayerManager.State == PlayerManager.TimmyStates.S2))
+        {
+            aux = true;
+        }
+        else
+        {
+            aux = false;
+        }
+
+        return aux;
+    }
+
+    private bool DesconectarPiernas()
+    {
+        bool aux;
+        if(_inputController.RecuperarParte && _validPataformaHitbox
+            && (PlayerManager.State == PlayerManager.TimmyStates.S3
+            || PlayerManager.State == PlayerManager.TimmyStates.S4
+            || PlayerManager.State == PlayerManager.TimmyStates.S5)
+            && _piernasConectadas)
+        {
+            aux = true;
+        }
+        else
+        {
+            aux = false;
+        }
+        return aux;
+    }
+
+    #endregion
+
     #region Methods
     private void ConectaPiernas()
     {
         //-------CONECTAR PIERNAS-------------------
         // se pulsa R y se esta cerca de la pataforma
-        if (_inputController.ConectarParte && _validPataformaHitbox
-            && (PlayerManager.State == PlayerManager.TimmyStates.S0
-            || PlayerManager.State == PlayerManager.TimmyStates.S1
-            || PlayerManager.State == PlayerManager.TimmyStates.S2))
+        if (ConectarPiernas())
         {
             // conecta el brazo
             _piernasConectadas = true;
@@ -101,15 +140,9 @@ public class PataformaComponent : MonoBehaviour
             }
 
             Debug.Log(PlayerManager.State);
-            // cambia el color (deberia ser sprite)
-            _mySpriteRenderer.color = Color.cyan;
         }
         // se pulsa T, está cerca de la pataforma, está en los estados correctos y hay patas conectadas
-        else if (_inputController.RecuperarParte && _validPataformaHitbox
-            && (PlayerManager.State == PlayerManager.TimmyStates.S3
-            || PlayerManager.State == PlayerManager.TimmyStates.S4
-            || PlayerManager.State == PlayerManager.TimmyStates.S5)
-            && _piernasConectadas)
+        else if (DesconectarPiernas())
         {
             // desconecta el brazo
             _piernasConectadas = false;
@@ -130,8 +163,6 @@ public class PataformaComponent : MonoBehaviour
                 _player.GetComponent<PlayerManager>().RequestTimmyState(PlayerManager.TimmyStates.S2);
             }
 
-            // cambia de color (deberia ser sprite)
-            _mySpriteRenderer.color = Color.white;
         }
     }
     private void Visual()
@@ -146,6 +177,7 @@ public class PataformaComponent : MonoBehaviour
         }
 
     }
+
     private void ChangeInput()
     {
         //---INPUT CHANGE---------------------------------------
@@ -158,7 +190,6 @@ public class PataformaComponent : MonoBehaviour
             // input está individualizado
             if (!_inputController.enabled && _activarPataforma)
             {
-                //_player.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
                 // cambia el rigidbody de la pataforma a kinematic para que no se mueva cuando
                 // timmy se suba encima
                 _pataformaRigidbody.bodyType = RigidbodyType2D.Kinematic;
@@ -246,7 +277,10 @@ public class PataformaComponent : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Z))
         {
             UIManager.Instance.SetMenu(GameManager.GameStates.PAUSE);
-            _activarPataforma = false;
+            //_activarPataforma = false;
+            GetComponent<PataformaMovementComponent>().enabled = false;
+            GetComponentInChildren<Animator>().enabled = false;
+            this.enabled= false;
         }
     }
     #endregion

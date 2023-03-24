@@ -92,7 +92,6 @@ public class StayOnPataforma : MonoBehaviour
         if (CheckStayOn(collision))
         {
             Adoption(collision);
-            Debug.Log("me cago en todo");
         }
     }
 
