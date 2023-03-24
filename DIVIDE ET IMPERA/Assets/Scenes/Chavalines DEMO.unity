@@ -788,7 +788,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3960700648376327285, guid: 6693dbe1659a96f4c86e4f1714d5ef75, type: 3}
       propertyPath: _springForce
-      value: 22.5
+      value: 24
       objectReference: {fileID: 0}
     - target: {fileID: 5175502461076422009, guid: 6693dbe1659a96f4c86e4f1714d5ef75, type: 3}
       propertyPath: m_CompositePaths.m_Paths.Array.data[1].Array.data[0].x
