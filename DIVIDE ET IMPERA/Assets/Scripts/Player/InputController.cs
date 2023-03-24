@@ -388,7 +388,7 @@ public class InputController : MonoBehaviour
 
 
         // rigidbody del player
-        _playerRigidBody = GetComponentInChildren<Rigidbody2D>();
+        _playerRigidBody = GetComponent<Rigidbody2D>();
     }
 
     void Update()
