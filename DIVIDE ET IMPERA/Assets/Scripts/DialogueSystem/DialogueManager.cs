@@ -59,7 +59,6 @@ public class DialogueManager : MonoBehaviour
         _enConversacion = true;
         _inputController._enConversacion = true;
         MoveTimoteo();
-        _inputControllerDialogue.enabled = true;
     }
 
     // INICIO DIÁLOGO
