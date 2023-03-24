@@ -100,12 +100,12 @@ public class UIManager : MonoBehaviour
     {
         SetMenu(GameManager.GameStates.GAME);
 
-        if (PlayerManager.Instance._objectInControl != _player)
+        if (PlayerManager.Instance._partInControl != _player)
         {
             //PlayerManager.Instance._objectInControl.GetComponent<PataformaComponent>()._activarPataforma= true;
-            PlayerManager.Instance._objectInControl.GetComponent<PataformaComponent>().enabled = true;
-            PlayerManager.Instance._objectInControl.GetComponent<PataformaMovementComponent>().enabled = true;
-            PlayerManager.Instance._objectInControl.GetComponentInChildren<Animator>().enabled = true;
+            PlayerManager.Instance._partInControl.GetComponent<PataformaComponent>().enabled = true;
+            PlayerManager.Instance._partInControl.GetComponent<PataformaMovementComponent>().enabled = true;
+            PlayerManager.Instance._partInControl.GetComponentInChildren<Animator>().enabled = true;
         }
         else
         {

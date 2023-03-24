@@ -89,7 +89,7 @@ public class GameManager : MonoBehaviour
 
     public void DemoReset()
     {
-        PlayerManager.Instance.ChangeObjectInControl(_player);
+        PlayerManager.Instance.ChangePartInControl(_player);
         _player.transform.parent = null;
         _player.transform.position = _spawnTransform;
         PlayerManager.Instance.RequestTimmyState(PlayerManager.TimmyStates.S0);

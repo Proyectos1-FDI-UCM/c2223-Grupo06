@@ -17,9 +17,6 @@ public class PlayerManager : MonoBehaviour
     public enum Objetos { LLAVE, MUELLE, BOLA, NADA }; // he preferido usar un enum 
 
     #region References
-    // OBJETO QUE ESTÁ SIENDO CONTROLADO
-    public GameObject _objectInControl;
-
     // COMPONENTES
     private SpriteRenderer _mySpriteRenderer;
     private CollisionManager _myCollisionManager;
@@ -61,6 +58,9 @@ public class PlayerManager : MonoBehaviour
     // Parte principal controlada
     private Partes _parte;
     public Partes Parte { get { return _parte; } set { _parte = value; } }
+
+    // OBJETO QUE ESTÁ SIENDO CONTROLADO
+    public GameObject _partInControl;
     #endregion
 
     #region Parameters
@@ -403,6 +403,12 @@ public class PlayerManager : MonoBehaviour
         if (_UIManager != null) { _UIManager.SetPartes(_currentState, _parte); }
         Debug.Log("PARTE: " + _parte);
     }
+    public void ChangePartInControl(GameObject thing) // lo he refactorizado a "ChangePartInControl" en vez de Object porque he seguido una nomenclatura en la que objeto son los items posibles de la ribcage y parte Timmy y su cuerpo
+    {
+        _partInControl = thing;
+        CameraMovement.Instance.ChangeWhoToFollow(_partInControl);
+    }
+
     // alubiat
     public void RecogerAlubiat()
     {
@@ -418,12 +424,6 @@ public class PlayerManager : MonoBehaviour
         }
         else return false;
 
-    }
-
-    public void ChangeObjectInControl(GameObject thing)
-    {
-        _objectInControl = thing;
-        CameraMovement.Instance.ChangeWhoToFollow(_objectInControl);
     }
     #endregion
 
@@ -449,7 +449,7 @@ public class PlayerManager : MonoBehaviour
         _alubiat = false;           // No tiene las piernas de su padre al iniciar
         _parte = Partes.CABEZA; // Control principal al inicio
 
-        _objectInControl = gameObject;
+        _partInControl = gameObject;
     }
 
     void Update()
