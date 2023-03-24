@@ -169,6 +169,9 @@ public class PataformaComponent : MonoBehaviour
 
                 // cambio de control de parte (es para el HUD)
                 PlayerManager.Instance.SwitchPartControl(PlayerManager.Partes.CABEZA);
+
+                //Cambia que la camara siga a Timmy
+                CameraMovement.Instance.ChangeWhoToFollow(_player);
             }
 
         }
@@ -186,8 +189,6 @@ public class PataformaComponent : MonoBehaviour
             // activa la plataforma
             _activarPataforma = true;
 
-
-
             // desactiva el input del player
             _inputController._changeToPataforma = false;
             _mySpriteRenderer.color = Color.blue;
@@ -195,6 +196,9 @@ public class PataformaComponent : MonoBehaviour
             // cambio de control de parte (es para el HUD)
             PlayerManager.Instance.SwitchPartControl(PlayerManager.Partes.PIERNAS);
             Debug.Log("Piernas controlan");
+
+            //Cambia el movimiento de la camara para que siga a las piernas
+            CameraMovement.Instance.ChangeWhoToFollow(gameObject);
         }
     }
     private void PataformaInput()
