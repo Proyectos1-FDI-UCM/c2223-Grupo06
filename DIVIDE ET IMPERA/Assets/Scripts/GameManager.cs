@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public enum GameStates { START, GAME, PAUSE, GAMEOVER };    // Estados del juego (faltan)
+    public enum GameStates { START, GAME, PAUSE, GAMEOVER, SCORE, LEVELSELECTOR };    // Estados del juego (faltan)
 
     #region references
     private UIManager _UIManager;
@@ -54,6 +54,12 @@ public class GameManager : MonoBehaviour
                 break;
             case GameStates.GAMEOVER:                    //     *FIN DEL JUEGO*
                 _UIManager.SetMenu(GameStates.GAMEOVER); // Activa el texto de GameOver
+                break;
+            case GameStates.SCORE:
+                _UIManager.SetMenu(GameStates.SCORE); // activa menú de score
+                break;
+            case GameStates.LEVELSELECTOR:
+                _UIManager.SetMenu(GameStates.LEVELSELECTOR);
                 break;
         }
         _currentGameState = newState;                        // Finaliza el cambio
