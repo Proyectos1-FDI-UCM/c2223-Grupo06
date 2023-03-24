@@ -415,6 +415,18 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2311462238604020209, guid: 767e3f423c90f78409c3048c7e7f2088, type: 3}
   m_PrefabInstance: {fileID: 432683392}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &298932155
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 298932137}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99560fa31f1ee6044912b7e1f0d6bfd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &404785335
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9135,6 +9147,7 @@ MonoBehaviour:
   _interactText: {fileID: 205837236}
   WaypointDialogo: {fileID: 1612102421}
   _speed: 3
+  _enConversacion: 0
 --- !u!61 &705580375
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -9464,6 +9477,7 @@ MonoBehaviour:
   _interactText: {fileID: 664757811}
   WaypointDialogo: {fileID: 1612102421}
   _speed: 3
+  _enConversacion: 0
 --- !u!61 &1071140257
 BoxCollider2D:
   m_ObjectHideFlags: 0
