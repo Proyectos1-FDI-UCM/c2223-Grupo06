@@ -61,6 +61,15 @@ public class UIManager : MonoBehaviour
 
     public void StartToGame()
     {
+        ResetLevel();
+        SetMenu(GameManager.GameStates.GAME);
+
+        // activa el input
+        _player.GetComponent<InputController>().enabled = true;
+    }
+
+    public void ResumeGame()
+    {
         SetMenu(GameManager.GameStates.GAME);
 
         // activa el input
