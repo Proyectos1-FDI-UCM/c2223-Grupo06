@@ -29,11 +29,11 @@ public class PlayerManager : MonoBehaviour
 
     // PREFABS
     [SerializeField]
-    private GameObject _brazo; // brazo a instanciar
+    private GameObject _brazoPrefab; // brazo a instanciar
     [SerializeField]
-    private GameObject _pierna; // piernas a instanciar
+    private GameObject _piernaPrefab; // piernas a instanciar
     [SerializeField]
-    private GameObject[] _objetos; // array de objetos (posibles) a instanciar
+    private GameObject[] _objetosPrefabs; // array de objetos (posibles) a instanciar
 
     // ANIMACIONES
     [SerializeField] // array de sprites de los diferentes estados de Timmy
@@ -295,7 +295,7 @@ public class PlayerManager : MonoBehaviour
     {
         if (_brazos > 0) // si algún brazo y está en un espacio libre
         {
-            Instantiate(_brazo, _myTransform.position, _myTransform.rotation); // instanciación
+            Instantiate(_brazoPrefab, _myTransform.position, _myTransform.rotation); // instanciación
             _brazos--; // un brazo menos
         }
     }
@@ -322,7 +322,7 @@ public class PlayerManager : MonoBehaviour
     {
         if (_piernas) // si tiene piernas 
         {
-            Instantiate(_pierna, _myTransform.position, _myTransform.rotation); // instanciación
+            Instantiate(_piernaPrefab, _myTransform.position, _myTransform.rotation); // instanciación
             _piernas = false; // sin piernas
         }
     }
@@ -390,7 +390,7 @@ public class PlayerManager : MonoBehaviour
         {
             var posicion = _myTransform.position;
             //if (Objeto == Objetos.BOLA) posicion += _myTransform.right * _myTransform.localScale.x;
-            Instantiate(_objetos[(int)_objeto], posicion, _myTransform.rotation, GameManager.Instance.DemoLevel.transform); //Se pone el nivel como padre para que en el reseteo los
+            Instantiate(_objetosPrefabs[(int)_objeto], posicion, _myTransform.rotation, GameManager.Instance.DemoLevel.transform); //Se pone el nivel como padre para que en el reseteo los
                                                                                                                              //objetos recogidos y soltados se eliminen tambien 
             EliminarObjeto();
         }
