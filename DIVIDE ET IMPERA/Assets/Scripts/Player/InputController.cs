@@ -155,6 +155,47 @@ public class InputController : MonoBehaviour
         }
         #endregion
 
+        #region SOLTAR Y RECOGER PARTES
+        if (Input.GetKeyUp(KeyCode.E))
+        {
+            if (Input.GetKey(KeyCode.Alpha1) && _playerManager.Brazos == 2)
+            {
+                PlayerManager.Instance.SoltarBrazo();
+            }
+            else if (Input.GetKey(KeyCode.Alpha2) && _playerManager.Brazos == 1)
+            {
+                PlayerManager.Instance.SoltarBrazo();
+            }
+            else if (Input.GetKey(KeyCode.Alpha3))
+            {
+                PlayerManager.Instance.SoltarPiernas();
+            }
+            else if (Input.GetKey(KeyCode.Alpha4)) // STC
+            {
+
+            }
+        }
+        if (Input.GetKeyUp(KeyCode.R))
+        {
+            if (Input.GetKey(KeyCode.Alpha1) && _playerManager.Brazos == 1)
+            {
+                PlayerManager.Instance.RecogerBrazo();
+            }
+            else if (Input.GetKey(KeyCode.Alpha2) && _playerManager.Brazos == 0)
+            {
+                PlayerManager.Instance.RecogerBrazo();
+            }
+            else if (Input.GetKey(KeyCode.Alpha3) && !_playerManager.Piernas)
+            {
+                PlayerManager.Instance.RecogerPiernas();
+            }
+            else if (Input.GetKey(KeyCode.Alpha4))
+            {
+
+            }
+        }
+        #endregion
+
         // INTERACTUAR
         #region INTERACTUAR
         if (Input.GetKeyUp(KeyCode.T))
@@ -171,17 +212,19 @@ public class InputController : MonoBehaviour
             else if (Input.GetKey(KeyCode.Alpha3))
             {
                 if (!_changeToPataforma
-                && PlayerManager.Instance.Piernas)
+                && (PlayerManager.State == PlayerManager.TimmyStates.S3
+                || PlayerManager.State == PlayerManager.TimmyStates.S4
+                || PlayerManager.State == PlayerManager.TimmyStates.S5))
                 {
                     _changeToPataforma = true;
                     //_playerRigidBody.bodyType = RigidbodyType2D.Kinematic;
 
-                    enabled = false;
+                    this.enabled = false;
                 }
             }
             else if (Input.GetKey(KeyCode.Alpha4)) // WIP
             {
-                
+
             }
         }
         else
@@ -198,13 +241,13 @@ public class InputController : MonoBehaviour
         #region SOLTAR Y RECOGER PARTES
         //BRAZOS
         if (Input.GetKey(KeyCode.LeftShift) && (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.D)))
-        {
+        { // Shift + A para controlar brazos en palancas
             _interactuar = true;
         }
         else 
         if ((Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.S))&& !Input.GetKey(KeyCode.LeftShift))
-        {
-            if (!_collisionManager.DestruirBrazo())
+        { // A y S para recoger y soltar brazos
+            if (!_collisionManager.DestruirBrazo() && !_collisionManager.ValidHitbox)
             {
                 PlayerManager.Instance.SoltarBrazo();
             }
@@ -216,7 +259,7 @@ public class InputController : MonoBehaviour
         else 
         // PIERNAS
         if (Input.GetKey(KeyCode.LeftShift) && (Input.GetKeyDown(KeyCode.D)))
-        {
+        { // Shift + D para intercambiar control a las piernas
             if (PlayerManager.Instance.Piernas && !_changeToPataforma)
             {
                 _changeToPataforma = true;
@@ -225,7 +268,7 @@ public class InputController : MonoBehaviour
         }
         else 
         if (Input.GetKeyDown(KeyCode.D))
-        {
+        { // D para recoger y soltar piernas
             if (!_collisionManager.DestruirPierna())
             {
                 PlayerManager.Instance.SoltarPiernas();
