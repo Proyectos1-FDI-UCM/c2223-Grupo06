@@ -13,6 +13,8 @@ public class RoomTransition : MonoBehaviour
     private Transform _roomCameraPosition; //Posicion a la que queremos que la camara se mueva durante la transicion
     [SerializeField]
     private Transform _roomSpawn; //Lugar al que el jugador se movera tras la transicion (ademas servira para spawnearle ahi si quiere resetear la sala)
+                                  //IMPORTANTE: ponerlo cerquita de la caja de transicion para que la transicion no sea horrible pero
+                                  //tampoco mucho para que no entre instantaneamente en la transicion de vuelta
     #endregion
     #region Parameters
     [SerializeField]
