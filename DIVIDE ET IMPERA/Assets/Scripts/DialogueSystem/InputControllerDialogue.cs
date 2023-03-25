@@ -23,13 +23,11 @@ public class InputControllerDialogue : MonoBehaviour
         // if (_enConversacion) { Debug.Log("bezoya"); }
         if (_enConversacion && (Input.GetKeyUp(KeyCode.Z) || Input.GetKeyUp(KeyCode.UpArrow))) // UpArrow o Z para avanzar en el diálogo
         {
-            Debug.Log("que se bajen que me lo llevo");
             // _dialogueManager.FinDialogo(); // debug para probar el input nuevo
             _inputController.enabled = true;
             enabled = false;
             _enConversacion = false;
-            _inputController._enConversacion = false;
-            _dialogueManager._enConversacion = false;
+            Debug.Log("que se bajen que me lo llevo");
             // _dialogueManager.SiguienteFrase();
         }
     }

@@ -77,12 +77,6 @@ public class InputController : MonoBehaviour
     public bool _changeToPataforma;
     // acceso público a _isPataforma
     public bool ChangeToPataforma { get { return _changeToPataforma; } }
-
-    //------------DIÁLOGO----------------------------
-    // booleano para saber si se está en conversación 
-    [SerializeField]
-    public bool _enConversacion = false;
-    public bool Conversacion { get { return _enConversacion; } }
     #endregion
 
     #region Parameters
