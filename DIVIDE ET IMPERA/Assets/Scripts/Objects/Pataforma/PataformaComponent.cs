@@ -149,8 +149,8 @@ public class PataformaComponent : MonoBehaviour
     {
         //---INPUT CHANGE---------------------------------------
         //------de pataforma a player---------------------------
-        // 2 + E para cambiar de vuelta
-        if (Input.GetKey(KeyCode.Alpha3) && Input.GetKeyUp(KeyCode.T))
+        // Shift + D para cambiar de vuelta
+        if (Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.D))
         {
             // si el input del player esta desactivado y el de la pataforma específica
             // esta activado procede a invertirlos, asi se asegura de que el cambio de
@@ -187,7 +187,7 @@ public class PataformaComponent : MonoBehaviour
 
         }
         //------de player a pataforma----------------------------
-        // 2 + E para reactivar al player
+        // Shift + D para reactivar al player
         if (_inputController.ChangeToPataforma && _piernasConectadas)
         {
             // cambia el rb de la pataforma a dynamic, para que se choque con los obstaculos
@@ -219,14 +219,14 @@ public class PataformaComponent : MonoBehaviour
     {
         //---MOVIMIENTO--------------------------------
         //------Input del movimiento horizontal de la pataforma--------
-        if (Input.GetKey(KeyCode.D))
+        if (Input.GetKey(KeyCode.RightArrow))
         {
             _pDireccion = 1;
 
             // inicia el animator
             _animator.SetBool("move", true);
         }
-        else if (Input.GetKey(KeyCode.A))
+        else if (Input.GetKey(KeyCode.LeftArrow))
         {
             _pDireccion = -1;
 
@@ -241,7 +241,7 @@ public class PataformaComponent : MonoBehaviour
             _animator.SetBool("move", false);
         }
 
-        if (Input.GetKeyDown(KeyCode.Z))
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
             UIManager.Instance.SetMenu(GameManager.GameStates.PAUSE);
             //_activarPataforma = false;
