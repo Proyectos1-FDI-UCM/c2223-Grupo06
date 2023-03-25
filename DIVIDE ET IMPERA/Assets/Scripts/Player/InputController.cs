@@ -34,10 +34,11 @@ public class InputController : MonoBehaviour
     #region Referencias
     private JumpComponent _playerJump;
     private ThrowComponent _throwComp;
+    private CollisionManager _collisionManager;
+
     /*
     private PlayerManager _playerManager;
     private UIManager _UIManager;
-    private CollisionManager _collisionManager;
     private DialogueManager _dialogueManager;
     private Rigidbody2D _playerRigidBody;
     private GameManager.GameStates state;
@@ -157,17 +158,6 @@ public class InputController : MonoBehaviour
         }
         #endregion
 
-        #region SOLTAR Y RECOGER PARTES
-        if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.S))
-        {
-            PlayerManager.Instance.SoltarBrazo();
-        }
-        else if (Input.GetKeyDown(KeyCode.D))
-        {
-            PlayerManager.Instance.SoltarPiernas();
-        }
-        #endregion
-
         // INTERACTUAR
         #region INTERACTUAR
         if (Input.GetKeyUp(KeyCode.T))
@@ -202,6 +192,32 @@ public class InputController : MonoBehaviour
         else
         {
             _interactuar = false;
+        }
+        #endregion
+
+        #region SOLTAR Y RECOGER PARTES
+        if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.S))
+        {
+            if (!_collisionManager.DestruirBrazo())
+            {
+                PlayerManager.Instance.SoltarBrazo();
+            }
+            else
+            {
+                PlayerManager.Instance.RecogerBrazo();
+            }
+        }
+        else 
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            if (!_collisionManager.DestruirPierna())
+            {
+                PlayerManager.Instance.SoltarPiernas();
+            }
+            else
+            {
+                PlayerManager.Instance.RecogerPiernas();
+            }
         }
         #endregion
 
@@ -283,10 +299,10 @@ public class InputController : MonoBehaviour
     void Start()
     {
         _throwComp = GetComponent<ThrowComponent>();
+        _collisionManager = GetComponent<CollisionManager>();
         /*
         _playerJump = GetComponent<JumpComponent>();
         _playerManager = GetComponent<PlayerManager>();
-        _collisionManager = GetComponent<CollisionManager>();
         _playerRigidBody = GetComponent<Rigidbody2D>(); // rigidbody del player
         _dialogueManager = GetComponent<DialogueManager>();
         _inputControllerDialogue = GetComponent<InputControllerDialogue>();

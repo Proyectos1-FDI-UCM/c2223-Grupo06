@@ -286,10 +286,7 @@ public class PlayerManager : MonoBehaviour
     {
         if (_brazos < 2) // si tiene menos de 2 brazos
         {
-            if (_myCollisionManager.DestruirBrazo()) // destruye el brazo con el que está colisionando
-            {
-                _brazos++; // si las destruye, obtiene un brazo más
-            }
+            _brazos++; // si las destruye, obtiene un brazo más
         }
     }
     public void SoltarBrazo() // para instanciarlo
@@ -313,10 +310,7 @@ public class PlayerManager : MonoBehaviour
     {
         if (!_piernas)
         {
-            if (_myCollisionManager.DestruirPierna()) // destruye las piernas con las que está colisionando
-            {
-                _piernas = true; // si las destruye, obtiene piernas
-            }
+            _piernas = true; // si las destruye, obtiene piernas
         }
     }
     public void SoltarPiernas()  // para instanciar las piernas
