@@ -383,6 +383,11 @@ public class InputController : MonoBehaviour
         }
 
         // CoolDown(); temporalmente disabled mientras arreglo el input
+
+        if (Input.GetKeyDown(KeyCode.Y))
+        {
+            LevelManager.Instance.ResetCurrentLevel();
+        }
     }
 }
 

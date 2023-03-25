@@ -66,36 +66,6 @@ public class GameManager : MonoBehaviour
     }
 
     #endregion
-    //Todo el codigo para el reseteo de la demo de los niños esta aqui por limpieza
-    //en el futuro cuando haya que hacer el reseteo por salas (quitando asignacion de referencias en el start)
-    #region demo reset 
-    [SerializeField]
-    private GameObject _demoLevel;
-    public GameObject DemoLevel { get { return _demoLevel; } }
-    [SerializeField]
-    private GameObject _demoPrefab;
-    [SerializeField]
-    private Vector3 _spawnTransform;
-    private GameObject _player;
-    private BoneStateBar _boneBar;
-
-    public void DemoReset()
-    {
-        PlayerManager.Instance.ChangePartInControl(_player);
-        _player.transform.parent = null;
-        _player.transform.position = _spawnTransform;
-        PlayerManager.Instance.RequestTimmyState(PlayerManager.TimmyStates.S0);
-        PlayerManager.Instance.EliminarObjeto();
-        _boneBar.ResetBar();
-
-        Vector3 lvlTransform= _demoLevel.transform.position;
-        Destroy(_demoLevel);
-        _demoLevel = Instantiate(_demoPrefab);
-        _demoLevel.transform.position = lvlTransform;
-
-
-    }
-    #endregion
 
     void Awake()
     {
@@ -106,9 +76,6 @@ public class GameManager : MonoBehaviour
     {
         _currentGameState = GameStates.GAMEOVER; // Valor dummy para que se realice el cambio nada más empezar
         _nextGameState = GameStates.START; // Estado inicial, es diferente al current para que el EnterState del primer update se realice
-
-        _player = PlayerAccess.Instance.gameObject; //Para la demo
-        _boneBar = _player.GetComponent<BoneStateBar>(); //demo tambien
     }
 
     void Update()

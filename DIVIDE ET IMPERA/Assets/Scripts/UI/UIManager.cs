@@ -222,7 +222,7 @@ public class UIManager : MonoBehaviour
 
     public void ResetLevel()
     {
-        GameManager.Instance.DemoReset();
+        LevelManager.Instance.ResetCurrentLevel();
     }
     // BUCLE
     void Awake()

@@ -385,7 +385,7 @@ public class PlayerManager : MonoBehaviour
         {
             var posicion = _myTransform.position;
             //if (Objeto == Objetos.BOLA) posicion += _myTransform.right * _myTransform.localScale.x;
-            Instantiate(_objetosPrefabs[(int)_objeto], posicion, _myTransform.rotation, GameManager.Instance.DemoLevel.transform); //Se pone el nivel como padre para que en el reseteo los
+            Instantiate(_objetosPrefabs[(int)_objeto], posicion, _myTransform.rotation, LevelManager.Instance.CurrentLevel.transform); //Se pone el nivel como padre para que en el reseteo los
                                                                                                                              //objetos recogidos y soltados se eliminen tambien 
             EliminarObjeto();
         }
@@ -399,7 +399,9 @@ public class PlayerManager : MonoBehaviour
     }
     public void ChangePartInControl(GameObject thing) // lo he refactorizado a "ChangePartInControl" en vez de Object porque he seguido una nomenclatura en la que objeto son los items posibles de la ribcage y parte Timmy y su cuerpo
     {
+        Debug.Log("thing: " + thing);
         _partInControl = thing;
+        Debug.Log("paasas: " + _partInControl);
         CameraMovement.Instance.ChangeWhoToFollow(_partInControl);
     }
 
