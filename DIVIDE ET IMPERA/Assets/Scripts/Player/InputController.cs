@@ -240,8 +240,8 @@ public class InputController : MonoBehaviour
 
         #region SOLTAR Y RECOGER PARTES
         //BRAZOS
-        if (Input.GetKey(KeyCode.LeftShift) && (Input.GetKeyDown(KeyCode.A)))
-        { // Shift + A para controlar brazos en palancas
+        if (Input.GetKey(KeyCode.LeftShift) && (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.S)))
+        { // Shift + A / S para controlar brazos en palancas
             _interactuar = true;
         }
         else 

@@ -1,4 +1,5 @@
 using UnityEngine;
+using static PlayerManager;
 
 public class PalancaAnimator : MonoBehaviour
 {
@@ -71,6 +72,7 @@ public class PalancaAnimator : MonoBehaviour
             // si todavía tiene un brazo y no se ha cambiado el control
             {
                 PlayerManager.Instance.SwitchPartControl(PlayerManager.Partes.BRAZO2);
+                //Debug.Log("PARTE: BRAZO 2");
                 // siempre, cuando quitas el primer brazo, se desactiva el brazo2 de la hud. por tanto, para que se vea aquí el cambio, se lo asigna a ese
             }
             else if (PlayerManager.Instance.Brazos == 0 &&
@@ -78,6 +80,7 @@ public class PalancaAnimator : MonoBehaviour
             // si no tiene brazos y no se ha cambiado el control
             {
                 PlayerManager.Instance.SwitchPartControl(PlayerManager.Partes.BRAZO1);
+                //Debug.Log("PARTE: BRAZO 1");
                 // para simplificar
             }
             // si tiene los dos brazos, da igual
@@ -85,6 +88,7 @@ public class PalancaAnimator : MonoBehaviour
         else if (PlayerManager.Instance.Parte == PlayerManager.Partes.BRAZO1 || PlayerManager.Instance.Parte == PlayerManager.Partes.BRAZO2) // si todavía no ha vuelto del brazo *importante*
         { // si SÍ la ha acabado y el control viene de un brazo
             PlayerManager.Instance.SwitchPartControl(PlayerManager.Partes.CABEZA); // solo puede volver a la cabeza (si estás controlando las piernas, no puedes activar brazos)
+            //Debug.Log("PARTE: CABEZA");
         }
     }
 }

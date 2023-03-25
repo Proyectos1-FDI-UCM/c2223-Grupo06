@@ -396,7 +396,6 @@ public class PlayerManager : MonoBehaviour
     {
         _parte = parte;
         if (_UIManager != null) { _UIManager.SetPartes(_currentState, _parte); }
-        Debug.Log("PARTE: " + _parte);
     }
     public void ChangePartInControl(GameObject thing) // lo he refactorizado a "ChangePartInControl" en vez de Object porque he seguido una nomenclatura en la que objeto son los items posibles de la ribcage y parte Timmy y su cuerpo
     {
