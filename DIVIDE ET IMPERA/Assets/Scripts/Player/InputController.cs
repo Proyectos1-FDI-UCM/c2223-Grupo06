@@ -207,8 +207,12 @@ public class InputController : MonoBehaviour
 
         #region LANZAR / CHUTAR
         if (Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.C))
-        {
-            _throwComp.ChutarBola();
+        { // Si es Shift + C
+            _throwComp.ChutarBola(); // Chuta una bola delante
+        }
+        else if (Input.GetKeyDown(KeyCode.C))
+        { // Si solo pulsa C
+            _throwComp.LanzarBrazo(); // Lanza un brazo
         }
         #endregion
 
