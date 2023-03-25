@@ -53,7 +53,7 @@ public class PataformaComponent : MonoBehaviour
     // piernas conectadas a la pataforma 
     [SerializeField]
     private bool _piernasConectadas = false;
-    public bool PiernasConectadas { get { return _piernasConectadas; } }
+    public bool PiernasConectadas { get { return _piernasConectadas; } set { _piernasConectadas = value; } }
 
     // esta en el área de una pataforma
     public bool _validPataformaHitbox;
@@ -79,9 +79,7 @@ public class PataformaComponent : MonoBehaviour
     {
         bool aux;
         if(_inputController.ConectarParte && _validPataformaHitbox
-            && (PlayerManager.State == PlayerManager.TimmyStates.S0
-            || PlayerManager.State == PlayerManager.TimmyStates.S1
-            || PlayerManager.State == PlayerManager.TimmyStates.S2))
+            && (PlayerManager.Instance.Piernas))
         {
             aux = true;
         }
@@ -89,7 +87,6 @@ public class PataformaComponent : MonoBehaviour
         {
             aux = false;
         }
-
         return aux;
     }
 
@@ -97,9 +94,7 @@ public class PataformaComponent : MonoBehaviour
     {
         bool aux;
         if(_inputController.RecuperarParte && _validPataformaHitbox
-            && (PlayerManager.State == PlayerManager.TimmyStates.S3
-            || PlayerManager.State == PlayerManager.TimmyStates.S4
-            || PlayerManager.State == PlayerManager.TimmyStates.S5)
+            && !PlayerManager.Instance.Piernas
             && _piernasConectadas)
         {
             aux = true;
@@ -123,23 +118,10 @@ public class PataformaComponent : MonoBehaviour
             // conecta el brazo
             _piernasConectadas = true;
 
-            // SI TIENE BRAZOS
-            if (PlayerManager.State == PlayerManager.TimmyStates.S0)
+            if (PlayerManager.Instance.Piernas)
             {
-                _player.GetComponent<PlayerManager>().RequestTimmyState(PlayerManager.TimmyStates.S3);
+                PlayerManager.Instance.Piernas = false;
             }
-            // SI NO TIENE UN BRAZO
-            else if (PlayerManager.State == PlayerManager.TimmyStates.S1)
-            {
-                _player.GetComponent<PlayerManager>().RequestTimmyState(PlayerManager.TimmyStates.S4);
-            }
-            // SI NO TIENE BRAZOS
-            else if (PlayerManager.State == PlayerManager.TimmyStates.S2)
-            {
-                _player.GetComponent<PlayerManager>().RequestTimmyState(PlayerManager.TimmyStates.S5);
-            }
-
-            Debug.Log(PlayerManager.State);
         }
         // se pulsa T, está cerca de la pataforma, está en los estados correctos y hay patas conectadas
         else if (DesconectarPiernas())
@@ -147,22 +129,7 @@ public class PataformaComponent : MonoBehaviour
             // desconecta el brazo
             _piernasConectadas = false;
 
-            // si tiene los brazos cambia de estado
-            if (PlayerManager.State == PlayerManager.TimmyStates.S3)
-            {
-                _player.GetComponent<PlayerManager>().RequestTimmyState(PlayerManager.TimmyStates.S0);
-            }
-            // si no tiene un brazo cambia de estado
-            else if (PlayerManager.State == PlayerManager.TimmyStates.S4)
-            {
-                _player.GetComponent<PlayerManager>().RequestTimmyState(PlayerManager.TimmyStates.S1);
-            }
-            // si no tiene brazos cambia de estado
-            else if (PlayerManager.State == PlayerManager.TimmyStates.S5)
-            {
-                _player.GetComponent<PlayerManager>().RequestTimmyState(PlayerManager.TimmyStates.S2);
-            }
-
+            PlayerManager.Instance.Piernas = true;
         }
     }
     private void Visual()
@@ -280,7 +247,7 @@ public class PataformaComponent : MonoBehaviour
             //_activarPataforma = false;
             GetComponent<PataformaMovementComponent>().enabled = false;
             GetComponentInChildren<Animator>().enabled = false;
-            this.enabled= false;
+            enabled= false;
         }
     }
     #endregion

@@ -39,7 +39,6 @@ public class CollisionManager : MonoBehaviour
             collision.GetComponent<PataformaComponent>()._validPataformaHitbox = true;
         }
 
-
         if (collision.GetComponent<Tilemap>() == false) // manera muy rudimentaria de comprobar que la colisión no es con el suelo!
         {
             _validHitbox = true;
@@ -47,9 +46,13 @@ public class CollisionManager : MonoBehaviour
             {
                 _parteColisionada = collision;
             }
-            if (collision.gameObject.layer == 10) // Objetos
+            else if (collision.gameObject.layer == 10) // Objetos
             {
                 _objetoColisionado = collision;
+            }
+            else
+            {
+                _hitboxColisionada = collision;
             }
         }
     }
@@ -65,6 +68,10 @@ public class CollisionManager : MonoBehaviour
             else if (collision.gameObject.layer == 10 && _objetoColisionado == null)
             {
                 _objetoColisionado = collision;
+            }
+            else if (_hitboxColisionada == null)
+            {
+                _hitboxColisionada = collision;
             }
         }
     }
@@ -90,6 +97,10 @@ public class CollisionManager : MonoBehaviour
             else if (collision.gameObject.layer == 10)
             {
                 _objetoColisionado = null;
+            } 
+            else
+            {
+                _hitboxColisionada = null;
             }
         }
     }

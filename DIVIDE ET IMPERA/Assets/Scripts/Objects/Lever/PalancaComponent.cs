@@ -20,7 +20,7 @@ public class PalancaComponent : MonoBehaviour
 
     // brazo conectado a la palanca 
     private bool _brazoConectado = false;
-    public bool BrazoConectado { get { return _brazoConectado; } }
+    public bool BrazoConectado { get { return _brazoConectado; } set { _brazoConectado = value; } }
 
     // esta en el área de una palanca
     public bool _validPalancaHitbox; //no tengo ni idea de por que se llama asi,
