@@ -1789,10 +1789,10 @@ MonoBehaviour:
   _HUD: {fileID: 2076869503684516377}
   _PauseMenu: {fileID: 928644761503377864}
   _GameOverMenu: {fileID: 3925282098482085802}
-  _scoreMenu: {fileID: 0}
-  _levelSelector: {fileID: 0}
+  _scoreMenu: {fileID: 3671506936390241194}
+  _levelSelector: {fileID: 1966480668463266908}
   _player: {fileID: 0}
-  _ControlesMenu: {fileID: 0}
+  _ControlesMenu: {fileID: 4387438277433640414}
   _images:
   - {fileID: 2076869503598631151}
   - {fileID: 2076869503724314630}
@@ -2517,7 +2517,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2076869504003675095}
         m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
-        m_MethodName: Quit
+        m_MethodName: ControlesToPause
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2947,7 +2947,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &7867297675952998515
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3630,7 +3630,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &7042528826775996061
 RectTransform:
   m_ObjectHideFlags: 0
