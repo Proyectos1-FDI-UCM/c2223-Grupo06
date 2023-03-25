@@ -4,15 +4,22 @@ using UnityEngine;
 public class RoomTransition : MonoBehaviour
 {
     #region References
-    //Transforms camara y jugador
+    //Transforms camara, jugador y transicion
     private Transform _cameraTransform;
-    private Transform _player;
+    private Transform _playerTransform;
+    private Transform _transitionTransform;
 
     //Aqui empieza lo bueno
     [SerializeField]
-    private Transform _roomCameraPosition; //Posicion a la que queremos que la camara se mueva durante la transicion
+    private Transform _leftRoomCameraPosition; //Posicion a la que queremos que la camara se mueva durante la transicion hacia la izquierda
     [SerializeField]
-    private Transform _roomSpawn; //Lugar al que el jugador se movera tras la transicion (ademas servira para spawnearle ahi si quiere resetear la sala)
+    private Transform _leftRoomSpawn; //Lugar al que el jugador se movera tras la transicion hacia la izquierda (ademas servira para spawnearle ahi si quiere resetear la sala)
+                                  //IMPORTANTE: ponerlo cerquita de la caja de transicion para que la transicion no sea horrible pero
+                                  //tampoco mucho para que no entre instantaneamente en la transicion de vuelta
+    [SerializeField]
+    private Transform _rightRoomCameraPosition; //Posicion a la que queremos que la camara se mueva durante la transicion hacia la derecha
+    [SerializeField]
+    private Transform _rightRoomSpawn; //Lugar al que el jugador se movera tras la transicion hacia la derecha (ademas servira para spawnearle ahi si quiere resetear la sala)
                                   //IMPORTANTE: ponerlo cerquita de la caja de transicion para que la transicion no sea horrible pero
                                   //tampoco mucho para que no entre instantaneamente en la transicion de vuelta
     #endregion
@@ -21,6 +28,8 @@ public class RoomTransition : MonoBehaviour
     private float _transitionSpeed; //Velocidad de transicion de la camara, valor alto para que no se note lo que ocurre durante la transicion
     #endregion
     #region Properties
+    private Transform _roomSpawn;
+    private Transform _roomCameraPosition;
     private Vector3 _futureCamPos; //futura posicion de la camara
     private bool _onTransition; //booleano que determina si esta ocurrinedo una transicion
     GameObject[] _transitions; //Array de todas las transiciones del juego (durante el transcurso de una transicion se desactivan para evitar bugs, antes se rompia todo si entrabas en una transicion estando ya en una)
@@ -28,9 +37,20 @@ public class RoomTransition : MonoBehaviour
     #region Methods
     private void OnTriggerEnter2D(Collider2D collision) //Cuando entras en la transicion
     {
+        if (_playerTransform.position.x < _transitionTransform.position.x)
+        {
+            _roomSpawn = _rightRoomSpawn;
+            _roomCameraPosition = _rightRoomCameraPosition;
+        }
+        else
+        {
+            _roomSpawn = _leftRoomSpawn;
+            _roomCameraPosition = _leftRoomCameraPosition;
+        }
+
         CameraMovement.Instance.enabled = false; //desactivar movimiento de la camara de seguir al jugador
 
-        _player.transform.position = _roomSpawn.position; //mover al jugador, desactivar el movimiento y la animacion para evitar que entre en otra transicion
+        _playerTransform.position = _roomSpawn.position; //mover al jugador, desactivar el movimiento y la animacion para evitar que entre en otra transicion
         PlayerAccess.Instance.MovementComponent.enabled= false;
         PlayerAccess.Instance.Animator.enabled= false;
 
@@ -71,7 +91,8 @@ public class RoomTransition : MonoBehaviour
     void Start()
     {
         _cameraTransform = CameraMovement.Instance.gameObject.transform;
-        _player = PlayerAccess.Instance.transform;
+        _playerTransform = PlayerAccess.Instance.transform;
+        _transitionTransform = GetComponent<Transform>();
         _transitions = GameObject.FindGameObjectsWithTag("Transition"); //Ducktyping lo se pero ahorra mucho no me mateis
     }
 
