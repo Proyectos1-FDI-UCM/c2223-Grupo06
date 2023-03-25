@@ -32,59 +32,14 @@ public class ThrowComponent : MonoBehaviour
     #endregion
     #region Methods
     public void LanzarBrazo()
-    {
+    { // SOLO PARA LANZAR EL BRAZO
         if (PlayerManager.Instance.Brazos > 0 || _furbo)
         {
-            _colliders = Physics2D.OverlapCircleAll(_myTransform.position, 1f);
-            int i = 0;
-            _ballFound = false;
-
-            while (i < _colliders.Length && !_ballFound)
-            {
-                if (_colliders[i].gameObject.GetComponent<BallComponent>() != null)
-                {
-                    _thrownObject = _colliders[i].gameObject;
-                    _ballFound = true;
-                }
-                i++;
-            }
-            if (_ballFound)
-            {
+            if (PlayerManager.Instance.Brazos > 0)
+            {   // Lo he intentado optimizar un poco, no lo he querido mancillar
+                PlayerManager.Instance.Brazos--; // Cambia directamente el estado en su propio update, no worries
+                _thrownObject = Instantiate(_armPrefab, _myTransform.position, _myTransform.rotation);
                 _thrownObjectRB = _thrownObject.GetComponent<Rigidbody2D>();
-                _thrownObject.transform.position += Vector3.up;
-            }
-            else if (PlayerManager.Instance.Brazos > 0)
-            {
-                /* Lo dejo porsiaca
-                if (_currentState != PlayerManager.TimmyStates.S2 && _currentState != PlayerManager.TimmyStates.S5)
-                {
-                    if (_currentState == PlayerManager.TimmyStates.S0)
-                    {
-                        _playerManager.RequestTimmyState(PlayerManager.TimmyStates.S1);
-                    }
-                    if (_currentState == PlayerManager.TimmyStates.S1)
-                    {
-                        _playerManager.RequestTimmyState(PlayerManager.TimmyStates.S2);
-                    }
-                    if (_currentState == PlayerManager.TimmyStates.S3)
-                    {
-                        _playerManager.RequestTimmyState(PlayerManager.TimmyStates.S4);
-                    }
-                    if (_currentState == PlayerManager.TimmyStates.S4)
-                    {
-                        _playerManager.RequestTimmyState(PlayerManager.TimmyStates.S5);
-                    }
-                    _thrownObject = Instantiate(_armPrefab, _myTransform.position, _myTransform.rotation);
-                    _thrownObjectRB = _thrownObject.GetComponent<Rigidbody2D>();
-                }
-                */
-
-                //if (PlayerManager.Instance.Brazos > 0)
-                { // Lo he intentado optimizar un poco, no lo he querido mancillar
-                    PlayerManager.Instance.Brazos--; // Cambia directamente el estado en su propio update, no worries
-                    _thrownObject = Instantiate(_armPrefab, _myTransform.position, _myTransform.rotation);
-                    _thrownObjectRB = _thrownObject.GetComponent<Rigidbody2D>();
-                }
             }
             if (_thrownObjectRB != null)
             {
@@ -95,7 +50,7 @@ public class ThrowComponent : MonoBehaviour
     }
 
     public void LanzarBola() // voy a hacer otro método porque el otro está joya y no quiero mancillarlo
-    {
+    { // ESTÁ PENSADO PARA LANZAR LA BOLA *DEL RIBCAGE*
         if (PlayerManager.Instance.Objeto == PlayerManager.Objetos.BOLA && (_playerManager.Brazos > 0 || _furbo)) // Si tiene una bola
         {
             _thrownObject = Instantiate(_ballPrefab, _myTransform.position + (_myTransform.right * _myTransform.localScale.x) / 2, _myTransform.rotation); // La instancia
@@ -104,6 +59,33 @@ public class ThrowComponent : MonoBehaviour
             _thrownObjectRB.AddForce(new Vector2(_horizontalForce * 100 * _myTransform.localScale.x, _verticalForce * 100)); // Lo yeetea
             PlayerManager.Instance.EliminarObjeto(); // PUM ya no tiene bola :P
             _isThrowing = true;
+        }
+    }
+
+    public void ChutarBola()
+    { // ESTÁ PENSADO PARA CHUTAR UNA BOLA *DELANTE*
+        _colliders = Physics2D.OverlapCircleAll(_myTransform.position, 1f);
+        int i = 0;
+        _ballFound = false;
+
+        while (i < _colliders.Length && !_ballFound)
+        {
+            if (_colliders[i].gameObject.GetComponent<BallComponent>() != null)
+            {
+                _thrownObject = _colliders[i].gameObject;
+                _ballFound = true;
+            }
+            i++;
+        }
+        if (_ballFound)
+        {
+            _thrownObjectRB = _thrownObject.GetComponent<Rigidbody2D>();
+            _thrownObject.transform.position += Vector3.up;
+        }
+        if (_thrownObjectRB != null)
+        {
+            _isThrowing = true;
+            _thrownObjectRB.AddForce(new Vector2(_horizontalForce * 100 * _myTransform.localScale.x, _verticalForce * 100));
         }
     }
 
