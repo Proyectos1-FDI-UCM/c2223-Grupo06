@@ -1,4 +1,5 @@
 //using UnityEditor.Tilemaps;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PataformaComponent : MonoBehaviour
@@ -183,6 +184,9 @@ public class PataformaComponent : MonoBehaviour
 
                 //Cambio objeto en control para la pausa
                 PlayerManager.Instance.ChangePartInControl(_player);
+
+                _pDireccion = 0;
+                _animator.SetBool("move", false);
             }
 
         }
@@ -213,6 +217,9 @@ public class PataformaComponent : MonoBehaviour
 
             //Cambio para el menu de pausa
             PlayerManager.Instance.ChangePartInControl(gameObject);
+
+            _pDireccion = 0;
+            _animator.SetBool("move", false);
         }
     }
     private void PataformaInput()

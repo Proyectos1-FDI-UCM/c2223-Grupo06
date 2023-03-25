@@ -17,7 +17,7 @@ public class StayOnPataforma : MonoBehaviour
 
     #region Metodos basicos
     // mira si tiene padre o no (este objeto)
-    private bool ParentCheck()
+    public bool ParentCheck()
     {
         if (transform.parent == null)
         {
@@ -58,7 +58,7 @@ public class StayOnPataforma : MonoBehaviour
     #region Metodos para ver si se deberia quedar en la plataforma
 
     // mira si es un objeto que se deba quedar en la plataforma
-    private bool CheckStayOn(Collision2D collision)
+    public bool CheckStayOn(Collision2D collision)
     {
         // devuelve true si es o una pataforma o una plataforma normal con la variable de puerta 
         // desactivada y no es el tilemap
