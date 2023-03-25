@@ -54,12 +54,12 @@ public class PalancaComponent : MonoBehaviour
         if (_palanca && !_movingPlatform.enabled)
         {
             _movingPlatform.enabled = true;
-            Debug.Log("activar " + _movingPlatform.enabled);
+            //Debug.Log("activar " + _movingPlatform.enabled);
         }
         else if (!_palanca && _movingPlatform.enabled)
         {
             _movingPlatform.enabled = false;
-            Debug.Log("desactivar " + _movingPlatform.enabled);
+            //Debug.Log("desactivar " + _movingPlatform.enabled);
         }
 
 

@@ -35,15 +35,12 @@ public class InputController : MonoBehaviour
     private JumpComponent _playerJump;
     private ThrowComponent _throwComp;
     private CollisionManager _collisionManager;
-
-    /*
     private PlayerManager _playerManager;
     private UIManager _UIManager;
     private DialogueManager _dialogueManager;
     private Rigidbody2D _playerRigidBody;
     private GameManager.GameStates state;
     private InputControllerDialogue _inputControllerDialogue;
-    */
     #endregion
 
     #region Properties 
@@ -174,14 +171,12 @@ public class InputController : MonoBehaviour
             else if (Input.GetKey(KeyCode.Alpha3))
             {
                 if (!_changeToPataforma
-                && (PlayerManager.State == PlayerManager.TimmyStates.S3
-                || PlayerManager.State == PlayerManager.TimmyStates.S4
-                || PlayerManager.State == PlayerManager.TimmyStates.S5))
+                && PlayerManager.Instance.Piernas)
                 {
                     _changeToPataforma = true;
                     //_playerRigidBody.bodyType = RigidbodyType2D.Kinematic;
 
-                    this.enabled = false;
+                    enabled = false;
                 }
             }
             else if (Input.GetKey(KeyCode.Alpha4)) // WIP
@@ -195,8 +190,19 @@ public class InputController : MonoBehaviour
         }
         #endregion
 
+        if (Input.GetKeyUp(KeyCode.UpArrow))
+        {
+            _interactuar = true;
+        }
+
         #region SOLTAR Y RECOGER PARTES
-        if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.S))
+        //BRAZOS
+        if (Input.GetKey(KeyCode.LeftShift) && (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.D)))
+        {
+            _interactuar = true;
+        }
+        else 
+        if ((Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.S))&& !Input.GetKey(KeyCode.LeftShift))
         {
             if (!_collisionManager.DestruirBrazo())
             {
@@ -205,6 +211,16 @@ public class InputController : MonoBehaviour
             else
             {
                 PlayerManager.Instance.RecogerBrazo();
+            }
+        }
+        else 
+        // PIERNAS
+        if (Input.GetKey(KeyCode.LeftShift) && (Input.GetKeyDown(KeyCode.D)))
+        {
+            if (PlayerManager.Instance.Piernas && !_changeToPataforma)
+            {
+                _changeToPataforma = true;
+                enabled = false;
             }
         }
         else 
@@ -300,13 +316,11 @@ public class InputController : MonoBehaviour
     {
         _throwComp = GetComponent<ThrowComponent>();
         _collisionManager = GetComponent<CollisionManager>();
-        /*
         _playerJump = GetComponent<JumpComponent>();
         _playerManager = GetComponent<PlayerManager>();
         _playerRigidBody = GetComponent<Rigidbody2D>(); // rigidbody del player
         _dialogueManager = GetComponent<DialogueManager>();
         _inputControllerDialogue = GetComponent<InputControllerDialogue>();
-        */
     }
 
     void Update()
