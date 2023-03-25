@@ -244,14 +244,26 @@ public class InputController : MonoBehaviour
         { // Shift + A / S para controlar brazos en palancas
             _interactuar = true;
         }
-        else 
-        if ((Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.S)) && !Input.GetKey(KeyCode.LeftShift))
-        { // A y S para recoger y soltar brazos
-            if (!_collisionManager.DestruirBrazo() && (!_collisionManager.ValidHitbox || _collisionManager.ValidHitbox))
+        else
+        if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.S))
+        {
+            if (!_collisionManager.DestruirBrazo())
             {
-                PlayerManager.Instance.SoltarBrazo();
+                if (_collisionManager.HitboxColisionada != null 
+                    && _collisionManager.HitboxColisionada.GetComponent<PalancaComponent>() != null 
+                    && _collisionManager.HitboxColisionada.GetComponent<PalancaComponent>().BrazoConectado)
+                {
+                    _collisionManager.HitboxColisionada.GetComponent<PalancaComponent>().ConectarBrazo(false);
+                    PlayerManager.Instance.RecogerBrazo();
+                    Debug.Log("si");
+                }
+                else
+                {
+                    PlayerManager.Instance.SoltarBrazo();
+                    Debug.Log("no");
+                }
             }
-            else if (!_collisionManager.DestruirBrazo())
+            else
             {
                 PlayerManager.Instance.RecogerBrazo();
             }
