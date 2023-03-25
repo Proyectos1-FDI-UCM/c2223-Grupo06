@@ -83,10 +83,16 @@ public class UIManager : MonoBehaviour
         _player.GetComponent<InputController>().enabled = true;
     }
 
+    public void PauseToControles()
+    {
+        SetMenu(GameManager.GameStates.CONTROLES);
+        _player.GetComponent<InputController>().enabled = true;
+    }
+
     public void ControlesToPause()
     {
         SetMenu(GameManager.GameStates.PAUSE);
-        _player.GetComponent<InputController>().enabled = false;
+        _player.GetComponent<InputController>().enabled = true;
     }
 
     public void GoToScore()
@@ -232,14 +238,15 @@ public class UIManager : MonoBehaviour
 
     void Start()
     {
-        _menus = new GameObject[6]; // creación del array de menús y asignación
+        _menus = new GameObject[7]; // creación del array de menús y asignación
         _menus[0] = _StartMenu;
         _menus[1] = _HUD;
         _menus[2] = _PauseMenu;
         _menus[3] = _GameOverMenu;
         _menus[4] = _scoreMenu;
         _menus[5] = _levelSelector; 
-        _menus[6] = _ControlesMenu; // habrá que poner más segun añadamos menuses
+        _menus[6] = _ControlesMenu; 
+        // habrá que poner más segun añadamos menuses
         _activeMenu = GameManager.Instance.CurrentState; // asocia el menú actual con el estado actual
 
         _posCabeza = 0; // posiciones concretas de cada parte en el array de imágenes
