@@ -13,10 +13,10 @@ public class DialogueTrigger : MonoBehaviour
 
     #endregion
     #region Methods
-    public void TriggerDialogue()
+    /* public void TriggerDialogue()
     {
         FindObjectOfType<DialogueManager>().StartDialogue(_dialogue);
-    }
+    } */
     # endregion
     void Start()
     {

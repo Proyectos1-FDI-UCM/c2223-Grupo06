@@ -32,7 +32,7 @@ public class DialogueManager : MonoBehaviour
     #region Properties
     // en conversación 
     [SerializeField]
-    private bool _enConversacion = false;
+    public bool _enConversacion = false;
     public bool Conversacion { get { return _enConversacion; } }
     #endregion
 
@@ -55,15 +55,16 @@ public class DialogueManager : MonoBehaviour
 
     private void Activar()
     {
-        // Debug.Log("ACTIMEL");
+        Debug.Log("ACTIMEL");
         _enConversacion = true;
         _inputController._enConversacion = true;
         _inputControllerDialogue._enConversacion = true;
         MoveTimoteo();
+        if (_inputControllerDialogue.enabled) { Debug.Log("porfi porfi"); }
     }
 
     // INICIO DIÁLOGO
-    public void StartDialogue(Dialogue _dialogue)
+    /* public void StartDialogue(Dialogue _dialogue)
     {
         Debug.Log("Conversación con" + _dialogue._name);
 
@@ -73,10 +74,10 @@ public class DialogueManager : MonoBehaviour
             _guion.Enqueue(_frase);                     // añadir a la queue
         }
         SiguienteFrase(); // al acabar pasar a la siguiente frase
-    }
+    } */
 
     // SIGUIENTE FRASE
-    public void SiguienteFrase()
+    /* public void SiguienteFrase()
     {
         if (_guion.Count == 0) // comprobar que queden frases en la queue
         {
@@ -86,17 +87,17 @@ public class DialogueManager : MonoBehaviour
         string _frase = _guion.Dequeue(); // siguiente frase en la queue 
         StopAllCoroutines(); // parar antes de empezar la nueva frase
         StartCoroutine(Letritas(_frase));
-    }
+    } */
 
     // FIN DIÁLOGO
     public void FinDialogo()
     {
-        Debug.Log("Conversación finiquitada");
-       // _inputController.enabled = true;
-       // _inputControllerDialogue.enabled = false;
+        Debug.Log("ACABOSE");
         _enConversacion = false;
         _inputController._enConversacion = false;
         _inputControllerDialogue._enConversacion = false;
+        _inputController.enabled = true;
+        _inputControllerDialogue.enabled = false;
     }
 
     // ANIMACIÓN DE CARACTERES
@@ -115,8 +116,8 @@ public class DialogueManager : MonoBehaviour
     void MoveTimoteo()  // Hace que Timoteo se mueva hacia el waypoint correspondiente con la velocidad marcada
     {
         // Debug.Log("Muevete");
-        // _inputController.enabled = false;
-        // _inputControllerDialogue.enabled = true;
+        _inputController.enabled = false;
+        _inputControllerDialogue.enabled = true;
         _playerTransform.position = Vector3.MoveTowards(_playerTransform.position,  // posición inicial 
             WaypointDialogo.transform.position, _speed * Time.deltaTime);           // posición final
     }
