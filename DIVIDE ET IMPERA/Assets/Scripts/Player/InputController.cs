@@ -35,6 +35,7 @@ public class InputController : MonoBehaviour
     private JumpComponent _playerJump;
     private ThrowComponent _throwComp;
     private CollisionManager _collisionManager;
+    private StayOnPataforma _stayOnComp;
     private PlayerManager _playerManager;
     private UIManager _UIManager;
     private DialogueManager _dialogueManager;
@@ -160,36 +161,11 @@ public class InputController : MonoBehaviour
         }
         #endregion
 
-        #region SOLTAR Y RECOGER PARTES
-        if (Input.GetKeyUp(KeyCode.E))
-        {
-            if (Input.GetKey(KeyCode.Alpha3))
-            {
-                PlayerManager.Instance.SoltarPiernas();
-            }
-        }
-        if (Input.GetKeyUp(KeyCode.R))
-        {
-            if (Input.GetKey(KeyCode.Alpha1) && _playerManager.Brazos == 1)
-            {
-                PlayerManager.Instance.RecogerBrazo();
-            }
-            else if (Input.GetKey(KeyCode.Alpha2) && _playerManager.Brazos == 0)
-            {
-                PlayerManager.Instance.RecogerBrazo();
-            }
-            else if (Input.GetKey(KeyCode.Alpha3) && !_playerManager.Piernas)
-            {
-                PlayerManager.Instance.RecogerPiernas();
-            }
-        }
-        #endregion
-
         // INTERACTUAR
         #region INTERACTUAR
         if (Input.GetKeyUp(KeyCode.T))
         {
-            // PARA INTERACTUAR (1,2,3,4)
+            /*
             if (Input.GetKey(KeyCode.Alpha1))
             {
                 _interactuar = true;
@@ -198,16 +174,14 @@ public class InputController : MonoBehaviour
             {
                 _interactuar = true;
             }
-            else if (Input.GetKey(KeyCode.Alpha3))
+            */
+            if (Input.GetKey(KeyCode.Alpha3))
             {
                 if (!_changeToPataforma
-                && (PlayerManager.State == PlayerManager.TimmyStates.S3
-                || PlayerManager.State == PlayerManager.TimmyStates.S4
-                || PlayerManager.State == PlayerManager.TimmyStates.S5))
+                && !PlayerManager.Instance.Piernas)
                 {
                     _changeToPataforma = true;
                     //_playerRigidBody.bodyType = RigidbodyType2D.Kinematic;
-
                     enabled = false;
                 }
             }
@@ -253,23 +227,49 @@ public class InputController : MonoBehaviour
                 PlayerManager.Instance.RecogerBrazo();
             }
         }
-        // PIERNAS
-        if (Input.GetKey(KeyCode.LeftShift) && (Input.GetKeyDown(KeyCode.D)))
+        // PIERNAS 
+        if (Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.D))
         { // Shift + D para intercambiar control a las piernas
-
+            if (!_changeToPataforma
+                && !PlayerManager.Instance.Piernas)
+            {
+                _changeToPataforma = true;
+                //_playerRigidBody.bodyType = RigidbodyType2D.Kinematic;
+                enabled = false;
+            }
         }
         else 
         if (Input.GetKeyDown(KeyCode.D))
         { // D para recoger y soltar piernas
             if (!_collisionManager.DestruirPierna())
             {
-                PlayerManager.Instance.SoltarPiernas();
+                if (GetComponentInParent<PataformaComponent>() != null && !_conectarParte && !GetComponentInParent<PataformaComponent>().PiernasConectadas)
+                {
+                    _conectarParte = true;
+                    Debug.Log("conecta");
+                }
+                else if (GetComponentInParent<PataformaComponent>() != null && !_recuperarParte && GetComponentInParent<PataformaComponent>().PiernasConectadas)
+                {
+                    _recuperarParte = true;
+                    Debug.Log("recupera");
+                }
+                else
+                {
+                    PlayerManager.Instance.SoltarPiernas();
+                }
             }
             else
             {
                 PlayerManager.Instance.RecogerPiernas();
             }
         }
+        /*
+        else if (_conectarParte || _recuperarParte)
+        {
+            _conectarParte = false;
+            _recuperarParte = false;
+        }
+        */
         #endregion
 
         #region LANZAR / CHUTAR
@@ -356,6 +356,7 @@ public class InputController : MonoBehaviour
         _playerRigidBody = GetComponent<Rigidbody2D>(); // rigidbody del player
         _dialogueManager = GetComponent<DialogueManager>();
         _inputControllerDialogue = GetComponent<InputControllerDialogue>();
+        _stayOnComp = GetComponent<StayOnPataforma>();
     }
 
     void Update()
