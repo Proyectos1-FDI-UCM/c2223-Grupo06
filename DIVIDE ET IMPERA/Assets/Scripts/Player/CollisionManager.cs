@@ -14,8 +14,11 @@ public class CollisionManager : MonoBehaviour
     private Collider2D _parteColisionada;
     public Collider2D ParteColisionada { get { return _parteColisionada; } }
 
-    public Collider2D _objetoColisionado;
+    private Collider2D _objetoColisionado;
     public Collider2D ObjetoColisionado { get { return _objetoColisionado; } }
+
+    private Collider2D _hitboxColisionada;
+    public Collider2D HitboxColisionada { get { return _hitboxColisionada; } }
 
     #endregion
 

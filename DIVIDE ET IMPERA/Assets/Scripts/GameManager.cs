@@ -61,16 +61,8 @@ public class GameManager : MonoBehaviour
     }
 
     private void UpdateState(GameStates state)
-    {/*
-        if (state == GameStates.INTRO)
-        {
-            
-        }
+    {
 
-        if (state == GameStates.GAME)
-        {
-
-        }*/
     }
 
     #endregion
