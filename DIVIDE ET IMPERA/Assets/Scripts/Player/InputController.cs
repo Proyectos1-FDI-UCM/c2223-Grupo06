@@ -152,21 +152,9 @@ public class InputController : MonoBehaviour
         #region SOLTAR Y RECOGER PARTES
         if (Input.GetKeyUp(KeyCode.E))
         {
-            if (Input.GetKey(KeyCode.Alpha1) && _playerManager.Brazos == 2)
-            {
-                PlayerManager.Instance.SoltarBrazo();
-            }
-            else if (Input.GetKey(KeyCode.Alpha2) && _playerManager.Brazos == 1)
-            {
-                PlayerManager.Instance.SoltarBrazo();
-            }
-            else if (Input.GetKey(KeyCode.Alpha3))
+            if (Input.GetKey(KeyCode.Alpha3))
             {
                 PlayerManager.Instance.SoltarPiernas();
-            }
-            else if (Input.GetKey(KeyCode.Alpha4)) // STC
-            {
-
             }
         }
         if (Input.GetKeyUp(KeyCode.R))
@@ -182,10 +170,6 @@ public class InputController : MonoBehaviour
             else if (Input.GetKey(KeyCode.Alpha3) && !_playerManager.Piernas)
             {
                 PlayerManager.Instance.RecogerPiernas();
-            }
-            else if (Input.GetKey(KeyCode.Alpha4))
-            {
-
             }
         }
         #endregion
@@ -246,15 +230,13 @@ public class InputController : MonoBehaviour
                 if (_collisionManager.HitboxColisionada != null 
                     && _collisionManager.HitboxColisionada.GetComponent<PalancaComponent>() != null 
                     && _collisionManager.HitboxColisionada.GetComponent<PalancaComponent>().BrazoConectado)
-                {
+                { // si está colisionando con una palanca que tiene brazo
                     _collisionManager.HitboxColisionada.GetComponent<PalancaComponent>().ConectarBrazo(false);
-                    PlayerManager.Instance.RecogerBrazo();
-                    Debug.Log("si");
+                    PlayerManager.Instance.RecogerBrazo(); // lo quita y lo recoge
                 }
                 else
                 {
                     PlayerManager.Instance.SoltarBrazo();
-                    Debug.Log("no");
                 }
             }
             else
