@@ -18,17 +18,26 @@ public class InputControllerDialogue : MonoBehaviour
     #endregion
 
     #region Methods
-    public void DialogueInput()
+    private void DialogueInput()
     {
-        // if (_enConversacion) { Debug.Log("bezoya"); }
-        if (_enConversacion && (Input.GetKeyUp(KeyCode.Z) || Input.GetKeyUp(KeyCode.UpArrow))) // UpArrow o Z para avanzar en el diálogo
+        if (_enConversacion && (Input.GetKey(KeyCode.Z) || Input.GetKey(KeyCode.UpArrow))) // UpArrow o Z para avanzar en el diálogo
         {
-            // _dialogueManager.FinDialogo(); // debug para probar el input nuevo
-            _inputController.enabled = true;
-            enabled = false;
-            _enConversacion = false;
+            // _dialogueManager.FinDialogo(); // debug para probar el input
+            // _inputController.enabled = true;
+            // enabled = false;
+            // _enConversacion = false;
             Debug.Log("que se bajen que me lo llevo");
             // _dialogueManager.SiguienteFrase();
+
+            if (_dialogueManager._dialogueText.text == _dialogueManager._lines[_dialogueManager._index]) // siguiente linea
+            {
+                _dialogueManager.NextLine();
+            }
+            else // fin dialogo
+            {
+                StopAllCoroutines();
+                _dialogueManager._dialogueText.text = _dialogueManager._lines[_dialogueManager._index];
+            }
         }
     }
     #endregion
