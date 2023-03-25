@@ -86,10 +86,7 @@ public class PalancaComponent : MonoBehaviour
     {
         // si se ha pulsado la E, el brazo está conectado y está en el estado correcto
         if (_inputController.Interactuar && _brazoConectado
-            && (PlayerManager.State == PlayerManager.TimmyStates.S1
-            || PlayerManager.State == PlayerManager.TimmyStates.S4
-            || PlayerManager.State == PlayerManager.TimmyStates.S2
-            || PlayerManager.State == PlayerManager.TimmyStates.S5))
+            && (PlayerManager.Instance.Brazos < 2))
         {
             Activar();
         }
@@ -97,69 +94,25 @@ public class PalancaComponent : MonoBehaviour
         //-------CONECTAR BRAZO-------------------
         // se pulsa R y se esta cerca de la palanca
         if (_inputController.ConectarParte && _validPalancaHitbox
-            && (PlayerManager.State == PlayerManager.TimmyStates.S0
-            || PlayerManager.State == PlayerManager.TimmyStates.S3
-            || PlayerManager.State == PlayerManager.TimmyStates.S1
-            || PlayerManager.State == PlayerManager.TimmyStates.S4))
+            && (PlayerManager.Instance.Brazos > 0))
         {
             // conecta el brazo
             ConectarBrazo(true);
 
-            // SI TIENE PIERNAS
-            if (PlayerManager.State == PlayerManager.TimmyStates.S0)
-            {
-                _playerManager.RequestTimmyState(PlayerManager.TimmyStates.S1);
-            }
-            // SI NO TIENE PIERNAS
-            else if (PlayerManager.State == PlayerManager.TimmyStates.S3)
-            {
-                _playerManager.RequestTimmyState(PlayerManager.TimmyStates.S4);
-            }
-
-            else if (PlayerManager.State == PlayerManager.TimmyStates.S1)
-            {
-                _playerManager.RequestTimmyState(PlayerManager.TimmyStates.S2);
-            }
-
-            else if (PlayerManager.State == PlayerManager.TimmyStates.S4)
-            {
-                _playerManager.RequestTimmyState(PlayerManager.TimmyStates.S5);
-            }
+            PlayerManager.Instance.Brazos--;
 
             // cambia el color (deberia ser sprite)
             //_mySpriteRenderer.color = Color.blue;
         }
         // se pulsa T, está cerca de la palanca, está en los estados correctos y hay un brazo conectado
         else if (_inputController.RecuperarParte && _validPalancaHitbox
-            && (PlayerManager.State == PlayerManager.TimmyStates.S1
-            || PlayerManager.State == PlayerManager.TimmyStates.S4
-            || PlayerManager.State == PlayerManager.TimmyStates.S2
-            || PlayerManager.State == PlayerManager.TimmyStates.S5)
+            && (PlayerManager.Instance.Brazos < 2)
             && _brazoConectado)
         {
             // desconecta el brazo
             ConectarBrazo(false);
 
-            // si tiene las piernas cambia de estado
-            if (PlayerManager.State == PlayerManager.TimmyStates.S1)
-            {
-                _playerManager.RequestTimmyState(PlayerManager.TimmyStates.S0);
-            }
-            // si no tiene piernas cambia de estado
-            else if (PlayerManager.State == PlayerManager.TimmyStates.S4)
-            {
-                _playerManager.RequestTimmyState(PlayerManager.TimmyStates.S3);
-            }
-
-            else if (PlayerManager.State == PlayerManager.TimmyStates.S2)
-            {
-                _playerManager.RequestTimmyState(PlayerManager.TimmyStates.S1);
-            }
-
-            else if (PlayerManager.State == PlayerManager.TimmyStates.S5)
-            {
-                _playerManager.RequestTimmyState(PlayerManager.TimmyStates.S4);
-            }
+            PlayerManager.Instance.Brazos++;
 
             // cambia de color (deberia ser sprite)
             //_mySpriteRenderer.color = Color.white;
