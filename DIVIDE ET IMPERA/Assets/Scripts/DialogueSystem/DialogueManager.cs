@@ -16,14 +16,11 @@ public class DialogueManager : MonoBehaviour
     // dialogo
     [SerializeField] public TMP_Text _dialogueText; // Texto de dialogo
     [SerializeField] private TMP_Text _interactText; // Texto de feedback para interaccion
-    private DialogueTrigger _dialogueTrigger;
     private Interaction _interaction;
-    private Dialogue _dialogue;
     #endregion
 
     #region Parameters
     // flujo
-    //private Queue<string> _guion; // coleccion de strings, array circular first in first out
     public string[] _lines; // lineas del guion
     [SerializeField] private float _speedText; // velocidad de texto
     public int _index; // para saber en que linea estamos
@@ -54,11 +51,9 @@ public class DialogueManager : MonoBehaviour
     // ACTIVAR DIALOGO
     private void Activar()
     {
-        // Debug.Log("ACTIMEL");
         _inputControllerDialogue._enConversacion = true;
         MoveTimoteo();
         StartDialogue();
-        // if (_inputControllerDialogue.enabled) { Debug.Log("porfi porfi"); }
     }
 
     #region DIALOGO POCHO
@@ -86,10 +81,10 @@ public class DialogueManager : MonoBehaviour
         string _frase = _guion.Dequeue(); // siguiente frase en la queue 
         StopAllCoroutines(); // parar antes de empezar la nueva frase
         StartCoroutine(Letritas(_frase));
-    } */
+    } 
 
     // FIN DIALOGO
-    public void FinDialogo()
+     public void FinDialogo()
     {
         if ( true ) 
         {
@@ -97,8 +92,8 @@ public class DialogueManager : MonoBehaviour
             _inputControllerDialogue.enabled = false;
             _inputControllerDialogue._enConversacion = false;
             Debug.Log("ACABOSE");
-        }
-    }
+        } 
+    } */
     #endregion
 
     #region DIALOGO NUEVO
@@ -106,17 +101,19 @@ public class DialogueManager : MonoBehaviour
     public void StartDialogue() // cuando se llame se activa la corrutina
     {
         _index = 0;
+        StopAllCoroutines();
         StartCoroutine(WriteLine());
     }
 
     // ANIMACIÓN DE CARACTERES
     IEnumerator WriteLine() // corrutina para que se vayan excribiendo las lineas
     {
+        _dialogueText.text = "";
         foreach (char _letter in _lines[_index].ToCharArray()) // index aumenta segun se pasa de linea
         {
             _dialogueText.text += _letter;
-            yield return new WaitForSeconds(_speedText); // proporciona el siguiente valor en la iteración
-
+            yield return null;
+            // yield return new WaitForSeconds(_speedText); // proporciona el siguiente valor en la iteración
         }
     }
 
@@ -141,7 +138,6 @@ public class DialogueManager : MonoBehaviour
     #region mover timoteo
     void MoveTimoteo()  // Hace que Timoteo se mueva hacia el waypoint correspondiente con la velocidad marcada
     {
-        // Debug.Log("Muevete");
         _inputController.enabled = false;
         _inputControllerDialogue.enabled = true;
         _playerTransform.position = Vector3.MoveTowards(_playerTransform.position,  // posición inicial 
@@ -157,9 +153,5 @@ public class DialogueManager : MonoBehaviour
         _inputControllerDialogue = PlayerAccess.Instance.InputControllerDialogue;
         _playerTransform = PlayerAccess.Instance.Transform;
         _interaction = GetComponent<Interaction>();
-
-        // diálogo
-        _dialogueTrigger = GetComponent<DialogueTrigger>();
-        // _guion = new Queue<string>(); // inicialización de _guion
     }
 }
