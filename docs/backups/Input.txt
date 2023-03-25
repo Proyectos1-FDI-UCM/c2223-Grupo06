@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 
 public class InputController : MonoBehaviour
 {
@@ -395,8 +395,7 @@ public class InputController : MonoBehaviour
         //------OPCIÓN DE PAUSA-------
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            //_UIManager.SetMenu(GameManager.GameStates.PAUSE);
-            PlayerManager.Instance.UIManager.SetMenu(GameManager.GameStates.PAUSE);
+            _UIManager.SetMenu(GameManager.GameStates.PAUSE);
 
             // desactiva el input
             this.enabled = false;

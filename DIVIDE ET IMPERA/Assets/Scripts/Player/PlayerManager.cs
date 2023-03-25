@@ -23,6 +23,7 @@ public class PlayerManager : MonoBehaviour
     private Animator _myAnimator;
     private Transform _myTransform;
     private UIManager _UIManager;
+    public UIManager UIManager { get { return _UIManager; } }
 
     // PREFABS
     [SerializeField]
