@@ -37,14 +37,14 @@ public class RoomTransition : MonoBehaviour
     #region Methods
     private void OnTriggerEnter2D(Collider2D collision) //Cuando entras en la transicion
     {
-        if (_playerTransform.position.x < _transitionTransform.position.x)
+        if (_playerTransform.position.x < _transitionTransform.position.x) 
         {
-            _roomSpawn = _rightRoomSpawn;
+            _roomSpawn = _rightRoomSpawn; //Si el jugador esta a la izquierda setear para la transicion a la sala derecha
             _roomCameraPosition = _rightRoomCameraPosition;
         }
         else
         {
-            _roomSpawn = _leftRoomSpawn;
+            _roomSpawn = _leftRoomSpawn; //Si esta a la derecha setear para la transicion a la sala izquierda
             _roomCameraPosition = _leftRoomCameraPosition;
         }
 
