@@ -4669,7 +4669,7 @@ PrefabInstance:
     - target: {fileID: 9105276655828635065, guid: 111fc477411513d47b1f5daa0dbd6439, type: 3}
       propertyPath: _objeto
       value: 
-      objectReference: {fileID: 1652982253}
+      objectReference: {fileID: 624511315}
     - target: {fileID: 9105276655828635065, guid: 111fc477411513d47b1f5daa0dbd6439, type: 3}
       propertyPath: _player
       value: 
@@ -4678,6 +4678,10 @@ PrefabInstance:
       propertyPath: _puerta
       value: 
       objectReference: {fileID: 1956525266}
+    - target: {fileID: 9105276655828635065, guid: 111fc477411513d47b1f5daa0dbd6439, type: 3}
+      propertyPath: _palanca
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9105276655828635066, guid: 111fc477411513d47b1f5daa0dbd6439, type: 3}
       propertyPath: m_SortingOrder
       value: 1

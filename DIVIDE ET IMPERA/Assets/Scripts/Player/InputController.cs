@@ -240,18 +240,18 @@ public class InputController : MonoBehaviour
 
         #region SOLTAR Y RECOGER PARTES
         //BRAZOS
-        if (Input.GetKey(KeyCode.LeftShift) && (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.D)))
+        if (Input.GetKey(KeyCode.LeftShift) && (Input.GetKeyDown(KeyCode.A)))
         { // Shift + A para controlar brazos en palancas
             _interactuar = true;
         }
         else 
-        if ((Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.S))&& !Input.GetKey(KeyCode.LeftShift))
+        if ((Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.S)) && !Input.GetKey(KeyCode.LeftShift))
         { // A y S para recoger y soltar brazos
-            if (!_collisionManager.DestruirBrazo() && !_collisionManager.ValidHitbox)
+            if (!_collisionManager.DestruirBrazo() && (!_collisionManager.ValidHitbox || _collisionManager.ValidHitbox))
             {
                 PlayerManager.Instance.SoltarBrazo();
             }
-            else
+            else if (!_collisionManager.DestruirBrazo())
             {
                 PlayerManager.Instance.RecogerBrazo();
             }
@@ -260,11 +260,7 @@ public class InputController : MonoBehaviour
         // PIERNAS
         if (Input.GetKey(KeyCode.LeftShift) && (Input.GetKeyDown(KeyCode.D)))
         { // Shift + D para intercambiar control a las piernas
-            if (PlayerManager.Instance.Piernas && !_changeToPataforma)
-            {
-                _changeToPataforma = true;
-                enabled = false;
-            }
+
         }
         else 
         if (Input.GetKeyDown(KeyCode.D))

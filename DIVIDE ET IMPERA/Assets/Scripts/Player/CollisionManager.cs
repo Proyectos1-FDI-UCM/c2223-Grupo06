@@ -8,15 +8,19 @@ public class CollisionManager : MonoBehaviour
     #endregion
 
     #region Properties
+    [SerializeField]
     private bool _validHitbox = false;
     public bool ValidHitbox { get { return _validHitbox; } }
 
+    [SerializeField]
     private Collider2D _parteColisionada;
     public Collider2D ParteColisionada { get { return _parteColisionada; } }
 
+    [SerializeField]
     private Collider2D _objetoColisionado;
     public Collider2D ObjetoColisionado { get { return _objetoColisionado; } }
 
+    [SerializeField]
     private Collider2D _hitboxColisionada;
     public Collider2D HitboxColisionada { get { return _hitboxColisionada; } }
 
