@@ -19,6 +19,7 @@ public class PalancaComponent : MonoBehaviour
     public bool Palanca { get { return _palanca; } }
 
     // brazo conectado a la palanca 
+    [SerializeField]
     private bool _brazoConectado = false;
     public bool BrazoConectado { get { return _brazoConectado; } set { _brazoConectado = value; } }
 
@@ -33,15 +34,14 @@ public class PalancaComponent : MonoBehaviour
 
     #region Métodos
 
-    private void Activar()
+    public void Activar()
     {
         _palanca = ActivarPalanca();
         ActivarObjetos();
-
     }
 
     // activa o desactiva la palanca dependiendo de su estado anterior
-    private bool ActivarPalanca()
+    public bool ActivarPalanca()
     {
         bool _lvr = !_palanca;
         _palanca = !_palanca;
@@ -49,7 +49,7 @@ public class PalancaComponent : MonoBehaviour
     }
 
     // interactua con el objeto de fuera (puerta, plataforma etc)
-    private void ActivarObjetos()
+    public void ActivarObjetos()
     {
         if (_palanca && !_movingPlatform.enabled)
         {
@@ -61,8 +61,6 @@ public class PalancaComponent : MonoBehaviour
             _movingPlatform.enabled = false;
             //Debug.Log("desactivar " + _movingPlatform.enabled);
         }
-
-
     }
 
     //Conecta el brazo
@@ -83,7 +81,7 @@ public class PalancaComponent : MonoBehaviour
     }
 
     private void Update()
-    {
+    { // Cyn: creo que no hace falta comprobar el estado en ninguna de las situaciones, pero lo he optimizado y los dejo igualmente
         // si se ha pulsado la E, el brazo está conectado y está en el estado correcto
         if (_inputController.Interactuar && _brazoConectado
             && (PlayerManager.Instance.Brazos < 2))
@@ -98,7 +96,6 @@ public class PalancaComponent : MonoBehaviour
         {
             // conecta el brazo
             ConectarBrazo(true);
-
             PlayerManager.Instance.Brazos--;
 
             // cambia el color (deberia ser sprite)
@@ -111,7 +108,6 @@ public class PalancaComponent : MonoBehaviour
         {
             // desconecta el brazo
             ConectarBrazo(false);
-
             PlayerManager.Instance.Brazos++;
 
             // cambia de color (deberia ser sprite)

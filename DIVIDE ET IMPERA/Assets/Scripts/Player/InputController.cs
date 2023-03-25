@@ -127,6 +127,17 @@ public class InputController : MonoBehaviour
         }
     }
 
+    private bool EstaEnPalancaConBrazo()
+    {
+        if (_collisionManager.HitboxColisionada != null
+         && _collisionManager.HitboxColisionada.GetComponent<PalancaComponent>() != null
+         && _collisionManager.HitboxColisionada.GetComponent<PalancaComponent>().BrazoConectado)
+        {
+            return true;
+        }
+        else return false;
+    }
+
     private void InteractInput()
     {
         // TIMMY
@@ -217,15 +228,17 @@ public class InputController : MonoBehaviour
         if (Input.GetKey(KeyCode.LeftShift) && (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.S)))
         { // Shift + A / S para controlar brazos en palancas
             _interactuar = true;
+            if (EstaEnPalancaConBrazo()) // me estoy volviendo loca no me tengais mucho en cuenta esto
+            {
+                _collisionManager.HitboxColisionada.GetComponent<PalancaComponent>().Activar();
+            }
         }
         else
         if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.S))
         {
             if (!_collisionManager.DestruirBrazo())
             {
-                if (_collisionManager.HitboxColisionada != null 
-                    && _collisionManager.HitboxColisionada.GetComponent<PalancaComponent>() != null 
-                    && _collisionManager.HitboxColisionada.GetComponent<PalancaComponent>().BrazoConectado)
+                if (EstaEnPalancaConBrazo())
                 { // si está colisionando con una palanca que tiene brazo
                     _collisionManager.HitboxColisionada.GetComponent<PalancaComponent>().ConectarBrazo(false);
                     PlayerManager.Instance.RecogerBrazo(); // lo quita y lo recoge
@@ -240,7 +253,6 @@ public class InputController : MonoBehaviour
                 PlayerManager.Instance.RecogerBrazo();
             }
         }
-        else 
         // PIERNAS
         if (Input.GetKey(KeyCode.LeftShift) && (Input.GetKeyDown(KeyCode.D)))
         { // Shift + D para intercambiar control a las piernas
