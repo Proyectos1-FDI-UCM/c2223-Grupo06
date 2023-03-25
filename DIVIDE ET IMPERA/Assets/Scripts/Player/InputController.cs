@@ -34,6 +34,7 @@ public class InputController : MonoBehaviour
     #region Referencias
     private JumpComponent _playerJump;
     private ThrowComponent _throwComp;
+    /*
     private PlayerManager _playerManager;
     private UIManager _UIManager;
     private CollisionManager _collisionManager;
@@ -41,6 +42,7 @@ public class InputController : MonoBehaviour
     private Rigidbody2D _playerRigidBody;
     private GameManager.GameStates state;
     private InputControllerDialogue _inputControllerDialogue;
+    */
     #endregion
 
     #region Properties 
@@ -86,7 +88,7 @@ public class InputController : MonoBehaviour
     #endregion
 
     #region Parameters
-    private bool _canLetGoArm = true;
+    //private bool _canLetGoArm = true;
 
     // max cooldown time
     [SerializeField]
@@ -128,7 +130,7 @@ public class InputController : MonoBehaviour
 
         if (_elapsedTime >= _cooldown)
         {
-            _canLetGoArm = true;
+            //_canLetGoArm = true;
             _elapsedTime = 0;
         }
     }
@@ -203,17 +205,14 @@ public class InputController : MonoBehaviour
         }
         #endregion
 
-        // LANZAR
-        if (Input.GetKeyUp(KeyCode.Q))
+        #region LANZAR / CHUTAR
+        if (Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.C))
         {
-            _throwComp.LanzarBrazo();
+            _throwComp.ChutarBola();
         }
+        #endregion
 
         #region SOLTAR OBJETOS
-        if (Input.GetKeyDown(KeyCode.J))
-        {
-            _throwComp.LanzarBola();
-        }
         if (Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.X)) // Si es Shift + X
         {
             _throwComp.LanzarBola(); // Si es una bola en el ribcage, la lanza
@@ -275,18 +274,19 @@ public class InputController : MonoBehaviour
         }
         #endregion
     }
-
     #endregion
 
     void Start()
     {
-        _playerJump = GetComponentInChildren<JumpComponent>();
         _throwComp = GetComponent<ThrowComponent>();
+        /*
+        _playerJump = GetComponent<JumpComponent>();
         _playerManager = GetComponent<PlayerManager>();
         _collisionManager = GetComponent<CollisionManager>();
         _playerRigidBody = GetComponent<Rigidbody2D>(); // rigidbody del player
         _dialogueManager = GetComponent<DialogueManager>();
         _inputControllerDialogue = GetComponent<InputControllerDialogue>();
+        */
     }
 
     void Update()
@@ -312,7 +312,7 @@ public class InputController : MonoBehaviour
             PlayerAccess.Instance.Animator.enabled = false;
         }
 
-        CoolDown();
+        // CoolDown(); temporalmente disabled mientras arreglo el input
     }
 }
 
