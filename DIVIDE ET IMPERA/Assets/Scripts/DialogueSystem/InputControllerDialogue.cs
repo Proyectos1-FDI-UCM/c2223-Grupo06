@@ -22,12 +22,7 @@ public class InputControllerDialogue : MonoBehaviour
     {
         if (_enConversacion && (Input.GetKey(KeyCode.Z) || Input.GetKey(KeyCode.UpArrow))) // UpArrow o Z para avanzar en el diálogo
         {
-            // _dialogueManager.FinDialogo(); // debug para probar el input
-            // _inputController.enabled = true;
-            // enabled = false;
-            // _enConversacion = false;
             Debug.Log("que se bajen que me lo llevo");
-            // _dialogueManager.SiguienteFrase();
 
             if (_dialogueManager._dialogueText.text == _dialogueManager._lines[_dialogueManager._index]) // siguiente linea
             {
@@ -37,6 +32,10 @@ public class InputControllerDialogue : MonoBehaviour
             {
                 StopAllCoroutines();
                 _dialogueManager._dialogueText.text = _dialogueManager._lines[_dialogueManager._index];
+
+                _inputController.enabled = true;
+                enabled = false;
+                _enConversacion = false;
             }
         }
     }

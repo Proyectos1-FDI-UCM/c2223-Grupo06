@@ -10483,7 +10483,7 @@ MonoBehaviour:
   _lines:
   - hola
   - pipo
-  _speedText: 0.1
+  _speedText: 1
   _index: 0
   WaypointDialogo: {fileID: 1612102421}
   _speed: 3

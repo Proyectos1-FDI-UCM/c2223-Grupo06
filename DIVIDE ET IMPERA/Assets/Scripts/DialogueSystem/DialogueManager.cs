@@ -101,16 +101,19 @@ public class DialogueManager : MonoBehaviour
     public void StartDialogue() // cuando se llame se activa la corrutina
     {
         _index = 0;
+        StopAllCoroutines();
         StartCoroutine(WriteLine());
     }
 
     // ANIMACIÓN DE CARACTERES
     IEnumerator WriteLine() // corrutina para que se vayan excribiendo las lineas
     {
+        _dialogueText.text = "";
         foreach (char _letter in _lines[_index].ToCharArray()) // index aumenta segun se pasa de linea
         {
             _dialogueText.text += _letter;
-            yield return new WaitForSeconds(_speedText); // proporciona el siguiente valor en la iteración
+            yield return null;
+            // yield return new WaitForSeconds(_speedText); // proporciona el siguiente valor en la iteración
         }
     }
 
@@ -135,7 +138,6 @@ public class DialogueManager : MonoBehaviour
     #region mover timoteo
     void MoveTimoteo()  // Hace que Timoteo se mueva hacia el waypoint correspondiente con la velocidad marcada
     {
-        // Debug.Log("Muevete");
         _inputController.enabled = false;
         _inputControllerDialogue.enabled = true;
         _playerTransform.position = Vector3.MoveTowards(_playerTransform.position,  // posición inicial 
