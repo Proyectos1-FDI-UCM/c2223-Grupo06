@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public enum GameStates { START, GAME, PAUSE, GAMEOVER, SCORE, LEVELSELECTOR };    // Estados del juego (faltan)
+    public enum GameStates { START, GAME, PAUSE, GAMEOVER, SCORE, LEVELSELECTOR, CONTROLES };    // Estados del juego (faltan)
 
     #region references
     private UIManager _UIManager;
@@ -42,6 +42,7 @@ public class GameManager : MonoBehaviour
     {
         switch (newState) // Diferentes comportamientos según estado al que se entra
         { // En sí, solo cambia el grupo de UI por cada estado y en GAME carga el nivel
+
             case GameStates.START:                       //     *MENÚ INICIAL*
                 _UIManager.SetMenu(GameStates.START);    // Activa menú inicial
                 break;
@@ -49,12 +50,16 @@ public class GameManager : MonoBehaviour
                 _UIManager.SetMenu(GameStates.GAME);     // Activa HUD
                 if (_UIManager != null) _UIManager.SetPartes(PlayerManager.State, PlayerManager.Instance.Parte); // Inicializa valores del HUD
                 break;
-            case GameStates.PAUSE:
-                _UIManager.SetMenu(GameStates.PAUSE);
+            case GameStates.PAUSE:                       //     *PAUSA*
+                _UIManager.SetMenu(GameStates.PAUSE);    // Activa menú pausa
                 break;
             case GameStates.GAMEOVER:                    //     *FIN DEL JUEGO*
                 _UIManager.SetMenu(GameStates.GAMEOVER); // Activa el texto de GameOver
                 break;
+            case GameStates.CONTROLES:                   //     *CONTROLES*
+                _UIManager.SetMenu(GameStates.CONTROLES);// Activa menú controles
+                break;
+
         }
         _currentGameState = newState;                        // Finaliza el cambio
         Debug.Log("CURRENT: " + _currentGameState);
