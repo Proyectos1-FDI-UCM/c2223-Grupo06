@@ -203,23 +203,19 @@ public class InputController : MonoBehaviour
                     _changeToPataforma = true;
                     //_playerRigidBody.bodyType = RigidbodyType2D.Kinematic;
 
-                    this.enabled = false;
+                    enabled = false;
                 }
             }
-            else if (Input.GetKey(KeyCode.Alpha4)) // WIP
-            {
-
-            }
-        }
-        else
-        {
-            _interactuar = false;
         }
         #endregion
 
         if (Input.GetKeyUp(KeyCode.UpArrow))
         {
             _interactuar = true;
+        }
+        else if (_interactuar) 
+        {
+            _interactuar = false;
         }
 
         #region SOLTAR Y RECOGER PARTES
