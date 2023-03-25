@@ -11,6 +11,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject _scoreMenu;
     [SerializeField] private GameObject _levelSelector;
     [SerializeField] private GameObject _player;
+    [SerializeField] private GameObject _ControlesMenu;
 
     // imagenes dentro del ui
     [SerializeField] private Image[] _images;
