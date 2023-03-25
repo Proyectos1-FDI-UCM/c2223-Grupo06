@@ -30,34 +30,29 @@ public class DialogueManager : MonoBehaviour
     #endregion
 
     #region Properties
-    // en conversación 
-    [SerializeField]
-    public bool _enConversacion = false;
-    public bool Conversacion { get { return _enConversacion; } }
+        
     #endregion
 
     #region Methods
     #region flujo de diálogo
     private void OnTriggerEnter2D(Collider2D collision) 
     {
-        if (collision.gameObject == _player)                  //filtro para que solo el jugador pueda interactuar con cosas
+        if (collision.gameObject == _player)            //filtro para que solo el jugador pueda interactuar con cosas
         {
             _interactText.text = "\u2191 para hablar";  // mostrar texto de interacción
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject == _player)                  //filtro para que solo el jugador pueda interactuar con cosas
+        if (collision.gameObject == _player)            // filtro para que solo el jugador pueda interactuar con cosas
         {
-            _interactText.text = "";                          // quitar texto de interacción
+            _interactText.text = "";                    // quitar texto de interacción
         }
     }
 
     private void Activar()
     {
         Debug.Log("ACTIMEL");
-        _enConversacion = true;
-        _inputController._enConversacion = true;
         _inputControllerDialogue._enConversacion = true;
         MoveTimoteo();
         if (_inputControllerDialogue.enabled) { Debug.Log("porfi porfi"); }
@@ -93,11 +88,9 @@ public class DialogueManager : MonoBehaviour
     public void FinDialogo()
     {
         Debug.Log("ACABOSE");
-        _enConversacion = false;
-        _inputController._enConversacion = false;
-        _inputControllerDialogue._enConversacion = false;
-        _inputController.enabled = true;
-        _inputControllerDialogue.enabled = false;
+        // _inputControllerDialogue._enConversacion = false;
+        // _inputController.enabled = true;
+        // _inputControllerDialogue.enabled = false;
     }
 
     // ANIMACIÓN DE CARACTERES
