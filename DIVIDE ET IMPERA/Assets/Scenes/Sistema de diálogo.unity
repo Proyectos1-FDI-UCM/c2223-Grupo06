@@ -9011,9 +9011,12 @@ MonoBehaviour:
   _player: {fileID: 298932137}
   _dialogueText: {fileID: 2114215469}
   _interactText: {fileID: 1219911820}
+  _lines:
+  - holaaaaaaaaaa
+  - ddddddddddd
+  _speedText: 0.1
   WaypointDialogo: {fileID: 1612102421}
   _speed: 3
-  _enConversacion: 0
 --- !u!61 &705580375
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -9065,9 +9068,10 @@ MonoBehaviour:
   _player: {fileID: 298932137}
   _dialogueText: {fileID: 1543427021}
   _interactText: {fileID: 664757811}
+  _lines: []
+  _speedText: 0.1
   WaypointDialogo: {fileID: 1612102421}
   _speed: 3
-  _enConversacion: 0
 --- !u!114 &759306764
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9597,7 +9601,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -125.8, y: -23.8}
-  m_SizeDelta: {x: 160.13, y: 45.57}
+  m_SizeDelta: {x: 160, y: 45}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1543427021
 MonoBehaviour:
@@ -9867,7 +9871,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 103.2, y: -23.8}
-  m_SizeDelta: {x: 160.13, y: 45.57}
+  m_SizeDelta: {x: 160, y: 45}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2114215469
 MonoBehaviour:
@@ -9952,7 +9956,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: -10.808533, z: 0, w: -9.9078245}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
