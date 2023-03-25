@@ -20,7 +20,7 @@ public class InputControllerDialogue : MonoBehaviour
     #region Methods
     private void DialogueInput()
     {
-        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.E)) // Space o E para avanzar en el diálogo
+        if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.Z)) // UpArrow o Z para avanzar en el diálogo
         {
             // _dialogueManager.SiguienteFrase();
             _dialogueManager.FinDialogo(); // debug para probar el input nuevo
@@ -37,6 +37,8 @@ public class InputControllerDialogue : MonoBehaviour
 
     private void Update()
     {
+        if (_enConversacion) { Debug.Log("porfi porfi");  enabled = true; }
         DialogueInput();
+
     }
 }

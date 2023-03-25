@@ -55,9 +55,10 @@ public class DialogueManager : MonoBehaviour
 
     private void Activar()
     {
-        Debug.Log("ACTIMEL");
+        // Debug.Log("ACTIMEL");
         _enConversacion = true;
         _inputController._enConversacion = true;
+        _inputControllerDialogue._enConversacion = true;
         MoveTimoteo();
     }
 
@@ -91,10 +92,11 @@ public class DialogueManager : MonoBehaviour
     public void FinDialogo()
     {
         Debug.Log("Conversación finiquitada");
-        _inputController.enabled = true;
-        _inputControllerDialogue.enabled = false;
+       // _inputController.enabled = true;
+       // _inputControllerDialogue.enabled = false;
         _enConversacion = false;
         _inputController._enConversacion = false;
+        _inputControllerDialogue._enConversacion = false;
     }
 
     // ANIMACIÓN DE CARACTERES
@@ -110,12 +112,11 @@ public class DialogueManager : MonoBehaviour
     #endregion
 
     #region mover timoteo
-    void MoveTimoteo()
+    void MoveTimoteo()  // Hace que Timoteo se mueva hacia el waypoint correspondiente con la velocidad marcada
     {
-        Debug.Log("Muevete");
-        _inputController.enabled = false;
-        _inputControllerDialogue.enabled = true;
-        // Hace que Timoteo se mueva hacia el waypoint correspondiente con la velocidad marcada
+        // Debug.Log("Muevete");
+        // _inputController.enabled = false;
+        // _inputControllerDialogue.enabled = true;
         _playerTransform.position = Vector3.MoveTowards(_playerTransform.position,  // posición inicial 
             WaypointDialogo.transform.position, _speed * Time.deltaTime);           // posición final
     }

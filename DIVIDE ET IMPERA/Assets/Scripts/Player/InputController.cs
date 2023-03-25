@@ -346,6 +346,7 @@ public class InputController : MonoBehaviour
             PlayerAccess.Instance.Animator.enabled = false;
         }
 
+        if (_enConversacion) { Debug.Log("porfi"); enabled = false; }
         // CoolDown(); temporalmente disabled mientras arreglo el input
     }
 }
