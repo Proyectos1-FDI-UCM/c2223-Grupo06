@@ -175,7 +175,7 @@ public class InputController : MonoBehaviour
         }
         else
         // PIERNAS 
-        if (Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.D))
+        if (Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.D) && GetComponentInChildren<GroundCheck>().IsGrounded)
         { // Shift + D para intercambiar control a las piernas
             if (!_changeToPataforma && !PlayerManager.Instance.Piernas)
             {
