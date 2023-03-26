@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8010593627775849570}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Room Transition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -45,7 +45,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7165190080166128298}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: LeftCamPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -76,7 +76,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6532825449299246445}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: RightRoomSpawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -107,7 +107,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4210868142141695989}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: RightCamPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -140,7 +140,7 @@ GameObject:
   - component: {fileID: 6678307061540580807}
   - component: {fileID: 5043058053513214064}
   - component: {fileID: 6548299317302668366}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Trigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -214,7 +214,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6312717013300665529}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: LeftRoomSpawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
