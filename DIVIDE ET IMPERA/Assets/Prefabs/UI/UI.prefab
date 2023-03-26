@@ -66,7 +66,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: REINTENTAR
+  m_text: INICIO
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: bc01b41dffbfe9d46b351eedf3bfe2c8, type: 2}
   m_sharedMaterial: {fileID: -8010231893245217901, guid: bc01b41dffbfe9d46b351eedf3bfe2c8, type: 2}
@@ -357,8 +357,8 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1167543928915149912}
-  - {fileID: 8791137128996521294}
   - {fileID: 787666168796146076}
+  - {fileID: 8791137128996521294}
   - {fileID: 6979613358152629163}
   - {fileID: 6214835828890009092}
   - {fileID: 4618764989934378726}
@@ -6291,11 +6291,11 @@ RectTransform:
   m_Children:
   - {fileID: 4067022954806898157}
   m_Father: {fileID: 1938935141328946111}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 48}
+  m_AnchoredPosition: {x: 0, y: 145}
   m_SizeDelta: {x: 300, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1220654306629117485
@@ -6405,7 +6405,7 @@ GameObject:
   - component: {fileID: 5714791933884176366}
   - component: {fileID: 1350007813893274878}
   m_Layer: 5
-  m_Name: Restart
+  m_Name: Inicio
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6425,11 +6425,11 @@ RectTransform:
   m_Children:
   - {fileID: 6049371102748513211}
   m_Father: {fileID: 1938935141328946111}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.000011802, y: 145}
+  m_AnchoredPosition: {x: 0.000011802, y: 48}
   m_SizeDelta: {x: 300, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7328733919783908318
