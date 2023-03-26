@@ -28,7 +28,7 @@ public class CameraMovement : MonoBehaviour
     #endregion
     void Awake()
     {
-        _instance= this;
+        _instance = this;
     }
 
     // Start is called before the first frame update
@@ -43,8 +43,8 @@ public class CameraMovement : MonoBehaviour
     {
         if (_followTransform != null)
         {
-        _futureCamPos = _followTransform.position + new Vector3(0, _verticalOffset, _cameraTransform.position.z); //calculo de la posicion futura de la camara
-        _cameraTransform.position = Vector3.Lerp(_cameraTransform.position, _futureCamPos, _followSpeed * Time.deltaTime); //Lerp entre la posicion de la camara actual y la futura
+            _futureCamPos = _followTransform.position + new Vector3(0, _verticalOffset, _cameraTransform.position.z); //calculo de la posicion futura de la camara
+            _cameraTransform.position = Vector3.Lerp(_cameraTransform.position, _futureCamPos, _followSpeed * Time.deltaTime); //Lerp entre la posicion de la camara actual y la futura
         }
     }
 }

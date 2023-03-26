@@ -20,7 +20,7 @@ public class PlayerAnimationController : MonoBehaviour
 
     void Update()
     {
-        if (PlayerManager.Instance.Parte == PlayerManager.Partes.PIERNAS) 
+        if (PlayerManager.Instance.Parte == PlayerManager.Partes.PIERNAS)
         {
             _myAnimator.Rebind();
         }

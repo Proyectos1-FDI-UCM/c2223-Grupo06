@@ -1,4 +1,3 @@
-using System.Xml.Serialization;
 using UnityEngine;
 
 public class RoomTransition : MonoBehaviour
@@ -14,14 +13,14 @@ public class RoomTransition : MonoBehaviour
     private Transform _leftRoomCameraPosition; //Posicion a la que queremos que la camara se mueva durante la transicion hacia la izquierda
     [SerializeField]
     private Transform _leftRoomSpawn; //Lugar al que el jugador se movera tras la transicion hacia la izquierda (ademas servira para spawnearle ahi si quiere resetear la sala)
-                                  //IMPORTANTE: ponerlo cerquita de la caja de transicion para que la transicion no sea horrible pero
-                                  //tampoco mucho para que no entre instantaneamente en la transicion de vuelta
+                                      //IMPORTANTE: ponerlo cerquita de la caja de transicion para que la transicion no sea horrible pero
+                                      //tampoco mucho para que no entre instantaneamente en la transicion de vuelta
     [SerializeField]
     private Transform _rightRoomCameraPosition; //Posicion a la que queremos que la camara se mueva durante la transicion hacia la derecha
     [SerializeField]
     private Transform _rightRoomSpawn; //Lugar al que el jugador se movera tras la transicion hacia la derecha (ademas servira para spawnearle ahi si quiere resetear la sala)
-                                  //IMPORTANTE: ponerlo cerquita de la caja de transicion para que la transicion no sea horrible pero
-                                  //tampoco mucho para que no entre instantaneamente en la transicion de vuelta
+                                       //IMPORTANTE: ponerlo cerquita de la caja de transicion para que la transicion no sea horrible pero
+                                       //tampoco mucho para que no entre instantaneamente en la transicion de vuelta
     #endregion
     #region Parameters
     [SerializeField]
@@ -37,7 +36,7 @@ public class RoomTransition : MonoBehaviour
     #region Methods
     private void OnTriggerEnter2D(Collider2D collision) //Cuando entras en la transicion
     {
-        if (_playerTransform.position.x < _transitionTransform.position.x) 
+        if (_playerTransform.position.x < _transitionTransform.position.x)
         {
             _roomSpawn = _rightRoomSpawn; //Si el jugador esta a la izquierda setear para la transicion a la sala derecha
             _roomCameraPosition = _rightRoomCameraPosition;
@@ -53,8 +52,8 @@ public class RoomTransition : MonoBehaviour
         CameraMovement.Instance.enabled = false; //desactivar movimiento de la camara de seguir al jugador
 
         _playerTransform.position = _roomSpawn.position; //mover al jugador, desactivar el movimiento y la animacion para evitar que entre en otra transicion
-        PlayerAccess.Instance.MovementComponent.enabled= false;
-        PlayerAccess.Instance.Animator.enabled= false;
+        PlayerAccess.Instance.MovementComponent.enabled = false;
+        PlayerAccess.Instance.Animator.enabled = false;
 
         _futureCamPos = new Vector3(_roomCameraPosition.position.x, _roomCameraPosition.position.y, _cameraTransform.position.z); //calculo posicion futura de la camara
 
@@ -69,7 +68,7 @@ public class RoomTransition : MonoBehaviour
     private void OnTRansition()
     {
         if (_cameraTransform.position.x < _futureCamPos.x - 0.1
-            || _cameraTransform.position.x > _futureCamPos.x + 0.1 || 
+            || _cameraTransform.position.x > _futureCamPos.x + 0.1 ||
             _cameraTransform.position.y < _futureCamPos.y - 0.1 || _cameraTransform.position.y > _futureCamPos.y + 0.1) //Mientras la camara no este en la posicion futura (con un intervalo porque con == no funciona)
         {
             _cameraTransform.position = Vector3.Lerp(_cameraTransform.position, _futureCamPos, _transitionSpeed * Time.deltaTime); //Se mueve la camara

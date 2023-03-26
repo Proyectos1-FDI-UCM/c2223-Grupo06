@@ -97,7 +97,7 @@ public class CollisionManager : MonoBehaviour
             else if (collision.gameObject.layer == 10)
             {
                 _objetoColisionado = null;
-            } 
+            }
             else
             {
                 _hitboxColisionada = null;

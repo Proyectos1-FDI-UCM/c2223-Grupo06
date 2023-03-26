@@ -1,5 +1,4 @@
 using UnityEngine;
-using static PlayerManager;
 
 public class PalancaAnimator : MonoBehaviour
 {
@@ -47,8 +46,8 @@ public class PalancaAnimator : MonoBehaviour
         }
 
         // Lógica de sprites
-        if (_brazo && _activada) 
-        { 
+        if (_brazo && _activada)
+        {
             _mySpriteRenderer.sprite = _sprites[3];
         }
         else if (_brazo && !_activada)

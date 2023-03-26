@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class LevelManager : MonoBehaviour
@@ -72,7 +69,7 @@ public class LevelManager : MonoBehaviour
     #endregion
     private void Awake()
     {
-        _instance= this;
+        _instance = this;
     }
     // Start is called before the first frame update
     void Start()
@@ -80,5 +77,5 @@ public class LevelManager : MonoBehaviour
         _currentLevelNum = 0;
         _roomSpawn = _originalSpawn;
         UpdateCurrentLevel();
-    }
+	}
 }

@@ -60,7 +60,7 @@ public class UIManager : MonoBehaviour
 
     public void StartToGame()
     {
-        ResetLevel();
+        if (LevelManager.Instance != null) ResetLevel();
         SetMenu(GameManager.GameStates.GAME);
 
         // activa el input
@@ -233,7 +233,7 @@ public class UIManager : MonoBehaviour
     // BUCLE
     void Awake()
     {
-        _instance= this;
+        _instance = this;
     }
 
     void Start()
@@ -244,8 +244,8 @@ public class UIManager : MonoBehaviour
         _menus[2] = _PauseMenu;
         _menus[3] = _GameOverMenu;
         _menus[4] = _scoreMenu;
-        _menus[5] = _levelSelector; 
-        _menus[6] = _ControlesMenu; 
+        _menus[5] = _levelSelector;
+        _menus[6] = _ControlesMenu;
         // habrá que poner más segun añadamos menuses
         _activeMenu = GameManager.Instance.CurrentState; // asocia el menú actual con el estado actual
 

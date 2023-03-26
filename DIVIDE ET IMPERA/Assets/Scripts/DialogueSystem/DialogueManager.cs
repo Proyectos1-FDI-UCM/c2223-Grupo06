@@ -1,6 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
-using System.IO;
 using TMPro;
 using UnityEngine;
 
@@ -33,7 +31,7 @@ public class DialogueManager : MonoBehaviour
     #region Methods
     #region flujo de diálogo
     // TEXTO DE INTERACCION
-    private void OnTriggerEnter2D(Collider2D collision) 
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject == _player)            //filtro para que solo el jugador pueda interactuar con cosas
         {
