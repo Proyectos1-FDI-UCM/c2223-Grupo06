@@ -303,7 +303,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'C   Lanzar brazo
+  m_text: 'C   Lanzar brazo a la palanca
 
 
     Shift + A   Interactuar brazo 1 (remoto)
