@@ -16,6 +16,8 @@ __DIVIDE ET IMPERA__ es un juego de puzles y plataformas desarrollado por Turbot
 
 Timoteo es capaz de separar las partes de su cuerpo para proporcionar funcionalidades a los objetos del entorno y así avanzar a través de los diferentes puzles de la cripta y escapar, enfrentándose a su padre.
 
+"Timoteo II “El Grande”, antiguo monarca (1811 - 1850 ✞), descansa en su sagrada cripta familiar. Harto de esa vida relegado al olvido decide salir. No será tarea fácil para nuestro monárquico esqueleto, al fin y al cabo, nadie ha conseguido escapar de allí nunca, ni siquiera el tío Bob (que en paz descanse)".
+
 ## Estado
 
 *Hito 2:* Producción.
