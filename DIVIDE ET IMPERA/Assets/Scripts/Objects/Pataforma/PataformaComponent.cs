@@ -78,7 +78,7 @@ public class PataformaComponent : MonoBehaviour
     private bool ConectarPiernas()
     {
         bool aux;
-        if (_inputController.ConectarParte && _validPataformaHitbox
+        if (_inputController.ConectarPiernas && _validPataformaHitbox
             && (PlayerManager.Instance.Piernas))
         {
             aux = true;
@@ -93,7 +93,7 @@ public class PataformaComponent : MonoBehaviour
     private bool DesconectarPiernas()
     {
         bool aux;
-        if (_inputController.RecuperarParte && _validPataformaHitbox
+        if (_inputController.RecuperarPiernas && _validPataformaHitbox
             && !PlayerManager.Instance.Piernas
             && _piernasConectadas)
         {
@@ -105,6 +105,7 @@ public class PataformaComponent : MonoBehaviour
         }
         return aux;
     }
+
 
     #endregion
 

@@ -91,7 +91,7 @@ public class PalancaComponent : MonoBehaviour
 
         //-------CONECTAR BRAZO-------------------
         // se pulsa R y se esta cerca de la palanca
-        if (_inputController.ConectarParte && _validPalancaHitbox
+        if (_inputController.ConectarBrazo && _validPalancaHitbox
             && (PlayerManager.Instance.Brazos > 0))
         {
             // conecta el brazo
@@ -102,7 +102,7 @@ public class PalancaComponent : MonoBehaviour
             //_mySpriteRenderer.color = Color.blue;
         }
         // se pulsa T, está cerca de la palanca, está en los estados correctos y hay un brazo conectado
-        else if (_inputController.RecuperarParte && _validPalancaHitbox
+        else if (_inputController.RecuperarBrazo && _validPalancaHitbox
             && (PlayerManager.Instance.Brazos < 2)
             && _brazoConectado)
         {

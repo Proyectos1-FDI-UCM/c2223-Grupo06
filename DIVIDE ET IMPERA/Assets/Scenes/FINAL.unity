@@ -539,7 +539,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2076869504003675100, guid: 59f3bbb5802b17140a954d4cbd3ee516, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2076869504062052007, guid: 59f3bbb5802b17140a954d4cbd3ee516, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -1681,7 +1681,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5943162679483822508, guid: 767e3f423c90f78409c3048c7e7f2088, type: 3}
       propertyPath: _recuperarParte
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6105081747762426277, guid: 767e3f423c90f78409c3048c7e7f2088, type: 3}
       propertyPath: _boneStateBar
