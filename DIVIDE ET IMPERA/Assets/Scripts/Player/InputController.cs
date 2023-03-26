@@ -67,7 +67,7 @@ public class InputController : MonoBehaviour
     //-------------RECUPERAR PARTES----------------------------
     // Indica si el jugador ha dejado una parte en un objeto
     [SerializeField]
-    private bool _recuperarParte = true;
+    private bool _recuperarParte = false;
     // acceso público a _recuperarParte
     public bool RecuperarParte { get { return _recuperarParte; } }
 
