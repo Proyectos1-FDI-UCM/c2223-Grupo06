@@ -57,19 +57,39 @@ public class InputController : MonoBehaviour
     // acceso público a _interactuar
     public bool Interactuar { get { return _interactuar; } }
 
+
+    #region Piernas
     //-------------SOLTAR PARTES----------------------------
     // Indica si el jugador ha dejado una parte en un objeto
     [SerializeField]
-    private bool _conectarParte = false;
+    private bool _conectarPiernas = false;
     // acceso público a _conectarParte
-    public bool ConectarParte { get { return _conectarParte; } }
+    public bool ConectarPiernas { get { return _conectarPiernas; } }
 
     //-------------RECUPERAR PARTES----------------------------
     // Indica si el jugador ha dejado una parte en un objeto
     [SerializeField]
-    private bool _recuperarParte = true;
+    private bool _recuperarPiernas = false;
     // acceso público a _recuperarParte
-    public bool RecuperarParte { get { return _recuperarParte; } }
+    public bool RecuperarPiernas { get { return _recuperarPiernas; } }
+    #endregion
+
+    #region Brazos
+    //-------------SOLTAR PARTES----------------------------
+    // Indica si el jugador ha dejado una parte en un objeto
+    [SerializeField]
+    private bool _conectarBrazo = false;
+    // acceso público a _conectarParte
+    public bool ConectarBrazo { get { return _conectarBrazo; } }
+
+    //-------------RECUPERAR PARTES----------------------------
+    // Indica si el jugador ha dejado una parte en un objeto
+    [SerializeField]
+    private bool _recuperarBrazo = false;
+    // acceso público a _recuperarParte
+    public bool RecuperarBrazo { get { return _recuperarBrazo; } }
+    #endregion
+
 
     //------------CAMBIAR INPUT----------------------------
     // indica si el jugador quiere cambiar el input a la Pataforma
@@ -167,16 +187,16 @@ public class InputController : MonoBehaviour
         { // D para recoger y soltar piernas
             if (!_collisionManager.DestruirPierna())
             { // si no recoge una pierna del suelo
-                if (GetComponentInParent<PataformaComponent>() != null && !_conectarParte && !GetComponentInParent<PataformaComponent>().PiernasConectadas)
+                if (GetComponentInParent<PataformaComponent>() != null && !_conectarPiernas && !GetComponentInParent<PataformaComponent>().PiernasConectadas)
                 { // si está en una pataforma sin piernas, se las pone
-                    _conectarParte = true;
-                    _recuperarParte = false;
+                    _conectarPiernas = true;
+                    _recuperarPiernas = false;
                     //Debug.Log("conecta");
                 }
-                else if (GetComponentInParent<PataformaComponent>() != null && !_recuperarParte && GetComponentInParent<PataformaComponent>().PiernasConectadas)
+                else if (GetComponentInParent<PataformaComponent>() != null && !_recuperarPiernas && GetComponentInParent<PataformaComponent>().PiernasConectadas)
                 { // si está en una pataforma con piernas, las recoge
-                    _recuperarParte = true;
-                    _conectarParte = false;
+                    _recuperarPiernas = true;
+                    _conectarPiernas = false;
                     //Debug.Log("recupera");
                 }
                 else PlayerManager.Instance.SoltarPiernas(); // si no, las suelta
