@@ -37,12 +37,13 @@ public class LevelManager : MonoBehaviour
 
     public void ResetCurrentLevel()
     {
-        ResetPlayer(); //devuelve al jugador a las condiciones originales
 
         Vector3 lvlTransform = _levels[_currentLevelNum].transform.position; //almacena posicion de la sala en la escena
         Destroy(_levels[_currentLevelNum]); //destruye sala
         _levels[_currentLevelNum] = Instantiate(_levelsPrefabs[_currentLevelNum]); //instancia la sala desde su prefab
         _levels[_currentLevelNum].transform.position = lvlTransform; //mueve la sala a la posicion de la sala antes de resetearse
+
+        ResetPlayer(); //devuelve al jugador a las condiciones originales
 
         UpdateCurrentLevel(); //actualiza nivel
     }
