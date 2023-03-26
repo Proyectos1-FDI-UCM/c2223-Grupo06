@@ -66,6 +66,7 @@ public class PlayerManager : MonoBehaviour
 
     #region Parameters
     private int _brazos;     // cuantos brazos tiene (NUNCA menor que 0 o mayor que 2)
+    [SerializeField]
     private bool _piernas;   // si las tiene o si no
     private bool _alubiat;   // si tiene sus piernas o no
 

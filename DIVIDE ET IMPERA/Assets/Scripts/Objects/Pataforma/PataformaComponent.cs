@@ -115,7 +115,7 @@ public class PataformaComponent : MonoBehaviour
         // se pulsa R y se esta cerca de la pataforma
         if (ConectarPiernas())
         {
-            // conecta el brazo
+            // conecta las piernas en la pataforma
             _piernasConectadas = true;
 
             if (PlayerManager.Instance.Piernas)
@@ -126,10 +126,12 @@ public class PataformaComponent : MonoBehaviour
         // se pulsa T, está cerca de la pataforma, está en los estados correctos y hay patas conectadas
         else if (DesconectarPiernas())
         {
-            // desconecta el brazo
+            // desconecta las piernas en la pataforma
             _piernasConectadas = false;
 
             PlayerManager.Instance.Piernas = true;
+
+            
         }
     }
     private void Visual()
@@ -185,8 +187,6 @@ public class PataformaComponent : MonoBehaviour
             // activa el input del player
             _inputController.enabled = true;
 
-            _mySpriteRenderer.color = Color.cyan;
-
             // cambio de control de parte (es para el HUD)
             PlayerManager.Instance.SwitchPartControl(PlayerManager.Partes.CABEZA);
 
@@ -216,7 +216,6 @@ public class PataformaComponent : MonoBehaviour
 
         // desactiva el input del player
         _inputController._changeToPataforma = false;
-        _mySpriteRenderer.color = Color.blue;
 
         // cambio de control de parte (es para el HUD)
         PlayerManager.Instance.SwitchPartControl(PlayerManager.Partes.PIERNAS);

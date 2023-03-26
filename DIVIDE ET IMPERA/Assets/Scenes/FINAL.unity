@@ -1671,6 +1671,10 @@ PrefabInstance:
       propertyPath: _conectarParte
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5943162679483822508, guid: 767e3f423c90f78409c3048c7e7f2088, type: 3}
+      propertyPath: _recuperarParte
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6105081747762426277, guid: 767e3f423c90f78409c3048c7e7f2088, type: 3}
       propertyPath: _boneStateBar
       value: 
