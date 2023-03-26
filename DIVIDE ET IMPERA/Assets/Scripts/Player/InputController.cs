@@ -3,7 +3,7 @@
 public class InputController : MonoBehaviour
 {
     #region CONTROLES (NUEVO INTENTO YA IMPLEMENTADO)
-    /* *ESTILO 2: más metroidvania de verdad*
+    /* *ESTILO: metroidvania oriented*
     (mano der)
     ← y →:     Movimiento lateral
     ↑:         Interactuar con palanca enfrente** + Diálogo

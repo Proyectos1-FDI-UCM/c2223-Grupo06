@@ -385,8 +385,8 @@ public class PlayerManager : MonoBehaviour
         {
             var posicion = _myTransform.position;
             //if (Objeto == Objetos.BOLA) posicion += _myTransform.right * _myTransform.localScale.x;
-            Instantiate(_objetosPrefabs[(int)_objeto], posicion, _myTransform.rotation, LevelManager.Instance.CurrentLevel.transform); //Se pone el nivel como padre para que en el reseteo los
-                                                                                                                             //objetos recogidos y soltados se eliminen tambien 
+            if (LevelManager.Instance != null) Instantiate(_objetosPrefabs[(int)_objeto], posicion, _myTransform.rotation, LevelManager.Instance.CurrentLevel.transform); //Se pone el nivel como padre para que en el reseteo los
+            else Instantiate(_objetosPrefabs[(int)_objeto], posicion, _myTransform.rotation);                                                                                                                   //objetos recogidos y soltados se eliminen tambien 
             EliminarObjeto();
         }
     }
