@@ -16,8 +16,8 @@ public class FallDamage : MonoBehaviour
     private float _previousSpeed; // velocidad antes de llegar al suelo
     #endregion
     #region properties
-    bool _onGround; // para saber si está en el suelo
-    SpringComponent spring;
+    private bool _onGround; // para saber si está en el suelo
+    private SpringComponent _spring;
     #endregion
 
     void Start()
@@ -41,10 +41,9 @@ public class FallDamage : MonoBehaviour
             Collider2D[] colliders = Physics2D.OverlapBoxAll(collider.bounds.center, collider.bounds.size, 0);
             foreach (Collider2D otherCollider in colliders)
             {
-                spring = otherCollider.GetComponentInChildren<SpringComponent>();
+                _spring = otherCollider.GetComponent<SpringComponent>();
             }
-
-            if (_previousSpeed < _allowedSpeed && spring == null) // si se supera la velocidad permitida y no has chocado con un muelle -> aplicas daño
+            if (_previousSpeed < _allowedSpeed && _spring == null) // si se supera la velocidad permitida y no has chocado con un muelle -> aplicas daño
             {
                 _boneStateBar.BoneDamage(_damage: 20f);
                 _previousSpeed = 0; // si se llega al suelo la velocidad vuelve a 0

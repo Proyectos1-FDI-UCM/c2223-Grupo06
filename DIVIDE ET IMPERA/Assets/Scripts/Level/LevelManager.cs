@@ -75,7 +75,7 @@ public class LevelManager : MonoBehaviour
     void Start()
     {
         _currentLevelNum = 0;
-        _roomSpawn = _originalSpawn;
         UpdateCurrentLevel();
+        _roomSpawn = _originalSpawn;
 	}
 }
