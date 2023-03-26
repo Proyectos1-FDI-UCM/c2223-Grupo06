@@ -60,6 +60,8 @@ public class LevelManager : MonoBehaviour
         PlayerManager.Instance.RequestTimmyState(PlayerManager.TimmyStates.S0); //devuelve al player al estado original
         PlayerManager.Instance.EliminarObjeto(); //elimina objetos
         PlayerAccess.Instance.BoneBar.ResetBar(); //elimina daño de caida acumulado
+
+        PlayerAccess.Instance.InputController.ResetThisShit();
     }
 
     private void UpdateCurrentLevel() //actualiza spawn y nivel al del indice

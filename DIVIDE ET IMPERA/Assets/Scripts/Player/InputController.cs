@@ -271,6 +271,13 @@ public class InputController : MonoBehaviour
         }
         #endregion
     }
+
+    public void ResetThisShit()
+    {
+        _interactuar = false;
+        _conectarBrazo= false;
+        _conectarPiernas=false;
+    }
     #endregion
 
     void Start()
