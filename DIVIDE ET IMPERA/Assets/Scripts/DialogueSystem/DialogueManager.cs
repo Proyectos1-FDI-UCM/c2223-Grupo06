@@ -12,20 +12,19 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private GameObject _player;
 
     // dialogo
-    [SerializeField] public TMP_Text _dialogueText; // Texto de dialogo
+    [SerializeField] private TMP_Text _dialogueText;  // Texto de dialogo
     [SerializeField] private TMP_Text _interactText; // Texto de feedback para interaccion
-    private Interaction _interaction;
     #endregion
 
     #region Parameters
     // flujo
-    public string[] _lines; // lineas del guion
+    public string[] _lines;                    // lineas del guion
     [SerializeField] private float _speedText; // velocidad de texto
-    public int _index; // para saber en que linea estamos
+    int _index;                                // para saber en que linea estamos
 
     // mover a timoteo
     [SerializeField] private GameObject WaypointDialogo; // punto al que se mueve timoteo al inicio del dialogo
-    [SerializeField] private float _speed; // velocidad a la que se mueve timoteo al waypoint de dialogo
+    [SerializeField] private float _speed;               // velocidad a la que se mueve timoteo al waypoint de dialogo
     #endregion
 
     #region Methods
@@ -110,8 +109,8 @@ public class DialogueManager : MonoBehaviour
         foreach (char _letter in _lines[_index].ToCharArray()) // index aumenta segun se pasa de linea
         {
             _dialogueText.text += _letter;
-            yield return null;
-            // yield return new WaitForSeconds(_speedText); // proporciona el siguiente valor en la iteración
+            // yield return null;
+            yield return new WaitForSeconds(_speedText); // proporciona el siguiente valor en la iteración
         }
     }
 
@@ -126,6 +125,25 @@ public class DialogueManager : MonoBehaviour
         else
         {
             gameObject.SetActive(false); // desactivar el objeto -> FIN DIALOGO
+        }
+    }
+
+    public void ProcessInput()
+    {
+        Debug.Log("creen ustedes que esto funcione");
+
+        if (_dialogueText.text == _lines[_index]) // siguiente linea
+        {
+            NextLine();
+        }
+        else // fin dialogo
+        {
+            StopAllCoroutines();
+            _dialogueText.text = _lines[_index];
+
+            _inputController.enabled = true;
+            _inputControllerDialogue.enabled = false;
+            _inputControllerDialogue._enConversacion = false;
         }
     }
 
@@ -150,6 +168,5 @@ public class DialogueManager : MonoBehaviour
         _inputController = PlayerAccess.Instance.InputController;
         _inputControllerDialogue = PlayerAccess.Instance.InputControllerDialogue;
         _playerTransform = PlayerAccess.Instance.Transform;
-        _interaction = GetComponent<Interaction>();
     }
 }

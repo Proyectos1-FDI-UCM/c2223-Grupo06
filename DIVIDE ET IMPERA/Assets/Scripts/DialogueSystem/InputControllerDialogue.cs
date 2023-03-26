@@ -8,10 +8,8 @@ public class InputControllerDialogue : MonoBehaviour
     #endregion
 
     #region Properties
-    //------------DIÁLOGO----------------------------
-    // booleano para saber si se está en conversación 
     [SerializeField]
-    public bool _enConversacion = false;
+    public bool _enConversacion = false; // booleano para saber si se está en conversación 
     public bool Conversacion { get { return _enConversacion; } }
     #endregion
 
@@ -21,8 +19,10 @@ public class InputControllerDialogue : MonoBehaviour
         if (_enConversacion && (Input.GetKey(KeyCode.Z) || Input.GetKey(KeyCode.UpArrow))) // UpArrow o Z para avanzar en el diálogo
         {
             Debug.Log("que se bajen que me lo llevo");
+            _dialogueManager.ProcessInput();
 
-            if (_dialogueManager._dialogueText.text == _dialogueManager._lines[_dialogueManager._index]) // siguiente linea
+
+            /* if (_dialogueManager._dialogueText.text == _dialogueManager._lines[_dialogueManager._index]) // siguiente linea
             {
                 _dialogueManager.NextLine();
             }
@@ -34,14 +34,14 @@ public class InputControllerDialogue : MonoBehaviour
                 _inputController.enabled = true;
                 enabled = false;
                 _enConversacion = false;
-            }
+            } */
         }
     }
     #endregion
 
     void Start()
     {
-        this.enabled = false;
+        this.enabled = false; // empieza desactivado
         _inputController = GetComponent<InputController>();
         _dialogueManager = GetComponent<DialogueManager>();
     }
