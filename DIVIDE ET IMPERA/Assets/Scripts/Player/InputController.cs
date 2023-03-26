@@ -67,7 +67,7 @@ public class InputController : MonoBehaviour
     //-------------RECUPERAR PARTES----------------------------
     // Indica si el jugador ha dejado una parte en un objeto
     [SerializeField]
-    private bool _recuperarParte = false;
+    private bool _recuperarParte = true;
     // acceso público a _recuperarParte
     public bool RecuperarParte { get { return _recuperarParte; } }
 
@@ -170,12 +170,14 @@ public class InputController : MonoBehaviour
                 if (GetComponentInParent<PataformaComponent>() != null && !_conectarParte && !GetComponentInParent<PataformaComponent>().PiernasConectadas)
                 { // si está en una pataforma sin piernas, se las pone
                     _conectarParte = true;
-                    Debug.Log("conecta");
+                    _recuperarParte = false;
+                    //Debug.Log("conecta");
                 }
                 else if (GetComponentInParent<PataformaComponent>() != null && !_recuperarParte && GetComponentInParent<PataformaComponent>().PiernasConectadas)
                 { // si está en una pataforma con piernas, las recoge
                     _recuperarParte = true;
-                    Debug.Log("recupera");
+                    _conectarParte = false;
+                    //Debug.Log("recupera");
                 }
                 else PlayerManager.Instance.SoltarPiernas(); // si no, las suelta
             } // si sí
@@ -284,6 +286,7 @@ public class InputController : MonoBehaviour
             PlayerAccess.Instance.MovementComponent.enabled = false;
             PlayerAccess.Instance.Animator.enabled = false;
         }
+
 
         CoolDown(); // no se usa??
     }
