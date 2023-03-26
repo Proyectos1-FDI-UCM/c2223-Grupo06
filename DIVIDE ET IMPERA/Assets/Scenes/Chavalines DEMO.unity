@@ -275,6 +275,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Nivel
       objectReference: {fileID: 0}
+    - target: {fileID: 973984346243158514, guid: 6693dbe1659a96f4c86e4f1714d5ef75, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1019119449937304941, guid: 6693dbe1659a96f4c86e4f1714d5ef75, type: 3}
       propertyPath: m_CompositePaths.m_Paths.Array.size
       value: 25
@@ -28095,7 +28099,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2076869504003675100, guid: 59f3bbb5802b17140a954d4cbd3ee516, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2240953605791345918, guid: 59f3bbb5802b17140a954d4cbd3ee516, type: 3}
       propertyPath: m_Name

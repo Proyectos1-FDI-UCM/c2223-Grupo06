@@ -200,11 +200,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c41b780dd64a314fba3e7d4f5b33210, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _leftRoomCameraPosition: {fileID: 0}
-  _leftRoomSpawn: {fileID: 0}
-  _rightRoomCameraPosition: {fileID: 0}
-  _rightRoomSpawn: {fileID: 0}
-  _transitionSpeed: 0
+  _leftRoomCameraPosition: {fileID: 7165190080166128298}
+  _leftRoomSpawn: {fileID: 6312717013300665529}
+  _rightRoomCameraPosition: {fileID: 4210868142141695989}
+  _rightRoomSpawn: {fileID: 6532825449299246445}
+  _transitionSpeed: 10
 --- !u!1 &8361945591967248682
 GameObject:
   m_ObjectHideFlags: 0
