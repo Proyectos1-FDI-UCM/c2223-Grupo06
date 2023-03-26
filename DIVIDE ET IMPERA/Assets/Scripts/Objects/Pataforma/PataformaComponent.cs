@@ -214,6 +214,7 @@ public class PataformaComponent : MonoBehaviour
 
         // activa la plataforma
         _activarPataforma = true;
+        _player.GetComponent<InputController>().enabled = false;
 
         // desactiva el input del player
         _inputController._changeToPataforma = false;
