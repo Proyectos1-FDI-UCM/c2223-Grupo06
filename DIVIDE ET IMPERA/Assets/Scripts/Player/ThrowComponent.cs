@@ -20,6 +20,10 @@ public class ThrowComponent : MonoBehaviour
     private float _verticalForce;
     [SerializeField]
     private bool _furbo;
+    [SerializeField]
+    private Vector2 _rotationVector;
+    [SerializeField]
+    private float _rotationSpeed;
     private bool _isThrowing;
     public bool IsThrowing { get { return _isThrowing; } set { _isThrowing = value; } }
     #endregion
@@ -54,6 +58,7 @@ public class ThrowComponent : MonoBehaviour
         if (PlayerManager.Instance.Objeto == PlayerManager.Objetos.BOLA && (_playerManager.Brazos > 0 || _furbo)) // Si tiene una bola
         {
             _thrownObject = Instantiate(_ballPrefab, _myTransform.position + (_myTransform.right * _myTransform.localScale.x) / 2, _myTransform.rotation); // La instancia
+            //_thrownObject.transform.Rotate(_rotationSpeed * Time.deltaTime * _rotationVector);
             //_thrownObject.transform.position += Vector3.up; // Más arriba porque si no se choca con timmy LOL
             _thrownObjectRB = _thrownObject.GetComponentInChildren<Rigidbody2D>(); // Pilla su RB
             _thrownObjectRB.AddForce(new Vector2(_horizontalForce * 100 * _myTransform.localScale.x, _verticalForce * 100)); // Lo yeetea
