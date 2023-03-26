@@ -180,7 +180,6 @@ public class InputController : MonoBehaviour
             if (!_changeToPataforma && !PlayerManager.Instance.Piernas)
             {
                 _changeToPataforma = true;
-                enabled = false;
             }
         }
         else if (Input.GetKeyDown(KeyCode.D))
