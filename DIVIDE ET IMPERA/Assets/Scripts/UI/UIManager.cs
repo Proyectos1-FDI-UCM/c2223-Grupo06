@@ -65,6 +65,7 @@ public class UIManager : MonoBehaviour
 
         // activa el input
         _player.GetComponent<InputController>().enabled = true;
+        CameraMovement.Instance.enabled= true;
     }
 
     public void ResumeGame()
