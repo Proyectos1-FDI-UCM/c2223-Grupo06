@@ -18,8 +18,16 @@ public class ThrowComponent : MonoBehaviour
     private float _horizontalForce;
     [SerializeField]
     private float _verticalForce;
+    [Tooltip("Si Timoteo puede lanzar bolas aun sin brazos")]
     [SerializeField]
     private bool _furbo;
+    [Tooltip("Si las bolas giran al ser lanzados o no")]
+    [SerializeField]
+    private bool _inerciaBolas;
+    [Tooltip("Si los brazos giran al ser lanzados o no")]
+    [SerializeField]
+    private bool _inerciaBrazos;
+    [Tooltip("La fuerza con lo que los objetos giran al ser lanzados")]
     [SerializeField]
     private float _torque;
     private bool _isThrowing;
@@ -43,11 +51,10 @@ public class ThrowComponent : MonoBehaviour
                 _thrownObject = Instantiate(_armPrefab, _myTransform.position, _myTransform.rotation);
                 _thrownObjectRB = _thrownObject.GetComponent<Rigidbody2D>();
             }
-            if (_thrownObjectRB != null)
+
+            if (Lanzamiento(_inerciaBrazos))
             {
-                _isThrowing = true;
-                _thrownObjectRB.AddForce(new Vector2(_horizontalForce * 100 * _myTransform.localScale.x, _verticalForce * 100));
-                _thrownObjectRB.AddTorque(_torque * -_myTransform.localScale.x, ForceMode2D.Force);
+                if (_inerciaBrazos) _thrownObjectRB.constraints = RigidbodyConstraints2D.None;
             }
         }
     }
@@ -59,10 +66,11 @@ public class ThrowComponent : MonoBehaviour
             _thrownObject = Instantiate(_ballPrefab, _myTransform.position + (_myTransform.right * _myTransform.localScale.x) / 2, _myTransform.rotation); // La instancia
             //_thrownObject.transform.position += Vector3.up; // Más arriba ??
             _thrownObjectRB = _thrownObject.GetComponent<Rigidbody2D>(); // Pilla su RB
-            _thrownObjectRB.AddTorque(_torque * -_myTransform.localScale.x, ForceMode2D.Force);
-            _thrownObjectRB.AddForce(new Vector2(_horizontalForce * 100 * _myTransform.localScale.x, _verticalForce * 100)); // Lo yeetea
+        }
+
+        if (Lanzamiento(_inerciaBolas)) 
+        { 
             PlayerManager.Instance.EliminarObjeto(); // PUM ya no tiene bola :P
-            _isThrowing = true;
         }
     }
 
@@ -86,12 +94,19 @@ public class ThrowComponent : MonoBehaviour
             _thrownObjectRB = _thrownObject.GetComponent<Rigidbody2D>();
             _thrownObject.transform.position += Vector3.up;
         }
+
+        Lanzamiento(_inerciaBolas);
+    }
+
+    public bool Lanzamiento(bool inercia)
+    {
         if (_thrownObjectRB != null)
         {
-            _isThrowing = true;
             _thrownObjectRB.AddForce(new Vector2(_horizontalForce * 100 * _myTransform.localScale.x, _verticalForce * 100));
-            _thrownObjectRB.AddTorque(_torque * -_myTransform.localScale.x, ForceMode2D.Force);
+            if (inercia) _thrownObjectRB.AddTorque(_torque * -_myTransform.localScale.x, ForceMode2D.Force);
+            return true;
         }
+        else return false;
     }
 
     private void OnTriggerExit2D(Collider2D collision)

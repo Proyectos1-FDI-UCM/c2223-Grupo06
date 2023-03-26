@@ -65,7 +65,7 @@ public class GameManager : MonoBehaviour
 
         }
         _currentGameState = newState;                        // Finaliza el cambio
-        Debug.Log("CURRENT: " + _currentGameState);
+        //Debug.Log("CURRENT: " + _currentGameState);
     }
 
     private void UpdateState(GameStates state)
