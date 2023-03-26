@@ -286,11 +286,6 @@ public class InputController : MonoBehaviour
         }
 
         CoolDown(); // no se usa??
-
-        if (Input.GetKeyDown(KeyCode.Y))
-        {
-            LevelManager.Instance.ResetCurrentLevel();
-        }
     }
 }
 
