@@ -60,7 +60,7 @@ public class UIManager : MonoBehaviour
 
     public void StartToGame()
     {
-        ResetLevel();
+        if (LevelManager.Instance != null) ResetLevel();
         SetMenu(GameManager.GameStates.GAME);
 
         // activa el input
