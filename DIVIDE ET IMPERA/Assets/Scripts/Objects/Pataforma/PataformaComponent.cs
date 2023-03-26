@@ -153,75 +153,86 @@ public class PataformaComponent : MonoBehaviour
         // Shift + D para cambiar de vuelta
         if (Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.D))
         {
-            // si el input del player esta desactivado y el de la pataforma específica
-            // esta activado procede a invertirlos, asi se asegura de que el cambio de
-            // input está individualizado
-            if (!_inputController.enabled && _activarPataforma)
-            {
-                // cambia el rigidbody de la pataforma a kinematic para que no se mueva cuando
-                // timmy se suba encima
-                _pataformaRigidbody.bodyType = RigidbodyType2D.Kinematic;
-                // cambia el rigidbody del player para que siga las físicas
-                _playerRigidbody.bodyType = RigidbodyType2D.Dynamic;
-                // cambia el constraint al eje Z
-                _playerRigidbody.constraints = RigidbodyConstraints2D.FreezeRotation;
-
-                // desactiva la plataforma
-                _activarPataforma = false;
-
-                //_myRigidbody.bodyType = RigidbodyType2D.Kinematic;
-
-                // activa el input del player
-                _inputController.enabled = true;
-
-                _mySpriteRenderer.color = Color.cyan;
-
-                // cambio de control de parte (es para el HUD)
-                PlayerManager.Instance.SwitchPartControl(PlayerManager.Partes.CABEZA);
-
-                //Cambia que la camara siga a Timmy
-                CameraMovement.Instance.ChangeWhoToFollow(_player);
-
-                //Cambio objeto en control para la pausa
-                PlayerManager.Instance.ChangePartInControl(_player);
-
-                _pDireccion = 0;
-                _animator.SetBool("move", false);
-            }
-
+            PlayerInControl();
         }
         //------de player a pataforma----------------------------
         // Shift + D para reactivar al player
         if (_inputController.ChangeToPataforma && _piernasConectadas)
         {
-            // cambia el rb de la pataforma a dynamic, para que se choque con los obstaculos
-            _pataformaRigidbody.bodyType = RigidbodyType2D.Dynamic;
-            // cambia el rb del player para que siga a la pataforma (?)
-            _playerRigidbody.bodyType = RigidbodyType2D.Kinematic;
-            // cambia las contraints del player para que no resbale
-            _playerRigidbody.constraints = RigidbodyConstraints2D.FreezePositionX;
+            LegsInControl();
+        }
+    }
 
-            // activa la plataforma
-            _activarPataforma = true;
+    public void PlayerInControl()
+    {
+        // si el input del player esta desactivado y el de la pataforma específica
+        // esta activado procede a invertirlos, asi se asegura de que el cambio de
+        // input está individualizado
+        if (!_inputController.enabled && _activarPataforma)
+        {
+            // cambia el rigidbody de la pataforma a kinematic para que no se mueva cuando
+            // timmy se suba encima
+            _pataformaRigidbody.bodyType = RigidbodyType2D.Kinematic;
+            // cambia el rigidbody del player para que siga las físicas
+            _playerRigidbody.bodyType = RigidbodyType2D.Dynamic;
+            // cambia el constraint al eje Z
+            _playerRigidbody.constraints = RigidbodyConstraints2D.FreezeRotation;
 
-            // desactiva el input del player
-            _inputController._changeToPataforma = false;
-            _mySpriteRenderer.color = Color.blue;
+            // desactiva la plataforma
+            _activarPataforma = false;
+
+            //_myRigidbody.bodyType = RigidbodyType2D.Kinematic;
+
+            // activa el input del player
+            _inputController.enabled = true;
+
+            _mySpriteRenderer.color = Color.cyan;
 
             // cambio de control de parte (es para el HUD)
-            PlayerManager.Instance.SwitchPartControl(PlayerManager.Partes.PIERNAS);
-            Debug.Log("Piernas controlan");
+            PlayerManager.Instance.SwitchPartControl(PlayerManager.Partes.CABEZA);
 
-            //Cambia el movimiento de la camara para que siga a las piernas
-            CameraMovement.Instance.ChangeWhoToFollow(gameObject);
+            //Cambia que la camara siga a Timmy
+            CameraMovement.Instance.ChangeWhoToFollow(_player);
 
-            //Cambio para el menu de pausa
-            PlayerManager.Instance.ChangePartInControl(gameObject);
+            //Cambio objeto en control para la pausa
+            PlayerManager.Instance.ChangePartInControl(_player);
 
             _pDireccion = 0;
             _animator.SetBool("move", false);
         }
+
     }
+
+    private void LegsInControl()
+    {
+        // cambia el rb de la pataforma a dynamic, para que se choque con los obstaculos
+        _pataformaRigidbody.bodyType = RigidbodyType2D.Dynamic;
+        // cambia el rb del player para que siga a la pataforma (?)
+        _playerRigidbody.bodyType = RigidbodyType2D.Kinematic;
+        // cambia las contraints del player para que no resbale
+        _playerRigidbody.constraints = RigidbodyConstraints2D.FreezePositionX;
+
+        // activa la plataforma
+        _activarPataforma = true;
+
+        // desactiva el input del player
+        _inputController._changeToPataforma = false;
+        _mySpriteRenderer.color = Color.blue;
+
+        // cambio de control de parte (es para el HUD)
+        PlayerManager.Instance.SwitchPartControl(PlayerManager.Partes.PIERNAS);
+        Debug.Log("Piernas controlan");
+
+        //Cambia el movimiento de la camara para que siga a las piernas
+        CameraMovement.Instance.ChangeWhoToFollow(gameObject);
+
+        //Cambio para el menu de pausa
+        PlayerManager.Instance.ChangePartInControl(gameObject);
+
+        _pDireccion = 0;
+        _animator.SetBool("move", false);
+    }
+
     private void PataformaInput()
     {
         //---MOVIMIENTO--------------------------------

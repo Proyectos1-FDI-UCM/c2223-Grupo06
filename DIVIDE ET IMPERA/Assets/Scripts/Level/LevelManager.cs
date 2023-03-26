@@ -52,6 +52,10 @@ public class LevelManager : MonoBehaviour
 
     private void ResetPlayer()
     {
+        if(PlayerManager.Instance._partInControl.GetComponent<PataformaComponent>())
+        {
+            PlayerManager.Instance._partInControl.GetComponent<PataformaComponent>().PlayerInControl();
+        }
         PlayerManager.Instance.ChangePartInControl(PlayerAccess.Instance.gameObject); //cambia el control al jugador en caso de estar controlando piernas
         PlayerAccess.Instance.transform.parent = null; //adoptiont por si esta en plataforma
         PlayerAccess.Instance.transform.position = _roomSpawn.position; //mueve player al spawn
