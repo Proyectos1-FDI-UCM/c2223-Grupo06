@@ -49,7 +49,6 @@ public class RoomTransition : MonoBehaviour
             LevelManager.Instance.DecrementLevelCounter();
         }
 
-        LevelManager.Instance.SetRoomSpawn(_roomSpawn);
         CameraMovement.Instance.enabled = false; //desactivar movimiento de la camara de seguir al jugador
 
         _playerTransform.position = _roomSpawn.position; //mover al jugador, desactivar el movimiento y la animacion para evitar que entre en otra transicion
