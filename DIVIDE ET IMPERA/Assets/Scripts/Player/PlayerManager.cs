@@ -293,7 +293,7 @@ public class PlayerManager : MonoBehaviour
     {
         if (_brazos > 0) // si algún brazo y está en un espacio libre
         {
-            Instantiate(_brazoPrefab, _myTransform.position, _myTransform.rotation); // instanciación
+            Instantiate(_brazoPrefab, _myTransform.position, _myTransform.rotation, LevelManager.Instance.CurrentLevel.transform); // instanciación
             _brazos--; // un brazo menos
         }
     }
@@ -317,7 +317,7 @@ public class PlayerManager : MonoBehaviour
     {
         if (_piernas) // si tiene piernas 
         {
-            Instantiate(_piernaPrefab, _myTransform.position, _myTransform.rotation); // instanciación
+            Instantiate(_piernaPrefab, _myTransform.position, _myTransform.rotation, LevelManager.Instance.CurrentLevel.transform); // instanciación
             _piernas = false; // sin piernas
         }
     }
