@@ -2,7 +2,7 @@
 
 public class InputController : MonoBehaviour
 {
-    #region CONTROLES (NUEVO INTENTO)
+    #region CONTROLES (NUEVO INTENTO YA IMPLEMENTADO)
     /* *ESTILO 2: más metroidvania de verdad*
     (mano der)
     ← y →:     Movimiento lateral
@@ -15,7 +15,7 @@ public class InputController : MonoBehaviour
     Shift + C: Lanzar bola delante*
     Shift + X: Lanzar bola ribcage*
     ó
-    Shift + C: Lanzar bola si tiene en el ribcage / Chutar enfrente si no (posible, sin implementar, opiniones?)
+    Shift + C / X: Lanzar bola si tiene en el ribcage / Chutar enfrente si no (posible, sin implementar, opiniones?)
 
     A:         Soltar brazos (o recoger si está enfrente**)
     S:         Soltar brazos (o recoger si está enfrente**)
@@ -38,11 +38,9 @@ public class InputController : MonoBehaviour
     private ThrowComponent _throwComp;
     private CollisionManager _collisionManager;
     private StayOnPataforma _stayOnComp;
-    private PlayerManager _playerManager;
     private UIManager _UIManager;
     private DialogueManager _dialogueManager;
     private Rigidbody2D _playerRigidBody;
-    private GameManager.GameStates state;
     private InputControllerDialogue _inputControllerDialogue;
     #endregion
 
@@ -83,7 +81,7 @@ public class InputController : MonoBehaviour
     #endregion
 
     #region Parameters
-    //private bool _canLetGoArm = true;
+    //private bool _canLetGoArm = true; comentado para que unity deje de decirme que hay un parámetro que no se usa
 
     // max cooldown time
     [SerializeField]
@@ -97,24 +95,16 @@ public class InputController : MonoBehaviour
     {
         #region HORIZONTAL
         if (Input.GetKey(KeyCode.RightArrow))
-        {
             _direccion = 1;
-        }
         else if (Input.GetKey(KeyCode.LeftArrow))
-        {
             _direccion = -1;
-        }
         else
-        {
             _direccion = 0;
-        }
         #endregion
 
         #region VERTICAL
         if (Input.GetKeyDown(KeyCode.Z))
-        {
             _playerJump.Jump();
-        }
         #endregion
     }
 
@@ -125,81 +115,22 @@ public class InputController : MonoBehaviour
 
         if (_elapsedTime >= _cooldown)
         {
-            //_canLetGoArm = true;
+            //_canLetGoArm = true; comentado para que unity deje de decirme que hay un parámetro que no se usa
             _elapsedTime = 0;
         }
     }
 
-    private bool EstaEnPalancaConBrazo()
-    {
-        if (_collisionManager.HitboxColisionada != null
-         && _collisionManager.HitboxColisionada.GetComponent<PalancaComponent>() != null
-         && _collisionManager.HitboxColisionada.GetComponent<PalancaComponent>().BrazoConectado)
-        {
-            return true;
-        }
-        else return false;
-    }
-
     private void InteractInput()
     {
-        // TIMMY
-        #region PONER PARTES A COSAS
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            _conectarParte = true;
-        }
-        else
-        {
-            _conectarParte = false;
-        }
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            _recuperarParte = true;
-        }
-        else
-        {
-            _recuperarParte = false;
-        }
-        #endregion
-
         // INTERACTUAR
         #region INTERACTUAR
-        if (Input.GetKeyUp(KeyCode.T))
-        {
-            /*
-            if (Input.GetKey(KeyCode.Alpha1))
-            {
-                _interactuar = true;
-            }
-            else if (Input.GetKey(KeyCode.Alpha2))
-            {
-                _interactuar = true;
-            }
-            */
-            if (Input.GetKey(KeyCode.Alpha3))
-            {
-                if (!_changeToPataforma
-                && !PlayerManager.Instance.Piernas)
-                {
-                    _changeToPataforma = true;
-                    //_playerRigidBody.bodyType = RigidbodyType2D.Kinematic;
-                    enabled = false;
-                }
-            }
-        }
+        if (Input.GetKeyUp(KeyCode.UpArrow))
+            _interactuar = true;
+        else if (_interactuar)
+            _interactuar = false;
         #endregion
 
-        if (Input.GetKeyUp(KeyCode.UpArrow))
-        {
-            _interactuar = true;
-        }
-        else if (_interactuar) 
-        {
-            _interactuar = false;
-        }
-
-        #region SOLTAR Y RECOGER PARTES
+        #region SOLTAR + RECOGER + CONECTAR + DESCONECTAR PARTES
         //BRAZOS
         if (Input.GetKey(KeyCode.LeftShift) && (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.S)))
         { // Shift + A / S para controlar brazos en palancas
@@ -209,69 +140,47 @@ public class InputController : MonoBehaviour
                 _collisionManager.HitboxColisionada.GetComponent<PalancaComponent>().Activar();
             }
         }
-        else
-        if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.S))
-        {
+        else if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.S))
+        { // Sólo A ó S
             if (!_collisionManager.DestruirBrazo())
-            {
+            { // Si no recoge un brazo del suelo
                 if (EstaEnPalancaConBrazo())
                 { // si está colisionando con una palanca que tiene brazo
-                    _collisionManager.HitboxColisionada.GetComponent<PalancaComponent>().ConectarBrazo(false);
-                    PlayerManager.Instance.RecogerBrazo(); // lo quita y lo recoge
+                    _collisionManager.HitboxColisionada.GetComponent<PalancaComponent>().ConectarBrazo(false); // lo desconecta
+                    PlayerManager.Instance.RecogerBrazo(); // y lo recoge
                 }
-                else
-                {
-                    PlayerManager.Instance.SoltarBrazo();
-                }
-            }
-            else
-            {
-                PlayerManager.Instance.RecogerBrazo();
-            }
+                else PlayerManager.Instance.SoltarBrazo(); // si no, lo suelta
+            } // Si sí
+            else PlayerManager.Instance.RecogerBrazo(); // lo recoge
         }
+        else
         // PIERNAS 
         if (Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.D))
         { // Shift + D para intercambiar control a las piernas
-            if (!_changeToPataforma
-                && !PlayerManager.Instance.Piernas)
+            if (!_changeToPataforma && !PlayerManager.Instance.Piernas)
             {
                 _changeToPataforma = true;
-                //_playerRigidBody.bodyType = RigidbodyType2D.Kinematic;
                 enabled = false;
             }
         }
-        else 
-        if (Input.GetKeyDown(KeyCode.D))
+        else if (Input.GetKeyDown(KeyCode.D))
         { // D para recoger y soltar piernas
             if (!_collisionManager.DestruirPierna())
-            {
+            { // si no recoge una pierna del suelo
                 if (GetComponentInParent<PataformaComponent>() != null && !_conectarParte && !GetComponentInParent<PataformaComponent>().PiernasConectadas)
-                {
+                { // si está en una pataforma sin piernas, se las pone
                     _conectarParte = true;
                     Debug.Log("conecta");
                 }
                 else if (GetComponentInParent<PataformaComponent>() != null && !_recuperarParte && GetComponentInParent<PataformaComponent>().PiernasConectadas)
-                {
+                { // si está en una pataforma con piernas, las recoge
                     _recuperarParte = true;
                     Debug.Log("recupera");
                 }
-                else
-                {
-                    PlayerManager.Instance.SoltarPiernas();
-                }
-            }
-            else
-            {
-                PlayerManager.Instance.RecogerPiernas();
-            }
+                else PlayerManager.Instance.SoltarPiernas(); // si no, las suelta
+            } // si sí
+            else PlayerManager.Instance.RecogerPiernas(); // la recoge
         }
-        /*
-        else if (_conectarParte || _recuperarParte)
-        {
-            _conectarParte = false;
-            _recuperarParte = false;
-        }
-        */
         #endregion
 
         #region LANZAR / CHUTAR
@@ -293,15 +202,22 @@ public class InputController : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.X)) // Si solo es X
         {
             if (PlayerManager.Instance.TieneObjeto()) // Si tiene objeto
-            {
-                PlayerManager.Instance.SoltarObjeto(); // Lo suelta
-            }
+                PlayerManager.Instance.SoltarObjeto();  // Lo suelta
             else                                      // Si no tiene objeto
-            {
-                PlayerManager.Instance.RecogerObjeto(); // Intenta recogerlo
-            }
+                PlayerManager.Instance.RecogerObjeto(); // intenta recogerlo
         }
         #endregion
+    }
+
+    private bool EstaEnPalancaConBrazo()
+    {
+        if (_collisionManager.HitboxColisionada != null
+         && _collisionManager.HitboxColisionada.GetComponent<PalancaComponent>() != null
+         && _collisionManager.HitboxColisionada.GetComponent<PalancaComponent>().BrazoConectado)
+        { // si está colisionando con una palanca con un brazo conectado a ella
+            return true;
+        }
+        else return false;
     }
 
     // PARA PROBAR COSAS DEL INPUT
@@ -310,39 +226,25 @@ public class InputController : MonoBehaviour
         #region DEBUG
         // para ver si cambia de control bien
         if (Input.GetKeyDown(KeyCode.Keypad1))
-        {
             PlayerManager.Instance.SwitchPartControl(PlayerManager.Partes.CABEZA);
-        }
         else if (Input.GetKeyDown(KeyCode.Keypad2))
-        {
             PlayerManager.Instance.SwitchPartControl(PlayerManager.Partes.BRAZO1);
-        }
         else if (Input.GetKeyDown(KeyCode.Keypad3))
-        {
             PlayerManager.Instance.SwitchPartControl(PlayerManager.Partes.BRAZO2);
-        }
         else if (Input.GetKeyDown(KeyCode.Keypad4))
-        {
             PlayerManager.Instance.SwitchPartControl(PlayerManager.Partes.PIERNAS);
-        }
 
         // Para ver si cambia de estados bien
         if (Input.GetKeyDown(KeyCode.Keypad5))
-        { // SUBIR ESTADO
-            PlayerManager.Instance.AddObject();
-        }
+            PlayerManager.Instance.AddObject(); // SUBIR ESTADO
         else if (Input.GetKeyDown(KeyCode.Keypad6))
-        { // BAJAR ESTADO
-            PlayerManager.Instance.SubObject();
-        }
+            PlayerManager.Instance.SubObject(); // BAJAR ESTADO
 
         // para ver si recoge a alubia bien
         if (Input.GetKeyDown(KeyCode.Keypad7))
         {
             if (PlayerManager.Instance.Alubiat)
-            {
                 PlayerManager.Instance.SoltarAlubiat();
-            }
             else PlayerManager.Instance.RecogerAlubiat();
         }
         #endregion
@@ -351,14 +253,13 @@ public class InputController : MonoBehaviour
 
     void Start()
     {
-        _throwComp = GetComponent<ThrowComponent>();
-        _collisionManager = GetComponent<CollisionManager>();
-        _playerJump = GetComponent<JumpComponent>();
-        _playerManager = GetComponent<PlayerManager>();
-        _playerRigidBody = GetComponent<Rigidbody2D>(); // rigidbody del player
-        _dialogueManager = GetComponent<DialogueManager>();
+        _throwComp               = GetComponent<ThrowComponent>();
+        _collisionManager        = GetComponent<CollisionManager>();
+        _playerJump              = GetComponent<JumpComponent>();
+        _playerRigidBody         = GetComponent<Rigidbody2D>(); // rigidbody del player
+        _dialogueManager         = GetComponent<DialogueManager>();
         _inputControllerDialogue = GetComponent<InputControllerDialogue>();
-        _stayOnComp = GetComponent<StayOnPataforma>();
+        _stayOnComp              = GetComponent<StayOnPataforma>();
     }
 
     void Update()
@@ -375,7 +276,7 @@ public class InputController : MonoBehaviour
         //------OPCIÓN DE PAUSA-------
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            //_UIManager.SetMenu(GameManager.GameStates.PAUSE);
+            //_UIManager.SetMenu(GameManager.GameStates.PAUSE); esto no funcionaba
             PlayerManager.Instance.UIManager.SetMenu(GameManager.GameStates.PAUSE);
 
             // desactiva el input
@@ -384,7 +285,7 @@ public class InputController : MonoBehaviour
             PlayerAccess.Instance.Animator.enabled = false;
         }
 
-        // CoolDown(); temporalmente disabled mientras arreglo el input
+        CoolDown(); // no se usa??
 
         if (Input.GetKeyDown(KeyCode.Y))
         {
@@ -393,60 +294,62 @@ public class InputController : MonoBehaviour
     }
 }
 
+#region CONTROLES (TO BE DEPRECATED)
+/*MOVIMENTO LATERAL Y VERTICAL*
+*
+* (TO BE DEPRECATED, ES EL MAPPING ACTUAL)
+*
+AD ----------- > moverse a los lados
+SPACE -------- > saltar
+
+*PALANCA*
+E ------------- > conectar parte
+R ------------- > recuperar parte
+Q ------------- > lanzar
+
+*SOLTAR PARTES*
+1 + E -------- > soltar brazo
+2 + E -------- > soltar brazo
+3 + E -------- > soltar piernas
+4 + E -------- > WIP
+
+*RECUPERAR PARTES*
+1 + R -------- > recuperar brazo
+2 + R -------- > recuperar brazo
+3 + R -------- > recuperar piernas
+4 + R -------- > WIP
+
+*INTERACCIÓN DE OBJETOS*
+1 + T -------- > interactuar con palanca
+2 + T -------- > interactuar con palanca
+3 + T -------- > interactuar con pataforma
+4 + T -------- > WIP 
+
+*COGER Y SOLTAR OBJETOS*
+L  -------- > coger
+K  -------- > soltar
+/*
+
 /* *ESTILO 1: parecido al planteamiento inical*
-    (mano izq)
-    A y D  : Movimiento lateral
-    W: Interactuar con palanca enfrente y por remoto** + diálogo
-    Espacio: Saltar
+(mano izq)
+A y D  : Movimiento lateral
+W: Interactuar con palanca enfrente y por remoto** + diálogo
+Espacio: Saltar
 
-    E: recoger y soltar objetos (si tiene objeto lo suelta, si no, intenta recoger algo*)
-    Q: recoger partes (brazo / piernas del suelo / palanca / plataforma)
-    F: lanzar brazo / bola si tiene
+E: recoger y soltar objetos (si tiene objeto lo suelta, si no, intenta recoger algo*)
+Q: recoger partes (brazo / piernas del suelo / palanca / plataforma)
+F: lanzar brazo / bola si tiene
 
-    (mano der)
-    K: soltar brazos  (si lo haces delante de una palanca, se conecta auto)
-    L: soltar piernas (si lo haces encima de una pataforma, se conectan auto)
+(mano der)
+K: soltar brazos  (si lo haces delante de una palanca, se conecta auto)
+L: soltar piernas (si lo haces encima de una pataforma, se conectan auto)
 
-        *: quizá? si vemos que no es útil pues un botón para cada, pero creo que puede estar guay eso
-        **: para que quede acorde con el HUD, yo pondría las cosas que sean combinaciones según el orden:
-            1 + <tecla>: controlar cabeza (PUM a la cabeza)
-            2 + <tecla>: si hay dos brazos cada uno en una palanca, activa la primera palanca
-            3 + <tecla>:                                                 " la segunda palanca
-            4 + <tecla>: controlar piernas
-            <tecla>: E? (es la tecla de interaccion por excelencia) */
+    *: quizá? si vemos que no es útil pues un botón para cada, pero creo que puede estar guay eso
+    **: para que quede acorde con el HUD, yo pondría las cosas que sean combinaciones según el orden:
+        1 + <tecla>: controlar cabeza (PUM a la cabeza)
+        2 + <tecla>: si hay dos brazos cada uno en una palanca, activa la primera palanca
+        3 + <tecla>:                                                 " la segunda palanca
+        4 + <tecla>: controlar piernas
+        <tecla>: E? (es la tecla de interaccion por excelencia) */
+#endregion
 
-/* #region CONTROLES (TO BE DEPRECATED)
-    *MOVIMENTO LATERAL Y VERTICAL*
-    *
-    * (TO BE DEPRECATED, ES EL MAPPING ACTUAL)
-    *
-    AD ----------- > moverse a los lados
-    SPACE -------- > saltar
-
-    *PALANCA*
-    E ------------- > conectar parte
-    R ------------- > recuperar parte
-    Q ------------- > lanzar
-
-    *SOLTAR PARTES*
-    1 + E -------- > soltar brazo
-    2 + E -------- > soltar brazo
-    3 + E -------- > soltar piernas
-    4 + E -------- > WIP
-
-    *RECUPERAR PARTES*
-    1 + R -------- > recuperar brazo
-    2 + R -------- > recuperar brazo
-    3 + R -------- > recuperar piernas
-    4 + R -------- > WIP
-
-    *INTERACCIÓN DE OBJETOS*
-    1 + T -------- > interactuar con palanca
-    2 + T -------- > interactuar con palanca
-    3 + T -------- > interactuar con pataforma
-    4 + T -------- > WIP 
-
-    *COGER Y SOLTAR OBJETOS*
-    L  -------- > coger
-    K  -------- > soltar
-    #endregion */

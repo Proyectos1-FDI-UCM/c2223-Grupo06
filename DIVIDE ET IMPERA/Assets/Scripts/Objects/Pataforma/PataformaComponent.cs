@@ -1,5 +1,4 @@
 //using UnityEditor.Tilemaps;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class PataformaComponent : MonoBehaviour
@@ -79,7 +78,7 @@ public class PataformaComponent : MonoBehaviour
     private bool ConectarPiernas()
     {
         bool aux;
-        if(_inputController.ConectarParte && _validPataformaHitbox
+        if (_inputController.ConectarParte && _validPataformaHitbox
             && (PlayerManager.Instance.Piernas))
         {
             aux = true;
@@ -94,7 +93,7 @@ public class PataformaComponent : MonoBehaviour
     private bool DesconectarPiernas()
     {
         bool aux;
-        if(_inputController.RecuperarParte && _validPataformaHitbox
+        if (_inputController.RecuperarParte && _validPataformaHitbox
             && !PlayerManager.Instance.Piernas
             && _piernasConectadas)
         {
@@ -254,7 +253,7 @@ public class PataformaComponent : MonoBehaviour
             //_activarPataforma = false;
             GetComponent<PataformaMovementComponent>().enabled = false;
             GetComponentInChildren<Animator>().enabled = false;
-            enabled= false;
+            enabled = false;
         }
     }
     #endregion
