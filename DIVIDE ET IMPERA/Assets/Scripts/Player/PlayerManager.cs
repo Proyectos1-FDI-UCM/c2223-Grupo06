@@ -453,7 +453,7 @@ public class PlayerManager : MonoBehaviour
         if (_currentState != _nextState) // Si tiene que cambiar de estado
         {
             EnterState(_nextState); // Entrada al estado
-            _UIManager.SetPartes(_nextState, _parte); // Cambia el UI acorde a este
+            if (_UIManager != null) _UIManager.SetPartes(_nextState, _parte); // Cambia el UI acorde a este
         }
 
         UpdateState(_currentState); // Update según el estado

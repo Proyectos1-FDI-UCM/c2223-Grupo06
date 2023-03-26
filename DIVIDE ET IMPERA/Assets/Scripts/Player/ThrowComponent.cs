@@ -21,9 +21,7 @@ public class ThrowComponent : MonoBehaviour
     [SerializeField]
     private bool _furbo;
     [SerializeField]
-    private Vector2 _rotationVector;
-    [SerializeField]
-    private float _rotationSpeed;
+    private float _torque;
     private bool _isThrowing;
     public bool IsThrowing { get { return _isThrowing; } set { _isThrowing = value; } }
     #endregion
@@ -49,6 +47,7 @@ public class ThrowComponent : MonoBehaviour
             {
                 _isThrowing = true;
                 _thrownObjectRB.AddForce(new Vector2(_horizontalForce * 100 * _myTransform.localScale.x, _verticalForce * 100));
+                _thrownObjectRB.AddTorque(_torque * -_myTransform.localScale.x, ForceMode2D.Force);
             }
         }
     }
@@ -58,9 +57,9 @@ public class ThrowComponent : MonoBehaviour
         if (PlayerManager.Instance.Objeto == PlayerManager.Objetos.BOLA && (_playerManager.Brazos > 0 || _furbo)) // Si tiene una bola
         {
             _thrownObject = Instantiate(_ballPrefab, _myTransform.position + (_myTransform.right * _myTransform.localScale.x) / 2, _myTransform.rotation); // La instancia
-            //_thrownObject.transform.Rotate(_rotationSpeed * Time.deltaTime * _rotationVector);
-            //_thrownObject.transform.position += Vector3.up; // Más arriba porque si no se choca con timmy LOL
-            _thrownObjectRB = _thrownObject.GetComponentInChildren<Rigidbody2D>(); // Pilla su RB
+            //_thrownObject.transform.position += Vector3.up; // Más arriba ??
+            _thrownObjectRB = _thrownObject.GetComponent<Rigidbody2D>(); // Pilla su RB
+            _thrownObjectRB.AddTorque(_torque * -_myTransform.localScale.x, ForceMode2D.Force);
             _thrownObjectRB.AddForce(new Vector2(_horizontalForce * 100 * _myTransform.localScale.x, _verticalForce * 100)); // Lo yeetea
             PlayerManager.Instance.EliminarObjeto(); // PUM ya no tiene bola :P
             _isThrowing = true;
@@ -91,6 +90,7 @@ public class ThrowComponent : MonoBehaviour
         {
             _isThrowing = true;
             _thrownObjectRB.AddForce(new Vector2(_horizontalForce * 100 * _myTransform.localScale.x, _verticalForce * 100));
+            _thrownObjectRB.AddTorque(_torque * -_myTransform.localScale.x, ForceMode2D.Force);
         }
     }
 

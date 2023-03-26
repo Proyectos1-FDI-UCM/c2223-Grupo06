@@ -128,8 +128,6 @@ public class UIManager : MonoBehaviour
         }
     }
 
-
-
     public void Quit()
     {
         Debug.Log("shipit");
