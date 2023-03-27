@@ -123,7 +123,7 @@ public class InputController : MonoBehaviour
         #endregion
 
         #region VERTICAL
-        if (Input.GetKeyDown(KeyCode.Z))
+        if (Input.GetKeyDown(KeyCode.Z) || Input.GetKeyDown(KeyCode.Space))
             _playerJump.Jump();
         #endregion
     }
