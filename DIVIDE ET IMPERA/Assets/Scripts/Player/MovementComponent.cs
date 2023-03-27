@@ -9,7 +9,6 @@ public class MovementComponent : MonoBehaviour
 
     [SerializeField]
     private GameObject _player;
-
     #endregion
 
 
@@ -20,7 +19,7 @@ public class MovementComponent : MonoBehaviour
     [Tooltip("Velocidad a la que el jugador frena cuando deja de moverse")]
     [SerializeField]
     private float _rozamientoFreno;
-    [Tooltip("�Usar el nuevo movimiento o no?")]
+    [Tooltip("Usar el nuevo movimiento")]
     [SerializeField]
     private bool _newInput;
     #endregion
