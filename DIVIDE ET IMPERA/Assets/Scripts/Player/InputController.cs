@@ -7,15 +7,12 @@ public class InputController : MonoBehaviour
     (mano der)
     ← y →:     Movimiento lateral
     ↑:         Interactuar con palanca enfrente** + Diálogo
+    Espacio:   Saltar
 
     (mano izq)
-    Z:         Saltar
+    Z:         Lanzar brazo
     X:         Soltar y recoger objetos
-    C:         Lanzar brazo*
-    Shift + C: Lanzar bola delante*
-    Shift + X: Lanzar bola ribcage*
-    ó
-    Shift + C / X: Lanzar bola si tiene en el ribcage / Chutar enfrente si no (posible, sin implementar, opiniones?)
+    Shift + X: Lanzar bola si tiene en el ribcage / Chutar enfrente si no
 
     A:         Soltar brazos (o recoger si está enfrente**)
     S:         Soltar brazos (o recoger si está enfrente**)
@@ -23,14 +20,11 @@ public class InputController : MonoBehaviour
     Shift + A: Interactuar brazo 1 (remoto)
     Shift + S: Interactuar brazo 2 (remoto)
     Shift + D: Intercambiar control entre cuerpo y piernas
-    
-    *: Hago distinción porque es molesto cuando lanzas un brazo y querías lanzar una bola
-    
+        
     **: Lo duplico para que a la hora de asociar en tu mente a qué es cada cosa sea más sencillo 
     porque de esta manera ya entiendes que tanto A como S son brazos whatever the case, y D piernas (toggle) 
 
-    QUEDA CONSIDERAR: alubiat? creo que ya
-    */
+    QUEDA CONSIDERAR: alubiat? creo que ya    */
     #endregion
 
     #region Referencias
@@ -204,23 +198,24 @@ public class InputController : MonoBehaviour
         }
         #endregion
 
-        #region LANZAR / CHUTAR
-        if (Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.C))
+        #region SOLTAR OBJETS + LANZAR / CHUTAR BOLA
+        if (Input.GetKey(KeyCode.LeftShift) && (Input.GetKeyDown(KeyCode.C)))
         { // Si es Shift + C
-            _throwComp.ChutarBola(); // Chuta una bola delante
+            if (PlayerManager.Instance.Objeto == PlayerManager.Objetos.BOLA)
+            {
+                _throwComp.LanzarBola(); // Si es una bola en el ribcage, la lanza
+            }
+            else _throwComp.ChutarBola(); // Chuta una bola delante
         }
-        else if (Input.GetKeyDown(KeyCode.C))
-        { // Si solo pulsa C
+        else if (Input.GetKeyDown(KeyCode.Z))
+        {                                     // Si solo pulsa Z
             _throwComp.LanzarBrazo(); // Lanza un brazo
         }
+        else
         #endregion
 
         #region SOLTAR OBJETOS
-        if (Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.X)) // Si es Shift + X
-        {
-            _throwComp.LanzarBola(); // Si es una bola en el ribcage, la lanza
-        }
-        else if (Input.GetKeyDown(KeyCode.X)) // Si solo es X
+        if (Input.GetKeyDown(KeyCode.X)) // Si solo es X
         {
             if (PlayerManager.Instance.TieneObjeto()) // Si tiene objeto
                 PlayerManager.Instance.SoltarObjeto();  // Lo suelta
