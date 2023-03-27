@@ -117,7 +117,7 @@ public class InputController : MonoBehaviour
         #endregion
 
         #region VERTICAL
-        if (Input.GetKeyDown(KeyCode.Z) || Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space)) // Input.GetKeyDown(KeyCode.Z) || (lanzaba y saltaba a la vez oop)
             _playerJump.Jump();
         #endregion
     }

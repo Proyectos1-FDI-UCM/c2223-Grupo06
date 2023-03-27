@@ -34,7 +34,7 @@ public class CollisionManager : MonoBehaviour
         {
             collision.GetComponent<PalancaComponent>()._validPalancaHitbox = true;
         }
-        else if (collision.GetComponent<PataformaComponent>())
+        else if (collision.GetComponentInChildren<PataformaComponent>())
         {
             collision.GetComponent<PataformaComponent>()._validPataformaHitbox = true;
         }

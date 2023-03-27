@@ -182,9 +182,6 @@ public class PataformaComponent : MonoBehaviour
 
             // desactiva la plataforma
             _activarPataforma = false;
-
-            //_myRigidbody.bodyType = RigidbodyType2D.Kinematic;
-
             // activa el input del player
             _inputController.enabled = true;
 

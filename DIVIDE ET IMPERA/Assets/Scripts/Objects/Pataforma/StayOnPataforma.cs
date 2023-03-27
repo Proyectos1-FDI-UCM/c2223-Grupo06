@@ -17,6 +17,8 @@ public class StayOnPataforma : MonoBehaviour
 
     #region Metodos basicos
     // mira si tiene padre o no (este objeto)
+
+  
     public bool ParentCheck()
     {
         if (transform.parent == null)
@@ -89,6 +91,7 @@ public class StayOnPataforma : MonoBehaviour
     #region Metodos principales
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        Debug.Log(collision);
         if (CheckStayOn(collision))
         {
             Adoption(collision);
