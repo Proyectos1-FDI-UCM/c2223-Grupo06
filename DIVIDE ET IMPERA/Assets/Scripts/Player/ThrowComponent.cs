@@ -69,7 +69,7 @@ public class ThrowComponent : MonoBehaviour
         }
 
         if (Lanzamiento(_inerciaBolas)) 
-        { 
+        {
             PlayerManager.Instance.EliminarObjeto(); // PUM ya no tiene bola :P
         }
     }

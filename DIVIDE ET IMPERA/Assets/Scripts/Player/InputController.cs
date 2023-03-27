@@ -101,6 +101,8 @@ public class InputController : MonoBehaviour
     [SerializeField]
     private float _cooldown = 1;
     private float _elapsedTime;
+    private int _movement;
+    public int Movement { get { return _movement; } }
     #endregion
 
     #region Methods
@@ -109,11 +111,19 @@ public class InputController : MonoBehaviour
     {
         #region HORIZONTAL
         if (Input.GetKey(KeyCode.RightArrow))
+        {
             _direccion = 1;
+        }
         else if (Input.GetKey(KeyCode.LeftArrow))
+        {
             _direccion = -1;
+        }
         else
+        {
             _direccion = 0;
+        }
+
+        _movement = (Input.GetKey(KeyCode.RightArrow) ? 1 : 0) - (Input.GetKey(KeyCode.LeftArrow) ? 1 : 0);
         #endregion
 
         #region VERTICAL
@@ -199,17 +209,13 @@ public class InputController : MonoBehaviour
         #endregion
 
         #region SOLTAR OBJETS + LANZAR / CHUTAR BOLA
-        if (Input.GetKey(KeyCode.LeftShift) && (Input.GetKeyDown(KeyCode.C)))
-        { // Si es Shift + C
+        if (Input.GetKey(KeyCode.LeftShift) && (Input.GetKeyDown(KeyCode.X) || Input.GetKeyDown(KeyCode.C)))
+        { // Si es Shift + X
             if (PlayerManager.Instance.Objeto == PlayerManager.Objetos.BOLA)
             {
                 _throwComp.LanzarBola(); // Si es una bola en el ribcage, la lanza
             }
             else _throwComp.ChutarBola(); // Chuta una bola delante
-        }
-        else if (Input.GetKeyDown(KeyCode.Z))
-        {                                     // Si solo pulsa Z
-            _throwComp.LanzarBrazo(); // Lanza un brazo
         }
         else
         #endregion
@@ -221,6 +227,11 @@ public class InputController : MonoBehaviour
                 PlayerManager.Instance.SoltarObjeto();  // Lo suelta
             else                                      // Si no tiene objeto
                 PlayerManager.Instance.RecogerObjeto(); // intenta recogerlo
+        }
+
+        if (Input.GetKeyDown(KeyCode.Z))
+        {                                     // Si solo pulsa Z
+            _throwComp.LanzarBrazo(); // Lanza un brazo
         }
         #endregion
     }

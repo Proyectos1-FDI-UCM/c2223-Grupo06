@@ -48,32 +48,4 @@ public class PlayerAnimationController : MonoBehaviour
             _myAnimator.ResetTrigger("isRunning");
         }
     }
-
-    /*
-    public void LanzameEsta()
-    {
-        _myAnimator.SetTrigger("isThrowing");
-        Debug.Log("a mi si queme triggerea esto");
-    }
-
-    public void DeslanzameEsta()
-    {
-        _myAnimator.ResetTrigger("isThrowing");
-        Debug.Log("DIOSSS joder ya HOSTIA");
-    }
-
-    private void LateUpdate()
-    {
-        if (_myAnimator.GetCurrentAnimatorStateInfo(0).length <= _myAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime 
-            && _myAnimator.GetBool("isThrowing") 
-            && (_myAnimator.GetCurrentAnimatorStateInfo(0).IsName("Base.Throw") 
-            || _myAnimator.GetCurrentAnimatorStateInfo(0).IsName("Throw.IdleThrow")
-            || _myAnimator.GetCurrentAnimatorStateInfo(0).IsName("Throw.RunThrow")
-            || _myAnimator.GetCurrentAnimatorStateInfo(0).IsName("Throw.JumpThrow")))
-        {
-            DeslanzameEsta();
-            _myThrowComponent.IsThrowing = false;
-        }
-    }
-    */
 }

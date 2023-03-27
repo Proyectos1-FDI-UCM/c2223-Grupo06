@@ -400,9 +400,9 @@ public class PlayerManager : MonoBehaviour
     }
     public void ChangePartInControl(GameObject thing) // lo he refactorizado a "ChangePartInControl" en vez de Object porque he seguido una nomenclatura en la que objeto son los items posibles de la ribcage y parte Timmy y su cuerpo
     {
-        Debug.Log("thing: " + thing);
+        //Debug.Log("thing: " + thing);
         _partInControl = thing;
-        Debug.Log("paasas: " + _partInControl);
+        //Debug.Log("paasas: " + _partInControl);
         CameraMovement.Instance.ChangeWhoToFollow(_partInControl);
     }
 

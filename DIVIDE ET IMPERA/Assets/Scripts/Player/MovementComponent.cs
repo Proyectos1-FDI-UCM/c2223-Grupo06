@@ -20,12 +20,16 @@ public class MovementComponent : MonoBehaviour
     [Tooltip("Velocidad a la que el jugador frena cuando deja de moverse")]
     [SerializeField]
     private float _rozamientoFreno;
+    [Tooltip("�Usar el nuevo movimiento o no?")]
+    [SerializeField]
+    private bool _newInput;
     #endregion
 
 
     #region Properties
     private int _direccion;
     public int Direccion { get { return _direccion; } }
+    private Vector2 _movementVector;
     #endregion
 
 
@@ -50,14 +54,6 @@ public class MovementComponent : MonoBehaviour
 
     public void Flip()
     {
-        /*
-        bool movimiento = Mathf.Abs(_myRigidbody2D.velocity.x) > Mathf.Epsilon;
-        if (movimiento)
-        {
-            transform.localScale = new Vector2(Mathf.Sign(_myRigidbody2D.velocity.x), 1f);
-        }
-        */
-
         if (_direccion > 0) // muy rudimentario, pero funciona :P
         {
             transform.localScale = new Vector2(1f, 1f);
@@ -65,6 +61,21 @@ public class MovementComponent : MonoBehaviour
         else if (_direccion < 0)
         {
             transform.localScale = new Vector2(-1f, 1f);
+        }
+    }
+
+    public void Move2()
+    {
+        Vector2 playerVelocity = new(_movementVector.x * _speed, _myRigidbody2D.velocity.y);
+        _myRigidbody2D.velocity = playerVelocity;
+    }
+
+    public void Flip2()
+    {
+        bool movimiento = Mathf.Abs(_myRigidbody2D.velocity.x) > Mathf.Epsilon;
+        if (movimiento)
+        {
+            transform.localScale = new Vector2(Mathf.Sign(_myRigidbody2D.velocity.x), 1f);
         }
     }
     #endregion
@@ -80,22 +91,28 @@ public class MovementComponent : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (GetComponent<InputController>())
+        if (_inputController != null)
         {
             _direccion = _inputController.Direccion;
+            _movementVector = new Vector2(_inputController.Movement, 0f);
         }
-        else if (GetComponent<PataformaComponent>())
+        else if (_pataformaComponent != null)
         {
             _direccion = _pataformaComponent.PataformaDireccion;
         }
-
-
     }
 
     private void FixedUpdate()
     {
-
-        Move();
-        Flip();
+        if (_newInput)
+        {
+            Move2();
+            Flip2();
+        }
+         else
+        {
+            Move();
+            Flip();
+        }
     }
 }

@@ -21,7 +21,7 @@ public class CameraMovement : MonoBehaviour
     #region Methods
     public void ChangeWhoToFollow(GameObject followObject) //Para cambiar que la camara siga al jugador o a las piernas dependiendo de a quien este controlando
     {
-        Debug.Log(followObject);
+        //Debug.Log(followObject);
         _followTransform = followObject.GetComponent<Transform>();
     }
 

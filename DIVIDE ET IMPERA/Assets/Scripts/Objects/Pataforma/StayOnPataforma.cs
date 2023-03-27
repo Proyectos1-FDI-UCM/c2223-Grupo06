@@ -91,7 +91,7 @@ public class StayOnPataforma : MonoBehaviour
     #region Metodos principales
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log(collision);
+        //Debug.Log(collision);
         if (CheckStayOn(collision))
         {
             Adoption(collision);

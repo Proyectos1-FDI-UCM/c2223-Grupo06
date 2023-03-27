@@ -252,8 +252,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _interactuar: 0
-  _conectarParte: 0
-  _recuperarParte: 0
+  _conectarPiernas: 0
+  _recuperarPiernas: 0
+  _conectarBrazo: 0
+  _recuperarBrazo: 0
   _changeToPataforma: 0
   _cooldown: 2
 --- !u!114 &4510422160574665586
@@ -271,6 +273,7 @@ MonoBehaviour:
   _player: {fileID: 0}
   _speed: 5
   _rozamientoFreno: 10
+  _newInput: 1
 --- !u!114 &8094601566322241750
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -353,6 +356,7 @@ MonoBehaviour:
   - {fileID: 9100000, guid: e7ad9ebdd7959c04fb3bdaa2dec54b6e, type: 2}
   - {fileID: 9100000, guid: 3251c60f6bec3a5439b15ec97a6859de, type: 2}
   _partInControl: {fileID: 0}
+  _piernas: 0
 --- !u!114 &4737386085971608660
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -406,6 +410,8 @@ MonoBehaviour:
   _horizontalForce: 5
   _verticalForce: 3
   _furbo: 0
+  _inerciaBolas: 1
+  _inerciaBrazos: 1
   _torque: 20
 --- !u!114 &4777051804109853913
 MonoBehaviour:
