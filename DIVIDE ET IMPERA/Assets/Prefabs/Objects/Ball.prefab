@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1394704148671528427}
-  - component: {fileID: 7973096938027753531}
   - component: {fileID: 5112077607674026329}
   m_Layer: 10
   m_Name: Hitbox
@@ -33,18 +32,6 @@ Transform:
   m_Father: {fileID: 7175337920375267570}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7973096938027753531
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3299081866916435935}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5886b810ec7215b4a9063a49e8902c52, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!61 &5112077607674026329
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -212,7 +199,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.24887216
+  m_Radius: 0.25
 --- !u!50 &2635161771372653564
 Rigidbody2D:
   serializedVersion: 4
