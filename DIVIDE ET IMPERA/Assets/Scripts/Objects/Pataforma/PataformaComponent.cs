@@ -121,7 +121,8 @@ public class PataformaComponent : MonoBehaviour
 
             if (PlayerManager.Instance.Piernas)
             {
-                PlayerManager.Instance.Piernas = false;
+                //PlayerManager.Instance.Piernas = false;
+                PlayerManager.Instance.AdiosPiernas();
             }
 
             PlayerManager.Instance.ConnectedToPataforma(gameObject);
@@ -132,7 +133,8 @@ public class PataformaComponent : MonoBehaviour
             // desconecta las piernas en la pataforma
             _piernasConectadas = false;
 
-            PlayerManager.Instance.Piernas = true;
+            //PlayerManager.Instance.Piernas = true;
+            PlayerManager.Instance.HolaPiernas();
 
             PlayerManager.Instance.ConnectedToPataforma(null);
         }

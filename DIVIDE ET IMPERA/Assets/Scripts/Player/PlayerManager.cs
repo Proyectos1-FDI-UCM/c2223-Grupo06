@@ -41,6 +41,12 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] // array de máquinas de estado de animaciones de colores (aka POR OBJETOS)
     private RuntimeAnimatorController[] _colorControllers;
 
+    // SFX
+    [SerializeField]
+    private AudioSource _soltarParteSFX;
+    [SerializeField]
+    private AudioSource _recogerParteSFX;
+
     [SerializeField]
     private Transform _objectsReset;
     #endregion
@@ -297,6 +303,10 @@ public class PlayerManager : MonoBehaviour
         if (_brazos < 2) // si tiene menos de 2 brazos
         {
             _brazos++; // si las destruye, obtiene un brazo más
+
+
+            //sfx
+            _recogerParteSFX.Play();
         }
     }
     public void SoltarBrazo() // para instanciarlo
@@ -305,22 +315,40 @@ public class PlayerManager : MonoBehaviour
         {
             if (LevelManager.Instance != null) Instantiate(_brazoPrefab, _myTransform.position, _myTransform.rotation,_objectsReset); // instanciación
             _brazos--; // un brazo menos
+
+            //sfx
+            _soltarParteSFX.Play();
         }
     }
     // piernas
     public void HolaPiernas() // para interactuables
     {
-        if (!_piernas) _piernas = !_piernas;
+        if (!_piernas)
+        {
+            _piernas = !_piernas;
+
+            //sfx
+            _recogerParteSFX.Play();
+        } 
     }
     public void AdiosPiernas() // para interactuables
     {
-        if (_piernas) _piernas = !_piernas;
+        if (_piernas)
+        {
+            _piernas = !_piernas;
+
+            //sfx
+            _soltarParteSFX.Play();
+        } 
     }
     public void RecogerPiernas() // para recoger piernas sueltas
     {
         if (!_piernas)
         {
             _piernas = true; // si las destruye, obtiene piernas
+
+            //sfx
+            _recogerParteSFX.Play();
         }
     }
     public void SoltarPiernas()  // para instanciar las piernas
@@ -329,6 +357,9 @@ public class PlayerManager : MonoBehaviour
         {
             if (LevelManager.Instance != null) Instantiate(_piernaPrefab, _myTransform.position, _myTransform.rotation, _objectsReset); // instanciación
             _piernas = false; // sin piernas
+
+            //sfx
+            _soltarParteSFX.Play();
         }
     }
 
