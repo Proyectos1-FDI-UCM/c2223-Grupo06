@@ -97,7 +97,7 @@ public class PalancaComponent : MonoBehaviour
             // conecta el brazo
             ConectarBrazo(true);
             PlayerManager.Instance.Brazos--;
-
+            PlayerManager.Instance.ConnectedToLever(gameObject);
             // cambia el color (deberia ser sprite)
             //_mySpriteRenderer.color = Color.blue;
         }
@@ -109,7 +109,7 @@ public class PalancaComponent : MonoBehaviour
             // desconecta el brazo
             ConectarBrazo(false);
             PlayerManager.Instance.Brazos++;
-
+            PlayerManager.Instance.ConnectedToLever(null);
             // cambia de color (deberia ser sprite)
             //_mySpriteRenderer.color = Color.white;
         }

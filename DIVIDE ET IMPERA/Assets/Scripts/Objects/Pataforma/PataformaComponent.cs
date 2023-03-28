@@ -123,6 +123,8 @@ public class PataformaComponent : MonoBehaviour
             {
                 PlayerManager.Instance.Piernas = false;
             }
+
+            PlayerManager.Instance.ConnectedToPataforma(gameObject);
         }
         // se pulsa T, está cerca de la pataforma, está en los estados correctos y hay patas conectadas
         else if (DesconectarPiernas())
@@ -132,7 +134,7 @@ public class PataformaComponent : MonoBehaviour
 
             PlayerManager.Instance.Piernas = true;
 
-            
+            PlayerManager.Instance.ConnectedToPataforma(null);
         }
     }
     private void Visual()
@@ -264,6 +266,11 @@ public class PataformaComponent : MonoBehaviour
             GetComponentInChildren<Animator>().enabled = false;
             enabled = false;
         }
+    }
+
+    public void DesconectaLasPutasPiernas()
+    {
+        _piernasConectadas= false;
     }
     #endregion
 

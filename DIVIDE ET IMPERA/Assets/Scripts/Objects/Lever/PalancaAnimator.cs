@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PalancaAnimator : MonoBehaviour
 {
@@ -11,6 +12,11 @@ public class PalancaAnimator : MonoBehaviour
 
     private bool _brazo = false;
     private bool _activada = false;
+
+    public void DesconectarBrazo()
+    {
+        _brazo = false;
+    }
     // Start is called before the first frame update
     void Start()
     {

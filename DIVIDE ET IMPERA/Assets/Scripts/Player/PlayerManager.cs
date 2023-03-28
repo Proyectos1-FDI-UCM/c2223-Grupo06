@@ -65,6 +65,12 @@ public class PlayerManager : MonoBehaviour
 
     // OBJETO QUE ESTÁ SIENDO CONTROLADO
     public GameObject _partInControl;
+
+    private GameObject _lever;
+    public GameObject Lever { get { return _lever; } }
+
+    private GameObject _pataforma;
+    public GameObject Pataforma { get { return _pataforma; } }
     #endregion
 
     #region Parameters
@@ -424,6 +430,16 @@ public class PlayerManager : MonoBehaviour
         }
         else return false;
 
+    }
+
+    public void ConnectedToLever(GameObject lever)
+    {
+        _lever= lever;
+    }
+
+    public void ConnectedToPataforma(GameObject pataforma)
+    {
+        _pataforma= pataforma;
     }
     #endregion
 

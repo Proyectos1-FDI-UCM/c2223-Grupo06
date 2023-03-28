@@ -50,6 +50,8 @@ public class LevelManager : MonoBehaviour
 
         ResetObjects();
 
+        ResetConnectedParts();
+
         UpdateCurrentLevel(); //actualiza nivel
     }
 
@@ -75,6 +77,21 @@ public class LevelManager : MonoBehaviour
         {
             Destroy(_objectsReset.transform.GetChild(j).gameObject);
         }
+    }
+
+    private void ResetConnectedParts()
+    {
+        if (PlayerManager.Instance.Lever != null)
+        {
+            PlayerManager.Instance.Lever.GetComponent<PalancaAnimator>().DesconectarBrazo();
+            PlayerManager.Instance.Lever.GetComponent<PalancaComponent>().ConectarBrazo(false);
+        }
+        
+        if (PlayerManager.Instance.Pataforma != null)
+        {
+            PlayerManager.Instance.Pataforma.GetComponent<PataformaComponent>().DesconectaLasPutasPiernas();
+        }
+        Debug.Log(PlayerManager.Instance.Lever + "/" + PlayerManager.Instance.Pataforma);
     }
 
     private void UpdateCurrentLevel() //actualiza spawn y nivel al del indice
