@@ -7,7 +7,7 @@ public class SFXComponent : MonoBehaviour
     [SerializeField]
     private AudioSource[] _sfx;
 
-    #region Soltar y Recoger partes
+    #region metodos especificos
 
     public void SoltarParteSFX()
     {
@@ -27,5 +27,23 @@ public class SFXComponent : MonoBehaviour
 
     }
 
+    public void PalancaSFX()
+    {
+        if (_sfx[2] != null)
+        {
+            _sfx[2].Play();
+        }
+    }
+
     #endregion
+
+   
+    // metodo general
+    public void SFXPlayer(int i)
+    {
+        if (_sfx[i] != null)
+        {
+            _sfx[i].Play();
+        }
+    }
 }

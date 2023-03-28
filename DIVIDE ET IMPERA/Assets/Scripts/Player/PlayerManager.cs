@@ -43,14 +43,9 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] // array de máquinas de estado de animaciones de colores (aka POR OBJETOS)
     private RuntimeAnimatorController[] _colorControllers;
 
-    // SFX
-    [SerializeField]
-    private AudioSource _soltarParteSFX;
-    [SerializeField]
-    private AudioSource _recogerParteSFX;
-
     [SerializeField]
     private Transform _objectsReset;
+
     #endregion
 
     #region Properties
@@ -321,7 +316,6 @@ public class PlayerManager : MonoBehaviour
 
             //sfx
             _mySFXComponent.SoltarParteSFX();
-            //_soltarParteSFX.Play();
         }
     }
     // piernas
@@ -332,7 +326,7 @@ public class PlayerManager : MonoBehaviour
             _piernas = !_piernas;
 
             //sfx
-            _recogerParteSFX.Play();
+            _mySFXComponent.SoltarParteSFX();
         } 
     }
     public void AdiosPiernas() // para interactuables
@@ -342,7 +336,7 @@ public class PlayerManager : MonoBehaviour
             _piernas = !_piernas;
 
             //sfx
-            _soltarParteSFX.Play();
+            _mySFXComponent.SoltarParteSFX();
         } 
     }
     public void RecogerPiernas() // para recoger piernas sueltas
@@ -352,7 +346,7 @@ public class PlayerManager : MonoBehaviour
             _piernas = true; // si las destruye, obtiene piernas
 
             //sfx
-            _recogerParteSFX.Play();
+            _mySFXComponent.RecogerParteSFX();
         }
     }
     public void SoltarPiernas()  // para instanciar las piernas
@@ -363,7 +357,7 @@ public class PlayerManager : MonoBehaviour
             _piernas = false; // sin piernas
 
             //sfx
-            _soltarParteSFX.Play();
+            _mySFXComponent.SoltarParteSFX();
         }
     }
 
@@ -491,7 +485,6 @@ public class PlayerManager : MonoBehaviour
         _mySpriteRenderer = GetComponent<SpriteRenderer>();
         _myCollisionManager = GetComponent<CollisionManager>();
         _myAnimator = GetComponent<Animator>();
-        //_mySFXComponent = GetComponent<SFXComponent>();
         _myTransform = transform;
 
         // Ejecución de la entrada a estado inicial
