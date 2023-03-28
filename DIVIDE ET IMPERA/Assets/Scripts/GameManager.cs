@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
     #region references
     private UIManager _UIManager;
     private CollisionManager _collisionManager;
+    private BGMComponent _bGMComponent;
     #endregion
 
     #region properties
@@ -35,6 +36,8 @@ public class GameManager : MonoBehaviour
     public void RequestStateChange(GameStates newState) // Método público para cambiar el valor privado de estado 
     {
         _nextGameState = newState;
+
+        _bGMComponent.CanPlay = true;
     }
 
     // Bloque de máquina de estados
