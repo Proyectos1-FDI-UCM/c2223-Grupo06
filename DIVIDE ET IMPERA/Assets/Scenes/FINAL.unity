@@ -282,7 +282,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1350007813893274878, guid: 59f3bbb5802b17140a954d4cbd3ee516, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: PauseToStart
+      value: GlobalReset
       objectReference: {fileID: 0}
     - target: {fileID: 1350007813893274878, guid: 59f3bbb5802b17140a954d4cbd3ee516, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -702,7 +702,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3368126575979522145, guid: 59f3bbb5802b17140a954d4cbd3ee516, type: 3}
       propertyPath: m_text
-      value: INICIO
+      value: COMENZAR DESDE EL PRINCIPIO
       objectReference: {fileID: 0}
     - target: {fileID: 3368126575979522145, guid: 59f3bbb5802b17140a954d4cbd3ee516, type: 3}
       propertyPath: m_fontSize

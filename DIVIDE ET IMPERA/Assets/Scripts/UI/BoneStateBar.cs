@@ -14,9 +14,11 @@ public class BoneStateBar : MonoBehaviour
     // el estado actual de la barra
     [SerializeField]
     private float _currentBoneState;
+    public float CurrentBoneState { get { return _currentBoneState; } }
     // el estado al máximo de la barra
     [SerializeField]
     private float _maxBoneState;
+    public float MaxBoneState { get { return _maxBoneState; } }
     #endregion
 
     #region methods
@@ -25,15 +27,15 @@ public class BoneStateBar : MonoBehaviour
         _currentBoneState -= _damage;
     }
 
-    public void ResetBar()
+    public void SetBar(float health)
     {
-        _currentBoneState = _maxBoneState; // al inicio siempre se tiene la barra al máximo
+        _currentBoneState = health; // al inicio siempre se tiene la barra al máximo
     }
     #endregion
 
     private void Start()
     {
-        ResetBar();
+        SetBar(_maxBoneState);
     }
 
     void Update()

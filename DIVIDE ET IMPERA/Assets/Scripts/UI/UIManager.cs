@@ -229,6 +229,11 @@ public class UIManager : MonoBehaviour
     {
         LevelManager.Instance.ResetCurrentLevel();
     }
+
+    public void GlobalReset()
+    {
+        LevelManager.Instance.GlobalReset();
+    }
     // BUCLE
     void Awake()
     {
