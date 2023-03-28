@@ -67,6 +67,14 @@ public class PalancaComponent : MonoBehaviour
     public void ConectarBrazo(bool conected)
     {
         _brazoConectado = conected;
+        PlayerManager.Instance.ConnectedToLever(gameObject);
+    }
+
+    public void DesconectarBrazo()
+    {
+        ConectarBrazo(false);
+        PlayerManager.Instance.Brazos++;
+        PlayerManager.Instance.ConnectedToLever(null);
     }
     #endregion
 
@@ -107,9 +115,7 @@ public class PalancaComponent : MonoBehaviour
             && _brazoConectado)
         {
             // desconecta el brazo
-            ConectarBrazo(false);
-            PlayerManager.Instance.Brazos++;
-            PlayerManager.Instance.ConnectedToLever(null);
+            DesconectarBrazo();
             // cambia de color (deberia ser sprite)
             //_mySpriteRenderer.color = Color.white;
         }

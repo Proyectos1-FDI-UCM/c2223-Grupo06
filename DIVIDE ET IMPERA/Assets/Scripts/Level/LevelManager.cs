@@ -84,14 +84,13 @@ public class LevelManager : MonoBehaviour
         if (PlayerManager.Instance.Lever != null)
         {
             PlayerManager.Instance.Lever.GetComponent<PalancaAnimator>().DesconectarBrazo();
-            PlayerManager.Instance.Lever.GetComponent<PalancaComponent>().ConectarBrazo(false);
+            PlayerManager.Instance.Lever.GetComponent<PalancaComponent>().DesconectarBrazo();
         }
         
         if (PlayerManager.Instance.Pataforma != null)
         {
             PlayerManager.Instance.Pataforma.GetComponent<PataformaComponent>().DesconectaLasPutasPiernas();
         }
-        Debug.Log(PlayerManager.Instance.Lever + "/" + PlayerManager.Instance.Pataforma);
     }
 
     private void UpdateCurrentLevel() //actualiza spawn y nivel al del indice
