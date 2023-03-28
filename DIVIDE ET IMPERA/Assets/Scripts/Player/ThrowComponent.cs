@@ -12,6 +12,8 @@ public class ThrowComponent : MonoBehaviour
     private GameObject _armPrefab;
     [SerializeField]
     private GameObject _ballPrefab;
+    [SerializeField]
+    private Transform _objectsReset;
     #endregion
     #region Parameters
     [SerializeField]
@@ -48,7 +50,7 @@ public class ThrowComponent : MonoBehaviour
             if (PlayerManager.Instance.Brazos > 0)
             {   // Lo he intentado optimizar un poco, no lo he querido mancillar
                 PlayerManager.Instance.Brazos--; // Cambia directamente el estado en su propio update, no worries
-                _thrownObject = Instantiate(_armPrefab, _myTransform.position, _myTransform.rotation);
+                _thrownObject = Instantiate(_armPrefab, _myTransform.position, _myTransform.rotation, _objectsReset);
                 _thrownObjectRB = _thrownObject.GetComponent<Rigidbody2D>();
             }
 
@@ -63,7 +65,7 @@ public class ThrowComponent : MonoBehaviour
     { // ESTÁ PENSADO PARA LANZAR LA BOLA *DEL RIBCAGE*
         if (PlayerManager.Instance.Objeto == PlayerManager.Objetos.BOLA && (_playerManager.Brazos > 0 || _furbo)) // Si tiene una bola
         {
-            _thrownObject = Instantiate(_ballPrefab, _myTransform.position + (_myTransform.right * _myTransform.localScale.x) / 2, _myTransform.rotation); // La instancia
+            _thrownObject = Instantiate(_ballPrefab, _myTransform.position + (_myTransform.right * _myTransform.localScale.x) / 2, _myTransform.rotation, _objectsReset); // La instancia
             //_thrownObject.transform.position += Vector3.up; // Más arriba ??
             _thrownObjectRB = _thrownObject.GetComponent<Rigidbody2D>(); // Pilla su RB
         }

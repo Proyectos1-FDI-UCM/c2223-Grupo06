@@ -40,6 +40,9 @@ public class PlayerManager : MonoBehaviour
     private RuntimeAnimatorController[] _defaultControllers;
     [SerializeField] // array de máquinas de estado de animaciones de colores (aka POR OBJETOS)
     private RuntimeAnimatorController[] _colorControllers;
+
+    [SerializeField]
+    private Transform _objectsReset;
     #endregion
 
     #region Properties
@@ -294,7 +297,7 @@ public class PlayerManager : MonoBehaviour
     {
         if (_brazos > 0) // si algún brazo y está en un espacio libre
         {
-            if (LevelManager.Instance != null) Instantiate(_brazoPrefab, _myTransform.position, _myTransform.rotation, LevelManager.Instance.CurrentLevel.transform); // instanciación
+            if (LevelManager.Instance != null) Instantiate(_brazoPrefab, _myTransform.position, _myTransform.rotation,_objectsReset); // instanciación
             _brazos--; // un brazo menos
         }
     }
@@ -318,7 +321,7 @@ public class PlayerManager : MonoBehaviour
     {
         if (_piernas) // si tiene piernas 
         {
-            if (LevelManager.Instance != null) Instantiate(_piernaPrefab, _myTransform.position, _myTransform.rotation, LevelManager.Instance.CurrentLevel.transform); // instanciación
+            if (LevelManager.Instance != null) Instantiate(_piernaPrefab, _myTransform.position, _myTransform.rotation, _objectsReset); // instanciación
             _piernas = false; // sin piernas
         }
     }

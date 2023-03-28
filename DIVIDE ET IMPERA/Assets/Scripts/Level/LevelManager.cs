@@ -18,6 +18,9 @@ public class LevelManager : MonoBehaviour
                                      //en las demás coincide con los spanws de las transiciones)
     [SerializeField]
     private Transform _originalSpawn; //spwan original del jugador
+
+    [SerializeField]
+    private GameObject _objectsReset;
     #endregion
     #region Properties
     private int _currentLevelNum; //indice de la sala
@@ -45,6 +48,8 @@ public class LevelManager : MonoBehaviour
 
         ResetPlayer(); //devuelve al jugador a las condiciones originales
 
+        ResetObjects();
+
         UpdateCurrentLevel(); //actualiza nivel
     }
 
@@ -62,6 +67,14 @@ public class LevelManager : MonoBehaviour
         PlayerAccess.Instance.BoneBar.ResetBar(); //elimina daño de caida acumulado
 
         PlayerAccess.Instance.InputController.ResetThisShit();
+    }
+    private void ResetObjects()
+    {
+        int i = _objectsReset.transform.childCount;
+        for (int j = 0; j < i; j++)
+        {
+            Destroy(_objectsReset.transform.GetChild(j).gameObject);
+        }
     }
 
     private void UpdateCurrentLevel() //actualiza spawn y nivel al del indice
