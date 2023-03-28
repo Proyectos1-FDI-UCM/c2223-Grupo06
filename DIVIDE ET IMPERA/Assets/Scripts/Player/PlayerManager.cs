@@ -22,6 +22,8 @@ public class PlayerManager : MonoBehaviour
     private CollisionManager _myCollisionManager;
     private Animator _myAnimator;
     private Transform _myTransform;
+    [SerializeField]
+    private SFXComponent _mySFXComponent;
     private UIManager _UIManager;
     public UIManager UIManager { get { return _UIManager; } }
 
@@ -306,7 +308,8 @@ public class PlayerManager : MonoBehaviour
 
 
             //sfx
-            _recogerParteSFX.Play();
+            _mySFXComponent.RecogerParteSFX();
+            //_recogerParteSFX.Play();
         }
     }
     public void SoltarBrazo() // para instanciarlo
@@ -317,7 +320,8 @@ public class PlayerManager : MonoBehaviour
             _brazos--; // un brazo menos
 
             //sfx
-            _soltarParteSFX.Play();
+            _mySFXComponent.SoltarParteSFX();
+            //_soltarParteSFX.Play();
         }
     }
     // piernas
@@ -487,6 +491,7 @@ public class PlayerManager : MonoBehaviour
         _mySpriteRenderer = GetComponent<SpriteRenderer>();
         _myCollisionManager = GetComponent<CollisionManager>();
         _myAnimator = GetComponent<Animator>();
+        //_mySFXComponent = GetComponent<SFXComponent>();
         _myTransform = transform;
 
         // Ejecución de la entrada a estado inicial
