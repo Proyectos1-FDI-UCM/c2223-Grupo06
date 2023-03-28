@@ -98,6 +98,23 @@ public class LevelManager : MonoBehaviour
         _currentLevel = _levels[_currentLevelNum];
         _roomSpawn = _roomSpawns[_currentLevelNum];
     }
+
+    public void GlobalReset()
+    {
+        for (int i = 0; i < _levels.Length; i++)
+        {
+            Vector3 lvlTransform = _levels[i].transform.position; //almacena posicion de la sala en la escena
+            Destroy(_levels[i]); //destruye sala
+            _levels[i] = Instantiate(_levelsPrefabs[i]); //instancia la sala desde su prefab
+            _levels[i].transform.position = lvlTransform; //mueve la sala a la posicion de la sala antes de resetearse
+        }
+
+        _roomSpawn = _originalSpawn;
+        ResetPlayer();
+
+        _currentLevelNum= 0;
+        UpdateCurrentLevel();
+    }
     #endregion
     private void Awake()
     {
