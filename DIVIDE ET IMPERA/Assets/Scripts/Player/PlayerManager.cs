@@ -326,7 +326,7 @@ public class PlayerManager : MonoBehaviour
             _piernas = !_piernas;
 
             //sfx
-            _mySFXComponent.SoltarParteSFX();
+            _mySFXComponent.RecogerParteSFX();
         } 
     }
     public void AdiosPiernas() // para interactuables

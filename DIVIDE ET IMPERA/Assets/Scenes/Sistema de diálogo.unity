@@ -10483,7 +10483,8 @@ MonoBehaviour:
   _lines:
   - hola
   - pipo
-  _speedText: 0.01
+  - AAAAAAAAAAAAA
+  _speedText: 0.15
   WaypointDialogo: {fileID: 1612102421}
   _speed: 3
 --- !u!61 &705580375
@@ -10537,8 +10538,11 @@ MonoBehaviour:
   _player: {fileID: 298932137}
   _dialogueText: {fileID: 1543427021}
   _interactText: {fileID: 664757811}
-  _lines: []
-  _speedText: 0.1
+  _lines:
+  - por favor que esto funcione
+  - si escribe esto
+  - por favor
+  _speedText: 0.15
   WaypointDialogo: {fileID: 1612102421}
   _speed: 3
 --- !u!114 &759306764

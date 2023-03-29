@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static GameManager;
 
 public class BGMComponent : MonoBehaviour
 {
+    
 
     [SerializeField]
     private AudioSource[] _bgm;
@@ -12,6 +14,7 @@ public class BGMComponent : MonoBehaviour
 
     #region properties
     private int _currentBGM;
+    private int _nextBGM;
     [SerializeField]
     private bool _canPlay;
     public bool CanPlay { get { return _canPlay; } set { _canPlay = value; } }
@@ -64,36 +67,31 @@ public class BGMComponent : MonoBehaviour
 
     private void BGMManager()
     {
-        // pretendo pasarlo a un switch cuando aprenda como hacerlo xd
-        if (GameManager.Instance.CurrentState == GameManager.GameStates.START)
-        {
-            _currentBGM = 3;
-        }
-        else if(GameManager.Instance.CurrentState == GameManager.GameStates.GAME)
-        {
-            _currentBGM = 0;
-        }
-        else if(GameManager.Instance.CurrentState == GameManager.GameStates.PAUSE)
-        {
-            _currentBGM = 3;
-        }
-        else if(GameManager.Instance.CurrentState == GameManager.GameStates.GAMEOVER)
-        {
-            _currentBGM = 0;
-        }
-        else if (GameManager.Instance.CurrentState == GameManager.GameStates.SCORE)
-        {
-            _currentBGM = 2;
-        }
-        else if (GameManager.Instance.CurrentState == GameManager.GameStates.LEVELSELECTOR)
-        {
-            _currentBGM = 2;
-        }
-        else if (GameManager.Instance.CurrentState == GameManager.GameStates.CONTROLES)
-        {
-            _currentBGM = 2;
-        }
+        switch (GameManager.Instance.CurrentState) // Diferentes comportamientos según estado al que se entra
+        { 
+            case GameStates.START:                       //     *MENÚ INICIAL*
+                _nextBGM = 3;
+                break;
+            case GameStates.GAME:                        //     *JUEGO*
+                _nextBGM = 0;
+                break;
+            case GameStates.PAUSE:                       //     *PAUSA*
+                _nextBGM = 3;
+                break;
+            case GameStates.GAMEOVER:                    //     *FIN DEL JUEGO*
+                _nextBGM = 0;
+                break;
+            case GameStates.SCORE:
+                _nextBGM = 2;
+                break;
+            case GameStates.LEVELSELECTOR:
+                _nextBGM = 2;
+                break;
+            case GameStates.CONTROLES:                   //     *CONTROLES*
+                _nextBGM = 2;
+                break;
 
+        }
     }
 
     private void BGMPlayer (int currentBGM)
@@ -104,16 +102,17 @@ public class BGMComponent : MonoBehaviour
 
     private void Start()
     {
-        _canPlay = true;
+        _currentBGM= 0;
     }
 
     private void Update()
     {
         BGMManager();
-
-        if (_canPlay)
+        if (_currentBGM != _nextBGM)
         {
-            BGMPlayer(_currentBGM);
+            StopBGM(_currentBGM);
+            _currentBGM = _nextBGM;
+            PlayBGM(_currentBGM);
         }
     }
 }

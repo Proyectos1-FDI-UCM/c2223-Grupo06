@@ -37,7 +37,7 @@ public class GameManager : MonoBehaviour
     {
         _nextGameState = newState;
 
-        _bGMComponent.CanPlay = true;
+        if (_bGMComponent != null) _bGMComponent.CanPlay = true;
     }
 
     // Bloque de máquina de estados
@@ -47,26 +47,26 @@ public class GameManager : MonoBehaviour
         { // En sí, solo cambia el grupo de UI por cada estado y en GAME carga el nivel
 
             case GameStates.START:                       //     *MENÚ INICIAL*
-                if (_UIManager != null) _UIManager.SetMenu(GameStates.START);    // Activa menú inicial
                 break;
             case GameStates.GAME:                        //     *JUEGO*
                 if (_UIManager != null) // Inicializa valores del HUD
                 {
-                    _UIManager.SetMenu(GameStates.GAME);     // Activa HUD
                     _UIManager.SetPartes(PlayerManager.State, PlayerManager.Instance.Parte);
                 }
                 break;
             case GameStates.PAUSE:                       //     *PAUSA*
-                if (_UIManager != null) _UIManager.SetMenu(GameStates.PAUSE);    // Activa menú pausa
                 break;
             case GameStates.GAMEOVER:                    //     *FIN DEL JUEGO*
-                if (_UIManager != null) _UIManager.SetMenu(GameStates.GAMEOVER); // Activa el texto de GameOver
+                break;
+            case GameStates.SCORE:
+                break;
+            case GameStates.LEVELSELECTOR: 
                 break;
             case GameStates.CONTROLES:                   //     *CONTROLES*
-                if (_UIManager != null) _UIManager.SetMenu(GameStates.CONTROLES);// Activa menú controles
                 break;
 
         }
+        if (_UIManager != null) _UIManager.SetMenu(newState); // como en todos los estados se hace esto, se pone al final según el estado nuevo y listo
         _currentGameState = newState;                        // Finaliza el cambio
         //Debug.Log("CURRENT: " + _currentGameState);
     }
