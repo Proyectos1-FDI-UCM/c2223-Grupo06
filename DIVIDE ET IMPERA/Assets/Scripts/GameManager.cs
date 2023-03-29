@@ -67,12 +67,18 @@ public class GameManager : MonoBehaviour
         }
         if (_UIManager != null) _UIManager.SetMenu(newState); // como en todos los estados se hace esto, se pone al final según el estado nuevo y listo
         _currentGameState = newState;                        // Finaliza el cambio
-        Debug.Log("CURRENT: " + _currentGameState);
+        Debug.Log("GAMEMANAGER: Current state is " + _currentGameState);
     }
 
     private void UpdateState(GameStates state)
     {
-
+        if (_currentGameState == GameStates.PAUSE) // para volver con esc desde la pausa
+        {
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                if (_UIManager != null) _UIManager.PauseToGame();
+            }
+        }
     }
 
     #endregion

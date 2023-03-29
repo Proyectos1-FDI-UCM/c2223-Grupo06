@@ -314,8 +314,7 @@ public class InputController : MonoBehaviour
         //------OPCIÓN DE PAUSA-------
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            //_UIManager.SetMenu(GameManager.GameStates.PAUSE); esto no funcionaba
-            PlayerManager.Instance.UIManager.SetMenu(GameManager.GameStates.PAUSE);
+            GameManager.Instance.RequestStateChange(GameManager.GameStates.PAUSE);
 
             // desactiva el input
             enabled = false;

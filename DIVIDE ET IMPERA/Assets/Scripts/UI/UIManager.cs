@@ -91,26 +91,25 @@ public class UIManager : MonoBehaviour
     public void PauseToControles()
     {
         RequestStateChange(GameManager.GameStates.CONTROLES); // referenciando al gamemanager (importante! si no no cambia de estado)
-        _player.GetComponent<InputController>().enabled = true;
+        _player.GetComponent<InputController>().enabled = false;
     }
 
     public void ControlesToPause()
     {
         RequestStateChange(GameManager.GameStates.PAUSE); // referenciando al gamemanager (importante! si no no cambia de estado)
-        _player.GetComponent<InputController>().enabled = true;
+        _player.GetComponent<InputController>().enabled = false;
     }
 
     public void GoToScore()
     {
         RequestStateChange(GameManager.GameStates.SCORE); // referenciando al gamemanager (importante! si no no cambia de estado)
-        _player.GetComponent<InputController>().enabled = true;
-
+        _player.GetComponent<InputController>().enabled = false;
     }
 
     public void GoToLevelSelector()
     {
         RequestStateChange(GameManager.GameStates.LEVELSELECTOR); // referenciando al gamemanager (importante! si no no cambia de estado)
-        _player.GetComponent<InputController>().enabled = true;
+        _player.GetComponent<InputController>().enabled = false;
     }
 
     public void PauseToGame()
