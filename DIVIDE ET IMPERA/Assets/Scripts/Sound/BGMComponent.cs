@@ -16,6 +16,7 @@ public class BGMComponent : MonoBehaviour
     private int _currentBGM;
     private int _nextBGM;
 
+    [SerializeField]
     private bool _playAmbience;
     [SerializeField]
     private bool _canPlay;
@@ -73,6 +74,7 @@ public class BGMComponent : MonoBehaviour
         { 
             case GameStates.START:                       //     *MENÚ INICIAL*
                 _nextBGM = 3;
+                _playAmbience = false;
                 break;
             case GameStates.GAME:                        //     *JUEGO*
                 _nextBGM = 0;
@@ -80,18 +82,23 @@ public class BGMComponent : MonoBehaviour
                 break;
             case GameStates.PAUSE:                       //     *PAUSA*
                 _nextBGM = 3;
+                _playAmbience = false;
                 break;
             case GameStates.GAMEOVER:                    //     *FIN DEL JUEGO*
                 _nextBGM = 0;
+                _playAmbience = false;
                 break;
             case GameStates.SCORE:
                 _nextBGM = 2;
+                _playAmbience = false;
                 break;
             case GameStates.LEVELSELECTOR:
                 _nextBGM = 2;
+                _playAmbience = false;
                 break;
             case GameStates.CONTROLES:                   //     *CONTROLES*
                 _nextBGM = 2;
+                _playAmbience = false;
                 break;
 
         }
@@ -120,6 +127,10 @@ public class BGMComponent : MonoBehaviour
             if (_playAmbience && !_ambience.isPlaying)
             {
                 PlayAmbience();
+            }
+            else if (!_playAmbience)
+            {
+                _ambience.Stop();
             }
         }
         
