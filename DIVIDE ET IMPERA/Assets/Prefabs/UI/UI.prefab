@@ -343,7 +343,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1938935141328946111
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6652,9 +6652,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2076869504003675100}
+      - m_Target: {fileID: 2076869504003675095}
         m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
-        m_MethodName: 
+        m_MethodName: ResetRoom
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6788,7 +6788,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2076869504003675095}
         m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
-        m_MethodName: PauseToStart
+        m_MethodName: GlobalReset
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

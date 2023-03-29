@@ -58,9 +58,9 @@ public class GameManager : MonoBehaviour
                 break;
             case GameStates.GAMEOVER:                    //     *FIN DEL JUEGO*
                 break;
-            case GameStates.SCORE:
+            case GameStates.SCORE:                       //     *PUNTUACIÓN*
                 break;
-            case GameStates.LEVELSELECTOR: 
+            case GameStates.LEVELSELECTOR:               //     *SELECTOR DE NIVELES*
                 break;
             case GameStates.CONTROLES:                   //     *CONTROLES*
                 break;
