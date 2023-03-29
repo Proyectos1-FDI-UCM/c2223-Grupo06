@@ -25,7 +25,7 @@ public class JumpComponent : MonoBehaviour
             _myRigidbody2D.velocity = new Vector2(_myRigidbody2D.velocity.x, _jumpForce);
 
             // sfx
-            _sFXComponent.SFXPlayer(2);
+            //_sFXComponent.SFXPlayer(2);
         }
     }
     #endregion

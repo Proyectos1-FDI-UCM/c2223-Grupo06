@@ -6,6 +6,8 @@ public class SFXComponent : MonoBehaviour
 {
     [SerializeField]
     private AudioSource[] _sfx;
+    [SerializeField]
+    private AudioSource[] _objectsSFX;
 
     /// <summary>
     /// ---- TUTO DE ARRAY DE SFX---
@@ -50,6 +52,14 @@ public class SFXComponent : MonoBehaviour
         if (_sfx[i] != null)
         {
             _sfx[i].Play();
+        }
+    }
+
+    public void ObjectsSFXPlayer(int i)
+    {
+        if (_objectsSFX[i] != null)
+        {
+            _objectsSFX[i].Play();
         }
     }
 }

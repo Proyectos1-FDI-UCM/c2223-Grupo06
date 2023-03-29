@@ -11,6 +11,7 @@ public class PalancaComponent : MonoBehaviour
     private SFXComponent _sFXComponent;
     [SerializeField]
     private GameObject _objeto;
+    private GameManager _gameManager;
     #endregion
 
     #region Properties
@@ -86,7 +87,7 @@ public class PalancaComponent : MonoBehaviour
         _playerManager = PlayerAccess.Instance.PlayerManager;
         _mySpriteRenderer = GetComponent<SpriteRenderer>();
         _movingPlatform = _objeto.GetComponent<MovingPlatformComponent>();
-        _sFXComponent = GetComponent<SFXComponent>();
+        //_sFXComponent = _gameManager.GetComponentInChildren<SFXComponent>();
     }
 
     private void Update()
@@ -98,7 +99,7 @@ public class PalancaComponent : MonoBehaviour
             Activar();
 
             // sfx
-            _sFXComponent.SFXPlayer(2);
+            //_sFXComponent.ObjectsSFXPlayer(0);
         }
 
         //-------CONECTAR BRAZO-------------------
