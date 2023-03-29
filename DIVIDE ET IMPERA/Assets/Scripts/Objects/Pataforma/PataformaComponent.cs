@@ -18,19 +18,6 @@ public class PataformaComponent : MonoBehaviour
     /// 
     /// y con esto se acabó el tutorial maravilloso y estupendo, recordad darle a like y compartir
     /// y acivar la campanita ;)
-    /// 
-    /// P.D. Controles antiguos
-    /// R ---> conectar piernas
-    /// T ---> recuperar piernas
-    /// 2+E -> cambiar input de uno a otro
-    /// WASD -> moverse 
-    /// 
-    /// Controles nuevos
-    /// E --> conectar piernas
-    /// R --> recuperar piernas
-    /// 3+T --> cambiar el control
-    /// WASD --> moverse 
-    /// 
     /// </summary>
     #endregion
 
@@ -262,7 +249,7 @@ public class PataformaComponent : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            UIManager.Instance.SetMenu(GameManager.GameStates.PAUSE);
+            GameManager.Instance.RequestStateChange(GameManager.GameStates.PAUSE);
             //_activarPataforma = false;
             GetComponent<PataformaMovementComponent>().enabled = false;
             GetComponentInChildren<Animator>().enabled = false;
