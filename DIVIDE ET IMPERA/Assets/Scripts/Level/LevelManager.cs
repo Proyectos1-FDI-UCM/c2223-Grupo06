@@ -42,10 +42,7 @@ public class LevelManager : MonoBehaviour
     public void ResetCurrentLevel()
     {
 
-        Vector3 lvlTransform = _levels[_currentLevelNum].transform.position; //almacena posicion de la sala en la escena
-        Destroy(_levels[_currentLevelNum]); //destruye sala
-        _levels[_currentLevelNum] = Instantiate(_levelsPrefabs[_currentLevelNum]); //instancia la sala desde su prefab
-        _levels[_currentLevelNum].transform.position = lvlTransform; //mueve la sala a la posicion de la sala antes de resetearse
+        ResetRoom(_currentLevelNum);
 
         ResetPlayer(); //devuelve al jugador a las condiciones originales
 
@@ -56,6 +53,13 @@ public class LevelManager : MonoBehaviour
         UpdateCurrentLevel(); //actualiza nivel
     }
 
+    private void ResetRoom(int levelNum)
+    {
+        Vector3 lvlTransform = _levels[levelNum].transform.position; //almacena posicion de la sala en la escena
+        Destroy(_levels[levelNum]); //destruye sala
+        _levels[levelNum] = Instantiate(_levelsPrefabs[levelNum]); //instancia la sala desde su prefab
+        _levels[levelNum].transform.position = lvlTransform; //mueve la sala a la posicion de la sala antes de resetearse
+    }
     private void ResetPlayer()
     {
         if(PlayerManager.Instance._partInControl.GetComponent<PataformaComponent>())
@@ -105,10 +109,7 @@ public class LevelManager : MonoBehaviour
     {
         for (int i = 0; i < _levels.Length; i++)
         {
-            Vector3 lvlTransform = _levels[i].transform.position; //almacena posicion de la sala en la escena
-            Destroy(_levels[i]); //destruye sala
-            _levels[i] = Instantiate(_levelsPrefabs[i]); //instancia la sala desde su prefab
-            _levels[i].transform.position = lvlTransform; //mueve la sala a la posicion de la sala antes de resetearse
+            ResetRoom(i);
         }
 
         _roomSpawn = _originalSpawn;
