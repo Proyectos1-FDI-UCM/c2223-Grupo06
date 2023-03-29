@@ -40,13 +40,11 @@ public class RoomTransition : MonoBehaviour
         {
             _roomSpawn = _rightRoomSpawn; //Si el jugador esta a la izquierda setear para la transicion a la sala derecha
             _roomCameraPosition = _rightRoomCameraPosition;
-            LevelManager.Instance.IncrementLevelCounter();
         }
         else
         {
             _roomSpawn = _leftRoomSpawn; //Si esta a la derecha setear para la transicion a la sala izquierda
             _roomCameraPosition = _leftRoomCameraPosition;
-            LevelManager.Instance.DecrementLevelCounter();
         }
 
         CameraMovement.Instance.enabled = false; //desactivar movimiento de la camara de seguir al jugador

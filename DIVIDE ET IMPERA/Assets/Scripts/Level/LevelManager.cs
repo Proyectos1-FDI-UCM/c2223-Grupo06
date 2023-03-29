@@ -32,16 +32,9 @@ public class LevelManager : MonoBehaviour
     private int _objectRoomIndex;
     #endregion
     #region Methods
-    public void IncrementLevelCounter() //aumenta indice y actualiza el nivel en el que te encuentras
+    public void ChangeLevelIndex(int index)
     {
-        _currentLevelNum++; 
-        UpdateCurrentLevel();
-    }
-
-    public void DecrementLevelCounter() //decrementa indice y actualiza el nivel en el que te encuentras
-    {
-        _currentLevelNum--;
-        UpdateCurrentLevel();
+        _currentLevelNum = index;
     }
 
     public void ResetCurrentLevel() //resetea sala actual
@@ -137,6 +130,7 @@ public class LevelManager : MonoBehaviour
     {
         _objectRoomIndex = index;
     }
+
     #endregion
     private void Awake()
     {
