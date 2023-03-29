@@ -10484,7 +10484,7 @@ MonoBehaviour:
   - hola
   - pipo
   - AAAAAAAAAAAAA
-  _speedText: 0.15
+  _speedText: 0.1
   WaypointDialogo: {fileID: 1612102421}
   _speed: 3
 --- !u!61 &705580375
@@ -10542,7 +10542,7 @@ MonoBehaviour:
   - por favor que esto funcione
   - si escribe esto
   - por favor
-  _speedText: 0.15
+  _speedText: 0.1
   WaypointDialogo: {fileID: 1612102421}
   _speed: 3
 --- !u!114 &759306764
@@ -10831,7 +10831,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3302585916420237717, guid: 59f3bbb5802b17140a954d4cbd3ee516, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 59f3bbb5802b17140a954d4cbd3ee516, type: 3}
