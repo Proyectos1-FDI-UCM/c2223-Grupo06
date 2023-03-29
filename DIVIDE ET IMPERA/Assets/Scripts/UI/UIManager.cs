@@ -60,7 +60,7 @@ public class UIManager : MonoBehaviour
 
     public void StartToGame()
     {
-        if (LevelManager.Instance != null) ResetLevel();
+        if (LevelManager.Instance != null) ResetRoom();
         SetMenu(GameManager.GameStates.GAME);
 
 
@@ -226,14 +226,14 @@ public class UIManager : MonoBehaviour
         _images[_posAlubiat].sprite = _sprites[^1]; // el último sprite es el vacío
     }
 
-    public void ResetLevel()
+    public void ResetRoom()
     {
-        LevelManager.Instance.ResetCurrentLevel();
+        LevelManager.Instance.ResetCurrentLevel(); //Resetea sala actual
     }
 
     public void GlobalReset()
     {
-        LevelManager.Instance.GlobalReset();
+        LevelManager.Instance.GlobalReset(); //Resetea todo el nivel
     }
     // BUCLE
     void Awake()

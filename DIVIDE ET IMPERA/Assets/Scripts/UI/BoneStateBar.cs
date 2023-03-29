@@ -29,7 +29,7 @@ public class BoneStateBar : MonoBehaviour
 
     public void SetBar(float health)
     {
-        _currentBoneState = health; // al inicio siempre se tiene la barra al máximo
+        _currentBoneState = health; //Setea vida actual
     }
     #endregion
 
