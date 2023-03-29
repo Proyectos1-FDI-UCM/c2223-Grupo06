@@ -64,11 +64,10 @@ public class GameManager : MonoBehaviour
                 break;
             case GameStates.CONTROLES:                   //     *CONTROLES*
                 break;
-
         }
         if (_UIManager != null) _UIManager.SetMenu(newState); // como en todos los estados se hace esto, se pone al final según el estado nuevo y listo
         _currentGameState = newState;                        // Finaliza el cambio
-        //Debug.Log("CURRENT: " + _currentGameState);
+        Debug.Log("CURRENT: " + _currentGameState);
     }
 
     private void UpdateState(GameStates state)
