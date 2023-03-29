@@ -12,7 +12,7 @@ public class InputController : MonoBehaviour
     (mano izq)
     Z:         Lanzar brazo
     X:         Soltar y recoger objetos
-    Shift + X: Lanzar bola si tiene en el ribcage / Chutar enfrente si no
+    Shift + Z / X / C: Lanzar bola si tiene en el ribcage / Chutar enfrente si no (cual de los 3? yo creo que Z)
 
     A:         Soltar brazos (o recoger si está enfrente**)
     S:         Soltar brazos (o recoger si está enfrente**)
@@ -206,15 +206,15 @@ public class InputController : MonoBehaviour
             } // si sí
             else PlayerManager.Instance.RecogerPiernas(); // la recoge
         }
-        else if (_conectarBrazo) _conectarBrazo = false;
+        else if (_conectarBrazo) _conectarBrazo = false; // estoy probando no juzgarme (sabré si lo hacéis)
         else if (_recuperarBrazo) _recuperarBrazo = false;
         else if (_conectarPiernas) _conectarPiernas = false;
         else if (_recuperarPiernas) _recuperarPiernas = false;
         #endregion
 
         #region SOLTAR OBJETS + LANZAR / CHUTAR BOLA
-        if (Input.GetKey(KeyCode.LeftShift) && (Input.GetKeyDown(KeyCode.X) || Input.GetKeyDown(KeyCode.C)))
-        { // Si es Shift + X
+        if (Input.GetKey(KeyCode.LeftShift) && (Input.GetKeyDown(KeyCode.Z) || Input.GetKeyDown(KeyCode.X) || Input.GetKeyDown(KeyCode.C)))
+        { // Si es Shift + Z / X / C
             if (PlayerManager.Instance.Objeto == PlayerManager.Objetos.BOLA)
             {
                 _throwComp.LanzarBola(); // Si es una bola en el ribcage, la lanza
