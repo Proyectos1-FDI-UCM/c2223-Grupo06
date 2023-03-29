@@ -63,6 +63,7 @@ public class UIManager : MonoBehaviour
         if (LevelManager.Instance != null) ResetLevel();
         SetMenu(GameManager.GameStates.GAME);
 
+
         // activa el input
         _player.GetComponent<InputController>().enabled = true;
         CameraMovement.Instance.enabled= true;
