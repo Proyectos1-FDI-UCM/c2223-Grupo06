@@ -411,7 +411,7 @@ public class PlayerManager : MonoBehaviour
     {
         if (!TieneObjeto())
         {
-            int objeto = _myCollisionManager.DestruirObjeto();
+            int objeto = _myCollisionManager.DesactivarObjeto();
             if (objeto < 3 && objeto > -1) // destruye las piernas con las que está colisionando
             {
                 CambiarObjeto((Objetos)objeto);
@@ -424,8 +424,11 @@ public class PlayerManager : MonoBehaviour
         {
             var posicion = _myTransform.position;
             //if (Objeto == Objetos.BOLA) posicion += _myTransform.right * _myTransform.localScale.x;
-            if (LevelManager.Instance != null) Instantiate(_objetosPrefabs[(int)_objeto], posicion, _myTransform.rotation, LevelManager.Instance.CurrentLevel.transform); //Se pone el nivel como padre para que en el reseteo los
-            else Instantiate(_objetosPrefabs[(int)_objeto], posicion, _myTransform.rotation);                                                                                                                   //objetos recogidos y soltados se eliminen tambien 
+            if (LevelManager.Instance != null && _myCollisionManager.ObjectStored != null)
+            { 
+                _myCollisionManager.ObjectStored.SetActive(true);
+                _myCollisionManager.ObjectStored.transform.position = posicion;
+            }
             EliminarObjeto();
         }
     }

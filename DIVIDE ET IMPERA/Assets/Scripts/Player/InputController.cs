@@ -206,6 +206,10 @@ public class InputController : MonoBehaviour
             } // si sí
             else PlayerManager.Instance.RecogerPiernas(); // la recoge
         }
+        else if (_conectarBrazo) _conectarBrazo = false;
+        else if (_recuperarBrazo) _recuperarBrazo = false;
+        else if (_conectarPiernas) _conectarPiernas = false;
+        else if (_recuperarPiernas) _recuperarPiernas = false;
         #endregion
 
         #region SOLTAR OBJETS + LANZAR / CHUTAR BOLA
@@ -280,8 +284,8 @@ public class InputController : MonoBehaviour
     public void ResetThisShit()
     {
         _interactuar = false;
-        _conectarBrazo= false;
-        _conectarPiernas=false;
+        _conectarBrazo = false;
+        _conectarPiernas =false;
     }
     #endregion
 
@@ -323,63 +327,4 @@ public class InputController : MonoBehaviour
         CoolDown(); // no se usa??
     }
 }
-
-#region CONTROLES (TO BE DEPRECATED)
-/*MOVIMENTO LATERAL Y VERTICAL*
-*
-* (TO BE DEPRECATED, ES EL MAPPING ACTUAL)
-*
-AD ----------- > moverse a los lados
-SPACE -------- > saltar
-
-*PALANCA*
-E ------------- > conectar parte
-R ------------- > recuperar parte
-Q ------------- > lanzar
-
-*SOLTAR PARTES*
-1 + E -------- > soltar brazo
-2 + E -------- > soltar brazo
-3 + E -------- > soltar piernas
-4 + E -------- > WIP
-
-*RECUPERAR PARTES*
-1 + R -------- > recuperar brazo
-2 + R -------- > recuperar brazo
-3 + R -------- > recuperar piernas
-4 + R -------- > WIP
-
-*INTERACCIÓN DE OBJETOS*
-1 + T -------- > interactuar con palanca
-2 + T -------- > interactuar con palanca
-3 + T -------- > interactuar con pataforma
-4 + T -------- > WIP 
-
-*COGER Y SOLTAR OBJETOS*
-L  -------- > coger
-K  -------- > soltar
-/*
-
-/* *ESTILO 1: parecido al planteamiento inical*
-(mano izq)
-A y D  : Movimiento lateral
-W: Interactuar con palanca enfrente y por remoto** + diálogo
-Espacio: Saltar
-
-E: recoger y soltar objetos (si tiene objeto lo suelta, si no, intenta recoger algo*)
-Q: recoger partes (brazo / piernas del suelo / palanca / plataforma)
-F: lanzar brazo / bola si tiene
-
-(mano der)
-K: soltar brazos  (si lo haces delante de una palanca, se conecta auto)
-L: soltar piernas (si lo haces encima de una pataforma, se conectan auto)
-
-    *: quizá? si vemos que no es útil pues un botón para cada, pero creo que puede estar guay eso
-    **: para que quede acorde con el HUD, yo pondría las cosas que sean combinaciones según el orden:
-        1 + <tecla>: controlar cabeza (PUM a la cabeza)
-        2 + <tecla>: si hay dos brazos cada uno en una palanca, activa la primera palanca
-        3 + <tecla>:                                                 " la segunda palanca
-        4 + <tecla>: controlar piernas
-        <tecla>: E? (es la tecla de interaccion por excelencia) */
-#endregion
 
