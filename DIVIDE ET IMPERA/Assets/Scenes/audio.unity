@@ -1574,7 +1574,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!82 &172603446
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1587,13 +1587,13 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 983c3812a413c84478f2f9f5332c2733, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.2
+  m_Volume: 1
   m_Pitch: 1
   Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 219
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -1977,6 +1977,7 @@ MonoBehaviour:
   - {fileID: 172603447}
   - {fileID: 172603452}
   _ambience: {fileID: 172603446}
+  _playAmbience: 0
   _canPlay: 0
 --- !u!4 &172603451
 Transform:

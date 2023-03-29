@@ -7,6 +7,12 @@ public class SFXComponent : MonoBehaviour
     [SerializeField]
     private AudioSource[] _sfx;
 
+    /// <summary>
+    /// ---- TUTO DE ARRAY DE SFX---
+    /// de momento no hay nada oop
+    /// 
+    /// </summary>
+
     #region metodos especificos
 
     public void SoltarParteSFX()
