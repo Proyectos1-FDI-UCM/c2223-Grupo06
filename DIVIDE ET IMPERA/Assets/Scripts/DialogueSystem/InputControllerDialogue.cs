@@ -20,23 +20,7 @@ public class InputControllerDialogue : MonoBehaviour
         if (_enConversacion && (Input.GetKeyDown(KeyCode.Z) || Input.GetKeyDown(KeyCode.UpArrow))) // UpArrow o Z para avanzar en el diálogo
         {
             Debug.Log("que se bajen que me lo llevo");
-            Debug.Log("en convers" + _enConversacion + " vdagviud" + _dialogueManager.name);
             _dialogueManager.ProcessInput();
-
-
-            /* if (_dialogueManager._dialogueText.text == _dialogueManager._lines[_dialogueManager._index]) // siguiente linea
-            {
-                _dialogueManager.NextLine();
-            }
-            else // fin dialogo
-            {
-                StopAllCoroutines();
-                _dialogueManager._dialogueText.text = _dialogueManager._lines[_dialogueManager._index];
-
-                _inputController.enabled = true;
-                enabled = false;
-                _enConversacion = false;
-            } */
         }
     }
 

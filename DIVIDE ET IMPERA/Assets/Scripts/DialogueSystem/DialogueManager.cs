@@ -131,7 +131,7 @@ public class DialogueManager : MonoBehaviour
         {
             Debug.Log("mas te vale no desactivarte gilipollas");
             _dialogueText.text = string.Empty;
-            gameObject.SetActive(false); // desactivar el objeto -> FIN DIALOGO
+            enabled = false; // desactivar el objeto -> FIN DIALOGO
         }
     }
 
@@ -145,10 +145,10 @@ public class DialogueManager : MonoBehaviour
         }
         else // fin dialogo
         {
-            _dialogueText.text = "";
             StopAllCoroutines();
             _dialogueText.text = _lines[_index];
 
+            _dialogueText.text = "";
             _inputController.enabled = true;
             _inputControllerDialogue.enabled = false;
             _inputControllerDialogue._enConversacion = false;

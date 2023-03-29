@@ -10540,7 +10540,7 @@ MonoBehaviour:
   _interactText: {fileID: 664757811}
   _lines:
   - por favor que esto funcione
-  - si escribe esto literalmente me muero
+  - si escribe esto
   - por favor
   _speedText: 0.15
   WaypointDialogo: {fileID: 1612102421}
