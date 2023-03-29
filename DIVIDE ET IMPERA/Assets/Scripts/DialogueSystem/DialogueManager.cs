@@ -18,12 +18,16 @@ public class DialogueManager : MonoBehaviour
 
     #region Parameters
     // flujo
+    [Tooltip("Líneas de diálogo")]
     public string[] _lines;                    // lineas del guion
+    [Tooltip("Velocidad a la que se escribe el texto")]
     [SerializeField] private float _speedText; // velocidad de texto
     int _index;                                // para saber en que linea estamos
 
     // mover a timoteo
+    [Tooltip("Punto al que se mueve Timoteo al inicio de la conversación")]
     [SerializeField] private GameObject WaypointDialogo; // punto al que se mueve timoteo al inicio del dialogo
+    [Tooltip("Velocidad a la que se mueve Timoteo al waypoint")]
     [SerializeField] private float _speed;               // velocidad a la que se mueve timoteo al waypoint de dialogo
     #endregion
 
@@ -35,6 +39,7 @@ public class DialogueManager : MonoBehaviour
         if (collision.gameObject == _player)            //filtro para que solo el jugador pueda interactuar con cosas
         {
             _interactText.text = "\u2191 para hablar";  // mostrar texto de interaccion
+            PlayerAccess.Instance.InputControllerDialogue.RegisterDialogueManager(this);
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
@@ -124,6 +129,8 @@ public class DialogueManager : MonoBehaviour
         }
         else
         {
+            Debug.Log("mas te vale no desactivarte gilipollas");
+            _dialogueText.text = string.Empty;
             gameObject.SetActive(false); // desactivar el objeto -> FIN DIALOGO
         }
     }
@@ -138,6 +145,7 @@ public class DialogueManager : MonoBehaviour
         }
         else // fin dialogo
         {
+            _dialogueText.text = "";
             StopAllCoroutines();
             _dialogueText.text = _lines[_index];
 
