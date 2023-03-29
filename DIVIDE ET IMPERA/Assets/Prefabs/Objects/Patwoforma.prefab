@@ -253,7 +253,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f10fc3b95a7066c47a212b973b8a03f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _player: {fileID: 0}
   pataformaMovementComponent: {fileID: 8562587943021863831}
   _patas: {fileID: 4210712077449746953}
   _animator: {fileID: 2051036441004247502}
