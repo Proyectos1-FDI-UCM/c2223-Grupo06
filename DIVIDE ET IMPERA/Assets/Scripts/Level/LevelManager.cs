@@ -20,12 +20,12 @@ public class LevelManager : MonoBehaviour
     private Transform _originalSpawn; //spwan original del jugador
 
     [SerializeField]
-    private GameObject _objectsReset;
+    private GameObject _objectsReset; //objeto padre de los objetos/partes soltados/lanzados
     #endregion
     #region Properties
     private int _currentLevelNum; //indice de la sala
     private Transform _roomSpawn; //spawn actual
-    private float _currentHealth;
+    private float _currentHealth; //valor de la vida al entrar en la sala
     #endregion
     #region Methods
     public void IncrementLevelCounter() //aumenta indice y actualiza el nivel en el que te encuentras
@@ -33,24 +33,25 @@ public class LevelManager : MonoBehaviour
         _currentLevelNum++; 
         UpdateCurrentLevel();
     }
+
     public void DecrementLevelCounter() //decrementa indice y actualiza el nivel en el que te encuentras
     {
         _currentLevelNum--;
         UpdateCurrentLevel();
     }
 
-    public void ResetCurrentLevel()
+    public void ResetCurrentLevel() //resetea sala actual
     {
 
-        ResetRoom(_currentLevelNum);
+        ResetRoom(_currentLevelNum); //resetea sala
 
         ResetPlayer(); //devuelve al jugador a las condiciones originales
 
-        ResetObjects();
+        ResetObjects(); //resetea objetos y partes lanzadas/soltadas
 
-        ResetConnectedParts();
+        ResetConnectedParts(); //resetea objetos connectados si los hay
 
-        UpdateCurrentLevel(); //actualiza nivel
+        UpdateCurrentLevel(); //actualiza datos nivel
     }
 
     private void ResetRoom(int levelNum)
@@ -59,10 +60,12 @@ public class LevelManager : MonoBehaviour
         Destroy(_levels[levelNum]); //destruye sala
         _levels[levelNum] = Instantiate(_levelsPrefabs[levelNum]); //instancia la sala desde su prefab
         _levels[levelNum].transform.position = lvlTransform; //mueve la sala a la posicion de la sala antes de resetearse
+                                                             //se rompia la instanciacion por algun motivo si se instanciaba ahi directamente
     }
+
     private void ResetPlayer()
     {
-        if(PlayerManager.Instance._partInControl.GetComponent<PataformaComponent>())
+        if(PlayerManager.Instance._partInControl.GetComponent<PataformaComponent>()) //Si estas controlando la pataforma hace los cambios de control al player
         {
             PlayerManager.Instance._partInControl.GetComponent<PataformaComponent>().PlayerInControl();
         }
@@ -75,7 +78,8 @@ public class LevelManager : MonoBehaviour
 
         PlayerAccess.Instance.InputController.ResetThisShit();
     }
-    private void ResetObjects()
+
+    private void ResetObjects() //Destruir todos los objetos lanzados/soltados porque son hijos de _objectsReset
     {
         int i = _objectsReset.transform.childCount;
         for (int j = 0; j < i; j++)
@@ -86,13 +90,13 @@ public class LevelManager : MonoBehaviour
 
     private void ResetConnectedParts()
     {
-        if (PlayerManager.Instance.Lever != null)
+        if (PlayerManager.Instance.Lever != null) //si estas conectado a una palanca desconectar brazo
         {
             PlayerManager.Instance.Lever.GetComponent<PalancaAnimator>().DesconectarBrazo();
             PlayerManager.Instance.Lever.GetComponent<PalancaComponent>().DesconectarBrazo();
         }
         
-        if (PlayerManager.Instance.Pataforma != null)
+        if (PlayerManager.Instance.Pataforma != null) //si estas conectado a pataforma desconectar piernas
         {
             PlayerManager.Instance.Pataforma.GetComponent<PataformaComponent>().DesconectaLasPutasPiernas();
         }
@@ -100,23 +104,23 @@ public class LevelManager : MonoBehaviour
 
     private void UpdateCurrentLevel() //actualiza spawn y nivel al del indice
     {
-        _currentLevel = _levels[_currentLevelNum];
+        _currentLevel = _levels[_currentLevelNum]; 
         _roomSpawn = _roomSpawns[_currentLevelNum];
         _currentHealth = PlayerAccess.Instance.BoneBar.CurrentBoneState;
     }
 
     public void GlobalReset()
     {
-        for (int i = 0; i < _levels.Length; i++)
+        for (int i = 0; i < _levels.Length; i++) //Reset de todas las salas
         {
             ResetRoom(i);
         }
-
+        //reset del player devolviendole a condiciones originales
         _roomSpawn = _originalSpawn;
         _currentHealth = PlayerAccess.Instance.BoneBar.MaxBoneState;
         ResetPlayer();
-
-        _currentLevelNum= 0;
+        
+        _currentLevelNum= 0; //actualiza indice
         UpdateCurrentLevel();
     }
     #endregion
