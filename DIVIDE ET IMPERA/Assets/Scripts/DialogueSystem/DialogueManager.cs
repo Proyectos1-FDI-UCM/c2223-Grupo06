@@ -33,6 +33,7 @@ public class DialogueManager : MonoBehaviour
 
     #region Methods
     #region flujo de diálogo
+    #region interact text
     // TEXTO DE INTERACCION
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -49,6 +50,7 @@ public class DialogueManager : MonoBehaviour
             _interactText.text = "";                    // quitar texto de interaccion
         }
     }
+    #endregion
 
     // ACTIVAR DIALOGO
     private void Activar()
@@ -58,47 +60,6 @@ public class DialogueManager : MonoBehaviour
         StartDialogue();
     }
 
-    #region DIALOGO POCHO
-    // INICIO DIALOGO
-    /* public void StartDialogue(Dialogue _dialogue)
-    {
-        Debug.Log("Conversación con" + _dialogue._name);
-
-        _guion.Clear(); // limpiar guion
-        foreach (string _frase in _dialogue._personaje) // recorrer array de guion de personaje
-        {
-            _guion.Enqueue(_frase);                     // añadir a la queue
-        }
-        SiguienteFrase(); // al acabar pasar a la siguiente frase
-    } */
-
-    // SIGUIENTE FRASE
-    /* public void SiguienteFrase()
-    {
-        if (_guion.Count == 0) // comprobar que queden frases en la queue
-        {
-            FinDialogo();
-            return;
-        }
-        string _frase = _guion.Dequeue(); // siguiente frase en la queue 
-        StopAllCoroutines(); // parar antes de empezar la nueva frase
-        StartCoroutine(Letritas(_frase));
-    } 
-
-    // FIN DIALOGO
-     public void FinDialogo()
-    {
-        if ( true ) 
-        {
-            _inputController.enabled = true;
-            _inputControllerDialogue.enabled = false;
-            _inputControllerDialogue._enConversacion = false;
-            Debug.Log("ACABOSE");
-        } 
-    } */
-    #endregion
-
-    #region DIALOGO NUEVO
     // INICIO DIALOGO
     public void StartDialogue() // cuando se llame se activa la corrutina
     {
@@ -129,7 +90,7 @@ public class DialogueManager : MonoBehaviour
         }
         else
         {
-            Debug.Log("mas te vale no desactivarte gilipollas");
+            Debug.Log("desactivate buen hombre");
             _dialogueText.text = string.Empty;
             enabled = false; // desactivar el objeto -> FIN DIALOGO
         }
@@ -137,16 +98,17 @@ public class DialogueManager : MonoBehaviour
 
     public void ProcessInput()
     {
-        Debug.Log("creen ustedes que esto funcione");
+        // Debug.Log("creen ustedes que esto funcione");
 
         if (_dialogueText.text == _lines[_index]) // siguiente linea
         {
+            Debug.Log("siguiente linea con dos cojones");
             NextLine();
         }
         else // fin dialogo
         {
             StopAllCoroutines();
-            _dialogueText.text = _lines[_index];
+            // _dialogueText.text = _lines[_index]; // no hace falta ,':·/
 
             _dialogueText.text = "";
             _inputController.enabled = true;
@@ -154,9 +116,6 @@ public class DialogueManager : MonoBehaviour
             _inputControllerDialogue._enConversacion = false;
         }
     }
-
-    #endregion
-
     #endregion
 
     #region mover timoteo

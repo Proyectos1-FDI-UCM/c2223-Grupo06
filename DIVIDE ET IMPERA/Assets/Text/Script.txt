@@ -1,65 +1,67 @@
-﻿------------------------------ PRIMER ENCUENTRO CON BOB
+﻿[NARRADOR: 1 - TIMOTEO: 2 - BOB: 3 - ALUBIA: 4]
+
+------------------------------ PRIMER ENCUENTRO CON BOB
 
 ------------------------------ SEGUNDO ENCUENTRO CON BOB
 
 ------------------------------ ENCUENTRO CON “ALUBIA”
-NARRADOR
+1 NARRADOR
 Tu padre Timoteo I “Alubia” yace en su tumba (1777 - 1839 ✞) maldiciendo entre susurros a todos sus antecesores
 
-TIMOTEO
+2 TIMOTEO
 “Padre…”
 
-NARRADOR
+1 NARRADOR
 Consigues musitar para ti mismo
 
-ALUBIA
+4 ALUBIA
 “¡Timoteo! Quién si no que el más desgraciado de todos mis hijos”
 
-NARRADOR
+1 NARRADOR
 Se te hielan los huesos
 
-ALUBIA
+4 ALUBIA
 “Ya le dije yo a tu madre, ¡que me den todo el dinero de las Europas si este zopenco consigue llegar a los cuarenta! ¡Ja!”
 
-NARRADOR
+1 NARRADOR
 Te fijas en su cálcico cuerpo: fémur, rótula, tibia, peroné y las falanges de los pies, ni rastro de ninguno de estos huesos
 
-TIMOTEO: “Así que esto explica que no hayas podido salir de aquí…”
+2 TIMOTEO: “Así que esto explica que no hayas podido salir de aquí…”
 
-NARRADOR
+1 NARRADOR
 Dices señalando la falta de extremidad
 
-ALUBIA
+4 ALUBIA
 “¡Bah! Hay que saber cuándo rendirse, sin mis ‘amiguitas’ no podría salir de aquí ni en un millón de eternidades”
 
-NARRADOR
+1 NARRADOR
 Comienza a reírse, se supone que tiene que ser gracioso
 
-NARRADOR
+1 NARRADOR
 Deberías reírte con él, aún siendo un esqueleto no puedes evitar intentar complacer a tu padre
 
-ALUBIA
+4 ALUBIA
 “¡Ja! ¡JA! ¡Jahg! ¡Cof! ¡Jaf!”
 
-NARRADOR
+1 NARRADOR
 Y *cling*, se le cae un diente
 
-TIMOTEO
+2 TIMOTEO
 “Pues sí que estás hecho polvo…”
 
-NARRADOR
+1 NARRADOR
 Realmente te sientes mal por él
 
-ALUBIA
+4 ALUBIA
 “¡Válgame Dios!”
 
-NARRADOR
+1 NARRADOR
 Se coloca el diente de nuevo
 
-ALUBIA
+4 ALUBIA
 “¡Al cuerno contigo!”
 
-NARRADOR
+1 NARRADOR
 Se da la vuelta y se esconde de nuevo en su ataúd
 
 ------------------------------ TERCER ENCUENTRO CON BOB - FINAL MALO
@@ -67,48 +69,48 @@ Se da la vuelta y se esconde de nuevo en su ataúd
 ------------------------------ TERCER ENCUENTRO CON BOB - FINAL BUENO
 
 ------------------------------ DESPEDIDA CON BOB
-NARRADOR
+1 NARRADOR
 Llegas a una pequeña sala de regias y carbónicas paredes, allí te espera Bob
 
-BOB
+3 BOB
 "Ha llegado el momento, saldrás de aquí, siendo poco más que un montón de huesos y habiendo trascendiendo la vida terrenal serás libre por fin, lejos del yugo de tu padre…"
 
-NARRADOR
+1 NARRADOR
 Una pausa
 
-TIMOTEO
+2 TIMOTEO
 "Y lejos de ti…"
 
-NARRADOR
+1 NARRADOR
 Dices, siendo consciente por primera vez de lo que significa alejarte de todo aquello
 
-BOB
+3 BOB
 "¡Oh, Timoteo! No sufras por eso, no sufras por mí, he sido feliz estando a tu lado, estando para ti y para tu madre, es algo que siempre llevaré en mi ahora inexistente y metafórico corazón"
 
-NARRADOR
+1 NARRADOR
 La inevitable pérdida de todo lo conocido, tu costillas de comprimen
 
-TIMOTEO
+2 TIMOTEO
 "Bob…"
 
-NARRADOR
+1 NARRADOR
 Si pudieses llorar llorarías
 
-BOB
+3 BOB
 "Tu madre y yo nunca pudimos tener el final feliz que siempre deseamos, mi hermano iba a ser el rey y ella la reina…
 
-BOB
+3 BOB
 ¡Ten por seguro, Timoteo, que tú eres el hijo que nunca tuvimos! El día que naciste juré que nunca estarías solo. ¡No mientras yo estuviese para ti!"
 
-NARRADOR
+1 NARRADOR
 Sal de aquí, descansa tus huesos bajo la sombra de un ciprés, esa vida ya no te pertenece
 
-TIMOTEO
+2 TIMOTEO
 "Maldigo la triste y real vida que viví, maldigo a mi padre y a todos aquellos que lucharon a su lado, maldigo la vida antes de la muerte y la vida tras ella, la muerte viviente que somos y no dejaremos de ser"
 
-NARRADOR
+1 NARRADOR
 Sumérgete en un lago, retoza entre lombrices, arde en una hoguera
 
-BOB
+3 BOB
 "¡Se libre Timoteo! ¡Se libre al fin! ¡Pisa con las falanges de tus fríos pies la hierba del nuevo día y aléjate de esta olvidada cripta!"
 ------------------------------

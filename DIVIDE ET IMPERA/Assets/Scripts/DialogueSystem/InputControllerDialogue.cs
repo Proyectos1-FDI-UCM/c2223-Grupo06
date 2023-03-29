@@ -17,16 +17,15 @@ public class InputControllerDialogue : MonoBehaviour
     #region Methods
     private void DialogueInput()
     {
-        if (_enConversacion && (Input.GetKeyDown(KeyCode.Z) || Input.GetKeyDown(KeyCode.UpArrow))) // UpArrow o Z para avanzar en el diálogo
+        if (_enConversacion && (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow))) // UpArrow o Z para avanzar en el diálogo
         {
-            Debug.Log("que se bajen que me lo llevo");
             _dialogueManager.ProcessInput();
         }
     }
 
     public void RegisterDialogueManager(DialogueManager dialogue)
     {
-        _dialogueManager= dialogue;
+        _dialogueManager = dialogue;
     }
     #endregion
 
@@ -34,7 +33,6 @@ public class InputControllerDialogue : MonoBehaviour
     {
         this.enabled = false; // empieza desactivado
         _inputController = GetComponent<InputController>();
-        //_dialogueManager = GetComponent<DialogueManager>();
     }
 
     private void Update()
