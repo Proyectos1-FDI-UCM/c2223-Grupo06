@@ -15,6 +15,8 @@ public class BGMComponent : MonoBehaviour
     #region properties
     private int _currentBGM;
     private int _nextBGM;
+
+    private bool _playAmbience;
     [SerializeField]
     private bool _canPlay;
     public bool CanPlay { get { return _canPlay; } set { _canPlay = value; } }
@@ -74,6 +76,7 @@ public class BGMComponent : MonoBehaviour
                 break;
             case GameStates.GAME:                        //     *JUEGO*
                 _nextBGM = 0;
+                _playAmbience = true;
                 break;
             case GameStates.PAUSE:                       //     *PAUSA*
                 _nextBGM = 3;
@@ -103,6 +106,7 @@ public class BGMComponent : MonoBehaviour
     private void Start()
     {
         _currentBGM= 0;
+        _playAmbience = false;
     }
 
     private void Update()
@@ -113,6 +117,11 @@ public class BGMComponent : MonoBehaviour
             StopBGM(_currentBGM);
             _currentBGM = _nextBGM;
             PlayBGM(_currentBGM);
+            if (_playAmbience && !_ambience.isPlaying)
+            {
+                PlayAmbience();
+            }
         }
+        
     }
 }
