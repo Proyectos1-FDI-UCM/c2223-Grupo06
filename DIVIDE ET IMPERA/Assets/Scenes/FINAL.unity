@@ -1742,7 +1742,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2957055891273576302, guid: 3be88e3eafb2086439f2e5c5dc51fb05, type: 3}
       propertyPath: m_Name
-      value: Room Transition 1-2
+      value: Room Transition 0-1
       objectReference: {fileID: 0}
     - target: {fileID: 2957055891273576302, guid: 3be88e3eafb2086439f2e5c5dc51fb05, type: 3}
       propertyPath: m_Layer
@@ -13651,7 +13651,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7526879568850083321, guid: 31eb3cd72c18cc949951cfcad05d4a79, type: 3}
       propertyPath: m_Name
-      value: Demo-4
+      value: Demo-3
       objectReference: {fileID: 0}
     - target: {fileID: 8691016513178599643, guid: 31eb3cd72c18cc949951cfcad05d4a79, type: 3}
       propertyPath: m_CompositePaths.m_Paths.Array.size
@@ -15854,7 +15854,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1333521888551607849, guid: 4446ddaea90efca45b34b3c226f0b057, type: 3}
       propertyPath: m_Name
-      value: Demo-2
+      value: Demo-1
       objectReference: {fileID: 0}
     - target: {fileID: 2566616265903011464, guid: 4446ddaea90efca45b34b3c226f0b057, type: 3}
       propertyPath: m_LocalPosition.x
@@ -17062,7 +17062,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 760245057325665882, guid: a69210f07ecd48d43a79bf43ccc02154, type: 3}
       propertyPath: m_Name
-      value: Demo-3
+      value: Demo-2
       objectReference: {fileID: 0}
     - target: {fileID: 4639998893526379804, guid: a69210f07ecd48d43a79bf43ccc02154, type: 3}
       propertyPath: m_CompositePaths.m_Paths.Array.data[1].Array.size
@@ -17955,7 +17955,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2957055891273576302, guid: 3be88e3eafb2086439f2e5c5dc51fb05, type: 3}
       propertyPath: m_Name
-      value: Room Transition 3-4 (1)
+      value: Room Transition 2-3 (1)
       objectReference: {fileID: 0}
     - target: {fileID: 4210868142141695989, guid: 3be88e3eafb2086439f2e5c5dc51fb05, type: 3}
       propertyPath: m_LocalPosition.x
@@ -18044,7 +18044,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2957055891273576302, guid: 3be88e3eafb2086439f2e5c5dc51fb05, type: 3}
       propertyPath: m_Name
-      value: Room Transition 2-3
+      value: Room Transition 1-2
       objectReference: {fileID: 0}
     - target: {fileID: 4210868142141695989, guid: 3be88e3eafb2086439f2e5c5dc51fb05, type: 3}
       propertyPath: m_LocalPosition.x
@@ -18143,7 +18143,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2957055891273576302, guid: 3be88e3eafb2086439f2e5c5dc51fb05, type: 3}
       propertyPath: m_Name
-      value: Room Transition 3-4
+      value: Room Transition 2-3
       objectReference: {fileID: 0}
     - target: {fileID: 4210868142141695989, guid: 3be88e3eafb2086439f2e5c5dc51fb05, type: 3}
       propertyPath: m_LocalPosition.x
@@ -18327,7 +18327,7 @@ PrefabInstance:
     - target: {fileID: 98311201649523185, guid: 67cbb02f1857e4240b80501b6608208e, type: 3}
       propertyPath: _roomSpawns.Array.data[3]
       value: 
-      objectReference: {fileID: 1101268752}
+      objectReference: {fileID: 1648134253}
     - target: {fileID: 98311201649523185, guid: 67cbb02f1857e4240b80501b6608208e, type: 3}
       propertyPath: _roomSpawns.Array.data[4]
       value: 
@@ -18367,11 +18367,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e1a868c6b4287940bfbc6e52d175f41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!4 &1101268752 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6532825449299246445, guid: 3be88e3eafb2086439f2e5c5dc51fb05, type: 3}
-  m_PrefabInstance: {fileID: 890140398}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1112534653
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18732,7 +18727,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9124561291060071380, guid: 07d8c81795a81c44fb2656800a0c8ba7, type: 3}
       propertyPath: m_Name
-      value: Demo-1
+      value: Demo-0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 07d8c81795a81c44fb2656800a0c8ba7, type: 3}
@@ -18922,7 +18917,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2313259372754416174, guid: 6f720ab71a9a27f4f851d4e930787b44, type: 3}
       propertyPath: m_Name
-      value: Demo-5
+      value: Demo-4
       objectReference: {fileID: 0}
     - target: {fileID: 3523815680193132120, guid: 6f720ab71a9a27f4f851d4e930787b44, type: 3}
       propertyPath: m_SizeDelta.x
@@ -19886,7 +19881,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2957055891273576302, guid: 3be88e3eafb2086439f2e5c5dc51fb05, type: 3}
       propertyPath: m_Name
-      value: Room Transition 4-5
+      value: Room Transition 3-4
       objectReference: {fileID: 0}
     - target: {fileID: 4210868142141695989, guid: 3be88e3eafb2086439f2e5c5dc51fb05, type: 3}
       propertyPath: m_LocalPosition.x
@@ -20001,6 +19996,11 @@ Transform:
 Transform:
   m_CorrespondingSourceObject: {fileID: 4210868142141695989, guid: 3be88e3eafb2086439f2e5c5dc51fb05, type: 3}
   m_PrefabInstance: {fileID: 322752805}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1648134253 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6532825449299246445, guid: 3be88e3eafb2086439f2e5c5dc51fb05, type: 3}
+  m_PrefabInstance: {fileID: 780490618}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &1749857788 stripped
 Transform:

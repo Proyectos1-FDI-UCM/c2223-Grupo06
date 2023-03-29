@@ -35,6 +35,7 @@ public class LevelManager : MonoBehaviour
     public void ChangeLevelIndex(int index)
     {
         _currentLevelNum = index;
+        UpdateCurrentLevel();
     }
 
     public void ResetCurrentLevel() //resetea sala actual
