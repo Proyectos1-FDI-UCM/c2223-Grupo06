@@ -34,6 +34,11 @@ public class UIManager : MonoBehaviour
     private int _posCostillas;
     #endregion
 
+    public void RequestStateChange(GameManager.GameStates newState)
+    {
+        GameManager.Instance.RequestStateChange(newState);
+    }
+
     // MENUS
     public void SetMenu(GameManager.GameStates newMenu)  // Desactiva el menú anterior, actualiza el actual y lo activa
     {
@@ -43,7 +48,7 @@ public class UIManager : MonoBehaviour
     }
 
     /*
-    public void UpdateMenu()
+    public void UpdateMenu() // esto lo usariamos si se cambia informacion in real time (SEGURAMENTE CUANDO SPEEDRUNNING CON EL TEMA CRONÓMETRO!!)
     {
         if(_activeMenu == GameManager.GameStates.START)
         {
@@ -54,23 +59,22 @@ public class UIManager : MonoBehaviour
         {
             
         }
-
     }
     */
 
     public void StartToGame()
     {
         if (LevelManager.Instance != null) ResetRoom();
-        SetMenu(GameManager.GameStates.GAME);
+        RequestStateChange(GameManager.GameStates.GAME); // referenciando al gamemanager (importante! si no no cambia de estado)
 
         // activa el input
         _player.GetComponent<InputController>().enabled = true;
-        CameraMovement.Instance.enabled= true;
+        CameraMovement.Instance.enabled = true;
     }
 
     public void ResumeGame()
     {
-        SetMenu(GameManager.GameStates.GAME);
+        RequestStateChange(GameManager.GameStates.GAME); // referenciando al gamemanager (importante! si no no cambia de estado)
 
         // activa el input
         _player.GetComponent<InputController>().enabled = true;
@@ -78,7 +82,7 @@ public class UIManager : MonoBehaviour
 
     public void PauseToStart()
     {
-        SetMenu(GameManager.GameStates.START);
+        RequestStateChange(GameManager.GameStates.START); // referenciando al gamemanager (importante! si no no cambia de estado)
 
         // activa el input
         _player.GetComponent<InputController>().enabled = true;
@@ -86,33 +90,32 @@ public class UIManager : MonoBehaviour
 
     public void PauseToControles()
     {
-        SetMenu(GameManager.GameStates.CONTROLES);
+        RequestStateChange(GameManager.GameStates.CONTROLES); // referenciando al gamemanager (importante! si no no cambia de estado)
         _player.GetComponent<InputController>().enabled = true;
     }
 
     public void ControlesToPause()
     {
-        SetMenu(GameManager.GameStates.PAUSE);
+        RequestStateChange(GameManager.GameStates.PAUSE); // referenciando al gamemanager (importante! si no no cambia de estado)
         _player.GetComponent<InputController>().enabled = true;
     }
 
     public void GoToScore()
     {
-        SetMenu(GameManager.GameStates.SCORE);
+        RequestStateChange(GameManager.GameStates.SCORE); // referenciando al gamemanager (importante! si no no cambia de estado)
         _player.GetComponent<InputController>().enabled = true;
 
     }
 
     public void GoToLevelSelector()
     {
-        SetMenu(GameManager.GameStates.LEVELSELECTOR);
+        RequestStateChange(GameManager.GameStates.LEVELSELECTOR); // referenciando al gamemanager (importante! si no no cambia de estado)
         _player.GetComponent<InputController>().enabled = true;
-
     }
 
     public void PauseToGame()
     {
-        SetMenu(GameManager.GameStates.GAME);
+        RequestStateChange(GameManager.GameStates.GAME);
 
         if (PlayerManager.Instance._partInControl != _player)
         {

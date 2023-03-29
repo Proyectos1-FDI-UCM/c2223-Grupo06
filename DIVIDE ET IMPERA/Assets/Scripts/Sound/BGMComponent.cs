@@ -11,6 +11,7 @@ public class BGMComponent : MonoBehaviour
     private AudioSource _ambience;
 
     #region properties
+    [SerializeField]
     private int _currentBGM;
     [SerializeField]
     private bool _canPlay;
@@ -105,15 +106,18 @@ public class BGMComponent : MonoBehaviour
     private void Start()
     {
         _canPlay = true;
+        _currentBGM = 0;
     }
 
     private void Update()
     {
-        BGMManager();
+        //BGMManager();
 
         if (_canPlay)
         {
             BGMPlayer(_currentBGM);
         }
+        
+    
     }
 }
