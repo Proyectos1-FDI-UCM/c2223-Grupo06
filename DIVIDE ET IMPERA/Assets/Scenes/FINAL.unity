@@ -1400,7 +1400,7 @@ PrefabInstance:
       objectReference: {fileID: 1060008627}
     - target: {fileID: 7356470349212475567, guid: 59f3bbb5802b17140a954d4cbd3ee516, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ResetLevel
+      value: ResetRoom
       objectReference: {fileID: 0}
     - target: {fileID: 7465851185301946614, guid: 59f3bbb5802b17140a954d4cbd3ee516, type: 3}
       propertyPath: m_fontSize

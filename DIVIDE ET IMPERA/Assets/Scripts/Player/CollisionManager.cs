@@ -4,7 +4,8 @@ using UnityEngine.Tilemaps;
 public class CollisionManager : MonoBehaviour
 {
     #region References
-
+    private GameObject _objectStored;
+    public GameObject ObjectStored { get { return _objectStored; } }
     #endregion
 
     #region Properties
@@ -127,25 +128,26 @@ public class CollisionManager : MonoBehaviour
         else return false;
     }
 
-    public int DestruirObjeto() // 0 llave, 1 muelle, 2 bola
+    public int DesactivarObjeto() // 0 llave, 1 muelle, 2 bola
     {
         if (_objetoColisionado != null)
         {
-            var padre = _objetoColisionado.transform.gameObject;
+            _objectStored = _objetoColisionado.transform.gameObject;
             if (_objetoColisionado.GetComponent<KeyComponent>() != null)
             { // si es una llave
-                Destroy(padre);
+                _objectStored.SetActive(false);
                 return 0;
             }
             else if (_objetoColisionado.GetComponentInChildren<SpringComponent>() != null)
             { // si es un muelle
-                Destroy(padre);
+                _objectStored.SetActive(false);
                 return 1;
             }
             else if (_objetoColisionado.GetComponentInParent<BallComponent>() != null)
             { // si es una bola
-                padre = _objetoColisionado.transform.parent.gameObject;
-                Destroy(padre);
+                _objectStored = _objetoColisionado.transform.parent.gameObject;
+                _objectStored.SetActive(false);
+                LevelManager.Instance.ObjectLevelIndex(LevelManager.Instance.CurrentLevelNum);
                 return 2;
             }
         } // si ninguna de las condiciones se ha cumplido:

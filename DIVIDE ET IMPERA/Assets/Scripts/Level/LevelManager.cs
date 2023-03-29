@@ -24,8 +24,12 @@ public class LevelManager : MonoBehaviour
     #endregion
     #region Properties
     private int _currentLevelNum; //indice de la sala
+    public int CurrentLevelNum { get { return _currentLevelNum; } }
+
     private Transform _roomSpawn; //spawn actual
     private float _currentHealth; //valor de la vida al entrar en la sala
+
+    private int _objectRoomIndex;
     #endregion
     #region Methods
     public void IncrementLevelCounter() //aumenta indice y actualiza el nivel en el que te encuentras
@@ -73,7 +77,12 @@ public class LevelManager : MonoBehaviour
         PlayerAccess.Instance.transform.parent = null; //adoptiont por si esta en plataforma
         PlayerAccess.Instance.transform.position = _roomSpawn.position; //mueve player al spawn
         PlayerManager.Instance.RequestTimmyState(PlayerManager.TimmyStates.S0); //devuelve al player al estado original
-        PlayerManager.Instance.EliminarObjeto(); //elimina objetos
+
+        if(_objectRoomIndex == _currentLevelNum)
+        {
+            PlayerManager.Instance.EliminarObjeto(); //elimina objetos
+            PlayerManager.Instance.CambiarObjeto(PlayerManager.Objetos.NADA);
+        }
         PlayerAccess.Instance.BoneBar.SetBar(_currentHealth); //elimina daño de caida acumulado
 
         PlayerAccess.Instance.InputController.ResetThisShit();
@@ -122,6 +131,11 @@ public class LevelManager : MonoBehaviour
         
         _currentLevelNum= 0; //actualiza indice
         UpdateCurrentLevel();
+    }
+
+    public void ObjectLevelIndex(int index)
+    {
+        _objectRoomIndex = index;
     }
     #endregion
     private void Awake()
