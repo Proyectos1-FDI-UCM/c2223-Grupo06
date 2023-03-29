@@ -65,9 +65,10 @@ public class ThrowComponent : MonoBehaviour
     { // ESTÁ PENSADO PARA LANZAR LA BOLA *DEL RIBCAGE*
         if (PlayerManager.Instance.Objeto == PlayerManager.Objetos.BOLA && (_playerManager.Brazos > 0 || _furbo)) // Si tiene una bola
         {
-            _thrownObject = Instantiate(_ballPrefab, _myTransform.position + (_myTransform.right * _myTransform.localScale.x) / 2, _myTransform.rotation, _objectsReset); // La instancia
+            PlayerAccess.Instance.CollisionManager.ObjectStored.SetActive(true);
+            PlayerAccess.Instance.CollisionManager.ObjectStored.transform.position = _myTransform.position + (_myTransform.right * _myTransform.localScale.x) / 2;
             //_thrownObject.transform.position += Vector3.up; // Más arriba ??
-            _thrownObjectRB = _thrownObject.GetComponent<Rigidbody2D>(); // Pilla su RB
+            _thrownObjectRB = PlayerAccess.Instance.CollisionManager.ObjectStored.GetComponent<Rigidbody2D>(); // Pilla su RB
         }
 
         if (Lanzamiento(_inerciaBolas)) 
