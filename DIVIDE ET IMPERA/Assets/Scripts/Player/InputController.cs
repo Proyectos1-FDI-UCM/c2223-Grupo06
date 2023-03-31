@@ -281,7 +281,7 @@ public class InputController : MonoBehaviour
         #endregion
     }
 
-    public void ResetThisShit()
+    public void ResetProperties()
     {
         _interactuar = false;
         _conectarBrazo = false;

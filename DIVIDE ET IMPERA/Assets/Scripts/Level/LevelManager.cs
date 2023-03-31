@@ -79,7 +79,7 @@ public class LevelManager : MonoBehaviour
         }
         PlayerAccess.Instance.BoneBar.SetBar(_currentHealth); //elimina daño de caida acumulado
 
-        PlayerAccess.Instance.InputController.ResetThisShit();
+        PlayerAccess.Instance.InputController.ResetProperties();
     }
 
     private void ResetObjects() //Destruir todos los objetos lanzados/soltados porque son hijos de _objectsReset
@@ -101,7 +101,7 @@ public class LevelManager : MonoBehaviour
         
         if (PlayerManager.Instance.Pataforma != null) //si estas conectado a pataforma desconectar piernas
         {
-            PlayerManager.Instance.Pataforma.GetComponent<PataformaComponent>().DesconectaLasPutasPiernas();
+            PlayerManager.Instance.Pataforma.GetComponent<PataformaComponent>().SetLegs(false);
         }
     }
 
