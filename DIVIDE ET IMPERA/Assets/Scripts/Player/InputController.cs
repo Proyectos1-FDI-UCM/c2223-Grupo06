@@ -302,13 +302,13 @@ public class InputController : MonoBehaviour
 
     void Update()
     {
-        //------MOVIMIENTO-------
+        //------MOVIMIENTO------------
         MovementInput();
 
-        //------INTERACTIONS-------
+        //------INTERACTIONS----------
         InteractInput();
 
-        //------DEBUG-------
+        //------DEBUG-----------------
         DebugInput();
 
         //------OPCIÓN DE PAUSA-------
@@ -321,7 +321,6 @@ public class InputController : MonoBehaviour
             PlayerAccess.Instance.MovementComponent.enabled = false;
             PlayerAccess.Instance.Animator.enabled = false;
         }
-
 
         CoolDown(); // no se usa??
     }

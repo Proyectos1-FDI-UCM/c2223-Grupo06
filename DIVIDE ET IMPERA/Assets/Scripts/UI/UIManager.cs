@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class UIManager : MonoBehaviour
 {
@@ -20,6 +21,11 @@ public class UIManager : MonoBehaviour
 
     private static UIManager _instance;
     public static UIManager Instance { get { return _instance; } }
+
+    // EVENT SYSTEM -> input de teclado para menus
+    [SerializeField] private GameObject _pauseFirstButton;
+    [SerializeField] private GameObject _startFirstButton;
+    [SerializeField] private GameObject _startClosedButton;
     #endregion
 
     #region properties
@@ -47,8 +53,8 @@ public class UIManager : MonoBehaviour
         _menus[(int)_activeMenu].SetActive(true);
     }
 
-    /*
-    public void UpdateMenu() // esto lo usariamos si se cambia informacion in real time (SEGURAMENTE CUANDO SPEEDRUNNING CON EL TEMA CRONÓMETRO!!)
+
+    /* public void UpdateMenu() // esto lo usariamos si se cambia informacion in real time (SEGURAMENTE CUANDO SPEEDRUNNING CON EL TEMA CRONÓMETRO!!)
     {
         if(_activeMenu == GameManager.GameStates.START)
         {
@@ -59,10 +65,9 @@ public class UIManager : MonoBehaviour
         {
             
         }
-    }
-    */
+    } */
 
-    public void StartToGame()
+    public void StartToGame() // menu iniacial -> juego (empezar a jugar)
     {
         if (LevelManager.Instance != null) ResetRoom();
         RequestStateChange(GameManager.GameStates.GAME); // referenciando al gamemanager (importante! si no no cambia de estado)
@@ -72,7 +77,7 @@ public class UIManager : MonoBehaviour
         CameraMovement.Instance.enabled = true;
     }
 
-    public void ResumeGame()
+    public void ResumeGame() // menu de pausa -> juego (reanudar)
     {
         RequestStateChange(GameManager.GameStates.GAME); // referenciando al gamemanager (importante! si no no cambia de estado)
 
@@ -80,7 +85,7 @@ public class UIManager : MonoBehaviour
         _player.GetComponent<InputController>().enabled = true;
     }
 
-    public void PauseToStart()
+    public void PauseToStart() // menu de pausa -> menu inicial
     {
         RequestStateChange(GameManager.GameStates.START); // referenciando al gamemanager (importante! si no no cambia de estado)
 
@@ -88,31 +93,31 @@ public class UIManager : MonoBehaviour
         _player.GetComponent<InputController>().enabled = true;
     }
 
-    public void PauseToControles()
+    public void PauseToControles() // menu pausa -> controles
     {
         RequestStateChange(GameManager.GameStates.CONTROLES); // referenciando al gamemanager (importante! si no no cambia de estado)
         _player.GetComponent<InputController>().enabled = false;
     }
 
-    public void ControlesToPause()
+    public void ControlesToPause() // controles -> menu pausa
     {
         RequestStateChange(GameManager.GameStates.PAUSE); // referenciando al gamemanager (importante! si no no cambia de estado)
         _player.GetComponent<InputController>().enabled = false;
     }
 
-    public void GoToScore()
+    public void GoToScore() // a las puntuaciones
     {
         RequestStateChange(GameManager.GameStates.SCORE); // referenciando al gamemanager (importante! si no no cambia de estado)
         _player.GetComponent<InputController>().enabled = false;
     }
 
-    public void GoToLevelSelector()
+    public void GoToLevelSelector() // al selector de niveles
     {
         RequestStateChange(GameManager.GameStates.LEVELSELECTOR); // referenciando al gamemanager (importante! si no no cambia de estado)
         _player.GetComponent<InputController>().enabled = false;
     }
 
-    public void PauseToGame()
+    public void PauseToGame() // menu pausa -> juego
     {
         RequestStateChange(GameManager.GameStates.GAME);
 
@@ -137,6 +142,7 @@ public class UIManager : MonoBehaviour
         Application.Quit();
     }
 
+    #region HUD
     // PARTES
     public void SetPartes(PlayerManager.TimmyStates state, PlayerManager.Partes parte) // Inicializa el HUD
     {
@@ -226,7 +232,9 @@ public class UIManager : MonoBehaviour
     {
         _images[_posAlubiat].sprite = _sprites[^1]; // el último sprite es el vacío
     }
+    #endregion
 
+    #region RESET
     public void ResetRoom()
     {
         LevelManager.Instance.ResetCurrentLevel(); //Resetea sala actual
@@ -236,6 +244,8 @@ public class UIManager : MonoBehaviour
     {
         LevelManager.Instance.GlobalReset(); //Resetea todo el nivel
     }
+    #endregion
+
     // BUCLE
     void Awake()
     {
