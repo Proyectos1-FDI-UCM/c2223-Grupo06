@@ -1,0 +1,8 @@
+IMPORTAR CUSTOM FONTS A UNITY
+1. Put the fonts you want to use into the asset folder
+
+2. Now in the Unity project explorer, right click the font
+
+3. Click Create > TextMeshPro > Font Asset
+
+> Now you will be able to use it as a font with your TextMeshPro text
