@@ -14,6 +14,8 @@ public class SFXComponent : MonoBehaviour
     private AudioSource[] _sfx;
     [SerializeField]
     private AudioSource[] _objectsSFX;
+    [SerializeField] 
+    private AudioSource _yippie;
 
     /// <summary>
     /// ---- TUTO DE ARRAY DE SFX DE TIMMY--- 
@@ -25,7 +27,7 @@ public class SFXComponent : MonoBehaviour
     /// 5 --> chutar [en el throw component]
     /// 6 --> coger objeto [en el playermanager (mirar desde el input (x))]
     /// 7 --> soltar objeto [en el playermanager (mirar desde el input (x))]
-    /// 8 --> caida con daño [en el fall damage+
+    /// 8 --> caida con daño [en el fall damage]
     /// 9 --> caida sin daño (?) [en el fall damage]
     /// 10 --> brazo contra el muro [arm component] (+ 3 de obj)
     /// </summary>
@@ -90,5 +92,10 @@ public class SFXComponent : MonoBehaviour
     public bool isPlayingSFXObjects(int i)
     {
         return _objectsSFX[i].isPlaying;
+    }
+
+    public void PlayYippie()
+    {
+        _yippie.Play();
     }
 }

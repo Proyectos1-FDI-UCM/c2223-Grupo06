@@ -288,6 +288,11 @@ public class InputController : MonoBehaviour
                 PlayerManager.Instance.SoltarAlubiat();
             else PlayerManager.Instance.RecogerAlubiat();
         }
+
+        if (Input.GetKeyDown(KeyCode.Y))
+        {
+            SFXComponent.Instance.PlayYippie();
+        }
         #endregion
     }
 
