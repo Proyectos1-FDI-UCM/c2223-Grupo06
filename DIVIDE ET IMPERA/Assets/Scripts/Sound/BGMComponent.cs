@@ -61,10 +61,6 @@ public class BGMComponent : MonoBehaviour
         _ambience.Stop();
     }
 
-    public void StopAllBGM()
-    {
-        // para todo lo que este sonando
-    }
     #endregion
 
 
@@ -73,15 +69,15 @@ public class BGMComponent : MonoBehaviour
         switch (GameManager.Instance.CurrentState) // Diferentes comportamientos según estado al que se entra
         { 
             case GameStates.START:                       //     *MENÚ INICIAL*
-                _nextBGM = 3;
+                _nextBGM = 4;
                 _playAmbience = false;
                 break;
             case GameStates.GAME:                        //     *JUEGO*
-                _nextBGM = 0;
+                _nextBGM = 3;
                 _playAmbience = true;
                 break;
             case GameStates.PAUSE:                       //     *PAUSA*
-                _nextBGM = 3;
+                _nextBGM = 4;
                 _playAmbience = false;
                 break;
             case GameStates.GAMEOVER:                    //     *FIN DEL JUEGO*

@@ -30,6 +30,7 @@ public class StayOnPataforma : MonoBehaviour
             return true;
         }
     }
+
     // mira si es una puerta la plataforma 
     private bool PuertaCheck(Collision2D col)
     {
