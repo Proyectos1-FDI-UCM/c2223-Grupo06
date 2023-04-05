@@ -96,6 +96,10 @@ public class BGMComponent : MonoBehaviour
                 _nextBGM = 4;
                 _playAmbience = false;
                 break;
+            case GameStates.OPCIONES:                   //      *OPCIONES*
+                _nextBGM = 4;
+                _playAmbience = false;
+                break;
 
         }
     }

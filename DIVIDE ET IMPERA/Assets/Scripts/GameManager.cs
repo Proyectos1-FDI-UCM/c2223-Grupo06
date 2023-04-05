@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public enum GameStates { START, GAME, PAUSE, GAMEOVER, SCORE, LEVELSELECTOR, CONTROLES };    // Estados del juego (faltan)
+    public enum GameStates { START, GAME, PAUSE, GAMEOVER, SCORE, LEVELSELECTOR, CONTROLES, OPCIONES };    // Estados del juego (faltan)
 
     #region references
     private UIManager _UIManager;
@@ -63,6 +63,8 @@ public class GameManager : MonoBehaviour
             case GameStates.LEVELSELECTOR:               //     *SELECTOR DE NIVELES*
                 break;
             case GameStates.CONTROLES:                   //     *CONTROLES*
+                break;
+            case GameStates.OPCIONES:                   //      *OPCIONES*
                 break;
         }
         if (_UIManager != null) _UIManager.SetMenu(newState); // como en todos los estados se hace esto, se pone al final según el estado nuevo y listo

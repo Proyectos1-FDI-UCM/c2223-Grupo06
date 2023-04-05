@@ -95,7 +95,7 @@ public class UIManager : MonoBehaviour
 
     public void PauseToControles() // menu pausa -> controles
     {
-        RequestStateChange(GameManager.GameStates.CONTROLES); // referenciando al gamemanager (importante! si no no cambia de estado)
+        RequestStateChange(GameManager.GameStates.OPCIONES); // referenciando al gamemanager (importante! si no no cambia de estado)
         _player.GetComponent<InputController>().enabled = false;
     }
 
@@ -103,6 +103,16 @@ public class UIManager : MonoBehaviour
     {
         RequestStateChange(GameManager.GameStates.PAUSE); // referenciando al gamemanager (importante! si no no cambia de estado)
         _player.GetComponent<InputController>().enabled = false;
+    }
+
+    public void PauseToOptions()
+    {
+
+    }
+
+    public void OptionsToPause()
+    {
+
     }
 
     public void GoToScore() // a las puntuaciones
