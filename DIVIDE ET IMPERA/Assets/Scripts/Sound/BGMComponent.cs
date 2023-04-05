@@ -81,19 +81,19 @@ public class BGMComponent : MonoBehaviour
                 _playAmbience = false;
                 break;
             case GameStates.GAMEOVER:                    //     *FIN DEL JUEGO*
-                _nextBGM = 0;
+                _nextBGM = 4;
                 _playAmbience = false;
                 break;
             case GameStates.SCORE:
-                _nextBGM = 2;
+                _nextBGM = 4;
                 _playAmbience = false;
                 break;
             case GameStates.LEVELSELECTOR:
-                _nextBGM = 2;
+                _nextBGM = 4;
                 _playAmbience = false;
                 break;
             case GameStates.CONTROLES:                   //     *CONTROLES*
-                _nextBGM = 2;
+                _nextBGM = 4;
                 _playAmbience = false;
                 break;
 
