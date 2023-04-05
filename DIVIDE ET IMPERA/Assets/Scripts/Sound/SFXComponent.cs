@@ -16,28 +16,28 @@ public class SFXComponent : MonoBehaviour
     private AudioSource[] _objectsSFX;
 
     /// <summary>
-    /// ---- TUTO DE ARRAY DE SFX--- (pone donde estan porque querré cambiarlo en el futuro para limpieza)
-    /// de momento no hay nada oop
-    /// 0 --> soltar parte
-    ///     en el player manager
-    /// 1 --> recuperar parte
-    ///     en el player manager
-    /// 2 --> andar
-    ///     en el input controller
-    /// 3 --> saltar
-    ///     en el jump component
-    /// 4 --> lanzar brazo
-    ///     en el throw component
-    /// 5 --> chutar
-    ///     en el throw component
-    /// 6 --> coger objeto
-    ///     en el playermanager (mirar desde el input (x))
-    /// 7 --> soltar objeto
-    ///     en el playermanager (mirar desde el input (x))
-    /// 8 --> caida con daño
-    ///     en el fall damage
-    /// 9 --> caida sin daño
-    ///     en el fall damage
+    /// ---- TUTO DE ARRAY DE SFX DE TIMMY--- 
+    /// 0 --> soltar parte [en el player manager]
+    /// 1 --> recuperar parte [en el player manager]
+    /// 2 --> andar [en el input controller]
+    /// 3 --> saltar [en el jump component]
+    /// 4 --> lanzar brazo [en el throw component]
+    /// 5 --> chutar [en el throw component]
+    /// 6 --> coger objeto [en el playermanager (mirar desde el input (x))]
+    /// 7 --> soltar objeto [en el playermanager (mirar desde el input (x))]
+    /// 8 --> caida con daño [en el fall damage+
+    /// 9 --> caida sin daño (?) [en el fall damage]
+    /// 10 --> brazo contra el muro [arm component] (+ 3 de obj)
+    /// </summary>
+
+    /// <summary>
+    /// ---- TUTO DE ARRAY DE SFX DE OBJETOS--- 
+    /// 0 --> palanca [en el palanca component Activar()]
+    /// 1 --> muelle [en el spring component]
+    /// 2 --> bola contra el muro [ball component]
+    /// 3 --> bola contra el muro (+ 10 de player)
+    /// 
+    /// 
     /// </summary>
 
 
@@ -80,9 +80,15 @@ public class SFXComponent : MonoBehaviour
     }
 
 
-    // te dice si el sonido esta sonando o no
+    // te dice si el sonido esta sonando o no en el player
     public bool isPlayingSFX (int i)
     {
         return _sfx[i].isPlaying;
+    }
+
+    // te dice si el sonido esta sonando o no en el player
+    public bool isPlayingSFXObjects(int i)
+    {
+        return _objectsSFX[i].isPlaying;
     }
 }

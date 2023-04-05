@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class ArmComponent : MonoBehaviour
 {
@@ -15,6 +16,16 @@ public class ArmComponent : MonoBehaviour
     #endregion
 
     #region Methods
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.GetComponent<Tilemap>())
+        {
+            // sfx
+            SFXComponent.Instance.SFXObjects(2);
+            SFXComponent.Instance.SFXPlayer(10);
+        }
+    }
     #endregion
 
     // Update is called once per frame

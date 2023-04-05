@@ -272,6 +272,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _patas: {fileID: 4210712077449746953}
+  _player: {fileID: 2311462238604020209, guid: 767e3f423c90f78409c3048c7e7f2088, type: 3}
   _speed: 5
   _rozamientoFreno: 15
   _pDireccion: 0

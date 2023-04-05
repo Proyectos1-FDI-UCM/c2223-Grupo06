@@ -196,7 +196,7 @@ public class PataformaComponent : MonoBehaviour
         // cambia el rb de la pataforma a dynamic, para que se choque con los obstaculos
         _pataformaRigidbody.bodyType = RigidbodyType2D.Dynamic;
         // cambia el rb del player para que siga a la pataforma (?)
-        //_playerRigidbody.bodyType = RigidbodyType2D.Kinematic;
+        _playerRigidbody.bodyType = RigidbodyType2D.Kinematic;
         // cambia las contraints del player para que no resbale
         _playerRigidbody.constraints = RigidbodyConstraints2D.FreezePositionX;
 

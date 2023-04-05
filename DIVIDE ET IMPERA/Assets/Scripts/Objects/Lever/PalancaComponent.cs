@@ -42,8 +42,6 @@ public class PalancaComponent : MonoBehaviour
         _palanca = ActivarPalanca();
         ActivarObjetos();
 
-        Debug.Log("uwu");
-
         // sfx
         SFXComponent.Instance.SFXObjects(0);
     }

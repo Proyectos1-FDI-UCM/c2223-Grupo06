@@ -1,4 +1,5 @@
 using UnityEngine;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class PataformaMovementComponent : MonoBehaviour
 {
@@ -8,7 +9,9 @@ public class PataformaMovementComponent : MonoBehaviour
     private InputController _inputController;
     private Rigidbody2D _myRigidbody2D;
     [SerializeField] GameObject _patas;
+    [SerializeField] GameObject _player;
     private SpriteRenderer _patasRender;
+    private InputController _playerInput;
     #endregion
 
 
@@ -27,7 +30,18 @@ public class PataformaMovementComponent : MonoBehaviour
     #endregion
 
 
-
+    private void SFXMove()
+    {
+        if (_pataformaComponent.PataformaDireccion != 0)
+        {
+            if (!SFXComponent.Instance.isPlayingSFX(2))
+                SFXComponent.Instance.SFXPlayer(2);
+        }
+        else
+        {
+            SFXComponent.Instance.SFXPlayerStop(2);
+        }
+    }
 
     private void Move2()
     {
@@ -41,26 +55,14 @@ public class PataformaMovementComponent : MonoBehaviour
         else if (_pataformaComponent.PataformaDireccion == -1)
         {
             transform.Translate(Vector3.left * Time.deltaTime * _speed);
-
             _patasRender.flipX = true;
         }
-    }
 
-    public void Move()
-    {
-        //Cuando se pulsa una tecla para moverse, el jugador se mueve en esa direccion cambiando la velocidad
-        if (_pDireccion != 0)
+        //Debug.Log(_pataformaComponent._activarPataforma);
+
+        if (_pataformaComponent._activarPataforma)
         {
-            _myRigidbody2D.velocity = new Vector2(_speed * _pDireccion, _myRigidbody2D.velocity.y);
-        }
-        /*Si el jugador ya no pulsa ninguna tecla y sigue moviendose en alguna direccion, se aumenta o decrementa la velocidad
-        progresivamente hasta que llega a 0 para dar la sensacion de inercia*/
-        else
-        {
-            if (_myRigidbody2D.velocity.x > Mathf.Epsilon)
-                _myRigidbody2D.velocity = new Vector2(_myRigidbody2D.velocity.x - Time.deltaTime * _rozamientoFreno, _myRigidbody2D.velocity.y);
-            if (_myRigidbody2D.velocity.x < Mathf.Epsilon)
-                _myRigidbody2D.velocity = new Vector2(_myRigidbody2D.velocity.x + Time.deltaTime * _rozamientoFreno, _myRigidbody2D.velocity.y);
+            SFXMove();
         }
     }
 
@@ -72,6 +74,7 @@ public class PataformaMovementComponent : MonoBehaviour
         _pataformaComponent = GetComponent<PataformaComponent>();
         _myRigidbody2D = GetComponent<Rigidbody2D>();
         _patasRender = _patas.GetComponent<SpriteRenderer>();
+        _playerInput = _player.GetComponent<InputController>();
     }
 
     // Update is called once per frame
@@ -84,6 +87,5 @@ public class PataformaMovementComponent : MonoBehaviour
     private void FixedUpdate()
     {
         Move2();
-
     }
 }
