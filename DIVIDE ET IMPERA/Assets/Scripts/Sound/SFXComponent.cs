@@ -27,10 +27,17 @@ public class SFXComponent : MonoBehaviour
     /// 3 --> saltar
     ///     en el jump component
     /// 4 --> lanzar brazo
-    ///     en el trhow component
+    ///     en el throw component
     /// 5 --> chutar
-    ///     en el trhow component
-    /// 
+    ///     en el throw component
+    /// 6 --> coger objeto
+    ///     en el playermanager (mirar desde el input (x))
+    /// 7 --> soltar objeto
+    ///     en el playermanager (mirar desde el input (x))
+    /// 8 --> caida con daño
+    ///     en el fall damage
+    /// 9 --> caida sin daño
+    ///     en el fall damage
     /// </summary>
 
 

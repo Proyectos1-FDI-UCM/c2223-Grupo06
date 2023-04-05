@@ -414,7 +414,12 @@ public class PlayerManager : MonoBehaviour
             if (objeto < 3 && objeto > -1) // destruye las piernas con las que está colisionando
             {
                 CambiarObjeto((Objetos)objeto);
+
+                // sfx
+                SFXComponent.Instance.SFXPlayer(7);
             }
+
+            
         }
     }
     public void SoltarObjeto()  // para instanciar las piernas
@@ -429,6 +434,9 @@ public class PlayerManager : MonoBehaviour
                 _myCollisionManager.ObjectStored.transform.position = posicion;
             }
             EliminarObjeto();
+
+            // sfx
+            SFXComponent.Instance.SFXPlayer(6);
         }
     }
 

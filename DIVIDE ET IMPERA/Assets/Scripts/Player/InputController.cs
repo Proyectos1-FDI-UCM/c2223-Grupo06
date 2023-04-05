@@ -36,6 +36,7 @@ public class InputController : MonoBehaviour
     private DialogueManager _dialogueManager;
     private Rigidbody2D _playerRigidBody;
     private InputControllerDialogue _inputControllerDialogue;
+    private GroundCheck _groundCheck;
     #endregion
 
     #region Properties 
@@ -123,7 +124,6 @@ public class InputController : MonoBehaviour
             _direccion = 0;
         }
 
-        Debug.Log(_direccion + " audio " + SFXComponent.Instance.isPlayingSFX(2));
         _movement = (Input.GetKey(KeyCode.RightArrow) ? 1 : 0) - (Input.GetKey(KeyCode.LeftArrow) ? 1 : 0);
         #endregion
 
@@ -300,7 +300,7 @@ public class InputController : MonoBehaviour
 
     private void SFXMove()
     {
-        if (_direccion != 0)
+        if (_direccion != 0 && _groundCheck.IsGrounded)
         {
             if (!SFXComponent.Instance.isPlayingSFX(2))
                 SFXComponent.Instance.SFXPlayer(2);
@@ -322,6 +322,7 @@ public class InputController : MonoBehaviour
         _dialogueManager         = GetComponent<DialogueManager>();
         _inputControllerDialogue = GetComponent<InputControllerDialogue>();
         _stayOnComp              = GetComponent<StayOnPataforma>();
+        _groundCheck             = GetComponentInChildren<GroundCheck>();
     }
 
     void Update()

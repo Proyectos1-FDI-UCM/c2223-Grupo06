@@ -43,10 +43,14 @@ public class FallDamage : MonoBehaviour
             {
                 _spring = otherCollider.GetComponent<SpringComponent>();
             }
+
             if (_previousSpeed < _allowedSpeed && _spring == null) // si se supera la velocidad permitida y no has chocado con un muelle -> aplicas daño
             {
                 _boneStateBar.BoneDamage(_damage: 20f);
                 _previousSpeed = 0; // si se llega al suelo la velocidad vuelve a 0
+
+                // sfx
+                SFXComponent.Instance.SFXPlayer(8);
             }
         }
     }
