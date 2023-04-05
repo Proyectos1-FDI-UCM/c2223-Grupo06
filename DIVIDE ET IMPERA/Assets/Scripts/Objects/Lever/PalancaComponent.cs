@@ -45,10 +45,7 @@ public class PalancaComponent : MonoBehaviour
         Debug.Log("uwu");
 
         // sfx
-        //Debug.Log("estara? "+_sFXComponent);
         SFXComponent.Instance.SFXObjects(0);
-        //_sFXComponent.SFXPlayer(0);
-        //Debug.Log("palanca sfx");
     }
 
     // activa o desactiva la palanca dependiendo de su estado anterior

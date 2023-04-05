@@ -58,6 +58,10 @@ public class ThrowComponent : MonoBehaviour
             {
                 if (_inerciaBrazos) _thrownObjectRB.constraints = RigidbodyConstraints2D.None;
             }
+
+
+            //sfx
+            SFXComponent.Instance.SFXPlayer(4);
         }
     }
 
@@ -69,6 +73,9 @@ public class ThrowComponent : MonoBehaviour
             PlayerAccess.Instance.CollisionManager.ObjectStored.transform.position = _myTransform.position + (_myTransform.right * _myTransform.localScale.x) / 2;
             //_thrownObject.transform.position += Vector3.up; // Más arriba ??
             _thrownObjectRB = PlayerAccess.Instance.CollisionManager.ObjectStored.GetComponent<Rigidbody2D>(); // Pilla su RB
+
+            // sfx
+            SFXComponent.Instance.SFXPlayer(4);
         }
 
         if (Lanzamiento(_inerciaBolas)) 
@@ -96,9 +103,17 @@ public class ThrowComponent : MonoBehaviour
         {
             _thrownObjectRB = _thrownObject.GetComponent<Rigidbody2D>();
             _thrownObject.transform.position += Vector3.up;
+
+            Lanzamiento(_inerciaBolas);
+
+            // sfx
+            SFXComponent.Instance.SFXPlayer(5);
         }
 
-        Lanzamiento(_inerciaBolas);
+        
+
+
+        
     }
 
     public bool Lanzamiento(bool inercia)

@@ -67,6 +67,7 @@ public class MovementComponent : MonoBehaviour
     {
         Vector2 playerVelocity = new(_movementVector.x * _speed, _myRigidbody2D.velocity.y);
         _myRigidbody2D.velocity = playerVelocity;
+
     }
 
     public void Flip2()

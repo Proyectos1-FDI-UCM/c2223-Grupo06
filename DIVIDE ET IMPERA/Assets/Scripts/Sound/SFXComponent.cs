@@ -16,8 +16,20 @@ public class SFXComponent : MonoBehaviour
     private AudioSource[] _objectsSFX;
 
     /// <summary>
-    /// ---- TUTO DE ARRAY DE SFX---
+    /// ---- TUTO DE ARRAY DE SFX--- (pone donde estan porque querré cambiarlo en el futuro para limpieza)
     /// de momento no hay nada oop
+    /// 0 --> soltar parte
+    ///     en el player manager
+    /// 1 --> recuperar parte
+    ///     en el player manager
+    /// 2 --> andar
+    ///     en el input controller
+    /// 3 --> saltar
+    ///     en el jump component
+    /// 4 --> lanzar brazo
+    ///     en el trhow component
+    /// 5 --> chutar
+    ///     en el trhow component
     /// 
     /// </summary>
 
@@ -27,38 +39,7 @@ public class SFXComponent : MonoBehaviour
         _instance = this;
     }
 
-    #region metodos especificos
-
-    public void SoltarParteSFX()
-    {
-        if (_sfx[0] != null)
-        {
-            _sfx[0].Play();
-        }
-        
-    }
-
-    public void RecogerParteSFX()
-    {
-        if (_sfx[1] != null)
-        {
-            _sfx[1].Play();
-        }
-
-    }
-
-    public void PalancaSFX()
-    {
-        if (_sfx[2] != null)
-        {
-            _sfx[2].Play();
-        }
-    }
-
-    #endregion
-
-   
-    // metodo general
+    // metodos generales player
     public void SFXPlayer(int i)
     {
         if (_sfx[i] != null)
@@ -66,17 +47,35 @@ public class SFXComponent : MonoBehaviour
             _sfx[i].Play();
         }
     }
+    public void SFXPlayerStop(int i)
+    {
+        if (_sfx[i] != null)
+        {
+            _sfx[i].Stop();
+        }
+    }
 
+
+    // metodos generales de objetos
     public void SFXObjects(int i)
     {
         if (_objectsSFX[i] != null)
         {
-            Debug.Log(_objectsSFX[i] != null);
             _objectsSFX[i].Play();
         }
-        else
+    }
+    public void SFXObjectsStop(int i)
+    {
+        if (_objectsSFX[i] != null)
         {
-
+            _objectsSFX[i].Stop();
         }
+    }
+
+
+    // te dice si el sonido esta sonando o no
+    public bool isPlayingSFX (int i)
+    {
+        return _sfx[i].isPlaying;
     }
 }

@@ -123,12 +123,18 @@ public class InputController : MonoBehaviour
             _direccion = 0;
         }
 
+        Debug.Log(_direccion + " audio " + SFXComponent.Instance.isPlayingSFX(2));
         _movement = (Input.GetKey(KeyCode.RightArrow) ? 1 : 0) - (Input.GetKey(KeyCode.LeftArrow) ? 1 : 0);
         #endregion
 
         #region VERTICAL
         if (Input.GetKeyDown(KeyCode.Space)) // Input.GetKeyDown(KeyCode.Z) || (lanzaba y saltaba a la vez oop)
+        {
             _playerJump.Jump();
+
+            
+        }
+            
         #endregion
     }
 
@@ -219,7 +225,11 @@ public class InputController : MonoBehaviour
             {
                 _throwComp.LanzarBola(); // Si es una bola en el ribcage, la lanza
             }
-            else _throwComp.ChutarBola(); // Chuta una bola delante
+            else
+            {
+                _throwComp.ChutarBola(); // Chuta una bola delante
+            }
+           
         }
         else
         #endregion
@@ -287,6 +297,20 @@ public class InputController : MonoBehaviour
         _conectarBrazo = false;
         _conectarPiernas =false;
     }
+
+    private void SFXMove()
+    {
+        if (_direccion != 0)
+        {
+            if (!SFXComponent.Instance.isPlayingSFX(2))
+                SFXComponent.Instance.SFXPlayer(2);
+        }
+        else
+        {
+            SFXComponent.Instance.SFXPlayerStop(2);
+        }
+
+    }
     #endregion
 
     void Start()
@@ -321,6 +345,8 @@ public class InputController : MonoBehaviour
             PlayerAccess.Instance.MovementComponent.enabled = false;
             PlayerAccess.Instance.Animator.enabled = false;
         }
+
+        SFXMove();
 
         CoolDown(); // no se usa??
     }

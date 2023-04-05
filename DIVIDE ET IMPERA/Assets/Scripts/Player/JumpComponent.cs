@@ -5,8 +5,8 @@ public class JumpComponent : MonoBehaviour
     #region References
     private Rigidbody2D _myRigidbody2D;
     private GroundCheck _grCheck;
-    private SFXComponent _sFXComponent;
     #endregion
+
     #region Parameters
     [Tooltip("Fuerza del salto")]
     [SerializeField]
@@ -25,7 +25,8 @@ public class JumpComponent : MonoBehaviour
             _myRigidbody2D.velocity = new Vector2(_myRigidbody2D.velocity.x, _jumpForce);
 
             // sfx
-            //_sFXComponent.SFXPlayer(2);
+            SFXComponent.Instance.SFXPlayer(3);
+
         }
     }
     #endregion
@@ -34,7 +35,6 @@ public class JumpComponent : MonoBehaviour
     {
         _myRigidbody2D = GetComponent<Rigidbody2D>();
         _grCheck = GetComponentInChildren<GroundCheck>();
-        _sFXComponent = GetComponent<SFXComponent>();
     }
 
     // Update is called once per frame
