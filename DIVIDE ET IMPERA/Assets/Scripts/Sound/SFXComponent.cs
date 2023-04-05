@@ -1,9 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class SFXComponent : MonoBehaviour
 {
+    // probando singleton
+    private static SFXComponent _instance;
+    public static SFXComponent Instance { get { return _instance; } }
+
+
     [SerializeField]
     private AudioSource[] _sfx;
     [SerializeField]
@@ -14,6 +20,12 @@ public class SFXComponent : MonoBehaviour
     /// de momento no hay nada oop
     /// 
     /// </summary>
+
+
+    void Awake()
+    {
+        _instance = this;
+    }
 
     #region metodos especificos
 
@@ -55,11 +67,16 @@ public class SFXComponent : MonoBehaviour
         }
     }
 
-    public void ObjectsSFXPlayer(int i)
+    public void SFXObjects(int i)
     {
         if (_objectsSFX[i] != null)
         {
+            Debug.Log(_objectsSFX[i] != null);
             _objectsSFX[i].Play();
+        }
+        else
+        {
+
         }
     }
 }

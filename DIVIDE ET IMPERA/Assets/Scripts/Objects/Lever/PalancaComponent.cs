@@ -8,7 +8,8 @@ public class PalancaComponent : MonoBehaviour
     private PlayerManager _playerManager;
     private MovingPlatformComponent _movingPlatform;
     private SpriteRenderer _mySpriteRenderer;
-    private SFXComponent _sFXComponent;
+    //[SerializeField]
+    //private SFXComponent _sFXComponent;
     [SerializeField]
     private GameObject _objeto;
     private GameManager _gameManager;
@@ -40,6 +41,14 @@ public class PalancaComponent : MonoBehaviour
     {
         _palanca = ActivarPalanca();
         ActivarObjetos();
+
+        Debug.Log("uwu");
+
+        // sfx
+        //Debug.Log("estara? "+_sFXComponent);
+        SFXComponent.Instance.SFXObjects(0);
+        //_sFXComponent.SFXPlayer(0);
+        //Debug.Log("palanca sfx");
     }
 
     // activa o desactiva la palanca dependiendo de su estado anterior
@@ -87,7 +96,6 @@ public class PalancaComponent : MonoBehaviour
         _playerManager = PlayerAccess.Instance.PlayerManager;
         _mySpriteRenderer = GetComponent<SpriteRenderer>();
         _movingPlatform = _objeto.GetComponent<MovingPlatformComponent>();
-        //_sFXComponent = _gameManager.GetComponentInChildren<SFXComponent>();
     }
 
     private void Update()
@@ -98,8 +106,6 @@ public class PalancaComponent : MonoBehaviour
         {
             Activar();
 
-            // sfx
-            //_sFXComponent.ObjectsSFXPlayer(0);
         }
 
         //-------CONECTAR BRAZO-------------------
@@ -111,8 +117,6 @@ public class PalancaComponent : MonoBehaviour
             ConectarBrazo(true);
             PlayerManager.Instance.Brazos--;
             PlayerManager.Instance.ConnectedToLever(gameObject);
-            // cambia el color (deberia ser sprite)
-            //_mySpriteRenderer.color = Color.blue;
         }
         // se pulsa T, está cerca de la palanca, está en los estados correctos y hay un brazo conectado
         else if (_inputController.RecuperarBrazo && _validPalancaHitbox
@@ -121,8 +125,6 @@ public class PalancaComponent : MonoBehaviour
         {
             // desconecta el brazo
             DesconectarBrazo();
-            // cambia de color (deberia ser sprite)
-            //_mySpriteRenderer.color = Color.white;
         }
     }
 
