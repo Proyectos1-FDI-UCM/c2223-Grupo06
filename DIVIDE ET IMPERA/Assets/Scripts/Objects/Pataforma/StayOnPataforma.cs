@@ -35,7 +35,7 @@ public class StayOnPataforma : MonoBehaviour
     // mira si es una puerta la plataforma 
     private bool PuertaCheck(Collision2D col)
     {
-        if (col.gameObject.GetComponent<MovingPlatformComponent>() && col.gameObject.GetComponent<MovingPlatformComponent>().GetDoorPlatform)
+        if (col.gameObject.GetComponent<NewPlatformMovement>() && col.gameObject.GetComponent<MovingPlatformComponent>().GetDoorPlatform)
         {
             _puerta = true;
         }

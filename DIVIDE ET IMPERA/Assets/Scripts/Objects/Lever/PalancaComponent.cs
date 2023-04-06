@@ -43,7 +43,7 @@ public class PalancaComponent : MonoBehaviour
         ActivarObjetos();
 
         // sfx
-        SFXComponent.Instance.SFXObjects(0);
+        //SFXComponent.Instance.SFXObjects(0);
     }
 
     // activa o desactiva la palanca dependiendo de su estado anterior
@@ -57,14 +57,16 @@ public class PalancaComponent : MonoBehaviour
     // interactua con el objeto de fuera (puerta, plataforma etc)
     public void ActivarObjetos()
     {
-        if (_palanca && !_movingPlatform.enabled)
+        if (_palanca)
         {
-            _movingPlatform.enabled = true;
+            _objeto.GetComponent<NewPlatformMovement>().OnOff(true);
+            //_movingPlatform.enabled = true;
             //Debug.Log("activar " + _movingPlatform.enabled);
         }
-        else if (!_palanca && _movingPlatform.enabled)
+        else if (!_palanca)
         {
-            _movingPlatform.enabled = false;
+            _objeto.GetComponent<NewPlatformMovement>().OnOff(false);
+            //_movingPlatform.enabled = false;
             //Debug.Log("desactivar " + _movingPlatform.enabled);
         }
     }
