@@ -71,7 +71,7 @@ public class PataformaMovementComponent : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _pataformaComponent = GetComponent<PataformaComponent>();
+        _pataformaComponent = GetComponentInChildren<PataformaComponent>();
         _myRigidbody2D = GetComponent<Rigidbody2D>();
         _patasRender = _patas.GetComponent<SpriteRenderer>();
         _playerInput = _player.GetComponent<InputController>();

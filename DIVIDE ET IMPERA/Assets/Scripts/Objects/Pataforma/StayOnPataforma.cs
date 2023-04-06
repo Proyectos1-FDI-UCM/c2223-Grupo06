@@ -5,6 +5,7 @@ public class StayOnPataforma : MonoBehaviour
 {
     #region References
     private InputController _inputController;
+    private Transform _originalParent;
     #endregion
 
     #region parameters
@@ -50,7 +51,7 @@ public class StayOnPataforma : MonoBehaviour
         if (collision.transform.parent != null)
         {
             // le da un padre
-            gameObject.transform.SetParent(collision.gameObject.transform, true);
+            gameObject.transform.SetParent(collision.gameObject.transform.parent, true);
         }
         
     }
@@ -58,7 +59,7 @@ public class StayOnPataforma : MonoBehaviour
     private void Adoptiont(Collision2D collision)
     {
         // padren't
-        gameObject.transform.parent = null;
+        gameObject.transform.parent = _originalParent;
     }
     #endregion
 
@@ -116,5 +117,6 @@ public class StayOnPataforma : MonoBehaviour
     {
         _inputController = GetComponent<InputController>();
         _puerta = false;
+        _originalParent = transform.parent;
     }
 }

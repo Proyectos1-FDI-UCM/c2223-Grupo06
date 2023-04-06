@@ -194,19 +194,21 @@ public class InputController : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.D))
         { // D para recoger y soltar piernas
+            Debug.Log("1");
             if (!_collisionManager.DestruirPierna())
             { // si no recoge una pierna del suelo
-                if (GetComponentInParent<PataformaComponent>() != null && !_conectarPiernas && !GetComponentInParent<PataformaComponent>().PiernasConectadas)
+                Debug.Log("2");
+                if (transform.parent.GetComponentInChildren<PataformaComponent>() != null && !_conectarPiernas && !transform.parent.GetComponentInChildren<PataformaComponent>().PiernasConectadas)
                 { // si está en una pataforma sin piernas, se las pone
                     _conectarPiernas = true;
                     _recuperarPiernas = false;
-                    //Debug.Log("conecta");
+                    Debug.Log("conecta");
                 }
-                else if (GetComponentInParent<PataformaComponent>() != null && !_recuperarPiernas && GetComponentInParent<PataformaComponent>().PiernasConectadas)
+                else if (transform.parent.GetComponentInChildren<PataformaComponent>() != null && !_recuperarPiernas && transform.parent.GetComponentInChildren<PataformaComponent>().PiernasConectadas)
                 { // si está en una pataforma con piernas, las recoge
                     _recuperarPiernas = true;
                     _conectarPiernas = false;
-                    //Debug.Log("recupera");
+                    Debug.Log("recupera");
                 }
                 else PlayerManager.Instance.SoltarPiernas(); // si no, las suelta
             } // si sí
