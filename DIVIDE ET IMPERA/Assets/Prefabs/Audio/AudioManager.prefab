@@ -47,6 +47,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _bgmMixer: {fileID: 24100000, guid: 135690efabcaf0c419936226c259ddc6, type: 2}
+  _sfxMixer: {fileID: 24100000, guid: 705994dbee5c5e54689b0cf928a62097, type: 2}
+  _ambienceMixer: {fileID: 24100000, guid: 9dbb31cf236d8e040b42d05c2ef9503d, type: 2}
 --- !u!1001 &321440464987270736
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -123,6 +125,10 @@ PrefabInstance:
     - target: {fileID: 8290370862921640949, guid: 6b4272b8a6f88824e9524fe4dbca7130, type: 3}
       propertyPath: m_Name
       value: BGM Manager
+      objectReference: {fileID: 0}
+    - target: {fileID: 8290370862921640950, guid: 6b4272b8a6f88824e9524fe4dbca7130, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 8290370862921640955, guid: 6b4272b8a6f88824e9524fe4dbca7130, type: 3}
       propertyPath: m_RootOrder
