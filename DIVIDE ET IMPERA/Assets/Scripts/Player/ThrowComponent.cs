@@ -61,7 +61,8 @@ public class ThrowComponent : MonoBehaviour
 
 
             //sfx
-            SFXComponent.Instance.SFXPlayer(4);
+            if (SFXComponent.Instance != null)
+                SFXComponent.Instance.SFXPlayer(4);
         }
     }
 
@@ -75,7 +76,8 @@ public class ThrowComponent : MonoBehaviour
             _thrownObjectRB = PlayerAccess.Instance.CollisionManager.ObjectStored.GetComponent<Rigidbody2D>(); // Pilla su RB
 
             // sfx
-            SFXComponent.Instance.SFXPlayer(4);
+            if (SFXComponent.Instance != null)
+                SFXComponent.Instance.SFXPlayer(4);
         }
 
         if (Lanzamiento(_inerciaBolas)) 

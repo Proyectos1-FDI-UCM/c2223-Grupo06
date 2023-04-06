@@ -344,7 +344,11 @@ public class InputController : MonoBehaviour
         //------OPCIÓN DE PAUSA-------
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            GameManager.Instance.RequestStateChange(GameManager.GameStates.PAUSE);
+            if (GameManager.Instance.CurrentState == GameManager.GameStates.GAME)
+            {
+                GameManager.Instance.RequestStateChange(GameManager.GameStates.PAUSE);
+            }
+            
 
             // desactiva el input
             enabled = false;
@@ -352,7 +356,8 @@ public class InputController : MonoBehaviour
             PlayerAccess.Instance.Animator.enabled = false;
         }
 
-        SFXMove();
+        if (SFXComponent.Instance != null)
+            SFXMove();
 
         CoolDown(); // no se usa??
     }

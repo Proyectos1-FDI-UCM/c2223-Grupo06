@@ -50,7 +50,8 @@ public class FallDamage : MonoBehaviour
                 _previousSpeed = 0; // si se llega al suelo la velocidad vuelve a 0
 
                 // sfx
-                SFXComponent.Instance.SFXPlayer(8);
+                if (SFXComponent.Instance != null)
+                    SFXComponent.Instance.SFXPlayer(8);
             }
         }
     }

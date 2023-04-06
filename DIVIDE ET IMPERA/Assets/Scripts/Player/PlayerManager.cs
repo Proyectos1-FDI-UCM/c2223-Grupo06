@@ -22,8 +22,6 @@ public class PlayerManager : MonoBehaviour
     private CollisionManager _myCollisionManager;
     private Animator _myAnimator;
     private Transform _myTransform;
-    [SerializeField]
-    private SFXComponent _mySFXComponent;
     private UIManager _UIManager;
     public UIManager UIManager { get { return _UIManager; } }
 
@@ -303,7 +301,11 @@ public class PlayerManager : MonoBehaviour
 
 
             //sfx
-            SFXComponent.Instance.SFXPlayer(1);
+            if (SFXComponent.Instance != null)
+            {
+                SFXComponent.Instance.SFXPlayer(1);
+            }
+            
         }
     }
     public void SoltarBrazo() // para instanciarlo
@@ -314,7 +316,8 @@ public class PlayerManager : MonoBehaviour
             _brazos--; // un brazo menos
 
             //sfx
-            SFXComponent.Instance.SFXPlayer(0);
+            if (SFXComponent.Instance != null)
+                SFXComponent.Instance.SFXPlayer(0);
         }
     }
     // piernas
@@ -325,7 +328,8 @@ public class PlayerManager : MonoBehaviour
             _piernas = !_piernas;
 
             //sfx
-            SFXComponent.Instance.SFXPlayer(0);
+            if (SFXComponent.Instance != null)
+                SFXComponent.Instance.SFXPlayer(0);
         } 
     }
     public void AdiosPiernas() // para interactuables
@@ -335,7 +339,8 @@ public class PlayerManager : MonoBehaviour
             _piernas = !_piernas;
 
             //sfx
-            SFXComponent.Instance.SFXPlayer(1);
+            if (SFXComponent.Instance != null)
+                SFXComponent.Instance.SFXPlayer(1);
         } 
     }
     public void RecogerPiernas() // para recoger piernas sueltas
@@ -345,7 +350,8 @@ public class PlayerManager : MonoBehaviour
             _piernas = true; // si las destruye, obtiene piernas
 
             //sfx
-            SFXComponent.Instance.SFXPlayer(1);
+            if (SFXComponent.Instance != null)
+                SFXComponent.Instance.SFXPlayer(1);
         }
     }
     public void SoltarPiernas()  // para instanciar las piernas
@@ -356,7 +362,8 @@ public class PlayerManager : MonoBehaviour
             _piernas = false; // sin piernas
 
             //sfx
-            SFXComponent.Instance.SFXPlayer(0);
+            if (SFXComponent.Instance != null)
+                SFXComponent.Instance.SFXPlayer(0);
         }
     }
 
@@ -416,7 +423,8 @@ public class PlayerManager : MonoBehaviour
                 CambiarObjeto((Objetos)objeto);
 
                 // sfx
-                SFXComponent.Instance.SFXPlayer(7);
+                if (SFXComponent.Instance != null)
+                    SFXComponent.Instance.SFXPlayer(7);
             }
 
             
@@ -436,7 +444,8 @@ public class PlayerManager : MonoBehaviour
             EliminarObjeto();
 
             // sfx
-            SFXComponent.Instance.SFXPlayer(6);
+            if (SFXComponent.Instance != null)
+                SFXComponent.Instance.SFXPlayer(6);
         }
     }
 

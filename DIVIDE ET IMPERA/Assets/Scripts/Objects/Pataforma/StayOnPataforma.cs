@@ -47,8 +47,12 @@ public class StayOnPataforma : MonoBehaviour
     // cambia el padre del objeto
     private void Adoption(Collision2D collision)
     {
-        // le da un padre
-        gameObject.transform.SetParent(collision.gameObject.transform, true);
+        if (collision.transform.parent != null)
+        {
+            // le da un padre
+            gameObject.transform.SetParent(collision.gameObject.transform, true);
+        }
+        
     }
     // le quita el padre al objeto
     private void Adoptiont(Collision2D collision)

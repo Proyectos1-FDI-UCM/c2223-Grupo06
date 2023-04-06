@@ -22,8 +22,12 @@ public class ArmComponent : MonoBehaviour
         if (collision.gameObject.GetComponent<Tilemap>())
         {
             // sfx
-            SFXComponent.Instance.SFXObjects(2);
-            SFXComponent.Instance.SFXPlayer(10);
+            if (SFXComponent.Instance != null)
+            {
+                SFXComponent.Instance.SFXObjects(2);
+                SFXComponent.Instance.SFXPlayer(10);
+            }
+                
         }
     }
     #endregion
