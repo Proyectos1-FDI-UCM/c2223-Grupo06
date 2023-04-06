@@ -13,6 +13,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject _levelSelector;
     [SerializeField] private GameObject _player;
     [SerializeField] private GameObject _ControlesMenu;
+    [SerializeField] private GameObject _optionsMenu;
 
     // imagenes dentro del ui
     [SerializeField] private Image[] _images;
@@ -107,12 +108,14 @@ public class UIManager : MonoBehaviour
 
     public void PauseToOptions()
     {
-
+        RequestStateChange(GameManager.GameStates.OPCIONES); // referenciando al gamemanager (importante! si no no cambia de estado)
+        _player.GetComponent<InputController>().enabled = false;
     }
 
     public void OptionsToPause()
     {
-
+        RequestStateChange(GameManager.GameStates.PAUSE); // referenciando al gamemanager (importante! si no no cambia de estado)
+        _player.GetComponent<InputController>().enabled = false;
     }
 
     public void GoToScore() // a las puntuaciones
@@ -264,7 +267,7 @@ public class UIManager : MonoBehaviour
 
     void Start()
     {
-        _menus = new GameObject[7]; // creación del array de menús y asignación
+        _menus = new GameObject[8]; // creación del array de menús y asignación
         _menus[0] = _StartMenu;
         _menus[1] = _HUD;
         _menus[2] = _PauseMenu;
@@ -272,6 +275,7 @@ public class UIManager : MonoBehaviour
         _menus[4] = _scoreMenu;
         _menus[5] = _levelSelector;
         _menus[6] = _ControlesMenu;
+        _menus[7] = _optionsMenu;
         // habrá que poner más segun añadamos menuses
         _activeMenu = GameManager.Instance.CurrentState; // asocia el menú actual con el estado actual
 
