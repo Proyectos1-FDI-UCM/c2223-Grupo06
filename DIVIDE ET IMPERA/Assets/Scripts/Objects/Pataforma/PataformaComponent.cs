@@ -76,8 +76,6 @@ public class PataformaComponent : MonoBehaviour
         {
             aux = false;
         }
-        Debug.Log("input conectar piernas " + _inputController.ConectarPiernas
-            + "valid plataforma " + _validPataformaHitbox);
         return aux;
     }
 
