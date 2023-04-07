@@ -196,25 +196,23 @@ public class InputController : MonoBehaviour
         { // D para recoger y soltar piernas
             if (!_collisionManager.DestruirPierna())
             { // si no recoge una pierna del suelo
-                Debug.Log("asbjadsbcjhc");
                 if(transform.parent != null)
                 {
                     if (transform.parent.GetComponentInChildren<PataformaComponent>() != null && !_conectarPiernas && !transform.parent.GetComponentInChildren<PataformaComponent>().PiernasConectadas)
                     { // si está en una pataforma sin piernas, se las pone
                         _conectarPiernas = true;
                         _recuperarPiernas = false;
-                        Debug.Log("conecta");
+                        //Debug.Log("conecta");
                     }
                     else if (transform.parent.GetComponentInChildren<PataformaComponent>() != null && !_recuperarPiernas && transform.parent.GetComponentInChildren<PataformaComponent>().PiernasConectadas)
                     { // si está en una pataforma con piernas, las recoge
                         _recuperarPiernas = true;
                         _conectarPiernas = false;
-                        Debug.Log("recupera");
+                        //Debug.Log("recupera");
                     }
                 }
                 else
                 {
-                    Debug.Log("aaaaaaaaaaaaaaaa");
                     PlayerManager.Instance.SoltarPiernas(); // si no, las suelta
                 }
             } // si sí

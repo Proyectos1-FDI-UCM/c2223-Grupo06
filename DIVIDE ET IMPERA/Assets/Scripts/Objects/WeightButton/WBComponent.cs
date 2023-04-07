@@ -23,7 +23,7 @@ public class WBComponent : MonoBehaviour
     private bool _move = false;
 
     #region Methods
-
+    /*
     private void ActivarGeneral(bool _act)
     {
         _move = true;
@@ -62,6 +62,11 @@ public class WBComponent : MonoBehaviour
         {
             _movingPlatform.enabled = false;
         }
+    }*/
+
+    private void Activar(bool onoff)
+    {
+        _objeto.GetComponent<NewPlatformMovement>().OnOff(onoff);
     }
     #endregion
 
@@ -101,7 +106,8 @@ public class WBComponent : MonoBehaviour
         if (i != colliders.Length)
         {
             _mySpriteRenderer.color = Color.white;
-            ActivarGeneral(true);
+            Activar(true);
+            //ActivarGeneral(true);
         }
         else
         {
