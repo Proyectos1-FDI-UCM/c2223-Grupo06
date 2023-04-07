@@ -9,16 +9,20 @@ public class NewPlatformMovement : MonoBehaviour
     [SerializeField]
     private Transform[] _waypoints;
     #endregion
+
     #region Parameters
     [SerializeField]
     private float _speed;
     [SerializeField]
     private bool _isCiclic;
     #endregion
+
     #region Properties
     private bool _active;
     private int _currentWaypoint;
     #endregion
+
+
     #region Methods
     public void OnOff(bool onoff)
     {
@@ -78,6 +82,8 @@ public class NewPlatformMovement : MonoBehaviour
     }
 
     #endregion
+
+
     // Start is called before the first frame update
     void Start()
     {

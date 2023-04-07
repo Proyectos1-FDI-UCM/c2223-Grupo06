@@ -27,6 +27,8 @@ public class PataformaComponent : MonoBehaviour
     private GameObject _player;
     private Rigidbody2D _playerRigidbody;
 
+    [SerializeField]
+    private GameObject _pataformaMain;
     private PataformaMovementComponent _pataformaMovementComponent;
     private Rigidbody2D _pataformaRigidbody;
     [SerializeField]
@@ -74,6 +76,8 @@ public class PataformaComponent : MonoBehaviour
         {
             aux = false;
         }
+        Debug.Log("input conectar piernas " + _inputController.ConectarPiernas
+            + "valid plataforma " + _validPataformaHitbox);
         return aux;
     }
 
@@ -269,7 +273,7 @@ public class PataformaComponent : MonoBehaviour
         _inputController = _player.GetComponent<InputController>();
         _mySpriteRenderer = GetComponent<SpriteRenderer>();
         _pataformaMovementComponent = GetComponent<PataformaMovementComponent>();
-        _pataformaRigidbody = GetComponent<Rigidbody2D>();
+        _pataformaRigidbody = _pataformaMain.GetComponent<Rigidbody2D>();
         _playerRigidbody = _player.GetComponent<Rigidbody2D>();
 
     }

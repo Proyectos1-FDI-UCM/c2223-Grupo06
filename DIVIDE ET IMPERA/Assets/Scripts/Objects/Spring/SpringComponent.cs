@@ -23,7 +23,8 @@ public class SpringComponent : MonoBehaviour
                                                                                                                       //para que el salto sea consistente
                                                                                                                       //(con fuerzas no lo era)
             // sfx
-            SFXComponent.Instance.SFXObjects(1);
+            if(SFXComponent.Instance != null)
+                SFXComponent.Instance.SFXObjects(1);
         }
     }
     #endregion

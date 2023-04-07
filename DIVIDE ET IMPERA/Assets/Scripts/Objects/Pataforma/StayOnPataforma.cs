@@ -50,8 +50,18 @@ public class StayOnPataforma : MonoBehaviour
     {
         if (collision.transform.parent != null)
         {
-            // le da un padre
-            gameObject.transform.SetParent(collision.gameObject.transform.parent, true);
+            if (collision.gameObject.GetComponentInChildren<PataformaComponent>())
+            {
+                gameObject.transform.SetParent(collision.gameObject.transform, true);
+            }
+            else
+            {
+                // le da un padre
+                gameObject.transform.SetParent(collision.gameObject.transform.parent, true);
+            }
+            
+
+            
         }
         
     }
@@ -97,7 +107,6 @@ public class StayOnPataforma : MonoBehaviour
     #region Metodos principales
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        //Debug.Log(collision);
         if (CheckStayOn(collision))
         {
             Adoption(collision);

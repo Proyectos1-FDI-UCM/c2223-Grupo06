@@ -31,7 +31,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8562587943021863825}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2995836397196724477
 SpriteRenderer:
@@ -115,7 +115,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4886992162515946708}
   - component: {fileID: 2489671435016652401}
-  - component: {fileID: 1745809942505671072}
   - component: {fileID: 4216725134538058983}
   - component: {fileID: 927357401854732563}
   m_Layer: 3
@@ -133,12 +132,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5268349911045865284}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0, y: -0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8562587943021863825}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2489671435016652401
 SpriteRenderer:
@@ -192,27 +191,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!50 &1745809942505671072
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5268349911045865284}
-  m_BodyType: 1
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 1000000
-  m_AngularDrag: 0
-  m_GravityScale: 1
-  m_Material: {fileID: 6200000, guid: 43dc9862bf84c984494b49f4965161b4, type: 2}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 6
 --- !u!61 &4216725134538058983
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -251,6 +229,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f10fc3b95a7066c47a212b973b8a03f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _pataformaMain: {fileID: 8562587943021863837}
   pataformaMovementComponent: {fileID: 0}
   _patas: {fileID: 4210712077449746953}
   _animator: {fileID: 2051036441004247502}
@@ -267,6 +246,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8562587943021863825}
   - component: {fileID: 4183793489733414158}
+  - component: {fileID: 366130856388392886}
   m_Layer: 3
   m_Name: Patwoforma
   m_TagString: Untagged
@@ -286,8 +266,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 4886992162515946708}
   - {fileID: 6089044720051254760}
+  - {fileID: 4886992162515946708}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -308,3 +288,24 @@ MonoBehaviour:
   _speed: 5
   _rozamientoFreno: 15
   _pDireccion: 0
+--- !u!50 &366130856388392886
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8562587943021863837}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 6

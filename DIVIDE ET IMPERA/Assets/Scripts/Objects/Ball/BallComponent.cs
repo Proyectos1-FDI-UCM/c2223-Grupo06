@@ -10,7 +10,8 @@ public class BallComponent : MonoBehaviour
         if (collision.gameObject.GetComponent<Tilemap>() && _start)
         {
             // sfx
-            SFXComponent.Instance.SFXObjects(2);
+            if(SFXComponent.Instance != null)
+                SFXComponent.Instance.SFXObjects(2);
         }
 
         _start = true;

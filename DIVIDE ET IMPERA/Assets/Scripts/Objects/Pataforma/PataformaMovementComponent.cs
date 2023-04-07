@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using static UnityEditor.Experimental.GraphView.GraphView;
 
@@ -32,15 +33,19 @@ public class PataformaMovementComponent : MonoBehaviour
 
     private void SFXMove()
     {
-        if (_pataformaComponent.PataformaDireccion != 0)
+        if (SFXComponent.Instance != null)
         {
-            if (!SFXComponent.Instance.isPlayingSFX(2))
-                SFXComponent.Instance.SFXPlayer(2);
+            if (_pataformaComponent.PataformaDireccion != 0)
+            {
+                if (!SFXComponent.Instance.isPlayingSFX(2))
+                    SFXComponent.Instance.SFXPlayer(2);
+            }
+            else
+            {
+                SFXComponent.Instance.SFXPlayerStop(2);
+            }
         }
-        else
-        {
-            SFXComponent.Instance.SFXPlayerStop(2);
-        }
+        
     }
 
     private void Move2()
