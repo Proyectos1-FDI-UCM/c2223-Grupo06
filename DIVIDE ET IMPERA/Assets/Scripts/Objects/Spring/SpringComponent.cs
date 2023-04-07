@@ -13,6 +13,7 @@ public class SpringComponent : MonoBehaviour
     #endregion
 
     #region Methods
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         // para que no colisione con el tilemap 
@@ -27,6 +28,8 @@ public class SpringComponent : MonoBehaviour
                 SFXComponent.Instance.SFXObjects(1);
         }
     }
+
+
     #endregion
 
     private void Start()

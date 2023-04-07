@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Runtime.CompilerServices;
+using UnityEngine;
 using UnityEngine.Tilemaps;
 
 public class FallDamage : MonoBehaviour
@@ -8,6 +9,8 @@ public class FallDamage : MonoBehaviour
     private GroundCheck _groundCheck;
     Rigidbody2D _rigidBody2D;
     #endregion
+
+
     #region parameters 
     [Tooltip("Velocidad máxima permitida antes de hacer daño")]
     [SerializeField]
@@ -16,10 +19,16 @@ public class FallDamage : MonoBehaviour
     [SerializeField]
     private float _previousSpeed; // velocidad antes de llegar al suelo
     #endregion
+
+
     #region properties
     private bool _onGround; // para saber si está en el suelo
+
     [SerializeField]
     private bool _spring;
+    public bool IsSpring { get { return _spring; } set { _spring = value; } }
+    [SerializeField]
+    private bool _spring2;
     #endregion
 
     void Start()
@@ -29,8 +38,10 @@ public class FallDamage : MonoBehaviour
         _groundCheck = GetComponentInChildren<GroundCheck>();
     }
 
+
     void Update()
     {
+        
         _onGround = _groundCheck._isGrounded; // comprobación de _onGround
         if (!_onGround)
         {
@@ -47,7 +58,6 @@ public class FallDamage : MonoBehaviour
                 if (SFXComponent.Instance != null)
                     SFXComponent.Instance.SFXPlayer(8);
             }
-            
-        }
+        }     
     }
 }

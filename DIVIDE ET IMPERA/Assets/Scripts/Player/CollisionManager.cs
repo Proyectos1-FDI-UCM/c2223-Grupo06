@@ -39,6 +39,10 @@ public class CollisionManager : MonoBehaviour
         {
             collision.GetComponentInParent<PataformaComponent>()._validPataformaHitbox = true;
         }
+        else if (collision.GetComponent<SpringComponent>())
+        {
+            GetComponent<FallDamage>().IsSpring = true;
+        }
 
         if (collision.GetComponent<Tilemap>() == false) // manera muy rudimentaria de comprobar que la colisión no es con el suelo!
         {
@@ -87,6 +91,10 @@ public class CollisionManager : MonoBehaviour
         {
             collision.GetComponent<PataformaComponent>()._validPataformaHitbox = false;
         }
+        else if (collision.GetComponent<SpringComponent>())
+        {
+            GetComponent<FallDamage>().IsSpring = false;
+        }
 
         if (collision.GetComponent<Tilemap>() == false)
         {
@@ -130,7 +138,7 @@ public class CollisionManager : MonoBehaviour
 
     public int DesactivarObjeto() // 0 llave, 1 muelle, 2 bola
     {
-        if (_objetoColisionado != null)
+        if (_objetoColisionado != null && !_objetoColisionado.GetComponent<ObjectComponent>().StaticObject)
         {
             _objectStored = _objetoColisionado.transform.gameObject;
             if (_objetoColisionado.GetComponent<KeyComponent>() != null)
@@ -163,5 +171,6 @@ public class CollisionManager : MonoBehaviour
         _validHitbox = false;
         _parteColisionada = null;
         _objetoColisionado = null;
+        GetComponent<FallDamage>().IsSpring = false;
     }
 }
