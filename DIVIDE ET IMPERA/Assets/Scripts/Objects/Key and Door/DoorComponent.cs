@@ -7,7 +7,7 @@ public class DoorComponent : MonoBehaviour
     {
         if (PlayerManager.Instance.Objeto == PlayerManager.Objetos.LLAVE)
         {
-            gameObject.SetActive(false);
+            GetComponent<NewPlatformMovement>().OnOff(true);
             PlayerManager.Instance.EliminarObjeto();
         }
     }
