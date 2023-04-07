@@ -24,11 +24,6 @@ public class FallDamage : MonoBehaviour
     #region properties
     private bool _onGround; // para saber si está en el suelo
 
-    [SerializeField]
-    private bool _spring;
-    public bool IsSpring { get { return _spring; } set { _spring = value; } }
-    [SerializeField]
-    private bool _spring2;
     #endregion
 
     void Start()

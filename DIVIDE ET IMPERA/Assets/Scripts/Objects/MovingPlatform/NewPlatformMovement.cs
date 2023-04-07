@@ -18,6 +18,7 @@ public class NewPlatformMovement : MonoBehaviour
     #endregion
 
     #region Properties
+    [SerializeField]
     private bool _active;
     private int _currentWaypoint;
     #endregion
@@ -26,7 +27,7 @@ public class NewPlatformMovement : MonoBehaviour
     #region Methods
     public void OnOff(bool onoff)
     {
-        _active= onoff;
+        _active = onoff;
     }
 
     private void Move() 
