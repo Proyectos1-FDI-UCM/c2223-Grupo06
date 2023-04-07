@@ -8,21 +8,21 @@ public class PalancaComponent : MonoBehaviour
     private PlayerManager _playerManager;
     private MovingPlatformComponent _movingPlatform;
     private SpriteRenderer _mySpriteRenderer;
-    //[SerializeField]
-    //private SFXComponent _sFXComponent;
     [SerializeField]
     private GameObject _objeto;
     private GameManager _gameManager;
     #endregion
 
     #region Properties
-    // palanca activada o no
+    // indica si la palanca hay que dejarla activada para que funcione o no (como con el boton por peso)
     [SerializeField]
+    private bool _temporary;
+
+    // palanca activada o no
     private bool _palanca;
     public bool Palanca { get { return _palanca; } }
 
     // brazo conectado a la palanca 
-    [SerializeField]
     private bool _brazoConectado = false;
     public bool BrazoConectado { get { return _brazoConectado; } set { _brazoConectado = value; } }
 
@@ -43,7 +43,8 @@ public class PalancaComponent : MonoBehaviour
         ActivarObjetos();
 
         // sfx
-        //SFXComponent.Instance.SFXObjects(0);
+        if(SFXComponent.Instance != null)
+            SFXComponent.Instance.SFXObjects(0);
     }
 
     // activa o desactiva la palanca dependiendo de su estado anterior
@@ -102,7 +103,11 @@ public class PalancaComponent : MonoBehaviour
             && (PlayerManager.Instance.Brazos < 2))
         {
             Activar();
+        }
 
+        if (_temporary && !_brazoConectado && _palanca)
+        {
+            Activar();
         }
 
         //-------CONECTAR BRAZO-------------------
