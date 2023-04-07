@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class FallDamage : MonoBehaviour
 {
@@ -17,7 +18,8 @@ public class FallDamage : MonoBehaviour
     #endregion
     #region properties
     private bool _onGround; // para saber si está en el suelo
-    private SpringComponent _spring;
+    [SerializeField]
+    private bool _spring;
     #endregion
 
     void Start()
@@ -36,15 +38,7 @@ public class FallDamage : MonoBehaviour
         }
         else
         {
-            //Codigo que comprueba las colisiones del jugador para ver si alguna es un muelle mirando si los contactos tienen el componente muelle
-            Collider2D collider = GetComponent<Collider2D>();
-            Collider2D[] colliders = Physics2D.OverlapBoxAll(collider.bounds.center, collider.bounds.size, 0);
-            foreach (Collider2D otherCollider in colliders)
-            {
-                _spring = otherCollider.GetComponent<SpringComponent>();
-            }
-
-            if (_previousSpeed < _allowedSpeed && _spring == null) // si se supera la velocidad permitida y no has chocado con un muelle -> aplicas daño
+            if (_previousSpeed < _allowedSpeed) // si se supera la velocidad permitida y no has chocado con un muelle -> aplicas daño
             {
                 _boneStateBar.BoneDamage(_damage: 20f);
                 _previousSpeed = 0; // si se llega al suelo la velocidad vuelve a 0
@@ -53,6 +47,7 @@ public class FallDamage : MonoBehaviour
                 if (SFXComponent.Instance != null)
                     SFXComponent.Instance.SFXPlayer(8);
             }
+            
         }
     }
 }

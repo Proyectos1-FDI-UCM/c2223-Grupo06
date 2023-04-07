@@ -13,6 +13,7 @@ public class PlayerAccess : MonoBehaviour
     private CollisionManager _collisionManager;
     private PlayerManager _playerManager;
     private BoneStateBar _boneBar;
+    private FallDamage _fallDamage;
     // ... más según vayan existiendo más componentes en player
 
     public static PlayerAccess Instance { get { return _instance; } }            // MÉTODOS GETTERS PÚBLICOS: devuelven las variables privadas
@@ -26,6 +27,7 @@ public class PlayerAccess : MonoBehaviour
     public CollisionManager CollisionManager { get { return _collisionManager; } }
     public PlayerManager PlayerManager { get { return _playerManager; } }
     public BoneStateBar BoneBar { get { return _boneBar; } }
+    public FallDamage FallDamage { get { return _fallDamage; } }
     // ... más según vayan existiendo más componentes en player
 
     private void Awake()                                                        // INICIALIZACIÓN DE LAS VARIABLES PRIVADAS
@@ -41,6 +43,7 @@ public class PlayerAccess : MonoBehaviour
         _collisionManager = GetComponent<CollisionManager>();
         _playerManager = GetComponent<PlayerManager>();
         _boneBar= GetComponent<BoneStateBar>();
+        _fallDamage= GetComponent<FallDamage>();
         // ... más según vayan existiendo más componentes en player
 
         // SE ACCEDEN A TRAVÉS DE PLAYERACCESS.INSTANCE.(lo que sea);
