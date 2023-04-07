@@ -16,7 +16,7 @@ public class SpringComponent : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         // para que no colisione con el tilemap 
-        if (collision.GetComponent<Tilemap>() == false)
+        if (collision.GetComponent<Tilemap>() == false) // ? aunque sean las 4 de la mañana se a la perfeccion que yo no puse esto y no se que narices quiere decir
         {
             _animator.Play("Boing"); //animacion
             collision.attachedRigidbody.velocity = new Vector2(collision.attachedRigidbody.velocity.x, _springForce); //modifica velocidad del objeto
