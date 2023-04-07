@@ -136,11 +136,13 @@ public class CollisionManager : MonoBehaviour
             if (_objetoColisionado.GetComponent<KeyComponent>() != null)
             { // si es una llave
                 _objectStored.SetActive(false);
+                LevelManager.Instance.ObjectLevelIndex(LevelManager.Instance.CurrentLevelNum);
                 return 0;
             }
             else if (_objetoColisionado.GetComponentInChildren<SpringComponent>() != null)
             { // si es un muelle
                 _objectStored.SetActive(false);
+                LevelManager.Instance.ObjectLevelIndex(LevelManager.Instance.CurrentLevelNum);
                 return 1;
             }
             else if (_objetoColisionado.GetComponentInParent<BallComponent>() != null)

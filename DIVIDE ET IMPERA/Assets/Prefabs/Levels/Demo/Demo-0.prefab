@@ -620,7 +620,7 @@ PrefabInstance:
     - target: {fileID: 9105276655828635065, guid: 111fc477411513d47b1f5daa0dbd6439, type: 3}
       propertyPath: _objeto
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 446370062665742937}
     - target: {fileID: 9105276655828635070, guid: 111fc477411513d47b1f5daa0dbd6439, type: 3}
       propertyPath: m_Name
       value: Lever
@@ -11093,6 +11093,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1f5a3498d4d134d4da1d488e7faf01fd, type: 3}
+--- !u!1 &446370062665742937 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6588373478110737167, guid: 1f5a3498d4d134d4da1d488e7faf01fd, type: 3}
+  m_PrefabInstance: {fileID: 6728177669729044822}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8494032440261474384 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2936228696153370886, guid: 1f5a3498d4d134d4da1d488e7faf01fd, type: 3}
