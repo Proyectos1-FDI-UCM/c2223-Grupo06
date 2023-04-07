@@ -185,7 +185,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66cdd9dc19f2cda48a55ebd830d4d208, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _objeto: {fileID: 1198217028773706302}
+  _objeto: {fileID: 0}
   pointA: {fileID: 3340192698116498520}
   pointB: {fileID: 4830731562775172941}
   _permanente: 0

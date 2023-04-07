@@ -94,6 +94,8 @@ public class WBComponent : MonoBehaviour
         _movingPlatform = _objeto.GetComponent<MovingPlatformComponent>();
     }
 
+
+
     // Update is called once per frame
     void Update()
     {
@@ -103,16 +105,29 @@ public class WBComponent : MonoBehaviour
         int i = 0;
         while (i < colliders.Length && colliders[i].gameObject.GetComponent<WeightComponent>() == null) i++;
 
-        if (i != colliders.Length)
+        if (_permanente)
         {
-            _mySpriteRenderer.color = Color.white;
-            Activar(true);
-            //ActivarGeneral(true);
+            if (i != colliders.Length)
+            {
+                _mySpriteRenderer.color = Color.white;
+                Activar(true);
+                //ActivarGeneral(true);
+            }
         }
         else
         {
-            _mySpriteRenderer.color = Color.magenta;
-            Activar(false);
+            if (i != colliders.Length)
+            {
+                _mySpriteRenderer.color = Color.white;
+                Activar(true);
+                //ActivarGeneral(true);
+            }
+            else
+            {
+                _mySpriteRenderer.color = Color.magenta;
+                Activar(false);
+            }
         }
+        
     }
 }
