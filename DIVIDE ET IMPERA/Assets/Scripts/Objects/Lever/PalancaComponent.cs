@@ -11,6 +11,7 @@ public class PalancaComponent : MonoBehaviour
     [SerializeField]
     private GameObject _objeto;
     private GameManager _gameManager;
+    [Tooltip("Objeto que contiene todas las salas para que se tengan en cuenta todas las palancas")]
     [SerializeField]
     private GameObject _fatherGameObject;
 
@@ -148,21 +149,6 @@ public class PalancaComponent : MonoBehaviour
         }
     }
 
-    public void ActivateArm1()
-    {
-        if(_brazoNum == 1)
-        {
-            Activar();
-        }
-    }
-
-    public void ActivateArm2()
-    {
-        if(_brazoNum == 2)
-        {
-            Activar();
-        }
-    }
 
     #endregion
 
@@ -189,7 +175,6 @@ public class PalancaComponent : MonoBehaviour
         {
             Activar();
         }
-
 
 
         // pone el indice del brazo de la palanca
