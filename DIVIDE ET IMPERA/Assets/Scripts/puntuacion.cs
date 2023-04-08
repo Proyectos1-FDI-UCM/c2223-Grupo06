@@ -5,7 +5,7 @@ using TMPro;
 
 public class puntuacion : MonoBehaviour
 {
-    private float puntos;
+    private float puntos = 500;
     private TextMeshProUGUI text;
 
     private void Start()
@@ -15,7 +15,7 @@ public class puntuacion : MonoBehaviour
 
     private void Update()
     {
-        puntos += Time.deltaTime;
+        //puntos += Time.deltaTime;
         text.text = puntos.ToString("0");
     }
 
@@ -26,7 +26,7 @@ public class puntuacion : MonoBehaviour
 
     public void RestaPuntos(float puntosRestar)
     {
-        puntos += puntosRestar;
+        puntos -= puntosRestar;
     }
 
 }
