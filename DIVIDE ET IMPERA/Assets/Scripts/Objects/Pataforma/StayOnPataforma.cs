@@ -60,8 +60,6 @@ public class StayOnPataforma : MonoBehaviour
                 gameObject.transform.SetParent(collision.gameObject.transform.parent, true);
             }
             
-
-            
         }
         
     }
