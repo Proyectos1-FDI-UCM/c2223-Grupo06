@@ -292,6 +292,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7352159979353590024, guid: 767e3f423c90f78409c3048c7e7f2088, type: 3}
+    - {fileID: 734111396539604467, guid: 767e3f423c90f78409c3048c7e7f2088, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 767e3f423c90f78409c3048c7e7f2088, type: 3}
 --- !u!4 &25530483 stripped
 Transform:
@@ -22970,6 +22971,27 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2311462238604020209, guid: 767e3f423c90f78409c3048c7e7f2088, type: 3}
   m_PrefabInstance: {fileID: 11545420}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &656771849
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 656771831}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e5b22badd7826a4da4cf4b11df8a3d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _armPrefab: {fileID: 2364319286159778462, guid: e90420e54f5db3641ad4a0495fa575fe, type: 3}
+  _ballPrefab: {fileID: 5276601373044919741, guid: 3c6c75f4de69a4843bdc0e3e045fefd2, type: 3}
+  _objectsReset: {fileID: 525130138}
+  _horizontalForce: 5
+  _verticalForce: 3
+  _furbo: 0
+  _inerciaBolas: 1
+  _inerciaBrazos: 1
+  _torque: 0.5
 --- !u!1001 &683371164
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -28779,12 +28801,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1198217028773706302, guid: 22c7ca5068d53c14b8b1ca8b1b95ab79, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3493890602582671553, guid: 22c7ca5068d53c14b8b1ca8b1b95ab79, type: 3}
       propertyPath: _objeto
       value: 
       objectReference: {fileID: 1966945253}
+    - target: {fileID: 3493890602582671553, guid: 22c7ca5068d53c14b8b1ca8b1b95ab79, type: 3}
+      propertyPath: _objetos
+      value: 
+      objectReference: {fileID: 1854101449}
     - target: {fileID: 5570792248851894853, guid: 22c7ca5068d53c14b8b1ca8b1b95ab79, type: 3}
       propertyPath: m_RootOrder
       value: 4

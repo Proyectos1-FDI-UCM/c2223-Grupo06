@@ -253,7 +253,7 @@ public class InputController : MonoBehaviour
         }
 
         if (Input.GetKeyDown(KeyCode.Z))
-        {                                     // Si solo pulsa Z
+        {                                   // Si solo pulsa Z
             _throwComp.LanzarBrazo(); // Lanza un brazo
         }
         #endregion
