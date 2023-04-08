@@ -18,6 +18,8 @@ public class FallDamage : MonoBehaviour
     [Tooltip("Velocidad antes de llegar al suelo")]
     [SerializeField]
     private float _previousSpeed; // velocidad antes de llegar al suelo
+    [SerializeField] private float cantidadPuntos;
+    [SerializeField] private puntuacion puntuacion;
     #endregion
 
 
@@ -48,6 +50,7 @@ public class FallDamage : MonoBehaviour
             {
                 _boneStateBar.BoneDamage(_damage: 20f);
                 _previousSpeed = 0; // si se llega al suelo la velocidad vuelve a 0
+                puntuacion.RestaPuntos(cantidadPuntos);
 
                 // sfx
                 if (SFXComponent.Instance != null)
