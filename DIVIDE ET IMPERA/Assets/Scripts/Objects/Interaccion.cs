@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Interaction : MonoBehaviour
+public class Interaccion : MonoBehaviour
 {
     #region References
     private GameObject _player;
