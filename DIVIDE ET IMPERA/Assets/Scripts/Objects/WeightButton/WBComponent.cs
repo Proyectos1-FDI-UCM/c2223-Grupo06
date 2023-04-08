@@ -71,23 +71,22 @@ public class WBComponent : MonoBehaviour
         }
     }*/
 
+    // metodo para activar el objeto
     private void Activar()
     {
         _objeto.GetComponent<NewPlatformMovement>().OnOff(true);
         
     }
 
+    // metodo para desactivar el objeto
     private void Desactivar()
     {
         _objeto.GetComponent<NewPlatformMovement>().OnOff(false);
     }
 
-    private bool ActivatingPriority(bool _aux)
-    {
-        _priority = _aux;
-        return _priority;
-    }
-
+    // metodo que busca si hay algun otro boton que haya activado el mismo objeto 
+    // basicamente sirve para que no se queden pillados entre ellos, asi todos
+    // los botones que conecten a un mismo objeto pueden modificarlo
     private bool IsPriority()
     {
         bool aux = false;
@@ -96,11 +95,12 @@ public class WBComponent : MonoBehaviour
         // mientras haya hijos en y no se haya encontrado uno con prioridad
         while (i < child.Length && !aux)
         {
+            // si tiene wbcomponent, si controlan el mismo objeto y el objeto tiene prioridad (lo ha activado)
             if (child[i].GetComponent<WBComponent>()
+                && child[i].GetComponent<WBComponent>()._objeto == this._objeto
                 && child[i].GetComponent<WBComponent>().Priority)
             {
                 aux = true;
-                //Debug.Log("holi");
             }
             i++;
         }
@@ -144,6 +144,7 @@ public class WBComponent : MonoBehaviour
         int i = 0;
         while (i < colliders.Length && colliders[i].gameObject.GetComponent<WeightComponent>() == null) i++;
 
+        // si es permanente da igual lo que pase despues siempre se va a quedar activado
         if (_permanente)
         {
             if (i != colliders.Length)
@@ -153,29 +154,31 @@ public class WBComponent : MonoBehaviour
                 //ActivarGeneral(true);
             }
         }
+        // si no es permanente depende de si tiene algo encima o no
         else
         {
             if (i != colliders.Length)
             {
                 _mySpriteRenderer.color = Color.white;
+                // si no hay nada activado lo activa y le da la prioridad al boton correspondiente
                 if (!_objeto.GetComponent<NewPlatformMovement>().isActive())
                 {
                     Activar();
                     _priority = true;
-                    //Debug.Log("activar");
                 }
                     
                 //ActivarGeneral(true);
             }
             else
             {
+                // si no hay ningun objeto con prioridad desactiva el objeto
                 _mySpriteRenderer.color = Color.magenta;
                 if(_objeto.GetComponent<NewPlatformMovement>().isActive()
                     && !IsPriority())
                 {
                     Desactivar();
-                    //Debug.Log("desactivar");
                 }
+                // si hay alguno con prioridad y este quiere tenerlo tambien se fasitidia y le quita la prioridad
                 if (IsPriority() && _priority)
                 {
                     _priority = false;

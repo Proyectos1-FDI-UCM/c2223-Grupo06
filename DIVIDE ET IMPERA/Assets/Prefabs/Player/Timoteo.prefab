@@ -93,10 +93,10 @@ GameObject:
   - component: {fileID: 4737386085971608660}
   - component: {fileID: 232252137597834202}
   - component: {fileID: 7912081989183737634}
-  - component: {fileID: 734111396539604467}
   - component: {fileID: 4777051804109853913}
   - component: {fileID: 9220765}
   - component: {fileID: 9220764}
+  - component: {fileID: 6326749029943970691}
   m_Layer: 9
   m_Name: Timoteo
   m_TagString: Untagged
@@ -317,7 +317,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e070dc080eef7934b93599a000f39a7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _mySFXComponent: {fileID: 0}
   _brazoPrefab: {fileID: 2364319286159778462, guid: e90420e54f5db3641ad4a0495fa575fe, type: 3}
   _piernaPrefab: {fileID: 4257366962654404361, guid: e6abbefdc04754441a1beb5de5dd8238, type: 3}
   _objetosPrefabs:
@@ -396,27 +395,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78744853cf7a04b42b591d0409efa684, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &734111396539604467
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2311462238604020209}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e51991f5661606c43a50532a4e74b16e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _armPrefab: {fileID: 2364319286159778462, guid: e90420e54f5db3641ad4a0495fa575fe, type: 3}
-  _ballPrefab: {fileID: 5276601373044919741, guid: 3c6c75f4de69a4843bdc0e3e045fefd2, type: 3}
-  _objectsReset: {fileID: 0}
-  _horizontalForce: 5
-  _verticalForce: 3
-  _furbo: 0
-  _inerciaBolas: 1
-  _inerciaBrazos: 1
-  _torque: 20
 --- !u!114 &4777051804109853913
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -444,6 +422,8 @@ MonoBehaviour:
   _boneStateBar: {fileID: 0}
   _allowedSpeed: -15
   _previousSpeed: 0
+  cantidadPuntos: 0
+  puntuacion: {fileID: 0}
 --- !u!114 &9220764
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -460,6 +440,27 @@ MonoBehaviour:
   _fallDamage: {fileID: 9220765}
   _currentBoneState: 100
   _maxBoneState: 100
+--- !u!114 &6326749029943970691
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2311462238604020209}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e5b22badd7826a4da4cf4b11df8a3d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _armPrefab: {fileID: 2364319286159778462, guid: e90420e54f5db3641ad4a0495fa575fe, type: 3}
+  _ballPrefab: {fileID: 5276601373044919741, guid: 3c6c75f4de69a4843bdc0e3e045fefd2, type: 3}
+  _objectsReset: {fileID: 0}
+  _horizontalForce: 5
+  _verticalForce: 3
+  _furbo: 0
+  _inerciaBolas: 1
+  _inerciaBrazos: 1
+  _torque: 0.5
 --- !u!1 &5226572810815247087
 GameObject:
   m_ObjectHideFlags: 0

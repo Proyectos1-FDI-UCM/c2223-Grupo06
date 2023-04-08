@@ -85,6 +85,16 @@ public class PalancaComponent : MonoBehaviour
         PlayerManager.Instance.Brazos++;
         PlayerManager.Instance.ConnectedToLever(null);
     }
+
+    private bool FindArmInLever()
+    {
+        bool aux = false;
+
+
+
+
+        return aux;
+    }
     #endregion
 
 
@@ -111,7 +121,7 @@ public class PalancaComponent : MonoBehaviour
         }
 
         //-------CONECTAR BRAZO-------------------
-        // se pulsa R y se esta cerca de la palanca
+        // se pulsa A o S y se esta cerca de la palanca
         if (_inputController.ConectarBrazo && _validPalancaHitbox
             && (PlayerManager.Instance.Brazos > 0))
         {
@@ -120,7 +130,7 @@ public class PalancaComponent : MonoBehaviour
             PlayerManager.Instance.Brazos--;
             PlayerManager.Instance.ConnectedToLever(gameObject);
         }
-        // se pulsa T, está cerca de la palanca, está en los estados correctos y hay un brazo conectado
+        // se pulsa A o S, está cerca de la palanca, está en los estados correctos y hay un brazo conectado
         else if (_inputController.RecuperarBrazo && _validPalancaHitbox
             && (PlayerManager.Instance.Brazos < 2)
             && _brazoConectado)
