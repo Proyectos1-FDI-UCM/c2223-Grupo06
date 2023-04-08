@@ -4,6 +4,7 @@ public class RoomTransition : MonoBehaviour
 {
     #region References
     //Transforms camara, jugador y transicion
+    private PlayerManager.TimmyStates timiestado;
     private Transform _cameraTransform;
     private Transform _playerTransform;
     private Transform _transitionTransform;
@@ -59,7 +60,7 @@ public class RoomTransition : MonoBehaviour
         {
             _transitions[i].GetComponentInChildren<BoxCollider2D>().enabled = false; //se desactivan todas las transiciones
         }
-
+        
         _onTransition = true; //activar transicion
     }
 
@@ -81,7 +82,22 @@ public class RoomTransition : MonoBehaviour
             PlayerAccess.Instance.Animator.enabled = true;
 
             CameraMovement.Instance.enabled = true; //Hacer que la camara vuelva a seguir al jugador
-
+            if (timiestado == PlayerManager.TimmyStates.S0)
+            {
+                puntuacion.SumaPuntos(50);
+            }
+            else if (timiestado == PlayerManager.TimmyStates.S1)
+            {
+                puntuacion.SumaPuntos(40);
+            }
+            else if (timiestado == PlayerManager.TimmyStates.S2 || timiestado == PlayerManager.TimmyStates.S3)
+            {
+                puntuacion.SumaPuntos(30);
+            }
+            else if (timiestado == PlayerManager.TimmyStates.S4)
+            {
+                puntuacion.SumaPuntos(10);
+            }
             _onTransition = false; //Se termina la transicion
         }
     }
@@ -101,6 +117,22 @@ public class RoomTransition : MonoBehaviour
         if (_onTransition) //si estas en una transicion
         {
             OnTRansition();
+            /*if (timiestado == PlayerManager.TimmyStates.S0)
+            {
+                puntuacion.SumaPuntos(50);
+            }
+            else if(timiestado == PlayerManager.TimmyStates.S1)
+            {
+                puntuacion.SumaPuntos(40);
+            }
+            else if(timiestado == PlayerManager.TimmyStates.S2 || timiestado == PlayerManager.TimmyStates.S3)
+            {
+                puntuacion.SumaPuntos(30);
+            }
+            else if(timiestado == PlayerManager.TimmyStates.S4)
+            {
+                puntuacion.SumaPuntos(10);
+            }*/
         }
     }
 }

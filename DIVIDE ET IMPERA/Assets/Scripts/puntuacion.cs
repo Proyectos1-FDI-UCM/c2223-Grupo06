@@ -5,7 +5,7 @@ using TMPro;
 
 public class puntuacion : MonoBehaviour
 {
-    private float puntos = 500;
+    private static float puntos = 500;
     private TextMeshProUGUI text;
 
     private void Start()
@@ -19,12 +19,12 @@ public class puntuacion : MonoBehaviour
         text.text = puntos.ToString("0");
     }
 
-    public void SumaPuntos(float puntosSumar)
+    public static void SumaPuntos(float puntosSumar)
     {
         puntos += puntosSumar;
     }
 
-    public void RestaPuntos(float puntosRestar)
+    public static void RestaPuntos(float puntosRestar)
     {
         puntos -= puntosRestar;
     }
