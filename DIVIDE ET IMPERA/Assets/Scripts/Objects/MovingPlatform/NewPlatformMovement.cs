@@ -30,6 +30,11 @@ public class NewPlatformMovement : MonoBehaviour
         _active = onoff;
     }
 
+    public bool isActive()
+    {
+        return _active;
+    }
+
     private void Move() 
     {
         transform.position = Vector3.MoveTowards(transform.position, _waypoints[_currentWaypoint].position, _speed * Time.deltaTime); //mueve plataforma

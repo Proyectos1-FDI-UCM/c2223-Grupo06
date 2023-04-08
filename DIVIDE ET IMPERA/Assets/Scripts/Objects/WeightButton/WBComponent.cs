@@ -21,6 +21,8 @@ public class WBComponent : MonoBehaviour
     [SerializeField]
     private bool _permanente;
     private bool _move = false;
+    [SerializeField]
+    private bool _isPriority;
 
     #region Methods
     /*
@@ -64,9 +66,21 @@ public class WBComponent : MonoBehaviour
         }
     }*/
 
-    private void Activar(bool onoff)
+    private void Activar()
     {
-        _objeto.GetComponent<NewPlatformMovement>().OnOff(onoff);
+        _objeto.GetComponent<NewPlatformMovement>().OnOff(true);
+        ActivatingPriority(true);
+    }
+
+    private void Desactivar()
+    {
+        _objeto.GetComponent<NewPlatformMovement>().OnOff(false);
+    }
+
+    private bool ActivatingPriority(bool _aux)
+    {
+        _isPriority = _aux;
+        return _isPriority;
     }
     #endregion
 
@@ -110,7 +124,7 @@ public class WBComponent : MonoBehaviour
             if (i != colliders.Length)
             {
                 _mySpriteRenderer.color = Color.white;
-                Activar(true);
+                Activar();
                 //ActivarGeneral(true);
             }
         }
@@ -119,13 +133,23 @@ public class WBComponent : MonoBehaviour
             if (i != colliders.Length)
             {
                 _mySpriteRenderer.color = Color.white;
-                Activar(true);
+                if (!_objeto.GetComponent<NewPlatformMovement>().isActive())
+                {
+                    Activar();
+                    Debug.Log("activar");
+                }
+                    
                 //ActivarGeneral(true);
             }
             else
             {
                 _mySpriteRenderer.color = Color.magenta;
-                Activar(false);
+                if(_objeto.GetComponent<NewPlatformMovement>().isActive()
+                    && _isPriority)
+                {
+                    Desactivar();
+                    Debug.Log("desactivar");
+                }
             }
         }
         
