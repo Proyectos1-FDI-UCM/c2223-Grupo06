@@ -78,11 +78,11 @@ public class StayOnPataforma : MonoBehaviour
     {
         // devuelve true si es o una pataforma o una plataforma normal con la variable de puerta 
         // desactivada y no es el tilemap
-        if ((collision.gameObject.GetComponent<PataformaComponent>() || !PuertaCheck(collision))
+        if ((collision.gameObject.GetComponentInChildren<PataformaComponent>() 
+            || collision.gameObject.GetComponentInChildren<NewPlatformMovement>()|| !PuertaCheck(collision))
             && !collision.gameObject.GetComponent<Tilemap>()
-            && !collision.gameObject.GetComponent<StayOnPataforma>())
+            && !collision.gameObject.GetComponentInChildren<StayOnPataforma>())
         {
-            //Debug.Log(PuertaCheck(collision));
             //Debug.Log(PuertaCheck(collision));
             // si tiene peso el objeto
             if (gameObject.GetComponent<WeightComponent>()) //&& _inputController.enabled)
@@ -96,7 +96,7 @@ public class StayOnPataforma : MonoBehaviour
             _stayOn = false;
         }
 
-
+        Debug.Log(_stayOn);
         return _stayOn;
     }
 
