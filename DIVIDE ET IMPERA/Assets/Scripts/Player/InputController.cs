@@ -37,6 +37,7 @@ public class InputController : MonoBehaviour
     private Rigidbody2D _playerRigidBody;
     private InputControllerDialogue _inputControllerDialogue;
     private GroundCheck _groundCheck;
+    private PalancaComponent _placaComponent;
     #endregion
 
     #region Properties 
@@ -52,7 +53,9 @@ public class InputController : MonoBehaviour
     // acceso público a _interactuar
     public bool Interactuar { get { return _interactuar; } }
 
-
+    [SerializeField]
+    private int _whichArm;
+    public int WhichArm { get { return _whichArm; } }
     #region Piernas
     //-------------SOLTAR PARTES----------------------------
     // Indica si el jugador ha dejado una parte en un objeto
@@ -164,11 +167,23 @@ public class InputController : MonoBehaviour
         //BRAZOS
         if (Input.GetKey(KeyCode.LeftShift) && (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.S)))
         { // Shift + A / S para controlar brazos en palancas
+            if (Input.GetKeyDown(KeyCode.A))
+            {
+                _whichArm = 1;
+            }
+            else if (Input.GetKeyDown(KeyCode.S))
+            {
+                _whichArm = 2;
+            }
+            _interactuar = true;
+
+            /*
             _interactuar = true;
             if (EstaEnPalancaConBrazo()) // me estoy volviendo loca no me tengais mucho en cuenta esto
             {
                 _collisionManager.HitboxColisionada.GetComponent<PalancaComponent>().Activar();
             }
+            */
         }
         else if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.S))
         { // Sólo A ó S
@@ -337,6 +352,7 @@ public class InputController : MonoBehaviour
         _inputControllerDialogue = GetComponent<InputControllerDialogue>();
         _stayOnComp              = GetComponent<StayOnPataforma>();
         _groundCheck             = GetComponentInChildren<GroundCheck>();
+        _placaComponent          = GetComponent<PalancaComponent>();
     }
 
     void Update()

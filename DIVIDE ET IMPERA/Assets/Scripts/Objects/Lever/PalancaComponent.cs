@@ -11,6 +11,9 @@ public class PalancaComponent : MonoBehaviour
     [SerializeField]
     private GameObject _objeto;
     private GameManager _gameManager;
+    [SerializeField]
+    private GameObject _fatherGameObject;
+
     #endregion
 
     #region Properties
@@ -33,6 +36,9 @@ public class PalancaComponent : MonoBehaviour
 
     private bool _activarObjeto;
     public bool ActivarObjeto { get { return _activarObjeto; } }
+
+    [SerializeField]
+    private int _brazoNum = 0;
     #endregion
 
     #region Métodos
@@ -86,15 +92,78 @@ public class PalancaComponent : MonoBehaviour
         PlayerManager.Instance.ConnectedToLever(null);
     }
 
-    private bool FindArmInLever()
+    // busca los brazos/palancas ocupadas, devuelve el numero de palancas ocupadas
+    private int FindArmInLever()
     {
-        bool aux = false;
+        int i= 0, j = 0;
+        Transform[] fathers = _fatherGameObject.transform.GetComponentsInChildren<Transform>();
 
-
-
-
-        return aux;
+        // busca si hay alguna palanca con brazo o no y devuelve el valor de brazos ocupados
+        while (i< fathers.Length && j<2)
+        {
+            // si no ha encontrado ningun brazo ocupado, no es esta palanca y no tiene brazo la palanca 
+            if (j == 0 && fathers[i].GetComponent<PalancaComponent>()
+                && fathers[i].GetComponent<PalancaComponent>() != this
+                && fathers[i].GetComponent<PalancaComponent>().BrazoNum() > 0)
+            {
+                j++;
+            }
+            // lo mismo pero si ha encontrado la primera
+            else if (j==1&& fathers[i].GetComponent<PalancaComponent>()
+                && fathers[i].GetComponent<PalancaComponent>() != this
+                && fathers[i].GetComponent<PalancaComponent>().BrazoNum() > 1)
+            {
+                j++;
+            }
+            i++;
+        }
+        return j;
     }
+    // acceso al indice de el brazo conectado a esta palanca, si es 0 no tiene brazo conectado
+    public int BrazoNum()
+    {
+        return _brazoNum;
+    }
+    // settea el indice del brazo (esta por si aca)
+    public void SetBrazoNum(int i)
+    {
+        _brazoNum = i;
+    }
+
+    // le da un indice a este brazo conectado dependiendo de los que haya conectados
+    private void WhichArmNum()
+    {
+        int i = FindArmInLever();
+        if (i == 0)
+        {
+            _brazoNum = 1;
+        }
+        else if (i == 1)
+        {
+            _brazoNum = 2;
+        } 
+        else
+        {
+            _brazoNum = 0;
+        }
+    }
+
+    public void ActivateArm1()
+    {
+        if(_brazoNum == 1)
+        {
+            Activar();
+        }
+    }
+
+    public void ActivateArm2()
+    {
+        if(_brazoNum == 2)
+        {
+            Activar();
+        }
+    }
+
     #endregion
 
 
@@ -110,7 +179,8 @@ public class PalancaComponent : MonoBehaviour
     { // Cyn: creo que no hace falta comprobar el estado en ninguna de las situaciones, pero lo he optimizado y los dejo igualmente
         // si se ha pulsado la E, el brazo está conectado y está en el estado correcto
         if (_inputController.Interactuar && _brazoConectado
-            && (PlayerManager.Instance.Brazos < 2))
+            && (PlayerManager.Instance.Brazos < 2)
+            && _brazoNum == _inputController.WhichArm)
         {
             Activar();
         }
@@ -120,6 +190,21 @@ public class PalancaComponent : MonoBehaviour
             Activar();
         }
 
+
+
+        // pone el indice del brazo de la palanca
+        if (_brazoConectado && _brazoNum == 0)
+        {
+            WhichArmNum();
+        }
+        else if(!_brazoConectado)
+        {
+            _brazoNum = 0;
+        }
+        
+
+
+        // aqui realmente nunca entra segun lo que he probado no se si lo sabiamos pero xd
         //-------CONECTAR BRAZO-------------------
         // se pulsa A o S y se esta cerca de la palanca
         if (_inputController.ConectarBrazo && _validPalancaHitbox
@@ -129,6 +214,7 @@ public class PalancaComponent : MonoBehaviour
             ConectarBrazo(true);
             PlayerManager.Instance.Brazos--;
             PlayerManager.Instance.ConnectedToLever(gameObject);
+            
         }
         // se pulsa A o S, está cerca de la palanca, está en los estados correctos y hay un brazo conectado
         else if (_inputController.RecuperarBrazo && _validPalancaHitbox

@@ -1912,6 +1912,10 @@ PrefabInstance:
       propertyPath: _boneStateBar
       value: 
       objectReference: {fileID: 1202846733}
+    - target: {fileID: 6326749029943970691, guid: 767e3f423c90f78409c3048c7e7f2088, type: 3}
+      propertyPath: _objectsReset
+      value: 
+      objectReference: {fileID: 1986695886}
     - target: {fileID: 8094601566322241750, guid: 767e3f423c90f78409c3048c7e7f2088, type: 3}
       propertyPath: _uwu
       value: 4
@@ -2122,6 +2126,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1199858500}
     m_Modifications:
+    - target: {fileID: 766053132572418217, guid: 31eb3cd72c18cc949951cfcad05d4a79, type: 3}
+      propertyPath: _objetos
+      value: 
+      objectReference: {fileID: 2146005295}
     - target: {fileID: 1354328652446943938, guid: 31eb3cd72c18cc949951cfcad05d4a79, type: 3}
       propertyPath: m_RootOrder
       value: 8
@@ -20485,3 +20493,8 @@ PrefabInstance:
       objectReference: {fileID: 848845268490695582, guid: 6693dbe1659a96f4c86e4f1714d5ef75, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 73a3303548263b547ae86430bafeb69d, type: 3}
+--- !u!1 &2146005295 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6088371108032127705, guid: 31eb3cd72c18cc949951cfcad05d4a79, type: 3}
+  m_PrefabInstance: {fileID: 462420047}
+  m_PrefabAsset: {fileID: 0}

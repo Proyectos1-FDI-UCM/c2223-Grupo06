@@ -460,7 +460,7 @@ MonoBehaviour:
   _furbo: 0
   _inerciaBolas: 1
   _inerciaBrazos: 1
-  _torque: 0.5
+  _torque: 20
 --- !u!1 &5226572810815247087
 GameObject:
   m_ObjectHideFlags: 0
