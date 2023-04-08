@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class WBComponent : MonoBehaviour
 {
@@ -10,6 +11,9 @@ public class WBComponent : MonoBehaviour
     Transform pointA;
     [SerializeField]
     Transform pointB;
+
+    [SerializeField]
+    private GameObject _objetos;
     #endregion
 
     #region Properties
@@ -22,7 +26,8 @@ public class WBComponent : MonoBehaviour
     private bool _permanente;
     private bool _move = false;
     [SerializeField]
-    private bool _isPriority;
+    private bool _priority;
+    public bool Priority { get { return _priority; } }
 
     #region Methods
     /*
@@ -69,7 +74,7 @@ public class WBComponent : MonoBehaviour
     private void Activar()
     {
         _objeto.GetComponent<NewPlatformMovement>().OnOff(true);
-        ActivatingPriority(true);
+        
     }
 
     private void Desactivar()
@@ -79,8 +84,28 @@ public class WBComponent : MonoBehaviour
 
     private bool ActivatingPriority(bool _aux)
     {
-        _isPriority = _aux;
-        return _isPriority;
+        _priority = _aux;
+        return _priority;
+    }
+
+    private bool IsPriority()
+    {
+        bool aux = false;
+        int i = 0;
+        Transform []child = _objetos.GetComponentsInChildren<Transform>();
+        // mientras haya hijos en y no se haya encontrado uno con prioridad
+        while (i < child.Length && !aux)
+        {
+            if (child[i].GetComponent<WBComponent>()
+                && child[i].GetComponent<WBComponent>().Priority)
+            {
+                aux = true;
+                //Debug.Log("holi");
+            }
+            i++;
+        }
+
+        return aux;
     }
     #endregion
 
@@ -136,7 +161,8 @@ public class WBComponent : MonoBehaviour
                 if (!_objeto.GetComponent<NewPlatformMovement>().isActive())
                 {
                     Activar();
-                    Debug.Log("activar");
+                    _priority = true;
+                    //Debug.Log("activar");
                 }
                     
                 //ActivarGeneral(true);
@@ -145,11 +171,15 @@ public class WBComponent : MonoBehaviour
             {
                 _mySpriteRenderer.color = Color.magenta;
                 if(_objeto.GetComponent<NewPlatformMovement>().isActive()
-                    && _isPriority)
+                    && !IsPriority())
                 {
                     Desactivar();
-                    Debug.Log("desactivar");
+                    //Debug.Log("desactivar");
                 }
+                if (IsPriority() && _priority)
+                {
+                    _priority = false;
+                } 
             }
         }
         
