@@ -17,7 +17,7 @@ public class InputControllerDialogue : MonoBehaviour
     #region Methods
     private void DialogueInput()
     {
-        if (_enConversacion && (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow))) // UpArrow o Z para avanzar en el diálogo
+        if (_enConversacion && (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow))) // Space o UpArrow para avanzar en el diálogo
         {
             _dialogueManager.ProcessInput();
         }

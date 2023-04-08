@@ -12,7 +12,7 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private GameObject _player;
 
     // dialogo
-    [SerializeField] private TMP_Text _dialogueText;  // Texto de dialogo
+    [SerializeField] private TMP_Text _dialogueText; // Texto de dialogo
     [SerializeField] private TMP_Text _interactText; // Texto de feedback para interaccion
     #endregion
 
@@ -68,7 +68,7 @@ public class DialogueManager : MonoBehaviour
         StartCoroutine(WriteLine());
     }
 
-    // ANIMACIÓN DE CARACTERES
+    // ANIMACION DE CARACTERES
     IEnumerator WriteLine() // corrutina para que se vayan excribiendo las lineas
     {
         _dialogueText.text = "";
@@ -98,8 +98,6 @@ public class DialogueManager : MonoBehaviour
 
     public void ProcessInput()
     {
-        // Debug.Log("creen ustedes que esto funcione");
-
         if (_dialogueText.text == _lines[_index]) // siguiente linea
         {
             Debug.Log("siguiente linea con dos cojones");
