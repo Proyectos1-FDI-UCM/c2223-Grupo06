@@ -19,7 +19,7 @@ public class DialogueManager : MonoBehaviour
     #region Parameters
     // flujo
     [Tooltip("Líneas de diálogo")]
-    public string[] _lines;                    // lineas del guion
+    public string[] _lines;                     // lineas del guion
     [Tooltip("Velocidad a la que se escribe el texto")]
     [SerializeField] private float _speedText; // velocidad de texto
     int _index;                                // para saber en que linea estamos
@@ -75,21 +75,68 @@ public class DialogueManager : MonoBehaviour
         foreach (char _letter in _lines[_index].ToCharArray()) // index aumenta segun se pasa de linea
         {
             _dialogueText.text += _letter;
-            if (_letter == '1')
+            /*if (_letter == 'T')
             {
-                while (_index < _lines.Length - 1)
-                {
-                    _dialogueText.color = Color.blue;
-                }
+                _dialogueText.color = Color.blue;
             }
-            else if (_letter == '2')
+            else if (_letter == 'B')
             {
                 _dialogueText.color = Color.red;
             }
             else
-            { _dialogueText.color = Color.white; }
+            { _dialogueText.color = Color.white; }*/
             // yield return null;
             yield return new WaitForSeconds(_speedText); // proporciona el siguiente valor en la iteración
+        }
+    }
+
+    /*protected void SpeakersText() // lista para modificaciones texto de personajes
+    {
+        foreach () 
+        {
+            var _speaker;
+            switch (_speaker)
+            {
+                case Speaker.Timoteo:
+
+            }
+        }
+    }*/
+
+            // Parametros:
+            // _lines -> el texto que se esta escribiendo
+            // _letter -> el caracter que se esta escribiendo
+            // _index -> indice del caracter dentro de _lines
+    protected void CheckTag(string _lines, char _letter, int _index, ref bool _inTag) // tags para saber quién está hablando - a ver si funciona
+    {
+        if (_letter == '<')
+        {
+            // Si el caracter es '<' significa que hemos entrado en un tag -> activamos bandera
+            _inTag = true;
+
+            char _next = _lines[_index + 1]; // next -> siguiente caracter
+
+            if (_next != '/')
+            {
+                // entrar a tag
+                switch (_next) 
+                {                                                         // Personaje: <entrada> y <salida>
+                    case 't': _dialogueText.color = Color.blue; break;    // Timoteo: <t> y </t>
+                    case 'a': _dialogueText.color = Color.red; break;     // Alubia: <a> y </a>
+                    case 'b': _dialogueText.color = Color.yellow; break;  // Bob: <b> y </b>
+                    case 'n': _dialogueText.color = Color.white; break;   // Narrador: <n> y </n>
+                }
+            }
+            else
+            {
+                // salir de tag
+                _dialogueText.color = Color.green;
+            }
+        }
+        else if ((_index > 0) && (_lines[_index - 1] == '>'))
+        {
+            // Anterior caracter era '>' significa que hemos salido de un tag
+            _inTag = false;
         }
     }
 
@@ -113,18 +160,18 @@ public class DialogueManager : MonoBehaviour
     {
         if (_dialogueText.text == _lines[_index]) // siguiente linea
         {
-            Debug.Log("siguiente linea con dos cojones");
+
             NextLine();
         }
         else // fin dialogo
         {
             StopAllCoroutines();
             // _dialogueText.text = _lines[_index]; // no hace falta ,':·/
-
-            _dialogueText.text = "";
             _inputController.enabled = true;
             _inputControllerDialogue.enabled = false;
+            _dialogueText.text = "";
             _inputControllerDialogue._enConversacion = false;
+            Debug.Log("acabose");
         }
     }
     #endregion
