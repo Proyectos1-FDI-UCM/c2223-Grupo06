@@ -10539,8 +10539,8 @@ MonoBehaviour:
   _dialogueText: {fileID: 1543427021}
   _interactText: {fileID: 664757811}
   _lines:
-  - por favor que esto funcione
-  - si escribe esto
+  - 1 por favor que esto funcione
+  - 2 si escribe esto
   - por favor
   _speedText: 0.1
   WaypointDialogo: {fileID: 1612102421}

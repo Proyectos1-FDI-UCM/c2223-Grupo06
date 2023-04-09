@@ -75,6 +75,19 @@ public class DialogueManager : MonoBehaviour
         foreach (char _letter in _lines[_index].ToCharArray()) // index aumenta segun se pasa de linea
         {
             _dialogueText.text += _letter;
+            if (_letter == '1')
+            {
+                while (_index < _lines.Length - 1)
+                {
+                    _dialogueText.color = Color.blue;
+                }
+            }
+            else if (_letter == '2')
+            {
+                _dialogueText.color = Color.red;
+            }
+            else
+            { _dialogueText.color = Color.white; }
             // yield return null;
             yield return new WaitForSeconds(_speedText); // proporciona el siguiente valor en la iteración
         }
