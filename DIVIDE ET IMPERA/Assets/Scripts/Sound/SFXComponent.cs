@@ -30,6 +30,7 @@ public class SFXComponent : MonoBehaviour
     /// 8 --> caida con daño [en el fall damage]
     /// 9 --> caida sin daño (?) [en el fall damage]
     /// 10 --> brazo contra el muro [arm component] (+ 3 de obj)
+    /// 
     /// </summary>
 
     /// <summary>
@@ -38,7 +39,7 @@ public class SFXComponent : MonoBehaviour
     /// 1 --> muelle [en el spring component]
     /// 2 --> bola contra el muro [ball component]
     /// 3 --> bola contra el muro (+ 10 de player)
-    /// 
+    /// 4 --> abrir puerta con llave [en el door component]
     /// 
     /// </summary>
 

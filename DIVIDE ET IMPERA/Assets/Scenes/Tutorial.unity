@@ -564,6 +564,67 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 48fcaa11ff92ca543ac1b7797ce53f49, type: 3}
+--- !u!1001 &139652440
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1310472024}
+    m_Modifications:
+    - target: {fileID: 1032207441714178933, guid: caeece04e0c1aca45b57164f1905109a, type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1032207441714178933, guid: caeece04e0c1aca45b57164f1905109a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 275.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 1032207441714178933, guid: caeece04e0c1aca45b57164f1905109a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3.0299969
+      objectReference: {fileID: 0}
+    - target: {fileID: 1032207441714178933, guid: caeece04e0c1aca45b57164f1905109a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1032207441714178933, guid: caeece04e0c1aca45b57164f1905109a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1032207441714178933, guid: caeece04e0c1aca45b57164f1905109a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1032207441714178933, guid: caeece04e0c1aca45b57164f1905109a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1032207441714178933, guid: caeece04e0c1aca45b57164f1905109a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1032207441714178933, guid: caeece04e0c1aca45b57164f1905109a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1032207441714178933, guid: caeece04e0c1aca45b57164f1905109a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1032207441714178933, guid: caeece04e0c1aca45b57164f1905109a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1032207441714178935, guid: caeece04e0c1aca45b57164f1905109a, type: 3}
+      propertyPath: m_Constraints
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1032207441714178953, guid: caeece04e0c1aca45b57164f1905109a, type: 3}
+      propertyPath: m_Name
+      value: Alubiat
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: caeece04e0c1aca45b57164f1905109a, type: 3}
 --- !u!4 &151507996 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1421128450065964027, guid: 48fcaa11ff92ca543ac1b7797ce53f49, type: 3}
@@ -26602,7 +26663,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5043611622813497092, guid: 233e18c7a6877914aaac4b6aa59b2606, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6925641820534524795, guid: 233e18c7a6877914aaac4b6aa59b2606, type: 3}
       propertyPath: m_RootOrder
@@ -28234,6 +28295,11 @@ Transform:
   m_Father: {fileID: 1115130221}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1073890055 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1032207441714178933, guid: caeece04e0c1aca45b57164f1905109a, type: 3}
+  m_PrefabInstance: {fileID: 139652440}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1074419502
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -29063,6 +29129,7 @@ Transform:
   - {fileID: 380431850}
   - {fileID: 1745773253}
   - {fileID: 499125118}
+  - {fileID: 1073890055}
   m_Father: {fileID: 757356593}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

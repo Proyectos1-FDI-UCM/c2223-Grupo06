@@ -25,8 +25,8 @@ GameObject:
   - component: {fileID: 2761443323977113743}
   - component: {fileID: 2761443323977113758}
   - component: {fileID: 2761443323977113759}
-  - component: {fileID: 2761443323977113757}
   - component: {fileID: 2124989768053863151}
+  - component: {fileID: 2761443323977113757}
   m_Layer: 0
   m_Name: SFX Manager
   m_TagString: Untagged
@@ -77,6 +77,7 @@ MonoBehaviour:
   - {fileID: 2761443323977113743}
   - {fileID: 2761443323977113758}
   - {fileID: 2761443323977113759}
+  - {fileID: 2124989768053863151}
   - {fileID: 2124989768053863151}
   _yippie: {fileID: 2761443323977113757}
 --- !u!82 &2761443323977113755
@@ -1435,7 +1436,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!82 &2761443323977113757
+--- !u!82 &2124989768053863151
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1445,9 +1446,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 24300002, guid: 705994dbee5c5e54689b0cf928a62097, type: 2}
-  m_audioClip: {fileID: 8300000, guid: d64270be2241564468367468c80c61ff, type: 3}
-  m_PlayOnAwake: 0
-  m_Volume: 0.587
+  m_audioClip: {fileID: 8300000, guid: ec9e4c187ae0d534da565b28ed50cbe4, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -1531,7 +1532,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!82 &2124989768053863151
+--- !u!82 &2761443323977113757
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1541,9 +1542,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 24300002, guid: 705994dbee5c5e54689b0cf928a62097, type: 2}
-  m_audioClip: {fileID: 8300000, guid: ec9e4c187ae0d534da565b28ed50cbe4, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: 0.5
+  m_audioClip: {fileID: 8300000, guid: d64270be2241564468367468c80c61ff, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 0.587
   m_Pitch: 1
   Loop: 0
   Mute: 0

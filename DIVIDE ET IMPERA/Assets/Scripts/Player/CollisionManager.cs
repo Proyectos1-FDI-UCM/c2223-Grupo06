@@ -121,8 +121,12 @@ public class CollisionManager : MonoBehaviour
     {
         if (_parteColisionada != null && _parteColisionada.GetComponentInParent<LegsComponent>() != null) // esto es ducktyping mi gente
         {
-            var padre = _parteColisionada.transform.parent.gameObject;
-            Destroy(padre);
+            if (!PlayerManager.Instance.Piernas)
+            {
+                var padre = _parteColisionada.transform.parent.gameObject;
+                Destroy(padre);
+            }
+            
             return true;
         }
         else return false;

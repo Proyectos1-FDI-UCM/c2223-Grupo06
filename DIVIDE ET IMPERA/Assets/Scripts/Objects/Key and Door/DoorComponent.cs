@@ -9,6 +9,13 @@ public class DoorComponent : MonoBehaviour
         {
             GetComponent<NewPlatformMovement>().OnOff(true);
             PlayerManager.Instance.EliminarObjeto();
+
+            // sfx
+            if (SFXComponent.Instance != null)
+            {
+                SFXComponent.Instance.SFXObjects(4);
+            }
+            
         }
     }
     #endregion
