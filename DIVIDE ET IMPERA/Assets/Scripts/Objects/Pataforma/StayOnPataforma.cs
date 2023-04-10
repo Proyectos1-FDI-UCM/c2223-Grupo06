@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -96,15 +97,16 @@ public class StayOnPataforma : MonoBehaviour
             _stayOn = false;
         }
 
-        Debug.Log(_stayOn);
         return _stayOn;
     }
 
     #endregion
 
     #region Metodos principales
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
+       
         if (CheckStayOn(collision))
         {
             Adoption(collision);
