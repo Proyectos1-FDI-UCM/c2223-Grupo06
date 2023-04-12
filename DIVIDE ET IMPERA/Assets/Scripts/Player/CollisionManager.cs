@@ -25,6 +25,8 @@ public class CollisionManager : MonoBehaviour
     private Collider2D _hitboxColisionada;
     public Collider2D HitboxColisionada { get { return _hitboxColisionada; } }
 
+    [SerializeField]
+    private bool _alubiatPorColision;
     #endregion
 
     #region methods
@@ -54,6 +56,13 @@ public class CollisionManager : MonoBehaviour
             else
             {
                 _hitboxColisionada = collision;
+            }
+
+            if (_alubiatPorColision && _parteColisionada != null && _parteColisionada.GetComponentInParent<AlubiatComponent>() != null)
+            {
+                PlayerManager.Instance.RecogerAlubiat();
+                Destroy(_parteColisionada.transform.parent.gameObject);
+                _parteColisionada = null;
             }
         }
     }
@@ -127,6 +136,20 @@ public class CollisionManager : MonoBehaviour
                 Destroy(padre);
             }
             
+            return true;
+        }
+        else return false;
+    }
+
+    public bool DestruirAlubiat() // método para pulsar tecla delante etc como si fueran piernas normales
+    {
+        if (_parteColisionada != null && _parteColisionada.GetComponentInParent<AlubiatComponent>() != null) 
+        {
+            if (!PlayerManager.Instance.Alubiat)
+            {
+                var padre = _parteColisionada.transform.parent.gameObject;
+                Destroy(padre);
+            }
             return true;
         }
         else return false;

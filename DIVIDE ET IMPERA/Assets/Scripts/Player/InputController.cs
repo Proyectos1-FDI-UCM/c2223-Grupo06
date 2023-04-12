@@ -176,14 +176,6 @@ public class InputController : MonoBehaviour
                 _whichArm = 2;
             }
             _interactuar = true;
-
-            /*
-            _interactuar = true;
-            if (EstaEnPalancaConBrazo()) // me estoy volviendo loca no me tengais mucho en cuenta esto
-            {
-                _collisionManager.HitboxColisionada.GetComponent<PalancaComponent>().Activar();
-            }
-            */
         }
         else if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.S))
         { // Sólo A ó S
@@ -209,21 +201,24 @@ public class InputController : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.D))
         { // D para recoger y soltar piernas
+            if(_collisionManager.DestruirAlubiat())
+            { // si recoge a alubiat
+                PlayerManager.Instance.RecogerAlubiat();
+            }
+            else
             if (!_collisionManager.DestruirPierna())
             { // si no recoge una pierna del suelo
-                if(transform.parent != null)
+                if (transform.parent != null)
                 {
                     if (transform.parent.GetComponentInChildren<PataformaComponent>() != null && !_conectarPiernas && !transform.parent.GetComponentInChildren<PataformaComponent>().PiernasConectadas)
                     { // si está en una pataforma sin piernas, se las pone
                         _conectarPiernas = true;
                         _recuperarPiernas = false;
-                        //Debug.Log("conecta");
                     }
                     else if (transform.parent.GetComponentInChildren<PataformaComponent>() != null && !_recuperarPiernas && transform.parent.GetComponentInChildren<PataformaComponent>().PiernasConectadas)
                     { // si está en una pataforma con piernas, las recoge
                         _recuperarPiernas = true;
                         _conectarPiernas = false;
-                        //Debug.Log("recupera");
                     }
                 }
                 else
