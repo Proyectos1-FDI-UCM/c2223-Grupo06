@@ -17,6 +17,8 @@ public class UIManager : MonoBehaviour
 
     // imagenes dentro del ui
     [SerializeField] private Image[] _images;
+    //imagenes tarjetas puntos
+    [SerializeField] public Image[] _tarjetas;
     // sprites en los assets
     [SerializeField] private Sprite[] _sprites;
 
@@ -122,6 +124,7 @@ public class UIManager : MonoBehaviour
     {
         RequestStateChange(GameManager.GameStates.SCORE); // referenciando al gamemanager (importante! si no no cambia de estado)
         _player.GetComponent<InputController>().enabled = false;
+        
     }
 
     public void GoToLevelSelector() // al selector de niveles
@@ -267,6 +270,11 @@ public class UIManager : MonoBehaviour
 
     void Start()
     {
+
+        _tarjetas = new Image[3];
+
+
+
         _menus = new GameObject[8]; // creación del array de menús y asignación
         _menus[0] = _StartMenu;
         _menus[1] = _HUD;
