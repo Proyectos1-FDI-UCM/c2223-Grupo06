@@ -11,6 +11,7 @@ public class SceneChanger : MonoBehaviour
 
     #region Parameters
     private int _sceneToLoad;
+    Scene _activeScene;
     #endregion
 
     #region Properties
@@ -24,6 +25,20 @@ public class SceneChanger : MonoBehaviour
         if (collision.gameObject == _player)            //filtro para que solo el jugador pueda interactuar con cosas
         {
             FadeToNextLevel();
+        }
+
+        if ((collision.gameObject == _player) && (_alubiat) && (SceneManager.GetActiveScene().buildIndex == 4))
+        {
+            FadeToLevel(5);
+        }
+        else 
+        { 
+            FadeToLevel(6); 
+        }
+
+        if (SceneManager.GetActiveScene().buildIndex == 9)
+        {
+            FadeToLevel(0);
         }
     }
 
