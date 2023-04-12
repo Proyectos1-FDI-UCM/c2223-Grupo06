@@ -21,13 +21,9 @@ public class Contador : MonoBehaviour
 
     public static void Comienza(GameManager.GameStates estado)
     {
-        if (estado == GameManager.GameStates.START)
-        {
-            tiempo = 0;
-        }
-        else if (estado == GameManager.GameStates.GAME) 
+        if (estado == GameManager.GameStates.GAME) 
         { 
-            tiempo += Time.deltaTime;
+            tiempo += Time.deltaTime * 1/2;
             time.text = tiempo.ToString("0");
         }
 

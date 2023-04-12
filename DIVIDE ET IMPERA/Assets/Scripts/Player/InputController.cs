@@ -53,51 +53,52 @@ public class InputController : MonoBehaviour
     // Indica si el jugador quiere interactuar con una palanca
     [SerializeField]
     private bool _interactuar = false;
-    // acceso público a _interactuar
     public bool Interactuar { get { return _interactuar; } }
 
     [SerializeField]
     private int _whichArm;
     public int WhichArm { get { return _whichArm; } }
-    #region Piernas
+
     //-------------SOLTAR PARTES----------------------------
     // Indica si el jugador ha dejado una parte en un objeto
-    [SerializeField]
-    private bool _conectarPiernas = false;
-    // acceso público a _conectarParte
-    public bool ConectarPiernas { get { return _conectarPiernas; } }
-
-    //-------------RECUPERAR PARTES----------------------------
-    // Indica si el jugador ha dejado una parte en un objeto
-    [SerializeField]
-    private bool _recuperarPiernas = false;
-    // acceso público a _recuperarParte
-    public bool RecuperarPiernas { get { return _recuperarPiernas; } }
-    #endregion
-
-    #region Brazos
-    //-------------SOLTAR PARTES----------------------------
-    // Indica si el jugador ha dejado una parte en un objeto
+    // brazos
     [SerializeField]
     private bool _conectarBrazo = false;
-    // acceso público a _conectarParte
     public bool ConectarBrazo { get { return _conectarBrazo; } }
+
+    // piernas
+    [SerializeField]
+    private bool _conectarPiernas = false;
+    public bool ConectarPiernas { get { return _conectarPiernas; } }
+
+    // alubiat
+    [SerializeField]
+    private bool _conectarAlubiat = false;
+    public bool ConectarAlubiat { get { return _conectarAlubiat; } }
+
 
     //-------------RECUPERAR PARTES----------------------------
     // Indica si el jugador ha dejado una parte en un objeto
+    // brazos
     [SerializeField]
     private bool _recuperarBrazo = false;
-    // acceso público a _recuperarParte
     public bool RecuperarBrazo { get { return _recuperarBrazo; } }
-    #endregion
 
+    // piernas
+    [SerializeField]
+    private bool _recuperarPiernas = false;
+    public bool RecuperarPiernas { get { return _recuperarPiernas; } }
+
+    // alubiat
+    [SerializeField]
+    private bool _recuperarAlubiat = false;
+    public bool RecuperarAlubiat { get { return _recuperarAlubiat; } }
 
     //------------CAMBIAR INPUT----------------------------
     // indica si el jugador quiere cambiar el input a la Pataforma
     // booleano para saber si se ha cambiado el input a la pataforma
     [SerializeField]
     public bool _changeToPataforma;
-    // acceso público a _isPataforma
     public bool ChangeToPataforma { get { return _changeToPataforma; } }
     #endregion
 
@@ -137,10 +138,7 @@ public class InputController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space)) // Input.GetKeyDown(KeyCode.Z) || (lanzaba y saltaba a la vez oop)
         {
             _playerJump.Jump();
-
-            
         }
-            
         #endregion
     }
 
@@ -235,7 +233,7 @@ public class InputController : MonoBehaviour
         {
             if (!_collisionManager.DestruirAlubiat())
             { // si no recoge a alubiat del suelo
-                if (transform.parent != null)
+                if (transform.parent != null) // si está en una plataforma con piernass
                 {
                     /*
                     if (transform.parent.GetComponentInChildren<PataformaComponent>() != null && !_conectarPiernas && !transform.parent.GetComponentInChildren<PataformaComponent>().PiernasConectadas)

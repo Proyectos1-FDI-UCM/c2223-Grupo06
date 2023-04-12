@@ -57,8 +57,13 @@ public class GameManager : MonoBehaviour
             case GameStates.PAUSE:                       //     *PAUSA*
                 break;
             case GameStates.GAMEOVER:                    //     *FIN DEL JUEGO*
+                
                 break;
             case GameStates.SCORE:                       //     *PUNTUACIÓN*
+                if(puntuacion.puntos == 1000)
+                {
+                    UIManager.Instance._tarjetas[3];
+                }
                 break;
             case GameStates.LEVELSELECTOR:               //     *SELECTOR DE NIVELES*
                 break;

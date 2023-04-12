@@ -5,7 +5,10 @@ using TMPro;
 
 public class puntuacion : MonoBehaviour
 {
-    private static float puntos = 500;
+    private static puntuacion _instance;
+    public static puntuacion Instance { get { return _instance; } }
+
+    public static float puntos = 500;
     private TextMeshProUGUI text;
 
     private void Start()

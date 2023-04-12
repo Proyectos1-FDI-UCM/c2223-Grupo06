@@ -12,6 +12,8 @@ public class CameraMovement : MonoBehaviour
     #region Parameters
     [SerializeField]
     private float _followSpeed;
+    [SerializeField] 
+    private float _horizontalOffset;
     [SerializeField]
     private float _verticalOffset;
     #endregion
@@ -43,7 +45,7 @@ public class CameraMovement : MonoBehaviour
     {
         if (_followTransform != null)
         {
-            _futureCamPos = _followTransform.position + new Vector3(0, _verticalOffset, _cameraTransform.position.z); //calculo de la posicion futura de la camara
+            _futureCamPos = _followTransform.position + new Vector3(_horizontalOffset * PlayerAccess.Instance.transform.localScale.x, _verticalOffset, _cameraTransform.position.z); ; //calculo de la posicion futura de la camara
             _cameraTransform.position = Vector3.Lerp(_cameraTransform.position, _futureCamPos, _followSpeed * Time.deltaTime); //Lerp entre la posicion de la camara actual y la futura
         }
     }
