@@ -59,9 +59,16 @@ public class InputController : MonoBehaviour
     [SerializeField]
     private int _whichArm;
     public int WhichArm { get { return _whichArm; } }
-    #region Piernas
+
     //-------------SOLTAR PARTES----------------------------
     // Indica si el jugador ha dejado una parte en un objeto
+    // brazos
+    [SerializeField]
+    private bool _conectarBrazo = false;
+    // acceso público a _conectarParte
+    public bool ConectarBrazo { get { return _conectarBrazo; } }
+
+    // piernas
     [SerializeField]
     private bool _conectarPiernas = false;
     // acceso público a _conectarParte
@@ -69,28 +76,17 @@ public class InputController : MonoBehaviour
 
     //-------------RECUPERAR PARTES----------------------------
     // Indica si el jugador ha dejado una parte en un objeto
-    [SerializeField]
-    private bool _recuperarPiernas = false;
-    // acceso público a _recuperarParte
-    public bool RecuperarPiernas { get { return _recuperarPiernas; } }
-    #endregion
-
-    #region Brazos
-    //-------------SOLTAR PARTES----------------------------
-    // Indica si el jugador ha dejado una parte en un objeto
-    [SerializeField]
-    private bool _conectarBrazo = false;
-    // acceso público a _conectarParte
-    public bool ConectarBrazo { get { return _conectarBrazo; } }
-
-    //-------------RECUPERAR PARTES----------------------------
-    // Indica si el jugador ha dejado una parte en un objeto
+    // brazos
     [SerializeField]
     private bool _recuperarBrazo = false;
     // acceso público a _recuperarParte
     public bool RecuperarBrazo { get { return _recuperarBrazo; } }
-    #endregion
 
+    // piernas
+    [SerializeField]
+    private bool _recuperarPiernas = false;
+    // acceso público a _recuperarParte
+    public bool RecuperarPiernas { get { return _recuperarPiernas; } }
 
     //------------CAMBIAR INPUT----------------------------
     // indica si el jugador quiere cambiar el input a la Pataforma
@@ -235,7 +231,7 @@ public class InputController : MonoBehaviour
         {
             if (!_collisionManager.DestruirAlubiat())
             { // si no recoge a alubiat del suelo
-                if (transform.parent != null)
+                if (transform.parent != null) // si está en una plataforma con piernass
                 {
                     /*
                     if (transform.parent.GetComponentInChildren<PataformaComponent>() != null && !_conectarPiernas && !transform.parent.GetComponentInChildren<PataformaComponent>().PiernasConectadas)
