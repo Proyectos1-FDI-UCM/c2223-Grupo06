@@ -16,7 +16,6 @@ public class PalancaComponent : MonoBehaviour
     private GameObject[] _objetos;
     private GameManager _gameManager;
     [Tooltip("Objeto que contiene todas las salas para que se tengan en cuenta todas las palancas")]
-    [SerializeField]
     private GameObject _fatherGameObject;
 
     #endregion
@@ -70,6 +69,7 @@ public class PalancaComponent : MonoBehaviour
     public void ActivarObjetos()
     {
         int i = 0;
+        
         if (_palanca)
         {
             // para que se puedan activar mas de un objeto
@@ -82,7 +82,11 @@ public class PalancaComponent : MonoBehaviour
                 }
                 
             } // placeholder para que no se rompa el resto
-            else _objeto.GetComponent<NewPlatformMovement>().OnOff(true);
+            else
+            {
+                if(_objeto != null) _objeto.GetComponent<NewPlatformMovement>().OnOff(true);
+            }
+            
 
             //_movingPlatform.enabled = true;
             //Debug.Log("activar " + _movingPlatform.enabled);
@@ -97,11 +101,12 @@ public class PalancaComponent : MonoBehaviour
                     i++;
                 }
             }
-            else _objeto.GetComponent<NewPlatformMovement>().OnOff(false);
+            else if (_objeto != null) _objeto.GetComponent<NewPlatformMovement>().OnOff(false);
 
             //_movingPlatform.enabled = false;
             //Debug.Log("desactivar " + _movingPlatform.enabled);
         }
+        
     }
 
     //Conecta el brazo
@@ -184,6 +189,7 @@ public class PalancaComponent : MonoBehaviour
         _playerManager = PlayerAccess.Instance.PlayerManager;
         _mySpriteRenderer = GetComponent<SpriteRenderer>();
         _movingPlatform = _objeto.GetComponent<MovingPlatformComponent>();
+        _fatherGameObject = transform.parent.gameObject;
     }
 
     private void Update()

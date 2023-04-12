@@ -49,6 +49,7 @@ MonoBehaviour:
   - {fileID: 1333521888551607849, guid: 4446ddaea90efca45b34b3c226f0b057, type: 3}
   - {fileID: 760245057325665882, guid: a69210f07ecd48d43a79bf43ccc02154, type: 3}
   - {fileID: 7526879568850083321, guid: 31eb3cd72c18cc949951cfcad05d4a79, type: 3}
+  - {fileID: 7526879568850083321, guid: 31eb3cd72c18cc949951cfcad05d4a79, type: 3}
   _levels:
   - {fileID: 0}
   - {fileID: 0}
@@ -56,3 +57,4 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   _originalSpawn: {fileID: 0}
+  _objectsReset: {fileID: 0}

@@ -39,7 +39,7 @@ public class FallDamage : MonoBehaviour
     void Update()
     {
         
-        _onGround = _groundCheck._isGrounded; // comprobación de _onGround
+        _onGround = _groundCheck.FallDamageGroundCheck(); // comprobación de _onGround
         if (!_onGround)
         {
             _previousSpeed = _rigidBody2D.velocity.y; // si no está en el suelo se almacena la velocidad
