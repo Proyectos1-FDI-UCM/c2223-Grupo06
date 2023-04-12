@@ -203,7 +203,7 @@ public class InputController : MonoBehaviour
                         _conectarPiernas = false;
                     }
                 }
-                else
+                else 
                     PlayerManager.Instance.SoltarPiernas();
             } // si sí
             else 
@@ -218,7 +218,7 @@ public class InputController : MonoBehaviour
         }
         else
         if (Input.GetKeyDown(KeyCode.C))
-        {
+        { // Sólo C
             if (!_collisionManager.DestruirAlubiat())
             { // si no recoge a alubiat del suelo
                 if (transform.parent != null) // si está en una plataforma con alubiat
@@ -236,15 +236,20 @@ public class InputController : MonoBehaviour
                         _conectarAlubiat = false;
                     }
                 }
-                else // si no conecta
+                else // si no conecta ni desconecta
                     PlayerManager.Instance.SoltarAlubiat();
             }
             else // si destruye a alubiat
                 PlayerManager.Instance.RecogerAlubiat();
         }
         else if (Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.C))
-        {
+        { // Shift + C
             // interactuar con alubia
+
+
+
+
+
         }
         else if (_conectarBrazo) _conectarBrazo = false; // estoy probando no juzgarme (sabré si lo hacéis)
         else if (_recuperarBrazo) _recuperarBrazo = false;

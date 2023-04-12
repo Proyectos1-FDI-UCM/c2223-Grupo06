@@ -44,6 +44,11 @@ public class PataformaComponent : MonoBehaviour
     private bool _piernasConectadas = false;
     public bool PiernasConectadas { get { return _piernasConectadas; } set { _piernasConectadas = value; } }
 
+    // alubiat conectadas a la pataforma 
+    [SerializeField]
+    private bool _alubiatConectadas = false;
+    public bool AlubiatConectadas { get { return _alubiatConectadas; } set { _alubiatConectadas = value; } }
+
     // esta en el área de una pataforma
     public bool _validPataformaHitbox;
 
@@ -95,7 +100,36 @@ public class PataformaComponent : MonoBehaviour
         return aux;
     }
 
+    private bool ConectarAlubiat()
+    {
+        bool aux;
+        if (_inputController.ConectarAlubiat && _validPataformaHitbox
+            && (PlayerManager.Instance.Alubiat))
+        {
+            aux = true;
+        }
+        else
+        {
+            aux = false;
+        }
+        return aux;
+    }
 
+    private bool DesconectarAlubiat()
+    {
+        bool aux;
+        if (_inputController.RecuperarAlubiat && _validPataformaHitbox
+            && !PlayerManager.Instance.Alubiat
+            && _alubiatConectadas)
+        {
+            aux = true;
+        }
+        else
+        {
+            aux = false;
+        }
+        return aux;
+    }
     #endregion
 
     #region Methods
@@ -138,7 +172,6 @@ public class PataformaComponent : MonoBehaviour
         {
             _patas.SetActive(false);
         }
-
     }
 
     private void ChangeInput()
