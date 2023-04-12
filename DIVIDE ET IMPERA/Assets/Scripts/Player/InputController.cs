@@ -269,7 +269,7 @@ public class InputController : MonoBehaviour
         #endregion
 
         #region SOLTAR OBJETOS
-        if (Input.GetKeyDown(KeyCode.X)) // Si solo es X
+        if (Input.GetKeyDown(KeyCode.X) && !Input.GetKey(KeyCode.LeftShift)) // Si solo es X
         {
             if (PlayerManager.Instance.TieneObjeto()) // Si tiene objeto
                 PlayerManager.Instance.SoltarObjeto();  // Lo suelta
@@ -277,7 +277,7 @@ public class InputController : MonoBehaviour
                 PlayerManager.Instance.RecogerObjeto(); // intenta recogerlo
         }
 
-        if (Input.GetKeyDown(KeyCode.Z))
+        if (Input.GetKeyDown(KeyCode.Z) && !Input.GetKey(KeyCode.LeftShift)) // si es solo Z
             _throwComp.LanzarBrazo();
         #endregion
     }
