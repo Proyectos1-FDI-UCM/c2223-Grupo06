@@ -119,26 +119,18 @@ public class InputController : MonoBehaviour
     {
         #region HORIZONTAL
         if (Input.GetKey(KeyCode.RightArrow))
-        {
             _direccion = 1;
-        }
         else if (Input.GetKey(KeyCode.LeftArrow))
-        {
             _direccion = -1;
-        }
         else
-        {
             _direccion = 0;
-        }
 
         _movement = (Input.GetKey(KeyCode.RightArrow) ? 1 : 0) - (Input.GetKey(KeyCode.LeftArrow) ? 1 : 0);
         #endregion
 
         #region VERTICAL
-        if (Input.GetKeyDown(KeyCode.Space)) // Input.GetKeyDown(KeyCode.Z) || (lanzaba y saltaba a la vez oop)
-        {
+        if (Input.GetKeyDown(KeyCode.Space))
             _playerJump.Jump();
-        }
         #endregion
     }
 
@@ -169,13 +161,9 @@ public class InputController : MonoBehaviour
         if (Input.GetKey(KeyCode.LeftShift) && (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.S)))
         { // Shift + A / S para controlar brazos en palancas
             if (Input.GetKeyDown(KeyCode.A))
-            {
                 _whichArm = 1;
-            }
             else if (Input.GetKeyDown(KeyCode.S))
-            {
                 _whichArm = 2;
-            }
             _interactuar = true;
         }
         else if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.S))

@@ -62,7 +62,7 @@ public class GameManager : MonoBehaviour
             case GameStates.SCORE:                       //     *PUNTUACIÓN*
                 if(puntuacion.puntos == 1000)
                 {
-                    UIManager.Instance._tarjetas[3];
+                    // UIManager.Instance._tarjetas[3]; // da error, no compila
                 }
                 break;
             case GameStates.LEVELSELECTOR:               //     *SELECTOR DE NIVELES*
