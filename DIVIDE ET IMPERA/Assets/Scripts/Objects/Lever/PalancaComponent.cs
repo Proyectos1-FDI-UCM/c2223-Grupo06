@@ -10,6 +10,10 @@ public class PalancaComponent : MonoBehaviour
     private SpriteRenderer _mySpriteRenderer;
     [SerializeField]
     private GameObject _objeto;
+
+    // array de objetos
+    [SerializeField]
+    private GameObject[] _objetos;
     private GameManager _gameManager;
     [Tooltip("Objeto que contiene todas las salas para que se tengan en cuenta todas las palancas")]
     [SerializeField]
@@ -65,15 +69,36 @@ public class PalancaComponent : MonoBehaviour
     // interactua con el objeto de fuera (puerta, plataforma etc)
     public void ActivarObjetos()
     {
+        int i = 0;
         if (_palanca)
         {
-            _objeto.GetComponent<NewPlatformMovement>().OnOff(true);
+            // para que se puedan activar mas de un objeto
+            if(_objetos.Length > 0)
+            {
+                while (i < _objetos.Length)
+                {
+                    _objetos[i].GetComponent<NewPlatformMovement>().OnOff(true);
+                    i++;
+                }
+                
+            } // placeholder para que no se rompa el resto
+            else _objeto.GetComponent<NewPlatformMovement>().OnOff(true);
+
             //_movingPlatform.enabled = true;
             //Debug.Log("activar " + _movingPlatform.enabled);
         }
         else if (!_palanca)
         {
-            _objeto.GetComponent<NewPlatformMovement>().OnOff(false);
+            if (_objetos.Length > 0)
+            {
+                while (i < _objetos.Length)
+                {
+                    _objetos[i].GetComponent<NewPlatformMovement>().OnOff(false);
+                    i++;
+                }
+            }
+            else _objeto.GetComponent<NewPlatformMovement>().OnOff(false);
+
             //_movingPlatform.enabled = false;
             //Debug.Log("desactivar " + _movingPlatform.enabled);
         }
