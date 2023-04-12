@@ -10484,7 +10484,6 @@ MonoBehaviour:
   - hola
   - pipo
   - AAAAAAAAAAAAA
-  _speaker: []
   _speedText: 0.1
   WaypointDialogo: {fileID: 1612102421}
   _speed: 3
@@ -10543,7 +10542,6 @@ MonoBehaviour:
   - 'Tim : "Por favor que esto funcione"'
   - 'Bob: "Ayuda por favor"'
   - 'Narrador: Por favor'
-  _speaker: []
   _speedText: 0.1
   WaypointDialogo: {fileID: 1612102421}
   _speed: 3
