@@ -28988,6 +28988,14 @@ PrefabInstance:
       propertyPath: _fatherGameObject
       value: 
       objectReference: {fileID: 757356590}
+    - target: {fileID: 9105276655828635065, guid: 111fc477411513d47b1f5daa0dbd6439, type: 3}
+      propertyPath: _objetos.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9105276655828635065, guid: 111fc477411513d47b1f5daa0dbd6439, type: 3}
+      propertyPath: _objetos.Array.data[0]
+      value: 
+      objectReference: {fileID: 832483641}
     - target: {fileID: 9105276655828635070, guid: 111fc477411513d47b1f5daa0dbd6439, type: 3}
       propertyPath: m_Name
       value: Lever
@@ -29123,6 +29131,14 @@ PrefabInstance:
       propertyPath: _fatherGameObject
       value: 
       objectReference: {fileID: 1504161822}
+    - target: {fileID: 9105276655828635065, guid: 111fc477411513d47b1f5daa0dbd6439, type: 3}
+      propertyPath: _objetos.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9105276655828635065, guid: 111fc477411513d47b1f5daa0dbd6439, type: 3}
+      propertyPath: _objetos.Array.data[0]
+      value: 
+      objectReference: {fileID: 373398880}
     - target: {fileID: 9105276655828635070, guid: 111fc477411513d47b1f5daa0dbd6439, type: 3}
       propertyPath: m_Name
       value: Lever

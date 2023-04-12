@@ -30612,7 +30612,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2936228696153370886, guid: 1f5a3498d4d134d4da1d488e7faf01fd, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.29
+      value: -2.15
       objectReference: {fileID: 0}
     - target: {fileID: 2936228696153370886, guid: 1f5a3498d4d134d4da1d488e7faf01fd, type: 3}
       propertyPath: m_LocalPosition.z
@@ -30657,11 +30657,11 @@ PrefabInstance:
     - target: {fileID: 4120213700484066501, guid: 1f5a3498d4d134d4da1d488e7faf01fd, type: 3}
       propertyPath: _waypoints.Array.data[0]
       value: 
-      objectReference: {fileID: 583848010}
+      objectReference: {fileID: 1411448256}
     - target: {fileID: 4120213700484066501, guid: 1f5a3498d4d134d4da1d488e7faf01fd, type: 3}
       propertyPath: _waypoints.Array.data[1]
       value: 
-      objectReference: {fileID: 1411448256}
+      objectReference: {fileID: 583848010}
     - target: {fileID: 6588373478110737167, guid: 1f5a3498d4d134d4da1d488e7faf01fd, type: 3}
       propertyPath: m_Name
       value: Door

@@ -69,20 +69,8 @@ public class PalancaComponent : MonoBehaviour
     public void ActivarObjetos()
     {
         int i = 0;
-        while (i < _objetos.Length)
-        {
-            if (_palanca)
-            {
-                _objetos[i].GetComponent<NewPlatformMovement>().OnOff(true);
-            }
-            else
-            {
-                _objetos[i].GetComponent<NewPlatformMovement>().OnOff(false);
-            }
-        }
-
-        /*
-            if (_palanca)
+        
+        if (_palanca)
         {
             // para que se puedan activar mas de un objeto
             if(_objetos.Length > 0)
@@ -94,7 +82,11 @@ public class PalancaComponent : MonoBehaviour
                 }
                 
             } // placeholder para que no se rompa el resto
-            else _objeto.GetComponent<NewPlatformMovement>().OnOff(true);
+            else
+            {
+                if(_objeto != null) _objeto.GetComponent<NewPlatformMovement>().OnOff(true);
+            }
+            
 
             //_movingPlatform.enabled = true;
             //Debug.Log("activar " + _movingPlatform.enabled);
@@ -109,12 +101,12 @@ public class PalancaComponent : MonoBehaviour
                     i++;
                 }
             }
-            else _objeto.GetComponent<NewPlatformMovement>().OnOff(false);
+            else if (_objeto != null) _objeto.GetComponent<NewPlatformMovement>().OnOff(false);
 
             //_movingPlatform.enabled = false;
             //Debug.Log("desactivar " + _movingPlatform.enabled);
         }
-        */
+        
     }
 
     //Conecta el brazo
