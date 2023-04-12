@@ -248,7 +248,6 @@ public class InputController : MonoBehaviour
             {
                 _throwComp.ChutarBola(); // Chuta una bola delante
             }
-           
         }
         else
         #endregion
@@ -333,7 +332,6 @@ public class InputController : MonoBehaviour
         {
             SFXComponent.Instance.SFXPlayerStop(2);
         }
-
     }
     #endregion
 

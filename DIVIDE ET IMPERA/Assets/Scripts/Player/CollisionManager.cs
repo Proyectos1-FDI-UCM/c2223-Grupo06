@@ -24,9 +24,6 @@ public class CollisionManager : MonoBehaviour
     [SerializeField]
     private Collider2D _hitboxColisionada;
     public Collider2D HitboxColisionada { get { return _hitboxColisionada; } }
-
-    [SerializeField]
-    private bool _alubiatPorColision;
     #endregion
 
     #region methods
@@ -56,13 +53,6 @@ public class CollisionManager : MonoBehaviour
             else
             {
                 _hitboxColisionada = collision;
-            }
-
-            if (_alubiatPorColision && _parteColisionada != null && _parteColisionada.GetComponentInParent<AlubiatComponent>() != null)
-            {
-                PlayerManager.Instance.RecogerAlubiat();
-                Destroy(_parteColisionada.transform.parent.gameObject);
-                _parteColisionada = null;
             }
         }
     }
