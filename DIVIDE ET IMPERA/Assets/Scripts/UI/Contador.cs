@@ -6,8 +6,11 @@ using TMPro;
 public class Contador : MonoBehaviour
 {
 
-    private static float tiempo = 0;
-    [SerializeField] private static TextMeshProUGUI time;
+    private static Contador _instance;
+    public static Contador Instance { get { return _instance; } }
+    
+    public static float tiempo = 0;
+    [SerializeField] public static TextMeshProUGUI time;
 
     private void Start()
     {

@@ -59,13 +59,33 @@ public class GameManager : MonoBehaviour
                 Time.timeScale = 0;
                 break;
             case GameStates.GAMEOVER:                    //     *FIN DEL JUEGO*
-                
+                if(Contador.tiempo > 500)
+                {
+                    puntuacion.RestaPuntos(150);
+                }
+                else if(Contador.tiempo <= 500 || Contador.tiempo > 400)
+                {
+                    puntuacion.RestaPuntos(100);
+                }
+                else if (Contador.tiempo <= 400 || Contador.tiempo > 300)
+                {
+                    puntuacion.RestaPuntos(90);
+                }
+                else if (Contador.tiempo <= 300 || Contador.tiempo > 200)
+                {
+                    puntuacion.RestaPuntos(80);
+                }
+                else if (Contador.tiempo <= 200 || Contador.tiempo > 100)
+                {
+                    puntuacion.RestaPuntos(20);
+                }
+                else if (Contador.tiempo <= 100)
+                {
+                    puntuacion.RestaPuntos(10);
+                }
+
                 break;
             case GameStates.SCORE:                       //     *PUNTUACIÓN*
-                if(puntuacion.puntos == 1000)
-                {
-                    // UIManager.Instance._tarjetas[3]; // da error, no compila
-                }
                 break;
             case GameStates.LEVELSELECTOR:               //     *SELECTOR DE NIVELES*
                 break;
