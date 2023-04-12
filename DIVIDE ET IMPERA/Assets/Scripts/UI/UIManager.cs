@@ -72,7 +72,7 @@ public class UIManager : MonoBehaviour
 
     public void StartToGame() // menu iniacial -> juego (empezar a jugar)
     {
-        if (LevelManager.Instance != null) ResetRoom();
+        //if (LevelManager.Instance != null) ResetRoom();
         RequestStateChange(GameManager.GameStates.GAME); // referenciando al gamemanager (importante! si no no cambia de estado)
 
         // activa el input

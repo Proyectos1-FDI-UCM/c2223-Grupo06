@@ -54,7 +54,7 @@ public class RoomTransition : MonoBehaviour
         PlayerAccess.Instance.Animator.enabled = false;
 
         _futureCamPos = new Vector3(_roomCameraPosition.position.x, _roomCameraPosition.position.y, _cameraTransform.position.z); //calculo posicion futura de la camara
-
+        Debug.Log(_futureCamPos);
         for (int i = 0; i < _transitions.Length; i++)
         {
             _transitions[i].GetComponentInChildren<BoxCollider2D>().enabled = false; //se desactivan todas las transiciones
@@ -63,7 +63,7 @@ public class RoomTransition : MonoBehaviour
         _onTransition = true; //activar transicion
     }
 
-    private void OnTRansition()
+    private void OnTransition()
     {
         if (_cameraTransform.position.x < _futureCamPos.x - 0.1
             || _cameraTransform.position.x > _futureCamPos.x + 0.1 ||
@@ -118,7 +118,7 @@ public class RoomTransition : MonoBehaviour
     {
         if (_onTransition) //si estas en una transicion
         {
-            OnTRansition();
+            OnTransition();
             /*if (timiestado == PlayerManager.TimmyStates.S0)
             {
                 puntuacion.SumaPuntos(50);
