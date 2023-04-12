@@ -27,7 +27,7 @@ public class ArmComponent : MonoBehaviour
                 SFXComponent.Instance.SFXObjects(2);
                 SFXComponent.Instance.SFXPlayer(10);
             }
-                
+
         }
     }
     #endregion

@@ -1,4 +1,3 @@
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -20,7 +19,7 @@ public class StayOnPataforma : MonoBehaviour
     #region Metodos basicos
     // mira si tiene padre o no (este objeto)
 
-  
+
     public bool ParentCheck()
     {
         if (transform.parent == null)
@@ -60,9 +59,9 @@ public class StayOnPataforma : MonoBehaviour
                 // le da un padre
                 gameObject.transform.SetParent(collision.gameObject.transform.parent, true);
             }
-            
+
         }
-        
+
     }
     // le quita el padre al objeto
     private void Adoptiont(Collision2D collision)
@@ -79,8 +78,8 @@ public class StayOnPataforma : MonoBehaviour
     {
         // devuelve true si es o una pataforma o una plataforma normal con la variable de puerta 
         // desactivada y no es el tilemap
-        if ((collision.gameObject.GetComponentInChildren<PataformaComponent>() 
-            || collision.gameObject.GetComponentInChildren<NewPlatformMovement>()|| !PuertaCheck(collision))
+        if ((collision.gameObject.GetComponentInChildren<PataformaComponent>()
+            || collision.gameObject.GetComponentInChildren<NewPlatformMovement>() || !PuertaCheck(collision))
             && !collision.gameObject.GetComponent<Tilemap>()
             && !collision.gameObject.GetComponentInChildren<StayOnPataforma>())
         {
@@ -106,7 +105,7 @@ public class StayOnPataforma : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-       
+
         if (CheckStayOn(collision))
         {
             Adoption(collision);

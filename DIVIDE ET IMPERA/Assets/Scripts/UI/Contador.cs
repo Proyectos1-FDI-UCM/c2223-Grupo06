@@ -1,14 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using TMPro;
+using UnityEngine;
 
 public class Contador : MonoBehaviour
 {
 
     private static Contador _instance;
     public static Contador Instance { get { return _instance; } }
-    
+
     public static float tiempo = 0;
     [SerializeField] public static TextMeshProUGUI time;
 
@@ -24,9 +22,9 @@ public class Contador : MonoBehaviour
 
     public static void Comienza(GameManager.GameStates estado)
     {
-        if (estado == GameManager.GameStates.GAME) 
-        { 
-            tiempo += Time.deltaTime * 1/2;
+        if (estado == GameManager.GameStates.GAME)
+        {
+            tiempo += Time.deltaTime * 1 / 2;
             time.text = tiempo.ToString("0");
         }
 

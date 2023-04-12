@@ -1,6 +1,4 @@
-﻿using System.Runtime.CompilerServices;
-using UnityEngine;
-using UnityEngine.Tilemaps;
+﻿using UnityEngine;
 
 public class FallDamage : MonoBehaviour
 {
@@ -38,7 +36,7 @@ public class FallDamage : MonoBehaviour
 
     void Update()
     {
-        
+
         _onGround = _groundCheck.FallDamageGroundCheck(); // comprobación de _onGround
         if (!_onGround)
         {
@@ -56,6 +54,6 @@ public class FallDamage : MonoBehaviour
                 if (SFXComponent.Instance != null)
                     SFXComponent.Instance.SFXPlayer(8);
             }
-        }     
+        }
     }
 }

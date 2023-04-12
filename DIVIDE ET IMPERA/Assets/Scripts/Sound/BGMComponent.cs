@@ -1,11 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using static GameManager;
 
 public class BGMComponent : MonoBehaviour
 {
-    
+
 
     [SerializeField]
     private AudioSource[] _bgm;
@@ -57,8 +55,8 @@ public class BGMComponent : MonoBehaviour
     }
     public void StopAmbience()
     {
-        if(_ambience.isPlaying)
-        _ambience.Stop();
+        if (_ambience.isPlaying)
+            _ambience.Stop();
     }
 
     #endregion
@@ -67,7 +65,7 @@ public class BGMComponent : MonoBehaviour
     private void BGMManager()
     {
         switch (GameManager.Instance.CurrentState) // Diferentes comportamientos según estado al que se entra
-        { 
+        {
             case GameStates.START:                       //     *MENÚ INICIAL*
                 _nextBGM = 4;
                 _playAmbience = false;
@@ -104,7 +102,7 @@ public class BGMComponent : MonoBehaviour
         }
     }
 
-    private void BGMPlayer (int currentBGM)
+    private void BGMPlayer(int currentBGM)
     {
         PlayBGM(_currentBGM);
         _canPlay = false;
@@ -112,7 +110,7 @@ public class BGMComponent : MonoBehaviour
 
     private void Start()
     {
-        _currentBGM= 0;
+        _currentBGM = 0;
         _playAmbience = false;
     }
 
@@ -133,6 +131,6 @@ public class BGMComponent : MonoBehaviour
                 _ambience.Stop();
             }
         }
-        
+
     }
 }

@@ -312,7 +312,7 @@ public class PlayerManager : MonoBehaviour
     {
         if (_brazos > 0) // si algún brazo y está en un espacio libre
         {
-            if (LevelManager.Instance != null) Instantiate(_brazoPrefab, _myTransform.position, _myTransform.rotation,_objectsReset); // instanciación
+            if (LevelManager.Instance != null) Instantiate(_brazoPrefab, _myTransform.position, _myTransform.rotation, _objectsReset); // instanciación
             _brazos--; // un brazo menos
 
             //sfx
@@ -330,7 +330,7 @@ public class PlayerManager : MonoBehaviour
             //sfx
             if (SFXComponent.Instance != null)
                 SFXComponent.Instance.SFXPlayer(0);
-        } 
+        }
     }
     public void AdiosPiernas() // para interactuables
     {
@@ -341,7 +341,7 @@ public class PlayerManager : MonoBehaviour
             //sfx
             if (SFXComponent.Instance != null)
                 SFXComponent.Instance.SFXPlayer(1);
-        } 
+        }
     }
     public void RecogerPiernas() // para recoger piernas sueltas
     {
@@ -459,7 +459,7 @@ public class PlayerManager : MonoBehaviour
             var posicion = _myTransform.position;
             //if (Objeto == Objetos.BOLA) posicion += _myTransform.right * _myTransform.localScale.x;
             if (LevelManager.Instance != null && _myCollisionManager.ObjectStored != null)
-            { 
+            {
                 _myCollisionManager.ObjectStored.SetActive(true);
                 _myCollisionManager.ObjectStored.transform.position = posicion;
             }

@@ -73,14 +73,9 @@ public class ThrowComponent : MonoBehaviour
             PlayerAccess.Instance.CollisionManager.ObjectStored.transform.position = _myTransform.position + (_myTransform.right * _myTransform.localScale.x) / 2;
             //_thrownObject.transform.position += Vector3.up; // Más arriba ??
             _thrownObjectRB = PlayerAccess.Instance.CollisionManager.ObjectStored.GetComponent<Rigidbody2D>(); // Pilla su RB
-            Debug.Log("será aquí?");
         }
-        Debug.Log("intercepto");
-        if (Lanzamiento(_inerciaBolas)) 
-        {
+        if (Lanzamiento(_inerciaBolas))
             PlayerManager.Instance.EliminarObjeto(); // PUM ya no tiene bola :P
-            Debug.Log("hola?");
-        }
 
         // sfx
         if (SFXComponent.Instance != null)
@@ -111,7 +106,7 @@ public class ThrowComponent : MonoBehaviour
 
             // sfx
             SFXComponent.Instance.SFXPlayer(5);
-        }        
+        }
     }
 
     public bool Lanzamiento(bool inercia)

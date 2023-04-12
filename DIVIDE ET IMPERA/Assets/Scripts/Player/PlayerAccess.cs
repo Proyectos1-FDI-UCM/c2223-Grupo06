@@ -42,8 +42,8 @@ public class PlayerAccess : MonoBehaviour
         _jumpComponent = GetComponent<JumpComponent>();
         _collisionManager = GetComponent<CollisionManager>();
         _playerManager = GetComponent<PlayerManager>();
-        _boneBar= GetComponent<BoneStateBar>();
-        _fallDamage= GetComponent<FallDamage>();
+        _boneBar = GetComponent<BoneStateBar>();
+        _fallDamage = GetComponent<FallDamage>();
         // ... más según vayan existiendo más componentes en player
 
         // SE ACCEDEN A TRAVÉS DE PLAYERACCESS.INSTANCE.(lo que sea);

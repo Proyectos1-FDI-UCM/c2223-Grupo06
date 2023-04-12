@@ -54,7 +54,7 @@ public class PalancaComponent : MonoBehaviour
         ActivarObjetos();
 
         // sfx
-        if(SFXComponent.Instance != null)
+        if (SFXComponent.Instance != null)
             SFXComponent.Instance.SFXObjects(0);
     }
 
@@ -70,24 +70,24 @@ public class PalancaComponent : MonoBehaviour
     public void ActivarObjetos()
     {
         int i = 0;
-        
+
         if (_palanca)
         {
             // para que se puedan activar mas de un objeto
-            if(_objetos.Length > 0)
+            if (_objetos.Length > 0)
             {
                 while (i < _objetos.Length)
                 {
                     _objetos[i].GetComponent<NewPlatformMovement>().OnOff(true);
                     i++;
                 }
-                
+
             } // placeholder para que no se rompa el resto
             else
             {
-                if(_objeto != null) _objeto.GetComponent<NewPlatformMovement>().OnOff(true);
+                if (_objeto != null) _objeto.GetComponent<NewPlatformMovement>().OnOff(true);
             }
-            
+
 
             //_movingPlatform.enabled = true;
             //Debug.Log("activar " + _movingPlatform.enabled);
@@ -107,7 +107,7 @@ public class PalancaComponent : MonoBehaviour
             //_movingPlatform.enabled = false;
             //Debug.Log("desactivar " + _movingPlatform.enabled);
         }
-        
+
     }
 
     //Conecta el brazo
@@ -127,11 +127,11 @@ public class PalancaComponent : MonoBehaviour
     // busca los brazos/palancas ocupadas, devuelve el numero de palancas ocupadas
     private int FindArmInLever()
     {
-        int i= 0, j = 0;
+        int i = 0, j = 0;
         Transform[] fathers = _fatherGameObject.transform.GetComponentsInChildren<Transform>();
 
         // busca si hay alguna palanca con brazo o no y devuelve el valor de brazos ocupados
-        while (i< fathers.Length && j<2)
+        while (i < fathers.Length && j < 2)
         {
             // si no ha encontrado ningun brazo ocupado, no es esta palanca y no tiene brazo la palanca 
             if (j == 0 && fathers[i].GetComponent<PalancaComponent>()
@@ -141,7 +141,7 @@ public class PalancaComponent : MonoBehaviour
                 j++;
             }
             // lo mismo pero si ha encontrado la primera
-            else if (j==1&& fathers[i].GetComponent<PalancaComponent>()
+            else if (j == 1 && fathers[i].GetComponent<PalancaComponent>()
                 && fathers[i].GetComponent<PalancaComponent>() != this
                 && fathers[i].GetComponent<PalancaComponent>().BrazoNum() > 1)
             {
@@ -173,7 +173,7 @@ public class PalancaComponent : MonoBehaviour
         else if (i == 1)
         {
             _brazoNum = 2;
-        } 
+        }
         else
         {
             _brazoNum = 0;
@@ -214,11 +214,11 @@ public class PalancaComponent : MonoBehaviour
         {
             WhichArmNum();
         }
-        else if(!_brazoConectado)
+        else if (!_brazoConectado)
         {
             _brazoNum = 0;
         }
-        
+
 
 
         // aqui realmente nunca entra segun lo que he probado no se si lo sabiamos pero xd
@@ -231,7 +231,7 @@ public class PalancaComponent : MonoBehaviour
             ConectarBrazo(true);
             PlayerManager.Instance.Brazos--;
             PlayerManager.Instance.ConnectedToLever(gameObject);
-            
+
         }
         // se pulsa A o S, está cerca de la palanca, está en los estados correctos y hay un brazo conectado
         else if (_inputController.RecuperarBrazo && _validPalancaHitbox

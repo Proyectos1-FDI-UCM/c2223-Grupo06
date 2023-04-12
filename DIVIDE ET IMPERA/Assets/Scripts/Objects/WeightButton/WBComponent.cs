@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class WBComponent : MonoBehaviour
 {
@@ -75,7 +74,7 @@ public class WBComponent : MonoBehaviour
     private void Activar()
     {
         _objeto.GetComponent<NewPlatformMovement>().OnOff(true);
-        
+
     }
 
     // metodo para desactivar el objeto
@@ -91,7 +90,7 @@ public class WBComponent : MonoBehaviour
     {
         bool aux = false;
         int i = 0;
-        Transform []child = _objetos.GetComponentsInChildren<Transform>();
+        Transform[] child = _objetos.GetComponentsInChildren<Transform>();
         // mientras haya hijos en y no se haya encontrado uno con prioridad
         while (i < child.Length && !aux)
         {
@@ -166,14 +165,14 @@ public class WBComponent : MonoBehaviour
                     Activar();
                     _priority = true;
                 }
-                    
+
                 //ActivarGeneral(true);
             }
             else
             {
                 // si no hay ningun objeto con prioridad desactiva el objeto
                 _mySpriteRenderer.color = Color.magenta;
-                if(_objeto.GetComponent<NewPlatformMovement>().isActive()
+                if (_objeto.GetComponent<NewPlatformMovement>().isActive()
                     && !IsPriority())
                 {
                     Desactivar();
@@ -182,9 +181,9 @@ public class WBComponent : MonoBehaviour
                 if (IsPriority() && _priority)
                 {
                     _priority = false;
-                } 
+                }
             }
         }
-        
+
     }
 }

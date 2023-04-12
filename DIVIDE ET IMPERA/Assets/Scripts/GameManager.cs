@@ -59,11 +59,11 @@ public class GameManager : MonoBehaviour
                 Time.timeScale = 0;
                 break;
             case GameStates.GAMEOVER:                    //     *FIN DEL JUEGO*
-                if(Contador.tiempo > 500)
+                if (Contador.tiempo > 500)
                 {
                     puntuacion.RestaPuntos(150);
                 }
-                else if(Contador.tiempo <= 500 || Contador.tiempo > 400)
+                else if (Contador.tiempo <= 500 || Contador.tiempo > 400)
                 {
                     puntuacion.RestaPuntos(100);
                 }

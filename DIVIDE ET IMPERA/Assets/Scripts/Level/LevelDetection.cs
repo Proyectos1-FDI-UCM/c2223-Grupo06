@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class LevelDetection : MonoBehaviour
@@ -11,7 +9,7 @@ public class LevelDetection : MonoBehaviour
     #region Methods
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject == PlayerAccess.Instance.gameObject)
+        if (collision.gameObject == PlayerAccess.Instance.gameObject)
         {
             LevelManager.Instance.ChangeLevelIndex(_levelIndex);
         }

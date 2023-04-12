@@ -109,7 +109,7 @@ public class MovementComponent : MonoBehaviour
             Move2();
             Flip2();
         }
-         else
+        else
         {
             Move();
             Flip();

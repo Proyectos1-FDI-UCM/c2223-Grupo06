@@ -125,7 +125,7 @@ public class CollisionManager : MonoBehaviour
                 var padre = _parteColisionada.transform.parent.gameObject;
                 Destroy(padre);
             }
-            
+
             return true;
         }
         else return false;
@@ -133,7 +133,7 @@ public class CollisionManager : MonoBehaviour
 
     public bool DestruirAlubiat() // método para pulsar tecla delante etc como si fueran piernas normales
     {
-        if (_parteColisionada != null && _parteColisionada.GetComponentInParent<AlubiatComponent>() != null) 
+        if (_parteColisionada != null && _parteColisionada.GetComponentInParent<AlubiatComponent>() != null)
         {
             if (!PlayerManager.Instance.Alubiat)
             {

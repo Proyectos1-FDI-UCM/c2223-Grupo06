@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.EventSystems;
 
 public class UIManager : MonoBehaviour
 {
@@ -124,7 +123,7 @@ public class UIManager : MonoBehaviour
     {
         RequestStateChange(GameManager.GameStates.SCORE); // referenciando al gamemanager (importante! si no no cambia de estado)
         _player.GetComponent<InputController>().enabled = false;
-        
+
     }
 
     public void GoToLevelSelector() // al selector de niveles

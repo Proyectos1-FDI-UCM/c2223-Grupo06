@@ -294,7 +294,7 @@ public class PataformaComponent : MonoBehaviour
 
     public void SetLegs(bool onoff)
     {
-        _piernasConectadas= onoff;
+        _piernasConectadas = onoff;
     }
     #endregion
 

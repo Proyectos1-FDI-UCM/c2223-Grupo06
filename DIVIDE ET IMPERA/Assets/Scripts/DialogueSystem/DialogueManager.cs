@@ -103,10 +103,10 @@ public class DialogueManager : MonoBehaviour
         }
     }*/
 
-            // Parametros:
-            // _lines -> el texto que se esta escribiendo
-            // _letter -> el caracter que se esta escribiendo
-            // _index -> indice del caracter dentro de _lines
+    // Parametros:
+    // _lines -> el texto que se esta escribiendo
+    // _letter -> el caracter que se esta escribiendo
+    // _index -> indice del caracter dentro de _lines
     protected void CheckTag(string _lines, char _letter, int _index, ref bool _inTag) // tags para saber quién está hablando - a ver si funciona
     {
         if (_letter == '<')
@@ -119,7 +119,7 @@ public class DialogueManager : MonoBehaviour
             if (_next != '/')
             {
                 // entrar a tag
-                switch (_next) 
+                switch (_next)
                 {                                                         // Personaje: <entrada> y <salida>
                     case 't': _dialogueText.color = Color.blue; break;    // Timoteo: <t> y </t>
                     case 'a': _dialogueText.color = Color.red; break;     // Alubia: <a> y </a>

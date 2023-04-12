@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Score : MonoBehaviour
@@ -14,20 +12,20 @@ public class Score : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(puntuacion.puntos < 500)
+        if (puntuacion.puntos < 500)
         {
             MALAMENTE.SetActive(true);
             REGULA.SetActive(false);
             ASEPTABLE.SetActive(false);
             CRANEOPERSENT.SetActive(false);
         }
-        else if(puntuacion.puntos >= 500 || puntuacion.puntos < 600)
+        else if (puntuacion.puntos >= 500 || puntuacion.puntos < 600)
         {
             MALAMENTE.SetActive(false);
             REGULA.SetActive(true);

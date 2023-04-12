@@ -12,7 +12,7 @@ public class CameraMovement : MonoBehaviour
     #region Parameters
     [SerializeField]
     private float _followSpeed;
-    [SerializeField] 
+    [SerializeField]
     private float _horizontalOffset;
     [SerializeField]
     private float _verticalOffset;

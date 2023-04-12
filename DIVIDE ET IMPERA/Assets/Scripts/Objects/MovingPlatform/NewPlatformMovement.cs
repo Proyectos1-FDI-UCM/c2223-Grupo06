@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 public class NewPlatformMovement : MonoBehaviour
@@ -35,11 +32,11 @@ public class NewPlatformMovement : MonoBehaviour
         return _active;
     }
 
-    private void Move() 
+    private void Move()
     {
         transform.position = Vector3.MoveTowards(transform.position, _waypoints[_currentWaypoint].position, _speed * Time.deltaTime); //mueve plataforma
     }
-    
+
     private void CiclicMovement()
     {
         if (_active)

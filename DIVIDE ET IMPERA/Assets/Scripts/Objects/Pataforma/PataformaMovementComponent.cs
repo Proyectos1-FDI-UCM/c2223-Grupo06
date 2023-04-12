@@ -1,6 +1,4 @@
-using Unity.VisualScripting;
 using UnityEngine;
-using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class PataformaMovementComponent : MonoBehaviour
 {
@@ -45,7 +43,7 @@ public class PataformaMovementComponent : MonoBehaviour
                 SFXComponent.Instance.SFXPlayerStop(2);
             }
         }
-        
+
     }
 
     private void Move2()

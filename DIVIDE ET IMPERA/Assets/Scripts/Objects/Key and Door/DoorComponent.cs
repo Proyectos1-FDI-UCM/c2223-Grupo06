@@ -15,7 +15,7 @@ public class DoorComponent : MonoBehaviour
             {
                 SFXComponent.Instance.SFXObjects(4);
             }
-            
+
         }
     }
     #endregion

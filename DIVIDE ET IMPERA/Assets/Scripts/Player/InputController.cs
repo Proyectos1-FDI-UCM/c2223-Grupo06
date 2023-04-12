@@ -203,10 +203,10 @@ public class InputController : MonoBehaviour
                         _conectarPiernas = false;
                     }
                 }
-                else 
+                else
                     PlayerManager.Instance.SoltarPiernas();
             } // si sí
-            else 
+            else
                 PlayerManager.Instance.RecogerPiernas();
         }
         else
@@ -223,13 +223,13 @@ public class InputController : MonoBehaviour
             { // si no recoge a alubiat del suelo
                 if (transform.parent != null) // si está en una plataforma con alubiat
                 {
-                    if (transform.parent.GetComponentInChildren<PataformaComponent>() != null && !_conectarAlubiat 
+                    if (transform.parent.GetComponentInChildren<PataformaComponent>() != null && !_conectarAlubiat
                         && !transform.parent.GetComponentInChildren<PataformaComponent>().PiernasConectadas)
                     { // si está en una pataforma sin alubiat, se las pone
                         _conectarAlubiat = true;
                         _recuperarAlubiat = false;
                     }
-                    else if (transform.parent.GetComponentInChildren<PataformaComponent>() != null && !_recuperarAlubiat 
+                    else if (transform.parent.GetComponentInChildren<PataformaComponent>() != null && !_recuperarAlubiat
                         && transform.parent.GetComponentInChildren<PataformaComponent>().PiernasConectadas)
                     { // si está en una pataforma con alubiat, las recoge
                         _recuperarAlubiat = true;
@@ -332,7 +332,7 @@ public class InputController : MonoBehaviour
     {
         _interactuar = false;
         _conectarBrazo = false;
-        _conectarPiernas =false;
+        _conectarPiernas = false;
     }
 
     private void SFXMove()
@@ -351,15 +351,15 @@ public class InputController : MonoBehaviour
 
     void Start()
     {
-        _throwComp               = GetComponent<ThrowComponent>();
-        _collisionManager        = GetComponent<CollisionManager>();
-        _playerJump              = GetComponent<JumpComponent>();
-        _playerRigidBody         = GetComponent<Rigidbody2D>(); // rigidbody del player
-        _dialogueManager         = GetComponent<DialogueManager>();
+        _throwComp = GetComponent<ThrowComponent>();
+        _collisionManager = GetComponent<CollisionManager>();
+        _playerJump = GetComponent<JumpComponent>();
+        _playerRigidBody = GetComponent<Rigidbody2D>(); // rigidbody del player
+        _dialogueManager = GetComponent<DialogueManager>();
         _inputControllerDialogue = GetComponent<InputControllerDialogue>();
-        _stayOnComp              = GetComponent<StayOnPataforma>();
-        _groundCheck             = GetComponentInChildren<GroundCheck>();
-        _placaComponent          = GetComponent<PalancaComponent>();
+        _stayOnComp = GetComponent<StayOnPataforma>();
+        _groundCheck = GetComponentInChildren<GroundCheck>();
+        _placaComponent = GetComponent<PalancaComponent>();
     }
 
     void Update()
@@ -380,7 +380,7 @@ public class InputController : MonoBehaviour
             {
                 GameManager.Instance.RequestStateChange(GameManager.GameStates.PAUSE);
             }
-            
+
 
             // desactiva el input
             enabled = false;

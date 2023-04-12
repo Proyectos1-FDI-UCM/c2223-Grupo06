@@ -58,7 +58,7 @@ public class RoomTransition : MonoBehaviour
         {
             _transitions[i].GetComponentInChildren<BoxCollider2D>().enabled = false; //se desactivan todas las transiciones
         }
-        
+
         _onTransition = true; //activar transicion
     }
 
@@ -80,7 +80,7 @@ public class RoomTransition : MonoBehaviour
             PlayerAccess.Instance.Animator.enabled = true;
 
             CameraMovement.Instance.enabled = true; //Hacer que la camara vuelva a seguir al jugador
-            
+
             // Suma la cantidad de puntos debida dependiendo de las partes que lleve
             if (PlayerManager.State == PlayerManager.TimmyStates.S0)
             {

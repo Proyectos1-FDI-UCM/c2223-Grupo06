@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class SFXComponent : MonoBehaviour
@@ -14,7 +11,7 @@ public class SFXComponent : MonoBehaviour
     private AudioSource[] _sfx;
     [SerializeField]
     private AudioSource[] _objectsSFX;
-    [SerializeField] 
+    [SerializeField]
     private AudioSource _yippie;
 
     /// <summary>
@@ -84,7 +81,7 @@ public class SFXComponent : MonoBehaviour
 
 
     // te dice si el sonido esta sonando o no en el player
-    public bool isPlayingSFX (int i)
+    public bool isPlayingSFX(int i)
     {
         return _sfx[i].isPlaying;
     }
