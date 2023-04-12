@@ -22,6 +22,11 @@ public class SceneChanger : MonoBehaviour
         _animator.SetTrigger("FadeOut"); // animacion de fade out
     }
 
+    public void FadeToNextLevel()
+    {
+        FadeToLevel(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
     public void OnFadeComplete()
     {
         SceneManager.LoadScene(_sceneToLoad); // carga nueva escena
@@ -32,7 +37,8 @@ public class SceneChanger : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.P))
         {
-            FadeToLevel(1);
+            // FadeToLevel(1);
+            FadeToNextLevel();
         }
     }
 }
