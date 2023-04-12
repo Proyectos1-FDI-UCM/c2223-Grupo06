@@ -5,6 +5,7 @@ public class SceneChanger : MonoBehaviour
 {
     #region References
     public Animator _animator;
+    private PlayerManager _playerManager;
     #endregion
 
     #region Parameters
@@ -32,6 +33,11 @@ public class SceneChanger : MonoBehaviour
         SceneManager.LoadScene(_sceneToLoad); // carga nueva escena
     }
     #endregion
+
+    private void Start()
+    {
+        _playerManager = PlayerAccess.Instance.PlayerManager;
+    }
 
     void Update()
     {
