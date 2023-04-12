@@ -72,6 +72,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isGrounded: 0
+  _distance: 3
 --- !u!1 &2311462238604020209
 GameObject:
   m_ObjectHideFlags: 0
@@ -254,10 +255,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _interactuar: 0
   _whichArm: 0
-  _conectarPiernas: 0
-  _recuperarPiernas: 0
   _conectarBrazo: 0
+  _conectarPiernas: 0
+  _conectarAlubiat: 0
   _recuperarBrazo: 0
+  _recuperarPiernas: 0
+  _recuperarAlubiat: 0
   _changeToPataforma: 0
   _cooldown: 2
 --- !u!114 &4510422160574665586

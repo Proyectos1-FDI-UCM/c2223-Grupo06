@@ -6,22 +6,16 @@ public class GroundCheck : MonoBehaviour
     public bool _isGrounded;
     public bool IsGrounded { get { return _isGrounded; } }
     private LayerMask _levelMask;
+
+    private float _distance = 1f;
+    private float _separation = 0.4f;
     #endregion
 
     #region Methods
-    /*
-    //Cuando los pies del jugador (o sea el Ground Check) toca el suelo
-    private void OnTriggerEnter2D(Collider2D collision)
+    public bool FallDamageGroundCheck()
     {
-        _isGrounded = true;
-        
-        
+        return Physics2D.Raycast(transform.parent.position, Vector2.down, _distance, _levelMask);
     }
-    //Cuando los pies del jugador (o sea el Ground Check) dejan de tocar el suelo
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        _isGrounded = false;
-    }*/
     #endregion
 
     private void Start()
@@ -32,9 +26,9 @@ public class GroundCheck : MonoBehaviour
     private void Update()
     {
         //Lanza raycast hacia abajo en tres puntos (izq, centro y drcha de Timmy, para no depender solo de uno de esos puntos)
-        if (Physics2D.Raycast(transform.position, Vector2.down, 1.5f, _levelMask)
-            || Physics2D.Raycast(transform.position - new Vector3(0.5f, 0f, 0f), Vector2.down, 1.5f, _levelMask)
-            || Physics2D.Raycast(transform.position + new Vector3(0.5f, 0f, 0f), Vector2.down, 1.5f, _levelMask))
+        if (Physics2D.Raycast(transform.parent.position, Vector2.down, _distance, _levelMask)
+            || Physics2D.Raycast(transform.parent.position - new Vector3(_separation, 0f, 0f), Vector2.down, _distance, _levelMask)
+            || Physics2D.Raycast(transform.parent.position + new Vector3(_separation, 0f, 0f), Vector2.down, _distance, _levelMask))
         {
             _isGrounded = true;
         }

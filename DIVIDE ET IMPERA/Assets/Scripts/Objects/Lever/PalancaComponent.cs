@@ -16,7 +16,6 @@ public class PalancaComponent : MonoBehaviour
     private GameObject[] _objetos;
     private GameManager _gameManager;
     [Tooltip("Objeto que contiene todas las salas para que se tengan en cuenta todas las palancas")]
-    [SerializeField]
     private GameObject _fatherGameObject;
 
     #endregion
@@ -184,6 +183,7 @@ public class PalancaComponent : MonoBehaviour
         _playerManager = PlayerAccess.Instance.PlayerManager;
         _mySpriteRenderer = GetComponent<SpriteRenderer>();
         _movingPlatform = _objeto.GetComponent<MovingPlatformComponent>();
+        _fatherGameObject = transform.parent.gameObject;
     }
 
     private void Update()

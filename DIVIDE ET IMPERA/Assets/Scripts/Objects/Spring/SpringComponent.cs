@@ -28,8 +28,6 @@ public class SpringComponent : MonoBehaviour
                 SFXComponent.Instance.SFXObjects(1);
         }
     }
-
-
     #endregion
 
     private void Start()
