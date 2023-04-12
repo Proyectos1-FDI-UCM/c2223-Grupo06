@@ -69,7 +69,20 @@ public class PalancaComponent : MonoBehaviour
     public void ActivarObjetos()
     {
         int i = 0;
-        if (_palanca)
+        while (i < _objetos.Length)
+        {
+            if (_palanca)
+            {
+                _objetos[i].GetComponent<NewPlatformMovement>().OnOff(true);
+            }
+            else
+            {
+                _objetos[i].GetComponent<NewPlatformMovement>().OnOff(false);
+            }
+        }
+
+        /*
+            if (_palanca)
         {
             // para que se puedan activar mas de un objeto
             if(_objetos.Length > 0)
@@ -101,6 +114,7 @@ public class PalancaComponent : MonoBehaviour
             //_movingPlatform.enabled = false;
             //Debug.Log("desactivar " + _movingPlatform.enabled);
         }
+        */
     }
 
     //Conecta el brazo
