@@ -16,6 +16,7 @@ public class PalancaComponent : MonoBehaviour
     private GameObject[] _objetos;
     private GameManager _gameManager;
     [Tooltip("Objeto que contiene todas las salas para que se tengan en cuenta todas las palancas")]
+    [SerializeField]
     private GameObject _fatherGameObject;
 
     #endregion
