@@ -31,6 +31,8 @@ public class PlayerManager : MonoBehaviour
     [SerializeField]
     private GameObject _piernaPrefab; // piernas a instanciar
     [SerializeField]
+    private GameObject _alubiatPrefab; // alubiat a instanciar
+    [SerializeField]
     private GameObject[] _objetosPrefabs; // array de objetos (posibles) a instanciar
 
     // ANIMACIONES
@@ -299,13 +301,11 @@ public class PlayerManager : MonoBehaviour
         {
             _brazos++; // si las destruye, obtiene un brazo más
 
-
             //sfx
             if (SFXComponent.Instance != null)
             {
                 SFXComponent.Instance.SFXPlayer(1);
             }
-            
         }
     }
     public void SoltarBrazo() // para instanciarlo
@@ -366,6 +366,30 @@ public class PlayerManager : MonoBehaviour
                 SFXComponent.Instance.SFXPlayer(0);
         }
     }
+    // alubiat
+    public void RecogerAlubiat()
+    {
+        _alubiat = true;
+
+        //sfx
+        if (SFXComponent.Instance != null)
+            SFXComponent.Instance.SFXPlayer(1);
+    }
+
+    public bool SoltarAlubiat()
+    {
+        if (_alubiat)
+        {
+            _alubiat = false;
+            if (LevelManager.Instance != null) Instantiate(_alubiatPrefab, _myTransform.position, _myTransform.rotation, _objectsReset); // instanciación
+                                                                                                                                         //sfx
+            if (SFXComponent.Instance != null)
+                SFXComponent.Instance.SFXPlayer(0);
+            return true;
+        }
+        else return false;
+
+    }
 
     // BLOQUE DE OBJETOS
     public void AddObject() // Cicla los estados en sentido incremental / para debug más que otra cosa
@@ -373,7 +397,7 @@ public class PlayerManager : MonoBehaviour
         var length = System.Enum.GetValues(typeof(Objetos)).Length; // cantidad de estados
         _objeto += 1;
 
-        if (_objeto >= (Objetos)(length)) // si se sale
+        if (_objeto >= (Objetos)length) // si se sale
         {
             _objeto = 0; // da la vuelta
         }
@@ -461,31 +485,14 @@ public class PlayerManager : MonoBehaviour
         CameraMovement.Instance.ChangeWhoToFollow(_partInControl);
     }
 
-    // alubiat
-    public void RecogerAlubiat()
-    {
-        _alubiat = true;
-    }
-
-    public bool SoltarAlubiat()
-    {
-        if (_alubiat)
-        {
-            _alubiat = false;
-            return true;
-        }
-        else return false;
-
-    }
-
     public void ConnectedToLever(GameObject lever)
     {
-        _lever= lever;
+        _lever = lever;
     }
 
     public void ConnectedToPataforma(GameObject pataforma)
     {
-        _pataforma= pataforma;
+        _pataforma = pataforma;
     }
     #endregion
 
