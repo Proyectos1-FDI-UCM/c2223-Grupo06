@@ -145,7 +145,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86511216789702642bff7ae268a89775, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _player: {fileID: 0}
+  _player: {fileID: 509390037}
   _dialogueText: {fileID: 691997880}
   _interactText: {fileID: 1357649544}
   _lines:
@@ -805,7 +805,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86511216789702642bff7ae268a89775, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _player: {fileID: 0}
+  _player: {fileID: 509390037}
   _dialogueText: {fileID: 860957680}
   _interactText: {fileID: 2080056177}
   _lines:
