@@ -40,6 +40,7 @@ public class LevelManager : MonoBehaviour
 
     public void ResetCurrentLevel() //resetea sala actual
     {
+        Debug.Log("por que");
         ResetRoom(_currentLevelNum); //resetea sala
 
         ResetPlayer(); //devuelve al jugador a las condiciones originales
