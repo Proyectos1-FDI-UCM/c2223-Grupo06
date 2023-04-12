@@ -5,8 +5,9 @@ using TMPro;
 
 public class Contador : MonoBehaviour
 {
-    private float tiempo = 0;
-    [SerializeField] private TextMeshProUGUI time;
+
+    private static float tiempo = 0;
+    [SerializeField] private static TextMeshProUGUI time;
 
     private void Start()
     {
@@ -15,7 +16,20 @@ public class Contador : MonoBehaviour
 
     private void Update()
     {
-        tiempo += Time.deltaTime;
-        time.text = tiempo.ToString("0");
+        Comienza(UIManager.Instance._activeMenu);
+    }
+
+    public static void Comienza(GameManager.GameStates estado)
+    {
+        if (estado == GameManager.GameStates.START)
+        {
+            tiempo = 0;
+        }
+        else if (estado == GameManager.GameStates.GAME) 
+        { 
+            tiempo += Time.deltaTime;
+            time.text = tiempo.ToString("0");
+        }
+
     }
 }

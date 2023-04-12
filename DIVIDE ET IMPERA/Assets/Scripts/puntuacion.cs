@@ -15,7 +15,6 @@ public class puntuacion : MonoBehaviour
 
     private void Update()
     {
-        //puntos += Time.deltaTime;
         text.text = puntos.ToString("0");
     }
 
