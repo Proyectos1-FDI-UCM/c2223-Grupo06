@@ -26148,11 +26148,11 @@ PrefabInstance:
       objectReference: {fileID: 240223816}
     - target: {fileID: 4903520362987852270, guid: 07d8c81795a81c44fb2656800a0c8ba7, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8113121086156502010, guid: 07d8c81795a81c44fb2656800a0c8ba7, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8426121718828042644, guid: 07d8c81795a81c44fb2656800a0c8ba7, type: 3}
       propertyPath: m_RootOrder
