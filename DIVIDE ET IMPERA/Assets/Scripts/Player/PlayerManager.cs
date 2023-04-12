@@ -426,8 +426,6 @@ public class PlayerManager : MonoBehaviour
                 if (SFXComponent.Instance != null)
                     SFXComponent.Instance.SFXPlayer(7);
             }
-
-            
         }
     }
     public void SoltarObjeto()  // para instanciar las piernas
