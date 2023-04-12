@@ -53,8 +53,10 @@ public class GameManager : MonoBehaviour
                 {
                     _UIManager.SetPartes(PlayerManager.State, PlayerManager.Instance.Parte);
                 }
+                Time.timeScale = 1;
                 break;
             case GameStates.PAUSE:                       //     *PAUSA*
+                Time.timeScale = 0;
                 break;
             case GameStates.GAMEOVER:                    //     *FIN DEL JUEGO*
                 
