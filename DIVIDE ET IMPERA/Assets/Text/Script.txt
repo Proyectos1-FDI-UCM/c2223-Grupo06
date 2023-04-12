@@ -1,116 +1,82 @@
-﻿[NARRADOR: 1 - TIMOTEO: 2 - BOB: 3 - ALUBIA: 4]
+﻿INICIO
 
------------------------------- PRIMER ENCUENTRO CON BOB
+CONVERSACIÓN CON LA MUERTE
+Un nuevo despertar. Tú, Timoteo I “El Grande”, antiguo monarca, has muerto.
+“¿Qué pasa colega?”
+“...”
+“Ejem, aquí yace Timoteo I, nacimiento en 1811 y fatídica muerte en 1850, hace un par de segundos para ser exactos”
+Te sorprende ser tú el que huele a podrido y sufrimiento no aquella figura, que por el contrario huele a exóticas especias.
+“Fuiste un buen tipo por lo que he leído, una vida un poco triste pero bueno, por lo menos la has palmado joven, no más sufrimiento,¿no?”
+“Supongo”
+“Bueno, el caso, por lo que veo no eres un esqueleto cualquiera”
+Sabías que algo no iba bien desde que apareciste en este onírico lugar.
+“La mayoría de esqueletos se derriten al segundo de llegar aquí, un espectáculo ciertamente grotesco no te voy a mentir”
+“¿Por qué no padezco como mis iguales? Dime, todopoderosa muerte”
+“No tengo ni idea, alargar la vida tras la gran trascendencia no debería ser posible en general, pero a veces pasan estas cosas. Ningún sistema es perfecto ¿sabes?”
+“En fin, mucha suerte en la infinitud, firma aquí y sigue tu camino. No la líes mucho por allí, eh, se un buen fiambre”
+Firmas con pluma y tinta en un papiro de color mortecino previamente garabateado por otros cientos de difuntos. Emprendes de nuevo el sendero de la nada. Tus huesos crujen.
 
------------------------------- SEGUNDO ENCUENTRO CON BOB
+DURANTE EL PUZLE FINAL
 
------------------------------- ENCUENTRO CON “ALUBIA”
-1 NARRADOR
-Tu padre Timoteo I “Alubia” yace en su tumba (1777 - 1839 ✞) maldiciendo entre susurros a todos sus antecesores
-
-2 TIMOTEO
-“Padre…”
-
-1 NARRADOR
-Consigues musitar para ti mismo
-
-4 ALUBIA
-“¡Timoteo! Quién si no que el más desgraciado de todos mis hijos”
-
-1 NARRADOR
-Se te hielan los huesos
-
-4 ALUBIA
-“Ya le dije yo a tu madre, ¡que me den todo el dinero de las Europas si este zopenco consigue llegar a los cuarenta! ¡Ja!”
-
-1 NARRADOR
-Te fijas en su cálcico cuerpo: fémur, rótula, tibia, peroné y las falanges de los pies, ni rastro de ninguno de estos huesos
-
-2 TIMOTEO: “Así que esto explica que no hayas podido salir de aquí…”
-
-1 NARRADOR
-Dices señalando la falta de extremidad
-
-4 ALUBIA
-“¡Bah! Hay que saber cuándo rendirse, sin mis ‘amiguitas’ no podría salir de aquí ni en un millón de eternidades”
-
-1 NARRADOR
-Comienza a reírse, se supone que tiene que ser gracioso
-
-1 NARRADOR
-Deberías reírte con él, aún siendo un esqueleto no puedes evitar intentar complacer a tu padre
-
-4 ALUBIA
-“¡Ja! ¡JA! ¡Jahg! ¡Cof! ¡Jaf!”
-
-1 NARRADOR
-Y *cling*, se le cae un diente
-
-2 TIMOTEO
+ENCUENTRO CON “ALUBIA”
+Tu padre Timoteo I “Alubia” yace en su tumba (1777 - 1839 ✞) maldiciendo entre susurros a todos sus antecesores.
+“Padre…”.
+Consigues musitar para ti mismo.
+“¡Timoteo! Quién si no que el más desgraciado de todos mis hijos”.
+Se te hielan los huesos. 
+“Ya le dije yo a tu madre, ¡que me den todo el dinero de las Europas si este zopenco consigue llegar a los cuarenta! ¡Ja!”.
+ Te fijas en su cálcico cuerpo: fémur, rótula, tibia, peroné y las falanges de los pies, ni rastro de ninguno de estos huesos.
+“Así que esto explica que no hayas podido salir de aquí…” 
+Dices señalando la falta de extremidad.
+“¡Bah! Hay que saber cuándo rendirse, sin mis ‘amiguitas’ no podría salir de aquí ni en un millón de eternidades”.
+Comienza a reírse, se supone que tiene que ser gracioso. 
+Deberías reírte con él, aún siendo un esqueleto no puedes evitar intentar complacer a tu padre.
+“¡Ja! ¡JA! ¡Jahg! ¡Cof! ¡Jaf!”.
+Y *cling*, se le cae un diente.
 “Pues sí que estás hecho polvo…”
+Realmente te sientes mal por él.
+“¡Válgame Dios!”.
+Se coloca el diente de nuevo.
+“¡Al cuerno contigo!”.
+Se da la vuelta y se esconde de nuevo en su ataúd.
 
-1 NARRADOR
-Realmente te sientes mal por él
 
-4 ALUBIA
-“¡Válgame Dios!”
+TERCER ENCUENTRO CON BOB - FINAL MALO
+El agua del subsuelo deslizándose por las paredes, guijarros desprendiéndose y la decepción.
+"Oh, Timoteo…”
+“...”
+"Que no pese en ti la culpa… ”
+“¿A qué te refieres?”
+Al fracaso.
+"Oh, ya sabes pequeño Timoteo, sin las piernas de tu padre este lugar permanecerá siendo un pozo de dinástica vergüenza. Sin esos podridos huesos no podrás cruzar las últimas galerías ”
+Déjalo, no insistas.
+“...”
+No hay nada más que una eternidad en una cripta.
 
-1 NARRADOR
-Se coloca el diente de nuevo
+TERCER ENCUENTRO CON BOB - FINAL BUENO 
+El agua del subsuelo deslizándose por las paredes, guijarros desprendiéndose y el triunfo.
+“¡Timoteo!”
+“...”
+“¡Dichosos sean los ojos y las esqueléticas cuencas que los sostienen!”
+Entre sus alabanzas crees atisbar una sonrisa en su calavera.
+“Ya queda poco para que tus huesos se tuesten al sol Timoteo”
+“Poco para ser libre”
+Poco para empezar a vivir tu muerte.
+“A qué esperas sobrino mío, no retoces más entre los olvidados”
 
-4 ALUBIA
-“¡Al cuerno contigo!”
-
-1 NARRADOR
-Se da la vuelta y se esconde de nuevo en su ataúd
-
------------------------------- TERCER ENCUENTRO CON BOB - FINAL MALO
-
------------------------------- TERCER ENCUENTRO CON BOB - FINAL BUENO
-
------------------------------- DESPEDIDA CON BOB
-1 NARRADOR
-Llegas a una pequeña sala de regias y carbónicas paredes, allí te espera Bob
-
-3 BOB
-"Ha llegado el momento, saldrás de aquí, siendo poco más que un montón de huesos y habiendo trascendiendo la vida terrenal serás libre por fin, lejos del yugo de tu padre…"
-
-1 NARRADOR
-Una pausa
-
-2 TIMOTEO
+DESPEDIDA CON BOB
+Llegas a una pequeña sala de regias y carbónicas paredes, allí te espera Bob. 
+"Ha llegado el momento, saldrás de aquí, siendo poco más que un montón de huesos y habiendo trascendiendo la vida terrenal serás libre por fin, lejos del yugo de tu padre…" 
+Una pausa. 
 "Y lejos de ti…"
-
-1 NARRADOR
-Dices, siendo consciente por primera vez de lo que significa alejarte de todo aquello
-
-3 BOB
-"¡Oh, Timoteo! No sufras por eso, no sufras por mí, he sido feliz estando a tu lado, estando para ti y para tu madre, es algo que siempre llevaré en mi ahora inexistente y metafórico corazón"
-
-1 NARRADOR
-La inevitable pérdida de todo lo conocido, tu costillas de comprimen
-
-2 TIMOTEO
+Dices, siendo consciente por primera vez de lo que significa alejarte de todo aquello. 
+"¡Oh, Timoteo! No sufras por eso, no sufras por mí, he sido feliz estando a tu lado, estando para ti y para tu madre, Gertrudis, es algo que siempre llevaré en mi ahora inexistente y metafórico corazón"
+La inevitable pérdida de todo lo conocido, tu costillas de comprimen. 
 "Bob…"
-
-1 NARRADOR
-Si pudieses llorar llorarías
-
-3 BOB
-"Tu madre y yo nunca pudimos tener el final feliz que siempre deseamos, mi hermano iba a ser el rey y ella la reina…
-
-3 BOB
-¡Ten por seguro, Timoteo, que tú eres el hijo que nunca tuvimos! El día que naciste juré que nunca estarías solo. ¡No mientras yo estuviese para ti!"
-
-1 NARRADOR
-Sal de aquí, descansa tus huesos bajo la sombra de un ciprés, esa vida ya no te pertenece
-
-2 TIMOTEO
+Si pudieses llorar llorarías. 
+"Tu madre y yo nunca pudimos tener el final feliz que siempre deseamos, mi hermano iba a ser el rey y ella la reina… 
+¡Ten por seguro, Timoteo, que tú eres el hijo que nunca tuvimos! El día que naciste juré que nunca estarías solo. ¡No mientras yo estuviese para ti! "
+Sal de aquí, descansa tus huesos bajo la sombra de un ciprés, esa vida ya no te pertenece. 
 "Maldigo la triste y real vida que viví, maldigo a mi padre y a todos aquellos que lucharon a su lado, maldigo la vida antes de la muerte y la vida tras ella, la muerte viviente que somos y no dejaremos de ser"
-
-1 NARRADOR
-Sumérgete en un lago, retoza entre lombrices, arde en una hoguera
-
-3 BOB
+Sumérgete en un lago, retoza entre lombrices, arde en una hoguera. 
 "¡Se libre Timoteo! ¡Se libre al fin! ¡Pisa con las falanges de tus fríos pies la hierba del nuevo día y aléjate de esta olvidada cripta!"
-------------------------------
