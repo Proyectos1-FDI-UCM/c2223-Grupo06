@@ -18,13 +18,13 @@ EditorBuildSettings:
     path: Assets/Scenes/FLUJO/4_PRINCIPAL.unity
     guid: 670dbdee8d707684da66164a06e88437
   - enabled: 1
-    path: Assets/Scenes/FLUJO/5_BOB_BUENO.unity
+    path: Assets/Scenes/FLUJO/6.1_BOB_BUENO.unity
     guid: cf40dc99849d33148b71c251f7d198d7
   - enabled: 1
-    path: Assets/Scenes/FLUJO/5_BOB_MALO.unity
+    path: Assets/Scenes/FLUJO/6.2_BOB_MALO.unity
     guid: 9b771f56581d30f4e837d8094a92b3db
   - enabled: 1
-    path: Assets/Scenes/FLUJO/7_DESPEDIDA.unity
+    path: Assets/Scenes/FLUJO/8_DESPEDIDA.unity
     guid: 7a98407cb141e3a4d8eb940ea88f2711
   - enabled: 1
     path: Assets/Scenes/FLUJO/9_PUNTOS.unity
