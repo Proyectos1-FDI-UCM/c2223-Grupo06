@@ -184,9 +184,7 @@ public class InputController : MonoBehaviour
         if (Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.D) && GetComponentInChildren<GroundCheck>().IsGrounded)
         { // Shift + D para intercambiar control a las piernas
             if (!_changeToPataforma && !PlayerManager.Instance.Piernas)
-            {
                 _changeToPataforma = true;
-            }
         }
         else if (Input.GetKeyDown(KeyCode.D))
         { // D para recoger y soltar piernas
@@ -206,45 +204,43 @@ public class InputController : MonoBehaviour
                     }
                 }
                 else
-                {
-                    PlayerManager.Instance.SoltarPiernas(); // si no, las suelta
-                }
+                    PlayerManager.Instance.SoltarPiernas();
             } // si sí
             else 
-            {
-                PlayerManager.Instance.RecogerPiernas(); // la recoge
-            }
+                PlayerManager.Instance.RecogerPiernas();
         }
         else
         // ALUBIAT
+        if (Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.C) && GetComponentInChildren<GroundCheck>().IsGrounded)
+        { // Shift + C para intercambiar control a Alubiat
+            if (!_changeToPataforma && !PlayerManager.Instance.Alubiat)
+                _changeToPataforma = true;
+        }
+        else
         if (Input.GetKeyDown(KeyCode.C))
         {
             if (!_collisionManager.DestruirAlubiat())
             { // si no recoge a alubiat del suelo
-                if (transform.parent != null) // si está en una plataforma con piernass
+                if (transform.parent != null) // si está en una plataforma con alubiat
                 {
-                    /*
-                    if (transform.parent.GetComponentInChildren<PataformaComponent>() != null && !_conectarPiernas && !transform.parent.GetComponentInChildren<PataformaComponent>().PiernasConectadas)
-                    { // si está en una pataforma sin piernas, se las pone
-                        _conectarPiernas = true;
-                        _recuperarPiernas = false;
+                    if (transform.parent.GetComponentInChildren<PataformaComponent>() != null && !_conectarAlubiat 
+                        && !transform.parent.GetComponentInChildren<PataformaComponent>().PiernasConectadas)
+                    { // si está en una pataforma sin alubiat, se las pone
+                        _conectarAlubiat = true;
+                        _recuperarAlubiat = false;
                     }
-                    else if (transform.parent.GetComponentInChildren<PataformaComponent>() != null && !_recuperarPiernas && transform.parent.GetComponentInChildren<PataformaComponent>().PiernasConectadas)
-                    { // si está en una pataforma con piernas, las recoge
-                        _recuperarPiernas = true;
-                        _conectarPiernas = false;
+                    else if (transform.parent.GetComponentInChildren<PataformaComponent>() != null && !_recuperarAlubiat 
+                        && transform.parent.GetComponentInChildren<PataformaComponent>().PiernasConectadas)
+                    { // si está en una pataforma con alubiat, las recoge
+                        _recuperarAlubiat = true;
+                        _conectarAlubiat = false;
                     }
-                    */
                 }
-                else
-                {
-                    PlayerManager.Instance.SoltarAlubiat(); // si no, las suelta
-                }
+                else // si no conecta
+                    PlayerManager.Instance.SoltarAlubiat();
             }
-            else
-            { // si recoge a alubiat
+            else // si destruye a alubiat
                 PlayerManager.Instance.RecogerAlubiat();
-            }
         }
         else if (Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.C))
         {
@@ -260,13 +256,9 @@ public class InputController : MonoBehaviour
         if (Input.GetKey(KeyCode.LeftShift) && (Input.GetKeyDown(KeyCode.Z) || Input.GetKeyDown(KeyCode.X)))
         { // Si es Shift + Z / X
             if (PlayerManager.Instance.Objeto == PlayerManager.Objetos.BOLA)
-            {
-                _throwComp.LanzarBola(); // Si es una bola en el ribcage, la lanza
-            }
+                _throwComp.LanzarBola();
             else
-            {
-                _throwComp.ChutarBola(); // Chuta una bola delante
-            }
+                _throwComp.ChutarBola();
         }
         else
         #endregion
@@ -281,9 +273,7 @@ public class InputController : MonoBehaviour
         }
 
         if (Input.GetKeyDown(KeyCode.Z))
-        {                                   // Si solo pulsa Z
-            _throwComp.LanzarBrazo(); // Lanza un brazo
-        }
+            _throwComp.LanzarBrazo();
         #endregion
     }
 
