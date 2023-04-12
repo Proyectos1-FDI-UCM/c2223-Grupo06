@@ -12,7 +12,7 @@ public class InputController : MonoBehaviour
     (mano izq)
     Z:         Lanzar brazo
     X:         Soltar y recoger objetos
-    Shift + Z / X / C: Lanzar bola si tiene en el ribcage / Chutar enfrente si no (cual de los 3? yo creo que Z)
+    Shift + Z / X: Lanzar bola si tiene en el ribcage / Chutar enfrente si no (cual de los 3? yo creo que Z)
 
     A:         Soltar brazos (o recoger si está enfrente**)
     S:         Soltar brazos (o recoger si está enfrente**)
@@ -20,11 +20,14 @@ public class InputController : MonoBehaviour
     Shift + A: Interactuar brazo 1 (remoto)
     Shift + S: Interactuar brazo 2 (remoto)
     Shift + D: Intercambiar control entre cuerpo y piernas
+
+    C:         Soltar alubiat (o recoger si está encima o enfrente)
+    Shift + C: Interactuar alubiat
         
     **: Lo duplico para que a la hora de asociar en tu mente a qué es cada cosa sea más sencillo 
     porque de esta manera ya entiendes que tanto A como S son brazos whatever the case, y D piernas (toggle) 
 
-    QUEDA CONSIDERAR: alubiat? creo que ya    */
+    QUEDA CONSIDERAR: ?  */
     #endregion
 
     #region Referencias
@@ -201,11 +204,6 @@ public class InputController : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.D))
         { // D para recoger y soltar piernas
-            if(_collisionManager.DestruirAlubiat())
-            { // si recoge a alubiat
-                PlayerManager.Instance.RecogerAlubiat();
-            }
-            else
             if (!_collisionManager.DestruirPierna())
             { // si no recoge una pierna del suelo
                 if (transform.parent != null)
@@ -231,6 +229,41 @@ public class InputController : MonoBehaviour
                 PlayerManager.Instance.RecogerPiernas(); // la recoge
             }
         }
+        else
+        // ALUBIAT
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            if (!_collisionManager.DestruirAlubiat())
+            { // si no recoge a alubiat del suelo
+                if (transform.parent != null)
+                {
+                    /*
+                    if (transform.parent.GetComponentInChildren<PataformaComponent>() != null && !_conectarPiernas && !transform.parent.GetComponentInChildren<PataformaComponent>().PiernasConectadas)
+                    { // si está en una pataforma sin piernas, se las pone
+                        _conectarPiernas = true;
+                        _recuperarPiernas = false;
+                    }
+                    else if (transform.parent.GetComponentInChildren<PataformaComponent>() != null && !_recuperarPiernas && transform.parent.GetComponentInChildren<PataformaComponent>().PiernasConectadas)
+                    { // si está en una pataforma con piernas, las recoge
+                        _recuperarPiernas = true;
+                        _conectarPiernas = false;
+                    }
+                    */
+                }
+                else
+                {
+                    PlayerManager.Instance.SoltarAlubiat(); // si no, las suelta
+                }
+            }
+            else
+            { // si recoge a alubiat
+                PlayerManager.Instance.RecogerAlubiat();
+            }
+        }
+        else if (Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.C))
+        {
+            // interactuar con alubia
+        }
         else if (_conectarBrazo) _conectarBrazo = false; // estoy probando no juzgarme (sabré si lo hacéis)
         else if (_recuperarBrazo) _recuperarBrazo = false;
         else if (_conectarPiernas) _conectarPiernas = false;
@@ -238,8 +271,8 @@ public class InputController : MonoBehaviour
         #endregion
 
         #region SOLTAR OBJETS + LANZAR / CHUTAR BOLA
-        if (Input.GetKey(KeyCode.LeftShift) && (Input.GetKeyDown(KeyCode.Z) || Input.GetKeyDown(KeyCode.X) || Input.GetKeyDown(KeyCode.C)))
-        { // Si es Shift + Z / X / C
+        if (Input.GetKey(KeyCode.LeftShift) && (Input.GetKeyDown(KeyCode.Z) || Input.GetKeyDown(KeyCode.X)))
+        { // Si es Shift + Z / X
             if (PlayerManager.Instance.Objeto == PlayerManager.Objetos.BOLA)
             {
                 _throwComp.LanzarBola(); // Si es una bola en el ribcage, la lanza
@@ -248,7 +281,6 @@ public class InputController : MonoBehaviour
             {
                 _throwComp.ChutarBola(); // Chuta una bola delante
             }
-           
         }
         else
         #endregion
@@ -333,7 +365,6 @@ public class InputController : MonoBehaviour
         {
             SFXComponent.Instance.SFXPlayerStop(2);
         }
-
     }
     #endregion
 
