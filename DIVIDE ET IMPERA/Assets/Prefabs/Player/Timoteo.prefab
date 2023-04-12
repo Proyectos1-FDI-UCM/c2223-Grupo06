@@ -236,7 +236,7 @@ Rigidbody2D:
   m_AngularDrag: 0.05
   m_GravityScale: 3
   m_Material: {fileID: 0}
-  m_Interpolate: 1
+  m_Interpolate: 2
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
@@ -253,6 +253,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _interactuar: 0
+  _whichArm: 0
   _conectarPiernas: 0
   _recuperarPiernas: 0
   _conectarBrazo: 0
@@ -319,6 +320,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _brazoPrefab: {fileID: 2364319286159778462, guid: e90420e54f5db3641ad4a0495fa575fe, type: 3}
   _piernaPrefab: {fileID: 4257366962654404361, guid: e6abbefdc04754441a1beb5de5dd8238, type: 3}
+  _alubiatPrefab: {fileID: 4257366962654404361, guid: 49fb78983d1522f469fe77a342bbc251, type: 3}
   _objetosPrefabs:
   - {fileID: 1841647649797932075, guid: 17d960716009a7244a9ee8b737452008, type: 3}
   - {fileID: 2708092253449261225, guid: 48fcaa11ff92ca543ac1b7797ce53f49, type: 3}

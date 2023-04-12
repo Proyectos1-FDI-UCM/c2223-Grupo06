@@ -30,7 +30,7 @@ public class UIManager : MonoBehaviour
     #endregion
 
     #region properties
-    private GameManager.GameStates _activeMenu;          // Menú actual
+    public GameManager.GameStates _activeMenu;          // Menú actual
     private GameObject[] _menus;                         // Array de menús totales
 
     private int _posCabeza;
