@@ -1498,7 +1498,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.8119933, y: 0.10349429}
@@ -1527,12 +1527,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _player: {fileID: 0}
-  _dialogueText: {fileID: 0}
-  _interactText: {fileID: 0}
+  _dialogueText: {fileID: 6896124482137434298}
+  _interactText: {fileID: 6638276608702751967}
   _lines: []
-  _speedText: 0
-  WaypointDialogo: {fileID: 0}
-  _speed: 0
+  _speedText: 0.1
+  WaypointDialogo: {fileID: 5064752972670972612}
+  _speed: 3
 --- !u!114 &8019888802381915878
 MonoBehaviour:
   m_ObjectHideFlags: 0
