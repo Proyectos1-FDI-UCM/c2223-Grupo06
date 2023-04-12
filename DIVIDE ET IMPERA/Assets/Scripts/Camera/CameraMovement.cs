@@ -46,8 +46,6 @@ public class CameraMovement : MonoBehaviour
         if (_followTransform != null)
         {
             _futureCamPos = _followTransform.position + new Vector3(_horizontalOffset * PlayerAccess.Instance.transform.localScale.x, _verticalOffset, _cameraTransform.position.z); ; //calculo de la posicion futura de la camara
-            Debug.Log(_cameraTransform.position.z);
-            Debug.Log(_futureCamPos);
             _cameraTransform.position = Vector3.Lerp(_cameraTransform.position, _futureCamPos, _followSpeed * Time.deltaTime); //Lerp entre la posicion de la camara actual y la futura
         }
     }

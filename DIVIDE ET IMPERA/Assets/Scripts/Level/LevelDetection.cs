@@ -11,7 +11,10 @@ public class LevelDetection : MonoBehaviour
     #region Methods
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        LevelManager.Instance.ChangeLevelIndex(_levelIndex);
+        if(collision.gameObject == PlayerAccess.Instance.gameObject)
+        {
+            LevelManager.Instance.ChangeLevelIndex(_levelIndex);
+        }
     }
     #endregion
 }

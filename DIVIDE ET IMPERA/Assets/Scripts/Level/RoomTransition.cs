@@ -54,7 +54,6 @@ public class RoomTransition : MonoBehaviour
         PlayerAccess.Instance.Animator.enabled = false;
 
         _futureCamPos = new Vector3(_roomCameraPosition.position.x, _roomCameraPosition.position.y, _cameraTransform.position.z); //calculo posicion futura de la camara
-        Debug.Log(_futureCamPos);
         for (int i = 0; i < _transitions.Length; i++)
         {
             _transitions[i].GetComponentInChildren<BoxCollider2D>().enabled = false; //se desactivan todas las transiciones
