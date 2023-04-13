@@ -424,12 +424,13 @@ public class InputController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (GameManager.Instance.CurrentState == GameManager.GameStates.GAME)
+            {
                 GameManager.Instance.RequestStateChange(GameManager.GameStates.PAUSE);
-
-            // desactiva el input
-            enabled = false;
-            PlayerAccess.Instance.MovementComponent.enabled = false;
-            PlayerAccess.Instance.Animator.enabled = false;
+                // desactiva el input
+                enabled = false;
+                PlayerAccess.Instance.MovementComponent.enabled = false;
+                PlayerAccess.Instance.Animator.enabled = false;
+            }
         }
 
         if (SFXComponent.Instance != null)
