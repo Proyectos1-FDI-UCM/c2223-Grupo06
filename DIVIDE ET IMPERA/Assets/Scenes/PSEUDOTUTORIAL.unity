@@ -172,11 +172,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2285777756704234152, guid: 767e3f423c90f78409c3048c7e7f2088, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -17.10847
+      value: 66.08
       objectReference: {fileID: 0}
     - target: {fileID: 2285777756704234152, guid: 767e3f423c90f78409c3048c7e7f2088, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.506006
+      value: 5.37
       objectReference: {fileID: 0}
     - target: {fileID: 2285777756704234152, guid: 767e3f423c90f78409c3048c7e7f2088, type: 3}
       propertyPath: m_LocalPosition.z
@@ -11061,7 +11061,7 @@ PrefabInstance:
     - target: {fileID: 4903520362987852265, guid: 07d8c81795a81c44fb2656800a0c8ba7, type: 3}
       propertyPath: _sFXComponent
       value: 
-      objectReference: {fileID: 1235049534}
+      objectReference: {fileID: 0}
     - target: {fileID: 4903520362987852270, guid: 07d8c81795a81c44fb2656800a0c8ba7, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -28113,17 +28113,6 @@ Transform:
   m_Father: {fileID: 1844049306}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1235049534 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2149221052794033543, guid: 73a3303548263b547ae86430bafeb69d, type: 3}
-  m_PrefabInstance: {fileID: 356220972}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ad9bec9d94844d5408e1af4795c7c98a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &1244563390 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8010593627775849570, guid: 3be88e3eafb2086439f2e5c5dc51fb05, type: 3}
