@@ -81,7 +81,6 @@ public class PlayerManager : MonoBehaviour
     [SerializeField]
     private bool _piernas;   // si las tiene o si no
     private bool _alubiat;   // si tiene sus piernas o no
-
     public int Brazos
     {
         get { return _brazos; }
@@ -381,7 +380,7 @@ public class PlayerManager : MonoBehaviour
         if (_alubiat)
         {
             _alubiat = false;
-            if (LevelManager.Instance != null) Instantiate(_alubiatPrefab, _myTransform.position, _myTransform.rotation, _objectsReset); // instanciación
+            if (LevelManager.Instance != null && PlayerAccess.Instance.InputController.Box == null) Instantiate(_alubiatPrefab, _myTransform.position, _myTransform.rotation, _objectsReset); // instanciación
                                                                                                                                          //sfx
             if (SFXComponent.Instance != null)
                 SFXComponent.Instance.SFXPlayer(0);

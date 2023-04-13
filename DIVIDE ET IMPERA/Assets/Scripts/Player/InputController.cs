@@ -100,6 +100,9 @@ public class InputController : MonoBehaviour
     [SerializeField]
     public bool _changeToPataforma;
     public bool ChangeToPataforma { get { return _changeToPataforma; } }
+
+    private GameObject _box;
+    public GameObject Box { get { return _box; } }
     #endregion
 
     #region Parameters
@@ -203,6 +206,17 @@ public class InputController : MonoBehaviour
                         _conectarPiernas = false;
                     }
                 }
+                else if (transform.parent == null && _box != null)
+                {
+                    if (PlayerManager.Instance.Piernas && _box.GetComponent<BoxComponent>().LegsConnected == -1)
+                    {
+                        _box.GetComponent<BoxComponent>().ConnectOrDisconnectLegs(0);
+                    }
+                    else
+                    {
+                        _box.GetComponent<BoxComponent>().ConnectOrDisconnectLegs(-1);
+                    }
+                }
                 else
                     PlayerManager.Instance.SoltarPiernas();
             } // si sí
@@ -234,6 +248,17 @@ public class InputController : MonoBehaviour
                     { // si está en una pataforma con alubiat, las recoge
                         _recuperarAlubiat = true;
                         _conectarAlubiat = false;
+                    }
+                }
+                else if (_box != null)
+                {
+                    if (PlayerManager.Instance.Alubiat && _box.GetComponent<BoxComponent>().LegsConnected == -1)
+                    {
+                        _box.GetComponent<BoxComponent>().ConnectOrDisconnectLegs(1);
+                    }
+                    else
+                    {
+                        _box.GetComponent<BoxComponent>().ConnectOrDisconnectLegs(-1);
                     }
                 }
                 else // si no conecta ni desconecta
@@ -291,6 +316,11 @@ public class InputController : MonoBehaviour
             return true;
         }
         else return false;
+    }
+
+    public void NearBoxSeter(bool onoff, GameObject box)
+    {
+        _box = box;
     }
 
     // PARA PROBAR COSAS DEL INPUT
