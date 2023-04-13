@@ -158,7 +158,10 @@ public class InputController : MonoBehaviour
         else if (_interactuar)
             _interactuar = false;
         #endregion
+    }
 
+    private void MechanicInput()
+    {
         #region SOLTAR + RECOGER + CONECTAR + DESCONECTAR PARTES
         //BRAZOS
         if (Input.GetKey(KeyCode.LeftShift) && (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.S)))
@@ -398,7 +401,8 @@ public class InputController : MonoBehaviour
         MovementInput();
 
         //------INTERACTIONS----------
-        if (GameManager.Instance.CurrentState == GameManager.GameStates.GAME) InteractInput();
+        InteractInput();
+        if (GameManager.Instance.CurrentState == GameManager.GameStates.GAME) MechanicInput();
 
         //------DEBUG-----------------
         DebugInput();

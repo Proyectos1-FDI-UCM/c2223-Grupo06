@@ -23,7 +23,7 @@ public class WBComponent : MonoBehaviour
     private SpriteRenderer _mySpriteRenderer;
     [SerializeField]
     private bool _permanente;
-    private bool _move = false;
+    //private bool _move = false;
     [SerializeField]
     private bool _priority;
     public bool Priority { get { return _priority; } }
