@@ -75,6 +75,7 @@ public class DialogueManager : MonoBehaviour
         foreach (char _letter in _lines[_index].ToCharArray()) // index aumenta segun se pasa de linea
         {
             _dialogueText.text += _letter;
+
             /*if (_letter == 'T')
             {
                 _dialogueText.color = Color.blue;
@@ -87,6 +88,10 @@ public class DialogueManager : MonoBehaviour
             { _dialogueText.color = Color.white; }*/
             // yield return null;
             yield return new WaitForSeconds(_speedText); // proporciona el siguiente valor en la iteración
+
+            // sfx
+            if (SFXComponent.Instance != null)
+                SFXComponent.Instance.SFXDialogue(0);
         }
     }
 

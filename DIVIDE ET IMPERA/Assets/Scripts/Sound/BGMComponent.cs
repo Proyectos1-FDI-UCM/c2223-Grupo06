@@ -25,10 +25,12 @@ public class BGMComponent : MonoBehaviour
     /// <summary>
     /// TUTORIAL/CHULETA DE TEMAZOS
     /// 
+    /// -1 --> no bgm
     /// 0 --> "Game Over"
     /// 1 --> "Major Loss"
     /// 2 --> "Never Suerender"
     /// 3 --> "Skeleton Waltz"
+    /// 4 --> el otro cumbion de jazz
     /// </summary>
 
     #region methods
@@ -71,7 +73,7 @@ public class BGMComponent : MonoBehaviour
                 _playAmbience = false;
                 break;
             case GameStates.INTRO:
-                _nextBGM = 3;
+                _nextBGM = -1;
                 _playAmbience = true;
                 break;
             case GameStates.GAME:                        //     *JUEGO*
@@ -125,7 +127,11 @@ public class BGMComponent : MonoBehaviour
         {
             StopBGM(_currentBGM);
             _currentBGM = _nextBGM;
-            PlayBGM(_currentBGM);
+            if(_currentBGM > 0)
+            {
+                PlayBGM(_currentBGM);
+            }
+            
             if (_playAmbience && !_ambience.isPlaying)
             {
                 PlayAmbience();

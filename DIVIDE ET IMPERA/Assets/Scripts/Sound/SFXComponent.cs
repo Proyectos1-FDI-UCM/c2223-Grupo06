@@ -12,6 +12,8 @@ public class SFXComponent : MonoBehaviour
     [SerializeField]
     private AudioSource[] _objectsSFX;
     [SerializeField]
+    private AudioSource[] _dialogueSFX;
+    [SerializeField]
     private AudioSource _yippie;
 
     /// <summary>
@@ -39,6 +41,15 @@ public class SFXComponent : MonoBehaviour
     /// 4 --> abrir puerta con llave [en el door component]
     /// 
     /// </summary>
+    /// 
+
+
+    /// <summary>
+    /// ---- TUTO DE ARRAY DE SFX DE DIALOGOS--- 
+    /// 0 --> el que hay xd
+    /// 
+    /// </summary>
+
 
 
     void Awake()
@@ -76,6 +87,22 @@ public class SFXComponent : MonoBehaviour
         if (_objectsSFX[i] != null)
         {
             _objectsSFX[i].Stop();
+        }
+    }
+
+    // metodos generales de dialogos
+    public void SFXDialogue(int i)
+    {
+        if (_dialogueSFX[i] != null)
+        {
+            _dialogueSFX[i].Play();
+        }
+    }
+    public void SFXDialogueStop(int i)
+    {
+        if (_dialogueSFX[i] != null)
+        {
+            _dialogueSFX[i].Stop();
         }
     }
 
