@@ -332,6 +332,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5171360444949630975, guid: a2dc22ca95a3d2948b60f5a7cc02d0ff, type: 3}
+      propertyPath: _player
+      value: 
+      objectReference: {fileID: 509390037}
+    - target: {fileID: 5171360444949630975, guid: a2dc22ca95a3d2948b60f5a7cc02d0ff, type: 3}
+      propertyPath: _alubiat
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5171360444949630975, guid: a2dc22ca95a3d2948b60f5a7cc02d0ff, type: 3}
+      propertyPath: _sceneCollider
+      value: 
+      objectReference: {fileID: 625270753}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a2dc22ca95a3d2948b60f5a7cc02d0ff, type: 3}
 --- !u!1 &384400476
@@ -452,6 +464,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _enConversacion: 0
+--- !u!1 &625270753 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1662292733198401255, guid: a2dc22ca95a3d2948b60f5a7cc02d0ff, type: 3}
+  m_PrefabInstance: {fileID: 202496603}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1000147215
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12779,16 +12796,160 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 509390037}
     - target: {fileID: 742018286442928541, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
+      propertyPath: _speedText
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 742018286442928541, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
       propertyPath: _lines.Array.size
-      value: 2
+      value: 36
       objectReference: {fileID: 0}
     - target: {fileID: 742018286442928541, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
       propertyPath: _lines.Array.data[0]
-      value: como ligar con la parca en los sims
+      value: 'NARRADOR: Un nuevo despertar'
       objectReference: {fileID: 0}
     - target: {fileID: 742018286442928541, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
       propertyPath: _lines.Array.data[1]
-      value: tutorial
+      value: "NARRADOR: T\xFA, Timoteo I \u201CEl Grande\u201D, antiguo monarca,
+        has muerto"
+      objectReference: {fileID: 0}
+    - target: {fileID: 742018286442928541, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
+      propertyPath: _lines.Array.data[2]
+      value: "LA PARCA: \xBFQu\xE9 pasa colega?"
+      objectReference: {fileID: 0}
+    - target: {fileID: 742018286442928541, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
+      propertyPath: _lines.Array.data[3]
+      value: 'TIMOTEO: ...'
+      objectReference: {fileID: 0}
+    - target: {fileID: 742018286442928541, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
+      propertyPath: _lines.Array.data[4]
+      value: 'LA PARCA: Ejem'
+      objectReference: {fileID: 0}
+    - target: {fileID: 742018286442928541, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
+      propertyPath: _lines.Array.data[5]
+      value: "LA PARCA: Aqu\xED yace Timoteo I, nacimiento en 1811"
+      objectReference: {fileID: 0}
+    - target: {fileID: 742018286442928541, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
+      propertyPath: _lines.Array.data[6]
+      value: "LA PARCA: Y fat\xEDdica muerte en 1850"
+      objectReference: {fileID: 0}
+    - target: {fileID: 742018286442928541, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
+      propertyPath: _lines.Array.data[7]
+      value: 'LA PARCA: Hace un par de segundos para ser exactos'
+      objectReference: {fileID: 0}
+    - target: {fileID: 742018286442928541, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
+      propertyPath: _lines.Array.data[8]
+      value: "NARRADOR: Te sorprende ser t\xFA el que huele a podrido y sufrimiento"
+      objectReference: {fileID: 0}
+    - target: {fileID: 742018286442928541, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
+      propertyPath: _lines.Array.data[9]
+      value: 'NARRADOR: Y no aquella figura'
+      objectReference: {fileID: 0}
+    - target: {fileID: 742018286442928541, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
+      propertyPath: _lines.Array.data[10]
+      value: "NARRADOR: Que por el contrario huele a ex\xF3ticas especias"
+      objectReference: {fileID: 0}
+    - target: {fileID: 742018286442928541, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
+      propertyPath: _lines.Array.data[11]
+      value: "LA PARCA: Fuiste un buen tipo por lo que he le\xEDdo"
+      objectReference: {fileID: 0}
+    - target: {fileID: 742018286442928541, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
+      propertyPath: _lines.Array.data[12]
+      value: 'LA PARCA: Una vida un poco triste pero bueno'
+      objectReference: {fileID: 0}
+    - target: {fileID: 742018286442928541, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
+      propertyPath: _lines.Array.data[13]
+      value: 'LA PARCA: Por lo menos la has palmado joven'
+      objectReference: {fileID: 0}
+    - target: {fileID: 742018286442928541, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
+      propertyPath: _lines.Array.data[14]
+      value: "LA PARCA: No m\xE1s sufrimiento,\xBFno?"
+      objectReference: {fileID: 0}
+    - target: {fileID: 742018286442928541, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
+      propertyPath: _lines.Array.data[15]
+      value: 'TIMOTEO: Supongo'
+      objectReference: {fileID: 0}
+    - target: {fileID: 742018286442928541, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
+      propertyPath: _lines.Array.data[16]
+      value: 'LA PARACA: Bueno, el caso'
+      objectReference: {fileID: 0}
+    - target: {fileID: 742018286442928541, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
+      propertyPath: _lines.Array.data[17]
+      value: 'LA PARCA: Por lo que veo no eres un esqueleto cualquiera'
+      objectReference: {fileID: 0}
+    - target: {fileID: 742018286442928541, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
+      propertyPath: _lines.Array.data[18]
+      value: "NARRADOR: Sab\xEDas que algo no iba bien desde que apareciste en este
+        on\xEDrico lugar"
+      objectReference: {fileID: 0}
+    - target: {fileID: 742018286442928541, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
+      propertyPath: _lines.Array.data[19]
+      value: "LA PARCA: La mayor\xEDa de esqueletos se derriten al segundo de llegar
+        aqu\xED"
+      objectReference: {fileID: 0}
+    - target: {fileID: 742018286442928541, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
+      propertyPath: _lines.Array.data[20]
+      value: "LA PARCA: Un espect\xE1culo ciertamente grotesco no te voy a mentir"
+      objectReference: {fileID: 0}
+    - target: {fileID: 742018286442928541, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
+      propertyPath: _lines.Array.data[21]
+      value: "TIMOTEO: \xBFPor qu\xE9 no padezco como mis iguales?"
+      objectReference: {fileID: 0}
+    - target: {fileID: 742018286442928541, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
+      propertyPath: _lines.Array.data[22]
+      value: 'TIMOTEO: Dime, todopoderosa muerte'
+      objectReference: {fileID: 0}
+    - target: {fileID: 742018286442928541, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
+      propertyPath: _lines.Array.data[23]
+      value: 'LA PARCA: No tengo ni idea'
+      objectReference: {fileID: 0}
+    - target: {fileID: 742018286442928541, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
+      propertyPath: _lines.Array.data[24]
+      value: "LA PARCA: Alargar la vida tras la gran trascendencia no deber\xEDa
+        ser posible"
+      objectReference: {fileID: 0}
+    - target: {fileID: 742018286442928541, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
+      propertyPath: _lines.Array.data[25]
+      value: 'LA PARCA: Pero a veces estas cosas pasan'
+      objectReference: {fileID: 0}
+    - target: {fileID: 742018286442928541, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
+      propertyPath: _lines.Array.data[26]
+      value: "LA PARCA: Ning\xFAn sistema es perfecto \xBFsabes?"
+      objectReference: {fileID: 0}
+    - target: {fileID: 742018286442928541, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
+      propertyPath: _lines.Array.data[27]
+      value: 'TIMOTEO: ...'
+      objectReference: {fileID: 0}
+    - target: {fileID: 742018286442928541, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
+      propertyPath: _lines.Array.data[28]
+      value: 'LA PARCA: En fin, mucha suerte en la infinitud'
+      objectReference: {fileID: 0}
+    - target: {fileID: 742018286442928541, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
+      propertyPath: _lines.Array.data[29]
+      value: "LA PARCA: Firma aqu\xED y sigue tu camino"
+      objectReference: {fileID: 0}
+    - target: {fileID: 742018286442928541, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
+      propertyPath: _lines.Array.data[30]
+      value: "LA PARCA: No la l\xEDes mucho por all\xED, eh"
+      objectReference: {fileID: 0}
+    - target: {fileID: 742018286442928541, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
+      propertyPath: _lines.Array.data[31]
+      value: 'LA PARCA: Se un buen fiambre'
+      objectReference: {fileID: 0}
+    - target: {fileID: 742018286442928541, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
+      propertyPath: _lines.Array.data[32]
+      value: 'NARRADOR: Firmas con pluma y tinta en un papiro de color mortecino'
+      objectReference: {fileID: 0}
+    - target: {fileID: 742018286442928541, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
+      propertyPath: _lines.Array.data[33]
+      value: 'NARRADOR:  Garabateado por otros cientos de difuntos'
+      objectReference: {fileID: 0}
+    - target: {fileID: 742018286442928541, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
+      propertyPath: _lines.Array.data[34]
+      value: 'NARRADOR:  Emprendes de nuevo el sendero de la nada'
+      objectReference: {fileID: 0}
+    - target: {fileID: 742018286442928541, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
+      propertyPath: _lines.Array.data[35]
+      value: 'NARRADOR: Tus huesos crujen'
       objectReference: {fileID: 0}
     - target: {fileID: 1535636410026421267, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
       propertyPath: m_IsActive
@@ -12800,23 +12961,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1627738012742970003, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 350.72
+      value: 495.32
       objectReference: {fileID: 0}
     - target: {fileID: 1627738012742970003, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 147.75
+      value: 131.5
       objectReference: {fileID: 0}
     - target: {fileID: 1627738012742970003, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 338
+      value: 339
       objectReference: {fileID: 0}
     - target: {fileID: 1627738012742970003, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 1708
+      value: 1736
       objectReference: {fileID: 0}
     - target: {fileID: 1627738012742970003, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 19
+      value: 55
       objectReference: {fileID: 0}
     - target: {fileID: 2980812906896535388, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
       propertyPath: m_RootOrder

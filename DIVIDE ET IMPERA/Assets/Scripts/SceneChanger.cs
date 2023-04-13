@@ -7,6 +7,7 @@ public class SceneChanger : MonoBehaviour
     public Animator _animator;
     private PlayerManager _playerManager;
     [SerializeField] private GameObject _player;
+    [SerializeField] private GameObject _sceneCollider;
     #endregion
 
     #region Parameters

@@ -6,34 +6,31 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/FLUJO/1_MENU INICIO.unity
-    guid: af79fc7e0c3fb7d4c95b118519ae78c7
-  - enabled: 1
-    path: Assets/Scenes/FLUJO/2_INICIO.unity
+    path: Assets/Scenes/FLUJO/1_INICIO.unity
     guid: c3d175ec2d7b00f4dad491b1918ac4bd
   - enabled: 1
-    path: Assets/Scenes/FLUJO/3_TUTORIAL.unity
+    path: Assets/Scenes/FLUJO/2_TUTORIAL.unity
     guid: fb2a5928ed30dec4cb5a294590cd66cc
   - enabled: 1
-    path: Assets/Scenes/FLUJO/4_PRINCIPAL.unity
+    path: Assets/Scenes/FLUJO/3_PRINCIPAL.unity
     guid: 670dbdee8d707684da66164a06e88437
   - enabled: 1
-    path: Assets/Scenes/FLUJO/5_ALUBIA.unity
+    path: Assets/Scenes/FLUJO/4_ALUBIA.unity
     guid: a71a16e4c37da98408a2c71b09dec524
   - enabled: 1
-    path: Assets/Scenes/FLUJO/6.1_BOB_BUENO.unity
+    path: Assets/Scenes/FLUJO/5.1_BOB_BUENO.unity
     guid: cf40dc99849d33148b71c251f7d198d7
   - enabled: 1
-    path: Assets/Scenes/FLUJO/6.2_BOB_MALO.unity
+    path: Assets/Scenes/FLUJO/5.2_BOB_MALO.unity
     guid: 9b771f56581d30f4e837d8094a92b3db
   - enabled: 1
-    path: Assets/Scenes/FLUJO/7_PUZLE.unity
+    path: Assets/Scenes/FLUJO/6_PUZLE.unity
     guid: c81f5caef1f7be14698adfffe729812d
   - enabled: 1
-    path: Assets/Scenes/FLUJO/8_DESPEDIDA.unity
+    path: Assets/Scenes/FLUJO/7_DESPEDIDA.unity
     guid: 7a98407cb141e3a4d8eb940ea88f2711
   - enabled: 1
-    path: Assets/Scenes/FLUJO/9_PUNTOS.unity
+    path: Assets/Scenes/FLUJO/8_PUNTOS.unity
     guid: 9efa11b7d8ecaab4d83e1a630b5314ac
   - enabled: 1
     path: Assets/Scenes/DIALOGO Y FADE.unity
