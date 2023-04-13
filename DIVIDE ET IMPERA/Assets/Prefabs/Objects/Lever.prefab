@@ -149,10 +149,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1664ac5569988c46bfa3cd301c6832f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _objeto: {fileID: 0}
-  _palanca: 0
-  _brazoConectado: 0
+  _objetos: []
+  _fatherGameObject: {fileID: 0}
+  _temporary: 0
   _validPalancaHitbox: 0
+  _brazoNum: 0
 --- !u!114 &5894027494703101642
 MonoBehaviour:
   m_ObjectHideFlags: 0

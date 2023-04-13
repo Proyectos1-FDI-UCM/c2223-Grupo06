@@ -133,7 +133,7 @@ public class PataformaComponent : MonoBehaviour
     private void ConectaPiernas()
     {
         //-------CONECTAR PIERNAS-------------------
-        // se pulsa R y se esta cerca de la pataforma
+        // se pulsa D y se esta cerca de la pataforma
         if (ConectarPiernas())
         {
             // conecta las piernas en la pataforma
@@ -147,7 +147,7 @@ public class PataformaComponent : MonoBehaviour
 
             PlayerManager.Instance.ConnectedToPataforma(gameObject);
         }
-        // se pulsa T, está cerca de la pataforma, está en los estados correctos y hay patas conectadas
+        // se pulsa D, está cerca de la pataforma, está en los estados correctos y hay patas conectadas
         else if (DesconectarPiernas())
         {
             // desconecta las piernas en la pataforma
@@ -157,11 +157,38 @@ public class PataformaComponent : MonoBehaviour
             PlayerManager.Instance.HolaPiernas();
 
             PlayerManager.Instance.ConnectedToPataforma(null);
+        } 
+        else
+        //-------CONECTAR ALUBIAT-------------------
+        // se pulsa C y se esta cerca de la pataforma
+        if (ConectarAlubiat())
+        {
+            Debug.Log("alubiat trolleando ");
+            // conecta las piernas en la pataforma
+            _alubiatConectadas = true;
+
+            if (PlayerManager.Instance.Alubiat)
+            {
+                PlayerManager.Instance.AdiosAlubiat();
+            }
+
+            PlayerManager.Instance.ConnectedToPataforma(gameObject);
         }
+        // se pulsa C, está cerca de la pataforma, está en los estados correctos y hay patas conectadas
+        else if (DesconectarAlubiat())
+        {
+            // desconecta las piernas en la pataforma
+            _alubiatConectadas = false;
+
+            PlayerManager.Instance.HolaAlubiat();
+
+            PlayerManager.Instance.ConnectedToPataforma(null);
+        }
+
     }
     private void Visual()
     {
-        if (_piernasConectadas)
+        if (_piernasConectadas || _alubiatConectadas)
         {
             _patas.SetActive(true);
         }
@@ -176,13 +203,16 @@ public class PataformaComponent : MonoBehaviour
         //---INPUT CHANGE---------------------------------------
         //------de pataforma a player---------------------------
         // Shift + D para cambiar de vuelta
-        if (Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.D))
+        if (((Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.D)) && _piernasConectadas)
+            || (Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.C)) && _alubiatConectadas)
         {
             PlayerInControl();
         }
+
         //------de player a pataforma----------------------------
         // Shift + D para reactivar al player
-        if (_inputController.ChangeToPataforma && _piernasConectadas)
+        if (_inputController.ChangeToPiernas && _piernasConectadas
+            || _inputController.ChangeToAlubiat && _alubiatConectadas)
         {
             LegsInControl();
         }
@@ -237,7 +267,15 @@ public class PataformaComponent : MonoBehaviour
         _player.GetComponent<InputController>().enabled = false;
 
         // desactiva el input del player
-        _inputController._changeToPataforma = false;
+        if (_piernasConectadas) 
+        {
+            _inputController._changeToPiernas = false; 
+        }
+        else if (_alubiatConectadas)
+        {
+            _inputController._changeToAlubiat = false;
+        }
+        
 
         // cambio de control de parte (es para el HUD)
         PlayerManager.Instance.SwitchPartControl(PlayerManager.Partes.PIERNAS);

@@ -98,8 +98,11 @@ public class InputController : MonoBehaviour
     // indica si el jugador quiere cambiar el input a la Pataforma
     // booleano para saber si se ha cambiado el input a la pataforma
     [SerializeField]
-    public bool _changeToPataforma;
-    public bool ChangeToPataforma { get { return _changeToPataforma; } }
+    public bool _changeToPiernas;
+    public bool ChangeToPiernas { get { return _changeToPiernas; } }
+    [SerializeField]
+    public bool _changeToAlubiat;
+    public bool ChangeToAlubiat { get { return _changeToAlubiat; } }
 
     private GameObject _box;
     public GameObject Box { get { return _box; } }
@@ -158,7 +161,10 @@ public class InputController : MonoBehaviour
         else if (_interactuar)
             _interactuar = false;
         #endregion
+    }
 
+    private void MechanicInput()
+    {
         #region SOLTAR + RECOGER + CONECTAR + DESCONECTAR PARTES
         //BRAZOS
         if (Input.GetKey(KeyCode.LeftShift) && (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.S)))
@@ -186,8 +192,8 @@ public class InputController : MonoBehaviour
         // PIERNAS 
         if (Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.D) && GetComponentInChildren<GroundCheck>().IsGrounded)
         { // Shift + D para intercambiar control a las piernas
-            if (!_changeToPataforma && !PlayerManager.Instance.Piernas)
-                _changeToPataforma = true;
+            if (!_changeToPiernas && !PlayerManager.Instance.Piernas)
+                _changeToPiernas = true;
         }
         else if (Input.GetKeyDown(KeyCode.D))
         { // D para recoger y soltar piernas
@@ -227,8 +233,11 @@ public class InputController : MonoBehaviour
         // ALUBIAT
         if (Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.C) && GetComponentInChildren<GroundCheck>().IsGrounded)
         { // Shift + C para intercambiar control a Alubiat
-            if (!_changeToPataforma && !PlayerManager.Instance.Alubiat)
-                _changeToPataforma = true;
+            if (!_changeToAlubiat && !PlayerManager.Instance.Alubiat)
+            {
+                _changeToAlubiat = true;
+            }
+                
         }
         else
         if (Input.GetKeyDown(KeyCode.C))
@@ -238,13 +247,13 @@ public class InputController : MonoBehaviour
                 if (transform.parent != null) // si está en una plataforma con alubiat
                 {
                     if (transform.parent.GetComponentInChildren<PataformaComponent>() != null && !_conectarAlubiat
-                        && !transform.parent.GetComponentInChildren<PataformaComponent>().PiernasConectadas)
+                        && !transform.parent.GetComponentInChildren<PataformaComponent>().AlubiatConectadas)
                     { // si está en una pataforma sin alubiat, se las pone
                         _conectarAlubiat = true;
                         _recuperarAlubiat = false;
                     }
                     else if (transform.parent.GetComponentInChildren<PataformaComponent>() != null && !_recuperarAlubiat
-                        && transform.parent.GetComponentInChildren<PataformaComponent>().PiernasConectadas)
+                        && transform.parent.GetComponentInChildren<PataformaComponent>().AlubiatConectadas)
                     { // si está en una pataforma con alubiat, las recoge
                         _recuperarAlubiat = true;
                         _conectarAlubiat = false;
@@ -398,7 +407,8 @@ public class InputController : MonoBehaviour
         MovementInput();
 
         //------INTERACTIONS----------
-        if (GameManager.Instance.CurrentState == GameManager.GameStates.GAME) InteractInput();
+        InteractInput();
+        if (GameManager.Instance.CurrentState == GameManager.GameStates.GAME) MechanicInput();
 
         //------DEBUG-----------------
         DebugInput();
