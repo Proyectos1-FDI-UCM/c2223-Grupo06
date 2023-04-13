@@ -70,6 +70,10 @@ public class BGMComponent : MonoBehaviour
                 _nextBGM = 4;
                 _playAmbience = false;
                 break;
+            case GameStates.INTRO:
+                _nextBGM = 3;
+                _playAmbience = true;
+                break;
             case GameStates.GAME:                        //     *JUEGO*
                 _nextBGM = 3;
                 _playAmbience = true;

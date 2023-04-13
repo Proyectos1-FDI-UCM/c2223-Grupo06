@@ -108,7 +108,7 @@ public class LevelManager : MonoBehaviour
     {
         _currentLevel = _levels[_currentLevelNum];
         _roomSpawn = _roomSpawns[_currentLevelNum];
-        _currentHealth = PlayerAccess.Instance.BoneBar.CurrentBoneState;
+        if (PlayerManager.Instance != null) _currentHealth = PlayerAccess.Instance.BoneBar.CurrentBoneState;
     }
 
     public void GlobalReset()

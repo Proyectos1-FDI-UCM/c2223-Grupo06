@@ -63,8 +63,11 @@ public class SceneChanger : MonoBehaviour
 
     private void Start()
     {
-        _playerManager = PlayerAccess.Instance.PlayerManager;
-        _alubiat = PlayerManager.Instance.Alubiat;
+        if (PlayerManager.Instance != null)
+        {
+            _playerManager = PlayerAccess.Instance.PlayerManager;
+            _alubiat = PlayerManager.Instance.Alubiat;
+        }
     }
 
     void Update()
