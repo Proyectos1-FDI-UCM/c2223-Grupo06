@@ -5,6 +5,7 @@ public class UIManager : MonoBehaviour
 {
     #region references
     [SerializeField] private GameObject _StartMenu;
+    [SerializeField] private GameObject _IntroMenu;
     [SerializeField] private GameObject _HUD;
     [SerializeField] private GameObject _PauseMenu;
     [SerializeField] private GameObject _GameOverMenu;
@@ -69,29 +70,31 @@ public class UIManager : MonoBehaviour
         }
     } */
 
-    public void StartToGame() // menu iniacial -> juego (empezar a jugar)
+    public void StartToIntro() // menu iniacial -> intro (empezar a jugar)
     {
         //if (LevelManager.Instance != null) ResetRoom();
-        RequestStateChange(GameManager.GameStates.GAME); // referenciando al gamemanager (importante! si no no cambia de estado)
+        RequestStateChange(GameManager.GameStates.INTRO); // referenciando al gamemanager (importante! si no no cambia de estado)
 
         // activa el input
         _player.GetComponent<InputController>().enabled = true;
         CameraMovement.Instance.enabled = true;
     }
 
+    public void IntroToGame() // intro -> juego
+    {
+        RequestStateChange(GameManager.GameStates.GAME); // referenciando al gamemanager (importante! si no no cambia de estado)
+        _player.GetComponent<InputController>().enabled = true;
+    }
+
     public void ResumeGame() // menu de pausa -> juego (reanudar)
     {
         RequestStateChange(GameManager.GameStates.GAME); // referenciando al gamemanager (importante! si no no cambia de estado)
-
-        // activa el input
         _player.GetComponent<InputController>().enabled = true;
     }
 
     public void PauseToStart() // menu de pausa -> menu inicial
     {
         RequestStateChange(GameManager.GameStates.START); // referenciando al gamemanager (importante! si no no cambia de estado)
-
-        // activa el input
         _player.GetComponent<InputController>().enabled = true;
     }
 
@@ -160,7 +163,7 @@ public class UIManager : MonoBehaviour
     #region HUD
     // PARTES
     public void SetPartes(PlayerManager.TimmyStates state, PlayerManager.Partes parte) // Inicializa el HUD
-    {
+    { // Actúa tanto como SetUp y Update
         bool cabeza = true;
         bool brazo1 = false;
         bool brazo2 = false;
@@ -271,18 +274,20 @@ public class UIManager : MonoBehaviour
     {
 
 
-        _menus = new GameObject[8]; // creación del array de menús y asignación
+        _menus = new GameObject[9]; // creación del array de menús y asignación
         _menus[0] = _StartMenu;
-        _menus[1] = _HUD;
-        _menus[2] = _PauseMenu;
-        _menus[3] = _GameOverMenu;
-        _menus[4] = _scoreMenu;
-        _menus[5] = _levelSelector;
-        _menus[6] = _ControlesMenu;
-        _menus[7] = _optionsMenu;
+        _menus[1] = _IntroMenu;
+        _menus[2] = _HUD;
+        _menus[3] = _PauseMenu;
+        _menus[4] = _GameOverMenu;
+        _menus[5] = _scoreMenu;
+        _menus[6] = _levelSelector;
+        _menus[7] = _ControlesMenu;
+        _menus[8] = _optionsMenu;
         // habrá que poner más segun añadamos menuses
         _activeMenu = GameManager.Instance.CurrentState; // asocia el menú actual con el estado actual
 
+        // HUD
         _posCabeza = 0; // posiciones concretas de cada parte en el array de imágenes
         _posBrazo1 = 1;
         _posBrazo2 = 2;
@@ -290,8 +295,9 @@ public class UIManager : MonoBehaviour
         _posAlubiat = 4;
         _posCostillas = 5;
 
+        // REGISTROS
         GameManager.Instance.RegisterUIManager(this);
-        PlayerManager.Instance.RegisterUIManager(this);
+        if (PlayerManager.Instance != null) PlayerManager.Instance.RegisterUIManager(this);
     }
 
     /*

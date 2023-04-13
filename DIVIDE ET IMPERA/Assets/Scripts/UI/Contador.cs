@@ -24,7 +24,7 @@ public class Contador : MonoBehaviour
     {
         if (estado == GameManager.GameStates.GAME)
         {
-            tiempo += Time.deltaTime * 1 / 2;
+            tiempo += Time.deltaTime;
             time.text = tiempo.ToString("0");
         }
 

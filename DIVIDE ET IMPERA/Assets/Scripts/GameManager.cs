@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public enum GameStates { START, GAME, PAUSE, GAMEOVER, SCORE, LEVELSELECTOR, CONTROLES, OPCIONES };    // Estados del juego (faltan)
+    public enum GameStates { START, INTRO, GAME, PAUSE, GAMEOVER, SCORE, LEVELSELECTOR, CONTROLES, OPCIONES };    // Estados del juego (faltan)
 
     #region references
     private UIManager _UIManager;
@@ -48,11 +48,11 @@ public class GameManager : MonoBehaviour
 
             case GameStates.START:                       //     *MENÚ INICIAL*
                 break;
+            case GameStates.INTRO:                       //     *INTRO*
+                break;
             case GameStates.GAME:                        //     *JUEGO*
                 if (_UIManager != null) // Inicializa valores del HUD
-                {
                     _UIManager.SetPartes(PlayerManager.State, PlayerManager.Instance.Parte);
-                }
                 Time.timeScale = 1;
                 break;
             case GameStates.PAUSE:                       //     *PAUSA*

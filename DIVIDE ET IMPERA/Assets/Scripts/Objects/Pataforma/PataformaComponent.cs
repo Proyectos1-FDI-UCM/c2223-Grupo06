@@ -11,10 +11,7 @@ public class PataformaComponent : MonoBehaviour
     /// Cuando se pone en escena el objeto, tiene referenciado a Timmy, pero no al Timmy de la escena,
     /// por lo que teneis que arrastrar al Timmy de la escena a la referencia en el componente
     /// 
-    /// 
-    /// Ya no es necesario lo anterior, cambiado a que este hecho por codigo
-    /// 
-    /// 
+    /// /// /// Ya no es necesario lo anterior, cambiado a que este hecho por codigo
     /// 
     /// y con esto se acabó el tutorial maravilloso y estupendo, recordad darle a like y compartir
     /// y acivar la campanita ;)

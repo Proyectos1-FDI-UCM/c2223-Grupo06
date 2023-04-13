@@ -398,7 +398,7 @@ public class InputController : MonoBehaviour
         MovementInput();
 
         //------INTERACTIONS----------
-        InteractInput();
+        if (GameManager.Instance.CurrentState == GameManager.GameStates.GAME) InteractInput();
 
         //------DEBUG-----------------
         DebugInput();
@@ -407,10 +407,7 @@ public class InputController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (GameManager.Instance.CurrentState == GameManager.GameStates.GAME)
-            {
                 GameManager.Instance.RequestStateChange(GameManager.GameStates.PAUSE);
-            }
-
 
             // desactiva el input
             enabled = false;
