@@ -24,32 +24,22 @@ public class SceneChanger : MonoBehaviour
     {
         if (collision.gameObject == _player)            //filtro para que solo el jugador pueda interactuar con cosas
         {
-            Debug.Log("COLISION BABYYY");
-            FadeToLevel(0);
-            Debug.Log("con dos huevos gordos");
+            FadeToNextLevel();
         }
 
-        /*
-        if ((collision.gameObject == _player) && (_alubiat))
-        {
-            Debug.Log("como ligar con la parca en los sims");
-            FadeToLevel(5);
-        }
-        else { Debug.Log("comiendo patatas"); FadeToLevel(2); }
-
-       /* if ((collision.gameObject == _player) && (_alubiat) && (SceneManager.GetActiveScene().buildIndex == 4))
+       /* if ((collision.gameObject == _player) && (_alubiat) && (SceneManager.GetActiveScene().buildIndex == 3))  // si hace colisión + tienes a alubia + estas en escena 3
        {
-           FadeToLevel(5);
+           FadeToLevel(4);    // ir a final bueno (escena 4)
        }
        else 
        { 
-           FadeToLevel(6); 
+           FadeToLevel(5);    // ir a final malo (escena 5)
        }
 
-       if (SceneManager.GetActiveScene().buildIndex == 9)
+       if ((collision.gameObject == _player) && (SceneManager.GetActiveScene().buildIndex == 9))
        {
            FadeToLevel(0);
-       } */
+       }*/
     }
 
     public void FadeToLevel(int _sceneBuildIndex)  // el level index es el numero que tienen las escenas en los build settings
@@ -57,6 +47,7 @@ public class SceneChanger : MonoBehaviour
         _sceneToLoad = _sceneBuildIndex; // guarda el index en scene to load
         SceneManager.LoadScene(_sceneToLoad);
         _animator.SetTrigger("FadeOut"); // animacion de fade out
+       // GameManager.Instance.RequestStateChange(GameManager.GameStates.GAME);
     }
 
     public void FadeToNextLevel()
@@ -65,7 +56,7 @@ public class SceneChanger : MonoBehaviour
         GameManager.Instance.RequestStateChange(GameManager.GameStates.GAME);
     }
 
-    public void OnFadeComplete()
+    public void OnFadeComplete() // triggereado con el animator
     {
         SceneManager.LoadScene(_sceneToLoad); // carga nueva escena
     }
@@ -77,15 +68,6 @@ public class SceneChanger : MonoBehaviour
         {
             _playerManager = PlayerAccess.Instance.PlayerManager;
             _alubiat = PlayerManager.Instance.Alubiat;
-        }
-    }
-
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            // FadeToLevel(1);
-            FadeToNextLevel();
         }
     }
 }
