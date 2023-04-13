@@ -366,6 +366,28 @@ public class PlayerManager : MonoBehaviour
         }
     }
     // alubiat
+    public void HolaAlubiat() // para interactuables
+    {
+        if (!_alubiat)
+        {
+            _alubiat = !_alubiat;
+
+            //sfx
+            if (SFXComponent.Instance != null)
+                SFXComponent.Instance.SFXPlayer(0);
+        }
+    }
+    public void AdiosAlubiat() // para interactuables
+    {
+        if (_alubiat)
+        {
+            _alubiat = !_alubiat;
+
+            //sfx
+            if (SFXComponent.Instance != null)
+                SFXComponent.Instance.SFXPlayer(1);
+        }
+    }
     public void RecogerAlubiat()
     {
         _alubiat = true;

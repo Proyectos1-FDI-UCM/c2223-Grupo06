@@ -133,7 +133,7 @@ public class PataformaComponent : MonoBehaviour
     private void ConectaPiernas()
     {
         //-------CONECTAR PIERNAS-------------------
-        // se pulsa R y se esta cerca de la pataforma
+        // se pulsa D y se esta cerca de la pataforma
         if (ConectarPiernas())
         {
             // conecta las piernas en la pataforma
@@ -147,7 +147,7 @@ public class PataformaComponent : MonoBehaviour
 
             PlayerManager.Instance.ConnectedToPataforma(gameObject);
         }
-        // se pulsa T, está cerca de la pataforma, está en los estados correctos y hay patas conectadas
+        // se pulsa D, está cerca de la pataforma, está en los estados correctos y hay patas conectadas
         else if (DesconectarPiernas())
         {
             // desconecta las piernas en la pataforma
@@ -155,6 +155,33 @@ public class PataformaComponent : MonoBehaviour
 
             //PlayerManager.Instance.Piernas = true;
             PlayerManager.Instance.HolaPiernas();
+
+            PlayerManager.Instance.ConnectedToPataforma(null);
+        }
+
+
+        //-------CONECTAR ALUBIAT-------------------
+        // se pulsa C y se esta cerca de la pataforma
+        if (ConectarAlubiat())
+        {
+            Debug.Log("alubiat trolleando ");
+            // conecta las piernas en la pataforma
+            _alubiatConectadas = true;
+
+            if (PlayerManager.Instance.Alubiat)
+            {
+                PlayerManager.Instance.AdiosAlubiat();
+            }
+
+            PlayerManager.Instance.ConnectedToPataforma(gameObject);
+        }
+        // se pulsa C, está cerca de la pataforma, está en los estados correctos y hay patas conectadas
+        else if (DesconectarAlubiat())
+        {
+            // desconecta las piernas en la pataforma
+            _alubiatConectadas = false;
+
+            PlayerManager.Instance.HolaAlubiat();
 
             PlayerManager.Instance.ConnectedToPataforma(null);
         }
