@@ -23,6 +23,7 @@ public class PataformaComponent : MonoBehaviour
     private SpriteRenderer _mySpriteRenderer;
     private GameObject _player;
     private Rigidbody2D _playerRigidbody;
+    private SpriteRenderer _patasSprite;
 
     [SerializeField]
     private GameObject _pataformaMain;
@@ -191,11 +192,17 @@ public class PataformaComponent : MonoBehaviour
         if (_piernasConectadas || _alubiatConectadas)
         {
             _patas.SetActive(true);
+            if (_alubiatConectadas)
+            {
+                _patasSprite.color = Color.green;
+            }
         }
         else
         {
             _patas.SetActive(false);
         }
+
+        
     }
 
     private void ChangeInput()
@@ -338,6 +345,7 @@ public class PataformaComponent : MonoBehaviour
         _player = PlayerAccess.Instance.gameObject;
         _inputController = _player.GetComponent<InputController>();
         _mySpriteRenderer = GetComponent<SpriteRenderer>();
+        _patasSprite = _patas.GetComponent<SpriteRenderer>();
         _pataformaMovementComponent = GetComponent<PataformaMovementComponent>();
         _pataformaRigidbody = _pataformaMain.GetComponent<Rigidbody2D>();
         _playerRigidbody = _player.GetComponent<Rigidbody2D>();

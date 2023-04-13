@@ -237,7 +237,7 @@ public class InputController : MonoBehaviour
             {
                 _changeToAlubiat = true;
             }
-                
+
         }
         else
         if (Input.GetKeyDown(KeyCode.C))
@@ -250,12 +250,14 @@ public class InputController : MonoBehaviour
                         && !transform.parent.GetComponentInChildren<PataformaComponent>().AlubiatConectadas)
                     { // si está en una pataforma sin alubiat, se las pone
                         _conectarAlubiat = true;
+                        Debug.Log("slay");
                         _recuperarAlubiat = false;
                     }
                     else if (transform.parent.GetComponentInChildren<PataformaComponent>() != null && !_recuperarAlubiat
                         && transform.parent.GetComponentInChildren<PataformaComponent>().AlubiatConectadas)
                     { // si está en una pataforma con alubiat, las recoge
                         _recuperarAlubiat = true;
+                        Debug.Log("baby baba ¡ baby babyvyrfbueidjwo");
                         _conectarAlubiat = false;
                     }
                 }
@@ -289,6 +291,8 @@ public class InputController : MonoBehaviour
         else if (_recuperarBrazo) _recuperarBrazo = false;
         else if (_conectarPiernas) _conectarPiernas = false;
         else if (_recuperarPiernas) _recuperarPiernas = false;
+        else if (_recuperarAlubiat) _recuperarAlubiat = false;
+        else if (_conectarAlubiat) _conectarAlubiat = false;
         #endregion
 
         #region SOLTAR OBJETS + LANZAR / CHUTAR BOLA
