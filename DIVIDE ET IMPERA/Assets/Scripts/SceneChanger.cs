@@ -25,7 +25,7 @@ public class SceneChanger : MonoBehaviour
         if (collision.gameObject == _player)            //filtro para que solo el jugador pueda interactuar con cosas
         {
             Debug.Log("COLISION BABYYY");
-            FadeToLevel(1);
+            FadeToLevel(0);
             Debug.Log("con dos huevos gordos");
         }
 
@@ -61,7 +61,6 @@ public class SceneChanger : MonoBehaviour
 
     public void FadeToNextLevel()
     {
-        
         FadeToLevel(SceneManager.GetActiveScene().buildIndex + 1);
         GameManager.Instance.RequestStateChange(GameManager.GameStates.GAME);
     }
