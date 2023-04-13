@@ -7,7 +7,6 @@ public class SceneChanger : MonoBehaviour
     public Animator _animator;
     private PlayerManager _playerManager;
     [SerializeField] private GameObject _player;
-    [SerializeField] private GameObject _sceneCollider;
     #endregion
 
     #region Parameters
@@ -26,7 +25,9 @@ public class SceneChanger : MonoBehaviour
         if (collision.gameObject == _player)            //filtro para que solo el jugador pueda interactuar con cosas
         {
             Debug.Log("COLISION BABYYY");
-            FadeToNextLevel();
+            FadeToLevel(1);
+            Debug.Log("con dos huevos gordos");
+            // FadeToNextLevel();
         }
 
         /* if ((collision.gameObject == _player) && (_alubiat) && (SceneManager.GetActiveScene().buildIndex == 4))
@@ -44,14 +45,16 @@ public class SceneChanger : MonoBehaviour
         } */
     }
 
-    public void FadeToLevel(int _levelIndex)  // el level index es el numero que tienen las escenas en los build settings
+    public void FadeToLevel(int _sceneBuildIndex)  // el level index es el numero que tienen las escenas en los build settings
     {
-        _sceneToLoad = _levelIndex; // guarda el index en scene to load
+        _sceneToLoad = _sceneBuildIndex; // guarda el index en scene to load
+        SceneManager.LoadScene(_sceneToLoad);
         _animator.SetTrigger("FadeOut"); // animacion de fade out
     }
 
     public void FadeToNextLevel()
     {
+        
         FadeToLevel(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
