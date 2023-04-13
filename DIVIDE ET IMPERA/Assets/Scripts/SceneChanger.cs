@@ -22,11 +22,16 @@ public class SceneChanger : MonoBehaviour
     #region Methods
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject == _player)            //filtro para que solo el jugador pueda interactuar con cosas
+        if (collision.gameObject == _player && SceneManager.GetActiveScene().buildIndex == 1)            //filtro para que solo el jugador pueda interactuar con cosas
         {
-            FadeToNextLevel();
+            FadeToLevel(3);
+            // FadeToNextLevel();
         }
 
+        else if (collision.gameObject == _player && SceneManager.GetActiveScene().buildIndex == 0) 
+        {
+            FadeToLevel(1);
+        }
        /* if ((collision.gameObject == _player) && (_alubiat) && (SceneManager.GetActiveScene().buildIndex == 3))  // si hace colisión + tienes a alubia + estas en escena 3
        {
            FadeToLevel(4);    // ir a final bueno (escena 4)
@@ -47,7 +52,7 @@ public class SceneChanger : MonoBehaviour
         _sceneToLoad = _sceneBuildIndex; // guarda el index en scene to load
         SceneManager.LoadScene(_sceneToLoad);
         _animator.SetTrigger("FadeOut"); // animacion de fade out
-       // GameManager.Instance.RequestStateChange(GameManager.GameStates.GAME);
+       GameManager.Instance.RequestStateChange(GameManager.GameStates.GAME);
     }
 
     public void FadeToNextLevel()
