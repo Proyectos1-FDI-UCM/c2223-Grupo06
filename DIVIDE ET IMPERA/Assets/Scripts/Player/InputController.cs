@@ -424,7 +424,7 @@ public class InputController : MonoBehaviour
 
         //------INTERACTIONS----------
         InteractInput();
-        if (GameManager.Instance.CurrentState == GameManager.GameStates.GAME) MechanicInput();
+        if (GameManager.Instance != null && GameManager.Instance.CurrentState == GameManager.GameStates.GAME) MechanicInput();
 
         //------DEBUG-----------------
         DebugInput();
@@ -432,7 +432,7 @@ public class InputController : MonoBehaviour
         //------OPCIÓN DE PAUSA-------
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (GameManager.Instance.CurrentState == GameManager.GameStates.GAME)
+            if (GameManager.Instance != null && GameManager.Instance.CurrentState == GameManager.GameStates.GAME)
             {
                 GameManager.Instance.RequestStateChange(GameManager.GameStates.PAUSE);
                 // desactiva el input
