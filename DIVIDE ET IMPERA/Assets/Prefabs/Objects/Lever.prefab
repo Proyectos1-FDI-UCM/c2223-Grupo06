@@ -150,7 +150,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _objetos: []
-  _fatherGameObject: {fileID: 0}
+  _fatherGameObject: {fileID: 6588373478110737167, guid: 1f5a3498d4d134d4da1d488e7faf01fd, type: 3}
   _temporary: 0
   _validPalancaHitbox: 0
   _brazoNum: 0
