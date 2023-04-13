@@ -25,10 +25,11 @@ public class SceneChanger : MonoBehaviour
     {
         if (collision.gameObject == _player)            //filtro para que solo el jugador pueda interactuar con cosas
         {
+            Debug.Log("COLISION BABYYY");
             FadeToNextLevel();
         }
 
-        if ((collision.gameObject == _player) && (_alubiat) && (SceneManager.GetActiveScene().buildIndex == 4))
+        /* if ((collision.gameObject == _player) && (_alubiat) && (SceneManager.GetActiveScene().buildIndex == 4))
         {
             FadeToLevel(5);
         }
@@ -40,7 +41,7 @@ public class SceneChanger : MonoBehaviour
         if (SceneManager.GetActiveScene().buildIndex == 9)
         {
             FadeToLevel(0);
-        }
+        } */
     }
 
     public void FadeToLevel(int _levelIndex)  // el level index es el numero que tienen las escenas en los build settings
