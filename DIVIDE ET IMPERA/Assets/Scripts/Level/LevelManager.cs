@@ -139,8 +139,8 @@ public class LevelManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        PlayerAccess.Instance.transform.position = _originalSpawn.position;
         _currentLevelNum = 0;
         UpdateCurrentLevel();
-        _roomSpawn = _originalSpawn;
     }
 }
