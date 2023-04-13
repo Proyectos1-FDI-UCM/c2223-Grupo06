@@ -361,7 +361,7 @@ PrefabInstance:
       objectReference: {fileID: 60151671}
     - target: {fileID: 5171360444949630975, guid: a2dc22ca95a3d2948b60f5a7cc02d0ff, type: 3}
       propertyPath: _alubiat
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5171360444949630975, guid: a2dc22ca95a3d2948b60f5a7cc02d0ff, type: 3}
       propertyPath: _sceneCollider
