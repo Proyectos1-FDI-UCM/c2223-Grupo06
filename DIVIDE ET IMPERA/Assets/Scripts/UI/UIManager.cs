@@ -272,18 +272,17 @@ public class UIManager : MonoBehaviour
 
     void Start()
     {
-
-
         _menus = new GameObject[9]; // creación del array de menús y asignación
-        _menus[0] = _StartMenu;
-        _menus[1] = _IntroMenu;
-        _menus[2] = _HUD;
-        _menus[3] = _PauseMenu;
-        _menus[4] = _GameOverMenu;
-        _menus[5] = _scoreMenu;
-        _menus[6] = _levelSelector;
-        _menus[7] = _ControlesMenu;
-        _menus[8] = _optionsMenu;
+                                    // *DEBERÍAN SEGUÍR EL ORDEN Y TAMAÑO DE LOS ESTADOS DEL GAMEMANAGER*
+        _menus[0] = _StartMenu;     // START
+        _menus[1] = _IntroMenu;     // INTRO
+        _menus[2] = _HUD;           // GAME
+        _menus[3] = _PauseMenu;     // PAUSE
+        _menus[4] = _GameOverMenu;  // GAMEOVER
+        _menus[5] = _scoreMenu;     // SCORE    
+        _menus[6] = _levelSelector; // LEVELSELECTOR
+        _menus[7] = _ControlesMenu; // CONTROLLES
+        _menus[8] = _optionsMenu;   // OPTIONS
         // habrá que poner más segun añadamos menuses
         _activeMenu = GameManager.Instance.CurrentState; // asocia el menú actual con el estado actual
 
