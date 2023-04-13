@@ -34,7 +34,7 @@ public class SceneChanger : MonoBehaviour
         {
             FadeToLevel(3);
         }
-        else if (collision.gameObject == _player && SceneManager.GetActiveScene().buildIndex == 3 && _alubiat)
+        else if (collision.gameObject == _player && SceneManager.GetActiveScene().buildIndex == 3 && PlayerManager.Instance.Alubiat)
         {
             FadeToLevel(4);
         }
@@ -57,10 +57,6 @@ public class SceneChanger : MonoBehaviour
         else if (collision.gameObject == _player && SceneManager.GetActiveScene().buildIndex == 7)
         {
             FadeToLevel(8);
-        }
-        else if (collision.gameObject == _player && SceneManager.GetActiveScene().buildIndex == 4)
-        {
-            FadeToLevel(6);
         }
     }
 
