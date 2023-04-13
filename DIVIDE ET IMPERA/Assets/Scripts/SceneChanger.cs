@@ -37,65 +37,24 @@ public class SceneChanger : MonoBehaviour
                     break;
                 case 3:
                     if (PlayerManager.Instance.Alubiat || _alubiat)
-                    {
                         FadeToLevel(4);
-                    }
-                    else FadeToLevel(5);
+                    else 
+                        FadeToLevel(5);
                     break;
                 case 4:
+                    FadeToLevel(6);
                     break;
                 case 5:
+                    FadeToLevel(8);
                     break;
                 case 6:
+                    FadeToLevel(7);
                     break;
                 case 7:
+                    FadeToLevel(8);
                     break;
-
             }
         }
-
-        /*
-        if (collision.gameObject == _player && SceneManager.GetActiveScene().buildIndex == 0)
-        {
-            FadeToLevel(1);
-        }
-        else if (collision.gameObject == _player && SceneManager.GetActiveScene().buildIndex == 1) 
-        {
-            FadeToLevel(2);
-        }
-        else if (collision.gameObject == _player && SceneManager.GetActiveScene().buildIndex == 2)
-        {
-            FadeToLevel(3);
-        }
-        else if (collision.gameObject == _player && SceneManager.GetActiveScene().buildIndex == 3 && PlayerManager.Instance.Alubiat)
-        {
-            FadeToLevel(4);
-        }
-        else if (collision.gameObject == _player && SceneManager.GetActiveScene().buildIndex == 3)
-        {
-            FadeToLevel(5);
-        }
-        else if (collision.gameObject == _player && SceneManager.GetActiveScene().buildIndex == 5)
-        {
-            FadeToLevel(8);
-        }
-        else if (collision.gameObject == _player && SceneManager.GetActiveScene().buildIndex == 4)
-        {
-            FadeToLevel(6);
-        }
-        else if (collision.gameObject == _player && SceneManager.GetActiveScene().buildIndex == 6)
-        {
-            FadeToLevel(7);
-        }
-        else if (collision.gameObject == _player && SceneManager.GetActiveScene().buildIndex == 7)
-        {
-            FadeToLevel(8);
-        }
-        else if (collision.gameObject == _player && SceneManager.GetActiveScene().buildIndex == 4)
-        {
-            FadeToLevel(6);
-        }
-        */
     }
 
     public void FadeToLevel(int _sceneBuildIndex)  // el level index es el numero que tienen las escenas en los build settings
