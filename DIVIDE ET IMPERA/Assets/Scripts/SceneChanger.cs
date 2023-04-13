@@ -22,27 +22,33 @@ public class SceneChanger : MonoBehaviour
     #region Methods
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject == _player)            //filtro para que solo el jugador pueda interactuar con cosas
+        /* if (collision.gameObject == _player)            //filtro para que solo el jugador pueda interactuar con cosas
         {
             Debug.Log("COLISION BABYYY");
             FadeToLevel(1);
             Debug.Log("con dos huevos gordos");
             // FadeToNextLevel();
-        }
+        }*/
 
-        /* if ((collision.gameObject == _player) && (_alubiat) && (SceneManager.GetActiveScene().buildIndex == 4))
+        if ((collision.gameObject == _player) && (_alubiat))
         {
+            Debug.Log("´como ligar con la parca en los sims");
             FadeToLevel(5);
         }
-        else 
-        { 
-            FadeToLevel(6); 
-        }
 
-        if (SceneManager.GetActiveScene().buildIndex == 9)
-        {
-            FadeToLevel(0);
-        } */
+       /* if ((collision.gameObject == _player) && (_alubiat) && (SceneManager.GetActiveScene().buildIndex == 4))
+       {
+           FadeToLevel(5);
+       }
+       else 
+       { 
+           FadeToLevel(6); 
+       }
+
+       if (SceneManager.GetActiveScene().buildIndex == 9)
+       {
+           FadeToLevel(0);
+       } */
     }
 
     public void FadeToLevel(int _sceneBuildIndex)  // el level index es el numero que tienen las escenas en los build settings
