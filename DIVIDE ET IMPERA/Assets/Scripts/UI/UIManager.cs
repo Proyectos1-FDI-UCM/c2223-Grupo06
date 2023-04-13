@@ -285,7 +285,7 @@ public class UIManager : MonoBehaviour
         _menus[7] = _ControlesMenu; // CONTROLLES
         _menus[8] = _optionsMenu;   // OPTIONS
         // habrá que poner más segun añadamos menuses
-        _activeMenu = GameManager.Instance.CurrentState; // asocia el menú actual con el estado actual
+        if (GameManager.Instance != null) _activeMenu = GameManager.Instance.CurrentState; // asocia el menú actual con el estado actual
 
         // HUD
         _posCabeza = 0; // posiciones concretas de cada parte en el array de imágenes
@@ -296,7 +296,7 @@ public class UIManager : MonoBehaviour
         _posCostillas = 5;
 
         // REGISTROS
-        GameManager.Instance.RegisterUIManager(this);
+        if (GameManager.Instance != null) GameManager.Instance.RegisterUIManager(this);
         if (PlayerManager.Instance != null) PlayerManager.Instance.RegisterUIManager(this);
     }
 

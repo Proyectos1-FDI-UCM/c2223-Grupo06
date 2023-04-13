@@ -26,8 +26,11 @@ public class Interaction : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _player = PlayerAccess.Instance.gameObject;
-        _input = _player.GetComponent<InputController>();
+        if (PlayerAccess.Instance != null)
+        {
+            _player = PlayerAccess.Instance.gameObject;
+            _input = _player.GetComponent<InputController>();
+        }
     }
 
     // Update is called once per frame
