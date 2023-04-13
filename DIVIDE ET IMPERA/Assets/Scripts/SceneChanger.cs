@@ -22,7 +22,7 @@ public class SceneChanger : MonoBehaviour
     #region Methods
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        /* if (collision.gameObject == _player)            //filtro para que solo el jugador pueda interactuar con cosas
+        if (collision.gameObject == _player)            //filtro para que solo el jugador pueda interactuar con cosas
         {
             Debug.Log("COLISION BABYYY");
             FadeToLevel(1);
@@ -30,6 +30,7 @@ public class SceneChanger : MonoBehaviour
             FadeToNextLevel();
         }
 
+        /*
         if ((collision.gameObject == _player) && (_alubiat))
         {
             Debug.Log("como ligar con la parca en los sims");
