@@ -7,7 +7,12 @@ public class puntuacion : MonoBehaviour
     public static puntuacion Instance { get { return _instance; } }
 
     public static float puntos = 500;
-    private TextMeshProUGUI text;
+    [SerializeField] private TextMeshProUGUI text;
+
+    private void Awake()
+    {
+        _instance = this;
+    }
 
     private void Start()
     {
