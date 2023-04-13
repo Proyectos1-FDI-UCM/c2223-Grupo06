@@ -32,9 +32,10 @@ public class SceneChanger : MonoBehaviour
 
         if ((collision.gameObject == _player) && (_alubiat))
         {
-            Debug.Log("´como ligar con la parca en los sims");
+            Debug.Log("como ligar con la parca en los sims");
             FadeToLevel(5);
         }
+        else { Debug.Log("comiendo patatas"); FadeToLevel(2); }
 
        /* if ((collision.gameObject == _player) && (_alubiat) && (SceneManager.GetActiveScene().buildIndex == 4))
        {
