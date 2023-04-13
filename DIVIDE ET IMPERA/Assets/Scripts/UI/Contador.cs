@@ -8,7 +8,12 @@ public class Contador : MonoBehaviour
     public static Contador Instance { get { return _instance; } }
 
     public static float tiempo = 0;
-    [SerializeField] public static TextMeshProUGUI time;
+    [SerializeField] private static TextMeshProUGUI time;
+
+    private void Awake()
+    {
+        _instance = this;
+    }
 
     private void Start()
     {
