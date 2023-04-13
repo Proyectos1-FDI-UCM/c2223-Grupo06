@@ -201,7 +201,9 @@ public class InputController : MonoBehaviour
             { // si no recoge una pierna del suelo
                 if (transform.parent != null)
                 {
-                    if (transform.parent.GetComponentInChildren<PataformaComponent>() != null && !_conectarPiernas && !transform.parent.GetComponentInChildren<PataformaComponent>().PiernasConectadas)
+                    if (transform.parent.GetComponentInChildren<PataformaComponent>() != null && !_conectarPiernas 
+                        && !transform.parent.GetComponentInChildren<PataformaComponent>().PiernasConectadas 
+                        && !transform.parent.GetComponentInChildren<PataformaComponent>().AlubiatConectadas)
                     { // si está en una pataforma sin piernas, se las pone
                         _conectarPiernas = true;
                         _recuperarPiernas = false;
@@ -247,7 +249,8 @@ public class InputController : MonoBehaviour
                 if (transform.parent != null) // si está en una plataforma con alubiat
                 {
                     if (transform.parent.GetComponentInChildren<PataformaComponent>() != null && !_conectarAlubiat
-                        && !transform.parent.GetComponentInChildren<PataformaComponent>().AlubiatConectadas)
+                        && !transform.parent.GetComponentInChildren<PataformaComponent>().AlubiatConectadas
+                        && !transform.parent.GetComponentInChildren<PataformaComponent>().PiernasConectadas)
                     { // si está en una pataforma sin alubiat, se las pone
                         _conectarAlubiat = true;
                         Debug.Log("slay");
