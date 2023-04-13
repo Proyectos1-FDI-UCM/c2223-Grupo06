@@ -54,14 +54,7 @@ public class StayOnPataforma : MonoBehaviour
             {
                 gameObject.transform.SetParent(collision.gameObject.transform, true);
             }
-            else
-            {
-                // le da un padre
-                gameObject.transform.SetParent(collision.gameObject.transform.parent, true);
-            }
-
         }
-
     }
     // le quita el padre al objeto
     private void Adoptiont(Collision2D collision)
@@ -95,7 +88,6 @@ public class StayOnPataforma : MonoBehaviour
         {
             _stayOn = false;
         }
-
         return _stayOn;
     }
 
