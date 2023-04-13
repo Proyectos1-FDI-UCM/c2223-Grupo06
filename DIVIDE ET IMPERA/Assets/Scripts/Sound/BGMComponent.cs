@@ -26,11 +26,9 @@ public class BGMComponent : MonoBehaviour
     /// TUTORIAL/CHULETA DE TEMAZOS
     /// 
     /// -1 --> no bgm
-    /// 0 --> "Game Over"
-    /// 1 --> "Major Loss"
-    /// 2 --> "Never Suerender"
-    /// 3 --> "Skeleton Waltz"
-    /// 4 --> el otro cumbion de jazz
+    /// 0 --> skeleton waltz
+    /// 1 --> jazz perhaps
+    /// 2 --> dolphin
     /// </summary>
 
     #region methods
@@ -66,45 +64,47 @@ public class BGMComponent : MonoBehaviour
 
     private void BGMManager()
     {
-        switch (GameManager.Instance.CurrentState) // Diferentes comportamientos según estado al que se entra
+        if (Instance != null)
         {
-            case GameStates.START:                       //     *MENÚ INICIAL*
-                _nextBGM = 4;
-                _playAmbience = false;
-                break;
-            case GameStates.INTRO:
-                _nextBGM = -1;
-                _playAmbience = true;
-                break;
-            case GameStates.GAME:                        //     *JUEGO*
-                _nextBGM = 3;
-                _playAmbience = true;
-                break;
-            case GameStates.PAUSE:                       //     *PAUSA*
-                _nextBGM = 4;
-                _playAmbience = false;
-                break;
-            case GameStates.GAMEOVER:                    //     *FIN DEL JUEGO*
-                _nextBGM = 4;
-                _playAmbience = false;
-                break;
-            case GameStates.SCORE:
-                _nextBGM = 4;
-                _playAmbience = false;
-                break;
-            case GameStates.LEVELSELECTOR:
-                _nextBGM = 4;
-                _playAmbience = false;
-                break;
-            case GameStates.CONTROLES:                   //     *CONTROLES*
-                _nextBGM = 4;
-                _playAmbience = false;
-                break;
-            case GameStates.OPCIONES:                   //      *OPCIONES*
-                _nextBGM = 4;
-                _playAmbience = false;
-                break;
-
+            switch (Instance.CurrentState) // Diferentes comportamientos según estado al que se entra
+            {
+                case GameStates.START:                       //     *MENÚ INICIAL*
+                    _nextBGM = 4;
+                    _playAmbience = false;
+                    break;
+                case GameStates.INTRO:
+                    _nextBGM = -1;
+                    _playAmbience = true;
+                    break;
+                case GameStates.GAME:                        //     *JUEGO*
+                    _nextBGM = 3;
+                    _playAmbience = true;
+                    break;
+                case GameStates.PAUSE:                       //     *PAUSA*
+                    _nextBGM = 4;
+                    _playAmbience = false;
+                    break;
+                case GameStates.GAMEOVER:                    //     *FIN DEL JUEGO*
+                    _nextBGM = 4;
+                    _playAmbience = false;
+                    break;
+                case GameStates.SCORE:
+                    _nextBGM = 4;
+                    _playAmbience = false;
+                    break;
+                case GameStates.LEVELSELECTOR:
+                    _nextBGM = 4;
+                    _playAmbience = false;
+                    break;
+                case GameStates.CONTROLES:                   //     *CONTROLES*
+                    _nextBGM = 4;
+                    _playAmbience = false;
+                    break;
+                case GameStates.OPCIONES:                   //      *OPCIONES*
+                    _nextBGM = 4;
+                    _playAmbience = false;
+                    break;
+            }
         }
     }
 
@@ -127,7 +127,7 @@ public class BGMComponent : MonoBehaviour
         {
             StopBGM(_currentBGM);
             _currentBGM = _nextBGM;
-            if(_currentBGM > 0)
+            if(_currentBGM >= 0)
             {
                 PlayBGM(_currentBGM);
             }

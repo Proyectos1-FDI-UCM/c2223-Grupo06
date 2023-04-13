@@ -199,22 +199,26 @@ public class InputController : MonoBehaviour
         { // D para recoger y soltar piernas
             if (!_collisionManager.DestruirPierna())
             { // si no recoge una pierna del suelo
+                //Debug.Log("y aqui?");
                 if (transform.parent != null)
                 {
+                    //Debug.Log("matadme");
                     if (transform.parent.GetComponentInChildren<PataformaComponent>() != null && !_conectarPiernas 
                         && !transform.parent.GetComponentInChildren<PataformaComponent>().PiernasConectadas 
                         && !transform.parent.GetComponentInChildren<PataformaComponent>().AlubiatConectadas)
                     { // si está en una pataforma sin piernas, se las pone
                         _conectarPiernas = true;
                         _recuperarPiernas = false;
+                        //Debug.Log("por favor");
                     }
                     else if (transform.parent.GetComponentInChildren<PataformaComponent>() != null && !_recuperarPiernas && transform.parent.GetComponentInChildren<PataformaComponent>().PiernasConectadas)
                     { // si está en una pataforma con piernas, las recoge
                         _recuperarPiernas = true;
                         _conectarPiernas = false;
+                       // Debug.Log("as");
                     }
                 }
-                else if (transform.parent == null && _box != null)
+                /*else if (transform.parent == null && _box != null)
                 {
                     if (PlayerManager.Instance.Piernas && _box.GetComponent<BoxComponent>().LegsConnected == -1)
                     {
@@ -224,9 +228,12 @@ public class InputController : MonoBehaviour
                     {
                         _box.GetComponent<BoxComponent>().ConnectOrDisconnectLegs(-1);
                     }
-                }
+                }*/
                 else
+                {
                     PlayerManager.Instance.SoltarPiernas();
+                    //Debug.Log("que");
+                }
             } // si sí
             else
                 PlayerManager.Instance.RecogerPiernas();
@@ -264,7 +271,7 @@ public class InputController : MonoBehaviour
                         _conectarAlubiat = false;
                     }
                 }
-                else if (_box != null)
+                /*else if (_box != null)
                 {
                     if (PlayerManager.Instance.Alubiat && _box.GetComponent<BoxComponent>().LegsConnected == -1)
                     {
@@ -274,7 +281,7 @@ public class InputController : MonoBehaviour
                     {
                         _box.GetComponent<BoxComponent>().ConnectOrDisconnectLegs(-1);
                     }
-                }
+                }*/
                 else // si no conecta ni desconecta
                     PlayerManager.Instance.SoltarAlubiat();
             }
@@ -406,6 +413,8 @@ public class InputController : MonoBehaviour
         _stayOnComp = GetComponent<StayOnPataforma>();
         _groundCheck = GetComponentInChildren<GroundCheck>();
         _placaComponent = GetComponent<PalancaComponent>();
+
+        //GameManager.Instance.RequestStateChange(GameManager.GameStates.GAME);
     }
 
     void Update()
@@ -415,7 +424,7 @@ public class InputController : MonoBehaviour
 
         //------INTERACTIONS----------
         InteractInput();
-        if (GameManager.Instance.CurrentState == GameManager.GameStates.GAME) MechanicInput();
+        if (GameManager.Instance != null && GameManager.Instance.CurrentState == GameManager.GameStates.GAME) MechanicInput();
 
         //------DEBUG-----------------
         DebugInput();
@@ -423,13 +432,14 @@ public class InputController : MonoBehaviour
         //------OPCIÓN DE PAUSA-------
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (GameManager.Instance.CurrentState == GameManager.GameStates.GAME)
+            if (GameManager.Instance != null && GameManager.Instance.CurrentState == GameManager.GameStates.GAME)
+            {
                 GameManager.Instance.RequestStateChange(GameManager.GameStates.PAUSE);
-
-            // desactiva el input
-            enabled = false;
-            PlayerAccess.Instance.MovementComponent.enabled = false;
-            PlayerAccess.Instance.Animator.enabled = false;
+                // desactiva el input
+                enabled = false;
+                PlayerAccess.Instance.MovementComponent.enabled = false;
+                PlayerAccess.Instance.Animator.enabled = false;
+            }
         }
 
         if (SFXComponent.Instance != null)

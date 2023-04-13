@@ -22,29 +22,39 @@ public class SceneChanger : MonoBehaviour
     #region Methods
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject == _player && SceneManager.GetActiveScene().buildIndex == 1)            //filtro para que solo el jugador pueda interactuar con cosas
+        if (collision.gameObject == _player)
         {
-            FadeToLevel(3);
-            // FadeToNextLevel();
+            switch (SceneManager.GetActiveScene().buildIndex)
+            {
+                case 0:
+                    FadeToLevel(1);
+                    break;
+                case 1:
+                    FadeToLevel(2);
+                    break;
+                case 2:
+                    FadeToLevel(3);
+                    break;
+                case 3:
+                    if (PlayerManager.Instance.Alubiat || _alubiat)
+                        FadeToLevel(4);
+                    else 
+                        FadeToLevel(5);
+                    break;
+                case 4:
+                    FadeToLevel(6);
+                    break;
+                case 5:
+                    FadeToLevel(8);
+                    break;
+                case 6:
+                    FadeToLevel(7);
+                    break;
+                case 7:
+                    FadeToLevel(8);
+                    break;
+            }
         }
-
-        else if (collision.gameObject == _player && SceneManager.GetActiveScene().buildIndex == 0) 
-        {
-            FadeToLevel(1);
-        }
-       /* if ((collision.gameObject == _player) && (_alubiat) && (SceneManager.GetActiveScene().buildIndex == 3))  // si hace colisión + tienes a alubia + estas en escena 3
-       {
-           FadeToLevel(4);    // ir a final bueno (escena 4)
-       }
-       else 
-       { 
-           FadeToLevel(5);    // ir a final malo (escena 5)
-       }
-
-       if ((collision.gameObject == _player) && (SceneManager.GetActiveScene().buildIndex == 9))
-       {
-           FadeToLevel(0);
-       }*/
     }
 
     public void FadeToLevel(int _sceneBuildIndex)  // el level index es el numero que tienen las escenas en los build settings
@@ -52,13 +62,15 @@ public class SceneChanger : MonoBehaviour
         _sceneToLoad = _sceneBuildIndex; // guarda el index en scene to load
         SceneManager.LoadScene(_sceneToLoad);
         _animator.SetTrigger("FadeOut"); // animacion de fade out
-       GameManager.Instance.RequestStateChange(GameManager.GameStates.GAME);
+       if (GameManager.Instance != null)
+            GameManager.Instance.RequestStateChange(GameManager.GameStates.GAME);
     }
 
     public void FadeToNextLevel()
     {
         FadeToLevel(SceneManager.GetActiveScene().buildIndex + 1);
-        GameManager.Instance.RequestStateChange(GameManager.GameStates.GAME);
+        if (GameManager.Instance != null)
+            GameManager.Instance.RequestStateChange(GameManager.GameStates.GAME);
     }
 
     public void OnFadeComplete() // triggereado con el animator
