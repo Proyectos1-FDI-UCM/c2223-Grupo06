@@ -27,7 +27,6 @@ public class SceneChanger : MonoBehaviour
             Debug.Log("COLISION BABYYY");
             FadeToLevel(1);
             Debug.Log("con dos huevos gordos");
-            FadeToNextLevel();
         }
 
         /*
