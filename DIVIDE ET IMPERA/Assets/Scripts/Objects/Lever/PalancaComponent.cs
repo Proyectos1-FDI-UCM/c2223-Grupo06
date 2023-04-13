@@ -8,18 +8,19 @@ public class PalancaComponent : MonoBehaviour
     private PlayerManager _playerManager;
     private MovingPlatformComponent _movingPlatform;
     private SpriteRenderer _mySpriteRenderer;
-    [SerializeField]
-    private GameObject _objeto;
+    #endregion
 
+    #region
     // array de objetos
+    [Tooltip("Array de objetos")]
     [SerializeField]
     private GameObject[] _objetos;
     private GameManager _gameManager;
     [Tooltip("Objeto que contiene todas las salas para que se tengan en cuenta todas las palancas")]
     [SerializeField]
     private GameObject _fatherGameObject;
-
     #endregion
+
 
     #region Properties
     // indica si la palanca hay que dejarla activada para que funcione o no (como con el boton por peso)
@@ -82,15 +83,7 @@ public class PalancaComponent : MonoBehaviour
                     i++;
                 }
 
-            } // placeholder para que no se rompa el resto
-            else
-            {
-                if (_objeto != null) _objeto.GetComponent<NewPlatformMovement>().OnOff(true);
-            }
-
-
-            //_movingPlatform.enabled = true;
-            //Debug.Log("activar " + _movingPlatform.enabled);
+            } 
         }
         else if (!_palanca)
         {
@@ -102,10 +95,6 @@ public class PalancaComponent : MonoBehaviour
                     i++;
                 }
             }
-            else if (_objeto != null) _objeto.GetComponent<NewPlatformMovement>().OnOff(false);
-
-            //_movingPlatform.enabled = false;
-            //Debug.Log("desactivar " + _movingPlatform.enabled);
         }
 
     }
@@ -189,7 +178,6 @@ public class PalancaComponent : MonoBehaviour
         _inputController = PlayerAccess.Instance.InputController;
         _playerManager = PlayerAccess.Instance.PlayerManager;
         _mySpriteRenderer = GetComponent<SpriteRenderer>();
-        _movingPlatform = _objeto.GetComponent<MovingPlatformComponent>();
         _fatherGameObject = transform.parent.gameObject;
     }
 
