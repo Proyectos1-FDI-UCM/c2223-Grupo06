@@ -101,11 +101,20 @@ public class GameManager : MonoBehaviour
 
     private void UpdateState(GameStates state)
     {
-        if (_currentGameState == GameStates.PAUSE) // para volver con esc desde la pausa
+        if (state == GameStates.PAUSE) // para volver con esc desde la pausa
         {
             if (Input.GetKeyDown(KeyCode.Escape))
             {
                 if (_UIManager != null) _UIManager.PauseToGame();
+            }
+        }
+
+        if (state == GameStates.GAME)
+        {
+            if (_UIManager != null && !_UIManager.SetMenu(state))
+            {
+                _UIManager.SetMenu(state);
+                Debug.Log("Set Menu");
             }
         }
     }
@@ -115,12 +124,14 @@ public class GameManager : MonoBehaviour
     void Awake()
     {
         _instance = this;
+        gameObject.transform.parent = null;
+        DontDestroyOnLoad(gameObject);
     }
 
     void Start()
     {
         _currentGameState = GameStates.GAMEOVER; // Valor dummy para que se realice el cambio nada más empezar
-        _nextGameState = GameStates.START; // Estado inicial, es diferente al current para que el EnterState del primer update se realice
+        _nextGameState = GameStates.START;       // Estado inicial, es diferente al current para que el EnterState del primer update se realice
     }
 
     void Update()

@@ -206,7 +206,8 @@ PrefabInstance:
       propertyPath: _sceneCollider
       value: 
       objectReference: {fileID: 139194670}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8330648666013439574, guid: a2dc22ca95a3d2948b60f5a7cc02d0ff, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: a2dc22ca95a3d2948b60f5a7cc02d0ff, type: 3}
 --- !u!1 &139194670 stripped
 GameObject:
@@ -227,7 +228,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _animator: {fileID: 139194672}
   _player: {fileID: 298932137}
-  _sceneCollider: {fileID: 0}
   _alubiat: 0
 --- !u!95 &139194672 stripped
 Animator:

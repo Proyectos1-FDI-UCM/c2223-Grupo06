@@ -27,22 +27,30 @@ public class SceneChanger : MonoBehaviour
             Debug.Log("COLISION BABYYY");
             FadeToLevel(1);
             Debug.Log("con dos huevos gordos");
-            // FadeToNextLevel();
+            FadeToNextLevel();
         }
 
-        /* if ((collision.gameObject == _player) && (_alubiat) && (SceneManager.GetActiveScene().buildIndex == 4))
+        /*
+        if ((collision.gameObject == _player) && (_alubiat))
         {
+            Debug.Log("como ligar con la parca en los sims");
             FadeToLevel(5);
         }
-        else 
-        { 
-            FadeToLevel(6); 
-        }
+        else { Debug.Log("comiendo patatas"); FadeToLevel(2); }
 
-        if (SceneManager.GetActiveScene().buildIndex == 9)
-        {
-            FadeToLevel(0);
-        } */
+       /* if ((collision.gameObject == _player) && (_alubiat) && (SceneManager.GetActiveScene().buildIndex == 4))
+       {
+           FadeToLevel(5);
+       }
+       else 
+       { 
+           FadeToLevel(6); 
+       }
+
+       if (SceneManager.GetActiveScene().buildIndex == 9)
+       {
+           FadeToLevel(0);
+       } */
     }
 
     public void FadeToLevel(int _sceneBuildIndex)  // el level index es el numero que tienen las escenas en los build settings
@@ -56,6 +64,7 @@ public class SceneChanger : MonoBehaviour
     {
         
         FadeToLevel(SceneManager.GetActiveScene().buildIndex + 1);
+        GameManager.Instance.RequestStateChange(GameManager.GameStates.GAME);
     }
 
     public void OnFadeComplete()
