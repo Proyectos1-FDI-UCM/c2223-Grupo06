@@ -196,6 +196,10 @@ public class PataformaComponent : MonoBehaviour
             {
                 _patasSprite.color = Color.green;
             }
+            else if (_piernasConectadas)
+            {
+                _patasSprite.color = Color.white;
+            }
         }
         else
         {
