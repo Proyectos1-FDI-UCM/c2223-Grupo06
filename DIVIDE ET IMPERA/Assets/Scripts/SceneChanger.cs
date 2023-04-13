@@ -27,7 +27,7 @@ public class SceneChanger : MonoBehaviour
             Debug.Log("COLISION BABYYY");
             FadeToLevel(1);
             Debug.Log("con dos huevos gordos");
-            // FadeToNextLevel();
+            FadeToNextLevel();
         }
 
         /* if ((collision.gameObject == _player) && (_alubiat) && (SceneManager.GetActiveScene().buildIndex == 4))
@@ -56,6 +56,7 @@ public class SceneChanger : MonoBehaviour
     {
         
         FadeToLevel(SceneManager.GetActiveScene().buildIndex + 1);
+        GameManager.Instance.RequestStateChange(GameManager.GameStates.GAME);
     }
 
     public void OnFadeComplete()

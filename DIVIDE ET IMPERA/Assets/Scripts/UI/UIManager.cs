@@ -49,11 +49,12 @@ public class UIManager : MonoBehaviour
     }
 
     // MENUS
-    public void SetMenu(GameManager.GameStates newMenu)  // Desactiva el menú anterior, actualiza el actual y lo activa
+    public bool SetMenu(GameManager.GameStates newMenu)  // Desactiva el menú anterior, actualiza el actual y lo activa
     {
         _menus[(int)_activeMenu].SetActive(false);
         _activeMenu = newMenu;
         _menus[(int)_activeMenu].SetActive(true);
+        return _menus[(int)_activeMenu].activeSelf;
     }
 
 
