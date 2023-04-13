@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5570792248851894853}
   - component: {fileID: 6991398863285700269}
   - component: {fileID: -5997600181492594298}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: WeightButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -123,7 +123,7 @@ GameObject:
   - component: {fileID: 2064256119165598164}
   - component: {fileID: 5279249968611500058}
   - component: {fileID: 3493890602582671553}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: TriggerDetector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -200,7 +200,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4830731562775172941}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Point B
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -231,7 +231,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3340192698116498520}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Point A
   m_TagString: Untagged
   m_Icon: {fileID: 0}

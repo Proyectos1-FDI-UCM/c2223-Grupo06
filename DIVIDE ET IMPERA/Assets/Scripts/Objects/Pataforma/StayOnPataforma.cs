@@ -48,10 +48,9 @@ public class StayOnPataforma : MonoBehaviour
     // cambia el padre del objeto
     private void Adoption(Collision2D collision)
     {
-            if (collision.gameObject.GetComponentInChildren<PataformaComponent>())
-            {
-                gameObject.transform.SetParent(collision.gameObject.transform, true);
-            }
+        gameObject.transform.SetParent(collision.gameObject.transform, true);
+
+
             /*
         if (collision.transform.parent != null) //dentro de esto estaba lo de encima, por que? a, pero ahora funciona
         {
@@ -73,7 +72,8 @@ public class StayOnPataforma : MonoBehaviour
         // devuelve true si es o una pataforma o una plataforma normal con la variable de puerta 
         // desactivada y no es el tilemap
         if ((collision.gameObject.GetComponentInChildren<PataformaComponent>()
-            || collision.gameObject.GetComponentInChildren<NewPlatformMovement>()))
+            || collision.gameObject.GetComponentInChildren<NewPlatformMovement>()
+            || collision.gameObject.GetComponent<NewPlatformMovement>()))
             /*&& !collision.gameObject.GetComponent<Tilemap>()
             && !collision.gameObject.GetComponentInChildren<StayOnPataforma>())*/
         {
@@ -81,7 +81,6 @@ public class StayOnPataforma : MonoBehaviour
             // si tiene peso el objeto
             if (gameObject.GetComponent<WeightComponent>()) //&& _inputController.enabled)
             {
-                //Debug.Log("parte 2");
                 _stayOn = true;
             }
         }
@@ -98,9 +97,9 @@ public class StayOnPataforma : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-
         if (CheckStayOn(collision))
         {
+            Debug.Log("adopt");
             Adoption(collision);
         }
     }
