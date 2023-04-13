@@ -943,6 +943,22 @@ PrefabInstance:
       propertyPath: _player
       value: 
       objectReference: {fileID: 60151671}
+    - target: {fileID: 2980812907516896382, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
+      propertyPath: _lines.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2980812907516896382, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
+      propertyPath: _lines.Array.data[0]
+      value: '"ALUBIA": Gracias por jugar esta demo'
+      objectReference: {fileID: 0}
+    - target: {fileID: 2980812907516896382, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
+      propertyPath: _lines.Array.data[1]
+      value: 'TIMOTEO: Espero que no se rompa nada'
+      objectReference: {fileID: 0}
+    - target: {fileID: 2980812907516896382, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
+      propertyPath: _lines.Array.data[2]
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 2980812907860231591, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
       propertyPath: _player
       value: 

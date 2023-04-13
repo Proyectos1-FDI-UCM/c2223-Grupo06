@@ -62587,6 +62587,18 @@ PrefabInstance:
       propertyPath: _player
       value: 
       objectReference: {fileID: 4132125}
+    - target: {fileID: 2980812907860231591, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
+      propertyPath: _lines.Array.data[0]
+      value: "BOB: Esto ser\xEDa el final"
+      objectReference: {fileID: 0}
+    - target: {fileID: 2980812907860231591, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
+      propertyPath: _lines.Array.data[1]
+      value: 'TIMOTEO: Que zona tan bonita'
+      objectReference: {fileID: 0}
+    - target: {fileID: 2980812907860231591, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
+      propertyPath: _lines.Array.data[2]
+      value: 'NIEVES: Gracias'
+      objectReference: {fileID: 0}
     - target: {fileID: 3398044784434279248, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
       propertyPath: m_SizeDelta.x
       value: 1920

@@ -34606,6 +34606,22 @@ PrefabInstance:
       propertyPath: _player
       value: 
       objectReference: {fileID: 497587238}
+    - target: {fileID: 2980812907860231591, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
+      propertyPath: _lines.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2980812907860231591, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
+      propertyPath: _lines.Array.data[0]
+      value: 'BOB: Este es el camino al final bueno'
+      objectReference: {fileID: 0}
+    - target: {fileID: 2980812907860231591, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
+      propertyPath: _lines.Array.data[1]
+      value: 'BOB: Suete con la demo'
+      objectReference: {fileID: 0}
+    - target: {fileID: 2980812907860231591, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
+      propertyPath: _lines.Array.data[2]
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 3398044784434279248, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
       propertyPath: m_SizeDelta.x
       value: 1920
