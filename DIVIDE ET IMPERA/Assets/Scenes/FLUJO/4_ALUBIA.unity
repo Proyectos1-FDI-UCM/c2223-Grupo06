@@ -949,11 +949,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2980812907516896382, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
       propertyPath: _lines.Array.data[0]
-      value: '"ALUBIA": Gracias por jugar esta demo'
+      value: "\"ALUBIA\": ijo jueg\xF3n"
       objectReference: {fileID: 0}
     - target: {fileID: 2980812907516896382, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
       propertyPath: _lines.Array.data[1]
-      value: 'TIMOTEO: Espero que no se rompa nada'
+      value: 'TIMOTEO: no le oigo bien padre'
       objectReference: {fileID: 0}
     - target: {fileID: 2980812907516896382, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
       propertyPath: _lines.Array.data[2]

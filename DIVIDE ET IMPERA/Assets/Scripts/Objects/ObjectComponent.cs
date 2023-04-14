@@ -19,7 +19,7 @@ public class ObjectComponent : MonoBehaviour
     {
         if (_staticObject)
         {
-            _spriteRenderer.color = Color.black;
+            _spriteRenderer.color = Color.magenta;
 
         }
         else
