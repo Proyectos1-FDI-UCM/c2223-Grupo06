@@ -69,7 +69,7 @@ public class BGMComponent : MonoBehaviour
             switch (Instance.CurrentState) // Diferentes comportamientos según estado al que se entra
             {
                 case GameStates.START:                       //     *MENÚ INICIAL*
-                    _nextBGM = -1;
+                    _nextBGM = 1;
                     _playAmbience = false;
                     break;
                 case GameStates.INTRO:
@@ -77,31 +77,31 @@ public class BGMComponent : MonoBehaviour
                     _playAmbience = true;
                     break;
                 case GameStates.GAME:                        //     *JUEGO*
-                    _nextBGM = -1;
-                    _playAmbience = false;
+                    _nextBGM = 0;
+                    _playAmbience = true;
                     break;
                 case GameStates.PAUSE:                       //     *PAUSA*
-                    _nextBGM = -1;
+                    _nextBGM = 2;
                     _playAmbience = false;
                     break;
                 case GameStates.GAMEOVER:                    //     *FIN DEL JUEGO*
-                    _nextBGM = -1;
+                    _nextBGM = 2;
                     _playAmbience = false;
                     break;
                 case GameStates.SCORE:
-                    _nextBGM = -1;
+                    _nextBGM = 2;
                     _playAmbience = false;
                     break;
                 case GameStates.LEVELSELECTOR:
-                    _nextBGM = -1;
+                    _nextBGM = 2;
                     _playAmbience = false;
                     break;
                 case GameStates.CONTROLES:                   //     *CONTROLES*
-                    _nextBGM = -1;
+                    _nextBGM = 2;
                     _playAmbience = false;
                     break;
                 case GameStates.OPCIONES:                   //      *OPCIONES*
-                    _nextBGM = -1;
+                    _nextBGM = 2;
                     _playAmbience = false;
                     break;
             }
