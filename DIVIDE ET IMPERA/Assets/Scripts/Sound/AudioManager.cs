@@ -14,16 +14,15 @@ public class AudioManager : MonoBehaviour
     private AudioMixer _ambienceMixer;
     #endregion
 
-    // probando singleton
-    private static AudioManager _instance;
-    public static AudioManager Instance { get { return _instance; } }
+    #region Properties
 
-    #region parameters
-
-    float _startingVolume;
+    private float _startingVolume = -14.2219f;
 
     #endregion
 
+    // probando singleton
+    private static AudioManager _instance;
+    public static AudioManager Instance { get { return _instance; } }
     public void SetBGMVolume(float _sliderValue)
     {
         // representa el valor del slider de manera logaritmica para que se haga bien la conversion; 
@@ -45,6 +44,11 @@ public class AudioManager : MonoBehaviour
         float i;
         _bgmMixer.GetFloat("BGMVolume", out i);
         return i;
+    }
+
+    public void SetVolume(float i)
+    {
+        _startingVolume = i;
     }
 
     public void FadeBGM(float timeToFade)
@@ -82,7 +86,7 @@ public class AudioManager : MonoBehaviour
         {
             _bgmMixer.SetFloat("BGMVolume",  (_startingVolume - 20 - Mathf.Log10(timeElapsed / timeToFade) * 20)); //
 
-            Debug.Log("uwu " + (_startingVolume - 20 - Mathf.Log10(timeElapsed / timeToFade) * 20));
+            //Debug.Log("uwu " + (_startingVolume - 20 - Mathf.Log10(timeElapsed / timeToFade) * 20));
             // timeElapsed/timeToFade
 
             timeElapsed += Time.deltaTime;
@@ -92,25 +96,13 @@ public class AudioManager : MonoBehaviour
         }
 
 
-        /*
-        float timeElapsed = 0;
-
-        while(timeElapsed < timeToFade)
-        {
-            _bgmMixer.SetFloat("BGMVolume", Mathf.Log10(timeToFade-timeElapsed) * 20);
-
-            timeElapsed += Time.deltaTime;
-
-            yield return null;
-        }
-        */
     }
-
 
     private void Start()
     {
         _instance = this;
-        _startingVolume = GetVolume();
+
+        _bgmMixer.SetFloat("BGMVolume", _startingVolume);
 
     }
 
@@ -118,8 +110,8 @@ public class AudioManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Y))
         {
-
-            FadeBGM(5);
+            Debug.Log(_startingVolume);
+            
 
         }
     }
