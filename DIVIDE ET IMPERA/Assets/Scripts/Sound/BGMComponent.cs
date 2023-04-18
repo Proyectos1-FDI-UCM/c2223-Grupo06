@@ -89,7 +89,7 @@ public class BGMComponent : MonoBehaviour
                     _playAmbience = false;
                     break;
                 case GameStates.SCORE:
-                    _nextBGM = 3;
+                    _nextBGM = 4;
                     _playAmbience = false;
                     break;
                 case GameStates.LEVELSELECTOR:
