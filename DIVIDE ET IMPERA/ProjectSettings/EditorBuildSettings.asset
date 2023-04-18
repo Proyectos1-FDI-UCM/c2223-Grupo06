@@ -32,4 +32,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/FLUJO/8_PUNTOS.unity
     guid: 9efa11b7d8ecaab4d83e1a630b5314ac
+  - enabled: 1
+    path: Assets/Scenes/FLUJO/9_CREDITOS.unity
+    guid: f26604aac70f24744a3dc5cf05b8f469
   m_configObjects: {}
