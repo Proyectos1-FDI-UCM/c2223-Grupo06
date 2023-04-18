@@ -73,7 +73,7 @@ public class BGMComponent : MonoBehaviour
                     _playAmbience = false;
                     break;
                 case GameStates.INTRO:
-                    _nextBGM = 0;
+                    _nextBGM = 4;
                     _playAmbience = true;
                     break;
                 case GameStates.GAME:                        //     *JUEGO*
@@ -122,7 +122,6 @@ public class BGMComponent : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(_currentBGM);
         BGMManager();
         if (_currentBGM != _nextBGM)
         {
@@ -145,4 +144,6 @@ public class BGMComponent : MonoBehaviour
         }
 
     }
+
+   
 }

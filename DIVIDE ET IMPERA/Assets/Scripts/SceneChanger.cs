@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;  // para manejar escenas
 
@@ -27,12 +28,12 @@ public class SceneChanger : MonoBehaviour
             switch (SceneManager.GetActiveScene().buildIndex)
             {
                 case 0:
-                    //AudioManager.Instance.FadeBGM2(3);
-                    FadeToLevel(1);
+                    WaitOnAudioFade(2, 1);
+                    //FadeToLevel(1);
                     break;
                 case 1:
-                    //AudioManager.Instance.FadeBGM2(3);
-                    FadeToLevel(2);
+                    WaitOnAudioFade(2, 2);
+                    //FadeToLevel(2);
                     break;
                 case 2:
                     FadeToLevel(3);
@@ -79,10 +80,28 @@ public class SceneChanger : MonoBehaviour
     {
         SceneManager.LoadScene(_sceneToLoad); // carga nueva escena
     }
+
+    public void WaitOnAudioFade(int i, int whatLvl)
+    {
+        StopAllCoroutines();
+        StartCoroutine(CoroutineWaitOnFade(i, whatLvl));
+        AudioManager.Instance.FadeBGM2(2);
+        
+
+    }
+
+
+    IEnumerator CoroutineWaitOnFade(int i, int  whatLvl)
+    {
+        yield return new WaitForSecondsRealtime(i);
+
+        FadeToLevel(whatLvl);
+    }
     #endregion
 
     private void Start()
     {
+
         if (PlayerManager.Instance != null)
         {
             _playerManager = PlayerAccess.Instance.PlayerManager;

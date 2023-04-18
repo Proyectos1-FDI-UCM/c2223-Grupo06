@@ -20,7 +20,7 @@ public class AudioManager : MonoBehaviour
 
     #region parameters
 
-
+    float _startingVolume;
 
     #endregion
 
@@ -40,7 +40,12 @@ public class AudioManager : MonoBehaviour
         _ambienceMixer.SetFloat("AmbienceMixer", Mathf.Log10(_sliderValue) * 20);
     }
 
-
+    public float GetVolume()
+    {
+        float i;
+        _bgmMixer.GetFloat("BGMVolume", out i);
+        return i;
+    }
 
     private void FadeBGM(float timeToFade)
     {
@@ -53,11 +58,14 @@ public class AudioManager : MonoBehaviour
 
     public void FadeBGM2(float timeToFade)
     {
-        float timeElapsed = 0;
+        float timeElapsed = 0, i;
 
         while (timeElapsed < timeToFade)
         {
-            _bgmMixer.SetFloat("BGMVolume", Mathf.Log10(timeToFade - timeElapsed) * 20);
+            _bgmMixer.SetFloat("BGMVolume", _startingVolume - Mathf.Log10(timeElapsed / timeToFade) * 20); //
+
+            Debug.Log("uwu " + Mathf.Log10(timeToFade / timeElapsed) * 20);
+            // timeElapsed/timeToFade
 
             timeElapsed += Time.deltaTime;
 
@@ -84,6 +92,8 @@ public class AudioManager : MonoBehaviour
     private void Start()
     {
         _instance = this;
+        _startingVolume = GetVolume();
+
     }
 
     private void Update()
