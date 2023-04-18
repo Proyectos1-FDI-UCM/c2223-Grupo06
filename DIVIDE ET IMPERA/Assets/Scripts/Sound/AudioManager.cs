@@ -47,7 +47,7 @@ public class AudioManager : MonoBehaviour
         return i;
     }
 
-    private void FadeBGM(float timeToFade)
+    public void FadeBGM(float timeToFade)
     {
         StopAllCoroutines();
 
@@ -62,9 +62,9 @@ public class AudioManager : MonoBehaviour
 
         while (timeElapsed < timeToFade)
         {
-            _bgmMixer.SetFloat("BGMVolume", _startingVolume - Mathf.Log10(timeElapsed / timeToFade) * 20); //
+            _bgmMixer.SetFloat("BGMVolume", 4*(_startingVolume - Mathf.Log10(timeElapsed / timeToFade) * 20)); //
 
-            Debug.Log("uwu " + Mathf.Log10(timeToFade / timeElapsed) * 20);
+            Debug.Log("uwu " + (Mathf.Log10(timeToFade / timeElapsed) * 20));
             // timeElapsed/timeToFade
 
             timeElapsed += Time.deltaTime;
@@ -75,6 +75,24 @@ public class AudioManager : MonoBehaviour
 
     private IEnumerator FadeTrackCoroutine(float timeToFade)
     {
+
+        float timeElapsed = 0.05f, i;
+
+        while (timeElapsed < timeToFade)
+        {
+            _bgmMixer.SetFloat("BGMVolume",  (_startingVolume - 20 - Mathf.Log10(timeElapsed / timeToFade) * 20)); //
+
+            Debug.Log("uwu " + (_startingVolume - 20 - Mathf.Log10(timeElapsed / timeToFade) * 20));
+            // timeElapsed/timeToFade
+
+            timeElapsed += Time.deltaTime;
+
+            yield return null;
+
+        }
+
+
+        /*
         float timeElapsed = 0;
 
         while(timeElapsed < timeToFade)
@@ -85,7 +103,7 @@ public class AudioManager : MonoBehaviour
 
             yield return null;
         }
-
+        */
     }
 
 

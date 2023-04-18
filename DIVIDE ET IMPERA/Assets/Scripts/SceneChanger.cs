@@ -85,7 +85,7 @@ public class SceneChanger : MonoBehaviour
     {
         StopAllCoroutines();
         StartCoroutine(CoroutineWaitOnFade(i, whatLvl));
-        AudioManager.Instance.FadeBGM2(2);
+        AudioManager.Instance.FadeBGM(i);
         
 
     }

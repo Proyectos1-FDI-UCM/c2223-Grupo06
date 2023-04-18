@@ -688,6 +688,10 @@ PrefabInstance:
       value: Timoteo
       objectReference: {fileID: 0}
     - target: {fileID: 5943162679483822508, guid: 767e3f423c90f78409c3048c7e7f2088, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5943162679483822508, guid: 767e3f423c90f78409c3048c7e7f2088, type: 3}
       propertyPath: _conversar
       value: 0
       objectReference: {fileID: 0}
