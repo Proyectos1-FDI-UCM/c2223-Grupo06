@@ -73,7 +73,7 @@ public class BGMComponent : MonoBehaviour
                     _playAmbience = false;
                     break;
                 case GameStates.INTRO:
-                    _nextBGM = 4;
+                    _nextBGM = 4; // es 0 realmente pero esta asi para probar el fade out
                     _playAmbience = true;
                     break;
                 case GameStates.GAME:                        //     *JUEGO*

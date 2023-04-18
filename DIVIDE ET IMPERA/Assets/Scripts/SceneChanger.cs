@@ -36,25 +36,37 @@ public class SceneChanger : MonoBehaviour
                     //FadeToLevel(2);
                     break;
                 case 2:
-                    FadeToLevel(3);
+                    WaitOnAudioFade(2, 3);
+                    //FadeToLevel(3);
                     break;
                 case 3:
                     if (PlayerManager.Instance.Alubiat || _alubiat)
-                        FadeToLevel(4);
-                    else 
-                        FadeToLevel(5);
+                    {
+                        WaitOnAudioFade(2, 4);
+                        //FadeToLevel(4);
+                    }   
+                    else
+                    {
+                        WaitOnAudioFade(2, 5);
+                        //FadeToLevel(5);
+                    }
+                        
                     break;
                 case 4:
-                    FadeToLevel(6);
+                    WaitOnAudioFade(2, 6);
+                    //FadeToLevel(6);
                     break;
                 case 5:
-                    FadeToLevel(8);
+                    WaitOnAudioFade(2, 8);
+                    //FadeToLevel(8);
                     break;
                 case 6:
-                    FadeToLevel(7);
+                    WaitOnAudioFade(2, 7);
+                    //FadeToLevel(7);
                     break;
                 case 7:
-                    FadeToLevel(8);
+                    WaitOnAudioFade(2, 8);
+                    //FadeToLevel(8);
                     break;
             }
         }
@@ -83,8 +95,13 @@ public class SceneChanger : MonoBehaviour
 
     public void WaitOnAudioFade(int i, int whatLvl)
     {
+        // para todas las corrutinas
         StopAllCoroutines();
+
+        // empieza la corrutina para esperar para cambiar de escena
         StartCoroutine(CoroutineWaitOnFade(i, whatLvl));
+
+        // empieza la corrutina para el fade out
         AudioManager.Instance.FadeBGM(i);
         
 
@@ -93,8 +110,10 @@ public class SceneChanger : MonoBehaviour
 
     IEnumerator CoroutineWaitOnFade(int i, int  whatLvl)
     {
+        // cosas de corrutinas, espera la cantidad de tiempo indicada
         yield return new WaitForSecondsRealtime(i);
 
+        // cambia de escena
         FadeToLevel(whatLvl);
     }
     #endregion

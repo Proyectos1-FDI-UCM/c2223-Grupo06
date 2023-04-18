@@ -53,8 +53,10 @@ public class AudioManager : MonoBehaviour
 
     public void FadeBGM(float timeToFade)
     {
+        // para todas las corrutinas (no se si esta bien)
         StopAllCoroutines();
 
+        // empieza la corrutina para el fade
         StartCoroutine(FadeTrackCoroutine(timeToFade));
 
     }
@@ -82,15 +84,19 @@ public class AudioManager : MonoBehaviour
 
         float timeElapsed = 0.05f, i;
 
+        // while para que lo haga respecto al tiempo
         while (timeElapsed < timeToFade)
         {
+            // calcula y cambia el volumen (log10)
             _bgmMixer.SetFloat("BGMVolume",  (_startingVolume - 20 - Mathf.Log10(timeElapsed / timeToFade) * 20)); //
 
             //Debug.Log("uwu " + (_startingVolume - 20 - Mathf.Log10(timeElapsed / timeToFade) * 20));
             // timeElapsed/timeToFade
 
+            // añade al tiempo
             timeElapsed += Time.deltaTime;
 
+            // cosas de corrutinas
             yield return null;
 
         }
@@ -102,6 +108,7 @@ public class AudioManager : MonoBehaviour
     {
         _instance = this;
 
+        // pone el volumen inicial del fondo (repasar)
         _bgmMixer.SetFloat("BGMVolume", _startingVolume);
 
     }
