@@ -73,7 +73,8 @@ public class StayOnPataforma : MonoBehaviour
         // desactivada y no es el tilemap
         if ((collision.gameObject.GetComponentInChildren<PataformaComponent>()
             || collision.gameObject.GetComponentInChildren<NewPlatformMovement>()
-            || collision.gameObject.GetComponent<NewPlatformMovement>()))
+            || collision.gameObject.GetComponent<NewPlatformMovement>())
+            && !collision.gameObject.GetComponentInChildren<DoorComponent>())
             /*&& !collision.gameObject.GetComponent<Tilemap>()
             && !collision.gameObject.GetComponentInChildren<StayOnPataforma>())*/
         {
