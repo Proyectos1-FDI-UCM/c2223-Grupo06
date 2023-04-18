@@ -25,10 +25,10 @@ public class BGMComponent : MonoBehaviour
     /// <summary>
     /// TUTORIAL/CHULETA DE TEMAZOS
     /// 
-    /// -1 --> no bgm
-    /// 0 --> skeleton waltz
-    /// 1 --> jazz perhaps
-    /// 2 --> dolphin
+    /// 0 --> no bgm
+    /// 1 --> skeleton waltz
+    /// 2 --> jazz perhaps
+    /// 3 --> dolphin
     /// </summary>
 
     #region methods
@@ -69,39 +69,39 @@ public class BGMComponent : MonoBehaviour
             switch (Instance.CurrentState) // Diferentes comportamientos según estado al que se entra
             {
                 case GameStates.START:                       //     *MENÚ INICIAL*
-                    _nextBGM = 1;
+                    _nextBGM = 2;
                     _playAmbience = false;
                     break;
                 case GameStates.INTRO:
-                    _nextBGM = -1;
-                    _playAmbience = true;
-                    break;
-                case GameStates.GAME:                        //     *JUEGO*
                     _nextBGM = 0;
                     _playAmbience = true;
                     break;
+                case GameStates.GAME:                        //     *JUEGO*
+                    _nextBGM = 1;
+                    _playAmbience = true;
+                    break;
                 case GameStates.PAUSE:                       //     *PAUSA*
-                    _nextBGM = 2;
+                    _nextBGM = 3;
                     _playAmbience = false;
                     break;
                 case GameStates.GAMEOVER:                    //     *FIN DEL JUEGO*
-                    _nextBGM = 2;
+                    _nextBGM = 3;
                     _playAmbience = false;
                     break;
                 case GameStates.SCORE:
-                    _nextBGM = 2;
+                    _nextBGM = 3;
                     _playAmbience = false;
                     break;
                 case GameStates.LEVELSELECTOR:
-                    _nextBGM = 2;
+                    _nextBGM = 3;
                     _playAmbience = false;
                     break;
                 case GameStates.CONTROLES:                   //     *CONTROLES*
-                    _nextBGM = 2;
+                    _nextBGM = 3;
                     _playAmbience = false;
                     break;
                 case GameStates.OPCIONES:                   //      *OPCIONES*
-                    _nextBGM = 2;
+                    _nextBGM = 3;
                     _playAmbience = false;
                     break;
             }
@@ -122,6 +122,7 @@ public class BGMComponent : MonoBehaviour
 
     private void Update()
     {
+        Debug.Log(_currentBGM);
         BGMManager();
         if (_currentBGM != _nextBGM)
         {
@@ -129,6 +130,7 @@ public class BGMComponent : MonoBehaviour
             _currentBGM = _nextBGM;
             if(_currentBGM >= 0)
             {
+                Debug.Log("heh");
                 PlayBGM(_currentBGM);
             }
             

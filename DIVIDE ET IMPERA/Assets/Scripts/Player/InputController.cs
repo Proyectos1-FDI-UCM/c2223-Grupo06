@@ -378,7 +378,9 @@ public class InputController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Y))
         {
-            SFXComponent.Instance.PlayYippie();
+            //SFXComponent.Instance.PlayYippie();
+
+            
         }
         #endregion
     }

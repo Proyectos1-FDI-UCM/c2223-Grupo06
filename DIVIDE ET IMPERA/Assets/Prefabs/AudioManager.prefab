@@ -64,6 +64,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SFX Manager
       objectReference: {fileID: 0}
+    - target: {fileID: 2761443323977113742, guid: 2744dc1518e318b4fa76c7d339324c58, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2761443323977113753, guid: 2744dc1518e318b4fa76c7d339324c58, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -173,6 +177,10 @@ PrefabInstance:
     - target: {fileID: 8290370862921640955, guid: 6b4272b8a6f88824e9524fe4dbca7130, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8290370862921640956, guid: 6b4272b8a6f88824e9524fe4dbca7130, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6b4272b8a6f88824e9524fe4dbca7130, type: 3}

@@ -27,9 +27,11 @@ public class SceneChanger : MonoBehaviour
             switch (SceneManager.GetActiveScene().buildIndex)
             {
                 case 0:
+                    //AudioManager.Instance.FadeBGM2(3);
                     FadeToLevel(1);
                     break;
                 case 1:
+                    //AudioManager.Instance.FadeBGM2(3);
                     FadeToLevel(2);
                     break;
                 case 2:
