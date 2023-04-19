@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
@@ -15,9 +16,6 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject _ControlesMenu;
     [SerializeField] private GameObject _optionsMenu;
 
-    [SerializeField] private GameObject _resumeButton;
-    public GameObject ResumeButton { get { return _resumeButton; } set { _resumeButton = value; } }
-
     // imagenes dentro del ui
     [SerializeField] private Image[] _images;
     //imagenes tarjetas puntos
@@ -32,6 +30,12 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject _pauseFirstButton;
     [SerializeField] private GameObject _startFirstButton;
     [SerializeField] private GameObject _startClosedButton;
+
+            // cyn probando cosas:
+    [SerializeField] private GameObject _firstButton; // botón inicial del menú pausa
+    public GameObject FirstButton { get { return _firstButton; } set { _firstButton = value; } }
+    [SerializeField] private GameObject[] _firstButtons; // array de botones iniciales por escenas NO REIRSE DE MI >:(
+    // 0: inicial, 1: pausa, 2: controles, 3: opciones , 4: level select , 5: points
     #endregion
 
     #region properties
@@ -60,6 +64,11 @@ public class UIManager : MonoBehaviour
         return _menus[(int)_activeMenu].activeSelf;
     }
 
+    public void SetFirstButton(int index)
+    {
+        _firstButton = _firstButtons[index];
+        EventSystem.current.SetSelectedGameObject(_firstButton); // cambia el botón seleccionado
+    }
 
     /* public void UpdateMenu() // esto lo usariamos si se cambia informacion in real time (SEGURAMENTE CUANDO SPEEDRUNNING CON EL TEMA CRONÓMETRO!!)
     {
@@ -74,7 +83,7 @@ public class UIManager : MonoBehaviour
         }
     } */
 
-    #region movimiento de estados
+    #region STATE MOVEMENT
     public void StartToIntro() // menu iniacial -> intro (empezar a jugar)
     {
         //if (LevelManager.Instance != null) ResetRoom();

@@ -2244,7 +2244,6 @@ MonoBehaviour:
   _player: {fileID: 0}
   _ControlesMenu: {fileID: 4387438277433640414}
   _optionsMenu: {fileID: 6358571315366699567}
-  _resumeButton: {fileID: 4977953820187593330}
   _images:
   - {fileID: 2076869503598631151}
   - {fileID: 2076869503724314630}
@@ -2270,6 +2269,14 @@ MonoBehaviour:
   _pauseFirstButton: {fileID: 4977953820187593330}
   _startFirstButton: {fileID: 9015988375324539592}
   _startClosedButton: {fileID: 8873773540705935292}
+  _firstButton: {fileID: 0}
+  _firstButtons:
+  - {fileID: 9015988375324539592}
+  - {fileID: 4977953820187593330}
+  - {fileID: 4093258442017362580}
+  - {fileID: 1766275165889394914}
+  - {fileID: 7768413603776573611}
+  - {fileID: 6885053724000978458}
   _activeMenu: 0
 --- !u!1 &2076869504062052000
 GameObject:
