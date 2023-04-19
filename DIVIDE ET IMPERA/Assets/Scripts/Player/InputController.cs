@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class InputController : MonoBehaviour
 {
@@ -378,9 +379,7 @@ public class InputController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Y))
         {
-            //SFXComponent.Instance.PlayYippie();
-
-            
+            //SFXComponent.Instance.PlayYippie(); 
         }
         #endregion
     }
@@ -439,6 +438,7 @@ public class InputController : MonoBehaviour
             if (GameManager.Instance != null && GameManager.Instance.CurrentState == GameManager.GameStates.GAME)
             {
                 GameManager.Instance.RequestStateChange(GameManager.GameStates.PAUSE);
+                EventSystem.current.SetSelectedGameObject(UIManager.Instance.ResumeButton);
                 // desactiva el input
                 enabled = false;
                 PlayerAccess.Instance.MovementComponent.enabled = false;

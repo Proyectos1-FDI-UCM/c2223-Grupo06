@@ -593,7 +593,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1938935141328946111
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2109,6 +2109,7 @@ MonoBehaviour:
   _player: {fileID: 0}
   _ControlesMenu: {fileID: 4387438277433640414}
   _optionsMenu: {fileID: 6358571315366699567}
+  _resumeButton: {fileID: 4977953820187593330}
   _images:
   - {fileID: 2076869503598631151}
   - {fileID: 2076869503724314630}
