@@ -101,7 +101,7 @@ public class UIManager : MonoBehaviour
 
     public void PauseToControles() // menu pausa -> controles
     {
-        RequestStateChange(GameManager.GameStates.OPCIONES); // referenciando al gamemanager (importante! si no no cambia de estado)
+        RequestStateChange(GameManager.GameStates.CONTROLES); // referenciando al gamemanager (importante! si no no cambia de estado)
         _player.GetComponent<InputController>().enabled = false;
     }
 
