@@ -2339,6 +2339,11 @@ PrefabInstance:
       objectReference: {fileID: 2313259372754416174, guid: 6f720ab71a9a27f4f851d4e930787b44, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 67cbb02f1857e4240b80501b6608208e, type: 3}
+--- !u!4 &590679002 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1165739819573327380, guid: 67cbb02f1857e4240b80501b6608208e, type: 3}
+  m_PrefabInstance: {fileID: 590679001}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &590858853 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6532825449299246445, guid: 3be88e3eafb2086439f2e5c5dc51fb05, type: 3}
@@ -2428,7 +2433,7 @@ PrefabInstance:
     - target: {fileID: 728014139240804033, guid: 767e3f423c90f78409c3048c7e7f2088, type: 3}
       propertyPath: _objectsReset
       value: 
-      objectReference: {fileID: 16919030}
+      objectReference: {fileID: 590679002}
     - target: {fileID: 734111396539604467, guid: 767e3f423c90f78409c3048c7e7f2088, type: 3}
       propertyPath: _objectsReset
       value: 
@@ -2513,6 +2518,10 @@ PrefabInstance:
       propertyPath: _boneStateBar
       value: 
       objectReference: {fileID: 1103851331}
+    - target: {fileID: 6326749029943970691, guid: 767e3f423c90f78409c3048c7e7f2088, type: 3}
+      propertyPath: _objectsReset
+      value: 
+      objectReference: {fileID: 590679002}
     - target: {fileID: 8094601566322241750, guid: 767e3f423c90f78409c3048c7e7f2088, type: 3}
       propertyPath: _jumpForce
       value: 13
