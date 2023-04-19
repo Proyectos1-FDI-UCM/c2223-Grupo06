@@ -16,7 +16,7 @@ public class AudioManager : MonoBehaviour
 
     #region Properties
 
-    private float _startingVolume = -14.2219f;
+    private float _startingVolume = 0;//-14.2219f;
 
     #endregion
 

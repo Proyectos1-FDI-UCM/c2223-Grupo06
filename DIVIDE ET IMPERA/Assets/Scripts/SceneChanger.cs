@@ -50,7 +50,6 @@ public class SceneChanger : MonoBehaviour
                         WaitOnAudioFade(2, 5);
                         //FadeToLevel(5);
                     }
-                        
                     break;
                 case 4:
                     WaitOnAudioFade(2, 6);
