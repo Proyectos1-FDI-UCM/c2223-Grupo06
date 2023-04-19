@@ -3919,6 +3919,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 014e3eafdffa3a9468008ef6e2cd05a7, type: 3}
+--- !u!4 &460051867 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1165739819573327380, guid: 67cbb02f1857e4240b80501b6608208e, type: 3}
+  m_PrefabInstance: {fileID: 2001108487}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &472459827 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6532825449299246445, guid: 3be88e3eafb2086439f2e5c5dc51fb05, type: 3}
@@ -11609,6 +11614,10 @@ PrefabInstance:
       propertyPath: _boneStateBar
       value: 
       objectReference: {fileID: 708928069}
+    - target: {fileID: 728014139240804033, guid: 767e3f423c90f78409c3048c7e7f2088, type: 3}
+      propertyPath: _objectsReset
+      value: 
+      objectReference: {fileID: 460051867}
     - target: {fileID: 2285777756704234152, guid: 767e3f423c90f78409c3048c7e7f2088, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -11657,6 +11666,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Timoteo
       objectReference: {fileID: 0}
+    - target: {fileID: 6326749029943970691, guid: 767e3f423c90f78409c3048c7e7f2088, type: 3}
+      propertyPath: _objectsReset
+      value: 
+      objectReference: {fileID: 460051867}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 767e3f423c90f78409c3048c7e7f2088, type: 3}
 --- !u!1 &1738796222 stripped

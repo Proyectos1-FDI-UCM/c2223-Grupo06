@@ -81,7 +81,7 @@ public class LevelManager : MonoBehaviour
         PlayerAccess.Instance.InputController.ResetProperties();
     }
 
-    private void ResetObjects() //Destruir todos los objetos lanzados/soltados porque son hijos de _objectsReset
+    public void ResetObjects() //Destruir todos los objetos lanzados/soltados porque son hijos de _objectsReset
     {
         int i = _objectsReset.transform.childCount;
         for (int j = 0; j < i; j++)

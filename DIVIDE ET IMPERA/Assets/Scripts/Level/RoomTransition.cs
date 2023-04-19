@@ -58,6 +58,9 @@ public class RoomTransition : MonoBehaviour
         {
             _transitions[i].GetComponentInChildren<BoxCollider2D>().enabled = false; //se desactivan todas las transiciones
         }
+        ResetConnectedParts();
+        LevelManager.Instance.ResetObjects();
+        PlayerManager.Instance.RequestTimmyState(PlayerManager.TimmyStates.S0);
 
         _onTransition = true; //activar transicion
     }
@@ -100,6 +103,19 @@ public class RoomTransition : MonoBehaviour
             }
 
             _onTransition = false; //Se termina la transicion
+        }
+    }
+    private void ResetConnectedParts()
+    {
+        if (PlayerManager.Instance.Lever != null) //si estas conectado a una palanca desconectar brazo
+        {
+            PlayerManager.Instance.Lever.GetComponent<PalancaAnimator>().DesconectarBrazo();
+            PlayerManager.Instance.Lever.GetComponent<PalancaComponent>().DesconectarBrazo();
+        }
+
+        if (PlayerManager.Instance.Pataforma != null) //si estas conectado a pataforma desconectar piernas
+        {
+            PlayerManager.Instance.Pataforma.GetComponent<PataformaComponent>().SetLegs(false);
         }
     }
     #endregion
