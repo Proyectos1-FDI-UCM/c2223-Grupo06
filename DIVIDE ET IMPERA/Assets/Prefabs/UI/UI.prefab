@@ -2244,6 +2244,7 @@ MonoBehaviour:
   _player: {fileID: 0}
   _ControlesMenu: {fileID: 4387438277433640414}
   _optionsMenu: {fileID: 6358571315366699567}
+  _resumeButton: {fileID: 4977953820187593330}
   _images:
   - {fileID: 2076869503598631151}
   - {fileID: 2076869503724314630}

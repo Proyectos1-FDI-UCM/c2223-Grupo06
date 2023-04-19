@@ -15,6 +15,9 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject _ControlesMenu;
     [SerializeField] private GameObject _optionsMenu;
 
+    [SerializeField] private GameObject _resumeButton;
+    public GameObject ResumeButton { get { return _resumeButton; } set { _resumeButton = value; } }
+
     // imagenes dentro del ui
     [SerializeField] private Image[] _images;
     //imagenes tarjetas puntos
@@ -71,6 +74,7 @@ public class UIManager : MonoBehaviour
         }
     } */
 
+    #region movimiento de estados
     public void StartToIntro() // menu iniacial -> intro (empezar a jugar)
     {
         //if (LevelManager.Instance != null) ResetRoom();
@@ -154,6 +158,7 @@ public class UIManager : MonoBehaviour
             PlayerAccess.Instance.Animator.enabled = true;
         }
     }
+    #endregion
 
     public void Quit()
     {
