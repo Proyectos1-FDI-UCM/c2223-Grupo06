@@ -2272,12 +2272,14 @@ MonoBehaviour:
   _firstButton: {fileID: 0}
   _firstButtons:
   - {fileID: 9015988375324539592}
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 4977953820187593330}
+  - {fileID: 1766275165889394914}
+  - {fileID: 6885053724000978458}
+  - {fileID: 7768413603776573611}
   - {fileID: 4049337218018991342}
   - {fileID: 4093258442017362580}
-  - {fileID: 1766275165889394914}
-  - {fileID: 7768413603776573611}
-  - {fileID: 6885053724000978458}
   _activeMenu: 0
 --- !u!1 &2076869504062052000
 GameObject:
