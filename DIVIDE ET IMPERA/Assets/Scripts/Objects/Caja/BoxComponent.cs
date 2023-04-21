@@ -22,7 +22,7 @@ public class BoxComponent : MonoBehaviour
         if (collision.gameObject == _player)
         {
             _canInteract = true;
-            PlayerAccess.Instance.InputController.NearBoxSeter(_canInteract, gameObject);
+            //PlayerAccess.Instance.InputController.NearBoxSeter(_canInteract, gameObject);
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
@@ -30,7 +30,7 @@ public class BoxComponent : MonoBehaviour
         if (collision.gameObject == _player)
         {
             _canInteract = false;
-            PlayerAccess.Instance.InputController.NearBoxSeter(_canInteract, null);
+            //PlayerAccess.Instance.InputController.NearBoxSeter(_canInteract, null);
         }
     }
 
