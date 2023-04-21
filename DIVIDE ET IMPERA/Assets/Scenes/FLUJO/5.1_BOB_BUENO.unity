@@ -34584,19 +34584,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2980812907119704092, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
       propertyPath: m_margin.z
-      value: -35.0439
+      value: -1.1666718
+      objectReference: {fileID: 0}
+    - target: {fileID: 2980812907119704095, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 556.39
+      objectReference: {fileID: 0}
+    - target: {fileID: 2980812907119704095, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 168.44
       objectReference: {fileID: 0}
     - target: {fileID: 2980812907119704095, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -41
+      value: -40.11
       objectReference: {fileID: 0}
     - target: {fileID: 2980812907119704095, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 167
+      value: 172.7
       objectReference: {fileID: 0}
     - target: {fileID: 2980812907119704095, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -12
+      value: 0.57
       objectReference: {fileID: 0}
     - target: {fileID: 2980812907516896382, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
       propertyPath: _player
@@ -34608,19 +34616,56 @@ PrefabInstance:
       objectReference: {fileID: 497587238}
     - target: {fileID: 2980812907860231591, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
       propertyPath: _lines.Array.size
-      value: 2
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 2980812907860231591, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
       propertyPath: _lines.Array.data[0]
-      value: 
+      value: "NARRADOR: El agua del subsuelo desliz\xE1ndose por las paredes"
       objectReference: {fileID: 0}
     - target: {fileID: 2980812907860231591, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
       propertyPath: _lines.Array.data[1]
-      value: 
+      value: "NARRADOR: Guijarros desprendi\xE9ndose"
       objectReference: {fileID: 0}
     - target: {fileID: 2980812907860231591, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
       propertyPath: _lines.Array.data[2]
-      value: 
+      value: 'NARRADOR: Y el triunfo'
+      objectReference: {fileID: 0}
+    - target: {fileID: 2980812907860231591, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
+      propertyPath: _lines.Array.data[3]
+      value: "BOB: \xA1Timoteo!"
+      objectReference: {fileID: 0}
+    - target: {fileID: 2980812907860231591, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
+      propertyPath: _lines.Array.data[4]
+      value: 'TIMOTEO: ...'
+      objectReference: {fileID: 0}
+    - target: {fileID: 2980812907860231591, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
+      propertyPath: _lines.Array.data[5]
+      value: "BOB: \xA1Dichosos sean los ojos y las esquel\xE9ticas cuencas que los
+        sostienen!"
+      objectReference: {fileID: 0}
+    - target: {fileID: 2980812907860231591, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
+      propertyPath: _lines.Array.data[6]
+      value: 'NARRADOR: Entre sus alabanzas crees atisbar una sonrisa en su calavera'
+      objectReference: {fileID: 0}
+    - target: {fileID: 2980812907860231591, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
+      propertyPath: _lines.Array.data[7]
+      value: 'BOB: Ya queda poco para que tus huesos se tuesten al sol Timoteo'
+      objectReference: {fileID: 0}
+    - target: {fileID: 2980812907860231591, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
+      propertyPath: _lines.Array.data[8]
+      value: 'TIMOTEO: Poco para ser libre...'
+      objectReference: {fileID: 0}
+    - target: {fileID: 2980812907860231591, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
+      propertyPath: _lines.Array.data[9]
+      value: 'NARRADOR: Poco para empezar a vivir tu muerte'
+      objectReference: {fileID: 0}
+    - target: {fileID: 2980812907860231591, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
+      propertyPath: _lines.Array.data[10]
+      value: "BOB: A qu\xE9 esperas sobrino m\xEDo"
+      objectReference: {fileID: 0}
+    - target: {fileID: 2980812907860231591, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
+      propertyPath: _lines.Array.data[11]
+      value: "BOB: No retoces m\xE1s entre los olvidados"
       objectReference: {fileID: 0}
     - target: {fileID: 3398044784434279248, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
       propertyPath: m_SizeDelta.x
