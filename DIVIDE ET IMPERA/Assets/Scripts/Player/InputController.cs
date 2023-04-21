@@ -438,7 +438,6 @@ public class InputController : MonoBehaviour
             if (GameManager.Instance != null && GameManager.Instance.CurrentState == GameManager.GameStates.GAME)
             {
                 GameManager.Instance.RequestStateChange(GameManager.GameStates.PAUSE);
-                UIManager.Instance.SetFirstButton(1);
                 // desactiva el input
                 enabled = false;
                 PlayerAccess.Instance.MovementComponent.enabled = false;

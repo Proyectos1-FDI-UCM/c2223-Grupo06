@@ -35,7 +35,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject _firstButton; // botón inicial del menú pausa
     public GameObject FirstButton { get { return _firstButton; } set { _firstButton = value; } }
     [SerializeField] private GameObject[] _firstButtons; // array de botones iniciales por escenas NO REIRSE DE MI >:(
-    // 0: inicial, 1: pausa, 2: controles, 3: opciones , 4: level select , 5: points
+    // 0: inicial, 1: pausa, 2: controles, 3: opciones , 4; game over, 5: level select, 6: points
     #endregion
 
     #region properties
