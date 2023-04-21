@@ -20,6 +20,10 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { get { return _instance; } }
     public GameStates CurrentState { get { return _currentGameState; } }
     public GameStates NextState { get { return _nextGameState; } }
+
+    // control por teclado
+    private int _fbIndex; // first button index en el array del uimanager ESTÁN PUESTOS POR ÓRDEN DEL ENUM DE ESTADOS DEL GAMEMANAGER
+    public int FbIndex { get {  return _fbIndex; } set { _fbIndex = value; } }
     #endregion
 
     #region methods
@@ -49,7 +53,6 @@ public class GameManager : MonoBehaviour
         { // En sí, solo cambia el grupo de UI por cada estado y en GAME carga el nivel
 
             case GameStates.START:                       //     *MENÚ INICIAL*
-                UIManager.Instance.SetFirstButton(0);
                 break;
             case GameStates.INTRO:                       //     *INTRO*
                 break;
@@ -59,11 +62,9 @@ public class GameManager : MonoBehaviour
                 Time.timeScale = 1;
                 break;
             case GameStates.PAUSE:                       //     *PAUSA*
-                UIManager.Instance.SetFirstButton(1);
                 Time.timeScale = 0;
                 break;
             case GameStates.GAMEOVER:                    //     *FIN DEL JUEGO*
-                UIManager.Instance.SetFirstButton(4);
                 if (Contador.tiempo > 500)
                 {
                     puntuacion.RestaPuntos(150);
@@ -91,19 +92,17 @@ public class GameManager : MonoBehaviour
 
                 break;
             case GameStates.SCORE:                       //     *PUNTUACIÓN*
-                UIManager.Instance.SetFirstButton(6);
                 break;
             case GameStates.LEVELSELECTOR:               //     *SELECTOR DE NIVELES*
-                UIManager.Instance.SetFirstButton(5);
                 break;
             case GameStates.CONTROLES:                   //     *CONTROLES*
-                UIManager.Instance.SetFirstButton(2);
                 break;
             case GameStates.OPCIONES:                   //      *OPCIONES*
-                UIManager.Instance.SetFirstButton(3);
                 break;
         }
         if (_UIManager != null) _UIManager.SetMenu(newState); // como en todos los estados se hace esto, se pone al final según el estado nuevo y listo
+        if (UIManager.Instance != null) UIManager.Instance.SetFirstButton((int)newState);
+        
         _currentGameState = newState;                        // Finaliza el cambio
         Debug.Log("GAMEMANAGER: Current state is " + _currentGameState);
     }
