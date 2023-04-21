@@ -17,6 +17,7 @@ public class BoxComponent : MonoBehaviour
     private bool _canInteract;
     #endregion
     #region Methods
+    /*
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject == _player)
@@ -33,6 +34,7 @@ public class BoxComponent : MonoBehaviour
             //PlayerAccess.Instance.InputController.NearBoxSeter(_canInteract, null);
         }
     }
+    */
 
     public void ConnectOrDisconnectLegs(int legs)
     {
