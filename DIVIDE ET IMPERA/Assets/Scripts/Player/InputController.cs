@@ -104,9 +104,6 @@ public class InputController : MonoBehaviour
     [SerializeField]
     public bool _changeToAlubiat;
     public bool ChangeToAlubiat { get { return _changeToAlubiat; } }
-
-    private GameObject _box;
-    public GameObject Box { get { return _box; } }
     #endregion
 
     #region Parameters
@@ -219,17 +216,6 @@ public class InputController : MonoBehaviour
                        // Debug.Log("as");
                     }
                 }
-                /*else if (transform.parent == null && _box != null)
-                {
-                    if (PlayerManager.Instance.Piernas && _box.GetComponent<BoxComponent>().LegsConnected == -1)
-                    {
-                        _box.GetComponent<BoxComponent>().ConnectOrDisconnectLegs(0);
-                    }
-                    else
-                    {
-                        _box.GetComponent<BoxComponent>().ConnectOrDisconnectLegs(-1);
-                    }
-                }*/
                 else
                 {
                     PlayerManager.Instance.SoltarPiernas();
@@ -247,7 +233,6 @@ public class InputController : MonoBehaviour
             {
                 _changeToAlubiat = true;
             }
-
         }
         else
         if (Input.GetKeyDown(KeyCode.C))
@@ -272,31 +257,11 @@ public class InputController : MonoBehaviour
                         _conectarAlubiat = false;
                     }
                 }
-                /*else if (_box != null)
-                {
-                    if (PlayerManager.Instance.Alubiat && _box.GetComponent<BoxComponent>().LegsConnected == -1)
-                    {
-                        _box.GetComponent<BoxComponent>().ConnectOrDisconnectLegs(1);
-                    }
-                    else
-                    {
-                        _box.GetComponent<BoxComponent>().ConnectOrDisconnectLegs(-1);
-                    }
-                }*/
                 else // si no conecta ni desconecta
                     PlayerManager.Instance.SoltarAlubiat();
             }
             else // si destruye a alubiat
                 PlayerManager.Instance.RecogerAlubiat();
-        }
-        else if (Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.C))
-        { // Shift + C
-            // interactuar con alubia
-
-
-
-
-
         }
         else if (_conectarBrazo) _conectarBrazo = false; // estoy probando no juzgarme (sabré si lo hacéis)
         else if (_recuperarBrazo) _recuperarBrazo = false;
@@ -340,11 +305,6 @@ public class InputController : MonoBehaviour
             return true;
         }
         else return false;
-    }
-
-    public void NearBoxSeter(bool onoff, GameObject box)
-    {
-        _box = box;
     }
 
     // PARA PROBAR COSAS DEL INPUT
