@@ -49,6 +49,7 @@ MonoBehaviour:
   _waypoints: []
   _speed: 0
   _isCiclic: 0
+  _active: 0
 --- !u!61 &2821296321091073837
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -150,7 +151,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: cf47535ca9364e046a4f58618cb5b3fa, type: 3}
-  m_Color: {r: 0, g: 0.85306454, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

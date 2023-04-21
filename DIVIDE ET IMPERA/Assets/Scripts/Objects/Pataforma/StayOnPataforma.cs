@@ -49,7 +49,8 @@ public class StayOnPataforma : MonoBehaviour
     private void Adoption(Collision2D collision)
     {
         gameObject.transform.SetParent(collision.gameObject.transform, true);
-
+        if (collision.gameObject.GetComponentInParent<NewPlatformMovement>())
+            gameObject.transform.SetParent(collision.gameObject.transform.parent, true);
 
             /*
         if (collision.transform.parent != null) //dentro de esto estaba lo de encima, por que? a, pero ahora funciona
@@ -72,7 +73,7 @@ public class StayOnPataforma : MonoBehaviour
         // devuelve true si es o una pataforma o una plataforma normal con la variable de puerta 
         // desactivada y no es el tilemap
         if ((collision.gameObject.GetComponentInChildren<PataformaComponent>()
-            || collision.gameObject.GetComponentInChildren<NewPlatformMovement>()
+            || collision.gameObject.GetComponentInParent<NewPlatformMovement>()
             || collision.gameObject.GetComponent<NewPlatformMovement>())
             && !collision.gameObject.GetComponentInChildren<DoorComponent>())
             /*&& !collision.gameObject.GetComponent<Tilemap>()
