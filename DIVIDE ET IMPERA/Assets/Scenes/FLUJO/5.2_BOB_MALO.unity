@@ -232,7 +232,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6774766152911997415, guid: 4c5f3b85fa228ca40acb654fc7a5e414, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6774766152911997415, guid: 4c5f3b85fa228ca40acb654fc7a5e414, type: 3}
       propertyPath: m_LocalPosition.x
@@ -521,7 +521,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2980812906896535388, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2980812906896535388, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
       propertyPath: m_LocalPosition.x
@@ -640,20 +640,32 @@ PrefabInstance:
       value: 1.1288625
       objectReference: {fileID: 0}
     - target: {fileID: 2980812907119704092, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
+      propertyPath: m_margin.w
+      value: -1.270401
+      objectReference: {fileID: 0}
+    - target: {fileID: 2980812907119704092, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
       propertyPath: m_margin.z
-      value: -35.0439
+      value: 0.32511902
+      objectReference: {fileID: 0}
+    - target: {fileID: 2980812907119704095, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 570.76
+      objectReference: {fileID: 0}
+    - target: {fileID: 2980812907119704095, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 188.69
       objectReference: {fileID: 0}
     - target: {fileID: 2980812907119704095, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -41
+      value: -36.47
       objectReference: {fileID: 0}
     - target: {fileID: 2980812907119704095, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 167
+      value: 196.11
       objectReference: {fileID: 0}
     - target: {fileID: 2980812907119704095, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -12
+      value: 22.63
       objectReference: {fileID: 0}
     - target: {fileID: 2980812907516896382, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
       propertyPath: _player
@@ -665,19 +677,67 @@ PrefabInstance:
       objectReference: {fileID: 1953903374}
     - target: {fileID: 2980812907860231591, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
       propertyPath: _lines.Array.size
-      value: 2
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 2980812907860231591, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
       propertyPath: _lines.Array.data[0]
-      value: 'BOB: No has conseguido llegar al final bueno'
+      value: "NARRADOR: El agua del subsuelo desliz\xE1ndose por las paredes"
       objectReference: {fileID: 0}
     - target: {fileID: 2980812907860231591, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
       propertyPath: _lines.Array.data[1]
-      value: 'BOB: Y mira que es una demo'
+      value: "NARRADOR: Guijarros desprendi\xE9ndose"
       objectReference: {fileID: 0}
     - target: {fileID: 2980812907860231591, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
       propertyPath: _lines.Array.data[2]
-      value: 
+      value: "NARRADOR: Y la decepci\xF3n"
+      objectReference: {fileID: 0}
+    - target: {fileID: 2980812907860231591, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
+      propertyPath: _lines.Array.data[3]
+      value: 'BOB: Oh, Timoteo...'
+      objectReference: {fileID: 0}
+    - target: {fileID: 2980812907860231591, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
+      propertyPath: _lines.Array.data[4]
+      value: 'TIMOTEO: ...'
+      objectReference: {fileID: 0}
+    - target: {fileID: 2980812907860231591, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
+      propertyPath: _lines.Array.data[5]
+      value: "BOB: Que no pese en ti la culpa\u2026"
+      objectReference: {fileID: 0}
+    - target: {fileID: 2980812907860231591, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
+      propertyPath: _lines.Array.data[6]
+      value: "TIMOTEO: \xBFA qu\xE9 te refieres?"
+      objectReference: {fileID: 0}
+    - target: {fileID: 2980812907860231591, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
+      propertyPath: _lines.Array.data[7]
+      value: 'NARRADOR: Al fracaso'
+      objectReference: {fileID: 0}
+    - target: {fileID: 2980812907860231591, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
+      propertyPath: _lines.Array.data[8]
+      value: "BOB: Oh, ya sabes peque\xF1o Timoteo"
+      objectReference: {fileID: 0}
+    - target: {fileID: 2980812907860231591, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
+      propertyPath: _lines.Array.data[9]
+      value: 'BOB: Sin las piernas de tu padre'
+      objectReference: {fileID: 0}
+    - target: {fileID: 2980812907860231591, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
+      propertyPath: _lines.Array.data[10]
+      value: "BOB: Este lugar permanecer\xE1 siendo un pozo de din\xE1stica verg\xFCenza"
+      objectReference: {fileID: 0}
+    - target: {fileID: 2980812907860231591, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
+      propertyPath: _lines.Array.data[11]
+      value: "BOB: Sin esos podridos huesos no podr\xE1s cruzar las \xFAltimas galer\xEDas"
+      objectReference: {fileID: 0}
+    - target: {fileID: 2980812907860231591, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
+      propertyPath: _lines.Array.data[12]
+      value: "NARRADOR: D\xE9jalo, no insistas"
+      objectReference: {fileID: 0}
+    - target: {fileID: 2980812907860231591, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
+      propertyPath: _lines.Array.data[13]
+      value: 'TIMOTEO: ...'
+      objectReference: {fileID: 0}
+    - target: {fileID: 2980812907860231591, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
+      propertyPath: _lines.Array.data[14]
+      value: "NARRADOR: No hay nada m\xE1s que una eternidad en una cripta"
       objectReference: {fileID: 0}
     - target: {fileID: 3398044784434279248, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
       propertyPath: m_SizeDelta.x
@@ -790,7 +850,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2076869504003675088, guid: 59f3bbb5802b17140a954d4cbd3ee516, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 2076869504003675088, guid: 59f3bbb5802b17140a954d4cbd3ee516, type: 3}
       propertyPath: m_AnchorMax.x
@@ -906,7 +966,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6774766152911997415, guid: 4c5f3b85fa228ca40acb654fc7a5e414, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6774766152911997415, guid: 4c5f3b85fa228ca40acb654fc7a5e414, type: 3}
       propertyPath: m_LocalPosition.x
@@ -971,7 +1031,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6925641820534524795, guid: 233e18c7a6877914aaac4b6aa59b2606, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 6925641820534524795, guid: 233e18c7a6877914aaac4b6aa59b2606, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1056,7 +1116,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5171360444949630974, guid: a2dc22ca95a3d2948b60f5a7cc02d0ff, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5171360444949630974, guid: a2dc22ca95a3d2948b60f5a7cc02d0ff, type: 3}
       propertyPath: m_LocalPosition.x

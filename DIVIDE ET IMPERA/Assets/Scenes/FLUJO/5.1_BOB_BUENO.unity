@@ -34612,11 +34612,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2980812907860231591, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
       propertyPath: _lines.Array.data[0]
-      value: "BOB: Vaya pedazo de v\xEDdeo, \xBFeh?"
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 2980812907860231591, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
       propertyPath: _lines.Array.data[1]
-      value: 'TIMOTEO: El ingrediente secreto es sopa'
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 2980812907860231591, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
       propertyPath: _lines.Array.data[2]
