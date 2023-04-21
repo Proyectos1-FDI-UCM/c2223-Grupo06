@@ -9,25 +9,29 @@ public class RoomTransition : MonoBehaviour
     private Transform _transitionTransform;
 
     //Aqui empieza lo bueno
+    
     [SerializeField]
     private Transform _leftRoomCameraPosition; //Posicion a la que queremos que la camara se mueva durante la transicion hacia la izquierda
+    [SerializeField]
+    private Transform _rightRoomCameraPosition; //Posicion a la que queremos que la camara se mueva durante la transicion hacia la derecha
+    /*
     [SerializeField]
     private Transform _leftRoomSpawn; //Lugar al que el jugador se movera tras la transicion hacia la izquierda (ademas servira para spawnearle ahi si quiere resetear la sala)
                                       //IMPORTANTE: ponerlo cerquita de la caja de transicion para que la transicion no sea horrible pero
                                       //tampoco mucho para que no entre instantaneamente en la transicion de vuelta
     [SerializeField]
-    private Transform _rightRoomCameraPosition; //Posicion a la que queremos que la camara se mueva durante la transicion hacia la derecha
-    [SerializeField]
     private Transform _rightRoomSpawn; //Lugar al que el jugador se movera tras la transicion hacia la derecha (ademas servira para spawnearle ahi si quiere resetear la sala)
                                        //IMPORTANTE: ponerlo cerquita de la caja de transicion para que la transicion no sea horrible pero
-                                       //tampoco mucho para que no entre instantaneamente en la transicion de vuelta
+                                       //tampoco mucho para que no entre instantaneamente en la transicion de vuelta*/
     #endregion
     #region Parameters
+    [SerializeField]
+    private float _transitionDistance;
     [SerializeField]
     private float _transitionSpeed; //Velocidad de transicion de la camara, valor alto para que no se note lo que ocurre durante la transicion
     #endregion
     #region Properties
-    private Transform _roomSpawn;
+    private Vector3 _roomSpawn;
     private Transform _roomCameraPosition;
     private Vector3 _futureCamPos; //futura posicion de la camara
     private bool _onTransition; //booleano que determina si esta ocurrinedo una transicion
@@ -38,18 +42,18 @@ public class RoomTransition : MonoBehaviour
     {
         if (_playerTransform.position.x < _transitionTransform.position.x)
         {
-            _roomSpawn = _rightRoomSpawn; //Si el jugador esta a la izquierda setear para la transicion a la sala derecha
+            _roomSpawn = new Vector3((float)(_transitionTransform.position.x + _transitionDistance), _playerTransform.position.y, 0); //Si el jugador esta a la izquierda setear para la transicion a la sala derecha
             _roomCameraPosition = _rightRoomCameraPosition;
         }
-        else
+        else if(_playerTransform.position.x > _transitionTransform.position.x)
         {
-            _roomSpawn = _leftRoomSpawn; //Si esta a la derecha setear para la transicion a la sala izquierda
+            _roomSpawn = new Vector3((float)(_transitionTransform.position.x - _transitionDistance), _playerTransform.position.y, 0); //Si esta a la derecha setear para la transicion a la sala izquierda
             _roomCameraPosition = _leftRoomCameraPosition;
         }
 
         CameraMovement.Instance.enabled = false; //desactivar movimiento de la camara de seguir al jugador
 
-        _playerTransform.position = _roomSpawn.position; //mover al jugador, desactivar el movimiento y la animacion para evitar que entre en otra transicion
+        _playerTransform.position = _roomSpawn; //mover al jugador, desactivar el movimiento y la animacion para evitar que entre en otra transicion
         PlayerAccess.Instance.MovementComponent.enabled = false;
         PlayerAccess.Instance.Animator.enabled = false;
 
