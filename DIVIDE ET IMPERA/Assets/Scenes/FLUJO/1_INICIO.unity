@@ -14597,7 +14597,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 742018286442928541, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
       propertyPath: _lines.Array.data[0]
-      value: '<t> NARRADOR: Un nuevo despertar </t>'
+      value: 'NARRADOR: Un nuevo despertar'
       objectReference: {fileID: 0}
     - target: {fileID: 742018286442928541, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
       propertyPath: _lines.Array.data[1]
