@@ -130,7 +130,7 @@ public class BGMComponent : MonoBehaviour
             if(_currentBGM >= 0)
             {
                 
-                Debug.Log("heh");
+                //Debug.Log("heh");
                 PlayBGM(_currentBGM);
             }
             

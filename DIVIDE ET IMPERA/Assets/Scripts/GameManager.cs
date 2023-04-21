@@ -134,7 +134,8 @@ public class GameManager : MonoBehaviour
         _instance = this;
         gameObject.transform.parent = null;
         DontDestroyOnLoad(gameObject);
-
+        //Cursor.visible = false;
+        //Cursor.lockState = CursorLockMode.Locked;   
     }
 
     void Start()

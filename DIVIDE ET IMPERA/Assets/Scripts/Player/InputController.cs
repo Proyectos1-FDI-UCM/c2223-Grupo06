@@ -362,6 +362,18 @@ public class InputController : MonoBehaviour
         }
         else SFXComponent.Instance.SFXPlayerStop(2);
     }
+    
+    private void MenuInput()
+    {
+        if (EventSystem.current.currentSelectedGameObject != UIManager.Instance.FirstButtons[(int)GameManager.Instance.CurrentState])
+        {
+            if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.RightArrow))
+            { // para volver a la selección por teclado
+                UIManager.Instance.SetFirstButton(GameManager.Instance.FbIndex);
+            }
+        }
+
+    }
     #endregion
 
     void Start()
@@ -407,6 +419,7 @@ public class InputController : MonoBehaviour
         if (SFXComponent.Instance != null)
             SFXMove();
 
+        MenuInput();
         //CoolDown(); // no se usa??
     }
 }
