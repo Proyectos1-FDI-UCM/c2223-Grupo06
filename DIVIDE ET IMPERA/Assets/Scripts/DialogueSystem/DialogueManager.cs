@@ -20,7 +20,7 @@ public class DialogueManager : MonoBehaviour
     // flujo
     [Tooltip("Líneas de diálogo")]
     public string[] _lines;                     // lineas del guion
-    [Tooltip("Velocidad a la que se escribe el texto")]
+    [Tooltip("Cadencia a la que se escribe el texto")]
     [SerializeField] private float _speedText; // velocidad de texto
     int _index;                                // para saber en que linea estamos
 
