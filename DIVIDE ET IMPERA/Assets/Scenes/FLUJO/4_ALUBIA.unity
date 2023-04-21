@@ -817,7 +817,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2980812906482370455, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -6
+      value: 34
       objectReference: {fileID: 0}
     - target: {fileID: 2980812906896535388, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
       propertyPath: m_RootOrder
@@ -945,19 +945,129 @@ PrefabInstance:
       objectReference: {fileID: 60151671}
     - target: {fileID: 2980812907516896382, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
       propertyPath: _lines.Array.size
-      value: 2
+      value: 29
       objectReference: {fileID: 0}
     - target: {fileID: 2980812907516896382, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
       propertyPath: _lines.Array.data[0]
-      value: "\"ALUBIA\": ijo jueg\xF3n"
+      value: "NARRADOR: Tu padre Timoteo I \u201CAlubia\u201D yace en su tumba (1777
+        - 1839)"
       objectReference: {fileID: 0}
     - target: {fileID: 2980812907516896382, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
       propertyPath: _lines.Array.data[1]
-      value: 'TIMOTEO: no le oigo bien padre'
+      value: 'NARRADOR:  maldiciendo entre susurros a todos sus antecesores'
       objectReference: {fileID: 0}
     - target: {fileID: 2980812907516896382, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
       propertyPath: _lines.Array.data[2]
-      value: 
+      value: 'TIMOTEO: Padre...'
+      objectReference: {fileID: 0}
+    - target: {fileID: 2980812907516896382, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
+      propertyPath: _lines.Array.data[3]
+      value: 'NARRADOR: Consigues musitar para ti mismo'
+      objectReference: {fileID: 0}
+    - target: {fileID: 2980812907516896382, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
+      propertyPath: _lines.Array.data[4]
+      value: "ALUBIA: \xA1Timoteo! Qui\xE9n si no que el m\xE1s desgraciado de todos
+        mis hijos"
+      objectReference: {fileID: 0}
+    - target: {fileID: 2980812907516896382, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
+      propertyPath: _lines.Array.data[5]
+      value: 'NARRADOR: Se te hielan los huesos'
+      objectReference: {fileID: 0}
+    - target: {fileID: 2980812907516896382, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
+      propertyPath: _lines.Array.data[6]
+      value: "ALUBIA: Ya le dije yo a tu madre, \xA1que me den todo el dinero de
+        las Europas"
+      objectReference: {fileID: 0}
+    - target: {fileID: 2980812907516896382, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
+      propertyPath: _lines.Array.data[7]
+      value: 'ALUBIA: si este zopenco consigue llegar a los cuarenta!'
+      objectReference: {fileID: 0}
+    - target: {fileID: 2980812907516896382, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
+      propertyPath: _lines.Array.data[8]
+      value: "ALUBIA: \xA1Ja!"
+      objectReference: {fileID: 0}
+    - target: {fileID: 2980812907516896382, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
+      propertyPath: _lines.Array.data[9]
+      value: "NARRADOR: Te fijas en su c\xE1lcico cuerpo"
+      objectReference: {fileID: 0}
+    - target: {fileID: 2980812907516896382, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
+      propertyPath: _lines.Array.data[10]
+      value: "NARRADOR: F\xE9mur, r\xF3tula, tibia, peron\xE9 y las falanges de los
+        pies"
+      objectReference: {fileID: 0}
+    - target: {fileID: 2980812907516896382, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
+      propertyPath: _lines.Array.data[11]
+      value: 'NARRADOR: Ni rastro de ninguno de estos huesos'
+      objectReference: {fileID: 0}
+    - target: {fileID: 2980812907516896382, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
+      propertyPath: _lines.Array.data[12]
+      value: "TIMOTEO: As\xED que esto explica que no hayas podido salir de aqu\xED\u2026"
+      objectReference: {fileID: 0}
+    - target: {fileID: 2980812907516896382, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
+      propertyPath: _lines.Array.data[13]
+      value: "NARRADOR: Dices se\xF1alando la falta de extremidades"
+      objectReference: {fileID: 0}
+    - target: {fileID: 2980812907516896382, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
+      propertyPath: _lines.Array.data[14]
+      value: "ALUBIA: \xA1Bah!"
+      objectReference: {fileID: 0}
+    - target: {fileID: 2980812907516896382, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
+      propertyPath: _lines.Array.data[15]
+      value: "ALUBIA: Hay que saber cu\xE1ndo rendirse"
+      objectReference: {fileID: 0}
+    - target: {fileID: 2980812907516896382, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
+      propertyPath: _lines.Array.data[16]
+      value: "ALUBIA: sin mis \u2018amiguitas\u2019 no podr\xEDa salir de aqu\xED
+        ni en un mill\xF3n de eternidades"
+      objectReference: {fileID: 0}
+    - target: {fileID: 2980812907516896382, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
+      propertyPath: _lines.Array.data[17]
+      value: "NARRADOR: Comienza a re\xEDrse"
+      objectReference: {fileID: 0}
+    - target: {fileID: 2980812907516896382, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
+      propertyPath: _lines.Array.data[18]
+      value: 'NARRADOR: Se supone que tiene que ser gracioso'
+      objectReference: {fileID: 0}
+    - target: {fileID: 2980812907516896382, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
+      propertyPath: _lines.Array.data[19]
+      value: "NARRADOR: Deber\xEDas re\xEDrte con \xE9l"
+      objectReference: {fileID: 0}
+    - target: {fileID: 2980812907516896382, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
+      propertyPath: _lines.Array.data[20]
+      value: "NARRADOR: A\xFAn siendo un esqueleto no puedes evitar intentar complacer
+        a tu padre"
+      objectReference: {fileID: 0}
+    - target: {fileID: 2980812907516896382, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
+      propertyPath: _lines.Array.data[21]
+      value: "ALUBIA: \xA1Ja! \xA1JA! \xA1Jahg! \xA1Cof! \xA1Jaf!"
+      objectReference: {fileID: 0}
+    - target: {fileID: 2980812907516896382, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
+      propertyPath: _lines.Array.data[22]
+      value: 'NARRADOR: Y *cling*, se le cae un diente'
+      objectReference: {fileID: 0}
+    - target: {fileID: 2980812907516896382, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
+      propertyPath: _lines.Array.data[23]
+      value: "TIMOTEO: Pues s\xED que est\xE1s hecho polvo"
+      objectReference: {fileID: 0}
+    - target: {fileID: 2980812907516896382, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
+      propertyPath: _lines.Array.data[24]
+      value: "NARRADOR: Realmente te sientes mal por \xE9l"
+      objectReference: {fileID: 0}
+    - target: {fileID: 2980812907516896382, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
+      propertyPath: _lines.Array.data[25]
+      value: "ALUBIA: \xA1V\xE1lgame Dios!"
+      objectReference: {fileID: 0}
+    - target: {fileID: 2980812907516896382, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
+      propertyPath: _lines.Array.data[26]
+      value: 'NARRADOR: Se coloca el diente de nuevo'
+      objectReference: {fileID: 0}
+    - target: {fileID: 2980812907516896382, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
+      propertyPath: _lines.Array.data[27]
+      value: "ALUBIA: \xA1Al cuerno contigo!"
+      objectReference: {fileID: 0}
+    - target: {fileID: 2980812907516896382, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
+      propertyPath: _lines.Array.data[28]
+      value: "NARRADOR: Se da la vuelta y se esconde de nuevo en su ata\xFAd"
       objectReference: {fileID: 0}
     - target: {fileID: 2980812907860231591, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
       propertyPath: _player
