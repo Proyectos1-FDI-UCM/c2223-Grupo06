@@ -402,7 +402,7 @@ public class PlayerManager : MonoBehaviour
         if (_alubiat)
         {
             _alubiat = false;
-            if (LevelManager.Instance != null && PlayerAccess.Instance.InputController.Box == null) Instantiate(_alubiatPrefab, _myTransform.position, _myTransform.rotation, _objectsReset); // instanciación
+            if (LevelManager.Instance != null) Instantiate(_alubiatPrefab, _myTransform.position, _myTransform.rotation, _objectsReset); // instanciación
                                                                                                                                          //sfx
             if (SFXComponent.Instance != null)
                 SFXComponent.Instance.SFXPlayer(0);

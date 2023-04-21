@@ -187,6 +187,7 @@ public class InputController : MonoBehaviour
             else PlayerManager.Instance.RecogerBrazo(); // lo recoge
         }
         else
+
         // PIERNAS 
         if (Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.D) && GetComponentInChildren<GroundCheck>().IsGrounded)
         { // Shift + D para intercambiar control a las piernas
@@ -226,6 +227,7 @@ public class InputController : MonoBehaviour
                 PlayerManager.Instance.RecogerPiernas();
         }
         else
+
         // ALUBIAT
         if (Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.C) && GetComponentInChildren<GroundCheck>().IsGrounded)
         { // Shift + C para intercambiar control a Alubiat
@@ -358,10 +360,7 @@ public class InputController : MonoBehaviour
             if (!SFXComponent.Instance.isPlayingSFX(2))
                 SFXComponent.Instance.SFXPlayer(2);
         }
-        else
-        {
-            SFXComponent.Instance.SFXPlayerStop(2);
-        }
+        else SFXComponent.Instance.SFXPlayerStop(2);
     }
     #endregion
 
@@ -408,7 +407,7 @@ public class InputController : MonoBehaviour
         if (SFXComponent.Instance != null)
             SFXMove();
 
-        CoolDown(); // no se usa??
+        //CoolDown(); // no se usa??
     }
 }
 
