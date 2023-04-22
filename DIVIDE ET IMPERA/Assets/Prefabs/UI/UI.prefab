@@ -2272,7 +2272,7 @@ MonoBehaviour:
   _pauseFirstButton: {fileID: 4977953820187593330}
   _startFirstButton: {fileID: 9015988375324539592}
   _startClosedButton: {fileID: 8873773540705935292}
-  _firstButton: {fileID: 0}
+  _firstButton: {fileID: 4977953820187593330}
   _firstButtons:
   - {fileID: 9015988375324539592}
   - {fileID: 0}

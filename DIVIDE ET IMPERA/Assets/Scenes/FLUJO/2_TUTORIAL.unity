@@ -510,11 +510,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2395157052307697462, guid: 74f90a799afff394c806454c67c0f740, type: 3}
   m_PrefabInstance: {fileID: 151776657}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &181500756 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6532825449299246445, guid: 3be88e3eafb2086439f2e5c5dc51fb05, type: 3}
-  m_PrefabInstance: {fileID: 1536008650}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &259568214
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3924,16 +3919,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1165739819573327380, guid: 67cbb02f1857e4240b80501b6608208e, type: 3}
   m_PrefabInstance: {fileID: 2001108487}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &472459827 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6532825449299246445, guid: 3be88e3eafb2086439f2e5c5dc51fb05, type: 3}
-  m_PrefabInstance: {fileID: 590805176}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &497271048 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6532825449299246445, guid: 3be88e3eafb2086439f2e5c5dc51fb05, type: 3}
-  m_PrefabInstance: {fileID: 1787733113}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &514086968
 GameObject:
   m_ObjectHideFlags: 0
@@ -3985,11 +3970,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &552398469 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6532825449299246445, guid: 3be88e3eafb2086439f2e5c5dc51fb05, type: 3}
-  m_PrefabInstance: {fileID: 1447233962}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &590805176
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10181,11 +10161,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &1212660070 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6532825449299246445, guid: 3be88e3eafb2086439f2e5c5dc51fb05, type: 3}
-  m_PrefabInstance: {fileID: 983205203}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1337851983
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10297,6 +10272,14 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: PauseToGame
       objectReference: {fileID: 0}
+    - target: {fileID: 6125724706795374845, guid: 59f3bbb5802b17140a954d4cbd3ee516, type: 3}
+      propertyPath: _player
+      value: 
+      objectReference: {fileID: 1738796222}
+    - target: {fileID: 6125724706795374845, guid: 59f3bbb5802b17140a954d4cbd3ee516, type: 3}
+      propertyPath: _animator
+      value: 
+      objectReference: {fileID: 1508248358}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 59f3bbb5802b17140a954d4cbd3ee516, type: 3}
 --- !u!1001 &1447233962
@@ -10646,11 +10629,6 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 8010593627775849570, guid: 3be88e3eafb2086439f2e5c5dc51fb05, type: 3}
   m_PrefabInstance: {fileID: 1679099922}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &1685105329 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6532825449299246445, guid: 3be88e3eafb2086439f2e5c5dc51fb05, type: 3}
-  m_PrefabInstance: {fileID: 2141698287}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1731293573
 PrefabInstance:
@@ -12498,19 +12476,19 @@ PrefabInstance:
     - target: {fileID: 98311201649523185, guid: 67cbb02f1857e4240b80501b6608208e, type: 3}
       propertyPath: _roomSpawns.Array.data[1]
       value: 
-      objectReference: {fileID: 552398469}
+      objectReference: {fileID: 0}
     - target: {fileID: 98311201649523185, guid: 67cbb02f1857e4240b80501b6608208e, type: 3}
       propertyPath: _roomSpawns.Array.data[2]
       value: 
-      objectReference: {fileID: 2095570218}
+      objectReference: {fileID: 0}
     - target: {fileID: 98311201649523185, guid: 67cbb02f1857e4240b80501b6608208e, type: 3}
       propertyPath: _roomSpawns.Array.data[3]
       value: 
-      objectReference: {fileID: 497271048}
+      objectReference: {fileID: 0}
     - target: {fileID: 98311201649523185, guid: 67cbb02f1857e4240b80501b6608208e, type: 3}
       propertyPath: _roomSpawns.Array.data[4]
       value: 
-      objectReference: {fileID: 472459827}
+      objectReference: {fileID: 0}
     - target: {fileID: 98311201649523185, guid: 67cbb02f1857e4240b80501b6608208e, type: 3}
       propertyPath: _roomSpawns.Array.data[5]
       value: 
@@ -12518,19 +12496,19 @@ PrefabInstance:
     - target: {fileID: 98311201649523185, guid: 67cbb02f1857e4240b80501b6608208e, type: 3}
       propertyPath: _roomSpawns.Array.data[6]
       value: 
-      objectReference: {fileID: 1685105329}
+      objectReference: {fileID: 0}
     - target: {fileID: 98311201649523185, guid: 67cbb02f1857e4240b80501b6608208e, type: 3}
       propertyPath: _roomSpawns.Array.data[7]
       value: 
-      objectReference: {fileID: 181500756}
+      objectReference: {fileID: 0}
     - target: {fileID: 98311201649523185, guid: 67cbb02f1857e4240b80501b6608208e, type: 3}
       propertyPath: _roomSpawns.Array.data[8]
       value: 
-      objectReference: {fileID: 2099119736}
+      objectReference: {fileID: 0}
     - target: {fileID: 98311201649523185, guid: 67cbb02f1857e4240b80501b6608208e, type: 3}
       propertyPath: _roomSpawns.Array.data[9]
       value: 
-      objectReference: {fileID: 1212660070}
+      objectReference: {fileID: 0}
     - target: {fileID: 98311201649523185, guid: 67cbb02f1857e4240b80501b6608208e, type: 3}
       propertyPath: _levelsPrefabs.Array.data[0]
       value: 
@@ -12646,16 +12624,6 @@ PrefabInstance:
 --- !u!4 &2060198264 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8010593627775849570, guid: 3be88e3eafb2086439f2e5c5dc51fb05, type: 3}
-  m_PrefabInstance: {fileID: 2060198263}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &2095570218 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6532825449299246445, guid: 3be88e3eafb2086439f2e5c5dc51fb05, type: 3}
-  m_PrefabInstance: {fileID: 1885378793}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &2099119736 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6532825449299246445, guid: 3be88e3eafb2086439f2e5c5dc51fb05, type: 3}
   m_PrefabInstance: {fileID: 2060198263}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2099214925

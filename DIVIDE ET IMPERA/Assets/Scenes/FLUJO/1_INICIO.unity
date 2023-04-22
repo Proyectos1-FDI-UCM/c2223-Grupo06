@@ -14483,6 +14483,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 509390037}
     - target: {fileID: 2076869504003675095, guid: 59f3bbb5802b17140a954d4cbd3ee516, type: 3}
+      propertyPath: _firstButton
+      value: 
+      objectReference: {fileID: 1409049024}
+    - target: {fileID: 2076869504003675095, guid: 59f3bbb5802b17140a954d4cbd3ee516, type: 3}
       propertyPath: _startFirstButton
       value: 
       objectReference: {fileID: 1409049024}
@@ -14586,6 +14590,14 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: StartToIntro
       objectReference: {fileID: 0}
+    - target: {fileID: 6125724706795374845, guid: 59f3bbb5802b17140a954d4cbd3ee516, type: 3}
+      propertyPath: _player
+      value: 
+      objectReference: {fileID: 509390037}
+    - target: {fileID: 6125724706795374845, guid: 59f3bbb5802b17140a954d4cbd3ee516, type: 3}
+      propertyPath: _animator
+      value: 
+      objectReference: {fileID: 202496604}
     - target: {fileID: 6814159729100746525, guid: 59f3bbb5802b17140a954d4cbd3ee516, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0

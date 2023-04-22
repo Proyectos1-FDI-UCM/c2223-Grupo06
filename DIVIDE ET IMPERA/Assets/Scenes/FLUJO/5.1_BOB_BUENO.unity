@@ -34210,6 +34210,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6125724706795374845, guid: 59f3bbb5802b17140a954d4cbd3ee516, type: 3}
+      propertyPath: _player
+      value: 
+      objectReference: {fileID: 497587238}
+    - target: {fileID: 6125724706795374845, guid: 59f3bbb5802b17140a954d4cbd3ee516, type: 3}
+      propertyPath: _animator
+      value: 
+      objectReference: {fileID: 1957974308}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 59f3bbb5802b17140a954d4cbd3ee516, type: 3}
 --- !u!114 &1434693003 stripped
