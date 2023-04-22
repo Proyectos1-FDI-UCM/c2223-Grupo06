@@ -395,7 +395,7 @@ public class InputController : MonoBehaviour
     {
         //------MOVIMIENTO------------
         MovementInput();
-
+          
         //------INTERACTIONS----------
         InteractInput();
         if (GameManager.Instance != null && GameManager.Instance.CurrentState == GameManager.GameStates.GAME) MechanicInput();

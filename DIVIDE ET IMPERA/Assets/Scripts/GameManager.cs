@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public enum GameStates { START, INTRO, GAME, PAUSE, GAMEOVER, SCORE, LEVELSELECTOR, CONTROLES, OPCIONES };    // Estados del juego (faltan)
+    public enum GameStates { START, INTRO, GAME, PAUSE, GAMEOVER, SCORE, LEVELSELECTOR, CONTROLES, OPCIONES, CREDITS };    // Estados del juego (faltan)
 
     #region references
     private UIManager _UIManager;
@@ -64,7 +64,7 @@ public class GameManager : MonoBehaviour
             case GameStates.PAUSE:                       //     *PAUSA*
                 Time.timeScale = 0;
                 break;
-            case GameStates.GAMEOVER:                    //     *FIN DEL JUEGO*
+            case GameStates.GAMEOVER:                    //     *FIN DEL JUEGO* -> PUNTUACION
                 if (Contador.tiempo > 500)
                 {
                     puntuacion.RestaPuntos(150);
@@ -91,13 +91,15 @@ public class GameManager : MonoBehaviour
                 }
 
                 break;
-            case GameStates.SCORE:                       //     *PUNTUACIÓN*
+            case GameStates.SCORE:                      //     *PUNTUACIÓN*
                 break;
-            case GameStates.LEVELSELECTOR:               //     *SELECTOR DE NIVELES*
+            case GameStates.LEVELSELECTOR:              //     *SELECTOR DE NIVELES*
                 break;
-            case GameStates.CONTROLES:                   //     *CONTROLES*
+            case GameStates.CONTROLES:                  //     *CONTROLES*
                 break;
-            case GameStates.OPCIONES:                   //      *OPCIONES*
+            case GameStates.OPCIONES:                   //     *OPCIONES*
+                break;
+            case GameStates.CREDITS:                    //     *CREDITOS*
                 break;
         }
         if (_UIManager != null) _UIManager.SetMenu(newState); // como en todos los estados se hace esto, se pone al final según el estado nuevo y listo
