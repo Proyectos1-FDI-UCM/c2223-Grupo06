@@ -16,13 +16,15 @@ public class AudioManager : MonoBehaviour
 
     #region Properties
 
-    private float _startingVolume = 0;//-14.2219f;
+    private float _startingVolume = -15f;//-14.2219f;
 
     #endregion
 
     // probando singleton
     private static AudioManager _instance;
     public static AudioManager Instance { get { return _instance; } }
+
+
     public void SetBGMVolume(float _sliderValue)
     {
         // representa el valor del slider de manera logaritmica para que se haga bien la conversion; 
@@ -64,15 +66,16 @@ public class AudioManager : MonoBehaviour
 
     public void FadeBGM2(float timeToFade)
     {
-        float timeElapsed = 0, i;
+        float timeElapsed = 0, i, j = _startingVolume/3;
 
         while (timeElapsed < timeToFade)
         {
-            _bgmMixer.SetFloat("BGMVolume", 4*(_startingVolume - Mathf.Log10(timeElapsed / timeToFade) * 20)); //
+            _bgmMixer.SetFloat("BGMVolume", _startingVolume - (Mathf.Log10(j / timeToFade) * 20)); //
 
             Debug.Log("uwu " + (Mathf.Log10(timeToFade / timeElapsed) * 20));
             // timeElapsed/timeToFade
 
+            j *= Time.deltaTime;
             timeElapsed += Time.deltaTime;
 
         }
