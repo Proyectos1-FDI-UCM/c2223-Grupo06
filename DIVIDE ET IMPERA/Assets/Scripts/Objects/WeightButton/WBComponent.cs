@@ -3,6 +3,7 @@ using UnityEngine;
 public class WBComponent : MonoBehaviour
 {
     #region references
+    [Tooltip("objetos que van a ser activados/desactivados")]
     [SerializeField] private GameObject _objeto;
     private MovingPlatformComponent _movingPlatform;
 
@@ -11,6 +12,7 @@ public class WBComponent : MonoBehaviour
     [SerializeField]
     Transform pointB;
 
+    [Tooltip("objeto padre de todos los objetos de la sala")]
     [SerializeField]
     private GameObject _objetos;
     #endregion
