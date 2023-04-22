@@ -165,7 +165,6 @@ public class DialogueManager : MonoBehaviour
     {
         if (_dialogueText.text == _lines[_index]) // siguiente linea
         {
-
             NextLine();
         }
         else // fin dialogo

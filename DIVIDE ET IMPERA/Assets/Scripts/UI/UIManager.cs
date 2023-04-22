@@ -15,6 +15,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject _player;
     [SerializeField] private GameObject _ControlesMenu;
     [SerializeField] private GameObject _optionsMenu;
+    [SerializeField] private GameObject _credits;
 
     // imagenes dentro del ui
     [SerializeField] private Image[] _images;
@@ -85,7 +86,7 @@ public class UIManager : MonoBehaviour
     } */
 
     #region STATE MOVEMENT
-    public void StartToIntro() // menu iniacial -> intro (empezar a jugar)
+    public void StartToIntro()      // menu iniacial -> intro (empezar a jugar)
     {
         //if (LevelManager.Instance != null) ResetRoom();
         RequestStateChange(GameManager.GameStates.INTRO); // referenciando al gamemanager (importante! si no no cambia de estado)
@@ -95,49 +96,49 @@ public class UIManager : MonoBehaviour
         CameraMovement.Instance.enabled = true;
     }
 
-    public void IntroToGame() // intro -> juego
+    public void IntroToGame()       // intro -> juego
     {
         RequestStateChange(GameManager.GameStates.GAME); // referenciando al gamemanager (importante! si no no cambia de estado)
         _player.GetComponent<InputController>().enabled = true;
     }
 
-    public void ResumeGame() // menu de pausa -> juego (reanudar)
+    public void ResumeGame()        // menu de pausa -> juego (reanudar)
     {
         RequestStateChange(GameManager.GameStates.GAME); // referenciando al gamemanager (importante! si no no cambia de estado)
         _player.GetComponent<InputController>().enabled = true;
     }
 
-    public void PauseToStart() // menu de pausa -> menu inicial
+    public void PauseToStart()      // menu de pausa -> menu inicial
     {
         RequestStateChange(GameManager.GameStates.START); // referenciando al gamemanager (importante! si no no cambia de estado)
         _player.GetComponent<InputController>().enabled = true;
     }
 
-    public void PauseToControles() // menu pausa -> controles
+    public void PauseToControles()  // menu pausa -> controles
     {
         RequestStateChange(GameManager.GameStates.CONTROLES); // referenciando al gamemanager (importante! si no no cambia de estado)
         _player.GetComponent<InputController>().enabled = false;
     }
 
-    public void ControlesToPause() // controles -> menu pausa
+    public void ControlesToPause()  // controles -> menu pausa
     {
         RequestStateChange(GameManager.GameStates.PAUSE); // referenciando al gamemanager (importante! si no no cambia de estado)
         _player.GetComponent<InputController>().enabled = false;
     }
 
-    public void PauseToOptions()
+    public void PauseToOptions()    // pause -> opciones
     {
         RequestStateChange(GameManager.GameStates.OPCIONES); // referenciando al gamemanager (importante! si no no cambia de estado)
         _player.GetComponent<InputController>().enabled = false;
     }
 
-    public void OptionsToPause()
+    public void OptionsToPause()    // opciones -> pausa
     {
         RequestStateChange(GameManager.GameStates.PAUSE); // referenciando al gamemanager (importante! si no no cambia de estado)
         _player.GetComponent<InputController>().enabled = false;
     }
 
-    public void GoToScore() // a las puntuaciones
+    public void GoToScore()         // a las puntuaciones
     {
         RequestStateChange(GameManager.GameStates.SCORE); // referenciando al gamemanager (importante! si no no cambia de estado)
         _player.GetComponent<InputController>().enabled = false;
@@ -147,6 +148,12 @@ public class UIManager : MonoBehaviour
     public void GoToLevelSelector() // al selector de niveles
     {
         RequestStateChange(GameManager.GameStates.LEVELSELECTOR); // referenciando al gamemanager (importante! si no no cambia de estado)
+        _player.GetComponent<InputController>().enabled = false;
+    }
+
+    public void GoToCredits()       // a creditos
+    {
+        RequestStateChange(GameManager.GameStates.CREDITS); // referenciando al gamemanager (importante! si no no cambia de estado)
         _player.GetComponent<InputController>().enabled = false;
     }
 
@@ -288,17 +295,18 @@ public class UIManager : MonoBehaviour
 
     void Start()
     {
-        _menus = new GameObject[9]; // creación del array de menús y asignación
-                                    // *DEBERÍAN SEGUÍR EL ORDEN Y TAMAÑO DE LOS ESTADOS DEL GAMEMANAGER*
-        _menus[0] = _StartMenu;     // START
-        _menus[1] = _IntroMenu;     // INTRO
-        _menus[2] = _HUD;           // GAME
-        _menus[3] = _PauseMenu;     // PAUSE
-        _menus[4] = _GameOverMenu;  // GAMEOVER
-        _menus[5] = _scoreMenu;     // SCORE    
-        _menus[6] = _levelSelector; // LEVELSELECTOR
-        _menus[7] = _ControlesMenu; // CONTROLLES
-        _menus[8] = _optionsMenu;   // OPTIONS
+        _menus = new GameObject[10];    // creación del array de menús y asignación
+                                        // *DEBERÍAN SEGUÍR EL ORDEN Y TAMAÑO DE LOS ESTADOS DEL GAMEMANAGER*
+        _menus[0] = _StartMenu;         // START
+        _menus[1] = _IntroMenu;         // INTRO
+        _menus[2] = _HUD;               // GAME
+        _menus[3] = _PauseMenu;         // PAUSE
+        _menus[4] = _GameOverMenu;      // GAMEOVER
+        _menus[5] = _scoreMenu;         // SCORE    
+        _menus[6] = _levelSelector;     // LEVELSELECTOR
+        _menus[7] = _ControlesMenu;     // CONTROLLES
+        _menus[8] = _optionsMenu;       // OPTIONS
+        _menus[9] = _credits;           // CREDITOS
         // habrá que poner más segun añadamos menuses
         if (GameManager.Instance != null) _activeMenu = GameManager.Instance.CurrentState; // asocia el menú actual con el estado actual
 

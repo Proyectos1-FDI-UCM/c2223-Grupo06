@@ -8,6 +8,7 @@ public class SceneChanger : MonoBehaviour
     public Animator _animator;
     private PlayerManager _playerManager;
     [SerializeField] private GameObject _player;
+    private InputController _inputController;
     #endregion
 
     #region Parameters
@@ -27,8 +28,8 @@ public class SceneChanger : MonoBehaviour
         {
             switch (SceneManager.GetActiveScene().buildIndex)
             {
-                case 0:
-                    WaitOnAudioFade(2, 1);
+                case 0:                    // case [sala actual] 
+                    WaitOnAudioFade(2, 1); // WaitOnAudioFade([tiempo de espera], [sala a la que vas])
                     //FadeToLevel(1);
                     break;
                 case 1:
@@ -42,12 +43,12 @@ public class SceneChanger : MonoBehaviour
                 case 3:
                     if (PlayerManager.Instance.Alubiat || _alubiat)
                     {
-                        WaitOnAudioFade(2, 4);
+                        WaitOnAudioFade(2, 4); // tienes alubiat
                         //FadeToLevel(4);
                     }   
                     else
                     {
-                        WaitOnAudioFade(2, 5);
+                        WaitOnAudioFade(2, 5); // no tienes alubiat
                         //FadeToLevel(5);
                     }
                     break;
@@ -102,8 +103,6 @@ public class SceneChanger : MonoBehaviour
 
         // empieza la corrutina para el fade out
         AudioManager.Instance.FadeBGM(i);
-        
-
     }
 
 
@@ -115,15 +114,28 @@ public class SceneChanger : MonoBehaviour
         // cambia de escena
         FadeToLevel(whatLvl);
     }
+
+    public void GoToCredits()
+    {
+        WaitOnAudioFade(2, 9);
+    }
+
+    public void GoToBeginning()
+    {
+
+        WaitOnAudioFade(2, 0);
+
+    }
     #endregion
 
     private void Start()
     {
-
         if (PlayerManager.Instance != null)
         {
             _playerManager = PlayerAccess.Instance.PlayerManager;
             _alubiat = PlayerManager.Instance.Alubiat;
         }
+
+        _inputController = PlayerAccess.Instance.InputController;
     }
 }
