@@ -62,6 +62,8 @@ public class PalancaComponent : MonoBehaviour
     // activa o desactiva la palanca dependiendo de su estado anterior
     public bool ActivarPalanca()
     {
+
+        Debug.Log("uwu");
         bool _lvr = !_palanca;
         _palanca = !_palanca;
         return _lvr;
@@ -79,7 +81,7 @@ public class PalancaComponent : MonoBehaviour
             {
                 while (i < _objetos.Length)
                 {
-                    _objetos[i].GetComponent<NewPlatformMovement>().OnOff(true);
+                    _objetos[i].GetComponent<NewPlatformMovement>().OnOff();
                     i++;
                 }
 
@@ -91,7 +93,7 @@ public class PalancaComponent : MonoBehaviour
             {
                 while (i < _objetos.Length)
                 {
-                    _objetos[i].GetComponent<NewPlatformMovement>().OnOff(false);
+                    _objetos[i].GetComponent<NewPlatformMovement>().OnOff();
                     i++;
                 }
             }

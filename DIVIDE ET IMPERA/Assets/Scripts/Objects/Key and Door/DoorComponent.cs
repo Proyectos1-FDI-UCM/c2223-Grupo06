@@ -7,7 +7,7 @@ public class DoorComponent : MonoBehaviour
     {
         if (PlayerManager.Instance.Objeto == PlayerManager.Objetos.LLAVE)
         {
-            GetComponent<NewPlatformMovement>().OnOff(true);
+            GetComponent<NewPlatformMovement>().OnOff();   // true
             PlayerManager.Instance.EliminarObjeto();
 
             // sfx

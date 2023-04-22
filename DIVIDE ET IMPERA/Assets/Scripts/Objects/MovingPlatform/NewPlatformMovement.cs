@@ -22,9 +22,21 @@ public class NewPlatformMovement : MonoBehaviour
 
 
     #region Methods
+
+    /*
     public void OnOff(bool onoff)
     {
         _active = onoff;
+    }
+    */
+
+    public bool OnOff()
+    {
+
+        Debug.Log(_active);
+        bool _act = !_active;
+        _active = !_active;
+        return _act;
     }
 
     public bool isActive()

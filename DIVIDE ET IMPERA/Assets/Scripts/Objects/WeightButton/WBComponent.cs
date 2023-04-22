@@ -75,14 +75,14 @@ public class WBComponent : MonoBehaviour
     // metodo para activar el objeto
     private void Activar()
     {
-        _objeto.GetComponent<NewPlatformMovement>().OnOff(true);
+        _objeto.GetComponent<NewPlatformMovement>().OnOff();  // true
 
     }
 
     // metodo para desactivar el objeto
     private void Desactivar()
     {
-        _objeto.GetComponent<NewPlatformMovement>().OnOff(false);
+        _objeto.GetComponent<NewPlatformMovement>().OnOff();  // false
     }
 
     // metodo que busca si hay algun otro boton que haya activado el mismo objeto 
