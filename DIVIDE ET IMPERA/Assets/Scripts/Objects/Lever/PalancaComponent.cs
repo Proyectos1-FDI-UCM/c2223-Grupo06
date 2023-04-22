@@ -57,6 +57,7 @@ public class PalancaComponent : MonoBehaviour
         // sfx
         if (SFXComponent.Instance != null)
             SFXComponent.Instance.SFXObjects(0);
+        CameraMovement.Instance.ChangeWhoToFollow(_objetos[0]);
     }
 
     // activa o desactiva la palanca dependiendo de su estado anterior

@@ -76,6 +76,7 @@ public class WBComponent : MonoBehaviour
     private void Activar()
     {
         _objeto.GetComponent<NewPlatformMovement>().OnOff();  // true
+        CameraMovement.Instance.ChangeWhoToFollow(_objeto);
 
     }
 
@@ -83,6 +84,7 @@ public class WBComponent : MonoBehaviour
     private void Desactivar()
     {
         _objeto.GetComponent<NewPlatformMovement>().OnOff();  // false
+        CameraMovement.Instance.ChangeWhoToFollow(_objeto);
     }
 
     // metodo que busca si hay algun otro boton que haya activado el mismo objeto 

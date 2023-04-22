@@ -471,6 +471,7 @@ MonoBehaviour:
   _followSpeed: 2
   _horizontalOffset: 0
   _verticalOffset: 1
+  _timeOnObject: 2
 --- !u!81 &384400478
 AudioListener:
   m_ObjectHideFlags: 0

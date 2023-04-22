@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class CameraMovement : MonoBehaviour
@@ -19,6 +20,9 @@ public class CameraMovement : MonoBehaviour
     #endregion
     #region Properties
     private Vector3 _futureCamPos;
+    private float _elapsedTime;
+    [SerializeField]
+    private float _timeOnObject;
     #endregion
     #region Methods
     public void ChangeWhoToFollow(GameObject followObject) //Para cambiar que la camara siga al jugador o a las piernas dependiendo de a quien este controlando
@@ -47,6 +51,18 @@ public class CameraMovement : MonoBehaviour
         {
             _futureCamPos = _followTransform.position + new Vector3(_horizontalOffset * PlayerAccess.Instance.transform.localScale.x, _verticalOffset, _cameraTransform.position.z); ; //calculo de la posicion futura de la camara
             _cameraTransform.position = Vector3.Lerp(_cameraTransform.position, _futureCamPos, _followSpeed * Time.deltaTime); //Lerp entre la posicion de la camara actual y la futura
+            if (_followTransform != PlayerAccess.Instance.transform && !_followTransform.gameObject.GetComponent<PataformaMovementComponent>())
+            {
+                if (_elapsedTime >= _timeOnObject)
+                {
+                    _elapsedTime = 0;
+                    _followTransform = PlayerAccess.Instance.transform;
+                }
+                else
+                {
+                    _elapsedTime += Time.deltaTime;
+                }
+            }
         }
     }
 }
