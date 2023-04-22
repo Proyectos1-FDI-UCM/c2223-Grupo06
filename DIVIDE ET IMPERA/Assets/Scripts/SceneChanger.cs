@@ -29,44 +29,35 @@ public class SceneChanger : MonoBehaviour
             switch (SceneManager.GetActiveScene().buildIndex)
             {
                 case 0:                    // case [sala actual] 
-                    WaitOnAudioFade(2, 1); // WaitOnAudioFade([tiempo de espera], [sala a la que vas])
-                    //FadeToLevel(1);
+                    WaitOnAudioFade(2, 1); // WaitOnAudioFade([tiempo de espera], [sala a la que vas]) || //FadeToLevel([sala a la que vas]);
                     break;
                 case 1:
                     WaitOnAudioFade(2, 2);
-                    //FadeToLevel(2);
                     break;
                 case 2:
                     WaitOnAudioFade(2, 3);
-                    //FadeToLevel(3);
                     break;
                 case 3:
                     if (PlayerManager.Instance.Alubiat || _alubiat)
                     {
                         WaitOnAudioFade(2, 4); // tienes alubiat
-                        //FadeToLevel(4);
                     }   
                     else
                     {
                         WaitOnAudioFade(2, 5); // no tienes alubiat
-                        //FadeToLevel(5);
                     }
                     break;
                 case 4:
                     WaitOnAudioFade(2, 6);
-                    //FadeToLevel(6);
                     break;
                 case 5:
                     WaitOnAudioFade(2, 8);
-                    //FadeToLevel(8);
                     break;
                 case 6:
                     WaitOnAudioFade(2, 7);
-                    //FadeToLevel(7);
                     break;
                 case 7:
                     WaitOnAudioFade(2, 8);
-                    //FadeToLevel(8);
                     break;
             }
         }
@@ -74,9 +65,9 @@ public class SceneChanger : MonoBehaviour
 
     public void FadeToLevel(int _sceneBuildIndex)  // el level index es el numero que tienen las escenas en los build settings
     {
-        _sceneToLoad = _sceneBuildIndex; // guarda el index en scene to load
+        _sceneToLoad = _sceneBuildIndex;           // guarda el index en scene to load
         SceneManager.LoadScene(_sceneToLoad);
-        _animator.SetTrigger("FadeOut"); // animacion de fade out
+        _animator.SetTrigger("FadeOut");           // animacion de fade out
        if (GameManager.Instance != null)
             GameManager.Instance.RequestStateChange(GameManager.GameStates.GAME);
     }
@@ -122,9 +113,7 @@ public class SceneChanger : MonoBehaviour
 
     public void GoToBeginning()
     {
-
         WaitOnAudioFade(2, 0);
-
     }
     #endregion
 
