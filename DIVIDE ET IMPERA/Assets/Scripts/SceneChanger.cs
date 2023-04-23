@@ -26,38 +26,39 @@ public class SceneChanger : MonoBehaviour
     {
         if (collision.gameObject == _player)
         {
+            Debug.Log(SceneManager.GetActiveScene().buildIndex);
             switch (SceneManager.GetActiveScene().buildIndex)
             {
                 case 0:                    // case [sala actual] 
-                    WaitOnAudioFade(2, 1); // WaitOnAudioFade([tiempo de espera], [sala a la que vas]) || //FadeToLevel([sala a la que vas]);
+                    WaitOnAudioFade(1, 1); // WaitOnAudioFade([tiempo de espera], [sala a la que vas]) || //FadeToLevel([sala a la que vas]);
                     break;
                 case 1:
-                    WaitOnAudioFade(2, 2);
+                    WaitOnAudioFade(1, 2);
                     break;
                 case 2:
-                    WaitOnAudioFade(2, 3);
+                    WaitOnAudioFade(1, 3);
                     break;
                 case 3:
                     if (PlayerManager.Instance.Alubiat || _alubiat)
                     {
-                        WaitOnAudioFade(2, 4); // tienes alubiat
+                        WaitOnAudioFade(1, 4); // tienes alubiat
                     }   
                     else
                     {
-                        WaitOnAudioFade(2, 5); // no tienes alubiat
+                        WaitOnAudioFade(1, 5); // no tienes alubiat
                     }
                     break;
                 case 4:
-                    WaitOnAudioFade(2, 6);
+                    WaitOnAudioFade(1, 6);
                     break;
                 case 5:
-                    WaitOnAudioFade(2, 8);
+                    WaitOnAudioFade(1, 8);
                     break;
                 case 6:
-                    WaitOnAudioFade(2, 7);
+                    WaitOnAudioFade(1, 7);
                     break;
                 case 7:
-                    WaitOnAudioFade(2, 8);
+                    WaitOnAudioFade(1, 8);
                     break;
             }
         }
