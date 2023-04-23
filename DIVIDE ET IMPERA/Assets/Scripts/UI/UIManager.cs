@@ -69,7 +69,8 @@ public class UIManager : MonoBehaviour
     public void SetFirstButton(int index)
     {
         _firstButton = _firstButtons[index];
-        EventSystem.current.SetSelectedGameObject(_firstButton); // cambia el botón seleccionado
+        if(_firstButton != null)
+            EventSystem.current.SetSelectedGameObject(_firstButton); // cambia el botón seleccionado
     }
 
     /* public void UpdateMenu() // esto lo usariamos si se cambia informacion in real time (SEGURAMENTE CUANDO SPEEDRUNNING CON EL TEMA CRONÓMETRO!!)

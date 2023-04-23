@@ -16,7 +16,7 @@ public class AudioManager : MonoBehaviour
 
     #region Properties
 
-    private float _startingVolume = -15f;//-14.2219f;
+    private float _startingVolume = -15;//-14.2219f;
 
     #endregion
 
@@ -66,7 +66,7 @@ public class AudioManager : MonoBehaviour
 
     public void FadeBGM2(float timeToFade)
     {
-        float timeElapsed = 0, i, j = _startingVolume/3;
+        float timeElapsed = 0, i, j = GetVolume()/3;
 
         while (timeElapsed < timeToFade)
         {
