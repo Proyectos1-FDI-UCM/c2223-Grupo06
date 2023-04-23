@@ -26,7 +26,7 @@ public class SceneChanger : MonoBehaviour
     {
         if (collision.gameObject == _player)
         {
-            Debug.Log(SceneManager.GetActiveScene().buildIndex);
+            //Debug.Log(SceneManager.GetActiveScene().buildIndex);
             switch (SceneManager.GetActiveScene().buildIndex)
             {
                 case 0:                    // case [sala actual] 

@@ -40,6 +40,6 @@ public class BoneStateBar : MonoBehaviour
 
     void Update()
     {
-        _boneStateBar.fillAmount = (_currentBoneState / _maxBoneState); // actualiza el estado de la barra
+        if (_boneStateBar != null) _boneStateBar.fillAmount = (_currentBoneState / _maxBoneState); // actualiza el estado de la barra
     }
 }

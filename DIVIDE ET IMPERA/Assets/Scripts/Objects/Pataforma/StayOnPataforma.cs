@@ -101,7 +101,7 @@ public class StayOnPataforma : MonoBehaviour
     {
         if (CheckStayOn(collision))
         {
-            Debug.Log("adopt");
+            //Debug.Log("adopt");
             Adoption(collision);
         }
     }
