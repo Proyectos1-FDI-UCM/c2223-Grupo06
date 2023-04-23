@@ -50,9 +50,7 @@ public class AudioManager : MonoBehaviour
 
     public void SetVolumeAfterFade()
     {
-        Debug.Log("before fade volume after fade " + _beforeFadeVolume);
         _bgmMixer.SetFloat("BGMVolume", _beforeFadeVolume);
-        Debug.Log("current volume after everyhing" + GetVolume());
     }
 
     public void FadeBGM(float timeToFade)
@@ -70,18 +68,14 @@ public class AudioManager : MonoBehaviour
     private IEnumerator FadeTrackCoroutine(float timeToFade)
     {
         _beforeFadeVolume = GetVolume();
-        Debug.Log("before fade volume before fade " + _beforeFadeVolume);
-        float timeElapsed = 0.05f, i, k = timeToFade;
+
+        float timeElapsed = 0.05f, k = timeToFade;
 
         // while para que lo haga respecto al tiempo
         while (timeElapsed < timeToFade)
         {
             // calcula y cambia el volumen (log10)
-            _bgmMixer.SetFloat("BGMVolume",  (GetVolume() + Mathf.Log10(k/ timeToFade) * 20)); //
-
-            Debug.Log("uwu " + GetVolume()); //(Mathf.Log10(timeElapsed / timeToFade) * 20));
-            Debug.Log("owo " + Mathf.Log10(timeElapsed / timeToFade) * 20);
-            // timeElapsed/timeToFade
+            _bgmMixer.SetFloat("BGMVolume",  (GetVolume() + Mathf.Log10(k/ timeToFade) * 20));
 
             k -= Time.deltaTime;
             // añade al tiempo
@@ -101,9 +95,6 @@ public class AudioManager : MonoBehaviour
     private void Start()
     {
         _instance = this;
-
-        // pone el volumen inicial del fondo (repasar)
-        //_bgmMixer.SetFloat("BGMVolume", _startingVolume);
 
         _beforeFadeVolume = GetVolume();
 
