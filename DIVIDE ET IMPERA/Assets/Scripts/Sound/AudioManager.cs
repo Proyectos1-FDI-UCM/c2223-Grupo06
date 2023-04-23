@@ -16,6 +16,7 @@ public class AudioManager : MonoBehaviour
 
     #region Properties
 
+    [SerializeField]
     private float _beforeFadeVolume;
 
     #endregion
@@ -61,9 +62,8 @@ public class AudioManager : MonoBehaviour
         // empieza la corrutina para el fade
         StartCoroutine(FadeTrackCoroutine(timeToFade));
 
+        
     }
-
-
 
     private IEnumerator FadeTrackCoroutine(float timeToFade)
     {
@@ -86,6 +86,7 @@ public class AudioManager : MonoBehaviour
 
         }
     }
+
 
     private void Awake()
     {

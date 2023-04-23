@@ -61,6 +61,7 @@ public class SceneChanger : MonoBehaviour
                     WaitOnAudioFade(1, 8);
                     break;
             }
+
         }
     }
 
@@ -95,8 +96,21 @@ public class SceneChanger : MonoBehaviour
 
         // empieza la corrutina para el fade out
         AudioManager.Instance.FadeBGM(i);
+
+        StartCoroutine(CoroutineWaitOnFadeToGetVolumeBack(i));
+
+
     }
 
+    IEnumerator CoroutineWaitOnFadeToGetVolumeBack(float i)
+    {
+        // cosas de corrutinas, espera la cantidad de tiempo indicada
+        yield return new WaitForSecondsRealtime(i);
+
+        // setea de nuevo el bgm
+        if (AudioManager.Instance != null)
+            AudioManager.Instance.SetVolumeAfterFade();
+    }
 
     IEnumerator CoroutineWaitOnFade(int i, int  whatLvl)
     {
@@ -109,12 +123,12 @@ public class SceneChanger : MonoBehaviour
 
     public void GoToCredits()
     {
-        WaitOnAudioFade(2, 9);
+        WaitOnAudioFade(1, 9);
     }
 
     public void GoToBeginning()
     {
-        WaitOnAudioFade(2, 0);
+        WaitOnAudioFade(1, 0);
     }
     #endregion
 
