@@ -104,7 +104,11 @@ public class GameManager : MonoBehaviour
         }
         if (_UIManager != null) _UIManager.SetMenu(newState); // como en todos los estados se hace esto, se pone al final según el estado nuevo y listo
         if (UIManager.Instance != null) UIManager.Instance.SetFirstButton((int)newState);
-        
+
+        // setea de nuevo el bgm
+        if (AudioManager.Instance != null)
+            AudioManager.Instance.SetVolumeAfterFade();
+
         _currentGameState = newState;                        // Finaliza el cambio
         Debug.Log("GAMEMANAGER: Current state is " + _currentGameState);
     }
