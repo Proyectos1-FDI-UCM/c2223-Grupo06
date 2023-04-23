@@ -68,6 +68,7 @@ public class UIManager : MonoBehaviour
 
     public void SetFirstButton(int index)
     {
+        Debug.Log(index);
         _firstButton = _firstButtons[index];
         Debug.Log(_firstButton);
         if(_firstButton != null)

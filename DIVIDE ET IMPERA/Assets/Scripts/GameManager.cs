@@ -8,8 +8,6 @@ public class GameManager : MonoBehaviour
     private UIManager _UIManager;
     private CollisionManager _collisionManager;
     private BGMComponent _bGMComponent;
-    [SerializeField]
-    private AudioManager _audioManager;
     #endregion
 
     #region properties
