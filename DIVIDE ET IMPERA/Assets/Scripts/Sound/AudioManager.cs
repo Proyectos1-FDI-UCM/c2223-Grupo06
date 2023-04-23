@@ -69,13 +69,13 @@ public class AudioManager : MonoBehaviour
     {
         _beforeFadeVolume = GetVolume();
 
-        float timeElapsed = 0.05f, k = timeToFade;
+        float timeElapsed = 0f, k = timeToFade;
 
         // while para que lo haga respecto al tiempo
         while (timeElapsed < timeToFade)
         {
             // calcula y cambia el volumen (log10)
-            _bgmMixer.SetFloat("BGMVolume",  (GetVolume() + Mathf.Log10(k/ timeToFade) * 20));
+            _bgmMixer.SetFloat("BGMVolume",  (GetVolume() + Mathf.Log10(k/timeToFade)));
 
             k -= Time.deltaTime;
             // añade al tiempo
