@@ -19,8 +19,6 @@ public class SceneChanger : MonoBehaviour
     #region Properties
     [SerializeField]
     private bool _alubiat;
-    [SerializeField]
-    public int _sceneButton;
     #endregion
 
     #region Methods
@@ -90,8 +88,6 @@ public class SceneChanger : MonoBehaviour
 
     public void WaitOnAudioFade(int i, int whatLvl)
     {
-        _sceneButton = whatLvl;
-
         // para todas las corrutinas
         StopAllCoroutines();
 
@@ -121,11 +117,6 @@ public class SceneChanger : MonoBehaviour
 
         // cambia de escena
         FadeToLevel(whatLvl);
-    }
-
-    public void ChangeSceneButton(int _sceneButton)
-    {
-        WaitOnAudioFade(1, _sceneButton);
     }
     #endregion
 
