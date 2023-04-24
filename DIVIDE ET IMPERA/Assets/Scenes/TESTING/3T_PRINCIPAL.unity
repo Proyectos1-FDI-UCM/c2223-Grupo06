@@ -228,7 +228,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2076869504003675100, guid: 59f3bbb5802b17140a954d4cbd3ee516, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 59f3bbb5802b17140a954d4cbd3ee516, type: 3}
@@ -289,7 +289,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2285777756704234152, guid: 767e3f423c90f78409c3048c7e7f2088, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4
+      value: -19
       objectReference: {fileID: 0}
     - target: {fileID: 2285777756704234152, guid: 767e3f423c90f78409c3048c7e7f2088, type: 3}
       propertyPath: m_LocalPosition.y
@@ -358,7 +358,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3949412242388482726, guid: 46ad4cca2d7156a4792a5856ba6b0a9d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 82.07948
+      value: 49.079468
       objectReference: {fileID: 0}
     - target: {fileID: 3949412242388482726, guid: 46ad4cca2d7156a4792a5856ba6b0a9d, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1771,7 +1771,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8010593627775849570, guid: 3be88e3eafb2086439f2e5c5dc51fb05, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 95.07948
+      value: 62.079468
       objectReference: {fileID: 0}
     - target: {fileID: 8010593627775849570, guid: 3be88e3eafb2086439f2e5c5dc51fb05, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1857,7 +1857,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8010593627775849570, guid: 3be88e3eafb2086439f2e5c5dc51fb05, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 152.88
+      value: 119.87999
       objectReference: {fileID: 0}
     - target: {fileID: 8010593627775849570, guid: 3be88e3eafb2086439f2e5c5dc51fb05, type: 3}
       propertyPath: m_LocalPosition.y
@@ -11638,7 +11638,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3949412242388482726, guid: 86d0716af3d94684cb4f163b37e1fc5f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 129.0795
+      value: 96.07948
       objectReference: {fileID: 0}
     - target: {fileID: 3949412242388482726, guid: 86d0716af3d94684cb4f163b37e1fc5f, type: 3}
       propertyPath: m_LocalPosition.y
@@ -19040,6 +19040,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Room Transition (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 2957055891273576302, guid: 3be88e3eafb2086439f2e5c5dc51fb05, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4210868142141695989, guid: 3be88e3eafb2086439f2e5c5dc51fb05, type: 3}
       propertyPath: m_LocalPosition.x
       value: 22.59
@@ -19364,7 +19368,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 908404650339506613, guid: b54344812b8332748b4573c7401011e1, type: 3}
       propertyPath: m_ColliderPaths.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1166208097699371121, guid: b54344812b8332748b4573c7401011e1, type: 3}
       propertyPath: m_Name
@@ -19372,7 +19376,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1166208097699371121, guid: b54344812b8332748b4573c7401011e1, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3949412242388482726, guid: b54344812b8332748b4573c7401011e1, type: 3}
       propertyPath: m_RootOrder
@@ -19420,7 +19424,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4184253061787681092, guid: b54344812b8332748b4573c7401011e1, type: 3}
       propertyPath: m_ColliderPaths.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4184253061787681092, guid: b54344812b8332748b4573c7401011e1, type: 3}
       propertyPath: m_CompositePaths.m_Paths.Array.size
