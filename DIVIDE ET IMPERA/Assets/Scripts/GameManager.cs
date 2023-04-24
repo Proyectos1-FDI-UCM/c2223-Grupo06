@@ -149,7 +149,7 @@ public class GameManager : MonoBehaviour
         _instance = this;
         gameObject.transform.parent = null;
         DontDestroyOnLoad(gameObject);
-        DontDestroyOnLoad(_puntuacion);
+        //DontDestroyOnLoad(_puntuacion);
         //Cursor.visible = false;
         //Cursor.lockState = CursorLockMode.Locked;   
     }

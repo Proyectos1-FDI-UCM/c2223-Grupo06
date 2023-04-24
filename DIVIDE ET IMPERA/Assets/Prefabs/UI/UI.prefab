@@ -2339,7 +2339,7 @@ MonoBehaviour:
   _IntroMenu: {fileID: 4442884401406988829}
   _HUD: {fileID: 2076869503684516377}
   _PauseMenu: {fileID: 928644761503377864}
-  _GameOverMenu: {fileID: 0}
+  _GameOverMenu: {fileID: 7548165634740114128}
   _scoreMenu: {fileID: 7548165634740114128}
   _levelSelector: {fileID: 1966480668463266908}
   _player: {fileID: 0}

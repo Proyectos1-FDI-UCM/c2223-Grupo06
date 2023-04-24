@@ -74,9 +74,9 @@ public class UIManager : MonoBehaviour
 
     public void SetFirstButton(int index)
     {
-        Debug.Log(index);
+        //Debug.Log(index);
         _firstButton = _firstButtons[index];
-        Debug.Log(_firstButton);
+        //Debug.Log(_firstButton);
         if(_firstButton != null && EventSystem.current != null)
             EventSystem.current.SetSelectedGameObject(_firstButton); // cambia el botón seleccionado
     }
