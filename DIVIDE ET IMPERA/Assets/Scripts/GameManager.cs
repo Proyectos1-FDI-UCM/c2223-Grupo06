@@ -65,27 +65,27 @@ public class GameManager : MonoBehaviour
             case GameStates.GAMEOVER:                    //     *FIN DEL JUEGO* -> PUNTUACION
                 if (Contador.tiempo > 500)
                 {
-                    Puntuacion.RestaPuntos(150);
+                    puntuacion.RestaPuntos(150);
                 }
                 else if (Contador.tiempo <= 500 || Contador.tiempo > 400)
                 {
-                    Puntuacion.RestaPuntos(100);
+                    puntuacion.RestaPuntos(100);
                 }
                 else if (Contador.tiempo <= 400 || Contador.tiempo > 300)
                 {
-                    Puntuacion.RestaPuntos(90);
+                    puntuacion.RestaPuntos(90);
                 }
                 else if (Contador.tiempo <= 300 || Contador.tiempo > 200)
                 {
-                    Puntuacion.RestaPuntos(80);
+                    puntuacion.RestaPuntos(80);
                 }
                 else if (Contador.tiempo <= 200 || Contador.tiempo > 100)
                 {
-                    Puntuacion.RestaPuntos(20);
+                    puntuacion.RestaPuntos(20);
                 }
                 else if (Contador.tiempo <= 100)
                 {
-                    Puntuacion.RestaPuntos(10);
+                    puntuacion.RestaPuntos(10);
                 }
 
                 break;

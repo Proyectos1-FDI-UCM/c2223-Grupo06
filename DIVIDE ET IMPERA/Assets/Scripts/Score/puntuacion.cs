@@ -1,13 +1,13 @@
 using TMPro;
 using UnityEngine;
 
-public class Puntuacion : MonoBehaviour
+public class puntuacion : MonoBehaviour
 {
-    private static Puntuacion _instance;
-    public static Puntuacion Instance { get { return _instance; } }
+    private static puntuacion _instance;
+    public static puntuacion Instance { get { return _instance; } }
 
     public static float puntos = 500;
-    [SerializeField] private TextMeshProUGUI text;
+    [SerializeField] private TMP_Text text; // Texto de ???
 
     private void Awake()
     {

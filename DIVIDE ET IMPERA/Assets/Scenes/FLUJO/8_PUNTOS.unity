@@ -1655,6 +1655,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: SelectLevelText
       objectReference: {fileID: 0}
+    - target: {fileID: 6006596105425519014, guid: 59f3bbb5802b17140a954d4cbd3ee516, type: 3}
+      propertyPath: _player
+      value: 
+      objectReference: {fileID: 1713543180}
+    - target: {fileID: 6006596105425519014, guid: 59f3bbb5802b17140a954d4cbd3ee516, type: 3}
+      propertyPath: _animator
+      value: 
+      objectReference: {fileID: 1906367747}
+    - target: {fileID: 6006596105425519014, guid: 59f3bbb5802b17140a954d4cbd3ee516, type: 3}
+      propertyPath: _sceneButton
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 6009554903717903834, guid: 59f3bbb5802b17140a954d4cbd3ee516, type: 3}
       propertyPath: m_Color.b
       value: 0.16569953
@@ -1969,23 +1981,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8836314750001822263, guid: 59f3bbb5802b17140a954d4cbd3ee516, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8836314750001822263, guid: 59f3bbb5802b17140a954d4cbd3ee516, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 5171360444949630975, guid: a2dc22ca95a3d2948b60f5a7cc02d0ff, type: 3}
+      objectReference: {fileID: 1906367748}
     - target: {fileID: 8836314750001822263, guid: 59f3bbb5802b17140a954d4cbd3ee516, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8836314750001822263, guid: 59f3bbb5802b17140a954d4cbd3ee516, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: GoToCredits
+      value: ChangeSceneButton
       objectReference: {fileID: 0}
     - target: {fileID: 8836314750001822263, guid: 59f3bbb5802b17140a954d4cbd3ee516, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: SceneChanger, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8836314750001822263, guid: 59f3bbb5802b17140a954d4cbd3ee516, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 8836314750001822263, guid: 59f3bbb5802b17140a954d4cbd3ee516, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -2344,3 +2360,14 @@ Animator:
   m_CorrespondingSourceObject: {fileID: 5171360444949630969, guid: a2dc22ca95a3d2948b60f5a7cc02d0ff, type: 3}
   m_PrefabInstance: {fileID: 1833027857}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1906367748 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5171360444949630975, guid: a2dc22ca95a3d2948b60f5a7cc02d0ff, type: 3}
+  m_PrefabInstance: {fileID: 1833027857}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9314763656bedf45b603698a399f33a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

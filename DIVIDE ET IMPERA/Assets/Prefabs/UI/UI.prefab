@@ -1976,6 +1976,7 @@ MonoBehaviour:
   _animator: {fileID: 0}
   _player: {fileID: 0}
   _alubiat: 0
+  _sceneButton: 0
 --- !u!1 &2076869504062052000
 GameObject:
   m_ObjectHideFlags: 0
@@ -3587,6 +3588,7 @@ MonoBehaviour:
   _animator: {fileID: 0}
   _player: {fileID: 0}
   _alubiat: 0
+  _sceneButton: 0
 --- !u!95 &2787027180899784626
 Animator:
   serializedVersion: 4
@@ -7422,6 +7424,7 @@ GameObject:
   - component: {fileID: 764494997465424057}
   - component: {fileID: 452101303818457726}
   - component: {fileID: 8836314750001822263}
+  - component: {fileID: 6006596105425519014}
   m_Layer: 5
   m_Name: GoToCredits
   m_TagString: Untagged
@@ -7544,6 +7547,22 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &6006596105425519014
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6885053724000978458}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9314763656bedf45b603698a399f33a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animator: {fileID: 0}
+  _player: {fileID: 0}
+  _alubiat: 0
+  _sceneButton: 0
 --- !u!1 &6932023340311054344
 GameObject:
   m_ObjectHideFlags: 0
@@ -7871,6 +7890,7 @@ MonoBehaviour:
   _animator: {fileID: 0}
   _player: {fileID: 0}
   _alubiat: 0
+  _sceneButton: 0
 --- !u!1 &7633141727848751347
 GameObject:
   m_ObjectHideFlags: 0

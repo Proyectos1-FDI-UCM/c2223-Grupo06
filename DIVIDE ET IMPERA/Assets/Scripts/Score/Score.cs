@@ -18,28 +18,28 @@ public class Score : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Puntuacion.puntos < 500)
+        if (puntuacion.puntos < 500)
         {
             MALAMENTE.SetActive(true);
             REGULA.SetActive(false);
             ASEPTABLE.SetActive(false);
             CRANEOPERSENT.SetActive(false);
         }
-        else if (Puntuacion.puntos >= 500 || Puntuacion.puntos < 600)
+        else if (puntuacion.puntos >= 500 || puntuacion.puntos < 600)
         {
             MALAMENTE.SetActive(false);
             REGULA.SetActive(true);
             ASEPTABLE.SetActive(false);
             CRANEOPERSENT.SetActive(false);
         }
-        else if (Puntuacion.puntos >= 600 || Puntuacion.puntos < 900)
+        else if (puntuacion.puntos >= 600 || puntuacion.puntos < 900)
         {
             MALAMENTE.SetActive(false);
             REGULA.SetActive(false);
             ASEPTABLE.SetActive(true);
             CRANEOPERSENT.SetActive(false);
         }
-        else if (Puntuacion.puntos >= 900 || Puntuacion.puntos < 1000)
+        else if (puntuacion.puntos >= 900 || puntuacion.puntos < 1000)
         {
             MALAMENTE.SetActive(false);
             REGULA.SetActive(false);

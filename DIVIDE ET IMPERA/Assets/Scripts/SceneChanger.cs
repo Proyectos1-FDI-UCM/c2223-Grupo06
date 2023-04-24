@@ -20,7 +20,7 @@ public class SceneChanger : MonoBehaviour
     [SerializeField]
     private bool _alubiat;
     [SerializeField]
-    private int _nextSceneButton;
+    public int _sceneButton;
     #endregion
 
     #region Methods
@@ -90,7 +90,7 @@ public class SceneChanger : MonoBehaviour
 
     public void WaitOnAudioFade(int i, int whatLvl)
     {
-        _nextSceneButton = whatLvl;
+        _sceneButton = whatLvl;
 
         // para todas las corrutinas
         StopAllCoroutines();
@@ -102,8 +102,6 @@ public class SceneChanger : MonoBehaviour
         AudioManager.Instance.FadeBGM(i);
 
         StartCoroutine(CoroutineWaitOnFadeToGetVolumeBack(i));
-
-
     }
 
     IEnumerator CoroutineWaitOnFadeToGetVolumeBack(float i)
@@ -125,14 +123,9 @@ public class SceneChanger : MonoBehaviour
         FadeToLevel(whatLvl);
     }
 
-    public void GoToCredits()
+    public void ChangeSceneButton(int _sceneButton)
     {
-        WaitOnAudioFade(1, 9);
-    }
-
-    public void GoToBeginning()
-    {
-        WaitOnAudioFade(1, 0);
+        WaitOnAudioFade(1, _sceneButton);
     }
     #endregion
 
