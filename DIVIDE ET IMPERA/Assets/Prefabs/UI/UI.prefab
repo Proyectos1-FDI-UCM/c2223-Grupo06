@@ -2382,6 +2382,9 @@ MonoBehaviour:
   - {fileID: 7768413603776573611}
   - {fileID: 4049337218018991342}
   - {fileID: 4093258442017362580}
+  _sliderBGM: {fileID: 2959201666566976951}
+  _sliderSFX: {fileID: 9010285652851616508}
+  _sliderAmbience: {fileID: 3631607777897918070}
   _activeMenu: 0
 --- !u!1 &2076869504062052000
 GameObject:
