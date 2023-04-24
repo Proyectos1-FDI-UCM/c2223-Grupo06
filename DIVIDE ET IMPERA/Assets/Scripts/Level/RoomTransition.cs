@@ -92,19 +92,19 @@ public class RoomTransition : MonoBehaviour
             if (PlayerManager.State == PlayerManager.TimmyStates.S0)
             {
                 Debug.Log("croqueta amarilla");
-                puntuacion.SumaPuntos(50);
+                Puntuacion.SumaPuntos(50);
             }
             else if (PlayerManager.State == PlayerManager.TimmyStates.S1)
             {
-                puntuacion.SumaPuntos(40);
+                Puntuacion.SumaPuntos(40);
             }
             else if (PlayerManager.State == PlayerManager.TimmyStates.S2 || PlayerManager.State == PlayerManager.TimmyStates.S3)
             {
-                puntuacion.SumaPuntos(30);
+                Puntuacion.SumaPuntos(30);
             }
             else if (PlayerManager.State == PlayerManager.TimmyStates.S4)
             {
-                puntuacion.SumaPuntos(10);
+                Puntuacion.SumaPuntos(10);
             }
 
             _onTransition = false; //Se termina la transicion

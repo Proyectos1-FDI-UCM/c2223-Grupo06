@@ -1,10 +1,10 @@
 using TMPro;
 using UnityEngine;
 
-public class puntuacion : MonoBehaviour
+public class Puntuacion : MonoBehaviour
 {
-    private static puntuacion _instance;
-    public static puntuacion Instance { get { return _instance; } }
+    private static Puntuacion _instance;
+    public static Puntuacion Instance { get { return _instance; } }
 
     public static float puntos = 500;
     [SerializeField] private TMP_Text text; // Texto de ???
@@ -20,34 +20,35 @@ public class puntuacion : MonoBehaviour
 
     private void Start()
     {
-        text = GetComponent<TextMeshProUGUI>();
+        //text = GetComponent<TextMeshProUGUI>(); esto no creo que haga falta
     }
 
     private void Update()
     {
         text.text = puntos.ToString(" ");
-        if (puntuacion.puntos < 500)
+        Debug.Log("PUNTOS: " + puntos + ", text.text: " + text.text + ", text: "+ text);
+        if (puntos < 500)
         {
             MALAMENTE.SetActive(true);
             REGULA.SetActive(false);
             ASEPTABLE.SetActive(false);
             CRANEOPERSENT.SetActive(false);
         }
-        else if (puntuacion.puntos >= 500 || puntuacion.puntos < 600)
+        else if (puntos >= 500 || puntos < 600)
         {
             MALAMENTE.SetActive(false);
             REGULA.SetActive(true);
             ASEPTABLE.SetActive(false);
             CRANEOPERSENT.SetActive(false);
         }
-        else if (puntuacion.puntos >= 600 || puntuacion.puntos < 900)
+        else if (puntos >= 600 || puntos < 900)
         {
             MALAMENTE.SetActive(false);
             REGULA.SetActive(false);
             ASEPTABLE.SetActive(true);
             CRANEOPERSENT.SetActive(false);
         }
-        else if (puntuacion.puntos >= 900 || puntuacion.puntos < 1000)
+        else if (puntos >= 900 || puntos < 1000)
         {
             MALAMENTE.SetActive(false);
             REGULA.SetActive(false);

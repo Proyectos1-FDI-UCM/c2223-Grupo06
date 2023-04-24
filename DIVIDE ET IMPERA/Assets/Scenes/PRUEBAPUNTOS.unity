@@ -3320,10 +3320,6 @@ PrefabInstance:
       propertyPath: _player
       value: 
       objectReference: {fileID: 306892408}
-    - target: {fileID: 2076869504003675095, guid: 59f3bbb5802b17140a954d4cbd3ee516, type: 3}
-      propertyPath: _GameOverMenu
-      value: 
-      objectReference: {fileID: 2040458563}
     - target: {fileID: 2076869504003675100, guid: 59f3bbb5802b17140a954d4cbd3ee516, type: 3}
       propertyPath: m_Name
       value: UI
@@ -16378,9 +16374,4 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 8010593627775849570, guid: 3be88e3eafb2086439f2e5c5dc51fb05, type: 3}
   m_PrefabInstance: {fileID: 1257633556}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &2040458563 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7548165634740114128, guid: 59f3bbb5802b17140a954d4cbd3ee516, type: 3}
-  m_PrefabInstance: {fileID: 740787881}
   m_PrefabAsset: {fileID: 0}
