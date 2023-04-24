@@ -98,10 +98,6 @@ public class SceneChanger : MonoBehaviour
         AudioManager.Instance.FadeBGM(i);
 
         StartCoroutine(CoroutineWaitOnFadeToGetVolumeBack(i));
-<<<<<<< Updated upstream
-=======
-
->>>>>>> Stashed changes
     }
 
     IEnumerator CoroutineWaitOnFadeToGetVolumeBack(float i)

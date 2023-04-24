@@ -1959,29 +1959,7 @@ MonoBehaviour:
   - {fileID: 7768413603776573611}
   - {fileID: 4049337218018991342}
   - {fileID: 4093258442017362580}
-  _sliderBGM: {fileID: 2959201666566976951}
-  _sliderSFX: {fileID: 9010285652851616508}
-  _sliderAmbience: {fileID: 3631607777897918070}
   _activeMenu: 0
-<<<<<<< Updated upstream
-=======
---- !u!114 &6125724706795374845
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2076869504003675100}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f9314763656bedf45b603698a399f33a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _animator: {fileID: 0}
-  _player: {fileID: 0}
-  _alubiat: 0
-  _nextSceneButton: 0
->>>>>>> Stashed changes
 --- !u!1 &2076869504062052000
 GameObject:
   m_ObjectHideFlags: 0
@@ -3594,7 +3572,6 @@ MonoBehaviour:
   _animator: {fileID: 0}
   _player: {fileID: 0}
   _alubiat: 0
-  _nextSceneButton: 0
 --- !u!95 &2787027180899784626
 Animator:
   serializedVersion: 4
@@ -7108,6 +7085,7 @@ GameObject:
   - component: {fileID: 1656670701336414508}
   - component: {fileID: 3562236639738893132}
   - component: {fileID: 6227202442115873128}
+  - component: {fileID: 1557088076856504763}
   m_Layer: 5
   m_Name: Puntos
   m_TagString: Untagged
@@ -7232,6 +7210,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &1557088076856504763
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6456966644298768849}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7dd1a6750853c78418dd00d00ecfdadc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text: {fileID: 6227202442115873128}
 --- !u!1 &6563190984100104003
 GameObject:
   m_ObjectHideFlags: 0
@@ -7881,7 +7872,6 @@ MonoBehaviour:
   _animator: {fileID: 0}
   _player: {fileID: 0}
   _alubiat: 0
-<<<<<<< Updated upstream
 --- !u!1 &7621209700133810147
 GameObject:
   m_ObjectHideFlags: 0
@@ -8032,9 +8022,6 @@ MonoBehaviour:
   _animator: {fileID: 0}
   _player: {fileID: 5171360444949630968, guid: a2dc22ca95a3d2948b60f5a7cc02d0ff, type: 3}
   _alubiat: 0
-=======
-  _nextSceneButton: 0
->>>>>>> Stashed changes
 --- !u!1 &7633141727848751347
 GameObject:
   m_ObjectHideFlags: 0
