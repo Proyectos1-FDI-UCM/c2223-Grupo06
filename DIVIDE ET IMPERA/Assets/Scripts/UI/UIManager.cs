@@ -38,6 +38,12 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject[] _firstButtons; // array de botones iniciales por escenas NO REIRSE DE MI >:(
     public GameObject[] FirstButtons { get { return _firstButtons; } }
     // 0 inicial, 1 intro, 2 game, 3 pausa, 4 gameover, 5 puntuación, 6 selector de niveles, 7  controles, 8 opciones
+
+    // Sliders de menu de opciones
+    [SerializeField] private Slider _sliderBGM;
+    [SerializeField] private Slider _sliderSFX;
+    [SerializeField] private Slider _sliderAmbience;
+
     #endregion
 
     #region properties
@@ -291,6 +297,17 @@ public class UIManager : MonoBehaviour
     }
     #endregion
 
+    public void SetOptioinsSliders()
+    {
+        if (AudioManager.Instance != null)
+        {
+            _sliderBGM.value = AudioManager.Instance.SetSliderValue(0);
+            _sliderSFX.value = AudioManager.Instance.SetSliderValue(1);
+            _sliderAmbience.value = AudioManager.Instance.SetSliderValue(2);
+        }
+       
+    }
+
     // BUCLE
     void Awake()
     {
@@ -325,6 +342,9 @@ public class UIManager : MonoBehaviour
         // REGISTROS
         if (GameManager.Instance != null) GameManager.Instance.RegisterUIManager(this);
         if (PlayerManager.Instance != null) PlayerManager.Instance.RegisterUIManager(this);
+
+        // setea los sliders WIP 
+        //SetOptioinsSliders();
     }
 
     /*
