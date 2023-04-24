@@ -18,6 +18,7 @@ public class AudioManager : MonoBehaviour
 
     [SerializeField]
     private float _beforeFadeVolume;
+    private float _sliderValue;
 
     #endregion
 
@@ -25,6 +26,10 @@ public class AudioManager : MonoBehaviour
     private static AudioManager _instance;
     public static AudioManager Instance { get { return _instance; } }
 
+    public void SaveSliderValue()
+    {
+
+    }
 
     public void SetBGMVolume(float _sliderValue)
     {
