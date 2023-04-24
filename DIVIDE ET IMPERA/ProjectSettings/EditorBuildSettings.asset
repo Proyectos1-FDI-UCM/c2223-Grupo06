@@ -35,4 +35,19 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/FLUJO/9_CREDITOS.unity
     guid: f26604aac70f24744a3dc5cf05b8f469
+  - enabled: 1
+    path: Assets/Scenes/TESTING/1T_INICIO.unity
+    guid: b26ccd1b21e8a6f478d6d91b80e0dd00
+  - enabled: 1
+    path: Assets/Scenes/TESTING/2T_TUTORIAL.unity
+    guid: 02db46add501ac54c87044f5c9c93b90
+  - enabled: 1
+    path: Assets/Scenes/TESTING/3T_PRINCIPAL.unity
+    guid: f7232721e9363824eb5b077028afed3f
+  - enabled: 1
+    path: Assets/Scenes/TESTING/4T_PUZLE.unity
+    guid: 0c9b417455c1fcb418aae7f862203fac
+  - enabled: 1
+    path: Assets/Scenes/TESTING/5T_PUNTOS.unity
+    guid: 21c5164dfc5314443b2a0e28354a01da
   m_configObjects: {}

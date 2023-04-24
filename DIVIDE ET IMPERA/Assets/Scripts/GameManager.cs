@@ -1,4 +1,6 @@
 using UnityEngine;
+using Unity.UI;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -24,7 +26,7 @@ public class GameManager : MonoBehaviour
     private int _fbIndex; // first button index en el array del uimanager ESTÁN PUESTOS POR ÓRDEN DEL ENUM DE ESTADOS DEL GAMEMANAGER
     public int FbIndex { get {  return _fbIndex; } set { _fbIndex = value; } }
     #endregion
-    
+
     #region methods
     // Bloque de registros de referencias
     public void RegisterUIManager(UIManager uiManager)
@@ -129,6 +131,7 @@ public class GameManager : MonoBehaviour
             }
         }
     }
+
 
     #endregion
 
