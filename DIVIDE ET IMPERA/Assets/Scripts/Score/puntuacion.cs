@@ -1,10 +1,10 @@
 using TMPro;
 using UnityEngine;
 
-public class puntuacion : MonoBehaviour
+public class Puntuacion : MonoBehaviour
 {
-    private static puntuacion _instance;
-    public static puntuacion Instance { get { return _instance; } }
+    private static Puntuacion _instance;
+    public static Puntuacion Instance { get { return _instance; } }
 
     public static float puntos = 500;
     [SerializeField] private TextMeshProUGUI text;
@@ -21,7 +21,7 @@ public class puntuacion : MonoBehaviour
 
     private void Update()
     {
-        text.text = puntos.ToString("0");
+        text.text = puntos.ToString(" ");
     }
 
     public static void SumaPuntos(float puntosSumar)

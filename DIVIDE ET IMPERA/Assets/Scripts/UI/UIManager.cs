@@ -102,6 +102,7 @@ public class UIManager : MonoBehaviour
     public void IntroToGame()       // intro -> juego
     {
         RequestStateChange(GameManager.GameStates.GAME); // referenciando al gamemanager (importante! si no no cambia de estado)
+        
         _player.GetComponent<InputController>().enabled = true;
     }
 

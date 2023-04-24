@@ -31,6 +31,7 @@ public class Contador : MonoBehaviour
         {
             tiempo += Time.deltaTime;
             time.text = tiempo.ToString("0");
+            Debug.Log("puñeta");
         }
 
     }

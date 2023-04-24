@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour
     private int _fbIndex; // first button index en el array del uimanager ESTÁN PUESTOS POR ÓRDEN DEL ENUM DE ESTADOS DEL GAMEMANAGER
     public int FbIndex { get {  return _fbIndex; } set { _fbIndex = value; } }
     #endregion
-
+    
     #region methods
     // Bloque de registros de referencias
     public void RegisterUIManager(UIManager uiManager)
@@ -65,27 +65,27 @@ public class GameManager : MonoBehaviour
             case GameStates.GAMEOVER:                    //     *FIN DEL JUEGO* -> PUNTUACION
                 if (Contador.tiempo > 500)
                 {
-                    puntuacion.RestaPuntos(150);
+                    Puntuacion.RestaPuntos(150);
                 }
                 else if (Contador.tiempo <= 500 || Contador.tiempo > 400)
                 {
-                    puntuacion.RestaPuntos(100);
+                    Puntuacion.RestaPuntos(100);
                 }
                 else if (Contador.tiempo <= 400 || Contador.tiempo > 300)
                 {
-                    puntuacion.RestaPuntos(90);
+                    Puntuacion.RestaPuntos(90);
                 }
                 else if (Contador.tiempo <= 300 || Contador.tiempo > 200)
                 {
-                    puntuacion.RestaPuntos(80);
+                    Puntuacion.RestaPuntos(80);
                 }
                 else if (Contador.tiempo <= 200 || Contador.tiempo > 100)
                 {
-                    puntuacion.RestaPuntos(20);
+                    Puntuacion.RestaPuntos(20);
                 }
                 else if (Contador.tiempo <= 100)
                 {
-                    puntuacion.RestaPuntos(10);
+                    Puntuacion.RestaPuntos(10);
                 }
 
                 break;

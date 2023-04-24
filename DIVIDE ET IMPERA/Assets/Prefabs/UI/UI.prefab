@@ -3759,6 +3759,7 @@ GameObject:
   - component: {fileID: 2264125617843893271}
   - component: {fileID: 5153485474037685986}
   - component: {fileID: 4241882927282334604}
+  - component: {fileID: 8049254390695359068}
   m_Layer: 5
   m_Name: Contador
   m_TagString: Untagged
@@ -3814,7 +3815,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 0
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 4edb072917211484993c64ca7c3f3ff1, type: 2}
   m_sharedMaterial: {fileID: 9142865356264516814, guid: 4edb072917211484993c64ca7c3f3ff1, type: 2}
@@ -3883,6 +3884,18 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &8049254390695359068
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3518350397427401658}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87e08134deee6254b9b7e0dd1c15f77a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3575203612997425177
 GameObject:
   m_ObjectHideFlags: 0
@@ -7087,6 +7100,7 @@ GameObject:
   - component: {fileID: 1656670701336414508}
   - component: {fileID: 3562236639738893132}
   - component: {fileID: 6227202442115873128}
+  - component: {fileID: 1557088076856504763}
   m_Layer: 5
   m_Name: Puntos
   m_TagString: Untagged
@@ -7142,7 +7156,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 0
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 4edb072917211484993c64ca7c3f3ff1, type: 2}
   m_sharedMaterial: {fileID: 9142865356264516814, guid: 4edb072917211484993c64ca7c3f3ff1, type: 2}
@@ -7211,6 +7225,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &1557088076856504763
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6456966644298768849}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7dd1a6750853c78418dd00d00ecfdadc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text: {fileID: 6227202442115873128}
 --- !u!1 &6563190984100104003
 GameObject:
   m_ObjectHideFlags: 0
