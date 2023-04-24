@@ -2378,7 +2378,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 4977953820187593330}
   - {fileID: 0}
-  - {fileID: 6885053724000978458}
+  - {fileID: 606853590696113508}
   - {fileID: 7768413603776573611}
   - {fileID: 4049337218018991342}
   - {fileID: 4093258442017362580}
@@ -7650,6 +7650,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 6227202442115873128}
+  MALAMENTE: {fileID: 0}
+  REGULA: {fileID: 0}
+  ASEPTABLE: {fileID: 0}
+  CRANEOPERSENT: {fileID: 0}
 --- !u!1 &6563190984100104003
 GameObject:
   m_ObjectHideFlags: 0
@@ -8366,7 +8370,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8475182125800672175}
-  - component: {fileID: 322152143119333799}
   - component: {fileID: 903004077362438781}
   m_Layer: 5
   m_Name: PointsMenu
@@ -8404,22 +8407,6 @@ RectTransform:
   m_AnchoredPosition: {x: -0.000030517578, y: -0.003921509}
   m_SizeDelta: {x: 1920, y: 839.59}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &322152143119333799
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7548165634740114128}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 44824e5ee6e516146bb77959d4ec7ec9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MALAMENTE: {fileID: 1425903930613718215}
-  REGULA: {fileID: 4564485878204731174}
-  ASEPTABLE: {fileID: 3686448929383382265}
-  CRANEOPERSENT: {fileID: 6033695195617237927}
 --- !u!114 &903004077362438781
 MonoBehaviour:
   m_ObjectHideFlags: 0

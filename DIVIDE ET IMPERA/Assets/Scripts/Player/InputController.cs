@@ -366,6 +366,7 @@ public class InputController : MonoBehaviour
     private void MenuInput()
     {
         if (UIManager.Instance.FirstButtons[(int)GameManager.Instance.CurrentState] != null
+            && EventSystem.current != null
             && EventSystem.current.currentSelectedGameObject != UIManager.Instance.FirstButtons[(int)GameManager.Instance.CurrentState])
         {
             if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.RightArrow))
@@ -373,7 +374,6 @@ public class InputController : MonoBehaviour
                 UIManager.Instance.SetFirstButton(GameManager.Instance.FbIndex);
             }
         }
-
     }
     #endregion
 

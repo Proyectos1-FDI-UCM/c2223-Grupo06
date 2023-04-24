@@ -1,6 +1,7 @@
 using UnityEngine;
 using Unity.UI;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class GameManager : MonoBehaviour
 {
@@ -106,8 +107,6 @@ public class GameManager : MonoBehaviour
         if (_UIManager != null) _UIManager.SetMenu(newState); // como en todos los estados se hace esto, se pone al final según el estado nuevo y listo
         if (UIManager.Instance != null) UIManager.Instance.SetFirstButton((int)newState);
 
-        
-
         _currentGameState = newState;                        // Finaliza el cambio
         Debug.Log("GAMEMANAGER: Current state is " + _currentGameState);
     }
@@ -119,6 +118,16 @@ public class GameManager : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Escape))
             {
                 if (_UIManager != null) _UIManager.PauseToGame();
+            }
+
+            if (UIManager.Instance.FirstButtons[(int)GameManager.Instance.CurrentState] != null
+                && EventSystem.current != null
+                && EventSystem.current.currentSelectedGameObject != UIManager.Instance.FirstButtons[(int)GameManager.Instance.CurrentState])
+            {
+                if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.RightArrow))
+                { // para volver a la selección por teclado
+                    UIManager.Instance.SetFirstButton(GameManager.Instance.FbIndex);
+                }
             }
         }
 
