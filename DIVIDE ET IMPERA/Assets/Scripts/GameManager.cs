@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
 
     #region references
     private UIManager _UIManager;
+    private puntuacion _puntuacion;
     private CollisionManager _collisionManager;
     private BGMComponent _bGMComponent;
     #endregion
@@ -139,6 +140,7 @@ public class GameManager : MonoBehaviour
         _instance = this;
         gameObject.transform.parent = null;
         DontDestroyOnLoad(gameObject);
+        DontDestroyOnLoad(_puntuacion);
         //Cursor.visible = false;
         //Cursor.lockState = CursorLockMode.Locked;   
     }
