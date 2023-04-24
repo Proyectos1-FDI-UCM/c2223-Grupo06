@@ -18,7 +18,13 @@ public class AudioManager : MonoBehaviour
 
     [SerializeField]
     private float _beforeFadeVolume;
-    private float _sliderValue;
+    [SerializeField]
+    private float _sliderValueBGM = 0.5f;
+    [SerializeField]
+    private float _sliderValueSFX = 0.5f; 
+    [SerializeField]
+    private float _sliderValueAmbience = 0.5f;
+    int _whichAudioMixer;
 
     #endregion
 
@@ -26,25 +32,79 @@ public class AudioManager : MonoBehaviour
     private static AudioManager _instance;
     public static AudioManager Instance { get { return _instance; } }
 
-    public void SaveSliderValue()
+    /// <summary>
+    /// Guarda el valor del slider del menu de opciones de cada uno de los sliders, siendo
+    /// _value el valor del slider e i el mixer correspondiente:
+    /// 0 --> BGM
+    /// 1 --> SFX
+    /// 2 --> Ambience
+    /// </summary>
+    /// <param name="_value"></param>
+    /// <param name="i"></param>
+    private void SaveSliderValue(float _value, int i)
     {
-
+        switch (i)
+        {
+            case 0:
+                _sliderValueBGM = _value;
+                break;
+            case 1:
+                _sliderValueSFX = _value;
+                break ;
+            case 2:
+                _sliderValueAmbience = _value;
+                break;
+        }
     }
 
+    /// <summary>
+    /// Setea el valor del slider guardado dependiendo del indice:
+    /// 0 --> BGM
+    /// 1 --> SFX
+    /// 2 --> Ambience
+    /// </summary>
+    /// <param name="i"></param>
+    public float SetSliderValue(int i)
+    {
+        float auxValue = 0.5f;
+        switch (i)
+        {
+            case 0:
+                auxValue = _sliderValueBGM;
+                break;
+            case 1:
+                auxValue = _sliderValueSFX;
+                break;
+            case 2:
+                auxValue = _sliderValueAmbience;
+                break;
+        }
+
+        return auxValue;
+    }
     public void SetBGMVolume(float _sliderValue)
     {
         // representa el valor del slider de manera logaritmica para que se haga bien la conversion; 
         // lo convierte en valores entre [-80, 0] pero en escala logaritmica
         _bgmMixer.SetFloat("BGMVolume", Mathf.Log10(_sliderValue) * 20);
+
+        // guarda el valor del slider
+        SaveSliderValue(_sliderValue, 0);
     }
 
     public void SetSFXVolume(float _sliderValue)
     {
         _sfxMixer.SetFloat("SFXVolume", Mathf.Log10(_sliderValue) * 20);
+
+        // guarda el valor del slider
+        SaveSliderValue(_sliderValue, 1);
     }
     public void SetAmbienceVolume(float _sliderValue)
     {
         _ambienceMixer.SetFloat("AmbienceMixer", Mathf.Log10(_sliderValue) * 20);
+
+        // guarda el valor del slider
+        SaveSliderValue(_sliderValue, 2);
     }
 
     public float GetVolume()
