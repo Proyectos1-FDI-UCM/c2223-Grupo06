@@ -120,13 +120,13 @@ public class GameManager : MonoBehaviour
                 if (_UIManager != null) _UIManager.PauseToGame();
             }
 
-            if (UIManager.Instance.FirstButtons[(int)GameManager.Instance.CurrentState] != null
+            if (UIManager.Instance.FirstButtons[(int)state] != null
                 && EventSystem.current != null
-                && EventSystem.current.currentSelectedGameObject != UIManager.Instance.FirstButtons[(int)GameManager.Instance.CurrentState])
+                && EventSystem.current.currentSelectedGameObject != UIManager.Instance.FirstButtons[(int)state])
             {
                 if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.RightArrow))
                 { // para volver a la selección por teclado
-                    UIManager.Instance.SetFirstButton(GameManager.Instance.FbIndex);
+                    UIManager.Instance.SetFirstButton(3);
                 }
             }
         }
