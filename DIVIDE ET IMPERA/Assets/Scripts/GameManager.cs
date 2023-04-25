@@ -159,6 +159,11 @@ public class GameManager : MonoBehaviour
     {
         _currentGameState = GameStates.GAMEOVER; // Valor dummy para que se realice el cambio nada más empezar
         _nextGameState = GameStates.START;       // Estado inicial, es diferente al current para que el EnterState del primer update se realice
+        //SCORE DEBUG:
+        _score = 1500;
+        //_score = 750;
+        //_score = 550;
+        //_score = 250;
     }
 
     void Update()
