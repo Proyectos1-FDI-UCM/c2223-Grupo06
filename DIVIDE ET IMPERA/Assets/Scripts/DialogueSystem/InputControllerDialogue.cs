@@ -12,6 +12,7 @@ public class InputControllerDialogue : MonoBehaviour
     [SerializeField]
     public bool _enConversacion = false; // booleano para saber si se está en conversación 
     public bool Conversacion { get { return _enConversacion; } }
+
     #endregion
 
     #region Methods

@@ -22,13 +22,19 @@ public class DialogueManager : MonoBehaviour
     public string[] _lines;                     // lineas del guion
     [Tooltip("Cadencia a la que se escribe el texto")]
     [SerializeField] private float _speedText; // velocidad de texto
-    int _index;                                // para saber en que linea estamos
+    int _index = 0;                                // para saber en que linea estamos
 
     // mover a timoteo
     [Tooltip("Punto al que se mueve Timoteo al inicio de la conversación")]
     [SerializeField] private GameObject WaypointDialogo; // punto al que se mueve timoteo al inicio del dialogo
     [Tooltip("Velocidad a la que se mueve Timoteo al waypoint")]
     [SerializeField] private float _speed;               // velocidad a la que se mueve timoteo al waypoint de dialogo
+
+    // escribir la linea 
+    [Tooltip("Se ha acabado de escribir la linea")]
+    [SerializeField]
+    public bool _writingLine = false; // booleano para saber si se esta escribiendo la linea
+    public bool WritingLine { get { return _writingLine; } }
     #endregion
 
     #region Methods
@@ -72,6 +78,7 @@ public class DialogueManager : MonoBehaviour
     // ANIMACION DE CARACTERES
     IEnumerator WriteLine() // corrutina para que se vayan excribiendo las lineas
     {
+        _writingLine = true;
         _dialogueText.text = "";
         foreach (char _letter in _lines[_index].ToCharArray()) // index aumenta segun se pasa de linea
         {
@@ -94,6 +101,8 @@ public class DialogueManager : MonoBehaviour
             if (SFXComponent.Instance != null)
                 SFXComponent.Instance.SFXDialogue(0);
         }
+
+        _writingLine = false;
     }
 
     /*protected void SpeakersText() // lista para modificaciones texto de personajes
@@ -164,8 +173,14 @@ public class DialogueManager : MonoBehaviour
 
     public void ProcessInput()
     {
-        if (_dialogueText.text == _lines[_index]) // siguiente linea
+        // checkea si esta en la ultima linea (ya escrita) y (si la linea actual es la corresponiente[caso en el que
+        // no ha cancelado que se escriba la linea] o que se estuviera escribiendo la linea), por lo que si ha
+        // acabado de escribir, estaba a medias y no esta en la ultma linea, escirbe la siguiente
+        if (_lines.Length > _index + 1 && (_dialogueText.text == _lines[_index] || _writingLine)) // siguiente linea
         {
+            StopAllCoroutines();
+            Debug.Log("1"+_dialogueText.text);
+            Debug.Log("2"+_lines[_index]);
             NextLine();
         }
         else // fin dialogo

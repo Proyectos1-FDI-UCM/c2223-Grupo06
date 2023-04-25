@@ -106,14 +106,12 @@ public class AudioManager : MonoBehaviour
         // guarda el valor del slider
         SaveSliderValue(_sliderValue, 2);
     }
-
     public float GetVolume()
     {
         float i;
         _bgmMixer.GetFloat("BGMVolume", out i);
         return i;
     }
-
     public void SetVolumeAfterFade()
     {
         _bgmMixer.SetFloat("BGMVolume", _beforeFadeVolume);
@@ -148,7 +146,6 @@ public class AudioManager : MonoBehaviour
 
             // cosas de corrutinas
             yield return null;
-
         }
     }
 
