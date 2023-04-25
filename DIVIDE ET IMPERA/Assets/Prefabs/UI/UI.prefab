@@ -2379,7 +2379,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 8fa3d3f7e52b88e42959da145b32c5f6, type: 3}
   - {fileID: 21300000, guid: 39b291ba3abc389438804f6551fec064, type: 3}
   - {fileID: 21300000, guid: 02d85f3d518650f46914699d1413f12a, type: 3}
-  _scoreText: {fileID: 0}
+  _scoreText: {fileID: 3300734757422693746}
   _sliderBGM: {fileID: 2959201666566976951}
   _sliderSFX: {fileID: 9010285652851616508}
   _sliderAmbience: {fileID: 3631607777897918070}
@@ -3050,8 +3050,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -167.21, y: 554}
-  m_SizeDelta: {x: 334.4271, y: 72.842}
+  m_AnchoredPosition: {x: 188.46736, y: 554}
+  m_SizeDelta: {x: 1045.7819, y: 72.842}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8401259113693288029
 CanvasRenderer:
@@ -3922,7 +3922,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &7867297675952998515
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5737,8 +5737,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -226.98, y: 481.16}
-  m_SizeDelta: {x: 214.8839, y: 72.8432}
+  m_AnchoredPosition: {x: 188.47, y: 481.16}
+  m_SizeDelta: {x: 1045.8, y: 72.8432}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4704531086550360309
 CanvasRenderer:

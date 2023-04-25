@@ -92,19 +92,19 @@ public class RoomTransition : MonoBehaviour
             if (PlayerManager.State == PlayerManager.TimmyStates.S0)
             {
                 Debug.Log("croqueta amarilla");
-                Puntuacion.SumaPuntos(50);
+                if (GameManager.Instance != null) GameManager.Instance.AddScore(50);
             }
             else if (PlayerManager.State == PlayerManager.TimmyStates.S1)
             {
-                Puntuacion.SumaPuntos(40);
+                if (GameManager.Instance != null) GameManager.Instance.AddScore(40);
             }
             else if (PlayerManager.State == PlayerManager.TimmyStates.S2 || PlayerManager.State == PlayerManager.TimmyStates.S3)
             {
-                Puntuacion.SumaPuntos(30);
+                if (GameManager.Instance != null) GameManager.Instance.AddScore(30);
             }
             else if (PlayerManager.State == PlayerManager.TimmyStates.S4)
             {
-                Puntuacion.SumaPuntos(10);
+                if (GameManager.Instance != null) GameManager.Instance.AddScore(10);
             }
 
             _onTransition = false; //Se termina la transicion
@@ -139,22 +139,6 @@ public class RoomTransition : MonoBehaviour
         if (_onTransition) //si estas en una transicion
         {
             OnTransition();
-            /*if (timiestado == PlayerManager.TimmyStates.S0)
-            {
-                puntuacion.SumaPuntos(50);
-            }
-            else if(timiestado == PlayerManager.TimmyStates.S1)
-            {
-                puntuacion.SumaPuntos(40);
-            }
-            else if(timiestado == PlayerManager.TimmyStates.S2 || timiestado == PlayerManager.TimmyStates.S3)
-            {
-                puntuacion.SumaPuntos(30);
-            }
-            else if(timiestado == PlayerManager.TimmyStates.S4)
-            {
-                puntuacion.SumaPuntos(10);
-            }*/
         }
     }
 }

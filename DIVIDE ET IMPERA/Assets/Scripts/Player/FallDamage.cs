@@ -17,7 +17,6 @@ public class FallDamage : MonoBehaviour
     [SerializeField]
     private float _previousSpeed; // velocidad antes de llegar al suelo
     //[SerializeField] private float cantidadPuntos;
-    [SerializeField] private Puntuacion puntuacion;
     #endregion
 
 
@@ -48,7 +47,7 @@ public class FallDamage : MonoBehaviour
             {
                 _boneStateBar.BoneDamage(_damage: 20f);
                 _previousSpeed = 0; // si se llega al suelo la velocidad vuelve a 0
-                Puntuacion.RestaPuntos(20);
+                if (GameManager.Instance != null) GameManager.Instance.AddScore(20);
 
                 // sfx
                 if (SFXComponent.Instance != null)

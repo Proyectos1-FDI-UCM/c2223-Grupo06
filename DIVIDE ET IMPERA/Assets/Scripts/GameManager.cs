@@ -71,17 +71,17 @@ public class GameManager : MonoBehaviour
                 break;
             case GameStates.GAMEOVER:                    //     *FIN DEL JUEGO* -> PUNTUACION
                 if (Contador.tiempo > 500)
-                    Puntuacion.RestaPuntos(150);
+                    SubScore(150);
                 else if (Contador.tiempo <= 500 || Contador.tiempo > 400)
-                    Puntuacion.RestaPuntos(100);
+                    SubScore(100);
                 else if (Contador.tiempo <= 400 || Contador.tiempo > 300)
-                    Puntuacion.RestaPuntos(90);
+                    SubScore(90);
                 else if (Contador.tiempo <= 300 || Contador.tiempo > 200)
-                    Puntuacion.RestaPuntos(80);
+                    SubScore(80);
                 else if (Contador.tiempo <= 200 || Contador.tiempo > 100)
-                    Puntuacion.RestaPuntos(20);
+                    SubScore(20);
                 else if (Contador.tiempo <= 100)
-                    Puntuacion.RestaPuntos(10);
+                    SubScore(10);
 
                 break;
             case GameStates.SCORE:                      //     *PUNTUACIÓN*
@@ -97,6 +97,7 @@ public class GameManager : MonoBehaviour
         }
         if (_UIManager != null) _UIManager.SetMenu(newState); // como en todos los estados se hace esto, se pone al final según el estado nuevo y listo
         if (UIManager.Instance != null) UIManager.Instance.SetFirstButton((int)newState);
+        if (UIManager.Instance != null) UIManager.Instance.ScoreSetUp(_score);
 
         _currentGameState = newState;                        // Finaliza el cambio
         Debug.Log("GAMEMANAGER: Current state is " + _currentGameState);
@@ -137,10 +138,12 @@ public class GameManager : MonoBehaviour
     public void AddScore(int value)
     {
         _score += value;
+        if (UIManager.Instance != null) UIManager.Instance.ScoreSetUp(_score);
     }
-    public void RemoveScore(int value)
+    public void SubScore(int value)
     {
         _score -= value;
+        if (UIManager.Instance != null) UIManager.Instance.ScoreSetUp(_score);
     }
     #endregion
 
