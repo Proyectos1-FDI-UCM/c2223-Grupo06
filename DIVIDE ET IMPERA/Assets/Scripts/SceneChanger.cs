@@ -134,6 +134,8 @@ public class SceneChanger : MonoBehaviour
                 GameManager.Instance.RequestStateChange(GameManager.GameStates.GAMEOVER);
             else if (whatLvl == 8)
                 GameManager.Instance.RequestStateChange(GameManager.GameStates.SCORE);
+            else if (whatLvl > 0 && whatLvl < 7)
+                GameManager.Instance.RequestStateChange(GameManager.GameStates.GAME);
     }
     #endregion
 
