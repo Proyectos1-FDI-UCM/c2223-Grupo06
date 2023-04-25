@@ -56,13 +56,9 @@ public class SceneChanger : MonoBehaviour
                     break;
                 case 6:
                     WaitOnAudioFade(1, 7);
-                    if (GameManager.Instance != null)
-                        GameManager.Instance.RequestStateChange(GameManager.GameStates.GAMEOVER);
                     break;
                 case 7:
                     WaitOnAudioFade(1, 8); // 8 es puntos creo
-                    if (GameManager.Instance != null)
-                        GameManager.Instance.RequestStateChange(GameManager.GameStates.SCORE);
                     break;
 
                 // TESTING
@@ -85,15 +81,15 @@ public class SceneChanger : MonoBehaviour
         _sceneToLoad = _sceneBuildIndex;           // guarda el index en scene to load
         SceneManager.LoadScene(_sceneToLoad);
         _animator.SetTrigger("FadeOut");           // animacion de fade out
-       if (GameManager.Instance != null)
-            GameManager.Instance.RequestStateChange(GameManager.GameStates.GAME);
+      //if (GameManager.Instance != null)
+        //    GameManager.Instance.RequestStateChange(GameManager.GameStates.GAME);
     }
 
     public void FadeToNextLevel()
     {
         FadeToLevel(SceneManager.GetActiveScene().buildIndex + 1);
-        if (GameManager.Instance != null)
-            GameManager.Instance.RequestStateChange(GameManager.GameStates.GAME);
+        //if (GameManager.Instance != null)
+          //  GameManager.Instance.RequestStateChange(GameManager.GameStates.GAME);
     }
 
     public void OnFadeComplete() // triggereado con el animator
@@ -132,6 +128,12 @@ public class SceneChanger : MonoBehaviour
 
         // cambia de escena
         FadeToLevel(whatLvl);
+
+        if (GameManager.Instance != null) // cambiar después de tal
+            if (whatLvl == 7)
+                GameManager.Instance.RequestStateChange(GameManager.GameStates.GAMEOVER);
+            else if (whatLvl == 8)
+                GameManager.Instance.RequestStateChange(GameManager.GameStates.SCORE);
     }
     #endregion
 

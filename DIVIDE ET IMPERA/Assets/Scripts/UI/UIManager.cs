@@ -310,19 +310,10 @@ public class UIManager : MonoBehaviour
         _scoreHUDText.text = "Puntos: " + score;
     }
 
-    public void ScoreMenuSetUp(int score) // score en el menú final
+    public void ScoreMenuSetUp(int score, int ending) // score en el menú final
     { 
         _scoreMenuText.text = "Puntos: " + score;
-
-        if (score < 500) // qué ending te toca
-            ending = 0;
-        else if (score >= 500 || score < 600)
-            ending = 1;
-        else if (score >= 600 || score < 900)
-            ending = 2;
-        else if (score >= 900 || score < 1000)
-            ending = 3;
-
+        Debug.Log("FINAL: " + score + ", " + ending);
         for (int i = 0; i < endings.Length; i++) // desactiva el que no sea y activa el que sea
         {
             if (i == ending) 
