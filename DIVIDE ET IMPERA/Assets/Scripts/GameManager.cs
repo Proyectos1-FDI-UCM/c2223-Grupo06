@@ -32,7 +32,9 @@ public class GameManager : MonoBehaviour
     // tiempo
     private float _tiempo;
     public float Tiempo { get { return _tiempo; }  }
-    //private bool _tiempoCorre = false;
+    // reset count
+    private int _resetCounter;
+    public int ResetCounter { get { return _resetCounter; } set { _resetCounter = value; } }
     #endregion
 
     #region REGISTROS DE REFERENCIAS
@@ -193,6 +195,8 @@ public class GameManager : MonoBehaviour
     {
         _currentGameState = GameStates.LEVELSELECTOR; // Valor dummy para que se realice el cambio nada más empezar
         _nextGameState = GameStates.START;       // Estado inicial, es diferente al current para que el EnterState del primer update se realice
+        
+        _resetCounter = 0;
         //SCORE DEBUG:
         _score = 1500;
         //_score = 750;

@@ -49,6 +49,12 @@ public class LevelManager : MonoBehaviour
         ResetConnectedParts(); //resetea objetos connectados si los hay
 
         UpdateCurrentLevel(); //actualiza datos nivel
+
+        if (GameManager.Instance != null)
+        {
+            Debug.Log("reset history: " + GameManager.Instance.ResetCounter);
+            GameManager.Instance.ResetCounter++;
+        }
     }
 
     private void ResetRoom(int levelNum)
