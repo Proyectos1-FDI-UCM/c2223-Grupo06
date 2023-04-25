@@ -198,7 +198,7 @@ public class GameManager : MonoBehaviour
         
         _resetCounter = 0;
         //SCORE DEBUG:
-        _score = 1500;
+        _score = 500;
         //_score = 750;
         //_score = 550;
         //_score = 250;

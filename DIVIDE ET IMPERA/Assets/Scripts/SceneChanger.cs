@@ -81,8 +81,8 @@ public class SceneChanger : MonoBehaviour
         _sceneToLoad = _sceneBuildIndex;           // guarda el index en scene to load
         SceneManager.LoadScene(_sceneToLoad);
         _animator.SetTrigger("FadeOut");           // animacion de fade out
-      //if (GameManager.Instance != null)
-        //    GameManager.Instance.RequestStateChange(GameManager.GameStates.GAME);
+        //if (GameManager.Instance != null)
+            //    GameManager.Instance.RequestStateChange(GameManager.GameStates.GAME);
     }
 
     public void FadeToNextLevel()
@@ -134,6 +134,8 @@ public class SceneChanger : MonoBehaviour
                 GameManager.Instance.RequestStateChange(GameManager.GameStates.GAMEOVER);
             else if (whatLvl == 8)
                 GameManager.Instance.RequestStateChange(GameManager.GameStates.SCORE);
+            else if (whatLvl > 0 && whatLvl < 7)
+                GameManager.Instance.RequestStateChange(GameManager.GameStates.GAME);
     }
     #endregion
 
