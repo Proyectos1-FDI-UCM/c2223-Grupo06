@@ -300,7 +300,7 @@ public class UIManager : MonoBehaviour
         _scoreHUDText.text = "Puntos: " + score;
     }
 
-    public void MenuScoreSetUp(int score)
+    public void ScoreMenuSetUp(int score)
     {
         _scoreMenuText.text = "Puntos: " + score;
     }

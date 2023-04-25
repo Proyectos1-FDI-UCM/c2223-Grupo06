@@ -85,6 +85,7 @@ public class GameManager : MonoBehaviour
 
                 break;
             case GameStates.SCORE:                      //     *PUNTUACIÓN*
+                if (UIManager.Instance != null) UIManager.Instance.ScoreMenuSetUp(_score);
                 break;
             case GameStates.LEVELSELECTOR:              //     *SELECTOR DE NIVELES*
                 break;
