@@ -5,7 +5,8 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
-    #region references
+    #region references 
+    // menús
     [SerializeField] private GameObject _StartMenu;
     [SerializeField] private GameObject _IntroMenu;
     [SerializeField] private GameObject _HUD;
@@ -18,6 +19,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject _optionsMenu;
     [SerializeField] private GameObject _credits;
 
+    // instancia
     private static UIManager _instance;
     public static UIManager Instance { get { return _instance; } }
 
@@ -30,7 +32,6 @@ public class UIManager : MonoBehaviour
             // 5 puntuación, 6 selector de niveles, 7  controles, 8 opciones
     public GameObject[] FirstButtons { get { return _firstButtons; } }
 
-
     /// HUD
     [SerializeField] private Image[] _images;    // imagenes dentro del ui
     [SerializeField] private Sprite[] _sprites;    // sprites en los assets
@@ -42,7 +43,8 @@ public class UIManager : MonoBehaviour
     [SerializeField] private Slider _sliderSFX;
     [SerializeField] private Slider _sliderAmbience;
 
-    // score text y finales
+    // time, score text y finales
+    [SerializeField] private TMP_Text _timeText;
     [SerializeField] private TMP_Text _scoreHUDText; // score en hud
     [SerializeField] private TMP_Text _scoreMenuText;
     [SerializeField] private GameObject[] endings;
@@ -298,14 +300,18 @@ public class UIManager : MonoBehaviour
     }
     #endregion
 
-    #region SCORE
-    public void ScoreSetUp(int score)
+    #region TIME & SCORE
+    public void TimeUpdate(float value)
+    {
+        _timeText.text = "Tiempo: " + (int)value;
+    }
+    public void ScoreSetUp(int score) // score en el HUD
     {
         _scoreHUDText.text = "Puntos: " + score;
     }
 
-    public void ScoreMenuSetUp(int score)
-    {
+    public void ScoreMenuSetUp(int score) // score en el menú final
+    { 
         _scoreMenuText.text = "Puntos: " + score;
 
         if (score < 500) // qué ending te toca

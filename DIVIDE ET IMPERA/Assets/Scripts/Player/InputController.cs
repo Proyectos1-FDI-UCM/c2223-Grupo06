@@ -390,8 +390,6 @@ public class InputController : MonoBehaviour
         _stayOnComp = GetComponent<StayOnPataforma>();
         _groundCheck = GetComponentInChildren<GroundCheck>();
         _placaComponent = GetComponent<PalancaComponent>();
-
-        //GameManager.Instance.RequestStateChange(GameManager.GameStates.GAME);
     }
 
     void Update()

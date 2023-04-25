@@ -29,6 +29,10 @@ public class GameManager : MonoBehaviour
     // puntuación
     private int _score;
     public int Score { get { return _score; } set { _score = value; } }
+    // tiempo
+    private float _tiempo;
+    public float Tiempo { get { return _tiempo; }  }
+    private bool _tiempoCorre = false;
     #endregion
 
     #region REGISTROS DE REFERENCIAS
@@ -70,22 +74,22 @@ public class GameManager : MonoBehaviour
                 Time.timeScale = 0;
                 break;
             case GameStates.GAMEOVER:                    //     *FIN DEL JUEGO* -> PUNTUACION
-                if (Contador.tiempo > 500)
-                    SubScore(150);
-                else if (Contador.tiempo <= 500 || Contador.tiempo > 400)
+                if (_tiempo > 500)
                     SubScore(100);
-                else if (Contador.tiempo <= 400 || Contador.tiempo > 300)
-                    SubScore(90);
-                else if (Contador.tiempo <= 300 || Contador.tiempo > 200)
-                    SubScore(80);
-                else if (Contador.tiempo <= 200 || Contador.tiempo > 100)
-                    SubScore(20);
-                else if (Contador.tiempo <= 100)
+                else if (_tiempo <= 500 || _tiempo > 400)
+                    SubScore(50);
+                else if (_tiempo <= 400 || _tiempo > 300)
+                    SubScore(25);
+                else if (_tiempo <= 300 || _tiempo > 200)
                     SubScore(10);
+                else if (_tiempo <= 200 || _tiempo > 100)
+                    SubScore(5);
+                else if (_tiempo <= 100)
+                    SubScore(0);
 
                 break;
             case GameStates.SCORE:                      //     *PUNTUACIÓN*
-                if (UIManager.Instance != null) UIManager.Instance.ScoreMenuSetUp(_score);
+                if (_UIManager != null) _UIManager.ScoreMenuSetUp(_score);
                 break;
             case GameStates.LEVELSELECTOR:              //     *SELECTOR DE NIVELES*
                 break;
@@ -96,9 +100,12 @@ public class GameManager : MonoBehaviour
             case GameStates.CREDITS:                    //     *CREDITOS*
                 break;
         }
-        if (_UIManager != null) _UIManager.SetMenu(newState); // como en todos los estados se hace esto, se pone al final según el estado nuevo y listo
-        if (UIManager.Instance != null) UIManager.Instance.SetFirstButton((int)newState);
-        if (UIManager.Instance != null) UIManager.Instance.ScoreSetUp(_score);
+        if (_UIManager != null)
+        {
+            _UIManager.SetMenu(newState); // como en todos los estados se hace esto, se pone al final según el estado nuevo y listo
+            _UIManager.SetFirstButton((int)newState);
+            _UIManager.ScoreSetUp(_score);
+        }
 
         _currentGameState = newState;                        // Finaliza el cambio
         Debug.Log("GAMEMANAGER: Current state is " + _currentGameState);
@@ -119,7 +126,7 @@ public class GameManager : MonoBehaviour
             {
                 if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.RightArrow))
                 { // para volver a la selección por teclado
-                    UIManager.Instance.SetFirstButton(3);
+                    _UIManager.SetFirstButton(3);
                 }
             }
         }
@@ -157,7 +164,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        _currentGameState = GameStates.GAMEOVER; // Valor dummy para que se realice el cambio nada más empezar
+        _currentGameState = GameStates.INTRO; // Valor dummy para que se realice el cambio nada más empezar
         _nextGameState = GameStates.START;       // Estado inicial, es diferente al current para que el EnterState del primer update se realice
         //SCORE DEBUG:
         _score = 1500;
