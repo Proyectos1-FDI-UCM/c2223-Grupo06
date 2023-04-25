@@ -136,9 +136,7 @@ public class CollisionManager : MonoBehaviour
         if (_parteColisionada != null && _parteColisionada.GetComponentInParent<AlubiatComponent>() != null)
         {
             if (GameManager.Instance != null)
-            {
                 GameManager.Instance.Alubiat = true;
-            }
             if (!PlayerManager.Instance.Alubiat)
             {
                 var padre = _parteColisionada.transform.parent.gameObject;

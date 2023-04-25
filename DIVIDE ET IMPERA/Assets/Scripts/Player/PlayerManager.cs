@@ -371,6 +371,8 @@ public class PlayerManager : MonoBehaviour
         if (!_alubiat)
         {
             _alubiat = !_alubiat;
+            if (GameManager.Instance != null)
+                GameManager.Instance.Alubiat = true;
 
             //sfx
             if (SFXComponent.Instance != null)
@@ -382,6 +384,8 @@ public class PlayerManager : MonoBehaviour
         if (_alubiat)
         {
             _alubiat = !_alubiat;
+            if (GameManager.Instance != null)
+                GameManager.Instance.Alubiat = false;
 
             //sfx
             if (SFXComponent.Instance != null)
@@ -391,6 +395,8 @@ public class PlayerManager : MonoBehaviour
     public void RecogerAlubiat()
     {
         _alubiat = true;
+        if (GameManager.Instance != null)
+            GameManager.Instance.Alubiat = true;
 
         //sfx
         if (SFXComponent.Instance != null)
@@ -402,16 +408,17 @@ public class PlayerManager : MonoBehaviour
         if (_alubiat)
         {
             _alubiat = false;
+            if (GameManager.Instance != null)
+                GameManager.Instance.Alubiat = false;
 
             if (LevelManager.Instance != null) Instantiate(_alubiatPrefab, _myTransform.position, _myTransform.rotation, _objectsReset); // instanciaci�n
 
-                                                                                                                                         //sfx
+            //sfx
             if (SFXComponent.Instance != null)
                 SFXComponent.Instance.SFXPlayer(0);
             return true;
         }
         else return false;
-
     }
 
     // BLOQUE DE OBJETOS
@@ -538,7 +545,10 @@ public class PlayerManager : MonoBehaviour
         _currentState = TimmyStates.S1;           // Valor dummy para inicializar un cambio en cuanto empiece y se ejecute el EnterState
         _nextState = TimmyStates.S0;         // Inicializa el estado de timmy
         _objeto = Objetos.NADA;          // Ning�n objeto al iniciar
-        _alubiat = false;           // No tiene las piernas de su padre al iniciar
+        if (GameManager.Instance != null)
+            _alubiat = GameManager.Instance.Alubiat;
+        else 
+            _alubiat = false;
         _parte = Partes.CABEZA; // Control principal al inicio
 
         _partInControl = gameObject;

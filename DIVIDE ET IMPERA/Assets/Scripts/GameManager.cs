@@ -92,19 +92,19 @@ public class GameManager : MonoBehaviour
                 
                 break;
             case GameStates.SCORE:                      //     *PUNTUACIÓN*
-                int ending = 0; // si no tienes las piernas te comes tremendo ñordaco
-                if (PlayerManager.Instance != null && PlayerManager.Instance.Alubiat)
+                _ending = 0; // si no tienes las piernas te comes tremendo ñordaco
+                if (_alubiat)
                 { // pero si sí...
                     if (_score <= 500) 
-                        ending = 1;
+                        _ending = 1;
                     if (_score >= 500 && _score < 700)
-                        ending = 2;
+                        _ending = 2;
                     else if (_score >= 700 && _score < 1000)
-                        ending = 3;
+                        _ending = 3;
                     else if (_score >= 1000)
-                        ending = 4;
+                        _ending = 4;
                 } // 0 TERRIBLISIMO, 1 MALAMENTE, 2 REGULA, 3 ASEPTABLE, 4 CRANEOPERSENT
-                if (_UIManager != null) _UIManager.ScoreMenuSetUp(_score, ending);
+                if (_UIManager != null) _UIManager.ScoreMenuSetUp(_score, _ending);
                 break;
             case GameStates.LEVELSELECTOR:              //     *SELECTOR DE NIVELES*
                 break;
