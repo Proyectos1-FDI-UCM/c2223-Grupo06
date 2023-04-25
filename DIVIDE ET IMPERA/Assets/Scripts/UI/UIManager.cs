@@ -302,7 +302,7 @@ public class UIManager : MonoBehaviour
 
     public void MenuScoreSetUp(int score)
     {
-
+        _scoreMenuText.text = "Puntos: " + score;
     }
     #endregion
 
