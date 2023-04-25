@@ -81,8 +81,8 @@ public class SceneChanger : MonoBehaviour
         _sceneToLoad = _sceneBuildIndex;           // guarda el index en scene to load
         SceneManager.LoadScene(_sceneToLoad);
         _animator.SetTrigger("FadeOut");           // animacion de fade out
-      //if (GameManager.Instance != null)
-        //    GameManager.Instance.RequestStateChange(GameManager.GameStates.GAME);
+        //if (GameManager.Instance != null)
+            //    GameManager.Instance.RequestStateChange(GameManager.GameStates.GAME);
     }
 
     public void FadeToNextLevel()

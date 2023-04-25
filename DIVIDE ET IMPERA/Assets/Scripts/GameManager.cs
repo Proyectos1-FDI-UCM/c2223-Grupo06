@@ -197,11 +197,7 @@ public class GameManager : MonoBehaviour
         _nextGameState = GameStates.START;       // Estado inicial, es diferente al current para que el EnterState del primer update se realice
         
         _resetCounter = 0;
-        //SCORE DEBUG:
         _score = 1500;
-        //_score = 750;
-        //_score = 550;
-        //_score = 250;
     }
 
     void Update()
