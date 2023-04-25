@@ -34,12 +34,15 @@ public class UIManager : MonoBehaviour
     [SerializeField] private Sprite[] _sprites;    // sprites en los assets
     //imagenes tarjetas puntos
     //[SerializeField] public 
-    [SerializeField] private TMP_Text _scoreText; // score en hud
 
     // Sliders de menu de opciones
     [SerializeField] private Slider _sliderBGM;
     [SerializeField] private Slider _sliderSFX;
     [SerializeField] private Slider _sliderAmbience;
+
+    // score
+    [SerializeField] private TMP_Text _scoreHUDText; // score en hud
+    [SerializeField] private TMP_Text _scoreMenuText;
     #endregion
 
     #region properties
@@ -294,7 +297,12 @@ public class UIManager : MonoBehaviour
     #region SCORE
     public void ScoreSetUp(int score)
     {
-        _scoreText.text = "Puntos: " + score;
+        _scoreHUDText.text = "Puntos: " + score;
+    }
+
+    public void MenuScoreSetUp(int score)
+    {
+
     }
     #endregion
 

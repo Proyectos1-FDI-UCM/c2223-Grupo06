@@ -2070,7 +2070,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2076869503684516376
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2379,10 +2379,11 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 8fa3d3f7e52b88e42959da145b32c5f6, type: 3}
   - {fileID: 21300000, guid: 39b291ba3abc389438804f6551fec064, type: 3}
   - {fileID: 21300000, guid: 02d85f3d518650f46914699d1413f12a, type: 3}
-  _scoreText: {fileID: 3300734757422693746}
   _sliderBGM: {fileID: 2959201666566976951}
   _sliderSFX: {fileID: 9010285652851616508}
   _sliderAmbience: {fileID: 3631607777897918070}
+  _scoreHUDText: {fileID: 3300734757422693746}
+  _scoreMenuText: {fileID: 7286306520411691892}
   _activeMenu: 0
 --- !u!1 &2076869504062052000
 GameObject:
