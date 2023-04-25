@@ -64,7 +64,8 @@ public class UIManager : MonoBehaviour
 
     public void RequestStateChange(GameManager.GameStates newState)
     {
-        GameManager.Instance.RequestStateChange(newState);
+        if (GameManager.Instance != null)
+            GameManager.Instance.RequestStateChange(newState);
     }
 
     // MENUS
