@@ -9,7 +9,6 @@ public class GameManager : MonoBehaviour
 
     #region references
     private UIManager _UIManager;
-    private CollisionManager _collisionManager;
     private BGMComponent _bGMComponent;
     #endregion
 
@@ -32,18 +31,13 @@ public class GameManager : MonoBehaviour
     // tiempo
     private float _tiempo;
     public float Tiempo { get { return _tiempo; }  }
-    private bool _tiempoCorre = false;
+    //private bool _tiempoCorre = false;
     #endregion
 
     #region REGISTROS DE REFERENCIAS
     public void RegisterUIManager(UIManager uiManager)
     {
         _UIManager = uiManager;
-    }
-
-    public void RegisterCollisionManager(CollisionManager collisionManager)
-    {
-        _collisionManager = collisionManager;
     }
     #endregion
 
@@ -58,6 +52,7 @@ public class GameManager : MonoBehaviour
     // Bloque de máquina de estados
     public void EnterState(GameStates newState)
     {
+        Debug.Log("joder");
         switch (newState) // Diferentes comportamientos según estado al que se entra
         { // En sí, solo cambia el grupo de UI por cada estado y en GAME carga el nivel
 
@@ -86,7 +81,7 @@ public class GameManager : MonoBehaviour
                     SubScore(5);
                 else if (_tiempo <= 100)
                     SubScore(0);
-
+                
                 break;
             case GameStates.SCORE:                      //     *PUNTUACIÓN*
                 if (_UIManager != null) _UIManager.ScoreMenuSetUp(_score);
@@ -105,6 +100,7 @@ public class GameManager : MonoBehaviour
             _UIManager.SetMenu(newState); // como en todos los estados se hace esto, se pone al final según el estado nuevo y listo
             _UIManager.SetFirstButton((int)newState);
             _UIManager.ScoreSetUp(_score);
+            _UIManager.TimeUpdate(_tiempo);
         }
 
         _currentGameState = newState;                        // Finaliza el cambio
@@ -146,12 +142,19 @@ public class GameManager : MonoBehaviour
     public void AddScore(int value)
     {
         _score += value;
-        if (UIManager.Instance != null) UIManager.Instance.ScoreSetUp(_score);
+        if (_UIManager != null) _UIManager.ScoreSetUp(_score);
     }
     public void SubScore(int value)
     {
         _score -= value;
-        if (UIManager.Instance != null) UIManager.Instance.ScoreSetUp(_score);
+        if (_UIManager != null) _UIManager.ScoreSetUp(_score);
+    }
+    private void Contador()
+    {
+        if (_currentGameState == GameStates.GAME)
+        {
+            _tiempo += Time.deltaTime;
+        }
     }
     #endregion
 
@@ -179,6 +182,7 @@ public class GameManager : MonoBehaviour
         {
             EnterState(_nextGameState);      // Entramos al siguiente estado
         }
+        Contador();
         UpdateState(_currentGameState);      // Update según el estado
     }
 }

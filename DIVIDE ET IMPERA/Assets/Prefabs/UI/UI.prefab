@@ -2381,6 +2381,7 @@ MonoBehaviour:
   _sliderBGM: {fileID: 2959201666566976951}
   _sliderSFX: {fileID: 9010285652851616508}
   _sliderAmbience: {fileID: 3631607777897918070}
+  _timeText: {fileID: 8371498597946304123}
   _scoreHUDText: {fileID: 3300734757422693746}
   _scoreMenuText: {fileID: 7286306520411691892}
   endings:
