@@ -160,6 +160,12 @@ public class AudioManager : MonoBehaviour
 
     private void Start()
     {
+        if (_instance != null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
         _instance = this;
 
         _beforeFadeVolume = GetVolume();

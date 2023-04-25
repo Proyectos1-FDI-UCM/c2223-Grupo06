@@ -166,6 +166,11 @@ public class GameManager : MonoBehaviour
 
     void Awake()
     {
+        if (_instance != null)
+        {
+            Destroy(gameObject);
+            return;
+        }
         _instance = this;
         gameObject.transform.parent = null;
         DontDestroyOnLoad(gameObject);
