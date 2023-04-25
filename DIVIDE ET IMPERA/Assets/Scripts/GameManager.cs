@@ -72,28 +72,31 @@ public class GameManager : MonoBehaviour
                 break;
 
             case GameStates.GAMEOVER:                    //     *FIN DEL JUEGO* -> PUNTUACION
-                if (_tiempo > 500)
+                if (_tiempo >= 500)
+                    SubScore(150);
+                else if (_tiempo < 500 && _tiempo >= 400)
                     SubScore(100);
-                else if (_tiempo > 400)
+                else if (_tiempo < 400 && _tiempo >= 300)
                     SubScore(50);
-                else if (_tiempo <= 400 && _tiempo > 300)
+                else if (_tiempo < 300 && _tiempo >= 200)
                     SubScore(25);
-                else if (_tiempo <= 300 && _tiempo > 200)
+                else if (_tiempo < 200 && _tiempo >= 100)
                     SubScore(10);
-                else if (_tiempo <= 200 && _tiempo > 100)
-                    SubScore(5);
-                else if (_tiempo <= 100)
+                else if (_tiempo < 100)
                     SubScore(0);
                 
                 break;
             case GameStates.SCORE:                      //     *PUNTUACIÓN*
                 int ending = 0;
-                if (_score >= 500 && _score < 700)
-                    ending = 1;
-                else if (_score >= 700 && _score < 1000)
-                    ending = 2;
-                else if (_score >= 1000)
-                    ending = 3;
+                if (PlayerManager.Instance != null && PlayerManager.Instance.Alubiat)
+                {
+                    if (_score >= 500 && _score < 700)
+                        ending = 1;
+                    else if (_score >= 700 && _score < 1000)
+                        ending = 2;
+                    else if (_score >= 1000)
+                        ending = 3;
+                }
                 if (_UIManager != null) _UIManager.ScoreMenuSetUp(_score, ending);
                 break;
             case GameStates.LEVELSELECTOR:              //     *SELECTOR DE NIVELES*
