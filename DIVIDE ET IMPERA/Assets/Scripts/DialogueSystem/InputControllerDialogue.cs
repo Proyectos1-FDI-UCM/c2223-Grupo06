@@ -13,10 +13,6 @@ public class InputControllerDialogue : MonoBehaviour
     public bool _enConversacion = false; // booleano para saber si se está en conversación 
     public bool Conversacion { get { return _enConversacion; } }
 
-    [Tooltip("Se ha acabado de escribir la linea")]
-    [SerializeField]
-    public bool _writingLine = false; // booleano para saber si se está en conversación 
-    public bool WritingLine { get { return _writingLine; } }
     #endregion
 
     #region Methods
@@ -24,7 +20,6 @@ public class InputControllerDialogue : MonoBehaviour
     {
         if (_enConversacion && (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow))) // Space o UpArrow para avanzar en el diálogo
         {
-            Debug.Log("me estoy muriendo epro de verdad");
             _dialogueManager.ProcessInput();
         }
     }
