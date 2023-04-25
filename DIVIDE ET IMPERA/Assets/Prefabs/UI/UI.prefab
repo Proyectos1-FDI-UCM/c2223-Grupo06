@@ -2384,6 +2384,11 @@ MonoBehaviour:
   _sliderAmbience: {fileID: 3631607777897918070}
   _scoreHUDText: {fileID: 3300734757422693746}
   _scoreMenuText: {fileID: 7286306520411691892}
+  endings:
+  - {fileID: 1425903930613718215}
+  - {fileID: 4564485878204731174}
+  - {fileID: 3686448929383382265}
+  - {fileID: 6033695195617237927}
   _activeMenu: 0
 --- !u!1 &2076869504062052000
 GameObject:
