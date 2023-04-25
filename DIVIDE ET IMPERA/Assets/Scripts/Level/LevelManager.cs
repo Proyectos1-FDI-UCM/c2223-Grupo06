@@ -52,8 +52,8 @@ public class LevelManager : MonoBehaviour
 
         if (GameManager.Instance != null)
         {
-            Debug.Log("reset history: " + GameManager.Instance.ResetCounter);
             GameManager.Instance.ResetCounter++;
+            Debug.Log("reset history: " + GameManager.Instance.ResetCounter);
         }
     }
 

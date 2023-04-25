@@ -39,11 +39,12 @@ public class PlayerAnimationController : MonoBehaviour
             _myAnimator.ResetTrigger("isGrounded");
         }
 
-        if (_myMovementComponent.Direccion != 0)
+        if (_myMovementComponent.Direccion != 0 
+            && !(Input.GetKey(KeyCode.LeftArrow) && Input.GetKey(KeyCode.RightArrow)))
         {
             _myAnimator.SetTrigger("isRunning");
         }
-        else
+        else 
         {
             _myAnimator.ResetTrigger("isRunning");
         }
