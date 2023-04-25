@@ -48,6 +48,6 @@ EditorBuildSettings:
     path: Assets/Scenes/TESTING/4T_PUZLE.unity
     guid: 0c9b417455c1fcb418aae7f862203fac
   - enabled: 1
-    path: Assets/Scenes/TESTING/5T_PUNTOS.unity
+    path: Assets/Scenes/TESTING/3T_PUNTOS.unity
     guid: 21c5164dfc5314443b2a0e28354a01da
   m_configObjects: {}
