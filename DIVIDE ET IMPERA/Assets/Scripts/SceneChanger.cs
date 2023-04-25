@@ -73,7 +73,10 @@ public class SceneChanger : MonoBehaviour
         SceneManager.LoadScene(_sceneToLoad);
         _animator.SetTrigger("FadeOut");           // animacion de fade out
         if (GameManager.Instance != null)
+        {
             GameManager.Instance.RequestStateChange(GameManager.GameStates.GAME);
+            _inputController.enabled = true;
+        }
     }
 
     public void FadeToNextLevel()
@@ -123,7 +126,7 @@ public class SceneChanger : MonoBehaviour
         if (GameManager.Instance != null) // cambiar después de tal
             if (whatLvl == 7)
                 GameManager.Instance.RequestStateChange(GameManager.GameStates.GAMEOVER);
-            else if (whatLvl == 8)
+            else if (whatLvl == 8 || whatLvl == 12) // puntos flujo y puntos testing
                 GameManager.Instance.RequestStateChange(GameManager.GameStates.SCORE);
             else if (whatLvl > 0 && whatLvl < 7)
                 GameManager.Instance.RequestStateChange(GameManager.GameStates.GAME);
