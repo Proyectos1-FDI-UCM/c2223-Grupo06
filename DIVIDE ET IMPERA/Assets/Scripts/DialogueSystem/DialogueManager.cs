@@ -37,7 +37,7 @@ public class DialogueManager : MonoBehaviour
     public bool WritingLine { get { return _writingLine; } }
     #endregion
 
-    public bool _moveTimmy;
+    private bool _moveTimmy;
     #region Methods
     #region flujo de diálogo
     #region interact text
