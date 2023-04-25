@@ -3076,7 +3076,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5079413432351849654, guid: fe40a95d7663eca499414170bbbe271a, type: 3}
       propertyPath: m_Tiles.Array.data[0].first.x
-      value: 8
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5079413432351849654, guid: fe40a95d7663eca499414170bbbe271a, type: 3}
       propertyPath: m_Tiles.Array.data[0].first.y
