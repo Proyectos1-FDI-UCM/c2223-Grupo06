@@ -37,7 +37,7 @@ public class DialogueManager : MonoBehaviour
     public bool WritingLine { get { return _writingLine; } }
     #endregion
 
-    public bool _aa;
+    public bool _moveTimmy;
     #region Methods
     #region flujo de diálogo
     #region interact text
@@ -64,7 +64,7 @@ public class DialogueManager : MonoBehaviour
     private void Activar()
     {
         _inputControllerDialogue._enConversacion = true;
-        _aa = true;
+        _moveTimmy = true;
         StartDialogue();
     }
 
@@ -211,7 +211,7 @@ public class DialogueManager : MonoBehaviour
         }
         else
         {
-            _aa = false;
+            _moveTimmy = false;
         }
     }
     #endregion
@@ -226,7 +226,7 @@ public class DialogueManager : MonoBehaviour
     }
     private void Update()
     {
-       if (_aa)
+       if (_moveTimmy)
             MoveTimoteo();
     }
 }
