@@ -37,6 +37,7 @@ public class DialogueManager : MonoBehaviour
     public bool WritingLine { get { return _writingLine; } }
     #endregion
 
+    public bool _aa;
     #region Methods
     #region flujo de diálogo
     #region interact text
@@ -63,7 +64,7 @@ public class DialogueManager : MonoBehaviour
     private void Activar()
     {
         _inputControllerDialogue._enConversacion = true;
-        MoveTimoteo();
+        _aa = true;
         StartDialogue();
     }
 
@@ -199,10 +200,19 @@ public class DialogueManager : MonoBehaviour
     #region mover timoteo
     void MoveTimoteo()  // Hace que Timoteo se mueva hacia el waypoint correspondiente con la velocidad marcada
     {
-        _inputController.enabled = false;
-        _inputControllerDialogue.enabled = true;
-        _playerTransform.position = Vector3.MoveTowards(_playerTransform.position,  // posición inicial 
-            WaypointDialogo.transform.position, _speed * Time.deltaTime);           // posición final
+        Debug.Log(_playerTransform.position.x + " aaa" + WaypointDialogo.transform.position.x);
+        Debug.Log(_playerTransform.position.x == WaypointDialogo.transform.position.x);
+        if(_playerTransform.position.x < WaypointDialogo.transform.position.x - 0.05 || _playerTransform.position.x  > WaypointDialogo.transform.position.x +0.05)
+        {
+            _inputController.enabled = false;
+            _inputControllerDialogue.enabled = true;
+            _playerTransform.position = Vector3.MoveTowards(_playerTransform.position,  // posición inicial 
+                WaypointDialogo.transform.position, _speed * Time.deltaTime);           // posición final
+        }
+        else
+        {
+            _aa = false;
+        }
     }
     #endregion
     #endregion
@@ -213,5 +223,10 @@ public class DialogueManager : MonoBehaviour
         _inputController = PlayerAccess.Instance.InputController;
         _inputControllerDialogue = PlayerAccess.Instance.InputControllerDialogue;
         _playerTransform = PlayerAccess.Instance.Transform;
+    }
+    private void Update()
+    {
+       if (_aa)
+            MoveTimoteo();
     }
 }
