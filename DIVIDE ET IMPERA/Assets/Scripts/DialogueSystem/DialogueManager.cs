@@ -40,7 +40,8 @@ public class DialogueManager : MonoBehaviour
         if (collision.gameObject == _player)            //filtro para que solo el jugador pueda interactuar con cosas
         {
             _interactText.text = "\u2191 para hablar";  // mostrar texto de interaccion
-            PlayerAccess.Instance.InputControllerDialogue.RegisterDialogueManager(this);
+            if (PlayerAccess.Instance != null)
+                PlayerAccess.Instance.InputControllerDialogue.RegisterDialogueManager(this);
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
