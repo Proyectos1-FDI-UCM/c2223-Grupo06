@@ -97,6 +97,7 @@ GameObject:
   - component: {fileID: 9220765}
   - component: {fileID: 9220764}
   - component: {fileID: 6326749029943970691}
+  - component: {fileID: 8875659674033213080}
   m_Layer: 9
   m_Name: Timoteo
   m_TagString: Untagged
@@ -260,7 +261,8 @@ MonoBehaviour:
   _recuperarBrazo: 0
   _recuperarPiernas: 0
   _recuperarAlubiat: 0
-  _changeToPataforma: 0
+  _changeToPiernas: 0
+  _changeToAlubiat: 0
   _cooldown: 2
 --- !u!114 &4510422160574665586
 MonoBehaviour:
@@ -426,8 +428,6 @@ MonoBehaviour:
   _boneStateBar: {fileID: 0}
   _allowedSpeed: -15
   _previousSpeed: 0
-  cantidadPuntos: 0
-  puntuacion: {fileID: 0}
 --- !u!114 &9220764
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -465,6 +465,19 @@ MonoBehaviour:
   _inerciaBolas: 1
   _inerciaBrazos: 1
   _torque: 20
+--- !u!114 &8875659674033213080
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2311462238604020209}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99560fa31f1ee6044912b7e1f0d6bfd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _enConversacion: 0
 --- !u!1 &5226572810815247087
 GameObject:
   m_ObjectHideFlags: 0
