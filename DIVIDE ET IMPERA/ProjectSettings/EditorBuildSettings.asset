@@ -42,12 +42,6 @@ EditorBuildSettings:
     path: Assets/Scenes/TESTING/2T_TUTORIAL.unity
     guid: 02db46add501ac54c87044f5c9c93b90
   - enabled: 1
-    path: Assets/Scenes/TESTING/3T_PRINCIPAL.unity
-    guid: f7232721e9363824eb5b077028afed3f
-  - enabled: 1
-    path: Assets/Scenes/TESTING/4T_PUZLE.unity
-    guid: 0c9b417455c1fcb418aae7f862203fac
-  - enabled: 1
-    path: Assets/Scenes/TESTING/5T_PUNTOS.unity
+    path: Assets/Scenes/TESTING/3T_PUNTOS.unity
     guid: 21c5164dfc5314443b2a0e28354a01da
   m_configObjects: {}

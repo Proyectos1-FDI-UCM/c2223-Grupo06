@@ -391,19 +391,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2311462238604020209, guid: 767e3f423c90f78409c3048c7e7f2088, type: 3}
   m_PrefabInstance: {fileID: 432683392}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &298932155
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 298932137}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 99560fa31f1ee6044912b7e1f0d6bfd0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _enConversacion: 0
 --- !u!1001 &404785335
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10539,6 +10526,38 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 742018286442928541, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
+      propertyPath: _player
+      value: 
+      objectReference: {fileID: 298932137}
+    - target: {fileID: 742018286442928541, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
+      propertyPath: _lines.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 742018286442928541, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
+      propertyPath: _lines.Array.data[0]
+      value: holi
+      objectReference: {fileID: 0}
+    - target: {fileID: 742018286442928541, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
+      propertyPath: _lines.Array.data[1]
+      value: sabias que los peones solo se pueden mover hacia delanta
+      objectReference: {fileID: 0}
+    - target: {fileID: 742018286442928541, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
+      propertyPath: _lines.Array.data[2]
+      value: como andan los maquinaaaas
+      objectReference: {fileID: 0}
+    - target: {fileID: 742018286442928541, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
+      propertyPath: _lines.Array.data[3]
+      value: vamos a bombardear vallecaas
+      objectReference: {fileID: 0}
+    - target: {fileID: 742018286442928541, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
+      propertyPath: _lines.Array.data[4]
+      value: sopa de gallina blanca
+      objectReference: {fileID: 0}
+    - target: {fileID: 1613157860166873112, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -8.196478
+      objectReference: {fileID: 0}
     - target: {fileID: 2980812906896535388, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -10588,6 +10607,26 @@ PrefabInstance:
       value: DialogueManager
       objectReference: {fileID: 0}
     - target: {fileID: 2980812906896535391, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3398044784434279248, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -2529
+      objectReference: {fileID: 0}
+    - target: {fileID: 4842075595558140150, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5357959730500952715, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5573008694353342413, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7026903279659086247, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
