@@ -75,17 +75,17 @@ public class GameManager : MonoBehaviour
 
             case GameStates.GAMEOVER:                    //     *FIN DEL JUEGO* -> PUNTUACION
                 if (_tiempo >= 500)
-                    SubScore(150);
+                    AddScore(-150);
                 else if (_tiempo < 500 && _tiempo >= 400)
-                    SubScore(100);
+                    AddScore(-100);
                 else if (_tiempo < 400 && _tiempo >= 300)
-                    SubScore(50);
+                    AddScore(-50);
                 else if (_tiempo < 300 && _tiempo >= 200)
-                    SubScore(25);
+                    AddScore(-25);
                 else if (_tiempo < 200 && _tiempo >= 100)
-                    SubScore(10);
+                    AddScore(-10);
                 else if (_tiempo < 100)
-                    SubScore(0);
+                    AddScore(-0);
                 
                 break;
             case GameStates.SCORE:                      //     *PUNTUACIÓN*
@@ -163,19 +163,13 @@ public class GameManager : MonoBehaviour
     public void AddScore(int value)
     {
         _score += value;
-        if (_UIManager != null) _UIManager.ScoreSetUp(_score);
-    }
-    public void SubScore(int value)
-    {
-        _score -= value;
-        if (_UIManager != null) _UIManager.ScoreSetUp(_score);
+        if (_UIManager != null) 
+            _UIManager.ScoreSetUp(_score);
     }
     private void Contador()
     {
         if (_currentGameState == GameStates.GAME)
-        {
             _tiempo += Time.deltaTime;
-        }
     }
     #endregion
 
@@ -197,6 +191,7 @@ public class GameManager : MonoBehaviour
         _nextGameState = GameStates.START;       // Estado inicial, es diferente al current para que el EnterState del primer update se realice
         
         _resetCounter = 0;
+        _tiempo = 0;
         _score = 1500;
     }
 
