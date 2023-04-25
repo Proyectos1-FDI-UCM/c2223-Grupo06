@@ -165,16 +165,11 @@ public class AudioManager : MonoBehaviour
             Destroy(gameObject);
             return;
         }
-
         _instance = this;
-
         _beforeFadeVolume = GetVolume();
-
     }
 
     private void Update()
     {
     }
-
-
 }

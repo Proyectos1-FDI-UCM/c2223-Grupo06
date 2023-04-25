@@ -57,16 +57,20 @@ public class GameManager : MonoBehaviour
         {
             case GameStates.START:                       //     *MENÚ INICIAL*
                 break;
+
             case GameStates.INTRO:                       //     *INTRO*
                 break;
+
             case GameStates.GAME:                        //     *JUEGO*
                 if (_UIManager != null) // Inicializa valores del HUD
                     _UIManager.SetPartes(PlayerManager.State, PlayerManager.Instance.Parte);
                 Time.timeScale = 1;
                 break;
+
             case GameStates.PAUSE:                       //     *PAUSA*
                 Time.timeScale = 0;
                 break;
+
             case GameStates.GAMEOVER:                    //     *FIN DEL JUEGO* -> PUNTUACION
                 if (_tiempo > 500)
                     SubScore(100);
@@ -101,12 +105,12 @@ public class GameManager : MonoBehaviour
             case GameStates.CREDITS:                    //     *CREDITOS*
                 break;
         }
+
         if (_UIManager != null)
         {
             _UIManager.SetMenu(newState); // como en todos los estados se hace esto, se pone al final según el estado nuevo y listo
             _UIManager.SetFirstButton((int)newState);
             _UIManager.ScoreSetUp(_score);
-            _UIManager.TimeUpdate(_tiempo);
         }
 
         _currentGameState = newState;                        // Finaliza el cambio
@@ -135,10 +139,14 @@ public class GameManager : MonoBehaviour
 
         if (state == GameStates.GAME)
         {
-            if (_UIManager != null && !_UIManager.SetMenu(state))
+            if (_UIManager != null)
             {
-                _UIManager.SetMenu(state);
-                Debug.Log("Set Menu");
+                if (!_UIManager.SetMenu(state))
+                {
+                    _UIManager.SetMenu(state);
+                    Debug.Log("Set Menu");
+                }
+                _UIManager.TimeUpdate(_tiempo);
             }
         }
     }
@@ -179,7 +187,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         _currentGameState = GameStates.LEVELSELECTOR; // Valor dummy para que se realice el cambio nada más empezar
-        _nextGameState = GameStates.GAMEOVER;       // Estado inicial, es diferente al current para que el EnterState del primer update se realice
+        _nextGameState = GameStates.START;       // Estado inicial, es diferente al current para que el EnterState del primer update se realice
         //SCORE DEBUG:
         _score = 1500;
         //_score = 750;
