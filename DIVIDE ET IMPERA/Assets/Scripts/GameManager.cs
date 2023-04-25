@@ -9,7 +9,6 @@ public class GameManager : MonoBehaviour
 
     #region references
     private UIManager _UIManager;
-    private Puntuacion _puntuacion;
     private CollisionManager _collisionManager;
     private BGMComponent _bGMComponent;
     #endregion
@@ -26,10 +25,13 @@ public class GameManager : MonoBehaviour
     // control por teclado
     private int _fbIndex; // first button index en el array del uimanager ESTÁN PUESTOS POR ÓRDEN DEL ENUM DE ESTADOS DEL GAMEMANAGER
     public int FbIndex { get {  return _fbIndex; } set { _fbIndex = value; } }
+
+    // puntuación
+    private int _score;
+    public int Score { get { return _score; } set { _score = value; } }
     #endregion
 
-    #region methods
-    // Bloque de registros de referencias
+    #region REGISTROS DE REFERENCIAS
     public void RegisterUIManager(UIManager uiManager)
     {
         _UIManager = uiManager;
@@ -39,8 +41,9 @@ public class GameManager : MonoBehaviour
     {
         _collisionManager = collisionManager;
     }
+    #endregion
 
-    // Bloque de cambios de estado
+    #region BLOQUE DE ESTADOS
     public void RequestStateChange(GameStates newState) // Método público para cambiar el valor privado de estado 
     {
         _nextGameState = newState;
@@ -68,29 +71,17 @@ public class GameManager : MonoBehaviour
                 break;
             case GameStates.GAMEOVER:                    //     *FIN DEL JUEGO* -> PUNTUACION
                 if (Contador.tiempo > 500)
-                {
                     Puntuacion.RestaPuntos(150);
-                }
                 else if (Contador.tiempo <= 500 || Contador.tiempo > 400)
-                {
                     Puntuacion.RestaPuntos(100);
-                }
                 else if (Contador.tiempo <= 400 || Contador.tiempo > 300)
-                {
                     Puntuacion.RestaPuntos(90);
-                }
                 else if (Contador.tiempo <= 300 || Contador.tiempo > 200)
-                {
                     Puntuacion.RestaPuntos(80);
-                }
                 else if (Contador.tiempo <= 200 || Contador.tiempo > 100)
-                {
                     Puntuacion.RestaPuntos(20);
-                }   
                 else if (Contador.tiempo <= 100)
-                {
                     Puntuacion.RestaPuntos(10);
-                }
 
                 break;
             case GameStates.SCORE:                      //     *PUNTUACIÓN*
@@ -140,8 +131,17 @@ public class GameManager : MonoBehaviour
             }
         }
     }
+    #endregion
 
-
+    #region BLOQUE DE PUNTUACIÓN
+    public void AddScore(int value)
+    {
+        _score += value;
+    }
+    public void RemoveScore(int value)
+    {
+        _score -= value;
+    }
     #endregion
 
     void Awake()
@@ -149,9 +149,6 @@ public class GameManager : MonoBehaviour
         _instance = this;
         gameObject.transform.parent = null;
         DontDestroyOnLoad(gameObject);
-        //DontDestroyOnLoad(_puntuacion);
-        //Cursor.visible = false;
-        //Cursor.lockState = CursorLockMode.Locked;   
     }
 
     void Start()

@@ -1,5 +1,7 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.SocialPlatforms.Impl;
 using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
@@ -17,33 +19,27 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject _optionsMenu;
     [SerializeField] private GameObject _credits;
 
-    // imagenes dentro del ui
-    [SerializeField] private Image[] _images;
-    //imagenes tarjetas puntos
-    //[SerializeField] public 
-    // sprites en los assets
-    [SerializeField] private Sprite[] _sprites;
-
     private static UIManager _instance;
     public static UIManager Instance { get { return _instance; } }
 
     // EVENT SYSTEM -> input de teclado para menus
-    [SerializeField] private GameObject _pauseFirstButton;
-    [SerializeField] private GameObject _startFirstButton;
-    [SerializeField] private GameObject _startClosedButton;
-
-            // cyn probando cosas:
     [SerializeField] private GameObject _firstButton; // botón inicial del menú pausa
     public GameObject FirstButton { get { return _firstButton; } set { _firstButton = value; } }
     [SerializeField] private GameObject[] _firstButtons; // array de botones iniciales por escenas NO REIRSE DE MI >:(
     public GameObject[] FirstButtons { get { return _firstButtons; } }
     // 0 inicial, 1 intro, 2 game, 3 pausa, 4 gameover, 5 puntuación, 6 selector de niveles, 7  controles, 8 opciones
 
+    /// HUD
+    [SerializeField] private Image[] _images;    // imagenes dentro del ui
+    [SerializeField] private Sprite[] _sprites;    // sprites en los assets
+    //imagenes tarjetas puntos
+    //[SerializeField] public 
+    [SerializeField] private TMP_Text _scoreText;
+
     // Sliders de menu de opciones
     [SerializeField] private Slider _sliderBGM;
     [SerializeField] private Slider _sliderSFX;
     [SerializeField] private Slider _sliderAmbience;
-
     #endregion
 
     #region properties
@@ -74,9 +70,7 @@ public class UIManager : MonoBehaviour
 
     public void SetFirstButton(int index)
     {
-        //Debug.Log(index);
         _firstButton = _firstButtons[index];
-        //Debug.Log(_firstButton);
         if(_firstButton != null && EventSystem.current != null)
             EventSystem.current.SetSelectedGameObject(_firstButton); // cambia el botón seleccionado
     }
@@ -297,7 +291,12 @@ public class UIManager : MonoBehaviour
     }
     #endregion
 
-
+    #region SCORE
+    private void ScoreSetUp(int score)
+    {
+        _scoreText.text = "Puntos: " + score;
+    }
+    #endregion
 
     public void SetOptioinsSliders()
     {
@@ -306,8 +305,7 @@ public class UIManager : MonoBehaviour
             _sliderBGM.value = AudioManager.Instance.SetSliderValue(0);
             _sliderSFX.value = AudioManager.Instance.SetSliderValue(1);
             _sliderAmbience.value = AudioManager.Instance.SetSliderValue(2);
-        }
-       
+        }  
     }
 
     // BUCLE

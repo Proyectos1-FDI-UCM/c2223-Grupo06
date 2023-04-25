@@ -66,5 +66,4 @@ public class Puntuacion : MonoBehaviour
     {
         puntos -= puntosRestar;
     }
-
 }

@@ -2070,7 +2070,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2076869503684516376
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2346,6 +2346,17 @@ MonoBehaviour:
   _ControlesMenu: {fileID: 4387438277433640414}
   _optionsMenu: {fileID: 6358571315366699567}
   _credits: {fileID: 3344842296846772215}
+  _firstButton: {fileID: 4977953820187593330}
+  _firstButtons:
+  - {fileID: 9015988375324539592}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 4977953820187593330}
+  - {fileID: 0}
+  - {fileID: 606853590696113508}
+  - {fileID: 7768413603776573611}
+  - {fileID: 4049337218018991342}
+  - {fileID: 4093258442017362580}
   _images:
   - {fileID: 2076869503598631151}
   - {fileID: 2076869503724314630}
@@ -2368,20 +2379,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 8fa3d3f7e52b88e42959da145b32c5f6, type: 3}
   - {fileID: 21300000, guid: 39b291ba3abc389438804f6551fec064, type: 3}
   - {fileID: 21300000, guid: 02d85f3d518650f46914699d1413f12a, type: 3}
-  _pauseFirstButton: {fileID: 4977953820187593330}
-  _startFirstButton: {fileID: 9015988375324539592}
-  _startClosedButton: {fileID: 8873773540705935292}
-  _firstButton: {fileID: 4977953820187593330}
-  _firstButtons:
-  - {fileID: 9015988375324539592}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 4977953820187593330}
-  - {fileID: 0}
-  - {fileID: 606853590696113508}
-  - {fileID: 7768413603776573611}
-  - {fileID: 4049337218018991342}
-  - {fileID: 4093258442017362580}
+  _scoreText: {fileID: 0}
   _sliderBGM: {fileID: 2959201666566976951}
   _sliderSFX: {fileID: 9010285652851616508}
   _sliderAmbience: {fileID: 3631607777897918070}
@@ -7512,7 +7510,6 @@ GameObject:
   - component: {fileID: 1656670701336414508}
   - component: {fileID: 3562236639738893132}
   - component: {fileID: 6227202442115873128}
-  - component: {fileID: 1557088076856504763}
   m_Layer: 5
   m_Name: Puntos
   m_TagString: Untagged
@@ -7637,23 +7634,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &1557088076856504763
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6456966644298768849}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7dd1a6750853c78418dd00d00ecfdadc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  text: {fileID: 6227202442115873128}
-  MALAMENTE: {fileID: 0}
-  REGULA: {fileID: 0}
-  ASEPTABLE: {fileID: 0}
-  CRANEOPERSENT: {fileID: 0}
 --- !u!1 &6563190984100104003
 GameObject:
   m_ObjectHideFlags: 0
