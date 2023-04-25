@@ -132,6 +132,7 @@ public class GameManager : MonoBehaviour
             _UIManager.SetMenu(newState); // como en todos los estados se hace esto, se pone al final según el estado nuevo y listo
             _UIManager.SetFirstButton((int)newState);
             _UIManager.ScoreSetUp(_score);
+            Debug.Log("SCORE: " + _score);
         }
 
         _currentGameState = newState;                        // Finaliza el cambio
@@ -168,6 +169,7 @@ public class GameManager : MonoBehaviour
                     Debug.Log("Set Menu");
                 }
                 _UIManager.TimeUpdate(_tiempo);
+                _UIManager.ScoreSetUp(_score);
             }
         }
     }
