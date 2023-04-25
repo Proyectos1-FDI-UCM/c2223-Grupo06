@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 
 public class GameManager : MonoBehaviour
 {
-    public enum GameStates { START, INTRO, GAME, PAUSE, GAMEOVER, SCORE, LEVELSELECTOR, CONTROLES, OPCIONES, CREDITS };    // Estados del juego (faltan)
+    public enum GameStates { START, INTRO, GAME, PAUSE, GAMEOVER, SCORE, LEVELSELECTOR, CONTROLES, OPCIONES, CREDITS };   
 
     #region references
     private UIManager _UIManager;
@@ -52,10 +52,8 @@ public class GameManager : MonoBehaviour
     // Bloque de máquina de estados
     public void EnterState(GameStates newState)
     {
-        Debug.Log("joder");
         switch (newState) // Diferentes comportamientos según estado al que se entra
-        { // En sí, solo cambia el grupo de UI por cada estado y en GAME carga el nivel
-
+        {
             case GameStates.START:                       //     *MENÚ INICIAL*
                 break;
             case GameStates.INTRO:                       //     *INTRO*
@@ -116,9 +114,9 @@ public class GameManager : MonoBehaviour
                 if (_UIManager != null) _UIManager.PauseToGame();
             }
 
-            if (UIManager.Instance.FirstButtons[(int)state] != null
+            if (_UIManager.FirstButtons[(int)state] != null
                 && EventSystem.current != null
-                && EventSystem.current.currentSelectedGameObject != UIManager.Instance.FirstButtons[(int)state])
+                && EventSystem.current.currentSelectedGameObject != _UIManager.FirstButtons[(int)state])
             {
                 if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.RightArrow))
                 { // para volver a la selección por teclado
@@ -167,8 +165,8 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        _currentGameState = GameStates.INTRO; // Valor dummy para que se realice el cambio nada más empezar
-        _nextGameState = GameStates.START;       // Estado inicial, es diferente al current para que el EnterState del primer update se realice
+        _currentGameState = GameStates.LEVELSELECTOR; // Valor dummy para que se realice el cambio nada más empezar
+        _nextGameState = GameStates.GAMEOVER;       // Estado inicial, es diferente al current para que el EnterState del primer update se realice
         //SCORE DEBUG:
         _score = 1500;
         //_score = 750;

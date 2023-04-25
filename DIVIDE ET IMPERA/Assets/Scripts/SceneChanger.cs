@@ -56,9 +56,13 @@ public class SceneChanger : MonoBehaviour
                     break;
                 case 6:
                     WaitOnAudioFade(1, 7);
+                    if (GameManager.Instance != null)
+                        GameManager.Instance.RequestStateChange(GameManager.GameStates.GAMEOVER);
                     break;
                 case 7:
-                    WaitOnAudioFade(1, 8);
+                    WaitOnAudioFade(1, 8); // 8 es puntos creo
+                    if (GameManager.Instance != null)
+                        GameManager.Instance.RequestStateChange(GameManager.GameStates.SCORE);
                     break;
 
                 // TESTING
