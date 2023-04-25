@@ -47,7 +47,7 @@ public class FallDamage : MonoBehaviour
             {
                 _boneStateBar.BoneDamage(_damage: 20f);
                 _previousSpeed = 0; // si se llega al suelo la velocidad vuelve a 0
-                if (GameManager.Instance != null) GameManager.Instance.AddScore(-20);
+                if (GameManager.Instance != null) GameManager.Instance.SubScore(20);
 
                 // sfx
                 if (SFXComponent.Instance != null)

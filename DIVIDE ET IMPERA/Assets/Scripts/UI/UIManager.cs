@@ -1,7 +1,6 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.SocialPlatforms.Impl;
 using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
@@ -25,9 +24,12 @@ public class UIManager : MonoBehaviour
     // EVENT SYSTEM -> input de teclado para menus
     [SerializeField] private GameObject _firstButton; // botón inicial del menú pausa
     public GameObject FirstButton { get { return _firstButton; } set { _firstButton = value; } }
-    [SerializeField] private GameObject[] _firstButtons; // array de botones iniciales por escenas NO REIRSE DE MI >:(
+            // array de botones iniciales por escenas NO REIRSE DE MI >:(
+    [SerializeField] private GameObject[] _firstButtons;
+            // 0 inicial, 1 intro, 2 game, 3 pausa, 4 gameover,
+            // 5 puntuación, 6 selector de niveles, 7  controles, 8 opciones
     public GameObject[] FirstButtons { get { return _firstButtons; } }
-    // 0 inicial, 1 intro, 2 game, 3 pausa, 4 gameover, 5 puntuación, 6 selector de niveles, 7  controles, 8 opciones
+
 
     /// HUD
     [SerializeField] private Image[] _images;    // imagenes dentro del ui
@@ -40,9 +42,11 @@ public class UIManager : MonoBehaviour
     [SerializeField] private Slider _sliderSFX;
     [SerializeField] private Slider _sliderAmbience;
 
-    // score
+    // score text y finales
     [SerializeField] private TMP_Text _scoreHUDText; // score en hud
     [SerializeField] private TMP_Text _scoreMenuText;
+    [SerializeField] private GameObject[] endings;
+    private int ending; // 0 MALAMENTE, 1 REGULA, 2 ASEPTABLE, 3 CRANEOPERSENT
     #endregion
 
     #region properties
@@ -303,6 +307,23 @@ public class UIManager : MonoBehaviour
     public void ScoreMenuSetUp(int score)
     {
         _scoreMenuText.text = "Puntos: " + score;
+
+        if (score < 500) // qué ending te toca
+            ending = 0;
+        else if (score >= 500 || score < 600)
+            ending = 1;
+        else if (score >= 600 || score < 900)
+            ending = 2;
+        else if (score >= 900 || score < 1000)
+            ending = 3;
+
+        for (int i = 0; i < endings.Length; i++) // desactiva el que no sea y activa el que sea
+        {
+            if (i == ending) 
+                endings[i].SetActive(true);
+            else 
+                endings[i].SetActive(false);
+        }
     }
     #endregion
 
