@@ -14263,6 +14263,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1280706584738964594, guid: 59f3bbb5802b17140a954d4cbd3ee516, type: 3}
+      propertyPath: m_text
+      value: TUTORIAL
+      objectReference: {fileID: 0}
     - target: {fileID: 1938935141328946111, guid: 59f3bbb5802b17140a954d4cbd3ee516, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -14
@@ -14359,6 +14363,10 @@ PrefabInstance:
       propertyPath: _player
       value: 
       objectReference: {fileID: 1276894015}
+    - target: {fileID: 2076869504003675095, guid: 59f3bbb5802b17140a954d4cbd3ee516, type: 3}
+      propertyPath: _firstButtons.Array.data[0]
+      value: 
+      objectReference: {fileID: 1318398240}
     - target: {fileID: 2076869504003675100, guid: 59f3bbb5802b17140a954d4cbd3ee516, type: 3}
       propertyPath: m_Name
       value: UI
@@ -14371,9 +14379,25 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4186591681671161593, guid: 59f3bbb5802b17140a954d4cbd3ee516, type: 3}
+      propertyPath: m_fontSize
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 4186591681671161593, guid: 59f3bbb5802b17140a954d4cbd3ee516, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 90
+      objectReference: {fileID: 0}
     - target: {fileID: 4442884401406988829, guid: 59f3bbb5802b17140a954d4cbd3ee516, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4926242852315203740, guid: 59f3bbb5802b17140a954d4cbd3ee516, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 380.99988
+      objectReference: {fileID: 0}
+    - target: {fileID: 4926242852315203740, guid: 59f3bbb5802b17140a954d4cbd3ee516, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 31
       objectReference: {fileID: 0}
     - target: {fileID: 5150456873454286270, guid: 59f3bbb5802b17140a954d4cbd3ee516, type: 3}
       propertyPath: _player
@@ -14387,6 +14411,30 @@ PrefabInstance:
       propertyPath: _animator
       value: 
       objectReference: {fileID: 5171360444949630969, guid: a2dc22ca95a3d2948b60f5a7cc02d0ff, type: 3}
+    - target: {fileID: 5559790925973017732, guid: 59f3bbb5802b17140a954d4cbd3ee516, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5601297296302371351, guid: 59f3bbb5802b17140a954d4cbd3ee516, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6432817616317810289, guid: 59f3bbb5802b17140a954d4cbd3ee516, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 380.99988
+      objectReference: {fileID: 0}
+    - target: {fileID: 6432817616317810289, guid: 59f3bbb5802b17140a954d4cbd3ee516, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 179
+      objectReference: {fileID: 0}
+    - target: {fileID: 7683340970907792497, guid: 59f3bbb5802b17140a954d4cbd3ee516, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9015988375324539592, guid: 59f3bbb5802b17140a954d4cbd3ee516, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5517179107073769469, guid: 59f3bbb5802b17140a954d4cbd3ee516, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 59f3bbb5802b17140a954d4cbd3ee516, type: 3}
@@ -14554,6 +14602,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _enConversacion: 0
+--- !u!1 &1318398240 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1734627983016933113, guid: 59f3bbb5802b17140a954d4cbd3ee516, type: 3}
+  m_PrefabInstance: {fileID: 1143497226}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1405826157
 GameObject:
   m_ObjectHideFlags: 0
@@ -14612,7 +14665,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!223 &1405826160
 Canvas:
   m_ObjectHideFlags: 0
