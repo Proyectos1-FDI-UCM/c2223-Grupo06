@@ -48,7 +48,6 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TMP_Text _scoreHUDText; // score en hud
     [SerializeField] private TMP_Text _scoreMenuText;
     [SerializeField] private GameObject[] endings;
-    private int ending; // 0 MALAMENTE, 1 REGULA, 2 ASEPTABLE, 3 CRANEOPERSENT
     #endregion
 
     #region properties
