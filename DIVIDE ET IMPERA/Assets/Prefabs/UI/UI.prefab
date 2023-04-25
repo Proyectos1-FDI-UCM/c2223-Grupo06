@@ -1651,7 +1651,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 5103341499672685739}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2076869504003675095}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+        m_MethodName: GoToLevelSelector
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &5150456873454286270
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2429,6 +2441,7 @@ MonoBehaviour:
   - {fileID: 7768413603776573611}
   - {fileID: 4049337218018991342}
   - {fileID: 4093258442017362580}
+  - {fileID: 7621209700133810147}
   _images:
   - {fileID: 2076869503598631151}
   - {fileID: 2076869503724314630}
@@ -6494,7 +6507,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7400077650395856486}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2076869504003675095}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+        m_MethodName: GoToLevelSelector
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &5728117796311689560
 GameObject:
   m_ObjectHideFlags: 0
@@ -9064,7 +9089,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2076869504003675095}
         m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
-        m_MethodName: Quit
+        m_MethodName: PauseToStart
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
