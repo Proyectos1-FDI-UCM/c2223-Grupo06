@@ -77,6 +77,7 @@ public class GameManager : MonoBehaviour
                 break;
 
             case GameStates.GAMEOVER:                    //     *FIN DEL JUEGO* -> PUNTUACION
+                // tiempo
                 if (_tiempo >= 500)
                     AddScore(-150);
                 else if (_tiempo < 500 && _tiempo >= 400)
@@ -87,10 +88,20 @@ public class GameManager : MonoBehaviour
                     AddScore(-25);
                 else if (_tiempo < 200 && _tiempo >= 100)
                     AddScore(-10);
-                else if (_tiempo < 100)
-                    AddScore(-0);
-                
-                break;
+                // si es menor que 100 no resta nada
+
+                // reset counter
+                if (_resetCounter <= 0)
+                    AddScore(150);
+                else if (_resetCounter > 0 && _resetCounter <= 3)
+                    AddScore(100);
+                else if (_resetCounter > 3 && _resetCounter <= 5)
+                    AddScore(50);
+                else if (_resetCounter > 5 && _resetCounter <= 10)
+                    AddScore(25);
+                // si es mayor que 10 no añade nada
+
+                    break;
             case GameStates.SCORE:                      //     *PUNTUACIÓN*
                 _ending = 0; // si no tienes las piernas te comes tremendo ñordaco
                 if (_alubiat)
