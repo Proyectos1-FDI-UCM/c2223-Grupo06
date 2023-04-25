@@ -33,7 +33,7 @@ public class SceneChanger : MonoBehaviour
                     WaitOnAudioFade(1, 1); // WaitOnAudioFade([tiempo de espera], [sala a la que vas]) || //FadeToLevel([sala a la que vas]);
                     break;
                 case 1:
-                    WaitOnAudioFade(1, 2);
+                    WaitOnAudioFade(1, 7);
                     break;
                 case 2:
                     WaitOnAudioFade(1, 3);

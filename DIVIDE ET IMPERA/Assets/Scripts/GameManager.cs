@@ -95,9 +95,9 @@ public class GameManager : MonoBehaviour
                     AddScore(150);
                 else if (_resetCounter > 0 && _resetCounter <= 3)
                     AddScore(100);
-                else if (_resetCounter > 3 && _resetCounter <= 5)
+                else if (_resetCounter > 3 && _resetCounter <= 6)
                     AddScore(50);
-                else if (_resetCounter > 5 && _resetCounter <= 10)
+                else if (_resetCounter > 6 && _resetCounter <= 10)
                     AddScore(25);
                 // si es mayor que 10 no añade nada
 
@@ -179,6 +179,7 @@ public class GameManager : MonoBehaviour
         _score += value;
         if (_UIManager != null) 
             _UIManager.ScoreSetUp(_score);
+        Debug.Log("SCORE++ " + value);
     }
     private void Contador()
     {

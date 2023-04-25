@@ -122,9 +122,9 @@ public class InputController : MonoBehaviour
     private void MovementInput()
     {
         #region HORIZONTAL
-        if (Input.GetKey(KeyCode.RightArrow))
+        if (Input.GetKey(KeyCode.RightArrow) && !Input.GetKey(KeyCode.LeftArrow))
             _direccion = 1;
-        else if (Input.GetKey(KeyCode.LeftArrow))
+        else if (Input.GetKey(KeyCode.LeftArrow) && Input.GetKey(KeyCode.RightArrow))
             _direccion = -1;
         else
             _direccion = 0;
