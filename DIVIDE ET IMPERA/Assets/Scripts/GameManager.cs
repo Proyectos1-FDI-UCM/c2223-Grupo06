@@ -27,6 +27,9 @@ public class GameManager : MonoBehaviour
     public int FbIndex { get {  return _fbIndex; } set { _fbIndex = value; } }
 
     // puntuación
+    private int _ending;
+    private bool _alubiat;
+    public bool Alubiat { get { return _alubiat; } set { _alubiat = value; } }
     private int _score;
     public int Score { get { return _score; } set { _score = value; } }
     // tiempo
@@ -192,7 +195,8 @@ public class GameManager : MonoBehaviour
         
         _resetCounter = 0;
         _tiempo = 0;
-        _score = 1500;
+        _score = 500;
+        _ending = 0;
     }
 
     void Update()

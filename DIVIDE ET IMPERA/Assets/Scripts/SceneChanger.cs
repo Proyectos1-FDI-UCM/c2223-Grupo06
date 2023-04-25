@@ -39,14 +39,11 @@ public class SceneChanger : MonoBehaviour
                     WaitOnAudioFade(1, 3);
                     break;
                 case 3:
-                    if (PlayerManager.Instance.Alubiat || _alubiat)
-                    {
-                        WaitOnAudioFade(1, 4); // tienes alubiat
-                    }   
-                    else
-                    {
-                        WaitOnAudioFade(1, 5); // no tienes alubiat
-                    }
+                    if (GameManager.Instance != null)
+                        if (GameManager.Instance.Alubiat || _alubiat)
+                            WaitOnAudioFade(1, 4); // tienes alubiat
+                        else
+                            WaitOnAudioFade(1, 5); // no tienes alubiat
                     break;
                 case 4:
                     WaitOnAudioFade(1, 6);
