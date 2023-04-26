@@ -147,16 +147,6 @@ public class GameManager : MonoBehaviour
             {
                 if (_UIManager != null) _UIManager.PauseToGame();
             }
-
-            if (_UIManager.FirstButtons[(int)state] != null
-                && EventSystem.current != null
-                && EventSystem.current.currentSelectedGameObject != _UIManager.FirstButtons[(int)state])
-            {
-                if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.RightArrow))
-                { // para volver a la selección por teclado
-                    _UIManager.SetFirstButton(3);
-                }
-            }
         }
 
         if (state == GameStates.GAME)
@@ -170,6 +160,16 @@ public class GameManager : MonoBehaviour
                 }
                 _UIManager.TimeUpdate(_tiempo);
                 _UIManager.ScoreSetUp(_score);
+            }
+        }
+
+        if (_UIManager.FirstButtons[(int)state] != null
+            && EventSystem.current != null
+            && EventSystem.current.currentSelectedGameObject != _UIManager.FirstButtons[(int)state])
+        {
+            if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.RightArrow))
+            { // para volver a la selección por teclado
+                _UIManager.SetFirstButton((int)state);
             }
         }
     }
