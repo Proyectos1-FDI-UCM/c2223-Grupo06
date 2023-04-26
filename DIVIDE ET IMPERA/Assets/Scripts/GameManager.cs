@@ -1,12 +1,10 @@
 using UnityEngine;
 //using Unity.UI;
-using UnityEngine.UI;
 using UnityEngine.EventSystems;
-using UnityEngine.SocialPlatforms.Impl;
 
 public class GameManager : MonoBehaviour
 {
-    public enum GameStates { START, INTRO, GAME, PAUSE, GAMEOVER, SCORE, LEVELSELECTOR, CONTROLES, OPCIONES, CREDITS };   
+    public enum GameStates { START, INTRO, GAME, PAUSE, GAMEOVER, SCORE, LEVELSELECTOR, CONTROLES, OPCIONES, CREDITS };
 
     #region references
     private UIManager _UIManager;
@@ -24,7 +22,7 @@ public class GameManager : MonoBehaviour
 
     // control por teclado
     private int _fbIndex; // first button index en el array del uimanager ESTÁN PUESTOS POR ÓRDEN DEL ENUM DE ESTADOS DEL GAMEMANAGER
-    public int FbIndex { get {  return _fbIndex; } set { _fbIndex = value; } }
+    public int FbIndex { get { return _fbIndex; } set { _fbIndex = value; } }
 
     // puntuación
     private int _ending;
@@ -34,7 +32,7 @@ public class GameManager : MonoBehaviour
     public int Score { get { return _score; } set { _score = value; } }
     // tiempo
     private float _tiempo;
-    public float Tiempo { get { return _tiempo; }  }
+    public float Tiempo { get { return _tiempo; } }
     // reset count
     private int _resetCounter;
     public int ResetCounter { get { return _resetCounter; } set { _resetCounter = value; } }
@@ -101,12 +99,12 @@ public class GameManager : MonoBehaviour
                     AddScore(25);
                 // si es mayor que 10 no añade nada
 
-                    break;
+                break;
             case GameStates.SCORE:                      //     *PUNTUACIÓN*
                 _ending = 0; // si no tienes las piernas te comes tremendo ñordaco
                 if (_alubiat)
                 { // pero si sí...
-                    if (_score <= 500) 
+                    if (_score <= 500)
                         _ending = 1;
                     if (_score >= 500 && _score < 700)
                         _ending = 2;
@@ -132,7 +130,6 @@ public class GameManager : MonoBehaviour
             _UIManager.SetMenu(newState); // como en todos los estados se hace esto, se pone al final según el estado nuevo y listo
             _UIManager.SetFirstButton((int)newState);
             _UIManager.ScoreSetUp(_score);
-            Debug.Log("SCORE: " + _score);
         }
 
         _currentGameState = newState;                        // Finaliza el cambio
@@ -179,9 +176,9 @@ public class GameManager : MonoBehaviour
     public void AddScore(int value)
     {
         _score += value;
-        if (_UIManager != null) 
+        if (_UIManager != null)
             _UIManager.ScoreSetUp(_score);
-        Debug.Log("SCORE++ " + value);
+        //Debug.Log("SCORE++ " + value);
     }
     private void Contador()
     {
@@ -206,7 +203,7 @@ public class GameManager : MonoBehaviour
     {
         _currentGameState = GameStates.LEVELSELECTOR; // Valor dummy para que se realice el cambio nada más empezar
         _nextGameState = GameStates.START;       // Estado inicial, es diferente al current para que el EnterState del primer update se realice
-        
+
         _resetCounter = 0;
         _tiempo = 0;
         _score = 500;

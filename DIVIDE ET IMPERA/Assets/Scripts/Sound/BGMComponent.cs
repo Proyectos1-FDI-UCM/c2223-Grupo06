@@ -127,11 +127,11 @@ public class BGMComponent : MonoBehaviour
         {
             StopBGM(_currentBGM);
             _currentBGM = _nextBGM;
-            if(_currentBGM >= 0)
+            if (_currentBGM >= 0)
             {
                 PlayBGM(_currentBGM);
             }
-            
+
             if (_playAmbience && !_ambience.isPlaying)
             {
                 PlayAmbience();
@@ -144,5 +144,5 @@ public class BGMComponent : MonoBehaviour
 
     }
 
-   
+
 }

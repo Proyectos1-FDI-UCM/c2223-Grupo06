@@ -1,10 +1,12 @@
 using System;
 
-namespace FullscreenEditor {
+namespace FullscreenEditor
+{
     /// <summary>
     /// Utility callbacks for fullscreen state changes.
     /// </summary>
-    public static class FullscreenCallbacks {
+    public static class FullscreenCallbacks
+    {
 
         /// <summary>
         /// Callback called before the views are restored to their original position.

@@ -3,16 +3,19 @@ using System.Linq;
 using System.Reflection;
 using UnityEditor;
 
-namespace FullscreenEditor {
+namespace FullscreenEditor
+{
     /// <summary>Class containing method extensions for getting private and internal members.</summary>
-    public static class ReflectionUtility {
+    public static class ReflectionUtility
+    {
 
         private static Assembly[] cachedAssemblies;
 
         public const BindingFlags FULL_BINDING = BindingFlags.Instance | BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic;
 
         /// <summary>Find a type by its name.</summary>
-        public static Type FindClass(string name) {
+        public static Type FindClass(string name)
+        {
             // return typeof(Editor).Assembly.GetType(name, false, true);
             var result = FindTypeInAssembly(name, typeof(Editor).Assembly);
 
@@ -22,7 +25,8 @@ namespace FullscreenEditor {
             if (cachedAssemblies == null)
                 cachedAssemblies = AppDomain.CurrentDomain.GetAssemblies();
 
-            for (var i = 0; i < cachedAssemblies.Length; i++) {
+            for (var i = 0; i < cachedAssemblies.Length; i++)
+            {
                 result = FindTypeInAssembly(name, cachedAssemblies[i]);
 
                 if (result != null)
@@ -32,14 +36,16 @@ namespace FullscreenEditor {
             return result;
         }
 
-        private static Type FindTypeInAssembly(string name, Assembly assembly) {
+        private static Type FindTypeInAssembly(string name, Assembly assembly)
+        {
             return assembly == null ?
                 null :
                 assembly.GetType(name, false, true);
         }
 
         /// <summary>Find a field of a type by its name.</summary>
-        public static FieldInfo FindField(this Type type, string fieldName, bool throwNotFound = true) {
+        public static FieldInfo FindField(this Type type, string fieldName, bool throwNotFound = true)
+        {
             if (type == null)
                 throw new ArgumentNullException("type");
 
@@ -52,7 +58,8 @@ namespace FullscreenEditor {
         }
 
         /// <summary>Find a property of a type by its name.</summary>
-        public static PropertyInfo FindProperty(this Type type, string propertyName, bool throwNotFound = true) {
+        public static PropertyInfo FindProperty(this Type type, string propertyName, bool throwNotFound = true)
+        {
             if (type == null)
                 throw new ArgumentNullException("type");
 
@@ -65,24 +72,29 @@ namespace FullscreenEditor {
         }
 
         /// <summary>Find a method of a type by its name.</summary>
-        public static MethodInfo FindMethod(this Type type, string methodName, Type[] args = null, bool throwNotFound = true) {
+        public static MethodInfo FindMethod(this Type type, string methodName, Type[] args = null, bool throwNotFound = true)
+        {
             if (type == null)
                 throw new ArgumentNullException("type");
 
             MethodInfo method;
 
-            if (args == null) {
+            if (args == null)
+            {
                 method = type.GetMethod(methodName, FULL_BINDING);
                 // method = type.GetMethods(FULL_BINDING)
                 //     .Where(m => m.Name == methodName)
                 //     .FirstOrDefault();
-            } else {
+            }
+            else
+            {
                 method = type.GetMethod(methodName, FULL_BINDING, null, args, null);
 
                 // There are very specific cases where the above method may not bind properly
                 // e.g. when the method declares an enum and the arg type is an int, so we ignore the args 
                 // and hope that there are no ambiguity of methods
-                if (method == null) {
+                if (method == null)
+                {
                     method = FindMethod(type, methodName, null, throwNotFound);
 
                     if (method != null && method.GetParameters().Length != args.Length)
@@ -136,7 +148,8 @@ namespace FullscreenEditor {
         /// <param name="toCheck">Type that will be checked.</param>
         /// <param name="type">Type to check against.</param>
         /// <param name="orInherited">Returns true if the checked type is inherited from the type argument.</param>
-        public static bool IsOfType(this Type toCheck, Type type, bool orInherited = true) {
+        public static bool IsOfType(this Type toCheck, Type type, bool orInherited = true)
+        {
             return type == toCheck || (orInherited && type.IsAssignableFrom(toCheck));
         }
 
@@ -144,7 +157,8 @@ namespace FullscreenEditor {
         /// <param name="obj">The instance to check.</param>
         /// <param name="type">Type to check against.</param>
         /// <param name="orInherited">Returns true if the instance is inherited from the type argument.</param>
-        public static bool IsOfType<T>(this T obj, Type type, bool orInherited = true) {
+        public static bool IsOfType<T>(this T obj, Type type, bool orInherited = true)
+        {
             return obj.GetType().IsOfType(type, orInherited);
         }
 
@@ -152,44 +166,51 @@ namespace FullscreenEditor {
         /// <param name="obj">The instance to check.</param>
         /// <param name="type">Type to check against.</param>
         /// <param name="orInherited">Do not throw if the instance is inherited from the type argument.</param>
-        public static void EnsureOfType<T>(this T obj, Type type, bool orInherited = true) {
+        public static void EnsureOfType<T>(this T obj, Type type, bool orInherited = true)
+        {
             if (!obj.IsOfType(type, orInherited))
                 throw new InvalidCastException(
                     string.Format("Object {0} must be of type {1}{2}",
                         obj.GetType().FullName,
                         type.FullName,
-                        orInherited? " or inherited from it": ""
+                        orInherited ? " or inherited from it" : ""
                     )
                 );
         }
 
         /// <summary>Returns whether the type defines the static field.</summary>
-        public static bool HasField(this Type type, string fieldName) {
+        public static bool HasField(this Type type, string fieldName)
+        {
             return type.FindField(fieldName, false) != null;
         }
 
         /// <summary>Returns whether the type defines the static property.</summary>
-        public static bool HasProperty(this Type type, string propertyName) {
+        public static bool HasProperty(this Type type, string propertyName)
+        {
             return type.FindProperty(propertyName, false) != null;
         }
 
         /// <summary>Returns whether the type defines the static method.</summary>
-        public static bool HasMethod(this Type type, string methodName, Type[] args = null) {
+        public static bool HasMethod(this Type type, string methodName, Type[] args = null)
+        {
             return type.FindMethod(methodName, args, false) != null;
         }
 
         /// <summary>Returns whether the object type defines the instance field.</summary>
-        public static bool HasField(this object obj, string fieldName) {
+        public static bool HasField(this object obj, string fieldName)
+        {
             return obj.GetType().HasField(fieldName);
         }
 
         /// <summary>Returns whether the object type defines the instance property.</summary>
-        public static bool HasProperty(this object obj, string propertyName) {
+        public static bool HasProperty(this object obj, string propertyName)
+        {
             return obj.GetType().HasProperty(propertyName);
         }
 
         /// <summary>Returns whether the object type defines the instance method.</summary>
-        public static bool HasMethod(this object obj, string methodName, Type[] args = null) {
+        public static bool HasMethod(this object obj, string methodName, Type[] args = null)
+        {
             return obj.GetType().HasMethod(methodName, args);
         }
 

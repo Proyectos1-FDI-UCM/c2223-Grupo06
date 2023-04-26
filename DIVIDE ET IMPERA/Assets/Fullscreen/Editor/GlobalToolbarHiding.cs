@@ -1,22 +1,28 @@
 using UnityEditor;
 
-namespace FullscreenEditor {
+namespace FullscreenEditor
+{
     [InitializeOnLoad]
-    public class GlobalToolbarHiding {
+    public class GlobalToolbarHiding
+    {
 
         private static readonly float defaultToolbarHeight;
 
-        private static bool GlobalToolbarShouldBeHidden {
-            get {
+        private static bool GlobalToolbarShouldBeHidden
+        {
+            get
+            {
                 return !FullscreenPreferences.ToolbarVisible &&
                     Fullscreen.GetAllFullscreen(false).Length > 0;
             }
         }
 
-        static GlobalToolbarHiding() {
+        static GlobalToolbarHiding()
+        {
             defaultToolbarHeight = FullscreenUtility.GetToolbarHeight();
 
-            FullscreenPreferences.UseGlobalToolbarHiding.OnValueSaved += v => {
+            FullscreenPreferences.UseGlobalToolbarHiding.OnValueSaved += v =>
+            {
                 if (!v)
                     FullscreenUtility.SetToolbarHeight(defaultToolbarHeight);
             };
@@ -32,7 +38,8 @@ namespace FullscreenEditor {
             FullscreenCallbacks.afterFullscreenOpen += fs => UpdateGlobalToolbarStatus();
         }
 
-        public static void UpdateGlobalToolbarStatus() {
+        public static void UpdateGlobalToolbarStatus()
+        {
             if (FullscreenPreferences.UseGlobalToolbarHiding)
                 FullscreenUtility.SetToolbarHeight(GlobalToolbarShouldBeHidden ? 0f : defaultToolbarHeight);
         }

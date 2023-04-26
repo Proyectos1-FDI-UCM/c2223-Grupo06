@@ -26,10 +26,10 @@ public class UIManager : MonoBehaviour
     // EVENT SYSTEM -> input de teclado para menus
     [SerializeField] private GameObject _firstButton; // botón inicial del menú pausa
     public GameObject FirstButton { get { return _firstButton; } set { _firstButton = value; } }
-            // array de botones iniciales por escenas NO REIRSE DE MI >:(
+    // array de botones iniciales por escenas NO REIRSE DE MI >:(
     [SerializeField] private GameObject[] _firstButtons;
-            // 0 inicial, 1 intro, 2 game, 3 pausa, 4 gameover,
-            // 5 puntuación, 6 selector de niveles, 7  controles, 8 opciones, 9 credits
+    // 0 inicial, 1 intro, 2 game, 3 pausa, 4 gameover,
+    // 5 puntuación, 6 selector de niveles, 7  controles, 8 opciones, 9 credits
     public GameObject[] FirstButtons { get { return _firstButtons; } }
 
     /// HUD
@@ -80,7 +80,7 @@ public class UIManager : MonoBehaviour
     public void SetFirstButton(int index)
     {
         _firstButton = _firstButtons[index];
-        if(_firstButton != null && EventSystem.current != null)
+        if (_firstButton != null && EventSystem.current != null)
             EventSystem.current.SetSelectedGameObject(_firstButton); // cambia el botón seleccionado
     }
 
@@ -111,7 +111,7 @@ public class UIManager : MonoBehaviour
     public void IntroToGame()       // intro -> juego
     {
         RequestStateChange(GameManager.GameStates.GAME); // referenciando al gamemanager (importante! si no no cambia de estado)
-        
+
         _player.GetComponent<InputController>().enabled = true;
     }
 
@@ -311,14 +311,14 @@ public class UIManager : MonoBehaviour
     }
 
     public void ScoreMenuSetUp(int score, int ending) // score en el menú final
-    { 
+    {
         _scoreMenuText.text = "Puntos: " + score;
         Debug.Log("FINAL: " + score + ", " + ending);
         for (int i = 0; i < endings.Length; i++) // desactiva el que no sea y activa el que sea
         {
-            if (i == ending) 
+            if (i == ending)
                 endings[i].SetActive(true);
-            else 
+            else
                 endings[i].SetActive(false);
         }
     }
@@ -331,7 +331,7 @@ public class UIManager : MonoBehaviour
             _sliderBGM.value = AudioManager.Instance.SetSliderValue(0);
             _sliderSFX.value = AudioManager.Instance.SetSliderValue(1);
             _sliderAmbience.value = AudioManager.Instance.SetSliderValue(2);
-        }  
+        }
     }
 
     // BUCLE

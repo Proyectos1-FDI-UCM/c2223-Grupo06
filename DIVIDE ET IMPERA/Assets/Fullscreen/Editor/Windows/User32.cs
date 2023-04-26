@@ -1,9 +1,11 @@
 using System;
 using System.Runtime.InteropServices;
 
-namespace FullscreenEditor.Windows {
+namespace FullscreenEditor.Windows
+{
 
-    internal static class User32 {
+    internal static class User32
+    {
 
         public delegate bool EnumMonitorsDelegate(IntPtr hMonitor, IntPtr hdcMonitor, ref NativeRect lprcMonitor, IntPtr dwData);
 

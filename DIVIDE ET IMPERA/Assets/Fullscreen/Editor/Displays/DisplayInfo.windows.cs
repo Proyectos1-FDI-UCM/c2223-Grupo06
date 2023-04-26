@@ -1,20 +1,24 @@
-﻿using System;
+﻿using FullscreenEditor.Windows;
+using System;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
-using FullscreenEditor.Windows;
 using UnityEditorInternal;
 using UnityEngine;
 
-namespace FullscreenEditor {
+namespace FullscreenEditor
+{
 
     [System.Serializable]
-    public class DisplayInfo {
+    public class DisplayInfo
+    {
         public bool PrimaryDisplay;
 
-        public float ScreenHeight {
+        public float ScreenHeight
+        {
             get { return MonitorArea.yMax - MonitorArea.yMin; }
         }
-        public float ScreenWidth {
+        public float ScreenWidth
+        {
             get { return MonitorArea.xMax - MonitorArea.xMin; }
         }
 
@@ -23,11 +27,13 @@ namespace FullscreenEditor {
         public int LogicalScreenHeight;
         public int PhysicalScreenHeight;
 
-        public string DeviceName {
+        public string DeviceName
+        {
             get { return displayDevice.DeviceName; }
         }
 
-        public string FriendlyName {
+        public string FriendlyName
+        {
             get { return displayDevice.DeviceString; }
         }
 
@@ -37,8 +43,10 @@ namespace FullscreenEditor {
         internal DevMode devMode;
         internal DisplayDevice displayDevice;
 
-        public Rect DpiCorrectedArea {
-            get {
+        public Rect DpiCorrectedArea
+        {
+            get
+            {
                 var firstDisplayInfo = DisplayInfo.GetDisplay(0);
                 var monitorArea = MonitorArea;
 
@@ -54,15 +62,19 @@ namespace FullscreenEditor {
             }
         }
 
-        public Rect UnityCorrectedArea {
-            get {
+        public Rect UnityCorrectedArea
+        {
+            get
+            {
                 var rect = DpiCorrectedArea;
                 return InternalEditorUtility.GetBoundsOfDesktopAtPoint(rect.center);
             }
         }
 
-        public Rect PhysicalArea {
-            get {
+        public Rect PhysicalArea
+        {
+            get
+            {
                 return new Rect(
                     devMode.dmPositionX,
                     devMode.dmPositionY,
@@ -72,22 +84,27 @@ namespace FullscreenEditor {
             }
         }
 
-        public float scaleFactor {
+        public float scaleFactor
+        {
             get { return devMode.dmPelsWidth / (MonitorArea.xMax - MonitorArea.xMin); }
         }
 
-        public static List<DisplayInfo> GetDisplays() {
+        public static List<DisplayInfo> GetDisplays()
+        {
             var list = new List<DisplayInfo>();
 
-            try {
+            try
+            {
                 User32.EnumDisplayMonitors(IntPtr.Zero, IntPtr.Zero,
-                    (IntPtr hMonitor, IntPtr hdcMonitor, ref NativeRect lprcMonitor, IntPtr dwData) => {
+                    (IntPtr hMonitor, IntPtr hdcMonitor, ref NativeRect lprcMonitor, IntPtr dwData) =>
+                    {
                         var mi = new MonitorInfoEx();
                         mi.Init();
                         mi.size = Marshal.SizeOf(mi);
                         mi.size = 72;
                         var success = User32.GetMonitorInfo(hMonitor, ref mi);
-                        if (success) {
+                        if (success)
+                        {
                             var di = new DisplayInfo();
                             di.MonitorArea = mi.monitor;
                             di.WorkArea = mi.work;
@@ -101,21 +118,26 @@ namespace FullscreenEditor {
                             uint dpiX;
                             uint dpiY;
 
-                            try {
+                            try
+                            {
                                 ShCore.GetDpiForMonitor(
                                     hMonitor,
                                     MonitorDpiType.MDT_EFFECTIVE_DPI,
                                     out dpiX,
                                     out dpiY
                                 );
-                            } catch {
+                            }
+                            catch
+                            {
                                 dpiX = 96;
                                 dpiY = 96;
                             }
 
                             di.scaleFactor2 = dpiX / 96f;
                             list.Add(di);
-                        } else {
+                        }
+                        else
+                        {
                             Logger.Debug("Getting monitor info failed");
                         }
 
@@ -123,51 +145,63 @@ namespace FullscreenEditor {
                     }, IntPtr.Zero);
 
                 AddAdditionalInfos(list);
-            } catch (Exception e) {
+            }
+            catch (Exception e)
+            {
                 Logger.Exception(e);
             }
 
             return list;
         }
 
-        public static DisplayInfo GetDisplay(int index) {
+        public static DisplayInfo GetDisplay(int index)
+        {
             var displays = GetDisplays();
 
-            if (displays != null && index >= 0 && index < displays.Count) {
+            if (displays != null && index >= 0 && index < displays.Count)
+            {
                 return displays[index];
             }
 
             return null;
         }
 
-        private static void AddAdditionalInfos(List<DisplayInfo> displayInfo) {
-            for (int id = 0; id < displayInfo.Count; id++) {
+        private static void AddAdditionalInfos(List<DisplayInfo> displayInfo)
+        {
+            for (int id = 0; id < displayInfo.Count; id++)
+            {
                 var vDevMode = new DevMode();
                 var d = new DisplayDevice();
 
                 d.cb = Marshal.SizeOf(d);
 
-                try {
+                try
+                {
                     User32.EnumDisplayDevices(displayInfo[id].DeviceName, 0, ref d, 0);
 
                     d.cb = Marshal.SizeOf(d);
 
-                    if ((d.StateFlags & DisplayDeviceStateFlags.AttachedToDesktop) == DisplayDeviceStateFlags.AttachedToDesktop) {
+                    if ((d.StateFlags & DisplayDeviceStateFlags.AttachedToDesktop) == DisplayDeviceStateFlags.AttachedToDesktop)
+                    {
                         User32.EnumDisplaySettings(displayInfo[id].DeviceName, -1, ref vDevMode);
                         displayInfo[id].devMode = vDevMode;
                     }
 
                     displayInfo[id].displayDevice = d;
-                } catch (Exception e) {
+                }
+                catch (Exception e)
+                {
                     Logger.Exception(e);
                 }
             }
         }
 
-        private static void TransformToPixels(double unitX, double unitY, out int pixelX, out int pixelY) {
+        private static void TransformToPixels(double unitX, double unitY, out int pixelX, out int pixelY)
+        {
             var hDc = User32.GetDC(IntPtr.Zero);
 
-            if (hDc != IntPtr.Zero) {
+            if (hDc != IntPtr.Zero)
+            {
                 var dpiX = GDI32.GetDeviceCaps(hDc, (int)GDI32.DeviceCap.VERTRES);
                 var dpiY = GDI32.GetDeviceCaps(hDc, (int)GDI32.DeviceCap.DESKTOPVERTRES);
 
@@ -175,7 +209,9 @@ namespace FullscreenEditor {
 
                 pixelX = (int)(((double)dpiX / 96) * unitX);
                 pixelY = (int)(((double)dpiY / 96) * unitY);
-            } else {
+            }
+            else
+            {
                 throw new ArgumentNullException("Failed to get DC.");
             }
         }

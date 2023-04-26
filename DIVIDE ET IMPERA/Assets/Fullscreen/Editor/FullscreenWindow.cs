@@ -4,42 +4,50 @@ using System.Linq;
 using UnityEditor;
 using UnityEngine;
 using ContainerWindow = UnityEngine.ScriptableObject;
-using HostView = UnityEngine.ScriptableObject;
 using View = UnityEngine.ScriptableObject;
 
-namespace FullscreenEditor {
-    public class FullscreenWindow : FullscreenContainer {
+namespace FullscreenEditor
+{
+    public class FullscreenWindow : FullscreenContainer
+    {
 
         [SerializeField] private RectOffset m_rectOffset;
         [SerializeField] private RectOffset m_toolbarOffset;
         [SerializeField] private bool m_createdByFullscreenOnPlay;
 
-        public RectOffset ClipOffset {
+        public RectOffset ClipOffset
+        {
             get { return m_rectOffset; }
-            set {
-                if(m_dst.View) {
+            set
+            {
+                if (m_dst.View)
+                {
                     m_rectOffset = value;
                     m_dst.View.InvokeMethod("SetPosition", value.Add(new Rect(Vector2.zero, Rect.size)));
                 }
             }
         }
 
-        internal bool CreatedByFullscreenOnPlay {
+        internal bool CreatedByFullscreenOnPlay
+        {
             get { return m_createdByFullscreenOnPlay; }
             set { m_createdByFullscreenOnPlay = value; }
         }
 
         public bool HasToolbarOffset { get { return ToolbarOffset != null; } }
 
-        public virtual RectOffset ToolbarOffset {
-            get {
-                if(m_toolbarOffset == null)
+        public virtual RectOffset ToolbarOffset
+        {
+            get
+            {
+                if (m_toolbarOffset == null)
                     m_toolbarOffset = new RectOffset(0, 0, (int)FullscreenUtility.GetToolbarHeight(), 0);
                 return m_toolbarOffset;
             }
         }
 
-        private void SwapWindows(EditorWindow a, EditorWindow b) {
+        private void SwapWindows(EditorWindow a, EditorWindow b)
+        {
             var parentA = a.GetFieldValue<View>("m_Parent");
             var parentB = b.GetFieldValue<View>("m_Parent");
 
@@ -63,52 +71,58 @@ namespace FullscreenEditor {
             a.InvokeMethod("MakeParentsSettingsMatchMe");
             b.InvokeMethod("MakeParentsSettingsMatchMe");
 
-            if(selectedPaneA != a)
+            if (selectedPaneA != a)
                 parentA.SetPropertyValue("actualView", selectedPaneA);
-            if(selectedPaneB != b)
+            if (selectedPaneB != b)
                 parentB.SetPropertyValue("actualView", selectedPaneB);
 
             SetFreezeContainer(containerA, false);
             SetFreezeContainer(containerB, false);
         }
 
-        protected void ReplaceDockAreaPane(View dockArea, EditorWindow originalPane, EditorWindow newPane) {
-            if(dockArea.HasField("m_Panes")) {
+        protected void ReplaceDockAreaPane(View dockArea, EditorWindow originalPane, EditorWindow newPane)
+        {
+            if (dockArea.HasField("m_Panes"))
+            {
                 var dockedPanes = dockArea.GetFieldValue<List<EditorWindow>>("m_Panes");
                 var dockIndex = dockedPanes.IndexOf(originalPane);
                 dockedPanes[dockIndex] = newPane;
             }
         }
 
-        public void SetToolbarStatus(bool toolbarVisible) {
-            if(!HasToolbarOffset)
+        public void SetToolbarStatus(bool toolbarVisible)
+        {
+            if (!HasToolbarOffset)
                 return;
 
-            if(FullscreenPreferences.UseGlobalToolbarHiding)
+            if (FullscreenPreferences.UseGlobalToolbarHiding)
                 return;
 
             ClipOffset = toolbarVisible ? new RectOffset() : ToolbarOffset;
         }
 
-        public override void Focus() {
+        public override void Focus()
+        {
             var window = ActualViewPyramid.Window;
 
-            if(window)
+            if (window)
                 window.Focus();
             else
                 base.Focus();
         }
 
-        public override bool IsFocused() {
+        public override bool IsFocused()
+        {
             return EditorWindow.focusedWindow && EditorWindow.focusedWindow == ActualViewPyramid.Window;
         }
 
-        protected override void AfterOpening() {
+        protected override void AfterOpening()
+        {
             base.AfterOpening();
 
             Focus();
 
-            if(m_src.Window)
+            if (m_src.Window)
                 m_dst.Window.titleContent = m_src.Window.titleContent; // Copy the title of the window to the placeholder
 
             SetToolbarStatus(FullscreenPreferences.ToolbarVisible); // Hide/show the toolbar
@@ -118,19 +132,22 @@ namespace FullscreenEditor {
 
             var notificationWindow = ActualViewPyramid.Window;
 
-            After.Milliseconds(50d, () => {
-                if(!notificationWindow) // Might have been closed
+            After.Milliseconds(50d, () =>
+            {
+                if (!notificationWindow) // Might have been closed
                     return;
 
                 var menuItemPath = string.Empty;
-                if(notificationWindow.IsOfType(Types.GameView)) {
+                if (notificationWindow.IsOfType(Types.GameView))
+                {
                     menuItemPath = Fullscreen
                         .GetAllFullscreen()
                         .Where(fs => fs.ActualViewPyramid.Window && fs.ActualViewPyramid.Window.IsOfType(Types.GameView))
                         .Count() > 1 ?
                         Shortcut.MOSAIC_PATH :
                         Shortcut.GAME_VIEW_PATH;
-                } else if(notificationWindow is SceneView)
+                }
+                else if (notificationWindow is SceneView)
                     menuItemPath = Shortcut.SCENE_VIEW_PATH;
                 else
                     menuItemPath = Shortcut.CURRENT_VIEW_PATH;
@@ -140,40 +157,47 @@ namespace FullscreenEditor {
 
         }
 
-        protected override void OnEnable() {
+        protected override void OnEnable()
+        {
             base.OnEnable();
             FullscreenPreferences.ToolbarVisible.OnValueSaved += SetToolbarStatus;
         }
 
-        protected override void OnDisable() {
+        protected override void OnDisable()
+        {
             base.OnDisable();
             FullscreenPreferences.ToolbarVisible.OnValueSaved -= SetToolbarStatus;
         }
 
-        internal void OpenWindow<T>(Rect rect, T window = null) where T : EditorWindow {
+        internal void OpenWindow<T>(Rect rect, T window = null) where T : EditorWindow
+        {
             OpenWindow(rect, typeof(T), window);
         }
 
-        internal void OpenWindow(Rect rect, Type type, EditorWindow window = null, bool disposableWindow = false) {
-            if(type == null)
+        internal void OpenWindow(Rect rect, Type type, EditorWindow window = null, bool disposableWindow = false)
+        {
+            if (type == null)
                 throw new ArgumentNullException("type");
 
-            if(!type.IsOfType(typeof(EditorWindow)))
+            if (!type.IsOfType(typeof(EditorWindow)))
                 throw new ArgumentException("Type must be inherited from UnityEditor.EditorWindow", "type");
 
-            if(window is PlaceholderWindow) {
+            if (window is PlaceholderWindow)
+            {
                 FullscreenUtility.ShowFullscreenNotification(window, "Wanna fullscreen the placeholder?\nSorry, not possible");
                 Logger.Debug("Tried to fullscreen a placeholder window");
                 return;
             }
 
-            if(Fullscreen.GetFullscreenFromView(window)) {
+            if (Fullscreen.GetFullscreenFromView(window))
+            {
                 FullscreenUtility.ShowFullscreenNotification(window, "You can't fullscreen a window already in fullscreen");
                 Logger.Debug("Tried to fullscreen a view already in fullscreen");
                 return;
             }
 
-            if(window && window.HasProperty("isFullscreen") && window.GetPropertyValue<bool>("isFullscreen")) {
+            if (window && window.HasProperty("isFullscreen") && window.GetPropertyValue<bool>("isFullscreen"))
+            {
                 Logger.Debug("Tried to fullscreen a view already using Unity's built-in fullscreen");
                 window.ShowNotification(new GUIContent("This is a built-in fullscreen and not a Fullscreen Editor instance. Use Ctrl+Shift+F7 or Alt-F4 to close it."));
                 return;
@@ -181,7 +205,7 @@ namespace FullscreenEditor {
 
             BeforeOpening();
 
-            if(window)
+            if (window)
                 m_src = new ViewPyramid(window);
 
             var childWindow = window ?
@@ -190,12 +214,13 @@ namespace FullscreenEditor {
 
             m_dst = CreateFullscreenViewPyramid(rect, childWindow);
 
-            if(window) // We can't swap the src window if we didn't create a placeholder window
+            if (window) // We can't swap the src window if we didn't create a placeholder window
                 SwapWindows(m_src.Window, m_dst.Window);
 
             Rect = rect;
 
-            if(disposableWindow && childWindow is PlaceholderWindow) {
+            if (disposableWindow && childWindow is PlaceholderWindow)
+            {
                 childWindow.Close(); // Close the pyramid we created because disposable views are not restore later
                 m_dst.Window = m_src.Window;
             }
@@ -203,13 +228,14 @@ namespace FullscreenEditor {
             AfterOpening();
         }
 
-        internal bool IsPlaceholderVisible() {
-            if(!(m_dst.Window is PlaceholderWindow))
+        internal bool IsPlaceholderVisible()
+        {
+            if (!(m_dst.Window is PlaceholderWindow))
                 return false;
 
             var pyramid = new ViewPyramid(m_dst.Window);
 
-            if(!pyramid.View || !pyramid.View.IsOfType(Types.HostView))
+            if (!pyramid.View || !pyramid.View.IsOfType(Types.HostView))
                 return false;
 
             var actualView = pyramid.View.GetPropertyValue<View>("actualView");
@@ -217,16 +243,17 @@ namespace FullscreenEditor {
             return actualView == m_dst.Window;
         }
 
-        public override void Close() {
+        public override void Close()
+        {
 
             var shouldRefocus = IsFocused() && IsPlaceholderVisible();
 
-            if(m_src.Window && m_dst.Window)
+            if (m_src.Window && m_dst.Window)
                 SwapWindows(m_src.Window, m_dst.Window); // Swap back the source window
 
             base.Close();
 
-            if(shouldRefocus && m_src.Window)
+            if (shouldRefocus && m_src.Window)
                 m_src.Window.Focus();
         }
 

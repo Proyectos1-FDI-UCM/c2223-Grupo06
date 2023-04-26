@@ -86,7 +86,7 @@ public class PalancaComponent : MonoBehaviour
                     i++;
                 }
 
-            } 
+            }
         }
         else if (!_palanca)
         {

@@ -202,8 +202,8 @@ public class InputController : MonoBehaviour
                 if (transform.parent != null)
                 {
                     //Debug.Log("matadme");
-                    if (transform.parent.GetComponentInChildren<PataformaComponent>() != null && !_conectarPiernas 
-                        && !transform.parent.GetComponentInChildren<PataformaComponent>().PiernasConectadas 
+                    if (transform.parent.GetComponentInChildren<PataformaComponent>() != null && !_conectarPiernas
+                        && !transform.parent.GetComponentInChildren<PataformaComponent>().PiernasConectadas
                         && !transform.parent.GetComponentInChildren<PataformaComponent>().AlubiatConectadas)
                     { // si está en una pataforma sin piernas, se las pone
                         _conectarPiernas = true;
@@ -214,7 +214,7 @@ public class InputController : MonoBehaviour
                     { // si está en una pataforma con piernas, las recoge
                         _recuperarPiernas = true;
                         _conectarPiernas = false;
-                       // Debug.Log("as");
+                        // Debug.Log("as");
                     }
                 }
                 else
@@ -362,7 +362,7 @@ public class InputController : MonoBehaviour
         }
         else SFXComponent.Instance.SFXPlayerStop(2);
     }
-    
+
     private void MenuInput()
     {
         if (GameManager.Instance != null
@@ -396,7 +396,7 @@ public class InputController : MonoBehaviour
     {
         //------MOVIMIENTO------------
         MovementInput();
-          
+
         //------INTERACTIONS----------
         InteractInput();
         if (GameManager.Instance != null && GameManager.Instance.CurrentState == GameManager.GameStates.GAME) MechanicInput();

@@ -1,11 +1,14 @@
 using System;
 using System.Runtime.InteropServices;
 
-namespace FullscreenEditor.Windows {
-    internal static class GDI32 {
+namespace FullscreenEditor.Windows
+{
+    internal static class GDI32
+    {
 
         // http://pinvoke.net/default.aspx/gdi32/GetDeviceCaps.html
-        public enum DeviceCap {
+        public enum DeviceCap
+        {
             VERTRES = 10,
             DESKTOPVERTRES = 117,
         }

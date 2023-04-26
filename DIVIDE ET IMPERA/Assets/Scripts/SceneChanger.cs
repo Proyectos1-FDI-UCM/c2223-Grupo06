@@ -112,7 +112,7 @@ public class SceneChanger : MonoBehaviour
             AudioManager.Instance.SetVolumeAfterFade();
     }
 
-    IEnumerator CoroutineWaitOnFade(int i, int  whatLvl)
+    IEnumerator CoroutineWaitOnFade(int i, int whatLvl)
     {
         // cosas de corrutinas, espera la cantidad de tiempo indicada
         yield return new WaitForSecondsRealtime(i);

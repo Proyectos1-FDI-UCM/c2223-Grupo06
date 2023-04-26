@@ -1,21 +1,28 @@
 using UnityEditor;
 
-namespace FullscreenEditor {
+namespace FullscreenEditor
+{
     [InitializeOnLoad]
-    public class GameViewVSync {
+    public class GameViewVSync
+    {
 
-        static GameViewVSync() {
-            FullscreenCallbacks.afterFullscreenOpen += (fs) => {
+        static GameViewVSync()
+        {
+            FullscreenCallbacks.afterFullscreenOpen += (fs) =>
+            {
                 RefreshViewVSync(fs.ActualViewPyramid.Window);
             };
 
-            FullscreenCallbacks.afterFullscreenClose += (fs) => {
+            FullscreenCallbacks.afterFullscreenClose += (fs) =>
+            {
                 RefreshViewVSync(fs.m_src.Window);
             };
         }
 
-        private static void RefreshViewVSync(EditorWindow window) {
-            if (window && window.HasProperty("vSyncEnabled")) {
+        private static void RefreshViewVSync(EditorWindow window)
+        {
+            if (window && window.HasProperty("vSyncEnabled"))
+            {
                 var vsyncEnabled = window.GetPropertyValue<bool>("vSyncEnabled");
 
                 // reset vsync

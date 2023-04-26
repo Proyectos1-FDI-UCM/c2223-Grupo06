@@ -9,7 +9,7 @@ public class RoomTransition : MonoBehaviour
     private Transform _transitionTransform;
 
     //Aqui empieza lo bueno
-    
+
     [SerializeField]
     private Transform _leftRoomCameraPosition; //Posicion a la que queremos que la camara se mueva durante la transicion hacia la izquierda
     [SerializeField]
@@ -45,7 +45,7 @@ public class RoomTransition : MonoBehaviour
             _roomSpawn = new Vector3((float)(_transitionTransform.position.x + _transitionDistance), _playerTransform.position.y, 0); //Si el jugador esta a la izquierda setear para la transicion a la sala derecha
             _roomCameraPosition = _rightRoomCameraPosition;
         }
-        else if(_playerTransform.position.x > _transitionTransform.position.x)
+        else if (_playerTransform.position.x > _transitionTransform.position.x)
         {
             _roomSpawn = new Vector3((float)(_transitionTransform.position.x - _transitionDistance), _playerTransform.position.y, 0); //Si esta a la derecha setear para la transicion a la sala izquierda
             _roomCameraPosition = _leftRoomCameraPosition;

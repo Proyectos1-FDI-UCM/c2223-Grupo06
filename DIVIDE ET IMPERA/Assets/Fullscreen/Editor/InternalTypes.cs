@@ -1,8 +1,10 @@
 using System;
 
-namespace FullscreenEditor {
+namespace FullscreenEditor
+{
     /// <summary>Class containing types of UnityEditor internal classes.</summary>
-    public static class Types {
+    public static class Types
+    {
 
         /// <summary>UnityEditor.HostView</summary>
         public static readonly Type HostView = ReflectionUtility.FindClass("UnityEditor.HostView");

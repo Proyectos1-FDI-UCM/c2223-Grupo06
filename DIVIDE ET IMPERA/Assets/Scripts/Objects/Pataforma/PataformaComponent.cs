@@ -158,7 +158,7 @@ public class PataformaComponent : MonoBehaviour
             PlayerManager.Instance.HolaPiernas();
 
             PlayerManager.Instance.ConnectedToPataforma(null);
-        } 
+        }
         else
         //-------CONECTAR ALUBIAT-------------------
         // se pulsa C y se esta cerca de la pataforma
@@ -206,7 +206,7 @@ public class PataformaComponent : MonoBehaviour
             _patas.SetActive(false);
         }
 
-        
+
     }
 
     private void ChangeInput()
@@ -278,15 +278,15 @@ public class PataformaComponent : MonoBehaviour
         _player.GetComponent<InputController>().enabled = false;
 
         // desactiva el input del player
-        if (_piernasConectadas) 
+        if (_piernasConectadas)
         {
-            _inputController._changeToPiernas = false; 
+            _inputController._changeToPiernas = false;
         }
         else if (_alubiatConectadas)
         {
             _inputController._changeToAlubiat = false;
         }
-        
+
 
         // cambio de control de parte (es para el HUD)
         PlayerManager.Instance.SwitchPartControl(PlayerManager.Partes.PIERNAS);

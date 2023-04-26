@@ -1,15 +1,16 @@
-﻿using System;
+﻿using FullscreenEditor.Windows;
+using System;
 using System.Linq;
 using UnityEditor;
 using UnityEditorInternal;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
-using FullscreenEditor.Windows;
-
-namespace FullscreenEditor {
+namespace FullscreenEditor
+{
     /// <summary>Helper for getting fullscreen rectangles.</summary>
-    public static class FullscreenRects {
+    public static class FullscreenRects
+    {
 
         /// <summary>Represents a callback for user defined fullscreen rect calculation.</summary>
         /// <param name="mode">The mode set in <see cref="FullscreenPreferences.RectSource"/></param>
@@ -18,8 +19,10 @@ namespace FullscreenEditor {
         public delegate bool FullscreenRectCallback(RectSourceMode mode, out Rect rect);
 
         /// <summary>The number of monitors attached to this machine, returns -1 if the platform is not supported.</summary>
-        public static int ScreenCount {
-            get {
+        public static int ScreenCount
+        {
+            get
+            {
                 if (!FullscreenUtility.IsWindows)
                     return -1;
                 const int SM_CMONITORS = 80;
@@ -34,13 +37,16 @@ namespace FullscreenEditor {
         /// <summary>Returns a fullscreen rect</summary>
         /// <param name="mode">The mode that will be used to retrieve the rect.</param>
         /// <param name="targetWindow">The window that will be set fullscreen.</param>
-        public static Rect GetFullscreenRect(RectSourceMode mode, ScriptableObject targetWindow = null) {
+        public static Rect GetFullscreenRect(RectSourceMode mode, ScriptableObject targetWindow = null)
+        {
 
-            if (targetWindow != null && !targetWindow.IsOfType(typeof(EditorWindow)) && !targetWindow.IsOfType(Types.View)) {
+            if (targetWindow != null && !targetWindow.IsOfType(typeof(EditorWindow)) && !targetWindow.IsOfType(Types.View))
+            {
                 throw new ArgumentException("Target window must be of type EditorWindow or View or null", "targetWindow");
             }
 
-            if (CustomRectCallback != null) {
+            if (CustomRectCallback != null)
+            {
                 var rect = new Rect();
                 var shouldUse = CustomRectCallback(mode, out rect);
 
@@ -48,7 +54,8 @@ namespace FullscreenEditor {
                     return rect;
             }
 
-            switch (mode) {
+            switch (mode)
+            {
                 case RectSourceMode.MainDisplay:
                     return GetMainDisplayRect();
 
@@ -99,9 +106,11 @@ namespace FullscreenEditor {
 
         /// <summary>Returns a rect with the dimensions of the main screen.
         /// (Note that the position may not be right for multiple screen setups)</summary>
-        public static Rect GetMainDisplayRect() {
+        public static Rect GetMainDisplayRect()
+        {
 
-            if (FullscreenUtility.IsWindows) {
+            if (FullscreenUtility.IsWindows)
+            {
                 var mainDisplay = DisplayInfo
                     .GetDisplays()
                     .FirstOrDefault(d => d.PrimaryDisplay);
@@ -120,14 +129,16 @@ namespace FullscreenEditor {
         }
 
         /// <summary>Returns the rect of a given display index.</summary>
-        public static Rect GetMonitorRect(int index) {
+        public static Rect GetMonitorRect(int index)
+        {
 
             if (!FullscreenUtility.IsWindows)
                 return GetMainDisplayRect();
 
             var d = DisplayInfo.GetDisplay(index);
 
-            if (d == null) {
+            if (d == null)
+            {
                 Logger.Error("Display {0} not connected", index + 1);
                 return GetMainDisplayRect();
             }
@@ -136,7 +147,8 @@ namespace FullscreenEditor {
         }
 
         /// <summary>Returns a rect defined by the user in the preferences.</summary>
-        public static Rect GetCustomUserRect() {
+        public static Rect GetCustomUserRect()
+        {
             return FullscreenPreferences.CustomRect;
         }
 
@@ -144,7 +156,8 @@ namespace FullscreenEditor {
         /// On Windows it adds a 4px border and does not account for scaling (can cause bugs when using scales different than 100%).
         /// On macOS this returns a fullscreen rect when the main window is maximized and mouseScreen is set to true.</summary>
         /// <param name="mouseScreen">Should we get the rect on the screen where the mouse pointer is?</param>
-        public static Rect GetWorkAreaRect(bool mouseScreen) {
+        public static Rect GetWorkAreaRect(bool mouseScreen)
+        {
             return Types.ContainerWindow.InvokeMethod<Rect>("FitRectToScreen", new Rect(Vector2.zero, Vector2.one * 10000f), true, mouseScreen);
         }
 
@@ -153,18 +166,21 @@ namespace FullscreenEditor {
         /// On macOS this returns a fullscreen rect when the main window is maximized and mouseScreen is set to true.</summary>
         /// <param name="container">The ContainerWindow that will be used as reference for calulating border error.</param>
         /// <param name="mouseScreen">Should we get the rect on the screen where the mouse pointer is?</param>
-        public static Rect GetWorkAreaRect(Object container, bool mouseScreen) {
+        public static Rect GetWorkAreaRect(Object container, bool mouseScreen)
+        {
             return container.InvokeMethod<Rect>("FitWindowRectToScreen", new Rect(Vector2.zero, Vector2.one * 10000f), true, mouseScreen);
         }
 
         /// <summary>Returns the bounds rect of the screen that contains the given point. (Windows only)</summary>
         /// <param name="point">The point relative to <see cref="RectSourceMode.Span"/></param>
-        public static Rect GetDisplayBoundsAtPoint(Vector2 point) {
+        public static Rect GetDisplayBoundsAtPoint(Vector2 point)
+        {
             return InternalEditorUtility.GetBoundsOfDesktopAtPoint(point);
         }
 
         /// <summary>Full virtual screen bounds, spanning across all monitors. (Windows only)</summary>
-        public static Rect GetVirtualScreenBounds() {
+        public static Rect GetVirtualScreenBounds()
+        {
 
             if (!FullscreenUtility.IsWindows)
                 throw new NotImplementedException();
@@ -179,7 +195,8 @@ namespace FullscreenEditor {
             var width = User32.GetSystemMetrics(SM_CXVIRTUALSCREEN);
             var height = User32.GetSystemMetrics(SM_CYVIRTUALSCREEN);
 
-            var rect = new Rect {
+            var rect = new Rect
+            {
                 yMin = y,
                 xMin = x,
                 width = width,

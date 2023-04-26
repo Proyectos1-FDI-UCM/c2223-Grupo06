@@ -1,16 +1,13 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using UnityEditor;
 using UnityEngine;
-using UnityObject = UnityEngine.Object;
-using HostView = UnityEngine.ScriptableObject;
-using View = UnityEngine.ScriptableObject;
 using ContainerWindow = UnityEngine.ScriptableObject;
 
-namespace FullscreenEditor {
+namespace FullscreenEditor
+{
     /// <summary>Manages the WindowContainers, Views and Windows that will be fullscreened.</summary>
-    public abstract partial class FullscreenContainer : ScriptableObject {
+    public abstract partial class FullscreenContainer : ScriptableObject
+    {
 
         /// <summary>The m_src will have all it's fields null if we've instantiated the window by ourselves.
         /// <para>Window - The window to fullscreen, null if we're opening a view.</para> 
@@ -30,7 +27,8 @@ namespace FullscreenEditor {
         /// <param name="rect">The initial position of the ContainerWindow, can be changed later using the <see cref="Rect"/> property.</param>
         /// <param name="childWindow">The initial window for the newly created ContainerWindow and HostView.</param>
         /// <returns>Returns the pyramid of views we've created.</returns>
-        protected ViewPyramid CreateFullscreenViewPyramid(Rect rect, EditorWindow childWindow) {
+        protected ViewPyramid CreateFullscreenViewPyramid(Rect rect, EditorWindow childWindow)
+        {
             var hv = CreateInstance(Types.HostView);
             var cw = CreateInstance(Types.ContainerWindow);
 
@@ -73,12 +71,14 @@ namespace FullscreenEditor {
         /// <summary>Prevents any repaint on the container window. This fixes some glitches on macOS.</summary>
         /// <param name="containerWindow">The ContainerWindow to freeze the repaints.</param>
         /// <param name="freeze">Wheter to freeze or unfreeze the container.</param>
-        protected void SetFreezeContainer(ContainerWindow containerWindow, bool freeze) {
+        protected void SetFreezeContainer(ContainerWindow containerWindow, bool freeze)
+        {
             containerWindow.InvokeMethod("SetFreezeDisplay", freeze);
         }
 
         /// <summary>Method that will be called just before creating the ContainerWindow for this fullscreen.</summary>
-        protected virtual void BeforeOpening() {
+        protected virtual void BeforeOpening()
+        {
 
             FullscreenCallbacks.beforeFullscreenOpen(this);
 
@@ -87,9 +87,11 @@ namespace FullscreenEditor {
         }
 
         /// <summary>Method that will be called after the creation of the ContainerWindow for this fullscreen.</summary>
-        protected virtual void AfterOpening() {
+        protected virtual void AfterOpening()
+        {
 
-            After.Frames(2, () => {
+            After.Frames(2, () =>
+            {
                 UnityEditorInternal.InternalEditorUtility.RepaintAllViews();
 
                 didPresent.Invoke();

@@ -547,7 +547,7 @@ public class PlayerManager : MonoBehaviour
         _objeto = Objetos.NADA;          // Ning�n objeto al iniciar
         if (GameManager.Instance != null)
             _alubiat = GameManager.Instance.Alubiat;
-        else 
+        else
             _alubiat = false;
         _parte = Partes.CABEZA; // Control principal al inicio
 

@@ -8,10 +8,12 @@ using UnityEditor;
 using UnityEditorInternal;
 using UnityEngine;
 
-namespace FullscreenEditor {
+namespace FullscreenEditor
+{
 
     /// <summary>Define a source mode to get a fullscreen rect.</summary>
-    public enum RectSourceMode {
+    public enum RectSourceMode
+    {
         /// <summary>The bounds of the main display.</summary>
         MainDisplay,
         /// <summary>Open on the display that the target window is located.</summary>
@@ -34,7 +36,8 @@ namespace FullscreenEditor {
 
     /// <summary>Contains preferences for the Fullscreen Editor plugin.</summary>
     [InitializeOnLoad]
-    public static class FullscreenPreferences {
+    public static class FullscreenPreferences
+    {
 
         private const float LABEL_WIDTH = 200f;
         private const string DEVELOPER_EMAIL = "support@mukaschultze.dev";
@@ -106,11 +109,13 @@ namespace FullscreenEditor {
         public static readonly PrefItem<bool> DoNotUseWmctrl;
 
         [RuntimeInitializeOnLoadMethod]
-        private static void SyncVersion() { // Sync for automation
+        private static void SyncVersion()
+        { // Sync for automation
             PlayerPrefs.SetString("PLUGIN_VERSION", pluginVersion.ToString());
         }
 
-        static FullscreenPreferences() {
+        static FullscreenPreferences()
+        {
             var rectSourceTooltip = string.Empty;
 
             rectSourceTooltip += "Controls where Fullscreen views opens.\n\n";
@@ -134,18 +139,20 @@ namespace FullscreenEditor {
             onLoadDefaults += () => // Array won't revert automaticaly because it is changed as reference
                 MosaicMapping.Value = new[] { 0, 1, 2, 3, 4, 5, 6, 7 };
 
-            if(FullscreenUtility.MenuItemHasShortcut(Shortcut.TOOLBAR_PATH))
+            if (FullscreenUtility.MenuItemHasShortcut(Shortcut.TOOLBAR_PATH))
                 ToolbarVisible.Content.text += string.Format(" ({0})", FullscreenUtility.TextifyMenuItemShortcut(Shortcut.TOOLBAR_PATH));
-            if(FullscreenUtility.MenuItemHasShortcut(Shortcut.FULLSCREEN_ON_PLAY_PATH))
+            if (FullscreenUtility.MenuItemHasShortcut(Shortcut.FULLSCREEN_ON_PLAY_PATH))
                 FullscreenOnPlayEnabled.Content.text += string.Format(" ({0})", FullscreenUtility.TextifyMenuItemShortcut(Shortcut.FULLSCREEN_ON_PLAY_PATH));
         }
 
 #if UNITY_2018_3_OR_NEWER
         [SettingsProvider]
-        private static SettingsProvider RetrieveSettingsProvider() {
+        private static SettingsProvider RetrieveSettingsProvider()
+        {
             var sp = new SettingsProvider("Preferences/Fullscreen Editor", SettingsScope.User, contents.Select(c => c.text));
             sp.footerBarGuiHandler = OnFooterGUI;
-            sp.guiHandler = (search) => {
+            sp.guiHandler = (search) =>
+            {
                 EditorGUIUtility.labelWidth = LABEL_WIDTH;
                 OnPreferencesGUI(search);
             };
@@ -153,10 +160,12 @@ namespace FullscreenEditor {
         }
 
         [SettingsProvider]
-        private static SettingsProvider RetrieveSettingsProviderShortcuts() {
+        private static SettingsProvider RetrieveSettingsProviderShortcuts()
+        {
             var sp = new SettingsProvider("Preferences/Fullscreen Editor/Shortcuts", SettingsScope.User, contents.Select(c => c.text));
             sp.footerBarGuiHandler = OnFooterGUI;
-            sp.guiHandler = (search) => {
+            sp.guiHandler = (search) =>
+            {
                 EditorGUIUtility.labelWidth = LABEL_WIDTH;
                 Shortcut.DoShortcutsGUI();
             };
@@ -180,7 +189,8 @@ namespace FullscreenEditor {
         }
 #endif
 
-        private static void OnPreferencesGUI(string search) {
+        private static void OnPreferencesGUI(string search)
+        {
 
             ToolbarVisible.DoGUI();
             FullscreenOnPlayEnabled.DoGUI();
@@ -188,23 +198,24 @@ namespace FullscreenEditor {
             EditorGUILayout.Separator();
             RectSource.DoGUI();
 
-            if(RectSource.Value == RectSourceMode.AtMousePosition)
+            if (RectSource.Value == RectSourceMode.AtMousePosition)
                 EditorGUILayout.HelpBox("\'At mouse position\' can cause slowdowns on large projects", MessageType.Warning);
 
-            if(!IsRectModeSupported(RectSource))
+            if (!IsRectModeSupported(RectSource))
                 EditorGUILayout.HelpBox("The selected placement source mode is not supported on this platform", MessageType.Warning);
 
             // Custom Rect
-            switch(RectSource.Value) {
+            switch (RectSource.Value)
+            {
                 case RectSourceMode.Custom:
                     EditorGUI.indentLevel++;
                     CustomRect.DoGUI();
 
                     var customRect = CustomRect.Value;
 
-                    if(customRect.width < 300f)
+                    if (customRect.width < 300f)
                         customRect.width = 300f;
-                    if(customRect.height < 300f)
+                    if (customRect.height < 300f)
                         customRect.height = 300f;
 
                     CustomRect.Value = customRect;
@@ -216,18 +227,23 @@ namespace FullscreenEditor {
             DisableNotifications.DoGUI();
             KeepFullscreenBelow.DoGUI();
 
-            if(Patcher.IsSupported())
+            if (Patcher.IsSupported())
                 DisableSceneViewRendering.DoGUI();
 
             UseGlobalToolbarHiding.DoGUI();
 
-            if(FullscreenUtility.IsLinux) {
-                using(new EditorGUI.DisabledGroupScope(!FullscreenEditor.Linux.wmctrl.IsInstalled)) {
+            if (FullscreenUtility.IsLinux)
+            {
+                using (new EditorGUI.DisabledGroupScope(!FullscreenEditor.Linux.wmctrl.IsInstalled))
+                {
                     DoNotUseWmctrl.DoGUI();
                 }
-                if(!FullscreenEditor.Linux.wmctrl.IsInstalled) {
+                if (!FullscreenEditor.Linux.wmctrl.IsInstalled)
+                {
                     EditorGUILayout.HelpBox("'wmctrl' not found. Try installing it with 'sudo apt-get install wmctrl'.", MessageType.Warning);
-                } else {
+                }
+                else
+                {
                     EditorGUILayout.HelpBox("Try enabling the option above if you're experiencing any kind of toolbars or offsets " +
                         "while in fullscreen mode.\nDisabling 'wmctrl' can fix issues on some Linux environments when the window manager " +
                         "does not handle fullscreen windows properly (I'm looking at you Ubuntu).", MessageType.Info);
@@ -235,25 +251,28 @@ namespace FullscreenEditor {
             }
 
             // Mosaic
-            if(FullscreenRects.ScreenCount > 1) {
+            if (FullscreenRects.ScreenCount > 1)
+            {
                 EditorGUILayout.Separator();
                 EditorGUILayout.LabelField(MosaicMapping.Content, EditorStyles.boldLabel);
                 EditorGUI.indentLevel++;
                 GUI.changed = false;
                 var mosaicMapping = MosaicMapping.Value;
 
-                for(var i = 0; i < mosaicMapping.Length && i < FullscreenRects.ScreenCount; i++) {
+                for (var i = 0; i < mosaicMapping.Length && i < FullscreenRects.ScreenCount; i++)
+                {
                     var val = EditorGUILayout.IntPopup(string.Format("Physical display {0} renders", i + 1), mosaicMapping[i], mosaicDropDownOptions, new[] { 0, 1, 2, 3, 4, 5, 6, 7 });
                     mosaicMapping[i] = val;
                 }
 
-                if(GUI.changed)
+                if (GUI.changed)
                     MosaicMapping.SaveValue();
                 EditorGUI.indentLevel--;
             }
         }
 
-        private static void OnFooterGUI() {
+        private static void OnFooterGUI()
+        {
 
             Func<GUIContent, bool> linkLabel = (label) =>
                 typeof(EditorGUILayout).HasMethod("LinkLabel", new[] { typeof(string), typeof(GUILayoutOption[]) }) ? // Issue #100
@@ -261,17 +280,20 @@ namespace FullscreenEditor {
                 typeof(EditorGUILayout).InvokeMethod<bool>("LinkButton", label, new GUILayoutOption[0]); // >= 2020.1
             ;
 
-            using(new EditorGUILayout.HorizontalScope()) {
+            using (new EditorGUILayout.HorizontalScope())
+            {
                 GUILayout.FlexibleSpace();
-                if(linkLabel(new GUIContent("Consider leaving a review if you're enjoying Fullscreen Editor!", REVIEWS_LINK)))
+                if (linkLabel(new GUIContent("Consider leaving a review if you're enjoying Fullscreen Editor!", REVIEWS_LINK)))
                     Application.OpenURL(REVIEWS_LINK);
                 GUILayout.FlexibleSpace();
             }
 
-            using(new EditorGUILayout.HorizontalScope()) {
+            using (new EditorGUILayout.HorizontalScope())
+            {
                 GUILayout.FlexibleSpace();
-                for(var i = 0; i < links.Length; i++) {
-                    if(linkLabel(links[i]))
+                for (var i = 0; i < links.Length; i++)
+                {
+                    if (linkLabel(links[i]))
                         Application.OpenURL(links[i].tooltip);
                     GUILayout.Space(5f);
                 }
@@ -280,19 +302,22 @@ namespace FullscreenEditor {
 
             EditorGUILayout.Separator();
 
-            using(new EditorGUILayout.HorizontalScope()) {
-                if(GUILayout.Button(resetSettingsContent, GUILayout.Width(120f)))
+            using (new EditorGUILayout.HorizontalScope())
+            {
+                if (GUILayout.Button(resetSettingsContent, GUILayout.Width(120f)))
                     onLoadDefaults();
 
-                using(new EditorGUI.DisabledGroupScope(EditorApplication.isCompiling)) {
+                using (new EditorGUI.DisabledGroupScope(EditorApplication.isCompiling))
+                {
                     GUI.changed = false;
                     var enable = GUILayout.Toggle(Integration.IsDirectiveDefined("FULLSCREEN_DEBUG"), "Debug", "Button");
-                    if(GUI.changed) {
+                    if (GUI.changed)
+                    {
                         Integration.SetDirectiveDefined("FULLSCREEN_DEBUG", enable);
                     }
                 }
 
-                if(GUILayout.Button("Copy debug data", GUILayout.Width(120f)))
+                if (GUILayout.Button("Copy debug data", GUILayout.Width(120f)))
                     CopyDisplayDebugInfo();
 
                 GUILayout.FlexibleSpace();
@@ -302,7 +327,8 @@ namespace FullscreenEditor {
             EditorGUILayout.Separator();
         }
 
-        private static void CopyDisplayDebugInfo() {
+        private static void CopyDisplayDebugInfo()
+        {
             var str = new StringBuilder();
 
             str.Append("Fullscreen Editor");
@@ -311,7 +337,8 @@ namespace FullscreenEditor {
             str.AppendFormat("\n{0}", SystemInfo.operatingSystem);
             str.AppendFormat("\nScaling {0:p}", FullscreenUtility.GetDisplayScaling());
 
-            foreach(var display in DisplayInfo.GetDisplays()) {
+            foreach (var display in DisplayInfo.GetDisplays())
+            {
                 str.AppendFormat("\n----------- DISPLAY -----------");
                 str.AppendFormat("\nDeviceName: {0} ({1})", display.FriendlyName, display.DeviceName);
                 str.AppendFormat("\nDpiCorrectedArea: {0}", display.DpiCorrectedArea);
@@ -333,7 +360,8 @@ namespace FullscreenEditor {
             EditorUtility.DisplayDialog("Debug", "Display debug data was copied to the clipboard", "OK");
         }
 
-        private static string GetFilePath(string file) {
+        private static string GetFilePath(string file)
+        {
             var stack = new StackFrame(0, true);
             var currentFile = stack.GetFileName();
             var currentPath = Path.GetDirectoryName(currentFile);
@@ -341,7 +369,8 @@ namespace FullscreenEditor {
             return Path.Combine(currentPath, "../" + file);
         }
 
-        private static string GetEmailURL(Exception e = null) {
+        private static string GetEmailURL(Exception e = null)
+        {
             var full = new StringBuilder();
             var body = new StringBuilder();
 
@@ -357,7 +386,7 @@ namespace FullscreenEditor {
             body.AppendFormat("\nUnity {0}", InternalEditorUtility.GetFullUnityVersion());
             body.AppendFormat("\n{0}", SystemInfo.operatingSystem);
 
-            if(e != null)
+            if (e != null)
                 body.AppendFormat("\n\nEXCEPTION\n", e);
 
             full.Append("mailto:");
@@ -370,8 +399,10 @@ namespace FullscreenEditor {
             return full.ToString();
         }
 
-        internal static bool IsRectModeSupported(RectSourceMode mode) {
-            switch(mode) {
+        internal static bool IsRectModeSupported(RectSourceMode mode)
+        {
+            switch (mode)
+            {
                 case RectSourceMode.Display1:
                 case RectSourceMode.Display2:
                 case RectSourceMode.Display3:

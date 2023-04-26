@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class BoxComponent : MonoBehaviour
@@ -48,11 +46,11 @@ public class BoxComponent : MonoBehaviour
                 else
                     PlayerManager.Instance.HolaPiernas();
             }
-            if(_legsConected == 0)
+            if (_legsConected == 0)
             {
                 PlayerManager.Instance.AdiosPiernas();
             }
-            if(_legsConected == 1)
+            if (_legsConected == 1)
             {
                 PlayerManager.Instance.SoltarAlubiat();
             }
@@ -70,6 +68,6 @@ public class BoxComponent : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }

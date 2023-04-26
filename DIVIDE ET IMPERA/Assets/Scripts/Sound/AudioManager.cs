@@ -21,7 +21,7 @@ public class AudioManager : MonoBehaviour
     [SerializeField]
     private float _sliderValueBGM = 0.5f;
     [SerializeField]
-    private float _sliderValueSFX = 0.5f; 
+    private float _sliderValueSFX = 0.5f;
     [SerializeField]
     private float _sliderValueAmbience = 0.5f;
     int _whichAudioMixer;
@@ -50,7 +50,7 @@ public class AudioManager : MonoBehaviour
                 break;
             case 1:
                 _sliderValueSFX = _value;
-                break ;
+                break;
             case 2:
                 _sliderValueAmbience = _value;
                 break;
@@ -125,7 +125,7 @@ public class AudioManager : MonoBehaviour
         // empieza la corrutina para el fade
         StartCoroutine(FadeTrackCoroutine(timeToFade));
 
-        
+
     }
 
     private IEnumerator FadeTrackCoroutine(float timeToFade)
@@ -138,7 +138,7 @@ public class AudioManager : MonoBehaviour
         while (timeElapsed < timeToFade)
         {
             // calcula y cambia el volumen (log10)
-            _bgmMixer.SetFloat("BGMVolume",  (GetVolume() + Mathf.Log10(k/timeToFade)));
+            _bgmMixer.SetFloat("BGMVolume", (GetVolume() + Mathf.Log10(k / timeToFade)));
 
             k -= Time.deltaTime;
             // añade al tiempo

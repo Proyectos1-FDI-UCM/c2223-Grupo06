@@ -1,23 +1,24 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
 using UnityEditor;
 using UnityEngine;
 
-namespace FullscreenEditor {
+namespace FullscreenEditor
+{
     /// <summary>The window that will be shown in the place of the original view when creating a fullscreen container.</summary>
-    public class PlaceholderWindow : EditorWindow {
+    public class PlaceholderWindow : EditorWindow
+    {
 
         private const float PREVIEW_FRAMERATE = 24f;
 
-        private static class Styles {
+        private static class Styles
+        {
 
             public static readonly GUIStyle textStyle = new GUIStyle("BoldLabel");
             public static readonly GUIStyle backgroundShadow = new GUIStyle("InnerShadowBg");
             public static readonly GUIStyle buttonStyle = new GUIStyle("LargeButton");
 
-            static Styles() {
+            static Styles()
+            {
                 textStyle.wordWrap = true;
                 textStyle.alignment = TextAnchor.MiddleCenter;
             }
@@ -31,8 +32,10 @@ namespace FullscreenEditor {
         private double m_nextUpdate;
         private RenderTexture m_previewRT;
 
-        private FullscreenContainer FullscreenContainer {
-            get {
+        private FullscreenContainer FullscreenContainer
+        {
+            get
+            {
                 if (m_containerForcefullyClosed)
                     return null;
                 if (!m_fullscreenContainer)
@@ -45,8 +48,10 @@ namespace FullscreenEditor {
             set { m_fullscreenContainer = value; }
         }
 
-        private bool PreviewSupported {
-            get {
+        private bool PreviewSupported
+        {
+            get
+            {
                 return FullscreenContainer &&
                     !FullscreenContainer.Rect.Overlaps(position) &&
                     FullscreenContainer.m_dst.View &&
@@ -55,7 +60,8 @@ namespace FullscreenEditor {
             }
         }
 
-        private void Update() {
+        private void Update()
+        {
             if (EditorApplication.timeSinceStartup < m_nextUpdate)
                 return;
 
@@ -78,42 +84,51 @@ namespace FullscreenEditor {
             Repaint();
         }
 
-        private void OnDisable() {
+        private void OnDisable()
+        {
             RenderTexture.ReleaseTemporary(m_previewRT);
         }
 
-        private void OnGUI() {
+        private void OnGUI()
+        {
 
-            using(var scrollScope = new EditorGUILayout.ScrollViewScope(m_scroll))
-            using(var mainScope = new EditorGUILayout.VerticalScope(Styles.backgroundShadow)) {
+            using (var scrollScope = new EditorGUILayout.ScrollViewScope(m_scroll))
+            using (var mainScope = new EditorGUILayout.VerticalScope(Styles.backgroundShadow))
+            {
 
                 m_scroll = scrollScope.scrollPosition;
 
-                using(new GUIColor(Color.white, 0.1f))
-                if (m_previewRT) {
-                    var rtRect = SystemInfo.graphicsUVStartsAtTop ?
-                        Rect.MinMaxRect(0f, 1f, 1f, 0f) : // Direct3D like
-                        Rect.MinMaxRect(0f, 0f, 1f, 1f); // OpenGL like
+                using (new GUIColor(Color.white, 0.1f))
+                    if (m_previewRT)
+                    {
+                        var rtRect = SystemInfo.graphicsUVStartsAtTop ?
+                            Rect.MinMaxRect(0f, 1f, 1f, 0f) : // Direct3D like
+                            Rect.MinMaxRect(0f, 0f, 1f, 1f); // OpenGL like
 
-                    GUI.DrawTextureWithTexCoords(mainScope.rect, m_previewRT, rtRect);
-                }
+                        GUI.DrawTextureWithTexCoords(mainScope.rect, m_previewRT, rtRect);
+                    }
 
-                using(new GUIColor(Styles.textStyle.normal.textColor * 0.05f))
-                GUI.DrawTexture(mainScope.rect, FullscreenUtility.FullscreenIcon, ScaleMode.ScaleAndCrop);
+                using (new GUIColor(Styles.textStyle.normal.textColor * 0.05f))
+                    GUI.DrawTexture(mainScope.rect, FullscreenUtility.FullscreenIcon, ScaleMode.ScaleAndCrop);
 
                 GUILayout.FlexibleSpace();
 
-                using(new EditorGUILayout.HorizontalScope()) {
+                using (new EditorGUILayout.HorizontalScope())
+                {
                     GUILayout.FlexibleSpace();
 
-                    using(new GUIContentColor(Styles.textStyle.normal.textColor))
-                    GUILayout.Label(FullscreenUtility.FullscreenIcon, Styles.textStyle);
+                    using (new GUIContentColor(Styles.textStyle.normal.textColor))
+                        GUILayout.Label(FullscreenUtility.FullscreenIcon, Styles.textStyle);
 
-                    using(new EditorGUILayout.VerticalScope()) {
-                        if (FullscreenContainer && FullscreenContainer.ActualViewPyramid.Container) {
+                    using (new EditorGUILayout.VerticalScope())
+                    {
+                        if (FullscreenContainer && FullscreenContainer.ActualViewPyramid.Container)
+                        {
                             GUILayout.Label("The view that lives here is in fullscreen mode", Styles.textStyle);
                             GUILayout.Label("Don't close this placeholder", Styles.textStyle);
-                        } else {
+                        }
+                        else
+                        {
                             GUILayout.Label("The view that lived here was forcefully closed while in fullscreen, restore is not available", Styles.textStyle);
                             GUILayout.Label("Consider using the shortcuts to exit fullscreen", Styles.textStyle);
                             GUILayout.Label("You may close this placeholder", Styles.textStyle);
@@ -123,13 +138,16 @@ namespace FullscreenEditor {
                     GUILayout.FlexibleSpace();
                 }
 
-                using(new EditorGUILayout.HorizontalScope()) {
+                using (new EditorGUILayout.HorizontalScope())
+                {
                     GUILayout.FlexibleSpace();
 
-                    if (FullscreenContainer && FullscreenContainer.ActualViewPyramid.Container) {
+                    if (FullscreenContainer && FullscreenContainer.ActualViewPyramid.Container)
+                    {
                         if (GUILayout.Button("Restore View", Styles.buttonStyle))
                             FullscreenContainer.Close();
-                    } else if (GUILayout.Button("Close Placeholder", Styles.buttonStyle))
+                    }
+                    else if (GUILayout.Button("Close Placeholder", Styles.buttonStyle))
                         Close();
                     GUILayout.FlexibleSpace();
                 }
@@ -141,7 +159,8 @@ namespace FullscreenEditor {
                 EditorGUILayout.LabelField(SafeObjToString(() => name));
                 EditorGUILayout.Space();
 
-                if (FullscreenUtility.DebugModeEnabled) {
+                if (FullscreenUtility.DebugModeEnabled)
+                {
                     EditorGUILayout.LabelField("Forcefully Closed", SafeObjToString(() => m_containerForcefullyClosed));
 
                     EditorGUILayout.LabelField("Container", SafeObjToString(() => FullscreenContainer));
@@ -161,11 +180,15 @@ namespace FullscreenEditor {
             }
         }
 
-        private string SafeObjToString<T>(Func<T> obj) {
-            try {
+        private string SafeObjToString<T>(Func<T> obj)
+        {
+            try
+            {
                 var i = obj();
-                return i == null? "null": i.ToString();
-            } catch {
+                return i == null ? "null" : i.ToString();
+            }
+            catch
+            {
                 return "invalid";
             }
         }

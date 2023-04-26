@@ -180,8 +180,8 @@ public class DialogueManager : MonoBehaviour
         if (_lines.Length > _index + 1 && (_dialogueText.text == _lines[_index] || _writingLine)) // siguiente linea
         {
             StopAllCoroutines();
-            Debug.Log("1"+_dialogueText.text);
-            Debug.Log("2"+_lines[_index]);
+            Debug.Log("1" + _dialogueText.text);
+            Debug.Log("2" + _lines[_index]);
             NextLine();
         }
         else // fin dialogo
@@ -202,7 +202,7 @@ public class DialogueManager : MonoBehaviour
     {
         Debug.Log(_playerTransform.position.x + " aaa" + WaypointDialogo.transform.position.x);
         Debug.Log(_playerTransform.position.x == WaypointDialogo.transform.position.x);
-        if(_playerTransform.position.x < WaypointDialogo.transform.position.x - 0.05 || _playerTransform.position.x  > WaypointDialogo.transform.position.x +0.05)
+        if (_playerTransform.position.x < WaypointDialogo.transform.position.x - 0.05 || _playerTransform.position.x > WaypointDialogo.transform.position.x + 0.05)
         {
             _inputController.enabled = false;
             _inputControllerDialogue.enabled = true;
@@ -226,7 +226,7 @@ public class DialogueManager : MonoBehaviour
     }
     private void Update()
     {
-       if (_moveTimmy)
+        if (_moveTimmy)
             MoveTimoteo();
     }
 }

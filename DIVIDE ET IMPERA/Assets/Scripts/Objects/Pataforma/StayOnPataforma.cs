@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.Tilemaps;
 
 public class StayOnPataforma : MonoBehaviour
 {
@@ -52,10 +51,10 @@ public class StayOnPataforma : MonoBehaviour
         if (collision.gameObject.GetComponentInParent<NewPlatformMovement>())
             gameObject.transform.SetParent(collision.gameObject.transform.parent, true);
 
-            /*
-        if (collision.transform.parent != null) //dentro de esto estaba lo de encima, por que? a, pero ahora funciona
-        {
-        }*/
+        /*
+    if (collision.transform.parent != null) //dentro de esto estaba lo de encima, por que? a, pero ahora funciona
+    {
+    }*/
     }
     // le quita el padre al objeto
     private void Adoptiont(Collision2D collision)
@@ -76,8 +75,8 @@ public class StayOnPataforma : MonoBehaviour
             || collision.gameObject.GetComponentInParent<NewPlatformMovement>()
             || collision.gameObject.GetComponent<NewPlatformMovement>())
             && !collision.gameObject.GetComponentInChildren<DoorComponent>())
-            /*&& !collision.gameObject.GetComponent<Tilemap>()
-            && !collision.gameObject.GetComponentInChildren<StayOnPataforma>())*/
+        /*&& !collision.gameObject.GetComponent<Tilemap>()
+        && !collision.gameObject.GetComponentInChildren<StayOnPataforma>())*/
         {
             //Debug.Log(PuertaCheck(collision));
             // si tiene peso el objeto

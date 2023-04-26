@@ -2,16 +2,19 @@ using System;
 using System.Runtime.InteropServices;
 using UnityEngine;
 
-namespace FullscreenEditor.Windows {
+namespace FullscreenEditor.Windows
+{
     [System.Serializable]
     [StructLayout(LayoutKind.Sequential)]
-    internal struct NativeRect {
+    internal struct NativeRect
+    {
         public int left;
         public int top;
         public int right;
         public int bottom;
 
-        public static implicit operator Rect(NativeRect other) {
+        public static implicit operator Rect(NativeRect other)
+        {
             return Rect.MinMaxRect(
                 other.left,
                 other.top,
@@ -20,8 +23,10 @@ namespace FullscreenEditor.Windows {
             );
         }
 
-        public static implicit operator NativeRect(Rect other) {
-            return new NativeRect {
+        public static implicit operator NativeRect(Rect other)
+        {
+            return new NativeRect
+            {
                 left = (int)other.xMin,
                 top = (int)other.yMin,
                 right = (int)other.xMax,
@@ -32,7 +37,8 @@ namespace FullscreenEditor.Windows {
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
-    internal struct MonitorInfoEx {
+    internal struct MonitorInfoEx
+    {
 
         private const int CCHDEVICENAME = 0x20;
 
@@ -44,7 +50,8 @@ namespace FullscreenEditor.Windows {
         [MarshalAs(UnmanagedType.ByValTStr, SizeConst = CCHDEVICENAME)]
         public string DeviceName;
 
-        public void Init() {
+        public void Init()
+        {
             this.size = 40 + 1 * CCHDEVICENAME;
             this.DeviceName = string.Empty;
         }
@@ -53,7 +60,8 @@ namespace FullscreenEditor.Windows {
 
     [System.Serializable]
     [StructLayout(LayoutKind.Sequential)]
-    internal struct DevMode {
+    internal struct DevMode
+    {
         [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 0x20)]
         public string dmDeviceName;
         public short dmSpecVersion;
@@ -89,7 +97,8 @@ namespace FullscreenEditor.Windows {
     }
 
     [Flags]
-    internal enum DisplayDeviceStateFlags : int {
+    internal enum DisplayDeviceStateFlags : int
+    {
         /// <summary>The device is part of the desktop.</summary>
         AttachedToDesktop = 0x1,
         MultiDriver = 0x2,
@@ -109,7 +118,8 @@ namespace FullscreenEditor.Windows {
 
     [System.Serializable]
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
-    internal struct DisplayDevice {
+    internal struct DisplayDevice
+    {
         [MarshalAs(UnmanagedType.U4)]
         public int cb;
         [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 32)]

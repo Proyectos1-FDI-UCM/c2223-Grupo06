@@ -1,29 +1,34 @@
 using UnityEditor;
 using UnityEngine;
 
-namespace FullscreenEditor {
-    public class DisableSceneView {
+namespace FullscreenEditor
+{
+    public class DisableSceneView
+    {
 
         // TODO: Patcher resets the method to original after a while
         // TODO: or the shouldSkipRender is not being properly calculated
         private static Patcher patcher = null;
 
-        public static bool RenderingDisabled {
-            get {
+        public static bool RenderingDisabled
+        {
+            get
+            {
                 return patcher == null ? false : patcher.IsPatched();
             }
-            set {
-                if(patcher == null) return;
+            set
+            {
+                if (patcher == null) return;
 
-                if(value == patcher.IsPatched())
+                if (value == patcher.IsPatched())
                     return;
-                else if(!value)
+                else if (!value)
                     patcher.Revert();
-                else if(FullscreenPreferences.DisableSceneViewRendering)
+                else if (FullscreenPreferences.DisableSceneViewRendering)
                     patcher.SwapMethods();
 
-                if(!value || FullscreenPreferences.DisableSceneViewRendering)
-                    foreach(var c in SceneView.GetAllSceneCameras())
+                if (!value || FullscreenPreferences.DisableSceneViewRendering)
+                    foreach (var c in SceneView.GetAllSceneCameras())
                         c.gameObject.SetActive(!value);
 
                 Logger.Debug("{0} Scene View Rendering", value ? "Disabled" : "Enabled");
@@ -32,8 +37,9 @@ namespace FullscreenEditor {
         }
 
         [InitializeOnLoadMethod]
-        private static void Init() {
-            if(!Patcher.IsSupported()) return;
+        private static void Init()
+        {
+            if (!Patcher.IsSupported()) return;
 
             var sceneGUIName = ReflectionUtility.HasMethod(typeof(SceneView), "OnSceneGUI") ? "OnSceneGUI" : "OnGUI";
 
@@ -56,76 +62,91 @@ namespace FullscreenEditor {
                 RenderingDisabled = true;
 
             // Disable the patching if we're the last fullscreen open
-            FullscreenCallbacks.afterFullscreenClose += (f) => {
-                if(Fullscreen.GetAllFullscreen().Length <= 1)
+            FullscreenCallbacks.afterFullscreenClose += (f) =>
+            {
+                if (Fullscreen.GetAllFullscreen().Length <= 1)
                     RenderingDisabled = false;
             };
         }
 
-        private static void OnBeforeSceneGUI(SceneView sceneView) {
+        private static void OnBeforeSceneGUI(SceneView sceneView)
+        {
             var shouldRender = !RenderingDisabled || Fullscreen.GetFullscreenFromView(new ViewPyramid(sceneView).Container, false);
             sceneView.autoRepaintOnSceneChange = shouldRender;
         }
 
         // This should not be a static method, as static has no this
         // However, the 'this' in the method is unreliable and should be casted before using
-        private void OnGUI() {
+        private void OnGUI()
+        {
             var _this = (object)this as SceneView;
             var vp = new ViewPyramid(_this);
             var shouldRender = Fullscreen.GetFullscreenFromView(vp.Container, false); // Render if this window is in fullscreen
 
-            if(shouldRender) {
+            if (shouldRender)
+            {
                 // Do this outside of OnGUI to prevent controls count errors
                 After.Frames(1, () => EnableRenderingTemporarily());
-            } else {
+            }
+            else
+            {
                 _this.autoRepaintOnSceneChange = false;
                 CustomOnGUI();
             }
         }
 
-        private static class Styles {
+        private static class Styles
+        {
 
             public static readonly GUIStyle textStyle = new GUIStyle("BoldLabel");
             public static readonly GUIStyle backgroundShadow = new GUIStyle("InnerShadowBg");
             public static readonly GUIStyle buttonStyle = new GUIStyle("LargeButton");
             public static readonly GUIStyle secondaryTextStyle = new GUIStyle(EditorStyles.centeredGreyMiniLabel);
 
-            static Styles() {
+            static Styles()
+            {
                 textStyle.wordWrap = true;
                 textStyle.alignment = TextAnchor.MiddleCenter;
             }
 
         }
 
-        private void CustomOnGUI() {
-            using(var mainScope = new EditorGUILayout.VerticalScope(Styles.backgroundShadow)) {
-                using(new GUIColor(Styles.textStyle.normal.textColor * 0.05f))
+        private void CustomOnGUI()
+        {
+            using (var mainScope = new EditorGUILayout.VerticalScope(Styles.backgroundShadow))
+            {
+                using (new GUIColor(Styles.textStyle.normal.textColor * 0.05f))
                     GUI.DrawTexture(mainScope.rect, FullscreenUtility.FullscreenIcon, ScaleMode.ScaleAndCrop);
 
                 GUILayout.FlexibleSpace();
 
-                using(new EditorGUILayout.HorizontalScope()) {
+                using (new EditorGUILayout.HorizontalScope())
+                {
                     GUILayout.FlexibleSpace();
 
-                    using(new GUIContentColor(Styles.textStyle.normal.textColor))
+                    using (new GUIContentColor(Styles.textStyle.normal.textColor))
                         GUILayout.Label(FullscreenUtility.FullscreenIcon, Styles.textStyle);
 
-                    using(new EditorGUILayout.VerticalScope()) {
+                    using (new EditorGUILayout.VerticalScope())
+                    {
                         GUILayout.Label("Scene View rendering has been disabled\nto improve fullscreen performance", Styles.textStyle);
                     }
 
                     GUILayout.FlexibleSpace();
                 }
 
-                using(new EditorGUILayout.HorizontalScope()) {
+                using (new EditorGUILayout.HorizontalScope())
+                {
                     GUILayout.FlexibleSpace();
-                    if(GUILayout.Button("Enable Temporarily", Styles.buttonStyle)) {
+                    if (GUILayout.Button("Enable Temporarily", Styles.buttonStyle))
+                    {
                         // Do this outside of OnGUI to prevent controls count errors
                         After.Frames(1, () => EnableRenderingTemporarily());
                         var _this = (object)this as SceneView;
                         _this.Focus();
                     }
-                    if(GUILayout.Button("Enable Permanently", Styles.buttonStyle)) {
+                    if (GUILayout.Button("Enable Permanently", Styles.buttonStyle))
+                    {
                         // Do this outside of OnGUI to prevent controls count errors
                         After.Frames(1, () => EnableRenderingPermanently());
                         var _this = (object)this as SceneView;
@@ -139,11 +160,13 @@ namespace FullscreenEditor {
             }
         }
 
-        public static void EnableRenderingTemporarily() {
+        public static void EnableRenderingTemporarily()
+        {
             RenderingDisabled = false;
         }
 
-        public static void EnableRenderingPermanently() {
+        public static void EnableRenderingPermanently()
+        {
             FullscreenPreferences.DisableSceneViewRendering.Value = false;
         }
 
