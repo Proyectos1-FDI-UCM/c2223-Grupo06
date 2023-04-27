@@ -63,6 +63,10 @@ public class UIManager : MonoBehaviour
     private int _posPiernas;
     private int _posAlubiat;
     private int _posCostillas;
+
+    private float _bgmVolumeValue;
+    private float _sfxVolumeValue;
+    private float _ambienceVolumeValue;
     #endregion
 
     public void RequestStateChange(GameManager.GameStates newState)
@@ -319,9 +323,18 @@ public class UIManager : MonoBehaviour
     {
         if (AudioManager.Instance != null)
         {
-            _sliderBGM.value = AudioManager.Instance.SetSliderValue(0);
-            _sliderSFX.value = AudioManager.Instance.SetSliderValue(1);
-            _sliderAmbience.value = AudioManager.Instance.SetSliderValue(2);
+            // guarda los valores
+            _bgmVolumeValue = AudioManager.Instance.SetSliderValue(0);
+            _sfxVolumeValue = AudioManager.Instance.SetSliderValue(1);
+            _ambienceVolumeValue = AudioManager.Instance.SetSliderValue(2);
+
+            // los resetea
+            AudioManager.Instance.SetUpAllVolumes();
+
+            // pone el valor correcto
+            _sliderBGM.value = _bgmVolumeValue;
+            _sliderSFX.value = _sfxVolumeValue;
+            _sliderAmbience.value = _ambienceVolumeValue;
         }
     }
 
