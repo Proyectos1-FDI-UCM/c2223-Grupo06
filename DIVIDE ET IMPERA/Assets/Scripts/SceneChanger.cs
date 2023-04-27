@@ -121,13 +121,60 @@ public class SceneChanger : MonoBehaviour
         FadeToLevel(whatLvl);
 
         // Siguiendo el índice de las escenas en la build, he aqui una chapuza
-        if (GameManager.Instance != null) // cambiar después de tal
-            if (whatLvl == 7) // a despedida
-                GameManager.Instance.RequestStateChange(GameManager.GameStates.GAMEOVER);
-            else if (whatLvl == 8 || whatLvl == 12) // a puntos flujo y puntos testing
-                GameManager.Instance.RequestStateChange(GameManager.GameStates.SCORE);
-            else if (whatLvl > 0 && whatLvl < 7) // a juego normal que no sea inicio
-                GameManager.Instance.RequestStateChange(GameManager.GameStates.GAME);
+        if (GameManager.Instance != null) // cambiar después de tal 
+        {
+            GameManager.GameStates estado = GameManager.GameStates.START;
+            switch (whatLvl)
+            {
+                case 0: // 1_INICIO
+                    estado = GameManager.GameStates.START;
+                    break;
+                case 1: // 2_TUTORIAL
+                    estado = GameManager.GameStates.GAME;
+                    break;
+                case 2: // 3_PRINCIPAL
+                    estado = GameManager.GameStates.GAME;
+                    break;
+                case 3: // 4_ALUBIA
+                    estado = GameManager.GameStates.INTRO;
+                    break;
+                case 4: // 5.1_BOB_BUENO
+                    estado = GameManager.GameStates.INTRO;
+                    break;
+                case 5: // 5.2_BOB_MALO
+                    estado = GameManager.GameStates.INTRO;
+                    break;
+                case 6: // 6_PUZLE
+                    estado = GameManager.GameStates.GAME;
+                    break;
+                case 7: // 7_DESPEDIDA
+                    estado = GameManager.GameStates.GAMEOVER;
+                    break;
+                case 8: // 8_PUNTOS
+                    estado = GameManager.GameStates.SCORE;
+                    break;
+                case 9: // 9_CREDITOS
+                    estado = GameManager.GameStates.CREDITS;
+                    break;
+
+                    // TESTING
+                case 10: // 1T INICIO
+                    estado = GameManager.GameStates.START;
+                    break;   
+                case 11: // 2T TUTORIAL
+                    estado = GameManager.GameStates.GAME;
+                    break;
+                case 12: // 3T PUNTOS
+                    estado = GameManager.GameStates.SCORE;
+                    break;       
+                    
+                    // LOGO  /  WIP
+                case 13: // 0 LOGO
+                    estado = GameManager.GameStates.INTRO; // ???????????
+                    break;
+            }
+            GameManager.Instance.RequestStateChange(estado);
+        }
     }
     #endregion
 

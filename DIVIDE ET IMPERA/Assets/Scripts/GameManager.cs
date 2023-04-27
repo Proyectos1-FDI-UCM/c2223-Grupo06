@@ -197,6 +197,11 @@ public class GameManager : MonoBehaviour
         }
         _instance = this;
         gameObject.transform.parent = null;
+
+        // Cursor
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+
         DontDestroyOnLoad(gameObject);
     }
 
