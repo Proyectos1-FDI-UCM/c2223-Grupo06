@@ -7111,6 +7111,10 @@ PrefabInstance:
       propertyPath: _player
       value: 
       objectReference: {fileID: 1738796222}
+    - target: {fileID: 1895986978832625424, guid: 49513209d412c6b43be78cafe79165de, type: 3}
+      propertyPath: _lines.Array.data[1]
+      value: "BOB: Te quedan a\xFAn un par de cosas que aprender"
+      objectReference: {fileID: 0}
     - target: {fileID: 2395157052307697462, guid: 49513209d412c6b43be78cafe79165de, type: 3}
       propertyPath: m_Name
       value: Tutorial-5
