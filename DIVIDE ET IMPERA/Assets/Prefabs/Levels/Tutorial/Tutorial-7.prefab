@@ -549,7 +549,7 @@ GameObject:
   - component: {fileID: 5060380286701699461}
   - component: {fileID: 1392592642778815879}
   m_Layer: 5
-  m_Name: Textito (1)
+  m_Name: Textito 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -572,7 +572,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 177.53015, y: -12.994455}
+  m_AnchoredPosition: {x: 177.66, y: -11.73}
   m_SizeDelta: {x: 5.7854, y: 1.3411}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5060380286701699461
@@ -603,11 +603,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'C soltar piernaas
-
-    Shift + C
-
-    CAmbiar control'
+  m_text: "C\nsoltar / recoger \npiernas"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 4edb072917211484993c64ca7c3f3ff1, type: 2}
   m_sharedMaterial: {fileID: 9142865356264516814, guid: 4edb072917211484993c64ca7c3f3ff1, type: 2}
@@ -670,7 +666,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -0.00000023841858, y: 0, z: 0.0005121231, w: 0}
+  m_margin: {x: -0.00000023841858, y: 0, z: 0.0005121231, w: -2.1948328}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
