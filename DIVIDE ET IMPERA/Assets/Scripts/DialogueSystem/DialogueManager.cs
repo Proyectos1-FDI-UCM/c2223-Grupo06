@@ -226,8 +226,7 @@ public class DialogueManager : MonoBehaviour
 
             // activa la animacion de timmy corriendo  
             _player.GetComponent<PlayerAnimationController>().IsMoving = true;
-            // cambia el sentido del player para que mire al lado al que va
-            _player.transform.localScale = new Vector2(-1f, 1f);
+            FlipTimoteoBeforeSpeaking();
             // mueve a timmy al waypoint
             _playerTransform.position = Vector3.MoveTowards(_playerTransform.position,  // posición inicial 
                 WaypointDialogo.transform.position, _speed * Time.deltaTime);           // posición final
@@ -237,9 +236,24 @@ public class DialogueManager : MonoBehaviour
             // desactiva la animacion de timmy corriendo
             _player.GetComponent<PlayerAnimationController>().IsMoving = false;
             // cambia el sentido del player para que mire al npc
-            _player.transform.localScale = new Vector2(1f, 1f);
+            FlipTimoteoBeforeSpeaking();
+            //_player.transform.localScale = new Vector2(1f, 1f);
             _moveTimmy = false;
         }
+    }
+
+    private void FlipTimoteoBeforeSpeaking()
+    {
+
+        if (0.1f < _player.transform.position.x - WaypointDialogo.transform.position.x)
+        {
+            _player.transform.localScale = new Vector2(-1f, 1f);
+        }
+        else
+        {
+            _player.transform.localScale = new Vector2(1f, 1f);
+        }
+
     }
     #endregion
 
