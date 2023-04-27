@@ -809,11 +809,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2980812906482370455, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 421.8
+      value: 513.44
       objectReference: {fileID: 0}
     - target: {fileID: 2980812906482370455, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 128.65
+      value: 191.34
       objectReference: {fileID: 0}
     - target: {fileID: 2980812906482370455, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
       propertyPath: m_LocalPosition.z
@@ -825,7 +825,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2980812906482370455, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 34
+      value: 9.62
       objectReference: {fileID: 0}
     - target: {fileID: 2980812906896535388, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
       propertyPath: m_RootOrder
@@ -1076,6 +1076,14 @@ PrefabInstance:
     - target: {fileID: 2980812907516896382, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
       propertyPath: _lines.Array.data[28]
       value: "NARRADOR: Se da la vuelta y se esconde de nuevo en su ata\xFAd"
+      objectReference: {fileID: 0}
+    - target: {fileID: 2980812907809313247, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 5.84
+      objectReference: {fileID: 0}
+    - target: {fileID: 2980812907809313247, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.27
       objectReference: {fileID: 0}
     - target: {fileID: 2980812907860231591, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
       propertyPath: _player
@@ -22310,6 +22318,7 @@ MonoBehaviour:
   _followSpeed: 2
   _horizontalOffset: 0
   _verticalOffset: 1
+  _timeOnObject: 0
 --- !u!81 &2047791153
 AudioListener:
   m_ObjectHideFlags: 0
