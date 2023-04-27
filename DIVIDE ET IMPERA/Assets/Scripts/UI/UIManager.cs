@@ -28,8 +28,8 @@ public class UIManager : MonoBehaviour
     public GameObject FirstButton { get { return _firstButton; } set { _firstButton = value; } }
     // array de botones iniciales por escenas NO REIRSE DE MI >:(
     [SerializeField] private GameObject[] _firstButtons;
-    // 0 inicial, 1 intro, 2 game, 3 pausa, 4 gameover,
-    // 5 puntuación, 6 selector de niveles, 7  controles, 8 opciones, 9 credits
+    // 0 inicial, 1 intro, 2 game, 3 pausa, 4 gameover, 5 puntuación,
+    // 6 selector de niveles, 7  controles, 8 opciones, 9 credits
     public GameObject[] FirstButtons { get { return _firstButtons; } }
 
     /// HUD
@@ -44,10 +44,13 @@ public class UIManager : MonoBehaviour
     [SerializeField] private Slider _sliderAmbience;
 
     // time, score text y finales
-    [SerializeField] private TMP_Text _timeText;
+    [SerializeField] private TMP_Text _timeText; // tiempo en hud
     [SerializeField] private TMP_Text _scoreHUDText; // score en hud
-    [SerializeField] private TMP_Text _scoreMenuText;
-    [SerializeField] private GameObject[] endings;
+    [SerializeField] private TMP_Text _scoreMenuPoints; // puntos en menú final
+    [SerializeField] private TMP_Text _scoreMenuText; // mensaje final
+    [SerializeField] private GameObject[] endings; // imágenes del final
+    [SerializeField] private string[] messages; // mensajes según el final
+    // 0 TERRIBLISIMO, 1 MALAMENTE, 2 REGULA, 3 ASEPTABLE, 4 CRANEOPERSENT
     #endregion
 
     #region properties
@@ -83,19 +86,6 @@ public class UIManager : MonoBehaviour
         if (_firstButton != null && EventSystem.current != null)
             EventSystem.current.SetSelectedGameObject(_firstButton); // cambia el botón seleccionado
     }
-
-    /* public void UpdateMenu() // esto lo usariamos si se cambia informacion in real time (SEGURAMENTE CUANDO SPEEDRUNNING CON EL TEMA CRONÓMETRO!!)
-    {
-        if(_activeMenu == GameManager.GameStates.START)
-        {
-            _selectedMenu = _game;
-            SetMenu(GameManager.GameStates.GAME);
-        }
-        else if(_activeMenu == GameManager.GameStates.GAME)
-        {
-            
-        }
-    } */
 
     #region STATE MOVEMENT
     public void StartToIntro()      // menu iniacial -> intro (empezar a jugar)
@@ -312,8 +302,9 @@ public class UIManager : MonoBehaviour
 
     public void ScoreMenuSetUp(int score, int ending) // score en el menú final
     {
-        _scoreMenuText.text = "Puntos: " + score;
-        Debug.Log("FINAL: " + score + ", " + ending);
+        _scoreMenuPoints.text = "Puntos: " + score;
+        _scoreMenuText.text = messages[ending];
+        Debug.Log("FINAL: " + ending + ", SCORE: " + ending + ", MENSAJE: " + messages[ending]);
         for (int i = 0; i < endings.Length; i++) // desactiva el que no sea y activa el que sea
         {
             if (i == ending)

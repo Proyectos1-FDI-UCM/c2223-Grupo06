@@ -2447,7 +2447,7 @@ MonoBehaviour:
   _IntroMenu: {fileID: 4442884401406988829}
   _HUD: {fileID: 2076869503684516377}
   _PauseMenu: {fileID: 928644761503377864}
-  _GameOverMenu: {fileID: 7548165634740114128}
+  _GameOverMenu: {fileID: 4442884401406988829}
   _scoreMenu: {fileID: 7548165634740114128}
   _levelSelector: {fileID: 1966480668463266908}
   _player: {fileID: 0}
@@ -2493,13 +2493,20 @@ MonoBehaviour:
   _sliderAmbience: {fileID: 3631607777897918070}
   _timeText: {fileID: 8371498597946304123}
   _scoreHUDText: {fileID: 3300734757422693746}
-  _scoreMenuText: {fileID: 7286306520411691892}
+  _scoreMenuPoints: {fileID: 7286306520411691892}
+  _scoreMenuText: {fileID: 5791212311232743993}
   endings:
   - {fileID: 1282272429187083318}
   - {fileID: 1425903930613718215}
   - {fileID: 4564485878204731174}
   - {fileID: 3686448929383382265}
   - {fileID: 6033695195617237927}
+  messages:
+  - "Alubia dice... \"Terrible, se te deber\xEDa caer la calavera de verg\xFCenza.\""
+  - Bob dice... "Lo importante es que lo has intentado."
+  - "Bob dice... \"\xA1Sigue hincando los c\xFAbitos, Timmy!\""
+  - Bob dice... "Estoy muy orgulloso de ti."
+  - "Timoteo dice... \"\xA1Por fin volver\xE9 a comer sopa!\"\""
   _activeMenu: 0
 --- !u!1 &2076869504062052000
 GameObject:

@@ -26,6 +26,7 @@ public class GameManager : MonoBehaviour
 
     // puntuación
     private int _ending;
+    // 0 TERRIBLISIMO, 1 MALAMENTE, 2 REGULA, 3 ASEPTABLE, 4 CRANEOPERSENT
     private bool _alubiat;
     public bool Alubiat { get { return _alubiat; } set { _alubiat = value; } }
     private int _score;
