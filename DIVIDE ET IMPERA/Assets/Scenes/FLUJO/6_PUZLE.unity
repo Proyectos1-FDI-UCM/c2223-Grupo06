@@ -731,6 +731,22 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -91
       objectReference: {fileID: 0}
+    - target: {fileID: 313266216777787786, guid: cee91a11c0a2cc945aa103e7c7d08df0, type: 3}
+      propertyPath: _player
+      value: 
+      objectReference: {fileID: 1538709455}
+    - target: {fileID: 313266216777787786, guid: cee91a11c0a2cc945aa103e7c7d08df0, type: 3}
+      propertyPath: _lines.Array.data[0]
+      value: 'BOB: Usa las piernas de tu padre'
+      objectReference: {fileID: 0}
+    - target: {fileID: 313266216777787786, guid: cee91a11c0a2cc945aa103e7c7d08df0, type: 3}
+      propertyPath: _lines.Array.data[1]
+      value: "BOB: como si fuesen una extensi\xF3n de ti mismo"
+      objectReference: {fileID: 0}
+    - target: {fileID: 313266216777787786, guid: cee91a11c0a2cc945aa103e7c7d08df0, type: 3}
+      propertyPath: _lines.Array.data[2]
+      value: 'BOB: Como otro par de piernas'
+      objectReference: {fileID: 0}
     - target: {fileID: 2924770404080386664, guid: cee91a11c0a2cc945aa103e7c7d08df0, type: 3}
       propertyPath: m_Tiles.Array.size
       value: 854
