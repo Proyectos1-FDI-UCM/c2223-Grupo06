@@ -2506,7 +2506,7 @@ MonoBehaviour:
   - Bob dice... "Lo importante es que lo has intentado."
   - "Bob dice... \"\xA1Sigue hincando los c\xFAbitos, Timmy!\""
   - Bob dice... "Estoy muy orgulloso de ti."
-  - "Timoteo dice... \"\xA1Por fin volver\xE9 a comer sopa!\"\""
+  - "Timoteo dice... \"\xA1Por fin volver\xE9 a comer sopa!\""
   _activeMenu: 0
 --- !u!1 &2076869504062052000
 GameObject:

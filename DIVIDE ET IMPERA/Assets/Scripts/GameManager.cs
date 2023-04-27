@@ -208,7 +208,7 @@ public class GameManager : MonoBehaviour
         _ending = 0;
         _resetCounter = 0;
         _tiempo = 0;
-        _score = 1500;
+        _score = 500;
         _alubiat = true;
     }
 
