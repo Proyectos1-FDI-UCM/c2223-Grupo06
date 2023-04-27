@@ -174,44 +174,28 @@ public class DialogueManager : MonoBehaviour
 
     public void ProcessInput()
     {
-        //Debug.Log("lineas length "+_lines.Length);
-        //Debug.Log("index " + _index);
 
         // checkea si esta en la ultima linea (ya escrita) y (si la linea actual es la corresponiente[caso en el que
         // no ha cancelado que se escriba la linea] o que se estuviera escribiendo la linea), por lo que si ha
         // acabado de escribir, estaba a medias y no esta en la ultma linea, escirbe la siguiente
-
-        /*
-        if (_lines.Length > _index + 1 && (_dialogueText.text == _lines[_index] || _writingLine)) // siguiente linea
-        {
-            StopAllCoroutines();
-            Debug.Log("1" + _dialogueText.text);
-            Debug.Log("2" + _lines[_index]);
-            NextLine();
-        }
-        */
         if (_lines.Length > _index + 1) // siguiente linea
         {
+            // si sigue escribiendo la linea
             if (_writingLine)
             {
-                Debug.Log("1");
+                // para todas las corrutinas para que no se dupliquen las lineas
                 StopAllCoroutines();
+                // escribe la linea
                 _dialogueText.text = _lines[_index];
+                // deja de escribir la linea
                 _writingLine = false;
-                /*int i = _index;
-                while (i > _lines.Length)
-                {
-                    _dialogueText.text = _lines[_index];
-                    _index++;
-                }
-                */
             }
+            // si ya ha acabado de escribir
             else if (_dialogueText.text == _lines[_index])
             {
-                Debug.Log("2");
+                // para todas las corrutinas
                 StopAllCoroutines();
-                //Debug.Log("1" + _dialogueText.text);
-                //Debug.Log("2" + _lines[_index]);
+                // pasa a la siguiente linea
                 NextLine();
                 
             }
@@ -236,17 +220,29 @@ public class DialogueManager : MonoBehaviour
        
         if (_playerTransform.position.x < WaypointDialogo.transform.position.x - 0.05 || _playerTransform.position.x > WaypointDialogo.transform.position.x + 0.05)
         {
+            // quita el input del player
             _inputController.enabled = false;
             _inputControllerDialogue.enabled = true;
+
+            // activa la animacion de timmy corriendo  
+            _player.GetComponent<PlayerAnimationController>().IsMoving = true;
+            // cambia el sentido del player para que mire al lado al que va
+            _player.transform.localScale = new Vector2(-1f, 1f);
+            // mueve a timmy al waypoint
             _playerTransform.position = Vector3.MoveTowards(_playerTransform.position,  // posición inicial 
                 WaypointDialogo.transform.position, _speed * Time.deltaTime);           // posición final
         }
         else
         {
+            // desactiva la animacion de timmy corriendo
+            _player.GetComponent<PlayerAnimationController>().IsMoving = false;
+            // cambia el sentido del player para que mire al npc
+            _player.transform.localScale = new Vector2(1f, 1f);
             _moveTimmy = false;
         }
     }
     #endregion
+
     #endregion
 
     void Start()

@@ -7,6 +7,9 @@ public class PlayerAnimationController : MonoBehaviour
     private GroundCheck _myGroundCheck;
     private MovementComponent _myMovementComponent;
     private ThrowComponent _myThrowComponent;
+
+    private bool _isMoving;
+    public bool IsMoving { get { return _isMoving; } set { _isMoving = value; } }
     #endregion 
     void Start()
     {
@@ -39,8 +42,9 @@ public class PlayerAnimationController : MonoBehaviour
             _myAnimator.ResetTrigger("isGrounded");
         }
 
-        if (_myMovementComponent.Direccion != 0
+        if ((_myMovementComponent.Direccion != 0
             && !(Input.GetKey(KeyCode.LeftArrow) && Input.GetKey(KeyCode.RightArrow)))
+            || _isMoving)
         {
             _myAnimator.SetTrigger("isRunning");
         }
