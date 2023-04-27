@@ -14742,7 +14742,7 @@ PrefabInstance:
       objectReference: {fileID: 509390037}
     - target: {fileID: 742018286442928541, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
       propertyPath: _speedText
-      value: 0.2
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 742018286442928541, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
       propertyPath: _lines.Array.size
@@ -15094,7 +15094,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6095030006345611481, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.85
+      value: -1.94
+      objectReference: {fileID: 0}
+    - target: {fileID: 6095030006345611481, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.55
       objectReference: {fileID: 0}
     - target: {fileID: 6896124482137434298, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
       propertyPath: m_margin.w

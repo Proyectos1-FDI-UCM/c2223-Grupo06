@@ -7354,6 +7354,10 @@ PrefabInstance:
       propertyPath: _lines.Array.data[14]
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 7723134987650441192, guid: 447ba14bf32135943b78549d62524cca, type: 3}
+      propertyPath: _player
+      value: 
+      objectReference: {fileID: 1738796222}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 447ba14bf32135943b78549d62524cca, type: 3}
 --- !u!4 &2140272901 stripped
