@@ -226,6 +226,7 @@ public class DialogueManager : MonoBehaviour
 
             // activa la animacion de timmy corriendo  
             _player.GetComponent<PlayerAnimationController>().IsMoving = true;
+            // flippea al timmy
             FlipTimoteoBeforeSpeaking();
             // mueve a timmy al waypoint
             _playerTransform.position = Vector3.MoveTowards(_playerTransform.position,  // posición inicial 
@@ -242,14 +243,17 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Solo funciona si el waypoint esta a la izquierda del npc asi que cuidao
+    /// </summary>
     private void FlipTimoteoBeforeSpeaking()
     {
-
+        // si la diferencia entre el player y el waypoint es mayor que 0 significa que esta a la derecha
         if (0.1f < _player.transform.position.x - WaypointDialogo.transform.position.x)
         {
             _player.transform.localScale = new Vector2(-1f, 1f);
         }
-        else
+        // si la diferencia entre el player y el waypoint es menor que 0 significa que esta a la izquierda
         {
             _player.transform.localScale = new Vector2(1f, 1f);
         }
