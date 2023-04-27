@@ -63,8 +63,6 @@ public class PalancaComponent : MonoBehaviour
     // activa o desactiva la palanca dependiendo de su estado anterior
     public bool ActivarPalanca()
     {
-
-        Debug.Log("uwu");
         bool _lvr = !_palanca;
         _palanca = !_palanca;
         return _lvr;

@@ -174,6 +174,9 @@ public class DialogueManager : MonoBehaviour
 
     public void ProcessInput()
     {
+        Debug.Log("lineas length "+_lines.Length);
+        Debug.Log("index " + _index);
+
         // checkea si esta en la ultima linea (ya escrita) y (si la linea actual es la corresponiente[caso en el que
         // no ha cancelado que se escriba la linea] o que se estuviera escribiendo la linea), por lo que si ha
         // acabado de escribir, estaba a medias y no esta en la ultma linea, escirbe la siguiente
@@ -187,6 +190,7 @@ public class DialogueManager : MonoBehaviour
         else // fin dialogo
         {
             StopAllCoroutines();
+            _writingLine = false;
             // _dialogueText.text = _lines[_index]; // no hace falta ,':·/
             _inputController.enabled = true;
             _inputControllerDialogue.enabled = false;
@@ -200,8 +204,7 @@ public class DialogueManager : MonoBehaviour
     #region mover timoteo
     void MoveTimoteo()  // Hace que Timoteo se mueva hacia el waypoint correspondiente con la velocidad marcada
     {
-        Debug.Log(_playerTransform.position.x + " aaa" + WaypointDialogo.transform.position.x);
-        Debug.Log(_playerTransform.position.x == WaypointDialogo.transform.position.x);
+       
         if (_playerTransform.position.x < WaypointDialogo.transform.position.x - 0.05 || _playerTransform.position.x > WaypointDialogo.transform.position.x + 0.05)
         {
             _inputController.enabled = false;
