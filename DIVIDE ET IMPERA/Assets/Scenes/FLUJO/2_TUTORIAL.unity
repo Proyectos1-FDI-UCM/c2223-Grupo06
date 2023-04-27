@@ -7232,70 +7232,75 @@ PrefabInstance:
       objectReference: {fileID: 1738796222}
     - target: {fileID: 4788434513726673035, guid: 447ba14bf32135943b78549d62524cca, type: 3}
       propertyPath: _lines.Array.size
-      value: 14
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 4788434513726673035, guid: 447ba14bf32135943b78549d62524cca, type: 3}
       propertyPath: _lines.Array.data[0]
-      value: "NARRADOR: Tu difunto t\xEDo Bob \"El constructor\" (1780-1841) te mira
-        entre las sombras"
+      value: "ra entre las sombras t\xEDo Bob \"El constructor\" (1780-1841)"
       objectReference: {fileID: 0}
     - target: {fileID: 4788434513726673035, guid: 447ba14bf32135943b78549d62524cca, type: 3}
       propertyPath: _lines.Array.data[1]
-      value: "BOB: \xA1Timoteo! \xA1Te estaba esperando!"
+      value: 'BOB: Te mira entre las sombras'
       objectReference: {fileID: 0}
     - target: {fileID: 4788434513726673035, guid: 447ba14bf32135943b78549d62524cca, type: 3}
       propertyPath: _lines.Array.data[2]
-      value: "NARRADOR: El construy\xF3 esta cripta, se sabe cada ladrillo como las
-        falanges de su mano"
+      value: "BOB: \xA1Timoteo! \xA1Te estaba esperando!"
       objectReference: {fileID: 0}
     - target: {fileID: 4788434513726673035, guid: 447ba14bf32135943b78549d62524cca, type: 3}
       propertyPath: _lines.Array.data[3]
-      value: "TIMOTEO: \xBFC\xF3mo sab\xEDas que vendr\xEDa?"
+      value: "NARRADOR: \xC9l construy\xF3 esta cripta"
       objectReference: {fileID: 0}
     - target: {fileID: 4788434513726673035, guid: 447ba14bf32135943b78549d62524cca, type: 3}
       propertyPath: _lines.Array.data[4]
-      value: "BOB: Me lo ha dicho un pajarito, los planos de este sitio son escabrosos
-        \xBFsabes?"
+      value: 'BOB: Se sabe cada ladrillo como las falanges de su mano'
       objectReference: {fileID: 0}
     - target: {fileID: 4788434513726673035, guid: 447ba14bf32135943b78549d62524cca, type: 3}
       propertyPath: _lines.Array.data[5]
-      value: "BOB: No cualquiera se las apa\xF1ar\xEDa solo"
+      value: "TIMOTEO: \xBFC\xF3mo sab\xEDas que vendr\xEDa?"
       objectReference: {fileID: 0}
     - target: {fileID: 4788434513726673035, guid: 447ba14bf32135943b78549d62524cca, type: 3}
       propertyPath: _lines.Array.data[6]
-      value: 'TIMOTEO: Yo no soy cualquiera'
+      value: 'BOB: Me lo ha dicho un pajarito'
       objectReference: {fileID: 0}
     - target: {fileID: 4788434513726673035, guid: 447ba14bf32135943b78549d62524cca, type: 3}
       propertyPath: _lines.Array.data[7]
-      value: "NARRADOR: Jam\xE1s escapar\xEDas de aqu\xED sin su ayuda"
+      value: "BOB: Los planos de este sitio son escabrosos, \xBFsabes?"
       objectReference: {fileID: 0}
     - target: {fileID: 4788434513726673035, guid: 447ba14bf32135943b78549d62524cca, type: 3}
       propertyPath: _lines.Array.data[8]
-      value: "BOB: \xA1Claro que no su alteza!"
+      value: "BOB: No cualquiera se las apa\xF1ar\xEDa solo"
       objectReference: {fileID: 0}
     - target: {fileID: 4788434513726673035, guid: 447ba14bf32135943b78549d62524cca, type: 3}
       propertyPath: _lines.Array.data[9]
-      value: 'TIMOTEO: ...'
+      value: 'TIMOTEO: Yo no soy cualquiera'
       objectReference: {fileID: 0}
     - target: {fileID: 4788434513726673035, guid: 447ba14bf32135943b78549d62524cca, type: 3}
       propertyPath: _lines.Array.data[10]
-      value: "NARRADOR: \xBFSiempre fue as\xED de divertido tu t\xEDo Bob?"
+      value: "NARRADOR: Jam\xE1s escapar\xEDas de aqu\xED sin su ayuda"
       objectReference: {fileID: 0}
     - target: {fileID: 4788434513726673035, guid: 447ba14bf32135943b78549d62524cca, type: 3}
       propertyPath: _lines.Array.data[11]
-      value: 'BOB: Adelante monarca mortuorio, primer puzle'
+      value: "BOB: \xA1Claro que no su alteza!"
       objectReference: {fileID: 0}
     - target: {fileID: 4788434513726673035, guid: 447ba14bf32135943b78549d62524cca, type: 3}
       propertyPath: _lines.Array.data[12]
-      value: 'BOB: Salir de la sala de tu entierro'
+      value: 'TIMOTEO: ...'
       objectReference: {fileID: 0}
     - target: {fileID: 4788434513726673035, guid: 447ba14bf32135943b78549d62524cca, type: 3}
       propertyPath: _lines.Array.data[13]
-      value: 'NARRADOR: A por la palanca'
+      value: "NARRADOR: \xBFSiempre fue as\xED de divertido tu t\xEDo Bob?"
       objectReference: {fileID: 0}
     - target: {fileID: 4788434513726673035, guid: 447ba14bf32135943b78549d62524cca, type: 3}
       propertyPath: _lines.Array.data[14]
-      value: 
+      value: 'BOB: Adelante monarca mortuorio, primer puzle'
+      objectReference: {fileID: 0}
+    - target: {fileID: 4788434513726673035, guid: 447ba14bf32135943b78549d62524cca, type: 3}
+      propertyPath: _lines.Array.data[15]
+      value: 'BOB: Salir de la sala de tu entierro'
+      objectReference: {fileID: 0}
+    - target: {fileID: 4788434513726673035, guid: 447ba14bf32135943b78549d62524cca, type: 3}
+      propertyPath: _lines.Array.data[16]
+      value: 'NARRADOR: A por la palanca'
       objectReference: {fileID: 0}
     - target: {fileID: 7723134987650441192, guid: 447ba14bf32135943b78549d62524cca, type: 3}
       propertyPath: _player
