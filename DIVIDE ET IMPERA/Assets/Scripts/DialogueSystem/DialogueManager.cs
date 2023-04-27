@@ -166,7 +166,7 @@ public class DialogueManager : MonoBehaviour
         }
         else
         {
-            Debug.Log("desactivate buen hombre");
+            //Debug.Log("desactivate buen hombre");
             _dialogueText.text = string.Empty;
             enabled = false; // desactivar el objeto -> FIN DIALOGO
         }
@@ -174,18 +174,47 @@ public class DialogueManager : MonoBehaviour
 
     public void ProcessInput()
     {
-        Debug.Log("lineas length "+_lines.Length);
-        Debug.Log("index " + _index);
+        //Debug.Log("lineas length "+_lines.Length);
+        //Debug.Log("index " + _index);
 
         // checkea si esta en la ultima linea (ya escrita) y (si la linea actual es la corresponiente[caso en el que
         // no ha cancelado que se escriba la linea] o que se estuviera escribiendo la linea), por lo que si ha
         // acabado de escribir, estaba a medias y no esta en la ultma linea, escirbe la siguiente
+
+        /*
         if (_lines.Length > _index + 1 && (_dialogueText.text == _lines[_index] || _writingLine)) // siguiente linea
         {
             StopAllCoroutines();
             Debug.Log("1" + _dialogueText.text);
             Debug.Log("2" + _lines[_index]);
             NextLine();
+        }
+        */
+        if (_lines.Length > _index + 1) // siguiente linea
+        {
+            if (_writingLine)
+            {
+                Debug.Log("1");
+                StopAllCoroutines();
+                _dialogueText.text = _lines[_index];
+                _writingLine = false;
+                /*int i = _index;
+                while (i > _lines.Length)
+                {
+                    _dialogueText.text = _lines[_index];
+                    _index++;
+                }
+                */
+            }
+            else if (_dialogueText.text == _lines[_index])
+            {
+                Debug.Log("2");
+                StopAllCoroutines();
+                //Debug.Log("1" + _dialogueText.text);
+                //Debug.Log("2" + _lines[_index]);
+                NextLine();
+                
+            }
         }
         else // fin dialogo
         {

@@ -10448,13 +10448,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2076869504003675095, guid: 59f3bbb5802b17140a954d4cbd3ee516, type: 3}
+      propertyPath: _player
+      value: 
+      objectReference: {fileID: 298932137}
     - target: {fileID: 2076869504003675100, guid: 59f3bbb5802b17140a954d4cbd3ee516, type: 3}
       propertyPath: m_Name
       value: UI
       objectReference: {fileID: 0}
     - target: {fileID: 2076869504003675100, guid: 59f3bbb5802b17140a954d4cbd3ee516, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3302585916420237717, guid: 59f3bbb5802b17140a954d4cbd3ee516, type: 3}
       propertyPath: m_IsActive
@@ -10536,23 +10540,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 742018286442928541, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
       propertyPath: _lines.Array.data[0]
-      value: holi
+      value: A ver si me suben el sueldo ya...
       objectReference: {fileID: 0}
     - target: {fileID: 742018286442928541, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
       propertyPath: _lines.Array.data[1]
-      value: sabias que los peones solo se pueden mover hacia delanta
+      value: No puedo pagarle los libros de lectura a mi hija sin mas sueldo...
       objectReference: {fileID: 0}
     - target: {fileID: 742018286442928541, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
       propertyPath: _lines.Array.data[2]
-      value: como andan los maquinaaaas
+      value: Si tan solo apreciaran mis duros esfuerzos...
       objectReference: {fileID: 0}
     - target: {fileID: 742018286442928541, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
       propertyPath: _lines.Array.data[3]
-      value: vamos a bombardear vallecaas
+      value: "Ay... Qu\xE9 ser\xE1 de mi hija si no puede leer el Quijote"
       objectReference: {fileID: 0}
     - target: {fileID: 742018286442928541, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
       propertyPath: _lines.Array.data[4]
-      value: sopa de gallina blanca
+      value: "\xA1Qu\xE9 mal padre soy!"
       objectReference: {fileID: 0}
     - target: {fileID: 1613157860166873112, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
       propertyPath: m_LocalPosition.x
@@ -10568,7 +10572,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2980812906896535388, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.7288625
+      value: -0.46
       objectReference: {fileID: 0}
     - target: {fileID: 2980812906896535388, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
       propertyPath: m_LocalPosition.z
@@ -10625,6 +10629,10 @@ PrefabInstance:
     - target: {fileID: 5573008694353342413, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6095030006345611481, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2.18
       objectReference: {fileID: 0}
     - target: {fileID: 7026903279659086247, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
       propertyPath: m_IsActive
