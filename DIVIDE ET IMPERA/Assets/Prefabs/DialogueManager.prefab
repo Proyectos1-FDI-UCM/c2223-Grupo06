@@ -1356,32 +1356,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4328615265229192514, guid: 7b8132f06df2b3649bf86bf114959fc6, type: 3}
   m_PrefabInstance: {fileID: 2980812906311340369}
   m_PrefabAsset: {fileID: 0}
---- !u!61 &2980812907516896380
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1535636410026421267}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -1.0467598, y: 0.04468727}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.875, y: 1.875}
-    newSize: {x: 1, y: 0.65}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 4.296251, y: 1.9691}
-  m_EdgeRadius: 0
 --- !u!114 &2980812907516896382
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1404,6 +1378,7 @@ MonoBehaviour:
   _speedText: 0.1
   WaypointDialogo: {fileID: 2980812906953256008}
   _speed: 3
+  _writingLine: 0
 --- !u!114 &2980812907516896383
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1504,32 +1479,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7145506103767720992, guid: 4b1c50609c9f41e479fa5fb7b7ee4e1b, type: 3}
   m_PrefabInstance: {fileID: 2980812907537600355}
   m_PrefabAsset: {fileID: 0}
---- !u!61 &2980812907860231588
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5364937771508591427}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 1.5752974, y: 0.033760548}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.1875, y: 2.125}
-    newSize: {x: 1.1875, y: 2.125}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 4.8782635, y: 2.130021}
-  m_EdgeRadius: 0
 --- !u!114 &2980812907860231590
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1564,6 +1513,7 @@ MonoBehaviour:
   _speedText: 0.1
   WaypointDialogo: {fileID: 2980812906953256008}
   _speed: 3
+  _writingLine: 0
 --- !u!1001 &3915151674603873619
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1631,32 +1581,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7991494338612534317, guid: e677a08d00ba0704493f3827eb4d1786, type: 3}
   m_PrefabInstance: {fileID: 3915151674603873619}
   m_PrefabAsset: {fileID: 0}
---- !u!61 &4078451003271463408
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6391193322442045822}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.8119933, y: 0.10349429}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.4375, y: 1.9375}
-    newSize: {x: 2.4375, y: 1.9375}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 4.202703, y: 2.1444886}
-  m_EdgeRadius: 0
 --- !u!114 &742018286442928541
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1676,6 +1600,7 @@ MonoBehaviour:
   _speedText: 0.1
   WaypointDialogo: {fileID: 5064752972670972612}
   _speed: 3
+  _writingLine: 0
 --- !u!114 &8019888802381915878
 MonoBehaviour:
   m_ObjectHideFlags: 0
