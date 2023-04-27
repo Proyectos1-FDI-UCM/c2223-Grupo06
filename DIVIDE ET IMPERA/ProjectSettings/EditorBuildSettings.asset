@@ -44,4 +44,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/TESTING/3T_PUNTOS.unity
     guid: 21c5164dfc5314443b2a0e28354a01da
+  - enabled: 1
+    path: Assets/Scenes/FLUJO/0_LOGO.unity
+    guid: 5abae51e01a06fa4b95fe1b97d990d45
   m_configObjects: {}
