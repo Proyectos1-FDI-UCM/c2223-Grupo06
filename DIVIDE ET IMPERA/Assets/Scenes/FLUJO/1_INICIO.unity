@@ -608,6 +608,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8886691423712639741, guid: 233e18c7a6877914aaac4b6aa59b2606, type: 3}
+      propertyPath: _sliderValueBGM
+      value: 0.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 233e18c7a6877914aaac4b6aa59b2606, type: 3}
 --- !u!1 &509390037 stripped
@@ -15081,7 +15085,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6095030006345611481, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.94
+      value: -1.18
       objectReference: {fileID: 0}
     - target: {fileID: 6095030006345611481, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
       propertyPath: m_LocalPosition.y

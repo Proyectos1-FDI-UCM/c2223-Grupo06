@@ -19,11 +19,11 @@ public class AudioManager : MonoBehaviour
     [SerializeField]
     private float _beforeFadeVolume;
     [SerializeField]
-    private float _sliderValueBGM = 0.5f;
+    private float _sliderValueBGM;
     [SerializeField]
-    private float _sliderValueSFX = 0.5f;
+    private float _sliderValueSFX;
     [SerializeField]
-    private float _sliderValueAmbience = 0.5f;
+    private float _sliderValueAmbience;
     int _whichAudioMixer;
 
     #endregion
@@ -81,6 +81,24 @@ public class AudioManager : MonoBehaviour
         }
 
         return auxValue;
+    }
+
+    /// <summary>
+    /// Settea los volumenes despues de un fade. Usar solo despues de fades (cambios de escena)
+    /// </summary>
+    public void SetUpAllVolumesAfterFade()
+    {
+
+    }
+
+    /// <summary>
+    /// Settea los volumenes al principio. Usar solo al principio del juego
+    /// </summary>
+    public void SetUpAllVolumes()
+    {
+        _sliderValueAmbience = 0.5f;
+        _sliderValueBGM = 0.5f;
+        _sliderValueSFX = 0.5f;
     }
     public void SetBGMVolume(float _sliderValue)
     {
@@ -163,10 +181,10 @@ public class AudioManager : MonoBehaviour
             return;
         }
         _instance = this;
+        SetUpAllVolumes();
         _beforeFadeVolume = GetVolume();
-    }
+        
 
-    private void Update()
-    {
+
     }
 }
