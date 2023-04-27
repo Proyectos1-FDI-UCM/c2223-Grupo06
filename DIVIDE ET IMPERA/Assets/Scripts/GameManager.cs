@@ -202,7 +202,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         _currentGameState = GameStates.LEVELSELECTOR; // Valor dummy para que se realice el cambio nada más empezar
-        _nextGameState = GameStates.START;       // Estado inicial, es diferente al current para que el EnterState del primer update se realice
+        _nextGameState = GameStates.GAME;       // Estado inicial, es diferente al current para que el EnterState del primer update se realice
 
         _resetCounter = 0;
         _tiempo = 0;
