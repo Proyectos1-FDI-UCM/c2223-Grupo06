@@ -209,7 +209,7 @@ public class GameManager : MonoBehaviour
         _resetCounter = 0;
         _tiempo = 0;
         _score = 500;
-        _alubiat = true;
+        //_alubiat = true;
     }
 
     void Update()
