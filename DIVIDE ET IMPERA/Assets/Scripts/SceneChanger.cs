@@ -120,12 +120,13 @@ public class SceneChanger : MonoBehaviour
         // cambia de escena
         FadeToLevel(whatLvl);
 
+        // Siguiendo el índice de las escenas en la build, he aqui una chapuza
         if (GameManager.Instance != null) // cambiar después de tal
-            if (whatLvl == 7)
+            if (whatLvl == 7) // a despedida
                 GameManager.Instance.RequestStateChange(GameManager.GameStates.GAMEOVER);
-            else if (whatLvl == 8 || whatLvl == 12) // puntos flujo y puntos testing
+            else if (whatLvl == 8 || whatLvl == 12) // a puntos flujo y puntos testing
                 GameManager.Instance.RequestStateChange(GameManager.GameStates.SCORE);
-            else if (whatLvl > 0 && whatLvl < 7)
+            else if (whatLvl > 0 && whatLvl < 7) // a juego normal que no sea inicio
                 GameManager.Instance.RequestStateChange(GameManager.GameStates.GAME);
     }
     #endregion
