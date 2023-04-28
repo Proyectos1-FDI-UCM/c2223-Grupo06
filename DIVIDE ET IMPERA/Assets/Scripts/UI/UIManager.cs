@@ -329,7 +329,7 @@ public class UIManager : MonoBehaviour
     }
     #endregion
 
-    public void SetOptioinsSliders()
+    public void SetOptionsSliders()
     {
         if (AudioManager.Instance != null)
         {
