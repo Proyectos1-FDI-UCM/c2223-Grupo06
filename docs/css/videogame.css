@@ -6,8 +6,9 @@ html,body {
   font-size: 18px;
 }
 body {
-  padding-bottom: 1rem;
-  color: #5a5a5a;
+    padding-bottom: 1rem;
+    color: #F6F6F6;
+    background-color: #21263f;
 }
 
 
@@ -15,9 +16,11 @@ body {
 
 /* CUSTOMIZE THE HEADER
 -------------------------------------------------- */
-
+header {
+    background-color: #21263f;
+}
 img.img-header {
-  max-height: 500px;
+    max-height: 300px;
 }
 
 
@@ -59,12 +62,13 @@ img.img-header {
 ------------------------- */
 
 .footer-divider {
-  margin: 5rem 0 2rem 0; /* Space out the Bootstrap <hr> more */
+    margin: 5rem 0 2rem 0; /* Space out the Bootstrap <hr> more */
+    background-color: floralwhite
 }
 
 footer p {
-  font-size: 0.8rem;
-  margin-bottom: 0.5rem;
+    font-size: 0.8rem;
+    margin-bottom: 0.5rem;
 }
 
 /* RESPONSIVE CSS
@@ -86,5 +90,11 @@ footer p {
 @media (min-width: 62em) {
   .featurette-heading {
     margin-top: 7rem;
-  }
+  } 
+ }
+
+@font-face {
+    font-family: silkscreenregular;
+    src: url('Silkscreen-Regular.ttf');
 }
+
