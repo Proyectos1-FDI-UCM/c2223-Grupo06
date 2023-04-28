@@ -732,7 +732,7 @@ PrefabInstance:
       objectReference: {fileID: 5820125526822209644}
     - target: {fileID: 9105276655828635065, guid: 111fc477411513d47b1f5daa0dbd6439, type: 3}
       propertyPath: _temporary
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9105276655828635065, guid: 111fc477411513d47b1f5daa0dbd6439, type: 3}
       propertyPath: _fatherGameObject

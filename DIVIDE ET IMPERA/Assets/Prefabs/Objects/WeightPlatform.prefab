@@ -154,6 +154,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4392659457515458677}
   - component: {fileID: 7193843621755054708}
+  - component: {fileID: 7439751708986033080}
   m_Layer: 3
   m_Name: WeightPlatform
   m_TagString: Untagged
@@ -204,6 +205,21 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.4924164, y: 0.25274324}
   m_EdgeRadius: 0
+--- !u!114 &7439751708986033080
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5150361285247878828}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c319a4e2ac452b446ab883c2f96b9900, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _myTransform: {fileID: 4392659457515458677}
+  ptA: {fileID: 8215953124570468968}
+  ptB: {fileID: 8164421088631915969}
 --- !u!1 &6036159848578262349
 GameObject:
   m_ObjectHideFlags: 0
