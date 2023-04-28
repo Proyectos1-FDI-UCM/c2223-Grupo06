@@ -163,9 +163,10 @@ public class GameManager : MonoBehaviour
 
         if (_UIManager.FirstButtons[(int)state] != null
             && EventSystem.current != null
-            && EventSystem.current.currentSelectedGameObject != _UIManager.FirstButtons[(int)state])
+            && EventSystem.current.currentSelectedGameObject == null)
         {
-            if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.RightArrow))
+            if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.RightArrow)
+               || Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.DownArrow))
             { // para volver a la selección por teclado
                 _UIManager.SetFirstButton((int)state);
             }

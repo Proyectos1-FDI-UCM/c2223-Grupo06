@@ -371,7 +371,8 @@ public class InputController : MonoBehaviour
             && UIManager.Instance.FirstButtons[(int)GameManager.Instance.CurrentState] != null
             && EventSystem.current.currentSelectedGameObject != UIManager.Instance.FirstButtons[(int)GameManager.Instance.CurrentState])
         {
-            if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.RightArrow))
+            if ((Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.RightArrow)) 
+                && GameManager.Instance.CurrentState != GameManager.GameStates.OPCIONES)
             { // para volver a la selección por teclado
                 UIManager.Instance.SetFirstButton(GameManager.Instance.FbIndex);
             }
