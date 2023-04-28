@@ -286,6 +286,10 @@ public class UIManager : MonoBehaviour
     public void ResetRoom()
     {
         LevelManager.Instance.ResetCurrentLevel(); //Resetea sala actual
+        RequestStateChange(GameManager.GameStates.GAME);
+        PlayerAccess.Instance.InputController.enabled = true;
+        PlayerAccess.Instance.MovementComponent.enabled = true;
+        PlayerAccess.Instance.Animator.enabled = true;
     }
 
     public void GlobalReset()
