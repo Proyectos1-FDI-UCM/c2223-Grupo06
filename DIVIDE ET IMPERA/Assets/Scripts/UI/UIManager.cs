@@ -44,7 +44,8 @@ public class UIManager : MonoBehaviour
     [SerializeField] private Slider _sliderAmbience;
 
     // time, score text y finales
-    [SerializeField] private TMP_Text _timeText; // tiempo en hud
+    [SerializeField] private GameObject _timeObject; // objeto tiempo en hud para toggle
+    [SerializeField] private TMP_Text _timeText; // texto tiempo en hud
     [SerializeField] private TMP_Text _scoreHUDText; // score en hud
     [SerializeField] private TMP_Text _scoreMenuPoints; // puntos en menú final
     [SerializeField] private TMP_Text _scoreMenuText; // mensaje final
@@ -320,6 +321,11 @@ public class UIManager : MonoBehaviour
             else
                 endings[i].SetActive(false);
         }
+    }
+
+    public void TimeToggle()
+    {
+        _timeObject.SetActive(!_timeObject.activeSelf);
     }
     #endregion
 
