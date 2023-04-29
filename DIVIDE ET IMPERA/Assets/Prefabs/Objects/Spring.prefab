@@ -208,7 +208,7 @@ GameObject:
   - component: {fileID: 5462388402934529894}
   - component: {fileID: 2752258080903430534}
   - component: {fileID: 1494392004889558942}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: Spring Hitbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
