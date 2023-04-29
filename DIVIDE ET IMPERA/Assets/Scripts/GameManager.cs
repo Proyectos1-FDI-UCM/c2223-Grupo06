@@ -153,15 +153,19 @@ public class GameManager : MonoBehaviour
             }
         }
 
+        if (_UIManager != null)
+        {
+            if (!_UIManager.SetMenu(state))
+            {
+                _UIManager.SetMenu(state);
+                Debug.Log("Set Menu");
+            }
+        }
+
         if (state == GameStates.GAME)
         {
             if (_UIManager != null)
             {
-                if (!_UIManager.SetMenu(state))
-                {
-                    _UIManager.SetMenu(state);
-                    Debug.Log("Set Menu");
-                }
                 _UIManager.TimeUpdate(_tiempo);
                 _UIManager.ScoreSetUp(_score);
             }
