@@ -20,6 +20,10 @@ public class GameManager : MonoBehaviour
     public GameStates CurrentState { get { return _currentGameState; } }
     public GameStates NextState { get { return _nextGameState; } }
 
+    // importante para la persistencia: mi querido viejo amigo alubiat
+    private bool _alubiat;
+    public bool Alubiat { get { return _alubiat; } set { _alubiat = value; } }
+
     // control por teclado
     private int _fbIndex; // first button index en el array del uimanager ESTÁN PUESTOS POR ÓRDEN DEL ENUM DE ESTADOS DEL GAMEMANAGER
     public int FbIndex { get { return _fbIndex; } set { _fbIndex = value; } }
@@ -27,13 +31,15 @@ public class GameManager : MonoBehaviour
     // puntuación
     private int _ending;
     // 0 TERRIBLISIMO, 1 MALAMENTE, 2 REGULA, 3 ASEPTABLE, 4 CRANEOPERSENT
-    private bool _alubiat;
-    public bool Alubiat { get { return _alubiat; } set { _alubiat = value; } }
     private int _score;
     public int Score { get { return _score; } set { _score = value; } }
+
     // tiempo
     private float _tiempo;
     public float Tiempo { get { return _tiempo; } }
+    private bool _viewTime;
+    public bool ViewTime { get { return _viewTime; } }
+
     // reset count
     private int _resetCounter;
     public int ResetCounter { get { return _resetCounter; } set { _resetCounter = value; } }
@@ -216,6 +222,7 @@ public class GameManager : MonoBehaviour
         _tiempo = 0;
         _score = 500;
         //_alubiat = true;
+        _viewTime = false;
     }
 
     void Update()

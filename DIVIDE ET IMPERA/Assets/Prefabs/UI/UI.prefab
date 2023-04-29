@@ -2651,6 +2651,7 @@ MonoBehaviour:
   _sliderAmbience: {fileID: 3631607777897918070}
   _timeObject: {fileID: 5330968044968707995}
   _timeText: {fileID: 8371498597946304123}
+  _timeToggle: {fileID: 2706526638630512037}
   _scoreHUDText: {fileID: 3300734757422693746}
   _scoreMenuPoints: {fileID: 7286306520411691892}
   _scoreMenuText: {fileID: 5791212311232743993}
