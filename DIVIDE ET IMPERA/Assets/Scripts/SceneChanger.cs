@@ -75,15 +75,13 @@ public class SceneChanger : MonoBehaviour
         _sceneToLoad = _sceneBuildIndex;           // guarda el index en scene to load
         SceneManager.LoadScene(_sceneToLoad);
         _animator.SetTrigger("FadeOut");           // animacion de fade out
-        if (GameManager.Instance != null)
-            GameManager.Instance.RequestStateChange(GameManager.GameStates.GAME);
+        SwitchState(_sceneToLoad);
     }
 
     public void FadeToNextLevel()
     {
         FadeToLevel(SceneManager.GetActiveScene().buildIndex + 1);
-        if (GameManager.Instance != null)
-            GameManager.Instance.RequestStateChange(GameManager.GameStates.GAME);
+        SwitchState(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     public void OnFadeComplete() // triggereado con el animator
@@ -123,6 +121,11 @@ public class SceneChanger : MonoBehaviour
         // cambia de escena
         FadeToLevel(whatLvl);
 
+        SwitchState(whatLvl);
+    }
+
+    private void SwitchState(int whatLvl)
+    {
         // Siguiendo el índice de las escenas en la build, he aqui una chapuza
         if (GameManager.Instance != null) // cambiar después de tal 
         {
@@ -169,7 +172,7 @@ public class SceneChanger : MonoBehaviour
                     break;
                 case 12: // 2T TUTORIAL
                     estado = GameManager.GameStates.GAME;
-                    break;       
+                    break;
                 case 13: // 3T PUTNOS
                     estado = GameManager.GameStates.SCORE; // ???????????
                     break;
