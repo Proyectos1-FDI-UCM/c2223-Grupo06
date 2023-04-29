@@ -201,7 +201,6 @@ public class DialogueManager : MonoBehaviour
     #region mover timoteo
     void MoveTimoteo()  // Hace que Timoteo se mueva hacia el waypoint correspondiente con la velocidad marcada
     {
-       
         if (_playerTransform.position.x < WaypointDialogo.transform.position.x - 0.05 || _playerTransform.position.x > WaypointDialogo.transform.position.x + 0.05)
         {
             // quita el input del player
@@ -241,7 +240,6 @@ public class DialogueManager : MonoBehaviour
         {
             _player.transform.localScale = new Vector2(1f, 1f);
         }
-
     }
     #endregion
 
