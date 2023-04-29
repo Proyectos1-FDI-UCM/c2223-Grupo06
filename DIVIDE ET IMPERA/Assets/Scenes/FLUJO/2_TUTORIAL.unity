@@ -7452,7 +7452,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4788434513726673035, guid: 447ba14bf32135943b78549d62524cca, type: 3}
       propertyPath: _lines.Array.data[0]
-      value: "NARRADOR: Tu difunto t\xEDo Bob \"El constructor\" (1780-1841)"
+      value: "ra entre las sombras t\xEDo Bob \"El constructor\" (1780-1841)"
       objectReference: {fileID: 0}
     - target: {fileID: 4788434513726673035, guid: 447ba14bf32135943b78549d62524cca, type: 3}
       propertyPath: _lines.Array.data[1]
