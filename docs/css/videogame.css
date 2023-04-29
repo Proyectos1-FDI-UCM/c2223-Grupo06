@@ -2,6 +2,8 @@
 -------------------------------------------------- */
 /* Padding below the footer and lighter body text */
 
+@import url(//fonts.googleapis.com/css2?family=Silkscreen);
+
 html,body {
   font-size: 18px;
 }
@@ -94,7 +96,7 @@ footer p {
  }
 
 @font-face {
-    font-family: silkscreenregular;
-    src: url('https://github.com/Proyectos1-FDI-UCM/c2223-Grupo06/blob/main/docs/fonts/Silkscreen-Regular.ttf');
+    font-family: 'Silkscreen Regular';
+    src: url('//github.com/Proyectos1-FDI-UCM/c2223-Grupo06/blob/main/docs/fonts/Silkscreen-Regular.ttf');
 }
 
