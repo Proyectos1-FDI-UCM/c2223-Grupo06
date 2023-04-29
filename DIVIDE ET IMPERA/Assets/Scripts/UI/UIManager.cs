@@ -330,7 +330,6 @@ public class UIManager : MonoBehaviour
     {
         if (GameManager.Instance != null)
         {
-            Debug.Log("PAPOPEPOEPOO");
             GameManager.Instance.ViewTime = !GameManager.Instance.ViewTime;
             _timeObject.SetActive(GameManager.Instance.ViewTime);
         }

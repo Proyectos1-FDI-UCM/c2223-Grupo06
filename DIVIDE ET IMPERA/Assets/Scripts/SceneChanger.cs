@@ -29,33 +29,36 @@ public class SceneChanger : MonoBehaviour
             //Debug.Log(SceneManager.GetActiveScene().buildIndex);
             switch (SceneManager.GetActiveScene().buildIndex)
             {
-                case 0:                    // case [sala actual] 
-                    WaitOnAudioFade(1, 1); // WaitOnAudioFade([tiempo de espera], [sala a la que vas]) || //FadeToLevel([sala a la que vas]);
+                case 0:
+                    WaitOnAudioFade(1, 1);
                     break;
-                case 1:
-                    WaitOnAudioFade(1, 2);
+                case 1:                    // case [sala actual] 
+                    WaitOnAudioFade(1, 2); // WaitOnAudioFade([tiempo de espera], [sala a la que vas]) || //FadeToLevel([sala a la que vas]);
                     break;
                 case 2:
                     WaitOnAudioFade(1, 3);
                     break;
                 case 3:
-                    if (GameManager.Instance != null)
-                        if (GameManager.Instance.Alubiat || _alubiat)
-                            WaitOnAudioFade(1, 4); // tienes alubiat
-                        else
-                            WaitOnAudioFade(1, 5); // no tienes alubiat
+                    WaitOnAudioFade(1, 4);
                     break;
                 case 4:
-                    WaitOnAudioFade(1, 6);
+                    if (GameManager.Instance != null)
+                        if (GameManager.Instance.Alubiat || _alubiat)
+                            WaitOnAudioFade(1, 5); // tienes alubiat
+                        else
+                            WaitOnAudioFade(1, 6); // no tienes alubiat
                     break;
                 case 5:
-                    WaitOnAudioFade(1, 8);
-                    break;
-                case 6:
                     WaitOnAudioFade(1, 7);
                     break;
+                case 6:
+                    WaitOnAudioFade(1, 8);
+                    break;
                 case 7:
-                    WaitOnAudioFade(1, 8); // 8 es puntos creo
+                    WaitOnAudioFade(1, 8);
+                    break;
+                case 8:
+                    WaitOnAudioFade(1, 9); // 9 es puntos creo
                     break;
 
                 // TESTING
@@ -126,51 +129,49 @@ public class SceneChanger : MonoBehaviour
             GameManager.GameStates estado = GameManager.GameStates.START;
             switch (whatLvl)
             {
-                case 0: // 1_INICIO
+                case 0: // 0 LOGO 
+                    estado = GameManager.GameStates.INTRO;
+                    break;
+                case 1: // 1 INICIO
                     estado = GameManager.GameStates.START;
                     break;
-                case 1: // 2_TUTORIAL
+                case 2: // 2 TUTORIAL
                     estado = GameManager.GameStates.GAME;
                     break;
-                case 2: // 3_PRINCIPAL
+                case 3: // 3 PRINCIPAL
                     estado = GameManager.GameStates.GAME;
                     break;
-                case 3: // 4_ALUBIA
+                case 4: // 4 ALUBIA
                     estado = GameManager.GameStates.INTRO;
                     break;
-                case 4: // 5.1_BOB_BUENO
+                case 5: // 5.1 BOB BUENO
                     estado = GameManager.GameStates.INTRO;
                     break;
-                case 5: // 5.2_BOB_MALO
+                case 6: // 5.2 BOB MALO
                     estado = GameManager.GameStates.INTRO;
                     break;
-                case 6: // 6_PUZLE
+                case 7: // 6 PUZLE
                     estado = GameManager.GameStates.GAME;
                     break;
-                case 7: // 7_DESPEDIDA
+                case 8: // 7 DESPEDIDA
                     estado = GameManager.GameStates.GAMEOVER;
                     break;
-                case 8: // 8_PUNTOS
+                case 9: // 8 PUNTOS
                     estado = GameManager.GameStates.SCORE;
                     break;
-                case 9: // 9_CREDITOS
+                case 10: // CRÉDITOS
                     estado = GameManager.GameStates.CREDITS;
                     break;
 
-                    // TESTING
-                case 10: // 1T INICIO
+                // TESTING
+                case 11: // 1T INCIO
                     estado = GameManager.GameStates.START;
-                    break;   
-                case 11: // 2T TUTORIAL
-                    estado = GameManager.GameStates.GAME;
                     break;
-                case 12: // 3T PUNTOS
-                    estado = GameManager.GameStates.SCORE;
+                case 12: // 2T TUTORIAL
+                    estado = GameManager.GameStates.GAME;
                     break;       
-                    
-                    // LOGO  /  WIP
-                case 13: // 0 LOGO
-                    estado = GameManager.GameStates.INTRO; // ???????????
+                case 13: // 3T PUTNOS
+                    estado = GameManager.GameStates.SCORE; // ???????????
                     break;
             }
             GameManager.Instance.RequestStateChange(estado);
