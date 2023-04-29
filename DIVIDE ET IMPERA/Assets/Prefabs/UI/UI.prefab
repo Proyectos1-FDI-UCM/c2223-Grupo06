@@ -9770,9 +9770,9 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 21300000, guid: d703cb6c80b5e04499a4aa6add3bde9b, type: 3}
+    m_HighlightedSprite: {fileID: 21300000, guid: fc916c9aabf0ce542a8e90670b899993, type: 3}
     m_PressedSprite: {fileID: 21300000, guid: 3cf3a71304f214a438247ab96064d5c3, type: 3}
-    m_SelectedSprite: {fileID: 21300000, guid: d703cb6c80b5e04499a4aa6add3bde9b, type: 3}
+    m_SelectedSprite: {fileID: 21300000, guid: fc916c9aabf0ce542a8e90670b899993, type: 3}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal

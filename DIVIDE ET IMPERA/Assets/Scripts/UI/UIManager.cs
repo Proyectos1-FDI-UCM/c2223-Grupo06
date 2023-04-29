@@ -47,6 +47,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject _timeObject; // objeto tiempo en hud para toggle
     [SerializeField] private TMP_Text _timeText; // texto tiempo en hud
     [SerializeField] private Toggle _timeToggle; // toggle de ver tiempo en opciones
+    [SerializeField] private Sprite[] _timeTogglePressedSprites; // seleccionado o no seleccionado
     [SerializeField] private TMP_Text _scoreHUDText; // score en hud
     [SerializeField] private TMP_Text _scoreMenuPoints; // puntos en menú final
     [SerializeField] private TMP_Text _scoreMenuText; // mensaje final
@@ -330,6 +331,7 @@ public class UIManager : MonoBehaviour
     {
         if (GameManager.Instance != null)
         {
+            Debug.Log("PAPOPEPOEPOO");
             GameManager.Instance.ViewTime = !GameManager.Instance.ViewTime;
             _timeObject.SetActive(GameManager.Instance.ViewTime);
         }

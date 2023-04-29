@@ -183,7 +183,7 @@ public class SceneChanger : MonoBehaviour
         if (PlayerManager.Instance != null)
         {
             _playerManager = PlayerAccess.Instance.PlayerManager;
-            _alubiat = GameManager.Instance.Alubiat;
+            if (GameManager.Instance != null) _alubiat = GameManager.Instance.Alubiat;
         }
 
         _inputController = PlayerAccess.Instance.InputController;
