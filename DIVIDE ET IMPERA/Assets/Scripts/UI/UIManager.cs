@@ -303,7 +303,9 @@ public class UIManager : MonoBehaviour
     #region TIME & SCORE
     public void TimeUpdate(float value)
     {
-        _timeText.text = "Tiempo: " + (int)value;
+        _timeText.text = "Tiempo: " + (int)value; // actualiza los segundos 
+        if (_timeObject != null && _timeObject.activeSelf != GameManager.Instance.ViewTime) 
+            _timeObject.SetActive(GameManager.Instance.ViewTime); // persistencia del estado del objeto entre escenas
     }
     public void ScoreSetUp(int score) // score en el HUD
     {
@@ -326,7 +328,13 @@ public class UIManager : MonoBehaviour
 
     public void TimeToggle()
     {
-        _timeObject.SetActive(!_timeObject.activeSelf);
+        if (GameManager.Instance != null)
+        {
+            GameManager.Instance.ViewTime = !GameManager.Instance.ViewTime;
+            _timeObject.SetActive(GameManager.Instance.ViewTime);
+        }
+        else
+            _timeObject.SetActive(!_timeObject.activeSelf);
     }
     #endregion
 
@@ -387,18 +395,13 @@ public class UIManager : MonoBehaviour
         // setea el tiempo en hud y el toggle view time a lo que sea en el gamemanager
         if (GameManager.Instance != null)
         {
-            _timeObject.SetActive(GameManager.Instance.ViewTime);
-            
+            //_timeObject.SetActive(GameManager.Instance.ViewTime);
+            //_timeToggle.isOn = GameManager.Instance.ViewTime;
+            // tú que me he tenido que descargar una puta extensiono (3 cochinos métodos también te digo) de un random en github para hacer algo tan sencillo como cambiar el estado de un toggle sin que realice la llamada al método que tenga dicho toggle que BARBARIDAD lo mal pensadas que hay algunas cosas dios joder DIOOOOOOOOOOOOOOOOOOOOOOOOOSSSSSSSSSSSSSSSSSSSS funfact sabési que instalé una extensión en la que si pulsáis f10 podeis poner pantalla completa al juego sin tener que buildear! (1. tambien hay F9, 8 etc para maximizar otras ventanas y 2. qeu esto no lo contemplara unity me parece vomitivo <3 PD: fue la noche de locura para hacer el vídeo del hito 2)
+            UIExtensions.SetSilently(_timeToggle, GameManager.Instance.ViewTime);
         }
 
         // setea los sliders WIP 
         //SetOptioinsSliders();
     }
-
-    /*
-    void Update()
-    {
-        // aquí no debería haber nada pero lo dejo porsiaca
-    }
-    */
 }

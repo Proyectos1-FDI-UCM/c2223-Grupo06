@@ -38,7 +38,7 @@ public class GameManager : MonoBehaviour
     private float _tiempo;
     public float Tiempo { get { return _tiempo; } }
     private bool _viewTime;
-    public bool ViewTime { get { return _viewTime; } }
+    public bool ViewTime { get { return _viewTime; } set { _viewTime = value; } }
 
     // reset count
     private int _resetCounter;
