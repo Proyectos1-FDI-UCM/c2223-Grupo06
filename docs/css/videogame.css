@@ -20,6 +20,9 @@ body {
 -------------------------------------------------- */
 header {
     background-color: #21263f;
+    font-family: 'Silkscreen Regular';
+    font-weight: normal;
+    font-style: normal;
 }
 img.img-header {
     max-height: 300px;
