@@ -36,6 +36,7 @@ public class RoomTransition : MonoBehaviour
     private Vector3 _futureCamPos; //futura posicion de la camara
     private bool _onTransition; //booleano que determina si esta ocurrinedo una transicion
     GameObject[] _transitions; //Array de todas las transiciones del juego (durante el transcurso de una transicion se desactivan para evitar bugs, antes se rompia todo si entrabas en una transicion estando ya en una)
+    private bool _canGivePoints;
     #endregion
     #region Methods
     private void OnTriggerEnter2D(Collider2D collision) //Cuando entras en la transicion
@@ -88,23 +89,27 @@ public class RoomTransition : MonoBehaviour
 
             CameraMovement.Instance.enabled = true; //Hacer que la camara vuelva a seguir al jugador
 
-            // Suma la cantidad de puntos debida dependiendo de las partes que lleve
-            if (PlayerManager.State == PlayerManager.TimmyStates.S0)
+            if (_canGivePoints)
             {
-                Debug.Log("croqueta amarilla");
-                if (GameManager.Instance != null) GameManager.Instance.AddScore(50);
-            }
-            else if (PlayerManager.State == PlayerManager.TimmyStates.S1)
-            {
-                if (GameManager.Instance != null) GameManager.Instance.AddScore(40);
-            }
-            else if (PlayerManager.State == PlayerManager.TimmyStates.S2 || PlayerManager.State == PlayerManager.TimmyStates.S3)
-            {
-                if (GameManager.Instance != null) GameManager.Instance.AddScore(30);
-            }
-            else if (PlayerManager.State == PlayerManager.TimmyStates.S4)
-            {
-                if (GameManager.Instance != null) GameManager.Instance.AddScore(10);
+                _canGivePoints = false;
+                // Suma la cantidad de puntos debida dependiendo de las partes que lleve
+                if (PlayerManager.State == PlayerManager.TimmyStates.S0)
+                {
+                    Debug.Log("croqueta amarilla");
+                    if (GameManager.Instance != null) GameManager.Instance.AddScore(50);
+                }
+                else if (PlayerManager.State == PlayerManager.TimmyStates.S1)
+                {
+                    if (GameManager.Instance != null) GameManager.Instance.AddScore(40);
+                }
+                else if (PlayerManager.State == PlayerManager.TimmyStates.S2 || PlayerManager.State == PlayerManager.TimmyStates.S3)
+                {
+                    if (GameManager.Instance != null) GameManager.Instance.AddScore(30);
+                }
+                else if (PlayerManager.State == PlayerManager.TimmyStates.S4)
+                {
+                    if (GameManager.Instance != null) GameManager.Instance.AddScore(10);
+                }
             }
 
             _onTransition = false; //Se termina la transicion
@@ -131,6 +136,7 @@ public class RoomTransition : MonoBehaviour
         _playerTransform = PlayerAccess.Instance.transform;
         _transitionTransform = GetComponent<Transform>();
         _transitions = GameObject.FindGameObjectsWithTag("Transition"); //Ducktyping lo se pero ahorra mucho no me mateis
+        _canGivePoints = true;
     }
 
     // Update is called once per frame

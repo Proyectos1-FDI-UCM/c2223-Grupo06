@@ -9,6 +9,7 @@ public class DialogueManager : MonoBehaviour
     private InputController _inputController;
     private InputControllerDialogue _inputControllerDialogue;
     private Transform _playerTransform;
+    private MovementComponent _movementComponent;
     [SerializeField] private GameObject _player;
 
     // dialogo
@@ -63,9 +64,12 @@ public class DialogueManager : MonoBehaviour
     // ACTIVAR DIALOGO
     private void Activar()
     {
-        _inputControllerDialogue._enConversacion = true;
-        _moveTimmy = true;
-        StartDialogue();
+        if (_inputController.Direccion == 0) // si el timmy esta quieto
+        {
+            _inputControllerDialogue._enConversacion = true;
+            _moveTimmy = true;
+            StartDialogue();
+        }
     }
 
     // INICIO DIALOGO
@@ -85,17 +89,6 @@ public class DialogueManager : MonoBehaviour
         {
             _dialogueText.text += _letter;
 
-            /*if (_letter == 'T')
-            {
-                _dialogueText.color = Color.blue;
-            }
-            else if (_letter == 'B')
-            {
-                _dialogueText.color = Color.red;
-            }
-            else
-            { _dialogueText.color = Color.white; }*/
-            // yield return null;
             yield return new WaitForSeconds(_speedText); // proporciona el siguiente valor en la iteración
 
             // sfx
@@ -106,6 +99,7 @@ public class DialogueManager : MonoBehaviour
         _writingLine = false;
     }
 
+    // DIFERENCIACION ENTRE PERSNAJES EN CONVERSACIÓN -> MEJORA NO IMPLEMENTADA
     /*protected void SpeakersText() // lista para modificaciones texto de personajes
     {
         foreach () 
@@ -114,10 +108,9 @@ public class DialogueManager : MonoBehaviour
             switch (_speaker)
             {
                 case Speaker.Timoteo:
-
             }
         }
-    }*/
+    }
 
     // Parametros:
     // _lines -> el texto que se esta escribiendo
@@ -154,7 +147,7 @@ public class DialogueManager : MonoBehaviour
             // Anterior caracter era '>' significa que hemos salido de un tag
             _inTag = false;
         }
-    }
+    }*/
 
     public void NextLine()
     {
@@ -174,37 +167,28 @@ public class DialogueManager : MonoBehaviour
 
     public void ProcessInput()
     {
-
         // checkea si esta en la ultima linea (ya escrita) y (si la linea actual es la corresponiente[caso en el que
         // no ha cancelado que se escriba la linea] o que se estuviera escribiendo la linea), por lo que si ha
         // acabado de escribir, estaba a medias y no esta en la ultma linea, escirbe la siguiente
         if (_lines.Length > _index + 1) // siguiente linea
         {
-            // si sigue escribiendo la linea
-            if (_writingLine)
+            if (_writingLine) // si sigue escribiendo la linea
             {
-                // para todas las corrutinas para que no se dupliquen las lineas
-                StopAllCoroutines();
-                // escribe la linea
-                _dialogueText.text = _lines[_index];
-                // deja de escribir la linea
-                _writingLine = false;
+                StopAllCoroutines(); // para todas las corrutinas para que no se dupliquen las lineas
+                _dialogueText.text = _lines[_index]; // escribe la linea
+                _writingLine = false; // deja de escribir la linea
             }
-            // si ya ha acabado de escribir
-            else if (_dialogueText.text == _lines[_index])
+            
+            else if (_dialogueText.text == _lines[_index]) // si ya ha acabado de escribir
             {
-                // para todas las corrutinas
-                StopAllCoroutines();
-                // pasa a la siguiente linea
-                NextLine();
-                
+                StopAllCoroutines(); // para todas las corrutinas
+                NextLine(); // pasa a la siguiente linea
             }
         }
         else // fin dialogo
         {
             StopAllCoroutines();
             _writingLine = false;
-            // _dialogueText.text = _lines[_index]; // no hace falta ,':·/
             _inputController.enabled = true;
             _inputControllerDialogue.enabled = false;
             _dialogueText.text = "";
@@ -217,7 +201,6 @@ public class DialogueManager : MonoBehaviour
     #region mover timoteo
     void MoveTimoteo()  // Hace que Timoteo se mueva hacia el waypoint correspondiente con la velocidad marcada
     {
-       
         if (_playerTransform.position.x < WaypointDialogo.transform.position.x - 0.05 || _playerTransform.position.x > WaypointDialogo.transform.position.x + 0.05)
         {
             // quita el input del player
@@ -257,7 +240,6 @@ public class DialogueManager : MonoBehaviour
         {
             _player.transform.localScale = new Vector2(1f, 1f);
         }
-
     }
     #endregion
 
@@ -265,10 +247,11 @@ public class DialogueManager : MonoBehaviour
 
     void Start()
     {
-        // player
+        // access player
         _inputController = PlayerAccess.Instance.InputController;
         _inputControllerDialogue = PlayerAccess.Instance.InputControllerDialogue;
         _playerTransform = PlayerAccess.Instance.Transform;
+        _movementComponent = PlayerAccess.Instance.MovementComponent;
     }
     private void Update()
     {
