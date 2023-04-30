@@ -38,21 +38,28 @@ public class UIManager : MonoBehaviour
     //imagenes tarjetas puntos
     //[SerializeField] public 
 
-    // Sliders de menu de opciones
+    // SLIDERS de menu de opciones
     [SerializeField] private Slider _sliderBGM;
     [SerializeField] private Slider _sliderSFX;
     [SerializeField] private Slider _sliderAmbience;
 
-    // time, score text y finales
+    // TIME
     [SerializeField] private GameObject _timeObject; // objeto tiempo en hud para toggle
     [SerializeField] private TMP_Text _timeText; // texto tiempo en hud
     [SerializeField] private Toggle _timeToggle; // toggle de ver tiempo en opciones
+
+    // SCORE
     [SerializeField] private TMP_Text _scoreHUDText; // score en hud
     [SerializeField] private TMP_Text _scoreMenuPoints; // puntos en menú final
+
+    // ENDINGS
     [SerializeField] private TMP_Text _scoreMenuText; // mensaje final
     [SerializeField] private GameObject[] endings; // imágenes del final
     [SerializeField] private string[] messages; // mensajes según el final
     // 0 TERRIBLISIMO, 1 MALAMENTE, 2 REGULA, 3 ASEPTABLE, 4 CRANEOPERSENT
+
+    // REANUDAR
+    [SerializeField] private Button _resumeButton;
     #endregion
 
     #region properties
@@ -403,6 +410,16 @@ public class UIManager : MonoBehaviour
             //_timeToggle.isOn = GameManager.Instance.ViewTime;
             // tú que me he tenido que descargar una puta extensiono (3 cochinos métodos también te digo) de un random en github para hacer algo tan sencillo como cambiar el estado de un toggle sin que realice la llamada al método que tenga dicho toggle que BARBARIDAD lo mal pensadas que hay algunas cosas dios joder DIOOOOOOOOOOOOOOOOOOOOOOOOOSSSSSSSSSSSSSSSSSSSS funfact sabési que instalé una extensión en la que si pulsáis f10 podeis poner pantalla completa al juego sin tener que buildear! (1. tambien hay F9, 8 etc para maximizar otras ventanas y 2. qeu esto no lo contemplara unity me parece vomitivo <3 PD: fue la noche de locura para hacer el vídeo del hito 2)
             UIExtensions.SetSilently(_timeToggle, GameManager.Instance.ViewTime);
+            Debug.Log(GameManager.Instance.PreviousScene);
+            if (_resumeButton != null && GameManager.Instance.PreviousScene < 1) 
+            {
+                _resumeButton.interactable = false;
+                _resumeButton.enabled = false;
+                var colors = _resumeButton.colors;
+                colors.disabledColor = Color.black;
+                _resumeButton.colors = colors; // no consigo que el resume cambie de color ni para atrás
+                //Debug.Log("ESTO ESTÁ pasando");
+            }
         }
 
         // setea los sliders WIP 

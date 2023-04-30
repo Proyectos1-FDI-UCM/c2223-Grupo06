@@ -2663,6 +2663,7 @@ MonoBehaviour:
   - "Bob dice... \"\xA1Sigue hincando los c\xFAbitos, Timmy!\""
   - Bob dice... "Estoy muy orgulloso de ti."
   - "Timoteo dice... \"\xA1Por fin volver\xE9 a comer sopa!\""
+  _resumeButton: {fileID: 4820810363645449626}
   _activeMenu: 0
 --- !u!1 &2076869504062052000
 GameObject:
