@@ -4943,6 +4943,10 @@ PrefabInstance:
       propertyPath: m_TileSpriteArray.Array.data[0].m_RefCount
       value: 21
       objectReference: {fileID: 0}
+    - target: {fileID: 3893522453154724392, guid: 447ba14bf32135943b78549d62524cca, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 6.56
+      objectReference: {fileID: 0}
     - target: {fileID: 4095646620780512662, guid: 447ba14bf32135943b78549d62524cca, type: 3}
       propertyPath: m_Name
       value: Tutorial-0
@@ -5037,7 +5041,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5147552173471229089, guid: 447ba14bf32135943b78549d62524cca, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.02
+      value: -2.64
+      objectReference: {fileID: 0}
+    - target: {fileID: 6705912944019001610, guid: 447ba14bf32135943b78549d62524cca, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6705912944019001610, guid: 447ba14bf32135943b78549d62524cca, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 7723134987650441192, guid: 447ba14bf32135943b78549d62524cca, type: 3}
       propertyPath: _player
