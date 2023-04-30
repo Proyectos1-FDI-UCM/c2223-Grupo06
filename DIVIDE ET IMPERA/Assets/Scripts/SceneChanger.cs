@@ -65,8 +65,13 @@ public class SceneChanger : MonoBehaviour
                 case 11:
                     WaitOnAudioFade(1, 12);
                     break;
+                case 12:
+                    WaitOnAudioFade(1, 13);
+                    break;
+                case 13:
+                    WaitOnAudioFade(1, 12);
+                    break;
             }
-
         }
     }
 

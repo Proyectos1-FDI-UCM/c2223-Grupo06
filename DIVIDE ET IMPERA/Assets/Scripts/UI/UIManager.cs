@@ -297,6 +297,10 @@ public class UIManager : MonoBehaviour
     public void GlobalReset()
     {
         LevelManager.Instance.GlobalReset(); //Resetea todo el nivel
+        RequestStateChange(GameManager.GameStates.GAME);
+        PlayerAccess.Instance.InputController.enabled = true;
+        PlayerAccess.Instance.MovementComponent.enabled = true;
+        PlayerAccess.Instance.Animator.enabled = true;
     }
     #endregion
 
