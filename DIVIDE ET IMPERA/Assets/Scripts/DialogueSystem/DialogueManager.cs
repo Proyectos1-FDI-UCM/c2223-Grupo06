@@ -242,7 +242,6 @@ public class DialogueManager : MonoBehaviour
         }
     }
     #endregion
-
     #endregion
 
     void Start()
