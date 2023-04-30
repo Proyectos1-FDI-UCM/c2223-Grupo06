@@ -29,6 +29,8 @@ public class BGMComponent : MonoBehaviour
     /// 1 --> skeleton waltz
     /// 2 --> jazz perhaps
     /// 3 --> dolphin
+    /// 4 --> yippie jazz pero entero
+    /// 5 --> yippieeeeee
     /// </summary>
 
     #region methods
@@ -104,7 +106,15 @@ public class BGMComponent : MonoBehaviour
                     _nextBGM = 3;
                     _playAmbience = false;
                     break;
-            }
+                case GameStates.CREDITS:
+                    _nextBGM = 5;
+                    _playAmbience = false;
+                    break;
+                default:
+                    _nextBGM = 0;
+                    _playAmbience= false;
+                    break;
+                }
         }
     }
 
