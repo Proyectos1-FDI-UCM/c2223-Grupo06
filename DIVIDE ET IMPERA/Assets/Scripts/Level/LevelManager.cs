@@ -158,5 +158,6 @@ public class LevelManager : MonoBehaviour
         if (_originalSpawn != null) PlayerAccess.Instance.transform.position = _originalSpawn.position;
         _currentLevelNum = 0;
         UpdateCurrentLevel();
+        SetAlubia(GameManager.Instance.Alubiat);
     }
 }

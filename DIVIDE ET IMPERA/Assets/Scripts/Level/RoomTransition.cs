@@ -138,6 +138,7 @@ public class RoomTransition : MonoBehaviour
         _transitionTransform = GetComponent<Transform>();
         _transitions = GameObject.FindGameObjectsWithTag("Transition"); //Ducktyping lo se pero ahorra mucho no me mateis
         _canGivePoints = true;
+        
     }
 
     // Update is called once per frame
