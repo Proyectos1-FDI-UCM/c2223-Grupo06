@@ -1050,6 +1050,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: AlubiaT (sus piernas)
       objectReference: {fileID: 0}
+    - target: {fileID: 4257366962654404361, guid: 49fb78983d1522f469fe77a342bbc251, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4257366962654404597, guid: 49fb78983d1522f469fe77a342bbc251, type: 3}
       propertyPath: m_RootOrder
       value: 8
