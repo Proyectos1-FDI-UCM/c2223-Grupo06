@@ -77,9 +77,12 @@ public class SceneChanger : MonoBehaviour
 
     public void FadeToLevel(int _sceneBuildIndex)  // el level index es el numero que tienen las escenas en los build settings
     {
+        SetPreviousScene(); // Esto debería estar especialmente en el método que se ejecute en el salir del menú pausa
+                            // (ya que lleva a la escena incial y esto permite volver a la escena en la que estuvieras,
+                            // pero la gracia es ejecutar esto al hacer clic en el botón salir del menú de pausa)
         _sceneToLoad = _sceneBuildIndex;           // guarda el index en scene to load
         SceneManager.LoadScene(_sceneToLoad);
-        _animator.SetTrigger("FadeOut");           // animacion de fade out
+        if (_animator != null) _animator.SetTrigger("FadeOut");           // animacion de fade out
         SwitchState(_sceneToLoad);
     }
 
@@ -87,6 +90,17 @@ public class SceneChanger : MonoBehaviour
     {
         FadeToLevel(SceneManager.GetActiveScene().buildIndex + 1);
         SwitchState(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
+    public void FadeToPreviousLevel() // para el botón reanudar exclusivamente de momento
+    {
+        if (GameManager.Instance != null 
+            && GameManager.Instance.PreviousScene != -1)
+        {
+            SceneManager.LoadScene(GameManager.Instance.PreviousScene);
+            if (TryGetComponent(out _animator)) _animator.SetTrigger("FadeOut"); // probando cosas
+            SwitchState(GameManager.Instance.PreviousScene);
+        }
     }
 
     public void OnFadeComplete() // triggereado con el animator
@@ -184,6 +198,11 @@ public class SceneChanger : MonoBehaviour
             }
             GameManager.Instance.RequestStateChange(estado);
         }
+    }
+
+    private void SetPreviousScene()
+    {
+        if (GameManager.Instance != null) GameManager.Instance.PreviousScene = SceneManager.GetActiveScene().buildIndex;
     }
     #endregion
 

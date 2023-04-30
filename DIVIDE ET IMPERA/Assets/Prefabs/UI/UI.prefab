@@ -9761,14 +9761,14 @@ MonoBehaviour:
     m_HighlightedColor: {r: 0.9372549, g: 0.90588236, b: 0.80784315, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.7490196, b: 0.64705884, a: 1}
     m_SelectedColor: {r: 0.9372549, g: 0.90588236, b: 0.80784315, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_DisabledColor: {r: 0.2924528, g: 0.2924528, b: 0.2924528, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
     m_HighlightedSprite: {fileID: 21300000, guid: caf5104527931cf4ca99e5634fb4fba9, type: 3}
     m_PressedSprite: {fileID: 21300000, guid: caf5104527931cf4ca99e5634fb4fba9, type: 3}
     m_SelectedSprite: {fileID: 21300000, guid: caf5104527931cf4ca99e5634fb4fba9, type: 3}
-    m_DisabledSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 21300000, guid: e3afc28fa7270694e862b9ce82e21b83, type: 3}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
     m_HighlightedTrigger: Highlighted
@@ -9779,7 +9779,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2976213524055485520}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5171360444949630975, guid: a2dc22ca95a3d2948b60f5a7cc02d0ff, type: 3}
+        m_TargetAssemblyTypeName: SceneChanger, Assembly-CSharp
+        m_MethodName: FadeToPreviousLevel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &7721562333031305933
 GameObject:
   m_ObjectHideFlags: 0
@@ -10273,6 +10285,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
         m_MethodName: PauseToStart
         m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 0
+      - m_Target: {fileID: 5171360444949630975, guid: a2dc22ca95a3d2948b60f5a7cc02d0ff, type: 3}
+        m_TargetAssemblyTypeName: SceneChanger, Assembly-CSharp
+        m_MethodName: FadeToLevel
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

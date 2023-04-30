@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
     #endregion
 
     #region properties
-    // Game States
+    // GAME STATES
     private static GameManager _instance;
     private GameStates _currentGameState;
     private GameStates _nextGameState;
@@ -24,25 +24,29 @@ public class GameManager : MonoBehaviour
     private bool _alubiat;
     public bool Alubiat { get { return _alubiat; } set { _alubiat = value; } }
 
-    // control por teclado
+    // CONTROL POR TECLADO
     private int _fbIndex; // first button index en el array del uimanager ESTÁN PUESTOS POR ÓRDEN DEL ENUM DE ESTADOS DEL GAMEMANAGER
     public int FbIndex { get { return _fbIndex; } set { _fbIndex = value; } }
 
-    // puntuación
+    // PUNTUACIÓN
     private int _ending;
-    // 0 TERRIBLISIMO, 1 MALAMENTE, 2 REGULA, 3 ASEPTABLE, 4 CRANEOPERSENT
+        // 0 TERRIBLISIMO, 1 MALAMENTE, 2 REGULA, 3 ASEPTABLE, 4 CRANEOPERSENT
     private int _score;
     public int Score { get { return _score; } set { _score = value; } }
 
-    // tiempo
+    // TIEMPO
     private float _tiempo;
     public float Tiempo { get { return _tiempo; } }
     private bool _viewTime;
     public bool ViewTime { get { return _viewTime; } set { _viewTime = value; } }
 
-    // reset count
+    // RESET COUNTER
     private int _resetCounter;
     public int ResetCounter { get { return _resetCounter; } set { _resetCounter = value; } }
+
+    // REANUDAR
+    private int _previousScene; // de la que vienes si aplica, exclusivamente para el botón reanudar de momento
+    public int PreviousScene { get { return _previousScene; } set { _previousScene = value; } }
     #endregion
 
     #region REGISTROS DE REFERENCIAS
@@ -66,9 +70,11 @@ public class GameManager : MonoBehaviour
         switch (newState) // Diferentes comportamientos según estado al que se entra
         {
             case GameStates.START:                       //     *MENÚ INICIAL*
+                Time.timeScale = 1;
                 break;
 
             case GameStates.INTRO:                       //     *INTRO*
+                Time.timeScale = 1;
                 break;
 
             case GameStates.GAME:                        //     *JUEGO*
@@ -82,6 +88,8 @@ public class GameManager : MonoBehaviour
                 break;
 
             case GameStates.GAMEOVER:                    //     *FIN DEL JUEGO* -> PUNTUACION
+                Time.timeScale = 1;
+
                 // tiempo
                 if (_tiempo >= 500)
                     AddScore(-150);
@@ -108,6 +116,8 @@ public class GameManager : MonoBehaviour
 
                 break;
             case GameStates.SCORE:                      //     *PUNTUACIÓN*
+                Time.timeScale = 1;
+
                 _ending = 0; // si no tienes las piernas te comes tremendo ñordaco
                 if (_alubiat)
                 { // pero si sí...
@@ -125,6 +135,7 @@ public class GameManager : MonoBehaviour
             case GameStates.LEVELSELECTOR:              //     *SELECTOR DE NIVELES*
                 break;
             case GameStates.CONTROLES:                  //     *CONTROLES*
+
                 break;
             case GameStates.OPCIONES:                   //     *OPCIONES*
                 break;
@@ -180,6 +191,8 @@ public class GameManager : MonoBehaviour
             { // para volver a la selección por teclado
                 _UIManager.SetFirstButton((int)state);
             }
+
+            _UIManager.SetFirstButton((int)state);
         }
     }
     #endregion
@@ -227,6 +240,7 @@ public class GameManager : MonoBehaviour
         _score = 500;
         //_alubiat = true;
         _viewTime = false;
+        _previousScene = -1;
     }
 
     void Update()
