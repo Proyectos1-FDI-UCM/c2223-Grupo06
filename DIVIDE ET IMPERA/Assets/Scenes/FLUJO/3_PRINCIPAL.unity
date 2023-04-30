@@ -3476,6 +3476,10 @@ PrefabInstance:
       propertyPath: m_ColliderPaths.Array.data[0].m_ColliderPaths.Array.data[0].Array.data[27].Y
       value: -20000000
       objectReference: {fileID: 0}
+    - target: {fileID: 7144677561693953113, guid: cc908b8d66282c9488489044dcf105b9, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9013699893027815932, guid: cc908b8d66282c9488489044dcf105b9, type: 3}
       propertyPath: m_TileSpriteArray.Array.data[3].m_Data
       value: 
