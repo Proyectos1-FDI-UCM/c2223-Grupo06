@@ -41,6 +41,7 @@ public class RoomTransition : MonoBehaviour
     #region Methods
     private void OnTriggerEnter2D(Collider2D collision) //Cuando entras en la transicion
     {
+        LevelManager.Instance.SetAlubia(GameManager.Instance.Alubiat);
         if (_playerTransform.position.x < _transitionTransform.position.x)
         {
             _roomSpawn = new Vector3((float)(_transitionTransform.position.x + _transitionDistance), _playerTransform.position.y, 0); //Si el jugador esta a la izquierda setear para la transicion a la sala derecha
@@ -64,7 +65,7 @@ public class RoomTransition : MonoBehaviour
             _transitions[i].GetComponentInChildren<BoxCollider2D>().enabled = false; //se desactivan todas las transiciones
         }
         ResetConnectedParts();
-        LevelManager.Instance.ResetObjects();
+        LevelManager.Instance.ResetParts();
         PlayerManager.Instance.RequestTimmyState(PlayerManager.TimmyStates.S0);
 
         _onTransition = true; //activar transicion

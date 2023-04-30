@@ -43,9 +43,8 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] // array de m�quinas de estado de animaciones de colores (aka POR OBJETOS)
     private RuntimeAnimatorController[] _colorControllers;
 
-    [SerializeField]
-    private Transform _objectsReset;
-
+    public GameObject[] _partesTimmy; //0 brazo1, 1 brazo2, 2 piernas, 3 alubia
+    public GameObject _alubiaLegs;
     #endregion
 
     #region Properties
@@ -311,7 +310,17 @@ public class PlayerManager : MonoBehaviour
     {
         if (_brazos > 0) // si alg�n brazo y est� en un espacio libre
         {
-            if (LevelManager.Instance != null) Instantiate(_brazoPrefab, _myTransform.position, _myTransform.rotation, _objectsReset); // instanciaci�n
+            if (LevelManager.Instance != null)
+            {
+                if (State == TimmyStates.S0 || State == TimmyStates.S3)
+                {
+                    _partesTimmy[0] = Instantiate(_brazoPrefab, _myTransform.position, _myTransform.rotation); // instanciaci�n
+                }
+                else if (State == TimmyStates.S1 || State == TimmyStates.S4)
+                {
+                    _partesTimmy[1] = Instantiate(_brazoPrefab, _myTransform.position, _myTransform.rotation); // instanciaci�n
+                }
+            }
             _brazos--; // un brazo menos
 
             //sfx
@@ -357,7 +366,7 @@ public class PlayerManager : MonoBehaviour
     {
         if (_piernas) // si tiene piernas 
         {
-            if (LevelManager.Instance != null) Instantiate(_piernaPrefab, _myTransform.position, _myTransform.rotation, _objectsReset); // instanciaci�n
+            if (LevelManager.Instance != null) _partesTimmy[2] = Instantiate(_piernaPrefab, _myTransform.position, _myTransform.rotation); // instanciaci�n
             _piernas = false; // sin piernas
 
             //sfx
@@ -411,7 +420,7 @@ public class PlayerManager : MonoBehaviour
             if (GameManager.Instance != null)
                 GameManager.Instance.Alubiat = false;
 
-            if (LevelManager.Instance != null) Instantiate(_alubiatPrefab, _myTransform.position, _myTransform.rotation, _objectsReset); // instanciaci�n
+            if (LevelManager.Instance != null) _alubiaLegs = Instantiate(_alubiatPrefab, _myTransform.position, _myTransform.rotation); // instanciaci�n
 
             //sfx
             if (SFXComponent.Instance != null)
@@ -534,7 +543,7 @@ public class PlayerManager : MonoBehaviour
     void Start()
     {
         // ._. ^.^ :P o....o �_� [-:<
-
+        _partesTimmy = new GameObject[3];
         // Inicializaci�n de referencias por componentes
         _mySpriteRenderer = GetComponent<SpriteRenderer>();
         _myCollisionManager = GetComponent<CollisionManager>();

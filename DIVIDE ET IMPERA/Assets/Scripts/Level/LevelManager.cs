@@ -30,6 +30,7 @@ public class LevelManager : MonoBehaviour
     private float _currentHealth; //valor de la vida al entrar en la sala
 
     private int _objectRoomIndex;
+    private bool _alubia;
     #endregion
     #region Methods
     public void ChangeLevelIndex(int index)
@@ -44,7 +45,7 @@ public class LevelManager : MonoBehaviour
 
         ResetPlayer(); //devuelve al jugador a las condiciones originales
 
-        ResetObjects(); //resetea objetos y partes lanzadas/soltadas
+        ResetParts(); //resetea objetos y partes lanzadas/soltadas
 
         ResetConnectedParts(); //resetea objetos connectados si los hay
 
@@ -87,12 +88,17 @@ public class LevelManager : MonoBehaviour
         PlayerAccess.Instance.InputController.ResetProperties();
     }
 
-    public void ResetObjects() //Destruir todos los objetos lanzados/soltados porque son hijos de _objectsReset
+    public void ResetParts() //Destruir partes soltadas/lanzadas
     {
-        int i = _objectsReset.transform.childCount;
-        for (int j = 0; j < i; j++)
+        foreach (GameObject parts in PlayerManager.Instance._partesTimmy)
         {
-            Destroy(_objectsReset.transform.GetChild(j).gameObject);
+            if(parts != null)
+                Destroy(parts);
+        }
+        if (_alubia)
+        {
+            PlayerManager.Instance.HolaAlubiat();
+            Destroy(PlayerManager.Instance._alubiaLegs);
         }
     }
 
@@ -137,6 +143,10 @@ public class LevelManager : MonoBehaviour
         _objectRoomIndex = index;
     }
 
+    public void SetAlubia(bool onoff)
+    {
+        _alubia = onoff;
+    }
     #endregion
     private void Awake()
     {

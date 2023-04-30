@@ -1,4 +1,5 @@
-using UnityEngine;
+Ôªøusing UnityEngine;
+using static PlayerManager;
 
 public class ThrowComponent : MonoBehaviour
 {
@@ -50,7 +51,15 @@ public class ThrowComponent : MonoBehaviour
             if (PlayerManager.Instance.Brazos > 0)
             {   // Lo he intentado optimizar un poco, no lo he querido mancillar
                 PlayerManager.Instance.Brazos--; // Cambia directamente el estado en su propio update, no worries
-                _thrownObject = Instantiate(_armPrefab, _myTransform.position, _myTransform.rotation, _objectsReset);
+                _thrownObject = Instantiate(_armPrefab, _myTransform.position, _myTransform.rotation);
+                if (State == TimmyStates.S0 || State == TimmyStates.S3)
+                {
+                    PlayerManager.Instance._partesTimmy[0] = _thrownObject;
+                }
+                else if (State == TimmyStates.S1 || State == TimmyStates.S4)
+                {
+                    PlayerManager.Instance._partesTimmy[1] = _thrownObject;
+                }
                 _thrownObjectRB = _thrownObject.GetComponent<Rigidbody2D>();
             }
 
@@ -65,13 +74,13 @@ public class ThrowComponent : MonoBehaviour
         }
     }
 
-    public void LanzarBola() // voy a hacer otro mÈtodo porque el otro est· joya y no quiero mancillarlo
-    { // EST¡ PENSADO PARA LANZAR LA BOLA *DEL RIBCAGE*
+    public void LanzarBola() // voy a hacer otro m√©todo porque el otro est√° joya y no quiero mancillarlo
+    { // EST√Å PENSADO PARA LANZAR LA BOLA *DEL RIBCAGE*
         if (PlayerManager.Instance.Objeto == PlayerManager.Objetos.BOLA && (_playerManager.Brazos > 0 || _furbo)) // Si tiene una bola
         {
             PlayerAccess.Instance.CollisionManager.ObjectStored.SetActive(true);
             PlayerAccess.Instance.CollisionManager.ObjectStored.transform.position = _myTransform.position + (_myTransform.right * _myTransform.localScale.x) / 2;
-            //_thrownObject.transform.position += Vector3.up; // M·s arriba ??
+            //_thrownObject.transform.position += Vector3.up; // M√°s arriba ??
             _thrownObjectRB = PlayerAccess.Instance.CollisionManager.ObjectStored.GetComponent<Rigidbody2D>(); // Pilla su RB
         }
         if (Lanzamiento(_inerciaBolas))
@@ -83,7 +92,7 @@ public class ThrowComponent : MonoBehaviour
     }
 
     public void ChutarBola()
-    { // EST¡ PENSADO PARA CHUTAR UNA BOLA *DELANTE*
+    { // EST√Å PENSADO PARA CHUTAR UNA BOLA *DELANTE*
         _colliders = Physics2D.OverlapCircleAll(_myTransform.position, 1f);
         int i = 0;
         _ballFound = false;
