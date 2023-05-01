@@ -100,7 +100,6 @@ public class StayOnPataforma : MonoBehaviour
     {
         if (CheckStayOn(collision))
         {
-            //Debug.Log("adopt");
             Adoption(collision);
         }
     }
@@ -109,6 +108,7 @@ public class StayOnPataforma : MonoBehaviour
     {
         if (CheckStayOn(collision))
         {
+            Debug.Log("stayon");
             Adoptiont(collision);
         }
     }

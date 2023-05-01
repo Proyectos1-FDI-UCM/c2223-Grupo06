@@ -147,6 +147,12 @@ public class CollisionManager : MonoBehaviour
         else return false;
     }
 
+    public void SetEnabledAndParent(bool newEnabled, Transform newParent)
+    {
+        transform.SetParent(newParent);
+        enabled = newEnabled;
+    }
+
     public int DesactivarObjeto() // 0 llave, 1 muelle, 2 bola
     {
         if (_objetoColisionado != null && !_objetoColisionado.GetComponent<ObjectComponent>().StaticObject)
@@ -166,7 +172,9 @@ public class CollisionManager : MonoBehaviour
             }
             else if (_objetoColisionado.GetComponentInParent<BallComponent>() != null)
             { // si es una bola
+                Debug.Log("collision manager");
                 _objectStored = _objetoColisionado.transform.parent.gameObject;
+                //SetEnabledAndParent(false, null);
                 _objectStored.SetActive(false);
                 LevelManager.Instance.ObjectLevelIndex(LevelManager.Instance.CurrentLevelNum);
                 return 2;
