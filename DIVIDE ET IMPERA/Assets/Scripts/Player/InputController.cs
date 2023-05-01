@@ -332,7 +332,7 @@ public class InputController : MonoBehaviour
         */
 
         // para ver si recoge a alubia bien
-        if (Input.GetKeyDown(KeyCode.Keypad7))
+        if (Input.GetKey(KeyCode.LeftControl) && Input.GetKeyDown(KeyCode.Alpha0))
         {
             if (PlayerManager.Instance.Alubiat)
                 PlayerManager.Instance.SoltarAlubiat();

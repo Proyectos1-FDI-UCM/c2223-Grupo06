@@ -39,9 +39,7 @@ public class SceneChanger : MonoBehaviour
                     WaitOnAudioFade(1, 3);
                     break;
                 case 3:
-                    Debug.Log("Hola?");
                     WaitOnAudioFade(1, 4);
-                    Debug.Log("DIOSS");
                     break;
                 case 4:
                     if (GameManager.Instance != null)

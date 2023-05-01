@@ -8094,6 +8094,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 47800546}
     m_Modifications:
+    - target: {fileID: 244736981203791648, guid: 54a8afff2d922044ea8f29f7a30eb482, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 223.93
+      objectReference: {fileID: 0}
     - target: {fileID: 1092473802654478276, guid: 54a8afff2d922044ea8f29f7a30eb482, type: 3}
       propertyPath: m_CompositePaths.m_Paths.Array.data[0].Array.data[0].x
       value: 20.999971
@@ -9374,6 +9378,14 @@ PrefabInstance:
       propertyPath: m_Tiles.Array.data[3].second.m_TileSpriteIndex
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 5171360443367297757, guid: 54a8afff2d922044ea8f29f7a30eb482, type: 3}
+      propertyPath: _player
+      value: 
+      objectReference: {fileID: 1877467191}
+    - target: {fileID: 8330648664439556980, guid: 54a8afff2d922044ea8f29f7a30eb482, type: 3}
+      propertyPath: _player
+      value: 
+      objectReference: {fileID: 1877467191}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 54a8afff2d922044ea8f29f7a30eb482, type: 3}
 --- !u!4 &1830197957 stripped
