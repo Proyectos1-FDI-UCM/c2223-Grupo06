@@ -38,6 +38,12 @@ public class NewPlatformMovement : MonoBehaviour
         return _act;
     }
 
+    public bool OnOff(bool aux)
+    {
+        _active = aux;
+        return aux;
+    }
+
     public bool isActive()
     {
         return _active;

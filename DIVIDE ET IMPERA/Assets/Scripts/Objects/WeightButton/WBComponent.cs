@@ -75,7 +75,7 @@ public class WBComponent : MonoBehaviour
     // metodo para activar el objeto
     private void Activar()
     {
-        _objeto.GetComponent<NewPlatformMovement>().OnOff();  // true
+        _objeto.GetComponent<NewPlatformMovement>().OnOff(true);  // true
         CameraMovement.Instance.ChangeWhoToFollow(_objeto);
 
     }

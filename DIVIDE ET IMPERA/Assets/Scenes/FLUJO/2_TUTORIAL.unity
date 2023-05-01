@@ -4049,6 +4049,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tutorial-2
       objectReference: {fileID: 0}
+    - target: {fileID: 2926079965616460412, guid: 8afd8ba785e439b488e4b0d75f60a2a0, type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6584364116518203343, guid: 8afd8ba785e439b488e4b0d75f60a2a0, type: 3}
       propertyPath: m_RootOrder
       value: 5
