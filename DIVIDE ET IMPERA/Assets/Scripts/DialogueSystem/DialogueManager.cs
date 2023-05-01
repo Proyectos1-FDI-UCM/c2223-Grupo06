@@ -170,20 +170,18 @@ public class DialogueManager : MonoBehaviour
         // checkea si esta en la ultima linea (ya escrita) y (si la linea actual es la corresponiente[caso en el que
         // no ha cancelado que se escriba la linea] o que se estuviera escribiendo la linea), por lo que si ha
         // acabado de escribir, estaba a medias y no esta en la ultma linea, escirbe la siguiente
-        if (_lines.Length > _index + 1) // siguiente linea
+        if (_lines.Length > _index && _writingLine) // siguiente linea
         {
-            if (_writingLine) // si sigue escribiendo la linea
-            {
-                StopAllCoroutines(); // para todas las corrutinas para que no se dupliquen las lineas
-                _dialogueText.text = _lines[_index]; // escribe la linea
-                _writingLine = false; // deja de escribir la linea
-            }
-            
-            else if (_dialogueText.text == _lines[_index]) // si ya ha acabado de escribir
-            {
-                StopAllCoroutines(); // para todas las corrutinas
-                NextLine(); // pasa a la siguiente linea
-            }
+
+            StopAllCoroutines(); // para todas las corrutinas para que no se dupliquen las lineas
+            _dialogueText.text = _lines[_index]; // escribe la linea
+            _writingLine = false; // deja de escribir la linea
+
+        }
+        else if (_lines.Length > _index + 1 && _dialogueText.text == _lines[_index]) // si ya ha acabado de escribir
+        {
+            StopAllCoroutines(); // para todas las corrutinas
+            NextLine(); // pasa a la siguiente linea
         }
         else // fin dialogo
         {
@@ -210,7 +208,6 @@ public class DialogueManager : MonoBehaviour
             // activa la animacion de timmy corriendo  
             _player.GetComponent<PlayerAnimationController>().IsMoving = true;
             // flippea al timmy
-            Debug.Log("hoili");
             FlipTimoteoBeforeSpeaking();
             // mueve a timmy al waypoint
             _playerTransform.position = Vector3.MoveTowards(_playerTransform.position,  // posición inicial 
@@ -235,13 +232,11 @@ public class DialogueManager : MonoBehaviour
         // si la diferencia entre el player y el waypoint es mayor que 0 significa que esta a la derecha
         if (0.1f < _player.transform.position.x - WaypointDialogo.transform.position.x)
         {
-            Debug.Log("1");
             _player.transform.localScale = new Vector2(-1f, 1f);
         }
         else
         // si la diferencia entre el player y el waypoint es menor que 0 significa que esta a la izquierda
         {
-            Debug.Log("2");
             _player.transform.localScale = new Vector2(1f, 1f);
         }
     }
