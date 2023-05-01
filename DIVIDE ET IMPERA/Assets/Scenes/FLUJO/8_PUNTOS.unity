@@ -861,6 +861,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -37.820145
       objectReference: {fileID: 0}
+    - target: {fileID: 2126956539222979074, guid: 59f3bbb5802b17140a954d4cbd3ee516, type: 3}
+      propertyPath: _player
+      value: 
+      objectReference: {fileID: 1713543180}
+    - target: {fileID: 2126956539222979074, guid: 59f3bbb5802b17140a954d4cbd3ee516, type: 3}
+      propertyPath: _animator
+      value: 
+      objectReference: {fileID: 1906367747}
     - target: {fileID: 2240953605791345918, guid: 59f3bbb5802b17140a954d4cbd3ee516, type: 3}
       propertyPath: m_Name
       value: TextResumen
@@ -1103,11 +1111,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3660323305473503857, guid: 59f3bbb5802b17140a954d4cbd3ee516, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 72
+      value: 699
       objectReference: {fileID: 0}
     - target: {fileID: 3660323305473503857, guid: 59f3bbb5802b17140a954d4cbd3ee516, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -504
+      value: -432
       objectReference: {fileID: 0}
     - target: {fileID: 3665913351796812235, guid: 59f3bbb5802b17140a954d4cbd3ee516, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -1803,6 +1811,10 @@ PrefabInstance:
       propertyPath: m_fontColor32.rgba
       value: 4283186494
       objectReference: {fileID: 0}
+    - target: {fileID: 6590577868828379746, guid: 59f3bbb5802b17140a954d4cbd3ee516, type: 3}
+      propertyPath: m_Navigation.m_Mode
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6885053724000978458, guid: 59f3bbb5802b17140a954d4cbd3ee516, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -1915,6 +1927,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -120.99999
       objectReference: {fileID: 0}
+    - target: {fileID: 8536767420679234175, guid: 59f3bbb5802b17140a954d4cbd3ee516, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -504
+      objectReference: {fileID: 0}
     - target: {fileID: 8551612550899619041, guid: 59f3bbb5802b17140a954d4cbd3ee516, type: 3}
       propertyPath: m_fontSize
       value: 80
@@ -1989,6 +2005,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8836314750001822263, guid: 59f3bbb5802b17140a954d4cbd3ee516, type: 3}
       propertyPath: m_Transition
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8836314750001822263, guid: 59f3bbb5802b17140a954d4cbd3ee516, type: 3}
+      propertyPath: m_Navigation.m_Mode
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8836314750001822263, guid: 59f3bbb5802b17140a954d4cbd3ee516, type: 3}
