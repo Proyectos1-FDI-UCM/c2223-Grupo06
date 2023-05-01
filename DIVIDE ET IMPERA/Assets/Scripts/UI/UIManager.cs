@@ -18,13 +18,14 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject _ControlesMenu;
     [SerializeField] private GameObject _optionsMenu;
     [SerializeField] private GameObject _credits;
+    [SerializeField] private GameObject _logo;
 
     // instancia
     private static UIManager _instance;
     public static UIManager Instance { get { return _instance; } }
 
     // EVENT SYSTEM -> input de teclado para menus
-    [SerializeField] private GameObject _firstButton; // botón inicial del menú pausa
+    private GameObject _firstButton; // botón inicial del menú pausa
     public GameObject FirstButton { get { return _firstButton; } set { _firstButton = value; } }
     // array de botones iniciales por escenas NO REIRSE DE MI >:(
     [SerializeField] private GameObject[] _firstButtons;
@@ -381,7 +382,7 @@ public class UIManager : MonoBehaviour
 
     void Start()
     {
-        _menus = new GameObject[10];    // creación del array de menús y asignación
+        _menus = new GameObject[11];    // creación del array de menús y asignación
                                         // *DEBERÍAN SEGUÍR EL ORDEN Y TAMAÑO DE LOS ESTADOS DEL GAMEMANAGER*
         _menus[0] = _StartMenu;         // START
         _menus[1] = _IntroMenu;         // INTRO
@@ -393,6 +394,8 @@ public class UIManager : MonoBehaviour
         _menus[7] = _ControlesMenu;     // CONTROLLES
         _menus[8] = _optionsMenu;       // OPTIONS
         _menus[9] = _credits;           // CREDITOS
+        _menus[10] = _logo;             // LOGO
+
         // habrá que poner más segun añadamos menuses
         if (GameManager.Instance != null) _activeMenu = GameManager.Instance.CurrentState; // asocia el menú actual con el estado actual
 

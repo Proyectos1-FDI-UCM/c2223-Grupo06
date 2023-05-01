@@ -152,7 +152,7 @@ public class SceneChanger : MonoBehaviour
             switch (whatLvl)
             {
                 case 0: // 0 LOGO 
-                    estado = GameManager.GameStates.INTRO;
+                    estado = GameManager.GameStates.LOGO;
                     break;
                 case 1: // 1 INICIO
                     estado = GameManager.GameStates.START;

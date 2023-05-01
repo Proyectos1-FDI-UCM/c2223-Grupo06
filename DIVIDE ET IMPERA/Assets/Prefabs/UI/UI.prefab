@@ -2608,7 +2608,7 @@ MonoBehaviour:
   _ControlesMenu: {fileID: 4387438277433640414}
   _optionsMenu: {fileID: 6358571315366699567}
   _credits: {fileID: 3344842296846772215}
-  _firstButton: {fileID: 4977953820187593330}
+  _logo: {fileID: 4442884401406988829}
   _firstButtons:
   - {fileID: 9015988375324539592}
   - {fileID: 0}
@@ -2620,6 +2620,7 @@ MonoBehaviour:
   - {fileID: 4049337218018991342}
   - {fileID: 8660575158178535182}
   - {fileID: 7621209700133810147}
+  - {fileID: 0}
   _images:
   - {fileID: 2076869503598631151}
   - {fileID: 2076869503724314630}

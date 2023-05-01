@@ -4,7 +4,7 @@ using UnityEngine.EventSystems;
 
 public class GameManager : MonoBehaviour
 {
-    public enum GameStates { START, INTRO, GAME, PAUSE, GAMEOVER, SCORE, LEVELSELECTOR, CONTROLES, OPCIONES, CREDITS };
+    public enum GameStates { START, INTRO, GAME, PAUSE, GAMEOVER, SCORE, LEVELSELECTOR, CONTROLES, OPCIONES, CREDITS, LOGO };
 
     #region references
     private UIManager _UIManager;
@@ -182,7 +182,8 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        if (_UIManager.FirstButtons[(int)state] != null
+        if (_UIManager != null 
+            &&_UIManager.FirstButtons[(int)state] != null
             && EventSystem.current != null
             && EventSystem.current.currentSelectedGameObject == null)
         {
@@ -232,7 +233,9 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         _currentGameState = GameStates.LEVELSELECTOR; // Valor dummy para que se realice el cambio nada más empezar
-        _nextGameState = GameStates.START;       // Estado inicial, es diferente al current para que el EnterState del primer update se realice
+        // Estado inicial, es diferente al current para que el EnterState del primer update se realice
+        // _nextGameState = GameStates.START;     // ESTADO EN LA ESCENA 1
+        _nextGameState = GameStates.LOGO; // ESTADO EN LA ESCENA 0
 
         _ending = 0;
         _resetCounter = 0;
