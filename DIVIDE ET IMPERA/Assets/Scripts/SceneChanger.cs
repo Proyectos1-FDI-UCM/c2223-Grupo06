@@ -26,7 +26,7 @@ public class SceneChanger : MonoBehaviour
     {
         if (collision.gameObject == _player)
         {
-            //Debug.Log(SceneManager.GetActiveScene().buildIndex);
+            Debug.Log("CAMBIO DE ESCENAS: " + SceneManager.GetActiveScene().buildIndex);
             switch (SceneManager.GetActiveScene().buildIndex)
             {
                 case 0:
@@ -39,7 +39,9 @@ public class SceneChanger : MonoBehaviour
                     WaitOnAudioFade(1, 3);
                     break;
                 case 3:
+                    Debug.Log("Hola?");
                     WaitOnAudioFade(1, 4);
+                    Debug.Log("DIOSS");
                     break;
                 case 4:
                     if (GameManager.Instance != null)
