@@ -172,7 +172,6 @@ public class CollisionManager : MonoBehaviour
             }
             else if (_objetoColisionado.GetComponentInParent<BallComponent>() != null)
             { // si es una bola
-                Debug.Log("collision manager");
                 _objectStored = _objetoColisionado.transform.parent.gameObject;
                 //SetEnabledAndParent(false, null);
                 _objectStored.SetActive(false);
