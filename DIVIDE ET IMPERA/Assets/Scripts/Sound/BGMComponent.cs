@@ -29,8 +29,9 @@ public class BGMComponent : MonoBehaviour
     /// 1 --> skeleton waltz
     /// 2 --> jazz perhaps
     /// 3 --> dolphin
-    /// 4 --> yippie jazz pero entero
-    /// 5 --> yippieeeeee
+    /// 4 --> jazzy montage
+    /// 5 --> yippie jazz pero entero
+    /// 6 --> yippieeeeee
     /// </summary>
 
     #region methods
@@ -70,6 +71,10 @@ public class BGMComponent : MonoBehaviour
         {
             switch (Instance.CurrentState) // Diferentes comportamientos según estado al que se entra
             {
+                case GameStates.LOGO:                       //      *LOGO*
+                    _nextBGM = 6;
+                    _playAmbience = false;
+                    break;
                 case GameStates.START:                       //     *MENÚ INICIAL*
                     _nextBGM = 2;
                     _playAmbience = false;

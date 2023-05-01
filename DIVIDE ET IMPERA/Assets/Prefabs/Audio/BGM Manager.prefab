@@ -58,6 +58,8 @@ MonoBehaviour:
   - {fileID: 8290370862921640958}
   - {fileID: 192840982848053704}
   - {fileID: 7677397794559368431}
+  - {fileID: 7100992320340252}
+  - {fileID: 2634057249994422115}
   _ambience: {fileID: 8290370862921640950}
   _playAmbience: 0
   _canPlay: 0
@@ -649,7 +651,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 241ad5b918ac18e439c794728b13846d, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.7
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -745,7 +747,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 608a795e14ceb2d499d2391bc7b6acc6, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.7
   m_Pitch: 1
   Loop: 0
   Mute: 0
