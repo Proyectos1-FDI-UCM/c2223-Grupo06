@@ -13,7 +13,7 @@
 
 ## Descripción
 
-__DIVIDE ET IMPERA__ es un juego de puzles y plataformas desarrollado por Turbot Works (*nombre provisional*) de vista lateral 2D en el que el jugador controla a un esqueleto llamado Timoteo II, encerrado en una catacumba. 
+__DIVIDE ET IMPERA__ es un juego de puzles y plataformas desarrollado por __Turbot Works__ de vista lateral 2D en el que el jugador controla a un esqueleto llamado Timoteo II, encerrado en una catacumba. 
 
 Timoteo es capaz de separar las partes de su cuerpo para proporcionar funcionalidades a los objetos del entorno y así avanzar a través de los diferentes puzles de la cripta y escapar, enfrentándose a su padre.
 
