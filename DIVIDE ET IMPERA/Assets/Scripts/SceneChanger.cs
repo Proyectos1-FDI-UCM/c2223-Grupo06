@@ -117,7 +117,8 @@ public class SceneChanger : MonoBehaviour
         StartCoroutine(CoroutineWaitOnFade(i, whatLvl));
 
         // empieza la corrutina para el fade out
-        AudioManager.Instance.FadeBGM(i);
+        if(AudioManager.Instance != null)
+            AudioManager.Instance.FadeBGM(i);
 
         StartCoroutine(CoroutineWaitOnFadeToGetVolumeBack(i));
     }
