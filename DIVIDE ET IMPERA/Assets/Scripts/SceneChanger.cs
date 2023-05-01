@@ -167,10 +167,10 @@ public class SceneChanger : MonoBehaviour
                     estado = GameManager.GameStates.GAMEOVER;      // pasa a intro
                     break;
                 case 5: // 5.1 BOB BUENO
-                    estado = GameManager.GameStates.INTRO;      // pasa a intro
+                    estado = GameManager.GameStates.GAMEOVER;      // pasa a intro
                     break;
                 case 6: // 5.2 BOB MALO
-                    estado = GameManager.GameStates.INTRO;      // pasa a intro
+                    estado = GameManager.GameStates.GAMEOVER;      // pasa a intro
                     break;
                 case 7: // 6 PUZLE
                     estado = GameManager.GameStates.GAME;
