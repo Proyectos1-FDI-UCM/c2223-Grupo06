@@ -16,14 +16,10 @@ public class AudioManager : MonoBehaviour
 
     #region Properties
 
-    [SerializeField]
-    private float _beforeFadeVolume;
-    [SerializeField]
-    private float _sliderValueBGM;
-    [SerializeField]
-    private float _sliderValueSFX;
-    [SerializeField]
-    private float _sliderValueAmbience;
+    [SerializeField] private float _beforeFadeVolume;
+    [SerializeField] private float _sliderValueBGM;
+    [SerializeField] private float _sliderValueSFX;
+    [SerializeField] private float _sliderValueAmbience;
     int _whichAudioMixer;
 
     #endregion
@@ -32,6 +28,8 @@ public class AudioManager : MonoBehaviour
     private static AudioManager _instance;
     public static AudioManager Instance { get { return _instance; } }
 
+    #region uwu
+    
     /// <summary>
     /// Guarda el valor del slider del menu de opciones de cada uno de los sliders, siendo
     /// _value el valor del slider e i el mixer correspondiente:
@@ -100,6 +98,23 @@ public class AudioManager : MonoBehaviour
         _sliderValueBGM = 0.5f;
         _sliderValueSFX = 0.5f;
     }
+    
+    #endregion
+
+    #region Keep volume
+
+    /// <summary>
+    /// settea el valor del slider segun el nivel de audio (para entre escenas)
+    /// </summary>
+    /// <param name="value"></param>
+    private void SetSliderValue(float value)
+    {
+
+    }
+
+    #endregion
+
+    #region Get and Set volume
     public void SetBGMVolume(float _sliderValue)
     {
         // representa el valor del slider de manera logaritmica para que se haga bien la conversion; 
@@ -107,7 +122,7 @@ public class AudioManager : MonoBehaviour
         _bgmMixer.SetFloat("BGMVolume", Mathf.Log10(_sliderValue) * 20);
 
         // guarda el valor del slider
-        SaveSliderValue(_sliderValue, 0);
+        //SaveSliderValue(_sliderValue, 0);
     }
 
     public void SetSFXVolume(float _sliderValue)
@@ -115,14 +130,14 @@ public class AudioManager : MonoBehaviour
         _sfxMixer.SetFloat("SFXVolume", Mathf.Log10(_sliderValue) * 20);
 
         // guarda el valor del slider
-        SaveSliderValue(_sliderValue, 1);
+        //SaveSliderValue(_sliderValue, 1);
     }
     public void SetAmbienceVolume(float _sliderValue)
     {
         _ambienceMixer.SetFloat("AmbienceMixer", Mathf.Log10(_sliderValue) * 20);
 
         // guarda el valor del slider
-        SaveSliderValue(_sliderValue, 2);
+        //SaveSliderValue(_sliderValue, 2);
     }
     public float GetVolume()
     {
@@ -130,6 +145,30 @@ public class AudioManager : MonoBehaviour
         _bgmMixer.GetFloat("BGMVolume", out i);
         return i;
     }
+
+    public float GetVolume(int j)
+    {
+        float i;
+        switch (j)
+        {
+            case 0:
+                _bgmMixer.GetFloat("BGMVolume", out i);
+                break;
+            case 1:
+                _bgmMixer.GetFloat("SFXVolume", out i);
+                break;
+            case 2:
+                _bgmMixer.GetFloat("AmbienceVolume", out i);
+                break;
+            default:
+                i = 0.5f;
+                break;
+        }
+        return i;
+    }
+    #endregion
+
+    #region Fade
     public void SetVolumeAfterFade()
     {
         _bgmMixer.SetFloat("BGMVolume", _beforeFadeVolume);
@@ -166,6 +205,7 @@ public class AudioManager : MonoBehaviour
             yield return null;
         }
     }
+    #endregion
 
 
     private void Awake()
@@ -181,10 +221,7 @@ public class AudioManager : MonoBehaviour
             return;
         }
         _instance = this;
-        SetUpAllVolumes();
+        //SetUpAllVolumes();
         _beforeFadeVolume = GetVolume();
-        
-
-
     }
 }

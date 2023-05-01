@@ -349,24 +349,29 @@ public class UIManager : MonoBehaviour
     }
     #endregion
 
+    #region Sliders menu de opciones
     public void SetOptionsSliders()
     {
         if (AudioManager.Instance != null)
         {
+            Debug.Log("1");
             // guarda los valores
             _bgmVolumeValue = AudioManager.Instance.SetSliderValue(0);
             _sfxVolumeValue = AudioManager.Instance.SetSliderValue(1);
             _ambienceVolumeValue = AudioManager.Instance.SetSliderValue(2);
 
+            Debug.Log("2");
             // los resetea
             AudioManager.Instance.SetUpAllVolumes();
 
+            Debug.Log("3");
             // pone el valor correcto
             _sliderBGM.value = _bgmVolumeValue;
             _sliderSFX.value = _sfxVolumeValue;
             _sliderAmbience.value = _ambienceVolumeValue;
         }
     }
+    #endregion
 
     // BUCLE
     void Awake()
@@ -423,6 +428,7 @@ public class UIManager : MonoBehaviour
         }
 
         // setea los sliders WIP 
+        //SetSliders();
         //SetOptioinsSliders();
     }
 }
