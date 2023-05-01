@@ -221,6 +221,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1419451695551956693, guid: 59f3bbb5802b17140a954d4cbd3ee516, type: 3}
+      propertyPath: _player
+      value: 
+      objectReference: {fileID: 1041423897}
+    - target: {fileID: 1419451695551956693, guid: 59f3bbb5802b17140a954d4cbd3ee516, type: 3}
+      propertyPath: _animator
+      value: 
+      objectReference: {fileID: 2049547450}
     - target: {fileID: 2076869504003675088, guid: 59f3bbb5802b17140a954d4cbd3ee516, type: 3}
       propertyPath: m_Pivot.x
       value: 0

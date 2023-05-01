@@ -4430,8 +4430,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9314763656bedf45b603698a399f33a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _animator: {fileID: 0}
-  _player: {fileID: 0}
+  _animator: {fileID: 5171360444949630969, guid: a2dc22ca95a3d2948b60f5a7cc02d0ff, type: 3}
+  _player: {fileID: 2311462238604020209, guid: 767e3f423c90f78409c3048c7e7f2088, type: 3}
   _alubiat: 0
 --- !u!95 &2787027180899784626
 Animator:
