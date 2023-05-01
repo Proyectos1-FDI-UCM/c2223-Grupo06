@@ -350,26 +350,30 @@ public class UIManager : MonoBehaviour
     }
     #endregion
 
-    #region Sliders menu de opciones
+    #region Sliders menu de opciones muy WIP
     public void SetOptionsSliders()
     {
         if (AudioManager.Instance != null)
         {
-            Debug.Log("1");
+            //Debug.Log(AudioManager.Instance.SliderValueBGM);
             // guarda los valores
-            _bgmVolumeValue = AudioManager.Instance.SetSliderValue(0);
-            _sfxVolumeValue = AudioManager.Instance.SetSliderValue(1);
-            _ambienceVolumeValue = AudioManager.Instance.SetSliderValue(2);
-
-            Debug.Log("2");
+            //_bgmVolumeValue = AudioManager.Instance.SliderValueBGM;        //SetSliderValue(0);
+            //_sfxVolumeValue = AudioManager.Instance.SetSliderValue(1);
+            //_ambienceVolumeValue = AudioManager.Instance.SetSliderValue(2);
+            /*
+            Debug.Log("bgm slider: " + _bgmVolumeValue +
+                "sfx slider: " + _sfxVolumeValue +
+                "ambience slider: " + _ambienceVolumeValue);
+            */
+            //Debug.Log("2");
             // los resetea
-            AudioManager.Instance.SetUpAllVolumes();
+            //AudioManager.Instance.SetUpAllVolumes();
 
-            Debug.Log("3");
+            //Debug.Log("3");
             // pone el valor correcto
-            _sliderBGM.value = _bgmVolumeValue;
-            _sliderSFX.value = _sfxVolumeValue;
-            _sliderAmbience.value = _ambienceVolumeValue;
+            //_sliderBGM.value = PlayerPrefs.GetFloat("BGMSliderValue", 0.5f);
+            //_sliderSFX.value = _sfxVolumeValue;
+            //_sliderAmbience.value = _ambienceVolumeValue;
         }
     }
     #endregion
@@ -431,7 +435,6 @@ public class UIManager : MonoBehaviour
         }
 
         // setea los sliders WIP 
-        //SetSliders();
-        //SetOptioinsSliders();
+        //SetOptionsSliders();
     }
 }

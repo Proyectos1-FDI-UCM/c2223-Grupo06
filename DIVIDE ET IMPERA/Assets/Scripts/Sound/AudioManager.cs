@@ -17,9 +17,10 @@ public class AudioManager : MonoBehaviour
     #region Properties
 
     [SerializeField] private float _beforeFadeVolume;
-    [SerializeField] private float _sliderValueBGM;
-    [SerializeField] private float _sliderValueSFX;
-    [SerializeField] private float _sliderValueAmbience;
+    private float _sliderValueBGM;
+    public float SliderValueBGM { get { return _sliderValueBGM; } }
+    private float _sliderValueSFX;
+    private float _sliderValueAmbience;
     int _whichAudioMixer;
 
     #endregion
@@ -53,6 +54,11 @@ public class AudioManager : MonoBehaviour
                 _sliderValueAmbience = _value;
                 break;
         }
+
+        Debug.Log("bgm slider value: " + _sliderValueBGM + " " +
+                "sfx slider value: " + _sliderValueSFX + " " +
+                "ambience slider: " + _sliderValueAmbience);
+
     }
 
     /// <summary>
@@ -64,7 +70,7 @@ public class AudioManager : MonoBehaviour
     /// <param name="i"></param>
     public float SetSliderValue(int i)
     {
-        float auxValue = 0.5f;
+        float auxValue;
         switch (i)
         {
             case 0:
@@ -76,41 +82,16 @@ public class AudioManager : MonoBehaviour
             case 2:
                 auxValue = _sliderValueAmbience;
                 break;
+            default:
+                auxValue = 0.5f;
+                break;
         }
-
         return auxValue;
-    }
-
-    /// <summary>
-    /// Settea los volumenes despues de un fade. Usar solo despues de fades (cambios de escena)
-    /// </summary>
-    public void SetUpAllVolumesAfterFade()
-    {
-
-    }
-
-    /// <summary>
-    /// Settea los volumenes al principio. Usar solo al principio del juego
-    /// </summary>
-    public void SetUpAllVolumes()
-    {
-        _sliderValueAmbience = 0.5f;
-        _sliderValueBGM = 0.5f;
-        _sliderValueSFX = 0.5f;
     }
     
     #endregion
 
     #region Keep volume
-
-    /// <summary>
-    /// settea el valor del slider segun el nivel de audio (para entre escenas)
-    /// </summary>
-    /// <param name="value"></param>
-    private void SetSliderValue(float value)
-    {
-
-    }
 
     #endregion
 
@@ -122,6 +103,7 @@ public class AudioManager : MonoBehaviour
         _bgmMixer.SetFloat("BGMVolume", Mathf.Log10(_sliderValue) * 20);
 
         // guarda el valor del slider
+        PlayerPrefs.SetFloat("BGMSliderValue", _sliderValue);
         //SaveSliderValue(_sliderValue, 0);
     }
 
@@ -130,14 +112,14 @@ public class AudioManager : MonoBehaviour
         _sfxMixer.SetFloat("SFXVolume", Mathf.Log10(_sliderValue) * 20);
 
         // guarda el valor del slider
-        //SaveSliderValue(_sliderValue, 1);
+        SaveSliderValue(_sliderValue, 1);
     }
     public void SetAmbienceVolume(float _sliderValue)
     {
         _ambienceMixer.SetFloat("AmbienceMixer", Mathf.Log10(_sliderValue) * 20);
 
         // guarda el valor del slider
-        //SaveSliderValue(_sliderValue, 2);
+        SaveSliderValue(_sliderValue, 2);
     }
     public float GetVolume()
     {
