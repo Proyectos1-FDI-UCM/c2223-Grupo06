@@ -19,7 +19,7 @@ Timoteo es capaz de separar las partes de su cuerpo para proporcionar funcionali
 
 ## Historia
 
-Timoteo II “El Grande”, antiguo monarca (1811 - 1850 ✞), descansa en su sagrada cripta familiar. Harto de esa vida relegado al olvido decide salir. No será tarea fácil para nuestro monárquico esqueleto, al fin y al cabo, nadie ha conseguido escapar de allí nunca, ni siquiera el tío Bob (que en paz descanse).
+Timoteo II “El Grande”, antiguo monarca (1811 - 1850), descansa en su sagrada cripta familiar. Harto de esa vida relegado al olvido decide salir. No será tarea fácil para nuestro monárquico esqueleto, al fin y al cabo, nadie ha conseguido escapar de allí nunca, ni siquiera el tío Bob (que en paz descanse).
 
 ## Estado
 
