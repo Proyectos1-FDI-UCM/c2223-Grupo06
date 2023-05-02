@@ -34,19 +34,21 @@ De recursos.
 repo
 └── DIVIDE ET IMPERA
     └── Assets
-        ├── Scripts
-        ├── Scenes
+        ├── Animations
+        ├── Audio
+        │   ├── Background
+        │   └── SFX
+        ├── Fonts
+        ├── Materials
+        ├── Prefabs
         ├── Sprites
         │   ├── UI
+        │   ├── Objects
         │   └── Characters
         ├── Prefabs
-        ├── Tiles
-        │   ├── Platforms
-        │   └── Background
-        ├── Animations
-        └── Sounds
-            ├── Background
-            └── SFX
+        └── Tiles
+            ├── Platforms
+            └── Background
 └── docs
 ```
 
