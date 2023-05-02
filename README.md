@@ -41,10 +41,11 @@ repo
         ├── Fonts
         ├── Materials
         ├── Prefabs
-        ├── Sprites
-        │   ├── UI
+        ├── Sprites 
+        │   ├── Characters
         │   ├── Objects
-        │   └── Characters
+        │   ├── Player
+        │   └── UI
         ├── Prefabs
         └── Tiles
             ├── Platforms
