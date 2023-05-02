@@ -30732,7 +30732,7 @@ PrefabInstance:
     - target: {fileID: 8140130228128833234, guid: fe40a95d7663eca499414170bbbe271a, type: 3}
       propertyPath: m_Material
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 6200000, guid: 43dc9862bf84c984494b49f4965161b4, type: 2}
     - target: {fileID: 8140130228128833234, guid: fe40a95d7663eca499414170bbbe271a, type: 3}
       propertyPath: m_CompositePaths.m_Paths.Array.size
       value: 14

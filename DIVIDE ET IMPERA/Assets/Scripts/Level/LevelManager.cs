@@ -18,9 +18,6 @@ public class LevelManager : MonoBehaviour
                                      //en las demás coincide con los spanws de las transiciones)
     [SerializeField]
     private Transform _originalSpawn; //spwan original del jugador
-
-    [SerializeField]
-    private GameObject _objectsReset; //objeto padre de los objetos/partes soltados/lanzados
     #endregion
     #region Properties
     private int _currentLevelNum; //indice de la sala

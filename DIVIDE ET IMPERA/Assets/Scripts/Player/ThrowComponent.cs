@@ -13,8 +13,6 @@ public class ThrowComponent : MonoBehaviour
     private GameObject _armPrefab;
     [SerializeField]
     private GameObject _ballPrefab;
-    [SerializeField]
-    private Transform _objectsReset;
     #endregion
     #region Parameters
     [SerializeField]
