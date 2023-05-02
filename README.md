@@ -36,14 +36,22 @@ repo
     └── Assets
         ├── Animations
         ├── Audio
-        │   ├── Background
+        │   ├── Ambient
         │   └── SFX
         ├── Fonts
         ├── Materials
         ├── Prefabs
+        │   ├── Audio
+        │   ├── Characters
+        │   ├── Game
+        │   ├── Levels
+        │   ├── Objects
+        │   ├── Player
+        │   └── UI
         ├── Sprites 
         │   ├── Characters
         │   ├── Objects
+        │   ├── Tilesets
         │   ├── Player
         │   └── UI
         ├── Prefabs
