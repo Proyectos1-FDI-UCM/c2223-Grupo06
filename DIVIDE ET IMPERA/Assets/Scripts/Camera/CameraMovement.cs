@@ -14,8 +14,10 @@ public class CameraMovement : MonoBehaviour
     private float _followSpeed;
     [SerializeField]
     private float _horizontalOffset;
+    public float HorizontalOffset { get { return _horizontalOffset; } set { _horizontalOffset = value; } }
     [SerializeField]
     private float _verticalOffset;
+    public float VerticalOffset { get { return _verticalOffset; } set { _verticalOffset = value; } }
     #endregion
     #region Properties
     private Vector3 _futureCamPos;

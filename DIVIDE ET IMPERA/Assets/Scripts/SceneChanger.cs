@@ -77,7 +77,8 @@ public class SceneChanger : MonoBehaviour
 
     public void FadeToLevel(int _sceneBuildIndex)  // el level index es el numero que tienen las escenas en los build settings
     {
-        SetPreviousScene(); // Esto debería estar especialmente en el método que se ejecute en el salir del menú pausa
+        if (SceneManager.GetActiveScene().buildIndex > 0) SetPreviousScene();  // si no es en la de logo
+                            // Esto debería estar especialmente en el método que se ejecute en el salir del menú pausa
                             // (ya que lleva a la escena incial y esto permite volver a la escena en la que estuvieras,
                             // pero la gracia es ejecutar esto al hacer clic en el botón salir del menú de pausa)
         _sceneToLoad = _sceneBuildIndex;           // guarda el index en scene to load
