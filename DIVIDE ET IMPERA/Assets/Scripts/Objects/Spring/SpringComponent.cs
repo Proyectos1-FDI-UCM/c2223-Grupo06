@@ -5,6 +5,7 @@ public class SpringComponent : MonoBehaviour
 {
     #region References
     private Animator _animator;
+    private LayerMask _level;
     #endregion
     #region Parameters
     [Tooltip("Fuerza del muelle")]
@@ -17,7 +18,7 @@ public class SpringComponent : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         // para que no colisione con el tilemap 
-        if (!collision.GetComponent<Tilemap>() && collision.GetComponent<Rigidbody2D>()) 
+        if (!collision.GetComponent<Tilemap>() && collision.GetComponent<Rigidbody2D>() && Physics2D.Raycast(transform.position, Vector2.down, 0.75f, _level)) 
         {
             _animator.Play("Boing"); //animacion
             collision.attachedRigidbody.velocity = new Vector2(collision.attachedRigidbody.velocity.x, _springForce); //modifica velocidad del objeto
@@ -33,5 +34,6 @@ public class SpringComponent : MonoBehaviour
     private void Start()
     {
         _animator = GetComponentInParent<Animator>();
+        _level = LayerMask.GetMask("Level");
     }
 }
