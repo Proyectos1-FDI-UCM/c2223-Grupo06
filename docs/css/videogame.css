@@ -25,17 +25,15 @@ header {
     font-style: normal;
 }
 img.img-header {
-    height: 1920px;
-    width: 600px;
-    background-color: powderblue;
+    height: 600px;
+    width: 1920px;
 }
 
 
 /* MARKETING CONTENT
 -------------------------------------------------- */
-
-/* Center align the text within the three columns below the carousel */
-.marketing {
+    /* Center align the text within the three columns below the carousel */
+    .marketing {
   margin-top: 1rem;
 }
 
