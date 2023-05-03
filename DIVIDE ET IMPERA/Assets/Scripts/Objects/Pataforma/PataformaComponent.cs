@@ -58,7 +58,7 @@ public class PataformaComponent : MonoBehaviour
     private int _pDireccion;
     public int PataformaDireccion { get { return _pDireccion; } }
 
-
+    Color lightgreen = new Color(129f, 203f, 130f);
     [SerializeField]
     public bool _activarPataforma;
     #endregion
@@ -194,7 +194,7 @@ public class PataformaComponent : MonoBehaviour
             _patas.SetActive(true);
             if (_alubiatConectadas)
             {
-                _patasSprite.color = Color.green;
+                _patasSprite.color = Color.green;   //lightgreen;
             }
             else if (_piernasConectadas)
             {
@@ -208,7 +208,6 @@ public class PataformaComponent : MonoBehaviour
 
 
     }
-
     private void ChangeInput()
     {
         //---INPUT CHANGE---------------------------------------
@@ -228,7 +227,6 @@ public class PataformaComponent : MonoBehaviour
             LegsInControl();
         }
     }
-
     public void PlayerInControl()
     {
         // si el input del player esta desactivado y el de la pataforma específica
