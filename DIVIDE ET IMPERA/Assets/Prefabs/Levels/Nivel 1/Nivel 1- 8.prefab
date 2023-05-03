@@ -1096,6 +1096,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WeightButton
       objectReference: {fileID: 0}
+    - target: {fileID: 3340192698116498520, guid: 22c7ca5068d53c14b8b1ca8b1b95ab79, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.045
+      objectReference: {fileID: 0}
     - target: {fileID: 3493890602582671553, guid: 22c7ca5068d53c14b8b1ca8b1b95ab79, type: 3}
       propertyPath: _objeto
       value: 
@@ -1104,6 +1108,10 @@ PrefabInstance:
       propertyPath: _objetos
       value: 
       objectReference: {fileID: 695969934437612036}
+    - target: {fileID: 4830731562775172941, guid: 22c7ca5068d53c14b8b1ca8b1b95ab79, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.022
+      objectReference: {fileID: 0}
     - target: {fileID: 5279249968611500058, guid: 22c7ca5068d53c14b8b1ca8b1b95ab79, type: 3}
       propertyPath: m_Size.x
       value: 2.098404
