@@ -314,7 +314,7 @@ public class InputController : MonoBehaviour
     {
         #region DEBUG
         // para ver si cambia de control bien
-        /*
+        
         if (Input.GetKeyDown(KeyCode.Keypad1))
             PlayerManager.Instance.SwitchPartControl(PlayerManager.Partes.CABEZA);
         else if (Input.GetKeyDown(KeyCode.Keypad2))
@@ -325,11 +325,11 @@ public class InputController : MonoBehaviour
             PlayerManager.Instance.SwitchPartControl(PlayerManager.Partes.PIERNAS);
 
         // Para ver si cambia de estados bien
-        if (Input.GetKeyDown(KeyCode.Keypad5))
+        if (Input.GetKeyDown(KeyCode.Keypad8))
             PlayerManager.Instance.AddObject(); // SUBIR ESTADO
-        else if (Input.GetKeyDown(KeyCode.Keypad6))
+        else if (Input.GetKeyDown(KeyCode.Keypad9))
             PlayerManager.Instance.SubObject(); // BAJAR ESTADO
-        */
+        
 
         // para ver si recoge a alubia bien
         if (Input.GetKey(KeyCode.LeftControl) && Input.GetKeyDown(KeyCode.Alpha0))
