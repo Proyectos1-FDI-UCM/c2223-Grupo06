@@ -61,6 +61,35 @@ repo
 └── docs
 ```
 
+## Jerarquía
+
+De scripts. 
+
+```text
+repo
+└── DIVIDE ET IMPERA
+    └── Assets
+        └── Scripts
+            ├── Camera
+            ├── DialogueSystem
+            ├── Game
+            ├── Level
+            ├── Objects
+            │   ├── Ball
+            │   ├── Box
+            │   ├── Interaction
+            │   ├── Key and Door
+            │   ├── Lever
+            │   ├── MovingPlatform
+            │   ├── Pataforma
+            │   ├── Spring
+            │   ├── WeightButton
+            │   └── WeightPlatform
+            ├── Player
+            ├── Sound
+            ├── Story
+            └── UI
+```
 ## Issues
 
 Si has encontrado un error, mira primero la [pestaña de issues](https://github.com/Proyectos1-FDI-UCM/c2223-Grupo06/issues) y busca el tuyo. Si tu problema no está resuelto ya, [abre uno nuevo](https://github.com/Proyectos1-FDI-UCM/c2223-Grupo06/issues/new).
