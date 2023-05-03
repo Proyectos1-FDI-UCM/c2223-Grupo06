@@ -14814,7 +14814,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 742018286442928541, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
       propertyPath: _lines.Array.data[16]
-      value: 'LA PARACA: Bueno, el caso'
+      value: 'LA PARCA: Bueno, el caso'
       objectReference: {fileID: 0}
     - target: {fileID: 742018286442928541, guid: 91b18fceabfd4974d92eebbe34d394ab, type: 3}
       propertyPath: _lines.Array.data[17]
