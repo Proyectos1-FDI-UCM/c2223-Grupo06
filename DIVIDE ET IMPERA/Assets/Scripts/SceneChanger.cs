@@ -132,6 +132,8 @@ public class SceneChanger : MonoBehaviour
         // setea de nuevo el bgm
         if (AudioManager.Instance != null)
             AudioManager.Instance.SetVolumeAfterFade();
+
+        Debug.Log("ehe");
     }
 
     IEnumerator CoroutineWaitOnFade(int i, int whatLvl)

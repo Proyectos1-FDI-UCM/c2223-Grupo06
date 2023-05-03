@@ -25,7 +25,9 @@ header {
     font-style: normal;
 }
 img.img-header {
-    max-height: 300px;
+    height: 1920px;
+    width: 600px;
+    background-color: powderblue;
 }
 
 

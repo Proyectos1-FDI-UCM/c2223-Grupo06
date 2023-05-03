@@ -116,7 +116,7 @@ public class AudioManager : MonoBehaviour
     }
     public void SetAmbienceVolume(float _sliderValue)
     {
-        _ambienceMixer.SetFloat("AmbienceMixer", Mathf.Log10(_sliderValue) * 20);
+        _ambienceMixer.SetFloat("AmbienceVolume", Mathf.Log10(_sliderValue) * 20);
 
         // guarda el valor del slider
         SaveSliderValue(_sliderValue, 2);

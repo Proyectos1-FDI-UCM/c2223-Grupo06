@@ -50,9 +50,6 @@ MonoBehaviour:
   _sfxMixer: {fileID: 24100000, guid: 705994dbee5c5e54689b0cf928a62097, type: 2}
   _ambienceMixer: {fileID: 24100000, guid: 9dbb31cf236d8e040b42d05c2ef9503d, type: 2}
   _beforeFadeVolume: 0
-  _sliderValueBGM: 0
-  _sliderValueSFX: 0
-  _sliderValueAmbience: 0
 --- !u!1001 &321440464987270736
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -161,7 +158,7 @@ PrefabInstance:
     - target: {fileID: 8290370862921640950, guid: 6b4272b8a6f88824e9524fe4dbca7130, type: 3}
       propertyPath: OutputAudioMixerGroup
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 24300002, guid: 9dbb31cf236d8e040b42d05c2ef9503d, type: 2}
     - target: {fileID: 8290370862921640955, guid: 6b4272b8a6f88824e9524fe4dbca7130, type: 3}
       propertyPath: m_RootOrder
       value: 1
