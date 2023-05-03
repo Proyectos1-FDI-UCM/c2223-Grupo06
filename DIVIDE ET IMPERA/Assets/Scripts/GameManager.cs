@@ -166,10 +166,10 @@ public class GameManager : MonoBehaviour
 
         if (_UIManager != null)
         {
-            //if (!_UIManager.SetMenu(state))
+            if (!_UIManager.SetMenu(state))
             {
-                //_UIManager.SetMenu(state);
-                //Debug.Log("Set Menu");
+                _UIManager.SetMenu(state);
+                Debug.Log("Set Menu");
             }
         }
 
@@ -235,7 +235,7 @@ public class GameManager : MonoBehaviour
         _currentGameState = GameStates.LEVELSELECTOR; // Valor dummy para que se realice el cambio nada más empezar
         // Estado inicial, es diferente al current para que el EnterState del primer update se realice
         // _nextGameState = GameStates.START;     // ESTADO EN LA ESCENA 1
-        _nextGameState = GameStates.GAME; // ESTADO EN LA ESCENA 0
+        _nextGameState = GameStates.LOGO; // ESTADO EN LA ESCENA 0
 
         _ending = 0;
         _resetCounter = 0;
