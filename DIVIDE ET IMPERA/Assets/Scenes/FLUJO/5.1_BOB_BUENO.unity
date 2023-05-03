@@ -155,8 +155,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _followSpeed: 2
-  _horizontalOffset: 0
-  _verticalOffset: 1
+  _horizontalOffset: 3
+  _verticalOffset: 0
   _timeOnObject: 0
 --- !u!81 &125968710
 AudioListener:
