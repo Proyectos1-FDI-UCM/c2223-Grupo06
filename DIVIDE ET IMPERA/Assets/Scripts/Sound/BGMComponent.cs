@@ -115,10 +115,6 @@ public class BGMComponent : MonoBehaviour
                     _nextBGM = 5;
                     _playAmbience = false;
                     break;
-                default:
-                    _nextBGM = 0;
-                    _playAmbience= false;
-                    break;
                 }
         }
     }
