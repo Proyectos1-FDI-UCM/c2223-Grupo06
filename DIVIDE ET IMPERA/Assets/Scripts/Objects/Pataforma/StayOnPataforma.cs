@@ -60,6 +60,7 @@ public class StayOnPataforma : MonoBehaviour
     private void Adoptiont(Collision2D collision)
     {
         // padren't
+        if(gameObject.activeSelf)
         gameObject.transform.parent = _originalParent;
     }
     #endregion
