@@ -222,6 +222,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI
       objectReference: {fileID: 0}
+    - target: {fileID: 2076869504003675100, guid: 59f3bbb5802b17140a954d4cbd3ee516, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3302585916420237717, guid: 59f3bbb5802b17140a954d4cbd3ee516, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -1975,6 +1979,14 @@ PrefabInstance:
     - target: {fileID: 6969790473782342529, guid: 014e3eafdffa3a9468008ef6e2cd05a7, type: 3}
       propertyPath: m_Name
       value: Main Camera
+      objectReference: {fileID: 0}
+    - target: {fileID: 7931953667789015281, guid: 014e3eafdffa3a9468008ef6e2cd05a7, type: 3}
+      propertyPath: _followSpeed
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7931953667789015281, guid: 014e3eafdffa3a9468008ef6e2cd05a7, type: 3}
+      propertyPath: _timeOnObject
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7931953667789015281, guid: 014e3eafdffa3a9468008ef6e2cd05a7, type: 3}
       propertyPath: _horizontalOffset

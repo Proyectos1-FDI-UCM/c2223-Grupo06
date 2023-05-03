@@ -8053,6 +8053,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6034433721339384827, guid: 7496609dd26f0ee4cac1b8e07b799f55, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6584364116518203343, guid: 7496609dd26f0ee4cac1b8e07b799f55, type: 3}
       propertyPath: m_RootOrder
       value: 13
@@ -10241,6 +10245,10 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7191540646460709892, guid: f0d72ef738366a24dad83a475adbd515, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7665801081194144218, guid: f0d72ef738366a24dad83a475adbd515, type: 3}
       propertyPath: _player
       value: 
@@ -10504,6 +10512,10 @@ PrefabInstance:
     - target: {fileID: 2076869504003675100, guid: 59f3bbb5802b17140a954d4cbd3ee516, type: 3}
       propertyPath: m_Name
       value: UI
+      objectReference: {fileID: 0}
+    - target: {fileID: 2076869504003675100, guid: 59f3bbb5802b17140a954d4cbd3ee516, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3302585916420237717, guid: 59f3bbb5802b17140a954d4cbd3ee516, type: 3}
       propertyPath: m_IsActive
@@ -10905,6 +10917,10 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 3965601065455127643, guid: 8afd8ba785e439b488e4b0d75f60a2a0, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6584364116518203343, guid: 8afd8ba785e439b488e4b0d75f60a2a0, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -11231,6 +11247,10 @@ PrefabInstance:
     - target: {fileID: 2395157052307697462, guid: 286c2e9cbaad95d4692c13d33ca34543, type: 3}
       propertyPath: m_Name
       value: Tutorial-7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5450661069337341740, guid: 286c2e9cbaad95d4692c13d33ca34543, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6584364116518203343, guid: 286c2e9cbaad95d4692c13d33ca34543, type: 3}
       propertyPath: m_RootOrder
@@ -11584,6 +11604,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tutorial-5
       objectReference: {fileID: 0}
+    - target: {fileID: 5531098198689994932, guid: 49513209d412c6b43be78cafe79165de, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6584364116518203343, guid: 49513209d412c6b43be78cafe79165de, type: 3}
       propertyPath: m_RootOrder
       value: 11
@@ -11911,6 +11935,10 @@ PrefabInstance:
       propertyPath: _player
       value: 
       objectReference: {fileID: 1738796222}
+    - target: {fileID: 7814949796662478186, guid: 447ba14bf32135943b78549d62524cca, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 447ba14bf32135943b78549d62524cca, type: 3}
 --- !u!4 &2140272901 stripped
