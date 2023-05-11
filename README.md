@@ -23,8 +23,8 @@ Timoteo II “El Grande”, antiguo monarca (1811 - 1850), descansa en su sagrad
 
 ## Estado
 
-*Hito 3:* Producción.
-Finaliza el 5/5/2023.
+*Hito 4:* Depuración final.
+Finaliza el 14/5/2023.
 
 ## Jerarquía
 
