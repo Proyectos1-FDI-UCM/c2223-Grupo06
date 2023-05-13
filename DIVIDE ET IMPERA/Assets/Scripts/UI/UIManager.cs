@@ -30,7 +30,7 @@ public class UIManager : MonoBehaviour
     // array de botones iniciales por escenas NO REIRSE DE MI >:(
     [SerializeField] private GameObject[] _firstButtons;
     // 0 inicial, 1 intro, 2 game, 3 pausa, 4 gameover, 5 puntuación,
-    // 6 selector de niveles, 7  controles, 8 opciones, 9 credits
+    // 6 selector de niveles, 7  controles, 8 opciones, 9 credits, 10 logo
     public GameObject[] FirstButtons { get { return _firstButtons; } }
 
     /// HUD
