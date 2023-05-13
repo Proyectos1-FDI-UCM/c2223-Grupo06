@@ -36,8 +36,6 @@ public class UIManager : MonoBehaviour
     /// HUD
     [SerializeField] private Image[] _images;    // imagenes dentro del ui
     [SerializeField] private Sprite[] _sprites;    // sprites en los assets
-    //imagenes tarjetas puntos
-    //[SerializeField] public 
 
     // SLIDERS de menu de opciones
     [SerializeField] private Slider _sliderBGM;
