@@ -329,6 +329,18 @@ PrefabInstance:
       propertyPath: _animator
       value: 
       objectReference: {fileID: 5171360444949630969, guid: a2dc22ca95a3d2948b60f5a7cc02d0ff, type: 3}
+    - target: {fileID: 3164931420007490007, guid: 59f3bbb5802b17140a954d4cbd3ee516, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 50.48596
+      objectReference: {fileID: 0}
+    - target: {fileID: 3164931420007490007, guid: 59f3bbb5802b17140a954d4cbd3ee516, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -22.364746
+      objectReference: {fileID: 0}
+    - target: {fileID: 3164931420007490007, guid: 59f3bbb5802b17140a954d4cbd3ee516, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -29.77384
+      objectReference: {fileID: 0}
     - target: {fileID: 3344842296846772215, guid: 59f3bbb5802b17140a954d4cbd3ee516, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -351,22 +363,22 @@ PrefabInstance:
         Saltsman en Itch.io\r\n\r\n\n\nFuentes\r\n\nSilkscreen - Jason Kottke en
         Google Fonts\r\nKiona - Ellen Luff en Dafont\r\n\r\n\n\r\nM\xFAsica\r\n\nJazz
         1 - Francisco Alvear\r\nSkeleton Waltz - Jonathan Marlin\r\nDark Dolphin
-        - Nesrality\r\nJazzy Montage - Soularflair\r\nYIPPIE but its jazz (tbh creature)\r
-        - GrayWalf\n\r\n\n\nSonidos\r\n\nMinecraft skeleton sounds\r\nPixabay - sfx
-        varios\r\nDialogue text sound effect - Alan Dalcastagne\r\n\r\n\n\nMascotas\r\n\nMascatabaco
-        \u201CMasca\u201D\r\n\r\n\nPlaytesting\r\n\nSantiago Alonso Gilsanz\r\nAlicia
-        Isaura Primo Lopez\r\nOlivia Mar\xEDa Mart\xEDnez Mora\r\nChavales de 4\xBA
-        ESO\r\n\r\n\n\nAgradecimientos\n\nA Merche por hacernos el logo\r\nA Alicia
-        Primo L\xF3pez por hacer un c\xF3mic en franc\xE9s ampliando el lore del
-        juego\r\nA In\xE9s por ponerle nombre a todos los personajes\r\nA la sopa
-        por ser la comida definitiva\r\nA las grandes personas que hacen memes de
-        esqueletos, sin esos memes la vida ser\xEDa muy aburrida\r\nA Laura Canelada
-        Velasco por escuchar a su hermano quejarse cuando de repente todo el juego
-        explotaba\r\nA las plataformas y los muelles por romperse constantemente
-        para evitar aburrirnos con el proyecto\r\nA los t\xEDos y padre de In\xE9s
-        por romper el juego y quejarse porque no se les de bien jugar al juego porque
-        no juegan juegos\r\nA Natalia y Vega (amigas de Alicia) por testear y poner
-        voice over a los dialogos en su sesi\xF3n de testeo\r\n"
+        - Nesrality\r\nJazzy Montage - Soularflair\r\nYIPPIE but its jazz - GrayWalf\n\r\n\n\nSonidos\r\n\nMinecraft
+        skeleton sounds\r\nPixabay - sfx varios\r\nDialogue text sound effect - Alan
+        Dalcastagne\r\n\r\n\n\nMascotas\r\n\nMascatabaco \u201CMasca\u201D\r\n\r\n\nPlaytesting\r\n\nSantiago
+        Alonso Gilsanz\r\nAlicia Isaura Primo Lopez\r\nOlivia Mar\xEDa Mart\xEDnez
+        Mora\r\nChavales de 4\xBA ESO\r\n\r\n\n\nAgradecimientos\n\nA Merche por
+        hacernos el logo\r\n\nA Alicia Primo L\xF3pez por hacer un c\xF3mic en franc\xE9s
+        \nampliando el lore del juego\r\n\nA In\xE9s por ponerle nombre a todos los
+        personajes\r\n\nA la sopa por ser la comida definitiva\r\n\nA las grandes
+        personas que hacen memes de esqueletos, \nsin esos memes la vida ser\xEDa
+        muy aburrida\r\n\nA Laura Canelada Velasco por escuchar a su hermano\n quejarse
+        cuando de repente todo el juego explotaba\r\n\nA las plataformas y los muelles
+        por romperse\n constantemente para evitar aburrirnos con el proyecto\r\n\nA
+        los t\xEDos y padre de In\xE9s por romper el juego y quejarse\nporque no
+        se les de bien jugar al juego porque no juegan juegos\r\n\nA Natalia y Vega
+        (amigas de Alicia) por testear\ny poner voice over a los dialogos en su sesi\xF3n
+        de testeo\r\n"
       objectReference: {fileID: 0}
     - target: {fileID: 4766004364954521373, guid: 59f3bbb5802b17140a954d4cbd3ee516, type: 3}
       propertyPath: m_fontStyle
