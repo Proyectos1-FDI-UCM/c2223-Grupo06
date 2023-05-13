@@ -13,8 +13,6 @@ public class SFXComponent : MonoBehaviour
     private AudioSource[] _objectsSFX;
     [SerializeField]
     private AudioSource[] _dialogueSFX;
-    [SerializeField]
-    private AudioSource _yippie;
 
     /// <summary>
     /// ---- TUTO DE ARRAY DE SFX DE TIMMY--- 
@@ -119,8 +117,4 @@ public class SFXComponent : MonoBehaviour
         return _objectsSFX[i].isPlaying;
     }
 
-    public void PlayYippie()
-    {
-        _yippie.Play();
-    }
 }

@@ -29,98 +29,7 @@ public class AudioManager : MonoBehaviour
     private static AudioManager _instance;
     public static AudioManager Instance { get { return _instance; } }
 
-    #region uwu
-    
-    /// <summary>
-    /// Guarda el valor del slider del menu de opciones de cada uno de los sliders, siendo
-    /// _value el valor del slider e i el mixer correspondiente:
-    /// 0 --> BGM
-    /// 1 --> SFX
-    /// 2 --> Ambience
-    /// </summary>
-    /// <param name="_value"></param>
-    /// <param name="i"></param>
-    private void SaveSliderValue(float _value, int i)
-    {
-        switch (i)
-        {
-            case 0:
-                _sliderValueBGM = _value;
-                break;
-            case 1:
-                _sliderValueSFX = _value;
-                break;
-            case 2:
-                _sliderValueAmbience = _value;
-                break;
-        }
 
-        Debug.Log("bgm slider value: " + _sliderValueBGM + " " +
-                "sfx slider value: " + _sliderValueSFX + " " +
-                "ambience slider: " + _sliderValueAmbience);
-
-    }
-
-    /// <summary>
-    /// Setea el valor del slider guardado dependiendo del indice:
-    /// 0 --> BGM
-    /// 1 --> SFX
-    /// 2 --> Ambience
-    /// </summary>
-    /// <param name="i"></param>
-    public float SetSliderValue(int i)
-    {
-        float auxValue;
-        switch (i)
-        {
-            case 0:
-                auxValue = _sliderValueBGM;
-                break;
-            case 1:
-                auxValue = _sliderValueSFX;
-                break;
-            case 2:
-                auxValue = _sliderValueAmbience;
-                break;
-            default:
-                auxValue = 0.5f;
-                break;
-        }
-        return auxValue;
-    }
-    
-    #endregion
-
-    #region Keep volume
-
-    #endregion
-
-    #region Get and Set volume
-    public void SetBGMVolume(float _sliderValue)
-    {
-        // representa el valor del slider de manera logaritmica para que se haga bien la conversion; 
-        // lo convierte en valores entre [-80, 0] pero en escala logaritmica
-        _bgmMixer.SetFloat("BGMVolume", Mathf.Log10(_sliderValue) * 20);
-
-        // guarda el valor del slider
-        PlayerPrefs.SetFloat("BGMSliderValue", _sliderValue);
-        //SaveSliderValue(_sliderValue, 0);
-    }
-
-    public void SetSFXVolume(float _sliderValue)
-    {
-        _sfxMixer.SetFloat("SFXVolume", Mathf.Log10(_sliderValue) * 20);
-
-        // guarda el valor del slider
-        SaveSliderValue(_sliderValue, 1);
-    }
-    public void SetAmbienceVolume(float _sliderValue)
-    {
-        _ambienceMixer.SetFloat("AmbienceVolume", Mathf.Log10(_sliderValue) * 20);
-
-        // guarda el valor del slider
-        SaveSliderValue(_sliderValue, 2);
-    }
     public float GetVolume()
     {
         float i;
@@ -128,27 +37,6 @@ public class AudioManager : MonoBehaviour
         return i;
     }
 
-    public float GetVolume(int j)
-    {
-        float i;
-        switch (j)
-        {
-            case 0:
-                _bgmMixer.GetFloat("BGMVolume", out i);
-                break;
-            case 1:
-                _bgmMixer.GetFloat("SFXVolume", out i);
-                break;
-            case 2:
-                _bgmMixer.GetFloat("AmbienceVolume", out i);
-                break;
-            default:
-                i = 0.5f;
-                break;
-        }
-        return i;
-    }
-    #endregion
 
     #region Fade
     public void SetVolumeAfterFade()
