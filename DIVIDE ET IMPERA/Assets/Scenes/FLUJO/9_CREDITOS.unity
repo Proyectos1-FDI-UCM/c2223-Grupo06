@@ -182,6 +182,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Timoteo
       objectReference: {fileID: 0}
+    - target: {fileID: 4768053018202619047, guid: 767e3f423c90f78409c3048c7e7f2088, type: 3}
+      propertyPath: m_Constraints
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 5943162679483822508, guid: 767e3f423c90f78409c3048c7e7f2088, type: 3}
       propertyPath: _conversar
       value: 0
@@ -317,85 +321,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI
       objectReference: {fileID: 0}
-    - target: {fileID: 2076869504003675100, guid: 59f3bbb5802b17140a954d4cbd3ee516, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2700821712151408256, guid: 59f3bbb5802b17140a954d4cbd3ee516, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -4166
-      objectReference: {fileID: 0}
     - target: {fileID: 2994262355671103770, guid: 59f3bbb5802b17140a954d4cbd3ee516, type: 3}
       propertyPath: _player
       value: 
       objectReference: {fileID: 1041423897}
-    - target: {fileID: 2994262355671103770, guid: 59f3bbb5802b17140a954d4cbd3ee516, type: 3}
-      propertyPath: _animator
-      value: 
-      objectReference: {fileID: 5171360444949630969, guid: a2dc22ca95a3d2948b60f5a7cc02d0ff, type: 3}
-    - target: {fileID: 3164931420007490007, guid: 59f3bbb5802b17140a954d4cbd3ee516, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 50.48596
-      objectReference: {fileID: 0}
-    - target: {fileID: 3164931420007490007, guid: 59f3bbb5802b17140a954d4cbd3ee516, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -22.364746
-      objectReference: {fileID: 0}
-    - target: {fileID: 3164931420007490007, guid: 59f3bbb5802b17140a954d4cbd3ee516, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -29.77384
-      objectReference: {fileID: 0}
     - target: {fileID: 3344842296846772215, guid: 59f3bbb5802b17140a954d4cbd3ee516, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4766004364954521373, guid: 59f3bbb5802b17140a954d4cbd3ee516, type: 3}
-      propertyPath: m_text
-      value: "Desarrolladores\r\n\nCynthia Trist\xE1n \xC1lvarez\r\nDavid Canelada
-        Velasco\r\nIn\xE9s Olimpia Primo L\xF3pez\r\nAriadna Alicia Ruiz Castillo\r\nNieves
-        Alonso Gilsanz\r\n\r\n\n\nDise\xF1o\r\n\nAriadna Alicia Ruiz Castillo\r\nDavid
-        Canelada Velasco\r\nNieves Alonso Gilsanz\r\n\r\n\n\nSupervisi\xF3n de dise\xF1o\r\n\nIn\xE9s
-        Olimpia Primo L\xF3pez\r\n\r\n\n\nArte de men\xFAs\r\n\nNieves Alonso Gilsanz\r\n\r\n\n\nSprites
-        HUD y objetos\r\n\nNieves Alonso Gilsanz\r\n\r\n\n\nBob\r\n\nIn\xE9s Olimpia
-        Primo L\xF3pez\r\n\r\n\n\nAlubia y La Parca\r\n\nNieves Alonso Gilsanz \r\n\r\n\n\nAnimaci\xF3n
-        objetos\r\n\nIn\xE9s Olimpia Primo L\xF3pez\r\nNieves Alonso Gilsanz\r\n\r\n\n\nAnimaci\xF3n
-        NPCs\r\n\nNieves Alonso Gilsanz\r\n\r\n\n\nEdici\xF3n de sprites\r\n\nIn\xE9s
-        Olimpia Primo L\xF3pez\r\n\r\n\n\nGui\xF3n\r\n\nNieves Alonso Gilsanz\r\n\n\n\r\nLogo
-        Divide et Impera\r\n\nNieves Alonso Gilsanz\r\n\r\n\n\nLogo Turbot Works\r\n\nMerche\r\n\r\n\n\nTrailer\r\n\nCynthia
-        Trist\xE1n \xC1lvarez\r\n\r\n\n\nAssets visuales\r\n\nTimoteo: Sword Skeleton
-        Pixel Art Character - SanctumPixel en Itch.io\r\nFondos: Cavernas - Adam
-        Saltsman en Itch.io\r\n\r\n\n\nFuentes\r\n\nSilkscreen - Jason Kottke en
-        Google Fonts\r\nKiona - Ellen Luff en Dafont\r\n\r\n\n\r\nM\xFAsica\r\n\nJazz
-        1 - Francisco Alvear\r\nSkeleton Waltz - Jonathan Marlin\r\nDark Dolphin
-        - Nesrality\r\nJazzy Montage - Soularflair\r\nYIPPIE but its jazz - GrayWalf\n\r\n\n\nSonidos\r\n\nMinecraft
-        skeleton sounds\r\nPixabay - sfx varios\r\nDialogue text sound effect - Alan
-        Dalcastagne\r\n\r\n\n\nMascotas\r\n\nMascatabaco \u201CMasca\u201D\r\n\r\n\nPlaytesting\r\n\nSantiago
-        Alonso Gilsanz\r\nAlicia Isaura Primo Lopez\r\nOlivia Mar\xEDa Mart\xEDnez
-        Mora\r\nChavales de 4\xBA ESO\r\n\r\n\n\nAgradecimientos\n\nA Merche por
-        hacernos el logo\r\n\nA Alicia Primo L\xF3pez por hacer un c\xF3mic en franc\xE9s
-        \nampliando el lore del juego\r\n\nA In\xE9s por ponerle nombre a todos los
-        personajes\r\n\nA la sopa por ser la comida definitiva\r\n\nA las grandes
-        personas que hacen memes de esqueletos, \nsin esos memes la vida ser\xEDa
-        muy aburrida\r\n\nA Laura Canelada Velasco por escuchar a su hermano\n quejarse
-        cuando de repente todo el juego explotaba\r\n\nA las plataformas y los muelles
-        por romperse\n constantemente para evitar aburrirnos con el proyecto\r\n\nA
-        los t\xEDos y padre de In\xE9s por romper el juego y quejarse\nporque no
-        se les de bien jugar al juego porque no juegan juegos\r\n\nA Natalia y Vega
-        (amigas de Alicia) por testear\ny poner voice over a los dialogos en su sesi\xF3n
-        de testeo\r\n"
-      objectReference: {fileID: 0}
-    - target: {fileID: 4766004364954521373, guid: 59f3bbb5802b17140a954d4cbd3ee516, type: 3}
-      propertyPath: m_fontStyle
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6125724706795374845, guid: 59f3bbb5802b17140a954d4cbd3ee516, type: 3}
-      propertyPath: _player
-      value: 
-      objectReference: {fileID: 1041423897}
-    - target: {fileID: 6125724706795374845, guid: 59f3bbb5802b17140a954d4cbd3ee516, type: 3}
-      propertyPath: _animator
-      value: 
-      objectReference: {fileID: 2049547450}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 59f3bbb5802b17140a954d4cbd3ee516, type: 3}
 --- !u!1 &1298297420

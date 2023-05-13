@@ -62,8 +62,10 @@ public class UIManager : MonoBehaviour
     #endregion
 
     #region properties
-    public GameManager.GameStates _activeMenu;          // Menú actual
+    private GameManager.GameStates _activeMenu;          // Menú actual
+    public GameManager.GameStates ActiveMenu { get { return _activeMenu; } }   
     private GameObject[] _menus;                         // Array de menús totales
+    public GameObject[] Menus { get { return _menus; } }
 
     private int _posCabeza;
     private int _posBrazo1;
@@ -84,11 +86,15 @@ public class UIManager : MonoBehaviour
     }
 
     // MENUS
-    public bool SetMenu(GameManager.GameStates newMenu)  // Desactiva el menú anterior, actualiza el actual y lo activa
+    public void SetMenu(GameManager.GameStates newMenu)  // Desactiva el menú anterior, actualiza el actual y lo activa
     {
         _menus[(int)_activeMenu].SetActive(false);
         _activeMenu = newMenu;
         _menus[(int)_activeMenu].SetActive(true);
+    }
+
+    public bool IsMenuSet()
+    {
         return _menus[(int)_activeMenu].activeSelf;
     }
 

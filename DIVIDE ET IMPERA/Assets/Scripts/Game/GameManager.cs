@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 //using Unity.UI;
 using UnityEngine.EventSystems;
@@ -80,6 +81,7 @@ public class GameManager : MonoBehaviour
             case GameStates.GAME:                        //     *JUEGO*
                 if (_UIManager != null) // Inicializa valores del HUD
                     _UIManager.SetPartes(PlayerManager.State, PlayerManager.Instance.Parte);
+
                 Time.timeScale = 1;
                 break;
 
@@ -133,13 +135,23 @@ public class GameManager : MonoBehaviour
                 if (_UIManager != null) _UIManager.ScoreMenuSetUp(_score, _ending);
                 break;
             case GameStates.LEVELSELECTOR:              //     *SELECTOR DE NIVELES*
+                Time.timeScale = 1;
+
                 break;
             case GameStates.CONTROLES:                  //     *CONTROLES*
+                Time.timeScale = 0;
 
                 break;
             case GameStates.OPCIONES:                   //     *OPCIONES*
+                Time.timeScale = 0;
+
                 break;
             case GameStates.CREDITS:                    //     *CREDITOS*
+                Time.timeScale = 1;
+
+                break;
+            case GameStates.LOGO:
+                Time.timeScale = 1;
                 break;
         }
 
@@ -151,7 +163,7 @@ public class GameManager : MonoBehaviour
         }
 
         _currentGameState = newState;                        // Finaliza el cambio
-        Debug.Log("GAMEMANAGER: Current state is " + _currentGameState);
+        Debug.Log("GAMEMANAGER: Current state is " + _currentGameState + ", TIMESCALE is " + Time.timeScale);
     }
 
     private void UpdateState(GameStates state)
@@ -163,16 +175,16 @@ public class GameManager : MonoBehaviour
                 if (_UIManager != null) _UIManager.PauseToGame();
             }
         }
-
+        
         if (_UIManager != null)
         {
-            if (!_UIManager.SetMenu(state))
+            if (!_UIManager.IsMenuSet())
             {
                 _UIManager.SetMenu(state);
-                Debug.Log("Set Menu");
+                Debug.Log("Menu Re-Set");
             }
         }
-
+        
         if (state == GameStates.GAME)
         {
             if (_UIManager != null)
@@ -235,7 +247,7 @@ public class GameManager : MonoBehaviour
         _currentGameState = GameStates.LEVELSELECTOR; // Valor dummy para que se realice el cambio nada más empezar
         // Estado inicial, es diferente al current para que el EnterState del primer update se realice
         // _nextGameState = GameStates.START;     // ESTADO EN LA ESCENA 1
-        _nextGameState = GameStates.LOGO; // ESTADO EN LA ESCENA 0
+        _nextGameState = GameStates.GAMEOVER; // ESTADO EN LA ESCENA 0
 
         _ending = 0;
         _resetCounter = 0;

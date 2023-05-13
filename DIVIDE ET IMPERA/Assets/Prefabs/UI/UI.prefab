@@ -4408,7 +4408,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3344842296846772215}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 50.485962, y: -22.364746, z: -29.773842}
+  m_LocalPosition: {x: 50.48596, y: -22.364746, z: -29.77384}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4430,8 +4430,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9314763656bedf45b603698a399f33a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _animator: {fileID: 5171360444949630969, guid: a2dc22ca95a3d2948b60f5a7cc02d0ff, type: 3}
-  _player: {fileID: 2311462238604020209, guid: 767e3f423c90f78409c3048c7e7f2088, type: 3}
+  _animator: {fileID: 0}
+  _player: {fileID: 0}
   _alubiat: 0
 --- !u!95 &2787027180899784626
 Animator:
@@ -9516,8 +9516,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9314763656bedf45b603698a399f33a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _animator: {fileID: 0}
-  _player: {fileID: 5171360444949630968, guid: a2dc22ca95a3d2948b60f5a7cc02d0ff, type: 3}
+  _animator: {fileID: 5171360444949630969, guid: a2dc22ca95a3d2948b60f5a7cc02d0ff, type: 3}
+  _player: {fileID: 0}
   _alubiat: 0
 --- !u!1 &7633141727848751347
 GameObject:
@@ -11598,7 +11598,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -12, y: -2678}
+  m_AnchoredPosition: {x: -12, y: -4166}
   m_SizeDelta: {x: 1917.0981, y: 1071.8096}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &187044896934976530
@@ -11629,36 +11629,36 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "It's your boy, Romeo! ('W' con Yandel!)\r\nSo nasty! (Oye, bebe!)\r\n(\"Pa'l
-    Mundo\"!)\r\n\xBFOye, que tal?\r\nSoy el chico de las poes\xEDas\r\nTu fiel admirador\r\nY
-    aunque no me conoc\xEDas\r\nHoy es noche de sexo\r\nVoy a devorarte, nena linda\r\nHoy
-    es noche de sexo\r\nY voy a cumplir tus fantas\xEDas\r\nHoy es noche de sexo
-    (Ayyy!)\r\nVoy a devorarte, nena linda\r\nHoy es noche de sexo\r\nLo juro por
-    Dios que esta noche ser\xE1s m\xEDa\r\nQuiero arrancarte la tela con cautela\r\nMi
-    piel canela enseguida pela\r\nElla es la protagonista de mi novela\r\nMi Cinderella
-    conmigo es que vuela\r\nP\xF3ngase rom\xE1ntica, please\r\nDame un kiss, no cometa
-    un desliz\r\nElla combina la calle con la moda de Paris\r\nLa miss sigue matando
-    en el pa\xEDs\r\nHoy es noche de sexo\r\nVoy a devorarte, nena linda\r\nHoy es
-    noche de sexo\r\nY voy a cumplir tus fantas\xEDas\r\nHoy es noche de sexo (Ayyy!)\r\nVoy
-    a devorarte, nena linda\r\nHoy es noche de sexo\r\nLo juro por Dios que esta
-    noche ser\xE1s m\xEDa\r\nAc\xE9rcate...\r\nTe dir\xE9 que...\r\nNadie te va a
-    tocar como yo\r\nNadie te lo va a hacer como yo\r\nAc\xE9rcate...\r\nTe dir\xE9
-    que...\r\nNadie te va a tocar como yo\r\nNadie te lo va a hacer como yo\r\nDec\xEDdete
-    ya cuando ser\xE1\r\nQue tu boca tocara mi boca\r\nSo, dime ya que t\xFA me das\r\nQuiero
-    sentirte, besarte\r\nMi lengua pasarte\r\nY vas a sentirte bien\r\nVamos a pasarla
-    bien\r\nTu no vez que estoy sufriendo\r\nY pasando el tiempo sin comerte\r\nEmpecemos
-    en la playa\r\nTerminemos en la cama\r\nTrae la toalla porque te vas a mojar\r\nEn
-    flex, mami, en sex\r\nLay on my bed and prepare for sex\r\nHoy es noche de sexo\r\nVoy
-    a devorarte, nena linda\r\nHoy es noche de sexo\r\nY voy a cumplir tus fantas\xEDas\r\nHoy
-    es noche de sexo (Ayyy!)\r\nVoy a devorarte, nena linda\r\nHoy es noche de sexo\r\nLo
-    juro por Dios que esta noche ser\xE1s m\xEDa\r\n'W', el sobreviviente!\r\nCon
-    Yandel!\r\nNelly!\r\nNesty!\r\nNo hay pa' nadie!\r\nLlego el dream team!\r\nEl
-    dream team!\r\nSalte de la v\xEDa!\r\nQue por ah\xED viene el tren!\r\nBoo!\r\nTra!
-    (Frikia'o!)\r\nBoo! (Tell them about the name!)\r\nTra! (Hitmaker!)\r\nBoo! (Hitmaker,
-    baby!)\r\nTra! (Don't stop, baby!)\r\nBoo!\r\nTra!\r\nOye, Romeo!\r\nEl d\xFAo
-    de la historia!\r\nZumba, Romeo, zumba!\r\nNo hay pa' nadie!\r\nEsta bien ya!\r\nNo
-    llores!\r\nEl d\xFAo de la historia!\r\nCon Romeo!\r\nUn junte pa' la historia!\r\nEsto
-    es de colecci\xF3n, hermano!"
+  m_text: "Desarrolladores\r\n\nCynthia Trist\xE1n \xC1lvarez\r\nDavid Canelada Velasco\r\nIn\xE9s
+    Olimpia Primo L\xF3pez\r\nAriadna Alicia Ruiz Castillo\r\nNieves Alonso Gilsanz\r\n\r\n\n\nDise\xF1o\r\n\nAriadna
+    Alicia Ruiz Castillo\r\nDavid Canelada Velasco\r\nNieves Alonso Gilsanz\r\n\r\n\n\nSupervisi\xF3n
+    de dise\xF1o\r\n\nIn\xE9s Olimpia Primo L\xF3pez\r\n\r\n\n\nArte de men\xFAs\r\n\nNieves
+    Alonso Gilsanz\r\n\r\n\n\nSprites HUD y objetos\r\n\nNieves Alonso Gilsanz\r\n\r\n\n\nBob\r\n\nIn\xE9s
+    Olimpia Primo L\xF3pez\r\n\r\n\n\nAlubia y La Parca\r\n\nNieves Alonso Gilsanz
+    \r\n\r\n\n\nAnimaci\xF3n objetos\r\n\nIn\xE9s Olimpia Primo L\xF3pez\r\nNieves
+    Alonso Gilsanz\r\n\r\n\n\nAnimaci\xF3n NPCs\r\n\nNieves Alonso Gilsanz\r\n\r\n\n\nEdici\xF3n
+    de sprites\r\n\nIn\xE9s Olimpia Primo L\xF3pez\r\n\r\n\n\nGui\xF3n\r\n\nNieves
+    Alonso Gilsanz\r\n\n\n\r\nLogo Divide et Impera\r\n\nNieves Alonso Gilsanz\r\n\r\n\n\nLogo
+    Turbot Works\r\n\nMerche\r\n\r\n\n\nTrailer\r\n\nCynthia Trist\xE1n \xC1lvarez\r\n\r\n\n\nAssets
+    visuales\r\n\nTimoteo: Sword Skeleton Pixel Art Character - SanctumPixel en Itch.io\r\nFondos:
+    Cavernas - Adam Saltsman en Itch.io\r\n\r\n\n\nFuentes\r\n\nSilkscreen - Jason
+    Kottke en Google Fonts\r\nKiona - Ellen Luff en Dafont\r\n\r\n\n\r\nM\xFAsica\r\n\nJazz
+    1 - Francisco Alvear\r\nSkeleton Waltz - Jonathan Marlin\r\nDark Dolphin - Nesrality\r\nJazzy
+    Montage - Soularflair\r\nYIPPIE but its jazz - GrayWalf\n\r\n\n\nSonidos\r\n\nMinecraft
+    skeleton sounds\r\nPixabay - sfx varios\r\nDialogue text sound effect - Alan
+    Dalcastagne\r\n\r\n\n\nMascotas\r\n\nMascatabaco \u201CMasca\u201D\r\n\r\n\nPlaytesting\r\n\nSantiago
+    Alonso Gilsanz\r\nAlicia Isaura Primo Lopez\r\nOlivia Mar\xEDa Mart\xEDnez Mora\r\nChavales
+    de 4\xBA ESO\r\n\r\n\n\nAgradecimientos\n\nA Merche por hacernos el logo\r\n\nA
+    Alicia Primo L\xF3pez por hacer un c\xF3mic en franc\xE9s \nampliando el lore
+    del juego\r\n\nA In\xE9s por ponerle nombre a todos los personajes\r\n\nA la
+    sopa por ser la comida definitiva\r\n\nA las grandes personas que hacen memes
+    de esqueletos, \nsin esos memes la vida ser\xEDa muy aburrida\r\n\nA Laura Canelada
+    Velasco por escuchar a su hermano\n quejarse cuando de repente todo el juego
+    explotaba\r\n\nA las plataformas y los muelles por romperse\n constantemente
+    para evitar aburrirnos con el proyecto\r\n\nA los t\xEDos y padre de In\xE9s
+    por romper el juego y quejarse\nporque no se les de bien jugar al juego porque
+    no juegan juegos\r\n\nA Natalia y Vega (amigas de Alicia) por testear\ny poner
+    voice over a los dialogos en su sesi\xF3n de testeo\r\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 4edb072917211484993c64ca7c3f3ff1, type: 2}
   m_sharedMaterial: {fileID: 9142865356264516814, guid: 4edb072917211484993c64ca7c3f3ff1, type: 2}
