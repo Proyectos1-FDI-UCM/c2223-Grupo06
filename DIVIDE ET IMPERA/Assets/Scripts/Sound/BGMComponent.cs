@@ -43,6 +43,11 @@ public class BGMComponent : MonoBehaviour
             _bgm[i].Play();
         }
     }
+
+    public bool IsBGMPlaying(int i)
+    {
+        return _bgm[i].isPlaying;
+    }
     public void StopBGM(int i)
     {
         // si esta sonando lo para

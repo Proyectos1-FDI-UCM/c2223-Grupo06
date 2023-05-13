@@ -79,7 +79,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2761443323977113749, guid: 2744dc1518e318b4fa76c7d339324c58, type: 3}
       propertyPath: m_Volume
-      value: 0.4
+      value: 0.309
       objectReference: {fileID: 0}
     - target: {fileID: 2761443323977113753, guid: 2744dc1518e318b4fa76c7d339324c58, type: 3}
       propertyPath: m_RootOrder
@@ -148,8 +148,12 @@ PrefabInstance:
     m_TransformParent: {fileID: 6925641820534524795}
     m_Modifications:
     - target: {fileID: 7100992320340252, guid: 6b4272b8a6f88824e9524fe4dbca7130, type: 3}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7100992320340252, guid: 6b4272b8a6f88824e9524fe4dbca7130, type: 3}
       propertyPath: m_Volume
-      value: 0.293
+      value: 0.539
       objectReference: {fileID: 0}
     - target: {fileID: 2634057249994422115, guid: 6b4272b8a6f88824e9524fe4dbca7130, type: 3}
       propertyPath: Loop
@@ -157,11 +161,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2634057249994422115, guid: 6b4272b8a6f88824e9524fe4dbca7130, type: 3}
       propertyPath: m_Volume
-      value: 0.277
+      value: 0.266
       objectReference: {fileID: 0}
     - target: {fileID: 8290370862921640949, guid: 6b4272b8a6f88824e9524fe4dbca7130, type: 3}
       propertyPath: m_Name
       value: BGM Manager
+      objectReference: {fileID: 0}
+    - target: {fileID: 8290370862921640950, guid: 6b4272b8a6f88824e9524fe4dbca7130, type: 3}
+      propertyPath: m_Volume
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8290370862921640950, guid: 6b4272b8a6f88824e9524fe4dbca7130, type: 3}
       propertyPath: OutputAudioMixerGroup
