@@ -5,9 +5,6 @@ public class PalancaComponent : MonoBehaviour
 
     #region Referencias
     private InputController _inputController;
-    private PlayerManager _playerManager;
-    private MovingPlatformComponent _movingPlatform;
-    private SpriteRenderer _mySpriteRenderer;
     #endregion
 
     #region
@@ -48,7 +45,6 @@ public class PalancaComponent : MonoBehaviour
     #endregion
 
     #region Métodos
-
     public void Activar()
     {
         _palanca = ActivarPalanca();
@@ -63,9 +59,8 @@ public class PalancaComponent : MonoBehaviour
     // activa o desactiva la palanca dependiendo de su estado anterior
     public bool ActivarPalanca()
     {
-        bool _lvr = !_palanca;
         _palanca = !_palanca;
-        return _lvr;
+        return _palanca;
     }
 
     // interactua con el objeto de fuera (puerta, plataforma etc)
@@ -83,7 +78,6 @@ public class PalancaComponent : MonoBehaviour
                     _objetos[i].GetComponent<NewPlatformMovement>().OnOff();
                     i++;
                 }
-
             }
         }
         else if (!_palanca)
@@ -97,7 +91,6 @@ public class PalancaComponent : MonoBehaviour
                 }
             }
         }
-
     }
 
     //Conecta el brazo
@@ -169,16 +162,11 @@ public class PalancaComponent : MonoBehaviour
             _brazoNum = 0;
         }
     }
-
-
     #endregion
-
 
     private void Start()
     {
         _inputController = PlayerAccess.Instance.InputController;
-        _playerManager = PlayerAccess.Instance.PlayerManager;
-        _mySpriteRenderer = GetComponent<SpriteRenderer>();
         _fatherGameObject = transform.parent.gameObject;
     }
 

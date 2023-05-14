@@ -63,70 +63,35 @@ public class PataformaComponent : MonoBehaviour
     public bool _activarPataforma;
     #endregion
 
-
-
     #region Initial methods
-
     private bool ConectarPiernas()
     {
-        bool aux;
-        if (_inputController.ConectarPiernas && _validPataformaHitbox
-            && (PlayerManager.Instance.Piernas))
-        {
-            aux = true;
-        }
-        else
-        {
-            aux = false;
-        }
-        return aux;
+        return _inputController.ConectarPiernas
+            && _validPataformaHitbox
+            && PlayerManager.Instance.Piernas;
     }
 
     private bool DesconectarPiernas()
     {
-        bool aux;
-        if (_inputController.RecuperarPiernas && _validPataformaHitbox
+        return _inputController.RecuperarPiernas
+            && _validPataformaHitbox
             && !PlayerManager.Instance.Piernas
-            && _piernasConectadas)
-        {
-            aux = true;
-        }
-        else
-        {
-            aux = false;
-        }
-        return aux;
+            && _piernasConectadas;
     }
 
     private bool ConectarAlubiat()
     {
-        bool aux;
-        if (_inputController.ConectarAlubiat && _validPataformaHitbox
-            && (PlayerManager.Instance.Alubiat))
-        {
-            aux = true;
-        }
-        else
-        {
-            aux = false;
-        }
-        return aux;
+        return _inputController.ConectarAlubiat
+            && _validPataformaHitbox
+            && PlayerManager.Instance.Alubiat;
     }
 
     private bool DesconectarAlubiat()
     {
-        bool aux;
-        if (_inputController.RecuperarAlubiat && _validPataformaHitbox
+        return _inputController.RecuperarAlubiat
+            && _validPataformaHitbox
             && !PlayerManager.Instance.Alubiat
-            && _alubiatConectadas)
-        {
-            aux = true;
-        }
-        else
-        {
-            aux = false;
-        }
-        return aux;
+            && _alubiatConectadas;
     }
     #endregion
 
@@ -204,8 +169,6 @@ public class PataformaComponent : MonoBehaviour
         {
             _patas.SetActive(false);
         }
-
-
     }
     private void ChangeInput()
     {
@@ -258,7 +221,6 @@ public class PataformaComponent : MonoBehaviour
             _pDireccion = 0;
             _animator.SetBool("move", false);
         }
-
     }
 
     private void LegsInControl()

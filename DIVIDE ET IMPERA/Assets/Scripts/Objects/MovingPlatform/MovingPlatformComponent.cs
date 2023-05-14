@@ -57,12 +57,6 @@ public class MovingPlatformComponent : MonoBehaviour
         }
     }
 
-    // PUERTA
-    void Puerta()
-    {
-
-    }
-
     // Marca hacia qué waypoint va
     void WhichWaypoint()
     {
@@ -95,7 +89,6 @@ public class MovingPlatformComponent : MonoBehaviour
         {
             MovePlatform();
         }
-
     }
 
     private void FixedUpdate()

@@ -6,9 +6,7 @@ public class ThrowComponent : MonoBehaviour
     #region References
     private PlayerManager _playerManager;
     private Transform _myTransform;
-    private InputController _myInputController;
-    private PlayerAnimationController _myPlayerAnimator;
-    private Animator _myAnimator;
+
     [SerializeField]
     private GameObject _armPrefab;
     [SerializeField]
@@ -44,19 +42,19 @@ public class ThrowComponent : MonoBehaviour
     #region Methods
     public void LanzarBrazo()
     { // SOLO PARA LANZAR EL BRAZO
-        if (PlayerManager.Instance.Brazos > 0 || _furbo)
+        if (Instance.Brazos > 0 || _furbo)
         {
-            if (PlayerManager.Instance.Brazos > 0)
+            if (Instance.Brazos > 0)
             {   // Lo he intentado optimizar un poco, no lo he querido mancillar
-                PlayerManager.Instance.Brazos--; // Cambia directamente el estado en su propio update, no worries
+                Instance.Brazos--; // Cambia directamente el estado en su propio update, no worries
                 _thrownObject = Instantiate(_armPrefab, _myTransform.position, _myTransform.rotation);
                 if (State == TimmyStates.S0 || State == TimmyStates.S3)
                 {
-                    PlayerManager.Instance._partesTimmy[0] = _thrownObject;
+                    Instance._partesTimmy[0] = _thrownObject;
                 }
                 else if (State == TimmyStates.S1 || State == TimmyStates.S4)
                 {
-                    PlayerManager.Instance._partesTimmy[1] = _thrownObject;
+                    Instance._partesTimmy[1] = _thrownObject;
                 }
                 _thrownObjectRB = _thrownObject.GetComponent<Rigidbody2D>();
             }
@@ -74,7 +72,7 @@ public class ThrowComponent : MonoBehaviour
 
     public void LanzarBola() // voy a hacer otro método porque el otro está joya y no quiero mancillarlo
     { // ESTÁ PENSADO PARA LANZAR LA BOLA *DEL RIBCAGE*
-        if (PlayerManager.Instance.Objeto == PlayerManager.Objetos.BOLA && (_playerManager.Brazos > 0 || _furbo)) // Si tiene una bola
+        if (Instance.Objeto == Objetos.BOLA && (_playerManager.Brazos > 0 || _furbo)) // Si tiene una bola
         {
             PlayerAccess.Instance.CollisionManager.ObjectStored.SetActive(true);
             PlayerAccess.Instance.CollisionManager.ObjectStored.transform.position = _myTransform.position + (_myTransform.right * _myTransform.localScale.x) / 2;
@@ -82,7 +80,7 @@ public class ThrowComponent : MonoBehaviour
             _thrownObjectRB = PlayerAccess.Instance.CollisionManager.ObjectStored.GetComponent<Rigidbody2D>(); // Pilla su RB
         }
         if (Lanzamiento(_inerciaBolas))
-            PlayerManager.Instance.EliminarObjeto(); // PUM ya no tiene bola :P
+            Instance.EliminarObjeto(); // PUM ya no tiene bola :P
 
         // sfx
         if (SFXComponent.Instance != null)
@@ -150,8 +148,5 @@ public class ThrowComponent : MonoBehaviour
     {
         _playerManager = GetComponent<PlayerManager>();
         _myTransform = GetComponent<Transform>();
-        _myInputController = GetComponent<InputController>();
-        _myPlayerAnimator = GetComponent<PlayerAnimationController>();
-        _myAnimator = GetComponent<Animator>();
     }
 }

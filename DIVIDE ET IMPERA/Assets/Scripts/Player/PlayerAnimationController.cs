@@ -6,7 +6,6 @@ public class PlayerAnimationController : MonoBehaviour
     private Animator _myAnimator;
     private GroundCheck _myGroundCheck;
     private MovementComponent _myMovementComponent;
-    private ThrowComponent _myThrowComponent;
 
     private bool _isMoving;
     public bool IsMoving { get { return _isMoving; } set { _isMoving = value; } }
@@ -16,7 +15,6 @@ public class PlayerAnimationController : MonoBehaviour
         _myAnimator = GetComponent<Animator>();
         _myGroundCheck = GetComponentInChildren<GroundCheck>();
         _myMovementComponent = GetComponent<MovementComponent>();
-        _myThrowComponent = GetComponent<ThrowComponent>();
         _myAnimator.ResetTrigger("isGrounded");
         _myAnimator.ResetTrigger("isRunning");
     }

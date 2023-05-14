@@ -9,19 +9,15 @@ public class CollisionManager : MonoBehaviour
     #endregion
 
     #region Properties
-    [SerializeField]
     private bool _validHitbox = false;
     public bool ValidHitbox { get { return _validHitbox; } }
 
-    [SerializeField]
     private Collider2D _parteColisionada;
     public Collider2D ParteColisionada { get { return _parteColisionada; } }
 
-    [SerializeField]
     private Collider2D _objetoColisionado;
     public Collider2D ObjetoColisionado { get { return _objetoColisionado; } }
 
-    [SerializeField]
     private Collider2D _hitboxColisionada;
     public Collider2D HitboxColisionada { get { return _hitboxColisionada; } }
     #endregion
@@ -155,6 +151,7 @@ public class CollisionManager : MonoBehaviour
 
     public int DesactivarObjeto() // 0 llave, 1 muelle, 2 bola
     {
+        var obj = -1;
         if (_objetoColisionado != null && !_objetoColisionado.GetComponent<ObjectComponent>().StaticObject)
         {
             _objectStored = _objetoColisionado.transform.gameObject;
@@ -162,13 +159,13 @@ public class CollisionManager : MonoBehaviour
             { // si es una llave
                 _objectStored.SetActive(false);
                 LevelManager.Instance.ObjectLevelIndex(LevelManager.Instance.CurrentLevelNum);
-                return 0;
+                obj = 0;
             }
             else if (_objetoColisionado.GetComponentInChildren<SpringComponent>() != null)
             { // si es un muelle
                 _objectStored.SetActive(false);
                 LevelManager.Instance.ObjectLevelIndex(LevelManager.Instance.CurrentLevelNum);
-                return 1;
+                obj = 1;
             }
             else if (_objetoColisionado.GetComponentInParent<BallComponent>() != null)
             { // si es una bola
@@ -176,10 +173,10 @@ public class CollisionManager : MonoBehaviour
                 //SetEnabledAndParent(false, null);
                 _objectStored.SetActive(false);
                 LevelManager.Instance.ObjectLevelIndex(LevelManager.Instance.CurrentLevelNum);
-                return 2;
+                obj = 2;
             }
         } // si ninguna de las condiciones se ha cumplido:
-        return -1;
+        return obj;
     }
     #endregion
 

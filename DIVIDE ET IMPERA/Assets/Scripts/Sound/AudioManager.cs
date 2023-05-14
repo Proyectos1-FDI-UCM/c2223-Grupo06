@@ -19,9 +19,6 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private float _beforeFadeVolume;
     private float _sliderValueBGM;
     public float SliderValueBGM { get { return _sliderValueBGM; } }
-    private float _sliderValueSFX;
-    private float _sliderValueAmbience;
-    int _whichAudioMixer;
 
     #endregion
 

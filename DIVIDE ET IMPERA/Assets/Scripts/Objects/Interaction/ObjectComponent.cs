@@ -15,12 +15,11 @@ public class ObjectComponent : MonoBehaviour
     public bool StaticObject { get { return _staticObject; } set { _staticObject = value; } }
     #endregion
 
-    private void isStaticObject()
+    private void IsStaticObject()
     {
         if (_staticObject)
         {
             _spriteRenderer.color = Color.magenta;
-
         }
         else
         {
@@ -28,19 +27,9 @@ public class ObjectComponent : MonoBehaviour
         }
     }
 
-
-
-
-
     // Start is called before the first frame update
     void Start()
     {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        isStaticObject();
+        IsStaticObject();
     }
 }

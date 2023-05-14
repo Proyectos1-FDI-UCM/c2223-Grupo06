@@ -31,47 +31,6 @@ public class WBComponent : MonoBehaviour
     public bool Priority { get { return _priority; } }
 
     #region Methods
-    /*
-    private void ActivarGeneral(bool _act)
-    {
-        _move = true;
-        Activar(_act);
-    }
-    private void Activar(bool _act)
-    {
-        if (_permanente && _move)
-        {
-            ActivarObjetosPerm();
-        }
-        else
-        {
-            ActivarObjetos(_act);
-        }
-
-    }
-
-    // interactua con el objeto de fuera (puerta, plataforma etc)
-    private void ActivarObjetosPerm()
-    {
-        if (!_movingPlatform.enabled)
-        {
-            _movingPlatform.enabled = true;
-        }
-
-    }
-
-    private void ActivarObjetos(bool _act)
-    {
-        if (!_movingPlatform.enabled && _act)
-        {
-            _movingPlatform.enabled = true;
-        }
-        else if (!_act)
-        {
-            _movingPlatform.enabled = false;
-        }
-    }*/
-
     // metodo para activar el objeto
     private void Activar()
     {
@@ -112,23 +71,6 @@ public class WBComponent : MonoBehaviour
     }
     #endregion
 
-    /*
-      private void OnTriggerStay2D(Collider2D collision)
-      {
-          if (collision.gameObject.GetComponent<WeightComponent>() != null)
-          {
-              _mySpriteRenderer.color = Color.white;
-              _puerta.SetActive(false);
-          }
-          else 
-          {
-              _mySpriteRenderer.color = Color.magenta;
-              _puerta.SetActive(true);
-          }
-      }
-      */
-
-
     // Start is called before the first frame update
     void Start()
     {
@@ -136,12 +78,9 @@ public class WBComponent : MonoBehaviour
         _movingPlatform = _objeto.GetComponent<MovingPlatformComponent>();
     }
 
-
-
     // Update is called once per frame
     void Update()
     {
-
         colliders = Physics2D.OverlapAreaAll(pointA.position, pointB.position);
 
         int i = 0;
@@ -164,7 +103,7 @@ public class WBComponent : MonoBehaviour
             {
                 _mySpriteRenderer.color = Color.white;
                 // si no hay nada activado lo activa y le da la prioridad al boton correspondiente
-                if (!_objeto.GetComponent<NewPlatformMovement>().isActive())
+                if (!_objeto.GetComponent<NewPlatformMovement>().IsActive())
                 {
                     Activar();
                     _priority = true;
@@ -176,7 +115,7 @@ public class WBComponent : MonoBehaviour
             {
                 // si no hay ningun objeto con prioridad desactiva el objeto
                 _mySpriteRenderer.color = Color.magenta;
-                if (_objeto.GetComponent<NewPlatformMovement>().isActive()
+                if (_objeto.GetComponent<NewPlatformMovement>().IsActive()
                     && !IsPriority())
                 {
                     Desactivar();
@@ -188,6 +127,5 @@ public class WBComponent : MonoBehaviour
                 }
             }
         }
-
     }
 }

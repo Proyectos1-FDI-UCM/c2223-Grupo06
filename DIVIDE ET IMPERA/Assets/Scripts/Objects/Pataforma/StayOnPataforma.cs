@@ -10,9 +10,6 @@ public class StayOnPataforma : MonoBehaviour
     #region parameters
     // informa si puede ponerse en la plaraforma
     private bool _stayOn;
-    // informa si funciona como puerta
-    private bool _puerta;
-
     #endregion
 
     #region Metodos basicos
@@ -95,7 +92,6 @@ public class StayOnPataforma : MonoBehaviour
     private void Start()
     {
         _inputController = GetComponent<InputController>();
-        _puerta = false;
         _originalParent = transform.parent;
     }
 }

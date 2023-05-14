@@ -58,7 +58,7 @@ public class SceneChanger : MonoBehaviour
                     WaitOnAudioFade(1, 8);
                     break;
                 case 8:
-                    WaitOnAudioFade(1, 9); // 9 es puntos creo
+                    WaitOnAudioFade(1, 9); // 9 es puntos
                     break;
 
                 // TESTING
@@ -83,7 +83,8 @@ public class SceneChanger : MonoBehaviour
                                                                                // pero la gracia es ejecutar esto al hacer clic en el botón salir del menú de pausa)
         _sceneToLoad = _sceneBuildIndex;           // guarda el index en scene to load
         SceneManager.LoadScene(_sceneToLoad);
-        if (_animator != null) _animator.SetTrigger("FadeOut");           // animacion de fade out
+        if (_animator != null)
+            _animator.SetTrigger("FadeOut");           // animacion de fade out
         SwitchState(_sceneToLoad);
     }
 
@@ -99,7 +100,8 @@ public class SceneChanger : MonoBehaviour
             && GameManager.Instance.PreviousScene != -1)
         {
             SceneManager.LoadScene(GameManager.Instance.PreviousScene);
-            if (TryGetComponent(out _animator)) _animator.SetTrigger("FadeOut"); // probando cosas
+            if (TryGetComponent(out _animator))
+                _animator.SetTrigger("FadeOut"); // probando cosas
             SwitchState(GameManager.Instance.PreviousScene);
         }
     }
@@ -166,13 +168,13 @@ public class SceneChanger : MonoBehaviour
                     estado = GameManager.GameStates.GAME;
                     break;
                 case 4: // 4 ALUBIA
-                    estado = GameManager.GameStates.GAMEOVER;      // pasa a intro
+                    estado = GameManager.GameStates.GAMEOVER;
                     break;
                 case 5: // 5.1 BOB BUENO
-                    estado = GameManager.GameStates.GAMEOVER;      // pasa a intro
+                    estado = GameManager.GameStates.GAMEOVER;
                     break;
                 case 6: // 5.2 BOB MALO
-                    estado = GameManager.GameStates.GAMEOVER;      // pasa a intro
+                    estado = GameManager.GameStates.GAMEOVER;
                     break;
                 case 7: // 6 PUZLE
                     estado = GameManager.GameStates.GAME;
@@ -195,7 +197,7 @@ public class SceneChanger : MonoBehaviour
                     estado = GameManager.GameStates.GAME;
                     break;
                 case 13: // 3T PUTNOS
-                    estado = GameManager.GameStates.SCORE; // ???????????
+                    estado = GameManager.GameStates.SCORE;
                     break;
             }
             GameManager.Instance.RequestStateChange(estado);

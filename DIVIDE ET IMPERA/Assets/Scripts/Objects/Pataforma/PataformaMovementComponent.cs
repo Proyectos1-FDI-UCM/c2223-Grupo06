@@ -43,7 +43,6 @@ public class PataformaMovementComponent : MonoBehaviour
                 SFXComponent.Instance.SFXPlayerStop(2);
             }
         }
-
     }
 
     private void Move2()
@@ -53,7 +52,6 @@ public class PataformaMovementComponent : MonoBehaviour
             transform.Translate(Vector3.right * Time.deltaTime * _speed);
 
             _patasRender.flipX = false;
-
         }
         else if (_pataformaComponent.PataformaDireccion == -1)
         {
@@ -66,8 +64,6 @@ public class PataformaMovementComponent : MonoBehaviour
             SFXMove();
         }
     }
-
-
 
     // Start is called before the first frame update
     void Start()

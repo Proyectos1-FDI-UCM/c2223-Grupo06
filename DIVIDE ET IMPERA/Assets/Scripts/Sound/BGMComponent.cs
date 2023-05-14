@@ -157,8 +157,5 @@ public class BGMComponent : MonoBehaviour
                 _ambience.Stop();
             }
         }
-
     }
-
-
 }

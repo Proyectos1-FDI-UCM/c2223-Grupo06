@@ -41,15 +41,6 @@ public class SFXComponent : MonoBehaviour
     /// </summary>
     /// 
 
-
-    /// <summary>
-    /// ---- TUTO DE ARRAY DE SFX DE DIALOGOS--- 
-    /// 0 --> el que hay xd
-    /// 
-    /// </summary>
-
-
-
     void Awake()
     {
         _instance = this;

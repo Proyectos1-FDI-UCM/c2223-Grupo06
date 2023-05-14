@@ -2,9 +2,6 @@ using UnityEngine;
 
 public class BoxComponent : MonoBehaviour
 {
-    #region References
-    private GameObject _player;
-    #endregion
     #region Parameters
 
     #endregion
@@ -15,25 +12,6 @@ public class BoxComponent : MonoBehaviour
     private bool _canInteract;
     #endregion
     #region Methods
-    /*
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject == _player)
-        {
-            _canInteract = true;
-            //PlayerAccess.Instance.InputController.NearBoxSeter(_canInteract, gameObject);
-        }
-    }
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.gameObject == _player)
-        {
-            _canInteract = false;
-            //PlayerAccess.Instance.InputController.NearBoxSeter(_canInteract, null);
-        }
-    }
-    */
-
     public void ConnectOrDisconnectLegs(int legs)
     {
         if (_canInteract)
@@ -61,13 +39,6 @@ public class BoxComponent : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _player = PlayerAccess.Instance.gameObject;
         _legsConected = -1;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 }

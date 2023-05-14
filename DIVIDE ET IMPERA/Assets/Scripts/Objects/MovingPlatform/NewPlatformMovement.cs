@@ -23,18 +23,10 @@ public class NewPlatformMovement : MonoBehaviour
 
     #region Methods
 
-    /*
-    public void OnOff(bool onoff)
-    {
-        _active = onoff;
-    }
-    */
-
     public bool OnOff()
     {
-        bool _act = !_active;
         _active = !_active;
-        return _act;
+        return _active;
     }
 
     public bool OnOff(bool aux)
@@ -43,7 +35,7 @@ public class NewPlatformMovement : MonoBehaviour
         return aux;
     }
 
-    public bool isActive()
+    public bool IsActive()
     {
         return _active;
     }
@@ -61,22 +53,16 @@ public class NewPlatformMovement : MonoBehaviour
             if (transform.position == _waypoints[_currentWaypoint].position) //has llegado al waypoint actual
             {
                 if (_currentWaypoint == _waypoints.Length - 1) //es el ultimo asi que reinicias
-                {
                     _currentWaypoint = 0;
-                }
                 else
-                {
                     _currentWaypoint++; //no es el ultimo asi que vas al siguiente
-                }
             }
         }
         else
         {
             Move();
             if (transform.position == _waypoints[_currentWaypoint].position && _currentWaypoint != 0) //si no esta activada se mueve hacia atras hasta el principio
-            {
                 _currentWaypoint--;
-            }
         }
     }
 
@@ -86,17 +72,13 @@ public class NewPlatformMovement : MonoBehaviour
         {
             Move();
             if (transform.position == _waypoints[_currentWaypoint].position && _currentWaypoint != _waypoints.Length - 1) //si llegas al waypoint actual y no es el ultimo incrementa
-            {
                 _currentWaypoint++;
-            }
         }
         else //si no esta activada
         {
             Move();
             if (transform.position == _waypoints[_currentWaypoint].position && _currentWaypoint != 0) //llegas al waypoint  y no has vuelto al principio aun decrementa
-            {
                 _currentWaypoint--;
-            }
         }
     }
 
@@ -114,12 +96,8 @@ public class NewPlatformMovement : MonoBehaviour
     void Update()
     {
         if (_isCiclic)
-        {
             CiclicMovement();
-        }
         else
-        {
             NotCiclicMovement();
-        }
     }
 }
