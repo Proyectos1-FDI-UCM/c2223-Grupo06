@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CameraOffsetter : MonoBehaviour
@@ -28,7 +26,6 @@ public class CameraOffsetter : MonoBehaviour
             {
                 var _cameraComponent = Camera.main.GetComponent<CameraMovement>();
                 _cameraComponent.HorizontalOffset = _previous;
-                Debug.Log(_previous);
             }
         }
     }

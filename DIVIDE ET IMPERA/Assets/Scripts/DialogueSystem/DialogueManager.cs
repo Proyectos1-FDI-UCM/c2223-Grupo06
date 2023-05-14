@@ -159,7 +159,6 @@ public class DialogueManager : MonoBehaviour
         }
         else
         {
-            //Debug.Log("desactivate buen hombre");
             _dialogueText.text = string.Empty;
             enabled = false; // desactivar el objeto -> FIN DIALOGO
         }
@@ -191,7 +190,6 @@ public class DialogueManager : MonoBehaviour
             _inputControllerDialogue.enabled = false;
             _dialogueText.text = "";
             _inputControllerDialogue._enConversacion = false;
-            Debug.Log("acabose");
         }
     }
     #endregion

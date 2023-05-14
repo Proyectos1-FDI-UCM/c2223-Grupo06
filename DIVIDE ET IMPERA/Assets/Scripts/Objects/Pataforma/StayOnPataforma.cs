@@ -18,31 +18,15 @@ public class StayOnPataforma : MonoBehaviour
     #region Metodos basicos
     // mira si tiene padre o no (este objeto)
 
-
     public bool ParentCheck()
     {
-        if (transform.parent == null)
-        {
-            return false;
-        }
-        else
-        {
-            return true;
-        }
+        return !(transform.parent == null);
     }
 
     // mira si es una puerta la plataforma 
     private bool PuertaCheck(Collision2D col)
     {
-        if (col.gameObject.GetComponentInChildren<DoorComponent>())
-        {
-            _puerta = true;
-        }
-        else
-        {
-            _puerta = false;
-        }
-        return _puerta;
+        return col.gameObject.GetComponentInChildren<DoorComponent>() != null;
     }
     // cambia el padre del objeto
     private void Adoption(Collision2D collision)
@@ -50,18 +34,13 @@ public class StayOnPataforma : MonoBehaviour
         gameObject.transform.SetParent(collision.gameObject.transform, true);
         if (collision.gameObject.GetComponentInParent<NewPlatformMovement>())
             gameObject.transform.SetParent(collision.gameObject.transform.parent, true);
-
-        /*
-    if (collision.transform.parent != null) //dentro de esto estaba lo de encima, por que? a, pero ahora funciona
-    {
-    }*/
     }
     // le quita el padre al objeto
     private void Adoptiont(Collision2D collision)
     {
         // padren't
-        if(gameObject.activeSelf)
-        gameObject.transform.parent = _originalParent;
+        if (gameObject.activeSelf)
+            gameObject.transform.parent = _originalParent;
     }
     #endregion
 
@@ -79,7 +58,6 @@ public class StayOnPataforma : MonoBehaviour
         /*&& !collision.gameObject.GetComponent<Tilemap>()
         && !collision.gameObject.GetComponentInChildren<StayOnPataforma>())*/
         {
-            //Debug.Log(PuertaCheck(collision));
             // si tiene peso el objeto
             if (gameObject.GetComponent<WeightComponent>()) //&& _inputController.enabled)
             {
@@ -109,7 +87,6 @@ public class StayOnPataforma : MonoBehaviour
     {
         if (CheckStayOn(collision))
         {
-            Debug.Log("stayon");
             Adoptiont(collision);
         }
     }

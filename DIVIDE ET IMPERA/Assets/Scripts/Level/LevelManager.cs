@@ -51,7 +51,7 @@ public class LevelManager : MonoBehaviour
         if (GameManager.Instance != null)
         {
             GameManager.Instance.ResetCounter++;
-            Debug.Log("reset history: " + GameManager.Instance.ResetCounter);
+            Debug.Log("RESET HISTORY: " + GameManager.Instance.ResetCounter);
         }
     }
 
@@ -88,7 +88,7 @@ public class LevelManager : MonoBehaviour
     public void ResetParts() //Destruir partes soltadas/lanzadas
     {
         foreach (GameObject parts in PlayerManager.Instance._partesTimmy)
-            if(parts != null) Destroy(parts);
+            if (parts != null) Destroy(parts);
 
         if (_alubia)
         {

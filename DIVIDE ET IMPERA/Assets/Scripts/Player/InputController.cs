@@ -52,28 +52,23 @@ public class InputController : MonoBehaviour
 
     //-------------INTERACTUAR----------------------------
     // Indica si el jugador quiere interactuar con una palanca
-    [SerializeField]
     private bool _interactuar = false;
     public bool Interactuar { get { return _interactuar; } }
 
-    [SerializeField]
     private int _whichArm;
     public int WhichArm { get { return _whichArm; } }
 
     //-------------SOLTAR PARTES----------------------------
     // Indica si el jugador ha dejado una parte en un objeto
     // brazos
-    [SerializeField]
     private bool _conectarBrazo = false;
     public bool ConectarBrazo { get { return _conectarBrazo; } }
 
     // piernas
-    [SerializeField]
     private bool _conectarPiernas = false;
     public bool ConectarPiernas { get { return _conectarPiernas; } }
 
     // alubiat
-    [SerializeField]
     private bool _conectarAlubiat = false;
     public bool ConectarAlubiat { get { return _conectarAlubiat; } }
 
@@ -81,27 +76,22 @@ public class InputController : MonoBehaviour
     //-------------RECUPERAR PARTES----------------------------
     // Indica si el jugador ha dejado una parte en un objeto
     // brazos
-    [SerializeField]
     private bool _recuperarBrazo = false;
     public bool RecuperarBrazo { get { return _recuperarBrazo; } }
 
     // piernas
-    [SerializeField]
     private bool _recuperarPiernas = false;
     public bool RecuperarPiernas { get { return _recuperarPiernas; } }
 
     // alubiat
-    [SerializeField]
     private bool _recuperarAlubiat = false;
     public bool RecuperarAlubiat { get { return _recuperarAlubiat; } }
 
     //------------CAMBIAR INPUT----------------------------
     // indica si el jugador quiere cambiar el input a la Pataforma
     // booleano para saber si se ha cambiado el input a la pataforma
-    [SerializeField]
     public bool _changeToPiernas;
     public bool ChangeToPiernas { get { return _changeToPiernas; } }
-    [SerializeField]
     public bool _changeToAlubiat;
     public bool ChangeToAlubiat { get { return _changeToAlubiat; } }
     #endregion
@@ -109,9 +99,6 @@ public class InputController : MonoBehaviour
     #region Parameters
     //private bool _canLetGoArm = true; comentado para que unity deje de decirme que hay un parámetro que no se usa
 
-    // max cooldown time
-    [SerializeField]
-    private float _cooldown = 1;
     private float _elapsedTime;
     private int _movement;
     public int Movement { get { return _movement; } }
@@ -139,17 +126,6 @@ public class InputController : MonoBehaviour
     }
 
     // INPUT: INTERACCIONES DE LAS PARTES
-    private void CoolDown() // cooldown para que no pueda soltar los brazos como un loco
-    {
-        _elapsedTime += Time.deltaTime;
-
-        if (_elapsedTime >= _cooldown)
-        {
-            //_canLetGoArm = true; comentado para que unity deje de decirme que hay un parámetro que no se usa
-            _elapsedTime = 0;
-        }
-    }
-
     private void InteractInput()
     {
         // INTERACTUAR
@@ -198,29 +174,24 @@ public class InputController : MonoBehaviour
         { // D para recoger y soltar piernas
             if (!_collisionManager.DestruirPierna())
             { // si no recoge una pierna del suelo
-                //Debug.Log("y aqui?");
                 if (transform.parent != null)
                 {
-                    //Debug.Log("matadme");
                     if (transform.parent.GetComponentInChildren<PataformaComponent>() != null && !_conectarPiernas
                         && !transform.parent.GetComponentInChildren<PataformaComponent>().PiernasConectadas
                         && !transform.parent.GetComponentInChildren<PataformaComponent>().AlubiatConectadas)
                     { // si está en una pataforma sin piernas, se las pone
                         _conectarPiernas = true;
                         _recuperarPiernas = false;
-                        //Debug.Log("por favor");
                     }
                     else if (transform.parent.GetComponentInChildren<PataformaComponent>() != null && !_recuperarPiernas && transform.parent.GetComponentInChildren<PataformaComponent>().PiernasConectadas)
                     { // si está en una pataforma con piernas, las recoge
                         _recuperarPiernas = true;
                         _conectarPiernas = false;
-                        // Debug.Log("as");
                     }
                 }
                 else
                 {
                     PlayerManager.Instance.SoltarPiernas();
-                    //Debug.Log("que");
                 }
             } // si sí
             else
@@ -248,14 +219,12 @@ public class InputController : MonoBehaviour
                         && !transform.parent.GetComponentInChildren<PataformaComponent>().PiernasConectadas)
                     { // si está en una pataforma sin alubiat, se las pone
                         _conectarAlubiat = true;
-                        Debug.Log("slay");
                         _recuperarAlubiat = false;
                     }
                     else if (transform.parent.GetComponentInChildren<PataformaComponent>() != null && !_recuperarAlubiat
                         && transform.parent.GetComponentInChildren<PataformaComponent>().AlubiatConectadas)
                     { // si está en una pataforma con alubiat, las recoge
                         _recuperarAlubiat = true;
-                        Debug.Log("baby baba ¡ baby babyvyrfbueidjwo");
                         _conectarAlubiat = false;
                     }
                 }
@@ -314,7 +283,7 @@ public class InputController : MonoBehaviour
     {
         #region DEBUG
         // para ver si cambia de control bien
-        
+
         if (Input.GetKeyDown(KeyCode.Keypad1))
             PlayerManager.Instance.SwitchPartControl(PlayerManager.Partes.CABEZA);
         else if (Input.GetKeyDown(KeyCode.Keypad2))
@@ -329,7 +298,7 @@ public class InputController : MonoBehaviour
             PlayerManager.Instance.AddObject(); // SUBIR ESTADO
         else if (Input.GetKeyDown(KeyCode.Keypad9))
             PlayerManager.Instance.SubObject(); // BAJAR ESTADO
-        
+
 
         // para ver si recoge a alubia bien
         if (Input.GetKey(KeyCode.LeftControl) && Input.GetKeyDown(KeyCode.Alpha0))
@@ -337,11 +306,6 @@ public class InputController : MonoBehaviour
             if (PlayerManager.Instance.Alubiat)
                 PlayerManager.Instance.SoltarAlubiat();
             else PlayerManager.Instance.RecogerAlubiat();
-        }
-
-        if (Input.GetKeyDown(KeyCode.Y))
-        {
-            //SFXComponent.Instance.PlayYippie(); 
         }
         #endregion
     }
@@ -371,7 +335,7 @@ public class InputController : MonoBehaviour
             && UIManager.Instance.FirstButtons[(int)GameManager.Instance.CurrentState] != null
             && EventSystem.current.currentSelectedGameObject != UIManager.Instance.FirstButtons[(int)GameManager.Instance.CurrentState])
         {
-            if ((Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.RightArrow)) 
+            if ((Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.RightArrow))
                 && GameManager.Instance.CurrentState != GameManager.GameStates.OPCIONES)
             { // para volver a la selección por teclado
                 UIManager.Instance.SetFirstButton(GameManager.Instance.FbIndex);
@@ -403,7 +367,7 @@ public class InputController : MonoBehaviour
         if (GameManager.Instance != null && GameManager.Instance.CurrentState == GameManager.GameStates.GAME) MechanicInput();
 
         //------DEBUG-----------------
-        DebugInput();
+        //DebugInput();
 
         //------OPCIÓN DE PAUSA-------
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -422,7 +386,6 @@ public class InputController : MonoBehaviour
             SFXMove();
 
         MenuInput();
-        //CoolDown(); // no se usa??
     }
 }
 

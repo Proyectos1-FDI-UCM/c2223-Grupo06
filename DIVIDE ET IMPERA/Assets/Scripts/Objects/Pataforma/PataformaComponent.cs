@@ -164,7 +164,6 @@ public class PataformaComponent : MonoBehaviour
         // se pulsa C y se esta cerca de la pataforma
         if (ConectarAlubiat())
         {
-            Debug.Log("alubiat trolleando ");
             // conecta las piernas en la pataforma
             _alubiatConectadas = true;
 
@@ -288,7 +287,6 @@ public class PataformaComponent : MonoBehaviour
 
         // cambio de control de parte (es para el HUD)
         PlayerManager.Instance.SwitchPartControl(PlayerManager.Partes.PIERNAS);
-        Debug.Log("Piernas controlan");
 
         //Cambia el movimiento de la camara para que siga a las piernas
         CameraMovement.Instance.ChangeWhoToFollow(gameObject);

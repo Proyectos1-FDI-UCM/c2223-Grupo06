@@ -77,7 +77,6 @@ public class PlayerManager : MonoBehaviour
 
     #region Parameters
     private int _brazos;     // cuantos brazos tiene (NUNCA menor que 0 o mayor que 2)
-    [SerializeField]
     private bool _piernas;   // si las tiene o si no
     private bool _alubiat;   // si tiene sus piernas o no
     public int Brazos
@@ -113,19 +112,16 @@ public class PlayerManager : MonoBehaviour
         _nextState = state + 1;
 
         if (_nextState >= (TimmyStates)(length)) // si se sale
-        {
-            _nextState = 0; // da la vuelta
-        }
+            _nextState = 0;
     }
 
     public void SubTimmyState(TimmyStates state) // Cicla los estados en sentido decremental / para debug m�s que otra cosa
     {
         var length = System.Enum.GetValues(typeof(TimmyStates)).Length;
         _nextState = state - 1;
+
         if (((int)_nextState) < 0) // si se sale
-        {
             _nextState = (TimmyStates)(length - 1); // da la vuelta
-        }
     }
 
     private void EnterState(TimmyStates _nextState)
@@ -169,13 +165,11 @@ public class PlayerManager : MonoBehaviour
         { // si tiene alg�n objeto y el control de animaciones no es de *ese* objeto, se lo pone
             RequestControllerChange(_colorControllers, (int)_state * 3 + ((int)_objeto)); // cambio de animaciones de timmy
             if (_UIManager != null) _UIManager.SetObject(_objeto);                                             // cambio de imagen en el ui
-            //Debug.Log("COLOR: " + _objeto + ", " + (int)_objeto);
         }
         else if (_objeto == Objetos.NADA && _myAnimator.runtimeAnimatorController != _defaultControllers[(int)_state])
         { // si no tiene objeto y el control de animaciones no es el normal, se lo pone
             RequestControllerChange(_defaultControllers, (int)_state); // cambio de animaciones de timmy
             if (_UIManager != null) _UIManager.SetObject(_objeto);                          // cambio de imagen en el ui
-            //Debug.Log("�NADA!");
         }
 
         // L�GICA DE CAMBIO DE ESTADOS 
@@ -261,13 +255,9 @@ public class PlayerManager : MonoBehaviour
         {
             // ALUBIAT
             if (_alubiat && !_UIManager.TieneAlubiat()) // si tiene alubiat pero no est� actualizado el hud
-            {
                 _UIManager.SetAlubiat(false); // actualiza el hud (de momento false porque est� inactivo, placeholder)
-            }
             else if (!_alubiat && _UIManager.TieneAlubiat()) // si no tiene alubiat y no est� actualizado el hud
-            {
                 _UIManager.ResetAlubiat(); // resetea a vacio el hueco
-            }
         }
     }
 
@@ -282,16 +272,12 @@ public class PlayerManager : MonoBehaviour
     public void AddBrazo() // para interactuables
     {
         if (Brazos < 2)
-        {
             _brazos++;
-        }
     }
     public void SubBrazo() // para interactuables
     {
         if (_brazos > 0)
-        {
             _brazos--;
-        }
     }
     public void RecogerBrazo() // para recoger brazos sueltos
     {
@@ -301,9 +287,7 @@ public class PlayerManager : MonoBehaviour
 
             //sfx
             if (SFXComponent.Instance != null)
-            {
                 SFXComponent.Instance.SFXPlayer(1);
-            }
         }
     }
     public void SoltarBrazo() // para instanciarlo
@@ -313,13 +297,9 @@ public class PlayerManager : MonoBehaviour
             if (LevelManager.Instance != null)
             {
                 if (State == TimmyStates.S0 || State == TimmyStates.S3)
-                {
-                    _partesTimmy[0] = Instantiate(_brazoPrefab, _myTransform.position, _myTransform.rotation); // instanciaci�n
-                }
+                    _partesTimmy[0] = Instantiate(_brazoPrefab, _myTransform.position, _myTransform.rotation);
                 else if (State == TimmyStates.S1 || State == TimmyStates.S4)
-                {
-                    _partesTimmy[1] = Instantiate(_brazoPrefab, _myTransform.position, _myTransform.rotation); // instanciaci�n
-                }
+                    _partesTimmy[1] = Instantiate(_brazoPrefab, _myTransform.position, _myTransform.rotation);
             }
             _brazos--; // un brazo menos
 
@@ -366,7 +346,8 @@ public class PlayerManager : MonoBehaviour
     {
         if (_piernas) // si tiene piernas 
         {
-            if (LevelManager.Instance != null) _partesTimmy[2] = Instantiate(_piernaPrefab, _myTransform.position, _myTransform.rotation); // instanciaci�n
+            if (LevelManager.Instance != null)
+                _partesTimmy[2] = Instantiate(_piernaPrefab, _myTransform.position, _myTransform.rotation); // instanciaci�n
             _piernas = false; // sin piernas
 
             //sfx
@@ -420,7 +401,8 @@ public class PlayerManager : MonoBehaviour
             if (GameManager.Instance != null)
                 GameManager.Instance.Alubiat = false;
 
-            if (LevelManager.Instance != null) _alubiaLegs = Instantiate(_alubiatPrefab, _myTransform.position, _myTransform.rotation); // instanciaci�n
+            if (LevelManager.Instance != null)
+                _alubiaLegs = Instantiate(_alubiatPrefab, _myTransform.position, _myTransform.rotation); // instanciaci�n
 
             //sfx
             if (SFXComponent.Instance != null)
@@ -431,15 +413,13 @@ public class PlayerManager : MonoBehaviour
     }
 
     // BLOQUE DE OBJETOS
-    public void AddObject() // Cicla los estados en sentido incremental / para debug m�s que otra cosa
+    public void AddObject() // Cicla los estados en sentido incremental / para debug mas que otra cosa
     {
         var length = System.Enum.GetValues(typeof(Objetos)).Length; // cantidad de estados
         _objeto += 1;
 
         if (_objeto >= (Objetos)length) // si se sale
-        {
             _objeto = 0; // da la vuelta
-        }
     }
 
     public void SubObject() // Cicla los estados en sentido decremental / para debug m�s que otra cosa
@@ -447,9 +427,7 @@ public class PlayerManager : MonoBehaviour
         var length = System.Enum.GetValues(typeof(Objetos)).Length;
         _objeto -= 1;
         if (((int)_objeto) < 0) // si se sale
-        {
-            _objeto = (Objetos)(length - 1); // da la vuelta
-        }
+            _objeto = (Objetos)(length - 1);
     }
 
     public void CambiarObjeto(Objetos nuevoObjeto) // cambia el objeto de la ribcage
@@ -459,21 +437,13 @@ public class PlayerManager : MonoBehaviour
 
     public bool EliminarObjeto() // elimina el objeto de la ribcage
     {
-        if (_objeto != Objetos.NADA)
-        {
-            _objeto = Objetos.NADA;
-            return true;
-        }
-        else return false;
+        _objeto = Objetos.NADA;
+        return _objeto != Objetos.NADA;
     }
 
     public bool TieneObjeto() // un poco por poner si se necestia en algun momento, devuelve true si la ribcage NO est� vac�a
     {
-        if (_objeto != Objetos.NADA)
-        {
-            return true;
-        }
-        else return false;
+        return _objeto != Objetos.NADA;
     }
 
     public void RecogerObjeto() // para recoger piernas sueltas
@@ -518,9 +488,7 @@ public class PlayerManager : MonoBehaviour
     }
     public void ChangePartInControl(GameObject thing) // lo he refactorizado a "ChangePartInControl" en vez de Object porque he seguido una nomenclatura en la que objeto son los items posibles de la ribcage y parte Timmy y su cuerpo
     {
-        //Debug.Log("thing: " + thing);
         _partInControl = thing;
-        //Debug.Log("paasas: " + _partInControl);
         CameraMovement.Instance.ChangeWhoToFollow(_partInControl);
     }
 
@@ -542,8 +510,9 @@ public class PlayerManager : MonoBehaviour
 
     void Start()
     {
-        // ._. ^.^ :P o....o �_� [-:<
+        // ._. ^.^ :P o....o [-:<
         _partesTimmy = new GameObject[3];
+
         // Inicializaci�n de referencias por componentes
         _mySpriteRenderer = GetComponent<SpriteRenderer>();
         _myCollisionManager = GetComponent<CollisionManager>();
@@ -553,7 +522,7 @@ public class PlayerManager : MonoBehaviour
         // Ejecuci�n de la entrada a estado inicial
         _currentState = TimmyStates.S1;           // Valor dummy para inicializar un cambio en cuanto empiece y se ejecute el EnterState
         _nextState = TimmyStates.S0;         // Inicializa el estado de timmy
-        _objeto = Objetos.NADA;          // Ning�n objeto al iniciar
+        _objeto = Objetos.NADA;          // Ningun objeto al iniciar
         if (GameManager.Instance != null)
             _alubiat = GameManager.Instance.Alubiat;
         else

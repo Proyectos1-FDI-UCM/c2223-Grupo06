@@ -51,8 +51,6 @@ public class AudioManager : MonoBehaviour
 
         // empieza la corrutina para el fade
         StartCoroutine(FadeTrackCoroutine(timeToFade));
-
-
     }
 
     private IEnumerator FadeTrackCoroutine(float timeToFade)

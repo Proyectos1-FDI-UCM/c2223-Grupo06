@@ -14,22 +14,15 @@ public class RoomTransition : MonoBehaviour
     private Transform _leftRoomCameraPosition; //Posicion a la que queremos que la camara se mueva durante la transicion hacia la izquierda
     [SerializeField]
     private Transform _rightRoomCameraPosition; //Posicion a la que queremos que la camara se mueva durante la transicion hacia la derecha
-    /*
-    [SerializeField]
-    private Transform _leftRoomSpawn; //Lugar al que el jugador se movera tras la transicion hacia la izquierda (ademas servira para spawnearle ahi si quiere resetear la sala)
-                                      //IMPORTANTE: ponerlo cerquita de la caja de transicion para que la transicion no sea horrible pero
-                                      //tampoco mucho para que no entre instantaneamente en la transicion de vuelta
-    [SerializeField]
-    private Transform _rightRoomSpawn; //Lugar al que el jugador se movera tras la transicion hacia la derecha (ademas servira para spawnearle ahi si quiere resetear la sala)
-                                       //IMPORTANTE: ponerlo cerquita de la caja de transicion para que la transicion no sea horrible pero
-                                       //tampoco mucho para que no entre instantaneamente en la transicion de vuelta*/
     #endregion
+
     #region Parameters
     [SerializeField]
     private float _transitionDistance;
     [SerializeField]
     private float _transitionSpeed; //Velocidad de transicion de la camara, valor alto para que no se note lo que ocurre durante la transicion
     #endregion
+
     #region Properties
     private Vector3 _roomSpawn;
     private Transform _roomCameraPosition;
@@ -38,6 +31,7 @@ public class RoomTransition : MonoBehaviour
     GameObject[] _transitions; //Array de todas las transiciones del juego (durante el transcurso de una transicion se desactivan para evitar bugs, antes se rompia todo si entrabas en una transicion estando ya en una)
     private bool _canGivePoints;
     #endregion
+
     #region Methods
     private void OnTriggerEnter2D(Collider2D collision) //Cuando entras en la transicion
     {
@@ -82,9 +76,8 @@ public class RoomTransition : MonoBehaviour
         else //Cuando la camara ha llegado ha terminado la transicion, ahora proceso inverso de todo lo anterior
         {
             for (int i = 0; i < _transitions.Length; i++)
-            {
                 _transitions[i].GetComponent<BoxCollider2D>().enabled = true; //Activar otra vez todas las transiciones
-            }
+
             PlayerAccess.Instance.MovementComponent.enabled = true; //Devolver al jugador movimiento y animaciones
             PlayerAccess.Instance.Animator.enabled = true;
 
@@ -94,23 +87,12 @@ public class RoomTransition : MonoBehaviour
             {
                 _canGivePoints = false;
                 // Suma la cantidad de puntos debida dependiendo de las partes que lleve
-                if (PlayerManager.State == PlayerManager.TimmyStates.S0)
-                {
-                    Debug.Log("croqueta amarilla");
-                    if (GameManager.Instance != null) GameManager.Instance.AddScore(50);
-                }
-                else if (PlayerManager.State == PlayerManager.TimmyStates.S1)
-                {
-                    if (GameManager.Instance != null) GameManager.Instance.AddScore(40);
-                }
-                else if (PlayerManager.State == PlayerManager.TimmyStates.S2 || PlayerManager.State == PlayerManager.TimmyStates.S3)
-                {
-                    if (GameManager.Instance != null) GameManager.Instance.AddScore(30);
-                }
-                else if (PlayerManager.State == PlayerManager.TimmyStates.S4)
-                {
-                    if (GameManager.Instance != null) GameManager.Instance.AddScore(10);
-                }
+                var score = 0;
+
+                if (PlayerManager.Instance != null)
+                    score += PlayerManager.Instance.Brazos * 15 + (PlayerManager.Instance.Piernas ? 25 : 0);
+
+                if (GameManager.Instance != null) GameManager.Instance.AddScore(score);
             }
 
             _onTransition = false; //Se termina la transicion
@@ -138,7 +120,7 @@ public class RoomTransition : MonoBehaviour
         _transitionTransform = GetComponent<Transform>();
         _transitions = GameObject.FindGameObjectsWithTag("Transition"); //Ducktyping lo se pero ahorra mucho no me mateis
         _canGivePoints = true;
-        
+
     }
 
     // Update is called once per frame

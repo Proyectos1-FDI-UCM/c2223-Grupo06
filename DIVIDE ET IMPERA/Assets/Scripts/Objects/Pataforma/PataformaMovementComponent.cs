@@ -61,8 +61,6 @@ public class PataformaMovementComponent : MonoBehaviour
             _patasRender.flipX = true;
         }
 
-        //Debug.Log(_pataformaComponent._activarPataforma);
-
         if (_pataformaComponent._activarPataforma)
         {
             SFXMove();

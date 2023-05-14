@@ -32,7 +32,6 @@ public class NewPlatformMovement : MonoBehaviour
 
     public bool OnOff()
     {
-        //Debug.Log(_active);
         bool _act = !_active;
         _active = !_active;
         return _act;

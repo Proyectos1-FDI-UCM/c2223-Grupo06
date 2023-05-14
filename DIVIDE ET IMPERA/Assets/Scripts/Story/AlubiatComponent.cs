@@ -2,15 +2,5 @@ using UnityEngine;
 
 public class AlubiatComponent : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
+    // Dummy Component para ser usado en ducktyping
 }
