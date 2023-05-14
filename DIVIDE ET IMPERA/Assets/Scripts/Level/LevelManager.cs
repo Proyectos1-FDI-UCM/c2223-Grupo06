@@ -88,10 +88,8 @@ public class LevelManager : MonoBehaviour
     public void ResetParts() //Destruir partes soltadas/lanzadas
     {
         foreach (GameObject parts in PlayerManager.Instance._partesTimmy)
-        {
-            if(parts != null)
-                Destroy(parts);
-        }
+            if(parts != null) Destroy(parts);
+
         if (_alubia)
         {
             PlayerManager.Instance.HolaAlubiat();
@@ -108,9 +106,7 @@ public class LevelManager : MonoBehaviour
         }
 
         if (PlayerManager.Instance.Pataforma != null) //si estas conectado a pataforma desconectar piernas
-        {
             PlayerManager.Instance.Pataforma.GetComponent<PataformaComponent>().SetLegs(false);
-        }
     }
 
     private void UpdateCurrentLevel() //actualiza spawn y nivel al del indice
@@ -123,9 +119,8 @@ public class LevelManager : MonoBehaviour
     public void GlobalReset()
     {
         for (int i = 0; i < _levels.Length; i++) //Reset de todas las salas
-        {
             ResetRoom(i);
-        }
+
         //reset del player devolviendole a condiciones originales
         _roomSpawn = _originalSpawn;
         _currentHealth = PlayerAccess.Instance.BoneBar.MaxBoneState;

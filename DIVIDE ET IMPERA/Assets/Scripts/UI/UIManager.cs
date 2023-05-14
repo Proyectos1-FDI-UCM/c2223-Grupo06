@@ -63,20 +63,13 @@ public class UIManager : MonoBehaviour
 
     #region properties
     private GameManager.GameStates _activeMenu;          // Menú actual
-    public GameManager.GameStates ActiveMenu { get { return _activeMenu; } }   
     private GameObject[] _menus;                         // Array de menús totales
-    public GameObject[] Menus { get { return _menus; } }
-
     private int _posCabeza;
     private int _posBrazo1;
     private int _posBrazo2;
     private int _posPiernas;
     private int _posAlubiat;
     private int _posCostillas;
-
-    private float _bgmVolumeValue;
-    private float _sfxVolumeValue;
-    private float _ambienceVolumeValue;
     #endregion
 
     public void RequestStateChange(GameManager.GameStates newState)
@@ -200,7 +193,6 @@ public class UIManager : MonoBehaviour
 
     public void Quit()
     {
-        Debug.Log("shipit");
         Application.Quit();
     }
 
@@ -279,9 +271,7 @@ public class UIManager : MonoBehaviour
     public bool TieneAlubiat() // si está el sprite de alubiat (no está vacio)
     {
         if (_images[_posAlubiat].sprite == _sprites[_posAlubiat * 2] || _images[_posAlubiat].sprite == _sprites[_posAlubiat * 2 + 1])
-        {
             return true;
-        }
         else return false;
     }
 
@@ -354,34 +344,6 @@ public class UIManager : MonoBehaviour
     }
     #endregion
 
-    #region Sliders menu de opciones muy WIP
-    public void SetOptionsSliders()
-    {
-        if (AudioManager.Instance != null)
-        {
-            //Debug.Log(AudioManager.Instance.SliderValueBGM);
-            // guarda los valores
-            //_bgmVolumeValue = AudioManager.Instance.SliderValueBGM;        //SetSliderValue(0);
-            //_sfxVolumeValue = AudioManager.Instance.SetSliderValue(1);
-            //_ambienceVolumeValue = AudioManager.Instance.SetSliderValue(2);
-            /*
-            Debug.Log("bgm slider: " + _bgmVolumeValue +
-                "sfx slider: " + _sfxVolumeValue +
-                "ambience slider: " + _ambienceVolumeValue);
-            */
-            //Debug.Log("2");
-            // los resetea
-            //AudioManager.Instance.SetUpAllVolumes();
-
-            //Debug.Log("3");
-            // pone el valor correcto
-            //_sliderBGM.value = PlayerPrefs.GetFloat("BGMSliderValue", 0.5f);
-            //_sliderSFX.value = _sfxVolumeValue;
-            //_sliderAmbience.value = _ambienceVolumeValue;
-        }
-    }
-    #endregion
-
     // BUCLE
     void Awake()
     {
@@ -416,30 +378,11 @@ public class UIManager : MonoBehaviour
         _posCostillas = 5;
 
         // REGISTROS
-        if (GameManager.Instance != null) GameManager.Instance.RegisterUIManager(this);
-        if (PlayerManager.Instance != null) PlayerManager.Instance.RegisterUIManager(this);
-
-        // setea el tiempo en hud y el toggle view time a lo que sea en el gamemanager
         if (GameManager.Instance != null)
         {
-            //_timeObject.SetActive(GameManager.Instance.ViewTime);
-            //_timeToggle.isOn = GameManager.Instance.ViewTime;
-            // tú que me he tenido que descargar una puta extensiono (3 cochinos métodos también te digo) de un random en github para hacer algo tan sencillo como cambiar el estado de un toggle sin que realice la llamada al método que tenga dicho toggle que BARBARIDAD lo mal pensadas que hay algunas cosas dios joder DIOOOOOOOOOOOOOOOOOOOOOOOOOSSSSSSSSSSSSSSSSSSSS funfact sabési que instalé una extensión en la que si pulsáis f10 podeis poner pantalla completa al juego sin tener que buildear! (1. tambien hay F9, 8 etc para maximizar otras ventanas y 2. qeu esto no lo contemplara unity me parece vomitivo <3 PD: fue la noche de locura para hacer el vídeo del hito 2)
+            GameManager.Instance.RegisterUIManager(this);         // setea el tiempo en hud y el toggle view time a lo que sea en el gamemanager
             UIExtensions.SetSilently(_timeToggle, GameManager.Instance.ViewTime);
-            //Debug.Log(GameManager.Instance.PreviousScene);
-            /*
-            if (_resumeButton != null && GameManager.Instance.PreviousScene < 1) 
-            {
-                _resumeButton.interactable = false;
-                _resumeButton.enabled = false;
-                var colors = _resumeButton.colors;
-                colors.disabledColor = Color.black;
-                _resumeButton.colors = colors; // no consigo que el resume cambie de color ni para atrás
-                //Debug.Log("ESTO ESTÁ pasando");
-            }*/
         }
-
-        // setea los sliders WIP 
-        //SetOptionsSliders();
+        if (PlayerManager.Instance != null) PlayerManager.Instance.RegisterUIManager(this);
     }
 }

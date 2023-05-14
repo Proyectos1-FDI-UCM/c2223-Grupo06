@@ -32,13 +32,14 @@ public class GameManager : MonoBehaviour
     // PUNTUACIÓN
     private int _ending;
         // 0 TERRIBLISIMO, 1 MALAMENTE, 2 REGULA, 3 ASEPTABLE, 4 CRANEOPERSENT
+
     private int _score;
     public int Score { get { return _score; } set { _score = value; } }
 
     // TIEMPO
     private float _tiempo;
-    public float Tiempo { get { return _tiempo; } }
     private bool _viewTime;
+    public float Tiempo { get { return _tiempo; } }
     public bool ViewTime { get { return _viewTime; } set { _viewTime = value; } }
 
     // RESET COUNTER
@@ -167,46 +168,34 @@ public class GameManager : MonoBehaviour
     }
 
     private void UpdateState(GameStates state)
-    {
-        if (state == GameStates.PAUSE) // para volver con esc desde la pausa
-        {
-            if (Input.GetKeyDown(KeyCode.Escape))
-            {
-                if (_UIManager != null) _UIManager.PauseToGame();
-            }
-        }
-        
+    {        
         if (_UIManager != null)
         {
-            if (!_UIManager.IsMenuSet())
-            {
-                _UIManager.SetMenu(state);
-                Debug.Log("Menu Re-Set");
-            }
-        }
-        
-        if (state == GameStates.GAME)
-        {
-            if (_UIManager != null)
+            if (state == GameStates.GAME)
             {
                 _UIManager.TimeUpdate(_tiempo);
                 _UIManager.ScoreSetUp(_score);
-            }
-        }
 
-        if (_UIManager != null 
-            &&_UIManager.FirstButtons[(int)state] != null
-            && EventSystem.current != null
-            && EventSystem.current.currentSelectedGameObject == null)
-        {
-            if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.RightArrow)
-               || Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.DownArrow))
-            { // para volver a la selección por teclado
+                if (!_UIManager.IsMenuSet())
+                    _UIManager.SetMenu(state);
+            }
+            else if (state == GameStates.PAUSE) // para volver con esc desde la pausa
+                if (Input.GetKeyDown(KeyCode.Escape))
+                    _UIManager.PauseToGame();
+
+            if (_UIManager.FirstButtons[(int)state] != null
+                && EventSystem.current != null
+                && EventSystem.current.currentSelectedGameObject == null)
+            {
+                if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.RightArrow)
+                   || Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.DownArrow))
+                { // para volver a la selección por teclado
+                    _UIManager.SetFirstButton((int)state);
+                }
+
                 _UIManager.SetFirstButton((int)state);
             }
-
-            _UIManager.SetFirstButton((int)state);
-        }
+        }      
     }
     #endregion
 
@@ -216,7 +205,6 @@ public class GameManager : MonoBehaviour
         _score += value;
         if (_UIManager != null)
             _UIManager.ScoreSetUp(_score);
-        //Debug.Log("SCORE++ " + value);
     }
     private void Contador()
     {

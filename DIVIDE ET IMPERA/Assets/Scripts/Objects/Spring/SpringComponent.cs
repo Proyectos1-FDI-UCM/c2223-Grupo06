@@ -24,7 +24,6 @@ public class SpringComponent : MonoBehaviour
             collision.attachedRigidbody.velocity = new Vector2(collision.attachedRigidbody.velocity.x, _springForce); //modifica velocidad del objeto
                                                                                                                       //para que el salto sea consistente
                                                                                                                       //(con fuerzas no lo era)
-                                                                                                                      // sfx
             if (SFXComponent.Instance != null)
                 SFXComponent.Instance.SFXObjects(1);
         }
