@@ -120,7 +120,7 @@ public class BGMComponent : MonoBehaviour
                     _nextBGM = 5;
                     _playAmbience = false;
                     break;
-                }
+            }
         }
     }
 

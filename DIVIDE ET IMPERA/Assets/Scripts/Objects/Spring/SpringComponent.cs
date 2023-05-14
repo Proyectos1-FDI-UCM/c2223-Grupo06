@@ -18,7 +18,7 @@ public class SpringComponent : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         // para que no colisione con el tilemap 
-        if (!collision.GetComponent<Tilemap>() && collision.GetComponent<Rigidbody2D>() && Physics2D.Raycast(transform.position, Vector2.down, 0.75f, _level)) 
+        if (!collision.GetComponent<Tilemap>() && collision.GetComponent<Rigidbody2D>() && Physics2D.Raycast(transform.position, Vector2.down, 0.75f, _level))
         {
             _animator.Play("Boing"); //animacion
             collision.attachedRigidbody.velocity = new Vector2(collision.attachedRigidbody.velocity.x, _springForce); //modifica velocidad del objeto

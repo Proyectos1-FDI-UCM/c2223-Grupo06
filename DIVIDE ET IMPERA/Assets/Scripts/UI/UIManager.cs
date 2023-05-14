@@ -310,7 +310,7 @@ public class UIManager : MonoBehaviour
     public void TimeUpdate(float value)
     {
         _timeText.text = "Tiempo: " + (int)value; // actualiza los segundos 
-        if (_timeObject != null && _timeObject.activeSelf != GameManager.Instance.ViewTime) 
+        if (_timeObject != null && _timeObject.activeSelf != GameManager.Instance.ViewTime)
             _timeObject.SetActive(GameManager.Instance.ViewTime); // persistencia del estado del objeto entre escenas
     }
     public void ScoreSetUp(int score) // score en el HUD

@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 //using Unity.UI;
 using UnityEngine.EventSystems;
@@ -31,7 +30,7 @@ public class GameManager : MonoBehaviour
 
     // PUNTUACIÓN
     private int _ending;
-        // 0 TERRIBLISIMO, 1 MALAMENTE, 2 REGULA, 3 ASEPTABLE, 4 CRANEOPERSENT
+    // 0 TERRIBLISIMO, 1 MALAMENTE, 2 REGULA, 3 ASEPTABLE, 4 CRANEOPERSENT
 
     private int _score;
     public int Score { get { return _score; } set { _score = value; } }
@@ -168,7 +167,7 @@ public class GameManager : MonoBehaviour
     }
 
     private void UpdateState(GameStates state)
-    {        
+    {
         if (_UIManager != null)
         {
             if (state == GameStates.GAME)
@@ -195,7 +194,7 @@ public class GameManager : MonoBehaviour
 
                 _UIManager.SetFirstButton((int)state);
             }
-        }      
+        }
     }
     #endregion
 
