@@ -104,4 +104,6 @@ Si has encontrado un error, mira primero la [pestaña de issues](https://github.
 
 ## Licencia
 
-*TO-DO.*
+[**CC BY-NC-SA 4.0**](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)
+
+![Licencia](https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png)
