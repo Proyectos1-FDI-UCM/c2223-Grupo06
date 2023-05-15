@@ -62,7 +62,7 @@ public class SceneChanger : MonoBehaviour
                     break;
 
                 // TESTING
-                case 11:
+                /* case 11:
                     WaitOnAudioFade(1, 12);
                     break;
                 case 12:
@@ -70,7 +70,7 @@ public class SceneChanger : MonoBehaviour
                     break;
                 case 13:
                     WaitOnAudioFade(1, 12);
-                    break;
+                    break; */
             }
         }
     }
