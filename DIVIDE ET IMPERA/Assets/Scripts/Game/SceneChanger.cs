@@ -52,7 +52,7 @@ public class SceneChanger : MonoBehaviour
                     WaitOnAudioFade(1, 7);
                     break;
                 case 6:
-                    WaitOnAudioFade(1, 8);
+                    WaitOnAudioFade(1, 9);
                     break;
                 case 7:
                     WaitOnAudioFade(1, 8);
