@@ -4,7 +4,9 @@
 
 - [Descripción](#descripción)
 - [Historia](#Historia)
-- [Estado](#estado)
+- [Enlaces](#Enlaces)
+- [Imágenes](#Imágenes)
+- [Estado](#Estado)
 - [Jerarquía](#jerarquía)
 - [Issues](#issues)
 - [Equipo](#equipo)
@@ -20,6 +22,15 @@ Timoteo es capaz de separar las partes de su cuerpo para proporcionar funcionali
 ## Historia
 
 Timoteo II “El Grande”, antiguo monarca (1811 - 1850), descansa en su sagrada cripta familiar. Harto de esa vida relegado al olvido decide salir. No será tarea fácil para nuestro monárquico esqueleto, al fin y al cabo, nadie ha conseguido escapar de allí nunca, ni siquiera el tío Bob (que en paz descanse).
+
+## Enlaces
+- [Itch.io](https://nievalon.itch.io/divide-et-impera)
+- [Página web](https://proyectos1-fdi-ucm.github.io/c2223-Grupo06/)
+
+## Imágenes
+![Diálogo con Alubia](https://github.com/Proyectos1-FDI-UCM/c2223-Grupo06/blob/main/docs/img/captura01.png)
+![Mecánica piernas](https://github.com/Proyectos1-FDI-UCM/c2223-Grupo06/blob/main/docs/img/13.png?raw=true)
+![Pantalla de puntuación](https://github.com/Proyectos1-FDI-UCM/c2223-Grupo06/blob/main/docs/img/21.png?raw=true)
 
 ## Estado
 
